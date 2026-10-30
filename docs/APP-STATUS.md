@@ -19,3 +19,8 @@ La totalité du catalogue de 141 fonctionnalités n’est pas livrée. Restent n
 La cible iOS n’est pas compilée sur Linux ; la distribution native nécessite Xcode et une signature Apple. Un APK de test n’est pas une publication Google Play.
 
 Une police de secours pour les symboles est également embarquée, et la roue respecte la réduction des animations.
+## Validation de la publication
+
+Le lien public a été testé dans Chromium : création de partie, scores persistants, rechargement sans réseau et nouvelle modification de score. Le chargement de l’interface ne sollicite plus de police ou de moteur externe pour les écrans vérifiés. Les sept choix de police ont également été contrôlés.
+
+Les contrôles locaux et GitHub comprennent 20 tests Flutter et un test de régression du paquet hors connexion. Les parcours navigateur couvrent aussi l’éditeur de modèles, le CSV et les onglets mobiles. Les cases du catalogue indiquent ce périmètre alpha, et non une validation exhaustive de tous les appareils.
