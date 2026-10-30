@@ -2,15 +2,15 @@
 
 Aucune échéance promise ; chaque étape dépend de critères de sortie.
 
-## 0 — Fondations (en cours)
+## 0 — Fondations (réalisées, identité provisoire)
 
-Nom de travail, catalogue, choix techniques et trois concepts de logo. Choisir ensuite un concept et préparer le kit d’identité. Le dépôt contient des documents et des concepts, pas encore une application.
+Nom de travail, catalogue, choix techniques et trois concepts de logo. Choisir ensuite un concept et préparer le kit d’identité. Le dépôt contient maintenant une application Flutter alpha et les maquettes initiales.
 
-## 1 — Tranche verticale
+## 1 — Tranche verticale (réalisée et testée)
 
 Créer une partie à trois joueurs, ajouter des points, annuler, fermer et retrouver la partie. Éprouver les migrations de données et l’accessibilité avant d’élargir.
 
-## 2 — MVP hors ligne
+## 2 — MVP hors ligne (alpha en validation)
 
 Fonctions marquées MVP dans le catalogue. Tester sur Android, iPhone et navigateur, dont sélection tactile, veille, reprise des horloges et perte du stockage web. Une partie complète doit fonctionner en mode avion après installation ou premier chargement web mis en cache.
 

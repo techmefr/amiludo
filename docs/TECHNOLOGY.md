@@ -1,6 +1,6 @@
 # Choix techniques
 
-Décision initiale du 30 octobre 2026. Ces choix cadrent le développement ; aucune dépendance applicative n’est encore installée.
+Décision initiale du 30 octobre 2026. Ces choix sont désormais appliqués dans app/ : Flutter 3.47.9, Riverpod, Drift/SQLite, polices locales et fichiers JSON. Les versions exactes sont dans app/pubspec.lock.
 
 | Besoin | Choix | Motif |
 |---|---|---|

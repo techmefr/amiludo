@@ -1,0 +1,79 @@
+name: Verify and publish companion
+on:
+  push:
+    branches: [main]
+    paths: ['app/**', 'scripts/**', '.github/workflows/app.yml', 'prototype/**']
+  pull_request:
+    paths: ['app/**', 'scripts/**', '.github/workflows/app.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: companion-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  FLUTTER_VERSION: '3.47.9'
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Install pinned Flutter SDK
+        run: |
+          git clone --depth 1 --branch "$FLUTTER_VERSION" https://github.com/flutter/flutter.git "$RUNNER_TEMP/flutter"
+          echo "$RUNNER_TEMP/flutter/bin" >> "$GITHUB_PATH"
+      - name: Resolve packages
+        working-directory: app
+        run: flutter pub get
+      - name: Analyze
+        working-directory: app
+        run: flutter analyze
+      - name: Test
+        working-directory: app
+        run: flutter test --reporter expanded
+      - name: Build offline web application
+        run: bash scripts/build_web.sh
+      - name: Stage application and mockups
+        run: |
+          mkdir -p site/app
+          cp -a prototype/. site/
+          cp -a app/build/web/. site/app/
+          touch site/.nojekyll
+      - uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: site
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish verified web application
+        id: deployment
+        uses: actions/deploy-pages@v5.0.1
+  android:
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-java@v6.1.0
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Install pinned Flutter SDK
+        run: |
+          git clone --depth 1 --branch "$FLUTTER_VERSION" https://github.com/flutter/flutter.git "$RUNNER_TEMP/flutter"
+          echo "$RUNNER_TEMP/flutter/bin" >> "$GITHUB_PATH"
+      - name: Build installable test APK
+        working-directory: app
+        run: flutter build apk --debug
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: compagnon-android-debug
+          path: app/build/app/outputs/flutter-apk/app-debug.apk
+          retention-days: 14

@@ -3,846 +3,987 @@
     "id": "F001",
     "title": "Outils rapides sans créer de partie",
     "group": "Accès et expérience",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F002",
     "title": "Mode partie combinant les outils utiles",
     "group": "Accès et expérience",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F003",
     "title": "Accueil personnalisable et favoris",
     "group": "Accès et expérience",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F004",
     "title": "Reprise automatique de la dernière partie",
     "group": "Accès et expérience",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F005",
     "title": "Fonctionnement hors connexion du cœur",
     "group": "Accès et expérience",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F006",
     "title": "Aucun compte obligatoire",
     "group": "Accès et expérience",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F007",
     "title": "Aucune publicité",
     "group": "Accès et expérience",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F008",
     "title": "Français et anglais",
     "group": "Accès et expérience",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F009",
     "title": "Mode clair et sombre",
     "group": "Accès et expérience",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F010",
     "title": "Téléphone et tablette, portrait et paysage",
     "group": "Accès et expérience",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F011",
     "title": "Grandes commandes utilisables autour de la table",
     "group": "Accès et expérience",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F012",
     "title": "Couleurs accompagnées de noms ou symboles",
     "group": "Accès et expérience",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F013",
     "title": "Taille du texte et lecteurs d’écran",
     "group": "Accès et expérience",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F014",
     "title": "Animations, sons et vibrations désactivables",
     "group": "Accès et expérience",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F015",
     "title": "Maintien de l’écran allumé pendant une partie",
     "group": "Accès et expérience",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F016",
     "title": "Profils locaux avec pseudo, couleur et avatar",
     "group": "Joueurs et préparation",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F017",
     "title": "Joueurs invités sans profil permanent",
     "group": "Joueurs et préparation",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F018",
     "title": "Groupes de joueurs réutilisables",
     "group": "Joueurs et préparation",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F019",
     "title": "Équipes manuelles ou aléatoires",
     "group": "Joueurs et préparation",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F020",
     "title": "Nombre et taille des équipes paramétrables",
     "group": "Joueurs et préparation",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F021",
     "title": "Tirage du premier joueur par liste",
     "group": "Joueurs et préparation",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F022",
     "title": "Sélection par doigts avec compte à rebours",
     "group": "Joueurs et préparation",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F023",
     "title": "Ordre de passage aléatoire ou manuel",
     "group": "Joueurs et préparation",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F024",
     "title": "Relancer une partie avec les mêmes joueurs",
     "group": "Joueurs et préparation",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F025",
     "title": "Configuration rapide du jeu, des manches et outils",
     "group": "Joueurs et préparation",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F026",
     "title": "Dés d4, d6, d8, d10, d12, d20 et d100",
     "group": "Hasard et dés",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F027",
     "title": "Plusieurs dés et total automatique",
     "group": "Hasard et dés",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F028",
     "title": "Verrouiller certains dés et relancer les autres",
     "group": "Hasard et dés",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F029",
     "title": "Historique des résultats de la session",
     "group": "Hasard et dés",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F030",
     "title": "Pile ou face",
     "group": "Hasard et dés",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F031",
     "title": "Tirage d’un nom, nombre ou élément de liste",
     "group": "Hasard et dés",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F032",
     "title": "Tirage avec ou sans remise",
     "group": "Hasard et dés",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F033",
     "title": "Roue à options personnalisées",
     "group": "Hasard et dés",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F034",
     "title": "Enregistrer des jeux de dés et listes",
     "group": "Hasard et dés",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F035",
     "title": "Aléatoire fourni par une source sécurisée du système",
     "group": "Hasard et dés",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F036",
     "title": "Scores par joueur ou équipe",
     "group": "Scores et ressources",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F037",
     "title": "Ajout et retrait rapides, valeur libre",
     "group": "Scores et ressources",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F038",
     "title": "Scores négatifs et décimaux configurables",
     "group": "Scores et ressources",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F039",
     "title": "Scores par manche et total cumulé",
     "group": "Scores et ressources",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F040",
     "title": "Classement au plus haut ou au plus bas score",
     "group": "Scores et ressources",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F041",
     "title": "Gestion des égalités et ex æquo",
     "group": "Scores et ressources",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F042",
     "title": "Objectif de points ou nombre de manches",
     "group": "Scores et ressources",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F043",
     "title": "Annuler et rétablir une modification",
     "group": "Scores et ressources",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F044",
     "title": "Journal des modifications de score",
     "group": "Scores et ressources",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F045",
     "title": "Compteurs de vies, monnaie et ressources indépendants",
     "group": "Scores et ressources",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F046",
     "title": "Bonus et malus identifiés",
     "group": "Scores et ressources",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F047",
     "title": "Résumé final et revanche",
     "group": "Scores et ressources",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F048",
     "title": "Chronomètre de partie",
     "group": "Temps et tours",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F049",
     "title": "Compte à rebours commun",
     "group": "Temps et tours",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F050",
     "title": "Temps fixe par tour",
     "group": "Temps et tours",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F051",
     "title": "Réserve de temps par joueur, de 2 à plusieurs joueurs",
     "group": "Temps et tours",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F052",
     "title": "Pause et reprise globales",
     "group": "Temps et tours",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F053",
     "title": "Joueur actif et bouton de passage de tour",
     "group": "Temps et tours",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F054",
     "title": "Avertissement de temps faible configurable",
     "group": "Temps et tours",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F055",
     "title": "Son et vibration à expiration",
     "group": "Temps et tours",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F056",
     "title": "Temps différent par joueur",
     "group": "Temps et tours",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F057",
     "title": "Incrément Fischer et délai simple",
     "group": "Temps et tours",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F058",
     "title": "Compteur de tours et de manches",
     "group": "Temps et tours",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F059",
     "title": "Sens de rotation et premier joueur tournant",
     "group": "Temps et tours",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F060",
     "title": "Sauvegarde locale après chaque action significative",
     "group": "Fiabilité et données",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F061",
     "title": "Récupération après fermeture de l’application",
     "group": "Fiabilité et données",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F062",
     "title": "Historique local des parties terminées",
     "group": "Fiabilité et données",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F063",
     "title": "Export et import JSON des parties",
     "group": "Fiabilité et données",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F064",
     "title": "Export CSV des scores",
     "group": "Fiabilité et données",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F065",
     "title": "Suppression individuelle et effacement complet",
     "group": "Fiabilité et données",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F066",
     "title": "Confirmation avant remise à zéro destructive",
     "group": "Fiabilité et données",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F067",
     "title": "Migration versionnée des données locales",
     "group": "Fiabilité et données",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": false
   },
   {
     "id": "F068",
     "title": "Dés à symboles et faces personnalisées",
     "group": "Personnalisation avancée",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": true
   },
   {
     "id": "F069",
     "title": "Expressions de dés, modificateurs et succès",
     "group": "Personnalisation avancée",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F070",
     "title": "Avantage, désavantage et relances conditionnelles",
     "group": "Personnalisation avancée",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F071",
     "title": "Sacs de jetons avec contenu et remise configurables",
     "group": "Personnalisation avancée",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F072",
     "title": "Paquets de cartes virtuels personnalisés",
     "group": "Personnalisation avancée",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F073",
     "title": "Tirages pondérés avec probabilités visibles",
     "group": "Personnalisation avancée",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F074",
     "title": "Sélection de plusieurs gagnants et classement aléatoire",
     "group": "Personnalisation avancée",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F075",
     "title": "Contraintes de composition des équipes",
     "group": "Personnalisation avancée",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F076",
     "title": "Rôles secrets avec révélation individuelle",
     "group": "Personnalisation avancée",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": true
   },
   {
     "id": "F077",
     "title": "Minuteurs simultanés et temps par équipe",
     "group": "Personnalisation avancée",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F078",
     "title": "Cadences Bronstein, sablier et byo-yomi",
     "group": "Personnalisation avancée",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F079",
     "title": "Cadences à plusieurs phases",
     "group": "Personnalisation avancée",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F080",
     "title": "Décompte de score par catégories",
     "group": "Personnalisation avancée",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": true
   },
   {
     "id": "F081",
     "title": "Formules de score déclaratives sans code exécuté",
     "group": "Personnalisation avancée",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F082",
     "title": "Objectifs coopératifs et résultats victoire/défaite",
     "group": "Personnalisation avancée",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": true
   },
   {
     "id": "F083",
     "title": "Notes, objectifs et compteurs propres à la partie",
     "group": "Personnalisation avancée",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": true
   },
   {
     "id": "F084",
     "title": "Préréglages complets par jeu",
     "group": "Modèles et communauté",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F085",
     "title": "Éditeur de feuille de score",
     "group": "Modèles et communauté",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F086",
     "title": "Éditeur de configuration de partie",
     "group": "Modèles et communauté",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": true
   },
   {
     "id": "F087",
     "title": "Import et export de modèles JSON versionnés",
     "group": "Modèles et communauté",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": true
   },
   {
     "id": "F088",
     "title": "Bibliothèque embarquée utilisable hors ligne",
     "group": "Modèles et communauté",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": true
   },
   {
     "id": "F089",
     "title": "Catalogue communautaire avec recherche et filtres",
     "group": "Modèles et communauté",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F090",
     "title": "Contributions de modèles par pull request",
     "group": "Modèles et communauté",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F091",
     "title": "Validation automatique des modèles",
     "group": "Modèles et communauté",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": true
   },
   {
     "id": "F092",
     "title": "Métadonnées auteur, version, langue et licence",
     "group": "Modèles et communauté",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F093",
     "title": "Favoris et variantes personnelles",
     "group": "Modèles et communauté",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F094",
     "title": "Instructions courtes originales et liens vers les règles officielles",
     "group": "Modèles et communauté",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F095",
     "title": "Gestion des versions et compatibilité des modèles",
     "group": "Modèles et communauté",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F096",
     "title": "Recherche de parties par jeu, joueur et date",
     "group": "Historique et soirées",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": true
   },
   {
     "id": "F097",
     "title": "Statistiques de victoires, scores et durées",
     "group": "Historique et soirées",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F098",
     "title": "Évolution des scores et comparaison des manches",
     "group": "Historique et soirées",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F099",
     "title": "Séries de parties et classement de soirée",
     "group": "Historique et soirées",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F100",
     "title": "Résultats par équipe et coopération",
     "group": "Historique et soirées",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": true
   },
   {
     "id": "F101",
     "title": "Partage du résumé sous forme d’image",
     "group": "Historique et soirées",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F102",
     "title": "Sauvegarde et restauration d’une bibliothèque complète",
     "group": "Historique et soirées",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": true
   },
   {
     "id": "F103",
     "title": "Accessibilité du mode table et affichage orienté par joueur",
     "group": "Historique et soirées",
-    "phase": "V1"
+    "phase": "V1",
+    "implemented": false
   },
   {
     "id": "F104",
     "title": "Rejoindre une salle par QR code ou code court",
     "group": "Parties partagées",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F105",
     "title": "Pseudonyme invité sans compte personnel",
     "group": "Parties partagées",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F106",
     "title": "Saisie des scores depuis plusieurs appareils",
     "group": "Parties partagées",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F107",
     "title": "Écran commun de scores et temps",
     "group": "Parties partagées",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F108",
     "title": "Hôte et droits de modification explicites",
     "group": "Parties partagées",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F109",
     "title": "Journal partagé et gestion des actions concurrentes",
     "group": "Parties partagées",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F110",
     "title": "Reconnexion et rattrapage des événements",
     "group": "Parties partagées",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F111",
     "title": "Transfert du rôle d’hôte",
     "group": "Parties partagées",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F112",
     "title": "Rôles et informations privés par joueur",
     "group": "Parties partagées",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F113",
     "title": "Synchronisation facultative de la bibliothèque personnelle",
     "group": "Parties partagées",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F114",
     "title": "Serveur auto-hébergeable et documentation de déploiement",
     "group": "Parties partagées",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F115",
     "title": "Export et suppression des données distantes",
     "group": "Parties partagées",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F116",
     "title": "Tournois toutes rondes et élimination directe",
     "group": "Tournois et extensions",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F117",
     "title": "Appariements suisses avec règles explicites",
     "group": "Tournois et extensions",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F118",
     "title": "Rotation des tables et équipes",
     "group": "Tournois et extensions",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F119",
     "title": "Classement avec départages configurables",
     "group": "Tournois et extensions",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F120",
     "title": "Mode kiosque ou grand écran",
     "group": "Tournois et extensions",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F121",
     "title": "Raccourcis système et widgets selon plateforme",
     "group": "Tournois et extensions",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F122",
     "title": "Import de collection via services externes si autorisé",
     "group": "Tournois et extensions",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F123",
     "title": "API de modèles stable et outils de contribution",
     "group": "Tournois et extensions",
-    "phase": "V2"
+    "phase": "V2",
+    "implemented": false
   },
   {
     "id": "F124",
     "title": "Mode clair, sombre et automatique selon le système",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F125",
     "title": "Dix palettes coordonnées pour les fonds, textes et accents",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F126",
     "title": "Choix de sept familles typographiques lisibles",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F127",
     "title": "Aperçu du thème en temps réel",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F128",
     "title": "Application du style sur tous les écrans",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F129",
     "title": "Quatre styles de formes : biseauté, net, doux et très arrondi",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F130",
     "title": "Densité confortable ou compacte",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F131",
     "title": "Texte de lecture agrandi",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F132",
     "title": "Réduction des animations respectant aussi le système",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F133",
     "title": "Enregistrement de plusieurs profils de style sur un appareil",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F134",
     "title": "Changement de profil en un geste",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F135",
     "title": "Nom personnalisé pour chaque profil",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F136",
     "title": "Suppression individuelle des profils",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F137",
     "title": "Export du thème au format JSON",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F138",
     "title": "Import de thème avec validation du format",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F139",
     "title": "Réinitialisation du style par défaut",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F140",
     "title": "Conservation du style après fermeture et rechargement",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   },
   {
     "id": "F141",
     "title": "Trois univers visuels : Cyberdeck, Orbital 77 et Carnet",
     "group": "Personnalisation et profils de style",
-    "phase": "MVP"
+    "phase": "MVP",
+    "implemented": true
   }
 ]

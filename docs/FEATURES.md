@@ -1,78 +1,78 @@
 # Catalogue fonctionnel de Ludoply
 
-Statut : toutes les fonctionnalités sont **prévues**. MVP = première version ; V1 = enrichissement individuel ; V2 = services partagés et extensions. Les priorités au sein des blocs restent ajustables.
+Statut : **[x] = implémenté dans l’alpha Flutter**, avec validation des parcours et limites décrites dans APP-STATUS.md ; **[ ] = prévu ou incomplet**. Les tests sur appareils physiques restent distincts. MVP = première version ; V1 = enrichissement individuel ; V2 = services partagés et extensions. Les priorités au sein des blocs restent ajustables.
 
 Le produit combine un accès immédiat aux outils et un mode partie qui partage joueurs, temps et scores.
 
 ## Accès et expérience — MVP
 
-- [ ] F001 — Outils rapides sans créer de partie
-- [ ] F002 — Mode partie combinant les outils utiles
-- [ ] F003 — Accueil personnalisable et favoris
-- [ ] F004 — Reprise automatique de la dernière partie
-- [ ] F005 — Fonctionnement hors connexion du cœur
-- [ ] F006 — Aucun compte obligatoire
-- [ ] F007 — Aucune publicité
+- [x] F001 — Outils rapides sans créer de partie
+- [x] F002 — Mode partie combinant les outils utiles
+- [x] F003 — Accueil personnalisable et favoris
+- [x] F004 — Reprise automatique de la dernière partie
+- [x] F005 — Fonctionnement hors connexion du cœur
+- [x] F006 — Aucun compte obligatoire
+- [x] F007 — Aucune publicité
 - [ ] F008 — Français et anglais
-- [ ] F009 — Mode clair et sombre
+- [x] F009 — Mode clair et sombre
 - [ ] F010 — Téléphone et tablette, portrait et paysage
-- [ ] F011 — Grandes commandes utilisables autour de la table
-- [ ] F012 — Couleurs accompagnées de noms ou symboles
+- [x] F011 — Grandes commandes utilisables autour de la table
+- [x] F012 — Couleurs accompagnées de noms ou symboles
 - [ ] F013 — Taille du texte et lecteurs d’écran
 - [ ] F014 — Animations, sons et vibrations désactivables
-- [ ] F015 — Maintien de l’écran allumé pendant une partie
+- [x] F015 — Maintien de l’écran allumé pendant une partie
 
 ## Joueurs et préparation — MVP
 
 - [ ] F016 — Profils locaux avec pseudo, couleur et avatar
-- [ ] F017 — Joueurs invités sans profil permanent
+- [x] F017 — Joueurs invités sans profil permanent
 - [ ] F018 — Groupes de joueurs réutilisables
 - [ ] F019 — Équipes manuelles ou aléatoires
 - [ ] F020 — Nombre et taille des équipes paramétrables
-- [ ] F021 — Tirage du premier joueur par liste
-- [ ] F022 — Sélection par doigts avec compte à rebours
-- [ ] F023 — Ordre de passage aléatoire ou manuel
-- [ ] F024 — Relancer une partie avec les mêmes joueurs
+- [x] F021 — Tirage du premier joueur par liste
+- [x] F022 — Sélection par doigts avec compte à rebours
+- [x] F023 — Ordre de passage aléatoire ou manuel
+- [x] F024 — Relancer une partie avec les mêmes joueurs
 - [ ] F025 — Configuration rapide du jeu, des manches et outils
 
 ## Hasard et dés — MVP
 
-- [ ] F026 — Dés d4, d6, d8, d10, d12, d20 et d100
-- [ ] F027 — Plusieurs dés et total automatique
-- [ ] F028 — Verrouiller certains dés et relancer les autres
-- [ ] F029 — Historique des résultats de la session
-- [ ] F030 — Pile ou face
-- [ ] F031 — Tirage d’un nom, nombre ou élément de liste
-- [ ] F032 — Tirage avec ou sans remise
-- [ ] F033 — Roue à options personnalisées
+- [x] F026 — Dés d4, d6, d8, d10, d12, d20 et d100
+- [x] F027 — Plusieurs dés et total automatique
+- [x] F028 — Verrouiller certains dés et relancer les autres
+- [x] F029 — Historique des résultats de la session
+- [x] F030 — Pile ou face
+- [x] F031 — Tirage d’un nom, nombre ou élément de liste
+- [x] F032 — Tirage avec ou sans remise
+- [x] F033 — Roue à options personnalisées
 - [ ] F034 — Enregistrer des jeux de dés et listes
-- [ ] F035 — Aléatoire fourni par une source sécurisée du système
+- [x] F035 — Aléatoire fourni par une source sécurisée du système
 
 ## Scores et ressources — MVP
 
-- [ ] F036 — Scores par joueur ou équipe
-- [ ] F037 — Ajout et retrait rapides, valeur libre
-- [ ] F038 — Scores négatifs et décimaux configurables
-- [ ] F039 — Scores par manche et total cumulé
-- [ ] F040 — Classement au plus haut ou au plus bas score
-- [ ] F041 — Gestion des égalités et ex æquo
-- [ ] F042 — Objectif de points ou nombre de manches
-- [ ] F043 — Annuler et rétablir une modification
-- [ ] F044 — Journal des modifications de score
-- [ ] F045 — Compteurs de vies, monnaie et ressources indépendants
-- [ ] F046 — Bonus et malus identifiés
-- [ ] F047 — Résumé final et revanche
+- [x] F036 — Scores par joueur ou équipe
+- [x] F037 — Ajout et retrait rapides, valeur libre
+- [x] F038 — Scores négatifs et décimaux configurables
+- [x] F039 — Scores par manche et total cumulé
+- [x] F040 — Classement au plus haut ou au plus bas score
+- [x] F041 — Gestion des égalités et ex æquo
+- [x] F042 — Objectif de points ou nombre de manches
+- [x] F043 — Annuler et rétablir une modification
+- [x] F044 — Journal des modifications de score
+- [x] F045 — Compteurs de vies, monnaie et ressources indépendants
+- [x] F046 — Bonus et malus identifiés
+- [x] F047 — Résumé final et revanche
 
 ## Temps et tours — MVP
 
 - [ ] F048 — Chronomètre de partie
-- [ ] F049 — Compte à rebours commun
-- [ ] F050 — Temps fixe par tour
-- [ ] F051 — Réserve de temps par joueur, de 2 à plusieurs joueurs
-- [ ] F052 — Pause et reprise globales
-- [ ] F053 — Joueur actif et bouton de passage de tour
+- [x] F049 — Compte à rebours commun
+- [x] F050 — Temps fixe par tour
+- [x] F051 — Réserve de temps par joueur, de 2 à plusieurs joueurs
+- [x] F052 — Pause et reprise globales
+- [x] F053 — Joueur actif et bouton de passage de tour
 - [ ] F054 — Avertissement de temps faible configurable
-- [ ] F055 — Son et vibration à expiration
+- [x] F055 — Son et vibration à expiration
 - [ ] F056 — Temps différent par joueur
 - [ ] F057 — Incrément Fischer et délai simple
 - [ ] F058 — Compteur de tours et de manches
@@ -80,18 +80,18 @@ Le produit combine un accès immédiat aux outils et un mode partie qui partage 
 
 ## Fiabilité et données — MVP
 
-- [ ] F060 — Sauvegarde locale après chaque action significative
-- [ ] F061 — Récupération après fermeture de l’application
-- [ ] F062 — Historique local des parties terminées
-- [ ] F063 — Export et import JSON des parties
-- [ ] F064 — Export CSV des scores
-- [ ] F065 — Suppression individuelle et effacement complet
-- [ ] F066 — Confirmation avant remise à zéro destructive
+- [x] F060 — Sauvegarde locale après chaque action significative
+- [x] F061 — Récupération après fermeture de l’application
+- [x] F062 — Historique local des parties terminées
+- [x] F063 — Export et import JSON des parties
+- [x] F064 — Export CSV des scores
+- [x] F065 — Suppression individuelle et effacement complet
+- [x] F066 — Confirmation avant remise à zéro destructive
 - [ ] F067 — Migration versionnée des données locales
 
 ## Personnalisation avancée — V1
 
-- [ ] F068 — Dés à symboles et faces personnalisées
+- [x] F068 — Dés à symboles et faces personnalisées
 - [ ] F069 — Expressions de dés, modificateurs et succès
 - [ ] F070 — Avantage, désavantage et relances conditionnelles
 - [ ] F071 — Sacs de jetons avec contenu et remise configurables
@@ -99,25 +99,25 @@ Le produit combine un accès immédiat aux outils et un mode partie qui partage 
 - [ ] F073 — Tirages pondérés avec probabilités visibles
 - [ ] F074 — Sélection de plusieurs gagnants et classement aléatoire
 - [ ] F075 — Contraintes de composition des équipes
-- [ ] F076 — Rôles secrets avec révélation individuelle
+- [x] F076 — Rôles secrets avec révélation individuelle
 - [ ] F077 — Minuteurs simultanés et temps par équipe
 - [ ] F078 — Cadences Bronstein, sablier et byo-yomi
 - [ ] F079 — Cadences à plusieurs phases
-- [ ] F080 — Décompte de score par catégories
+- [x] F080 — Décompte de score par catégories
 - [ ] F081 — Formules de score déclaratives sans code exécuté
-- [ ] F082 — Objectifs coopératifs et résultats victoire/défaite
-- [ ] F083 — Notes, objectifs et compteurs propres à la partie
+- [x] F082 — Objectifs coopératifs et résultats victoire/défaite
+- [x] F083 — Notes, objectifs et compteurs propres à la partie
 
 ## Modèles et communauté — V1
 
 - [ ] F084 — Préréglages complets par jeu
 - [ ] F085 — Éditeur de feuille de score
-- [ ] F086 — Éditeur de configuration de partie
-- [ ] F087 — Import et export de modèles JSON versionnés
-- [ ] F088 — Bibliothèque embarquée utilisable hors ligne
+- [x] F086 — Éditeur de configuration de partie
+- [x] F087 — Import et export de modèles JSON versionnés
+- [x] F088 — Bibliothèque embarquée utilisable hors ligne
 - [ ] F089 — Catalogue communautaire avec recherche et filtres
 - [ ] F090 — Contributions de modèles par pull request
-- [ ] F091 — Validation automatique des modèles
+- [x] F091 — Validation automatique des modèles
 - [ ] F092 — Métadonnées auteur, version, langue et licence
 - [ ] F093 — Favoris et variantes personnelles
 - [ ] F094 — Instructions courtes originales et liens vers les règles officielles
@@ -125,13 +125,13 @@ Le produit combine un accès immédiat aux outils et un mode partie qui partage 
 
 ## Historique et soirées — V1
 
-- [ ] F096 — Recherche de parties par jeu, joueur et date
+- [x] F096 — Recherche de parties par jeu, joueur et date
 - [ ] F097 — Statistiques de victoires, scores et durées
 - [ ] F098 — Évolution des scores et comparaison des manches
 - [ ] F099 — Séries de parties et classement de soirée
-- [ ] F100 — Résultats par équipe et coopération
+- [x] F100 — Résultats par équipe et coopération
 - [ ] F101 — Partage du résumé sous forme d’image
-- [ ] F102 — Sauvegarde et restauration d’une bibliothèque complète
+- [x] F102 — Sauvegarde et restauration d’une bibliothèque complète
 - [ ] F103 — Accessibilité du mode table et affichage orienté par joueur
 
 ## Parties partagées — V2
@@ -171,26 +171,28 @@ Le produit combine un accès immédiat aux outils et un mode partie qui partage 
 
 ## Personnalisation et profils de style — MVP
 
-- [ ] F124 — Mode clair, sombre et automatique selon le système
-- [ ] F125 — Dix palettes coordonnées pour les fonds, textes et accents
-- [ ] F126 — Choix de sept familles typographiques lisibles
-- [ ] F127 — Aperçu du thème en temps réel
-- [ ] F128 — Application du style sur tous les écrans
-- [ ] F129 — Quatre styles de formes : biseauté, net, doux et très arrondi
-- [ ] F130 — Densité confortable ou compacte
-- [ ] F131 — Texte de lecture agrandi
-- [ ] F132 — Réduction des animations respectant aussi le système
-- [ ] F133 — Enregistrement de plusieurs profils de style sur un appareil
-- [ ] F134 — Changement de profil en un geste
-- [ ] F135 — Nom personnalisé pour chaque profil
-- [ ] F136 — Suppression individuelle des profils
-- [ ] F137 — Export du thème au format JSON
-- [ ] F138 — Import de thème avec validation du format
-- [ ] F139 — Réinitialisation du style par défaut
-- [ ] F140 — Conservation du style après fermeture et rechargement
+- [x] F124 — Mode clair, sombre et automatique selon le système
+- [x] F125 — Dix palettes coordonnées pour les fonds, textes et accents
+- [x] F126 — Choix de sept familles typographiques lisibles
+- [x] F127 — Aperçu du thème en temps réel
+- [x] F128 — Application du style sur tous les écrans
+- [x] F129 — Quatre styles de formes : biseauté, net, doux et très arrondi
+- [x] F130 — Densité confortable ou compacte
+- [x] F131 — Texte de lecture agrandi
+- [x] F132 — Réduction des animations respectant aussi le système
+- [x] F133 — Enregistrement de plusieurs profils de style sur un appareil
+- [x] F134 — Changement de profil en un geste
+- [x] F135 — Nom personnalisé pour chaque profil
+- [x] F136 — Suppression individuelle des profils
+- [x] F137 — Export du thème au format JSON
+- [x] F138 — Import de thème avec validation du format
+- [x] F139 — Réinitialisation du style par défaut
+- [x] F140 — Conservation du style après fermeture et rechargement
 
-- [ ] F141 — Trois univers visuels : Cyberdeck, Orbital 77 et Carnet
+- [x] F141 — Trois univers visuels : Cyberdeck, Orbital 77 et Carnet
 
 **Total : 141 fonctionnalités planifiées.**
 
-Les fonctions de personnalisation sont démontrées dans le prototype web. Leur portage Flutter reste à réaliser.
+La personnalisation est portée dans Flutter. Les cases cochées décrivent une alpha locale ; elles ne valent pas une certification Android/iOS ou une validation complète d’accessibilité.
+
+**Bilan alpha : 80 fonctions cochées ; 61 prévues ou incomplètes.**

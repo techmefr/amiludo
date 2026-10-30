@@ -1,40 +1,47 @@
-# Ludoply
+# Compagnon — nom provisoire
 
 **Tous les outils. Autour de la table.**
 
-An open-source board game companion for Android, iOS and the web. Choose who starts, roll dice, keep scores and manage time — with the same players throughout a game.
+Compagnon open source pour les jeux de société, avec une direction rétrofuturiste Cyberdeck. Android, iOS et web à partir du même projet Flutter.
 
-## Project status
+**[Ouvrir l’application](https://techmefr.github.io/ludoply/app/)** · [Maquettes](https://techmefr.github.io/ludoply/) · [État réel du développement](docs/APP-STATUS.md)
 
-Product planning with a runnable interactive web prototype. The production Flutter application is not implemented yet. The name is provisional and will be chosen later. Prototype behavior and planned application features are distinguished below.
+## Version alpha fonctionnelle
 
-## Product principles
+- Parties et scores réels : manches, catégories, ressources, objectifs coopératifs, classement et égalités, notes, annulation/rétablissement et revanche.
+- Minuteur libre, temps par tour, réserve par joueur et incrément, avec réglages conservés par table.
+- Dés multiples verrouillables, expressions et symboles ; choix du premier joueur, équipes, ordre, pièce, roue pondérée, nombres, sac de jetons et rôles secrets.
+- Six modèles intégrés exécutables et éditeur de modèles importables et partageables.
+- SQLite local, historique, JSON, CSV, sauvegarde/restauration complète et suppression confirmée.
+- Trois univers, dix palettes, sept polices embarquées et profils personnels.
 
-- Quick tools without setup, and a connected game mode.
-- Offline core, no mandatory account, no advertising.
-- Accessible, readable across the table, with undo and automatic recovery.
-- Portable data and community-authored game presets.
+Aucun compte ni serveur requis pour ces fonctions. Aucun affichage publicitaire. La version web possède un cache explicite ; une première ouverture connectée est nécessaire pour télécharger les ressources. La fiabilité native et les comportements en arrière-plan doivent encore être vérifiés sur de vrais téléphones.
 
-## Project documents
+Le catalogue comprend aussi des fonctions **non implémentées**, notamment les salles partagées et leur serveur, les tournois, les cadences avancées et les intégrations. Cette alpha ne constitue pas la livraison de la totalité des 141 fonctions prévues. Le nom Ludoply reste uniquement l’identifiant historique du dépôt.
 
-- [Feature catalogue — French](docs/FEATURES.md)
-- [Roadmap](docs/ROADMAP.md)
-- [Technology decisions](docs/TECHNOLOGY.md)
-- [Brand exploration](design/BRIEF.md)
-- [Contributing](CONTRIBUTING.md)
+## Développer
 
-## Selected direction
+Flutter **3.47.9**, Dart **3.13.7**. Les dépendances sont verrouillées dans app/pubspec.lock.
 
-Flutter + Dart for the app; Riverpod for state; Drift/SQLite for local persistence. Community presets in versioned JSON. No backend for the first release. Optional shared sessions and sync are later milestones.
+```sh
+cd app
+flutter pub get
+flutter analyze
+flutter test
+flutter run -d chrome
+```
 
-See the technology document for platform limitations and validation gates. Documentation and initial contributions are welcome. Code and original design concepts are released under the MIT license.
+Depuis la racine : `bash scripts/build_web.sh` compile le web avec les ressources du moteur en local et génère le cache hors connexion. Le chemin peut être changé via APP_BASE_PATH.
 
-## Interactive mockups
+Le workflow GitHub vérifie le code avant de publier la version web et construit séparément un **APK Android de test**. iOS nécessite macOS, Xcode et une signature pour une distribution native. Voir [le guide de l’application](app/README.md).
 
-[Open the prototype](https://techmefr.github.io/ludoply/) · [Prototype guide](prototype/README.md) · [Screenshots](design/mockups/)
+## Documents
 
-Six responsive screens: home, active game, tools, preset library, history and appearance. Three visual universes (Cyberdeck, Orbital 77, Carnet), ten palettes, seven fonts, light/dark/system modes, shape and density options, saved local style profiles, JSON import/export. Scores, undo, turns, timer, dice, player selection, teams, coin and wheel can be tried. Generic preset cards are previews, not implemented game engines.
+- [Catalogue fonctionnel et statut](docs/FEATURES.md)
+- [Feuille de route](docs/ROADMAP.md)
+- [Choix techniques](docs/TECHNOLOGY.md)
+- [État de l’application et limites](docs/APP-STATUS.md)
+- [Contribuer](CONTRIBUTING.md)
+- [Maquettes et captures](design/mockups/)
 
-Run locally from the repository: `python3 -m http.server 4173 --directory prototype`, then open http://localhost:4173. No build or account required.
-
-The default art direction is now retrofuturist Cyberdeck: beveled panels, acid accents and technical headings. Existing style profiles remain usable.
+Code et concepts originaux sous licence MIT. Les polices embarquées conservent leurs licences OFL. Le nom définitif et le logo restent à choisir.
