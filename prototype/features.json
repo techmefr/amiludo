@@ -745,13 +745,13 @@
   },
   {
     "id": "F125",
-    "title": "Six palettes coordonnées pour les fonds, textes et accents",
+    "title": "Dix palettes coordonnées pour les fonds, textes et accents",
     "group": "Personnalisation et profils de style",
     "phase": "MVP"
   },
   {
     "id": "F126",
-    "title": "Choix de quatre familles typographiques lisibles",
+    "title": "Choix de sept familles typographiques lisibles",
     "group": "Personnalisation et profils de style",
     "phase": "MVP"
   },
@@ -769,7 +769,7 @@
   },
   {
     "id": "F129",
-    "title": "Trois styles de formes : net, doux et très arrondi",
+    "title": "Quatre styles de formes : biseauté, net, doux et très arrondi",
     "group": "Personnalisation et profils de style",
     "phase": "MVP"
   },
@@ -836,6 +836,12 @@
   {
     "id": "F140",
     "title": "Conservation du style après fermeture et rechargement",
+    "group": "Personnalisation et profils de style",
+    "phase": "MVP"
+  },
+  {
+    "id": "F141",
+    "title": "Trois univers visuels : Cyberdeck, Orbital 77 et Carnet",
     "group": "Personnalisation et profils de style",
     "phase": "MVP"
   }

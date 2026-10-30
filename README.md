@@ -33,6 +33,8 @@ See the technology document for platform limitations and validation gates. Docum
 
 [Open the prototype](https://techmefr.github.io/ludoply/) · [Prototype guide](prototype/README.md) · [Screenshots](design/mockups/)
 
-Six responsive screens: home, active game, tools, preset library, history and appearance. Six palettes, four fonts, light/dark/system modes, shape and density options, saved local style profiles, JSON import/export. Scores, undo, turns, timer, dice, player selection, teams, coin and wheel can be tried. Generic preset cards are previews, not implemented game engines.
+Six responsive screens: home, active game, tools, preset library, history and appearance. Three visual universes (Cyberdeck, Orbital 77, Carnet), ten palettes, seven fonts, light/dark/system modes, shape and density options, saved local style profiles, JSON import/export. Scores, undo, turns, timer, dice, player selection, teams, coin and wheel can be tried. Generic preset cards are previews, not implemented game engines.
 
 Run locally from the repository: `python3 -m http.server 4173 --directory prototype`, then open http://localhost:4173. No build or account required.
+
+The default art direction is now retrofuturist Cyberdeck: beveled panels, acid accents and technical headings. Existing style profiles remain usable.

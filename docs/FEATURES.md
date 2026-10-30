@@ -172,11 +172,11 @@ Le produit combine un accès immédiat aux outils et un mode partie qui partage 
 ## Personnalisation et profils de style — MVP
 
 - [ ] F124 — Mode clair, sombre et automatique selon le système
-- [ ] F125 — Six palettes coordonnées pour les fonds, textes et accents
-- [ ] F126 — Choix de quatre familles typographiques lisibles
+- [ ] F125 — Dix palettes coordonnées pour les fonds, textes et accents
+- [ ] F126 — Choix de sept familles typographiques lisibles
 - [ ] F127 — Aperçu du thème en temps réel
 - [ ] F128 — Application du style sur tous les écrans
-- [ ] F129 — Trois styles de formes : net, doux et très arrondi
+- [ ] F129 — Quatre styles de formes : biseauté, net, doux et très arrondi
 - [ ] F130 — Densité confortable ou compacte
 - [ ] F131 — Texte de lecture agrandi
 - [ ] F132 — Réduction des animations respectant aussi le système
@@ -189,6 +189,8 @@ Le produit combine un accès immédiat aux outils et un mode partie qui partage 
 - [ ] F139 — Réinitialisation du style par défaut
 - [ ] F140 — Conservation du style après fermeture et rechargement
 
-**Total : 140 fonctionnalités planifiées.**
+- [ ] F141 — Trois univers visuels : Cyberdeck, Orbital 77 et Carnet
+
+**Total : 141 fonctionnalités planifiées.**
 
 Les fonctions de personnalisation sont démontrées dans le prototype web. Leur portage Flutter reste à réaliser.
