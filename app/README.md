@@ -44,3 +44,5 @@ Les salles multi-appareils, le serveur, les tournois, les cadences avancées, le
 Drift/SQLite enregistre un document de bibliothèque versionné dans une transaction ; les écritures sont sérialisées et les erreurs de sauvegarde sont visibles. Une sauvegarde incompatible est rejetée avant remplacement. Les changements de score peuvent être annulés après rechargement. Les outils aléatoires gardent leur résultat pendant leur ouverture ; leurs configurations ne constituent pas encore une bibliothèque de préréglages.
 
 Les horloges utilisent une horloge monotone pendant l’exécution et un délai persistant pour la reprise. L’application ne promet pas d’alarme sonore lorsque le système suspend ou ferme le navigateur. Le maintien de l’écran allumé dépend des autorisations de la plateforme. La sélection par doigts dépend du matériel. Une roue pondérée affiche des secteurs égaux ; les poids modifient le tirage et sont explicitement indiqués dans son formulaire.
+
+Une police de secours pour les symboles est également embarquée, et la roue respecte la réduction des animations.

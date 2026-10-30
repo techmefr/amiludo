@@ -62,3 +62,11 @@ flutter:
     - family: NunitoSans
       fonts:
         - asset: assets/fonts/NunitoSans.ttf
+
+    - family: NotoSansSymbols2
+      fonts:
+        - asset: assets/fonts/NotoSansSymbols2.ttf
+
+    - family: NotoSansSymbols
+      fonts:
+        - asset: assets/fonts/NotoSansSymbols.ttf

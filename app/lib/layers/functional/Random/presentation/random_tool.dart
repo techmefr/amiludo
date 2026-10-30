@@ -47,6 +47,14 @@ class _RandomToolState extends State<RandomTool>
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    spin.duration = Duration(
+      milliseconds: MediaQuery.of(context).disableAnimations ? 1 : 1600,
+    );
+  }
+
+  @override
   void dispose() {
     options.dispose();
     minimum.dispose();

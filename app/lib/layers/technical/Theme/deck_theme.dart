@@ -231,6 +231,7 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
     colorScheme: scheme,
     scaffoldBackgroundColor: background,
     fontFamily: appearance.font,
+    fontFamilyFallback: const ['NotoSansSymbols2', 'NotoSansSymbols'],
     visualDensity: appearance.compact
         ? VisualDensity.compact
         : VisualDensity.standard,
@@ -312,7 +313,11 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
       backgroundColor: background,
       indicatorColor: hero,
       labelTextStyle: WidgetStatePropertyAll(
-        TextStyle(fontFamily: appearance.font, fontSize: 10),
+        TextStyle(
+          fontFamily: appearance.font,
+          fontFamilyFallback: const ['NotoSansSymbols2', 'NotoSansSymbols'],
+          fontSize: 10,
+        ),
       ),
     ),
     dialogTheme: DialogThemeData(
@@ -324,6 +329,7 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
       contentTextStyle: TextStyle(
         color: background,
         fontFamily: appearance.font,
+        fontFamilyFallback: const ['NotoSansSymbols2', 'NotoSansSymbols'],
       ),
     ),
     chipTheme: base.chipTheme.copyWith(

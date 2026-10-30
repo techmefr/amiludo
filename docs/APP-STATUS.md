@@ -10,10 +10,12 @@ Trois univers, dix palettes et sept polices embarquées ; le thème s’applique
 
 ## Vérifié
 
-19 tests couvrent les scores par manche et catégorie, égalités, coopération, annulation/rétablissement, rotation, imports, sauvegardes, SQLite, écritures concurrentes, isolation des horloges entre tables, tirages, dés, temps et le parcours de création de partie. Les parcours navigateur et le fonctionnement hors connexion sont également contrôlés avant publication.
+20 tests couvrent les scores par manche et catégorie, égalités, coopération, annulation/rétablissement, rotation, imports, sauvegardes, SQLite, écritures concurrentes, isolation des horloges entre tables, tirages, dés, temps et le parcours de création de partie. Les parcours navigateur et le fonctionnement hors connexion sont également contrôlés avant publication.
 
 ## À réaliser
 
 La totalité du catalogue de 141 fonctionnalités n’est pas livrée. Restent notamment les salles multi-appareils et leur serveur, les tournois, les cadences avancées, les formules de score, les profils de joueurs complets, les statistiques détaillées, les exports d’images, les intégrations et la traduction intégrale en anglais. Le comptage de doigts, l’audio, le maintien de l’écran et l’exécution en arrière-plan doivent être vérifiés sur les téléphones physiques ciblés.
 
 La cible iOS n’est pas compilée sur Linux ; la distribution native nécessite Xcode et une signature Apple. Un APK de test n’est pas une publication Google Play.
+
+Une police de secours pour les symboles est également embarquée, et la roue respecte la réduction des animations.
