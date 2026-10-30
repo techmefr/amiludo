@@ -1,7 +1,7 @@
 from pathlib import Path
 import hashlib,json,sys
 root=Path(sys.argv[1]).resolve()
-files=sorted(p for p in root.rglob('*') if p.is_file() and p.name!='offline-worker.js' and p.suffix!='.map')
+files=sorted(p for p in root.rglob('*') if p.is_file() and p.name!='offline-worker.js' and p.suffix!='.map' and not any(part.startswith('.') for part in p.relative_to(root).parts))
 version=hashlib.sha256(b''.join(p.read_bytes() for p in files)).hexdigest()[:16]
 paths=[p.relative_to(root).as_posix() for p in files]
 worker="""const CACHE='companion-VERSION';

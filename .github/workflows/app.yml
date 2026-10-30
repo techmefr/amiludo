@@ -31,6 +31,8 @@ jobs:
       - name: Test
         working-directory: app
         run: flutter test --reporter expanded
+      - name: Verify offline packaging
+        run: python3 -m unittest discover -s scripts -p "test_*.py"
       - name: Build offline web application
         run: bash scripts/build_web.sh
       - name: Stage application and mockups
