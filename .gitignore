@@ -1,0 +1,15 @@
+# Flutter and Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins*
+# Editors and secrets
+.idea/
+.vscode/
+.env
+.env.*
+!.env.example
+*.keystore
+*.jks
+key.properties
+.DS_Store
