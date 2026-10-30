@@ -6,7 +6,7 @@ An open-source board game companion for Android, iOS and the web. Choose who sta
 
 ## Project status
 
-Planning and identity exploration. No runnable application yet. All features below are planned, not implemented. The name is provisional; logo concepts are under review.
+Product planning with a runnable interactive web prototype. The production Flutter application is not implemented yet. The name is provisional and will be chosen later. Prototype behavior and planned application features are distinguished below.
 
 ## Product principles
 
@@ -28,3 +28,11 @@ Planning and identity exploration. No runnable application yet. All features bel
 Flutter + Dart for the app; Riverpod for state; Drift/SQLite for local persistence. Community presets in versioned JSON. No backend for the first release. Optional shared sessions and sync are later milestones.
 
 See the technology document for platform limitations and validation gates. Documentation and initial contributions are welcome. Code and original design concepts are released under the MIT license.
+
+## Interactive mockups
+
+[Open the prototype](https://techmefr.github.io/ludoply/) · [Prototype guide](prototype/README.md) · [Screenshots](design/mockups/)
+
+Six responsive screens: home, active game, tools, preset library, history and appearance. Six palettes, four fonts, light/dark/system modes, shape and density options, saved local style profiles, JSON import/export. Scores, undo, turns, timer, dice, player selection, teams, coin and wheel can be tried. Generic preset cards are previews, not implemented game engines.
+
+Run locally from the repository: `python3 -m http.server 4173 --directory prototype`, then open http://localhost:4173. No build or account required.
