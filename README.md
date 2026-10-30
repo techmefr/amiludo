@@ -25,3 +25,5 @@ Le minuteur n’est pas une alarme système ; il s’arrête au départ de la pa
 ## Vérifications
 
 Navigation des six écrans, conservation des thèmes après rechargement, profil enregistré, ajout/annulation de points, passage de tour, minuteur, dés, équipes et recherche du catalogue testés dans Chromium. Affichage vérifié à 1440 px et 390 px, sans débordement horizontal sur les quatre écrans principaux mobiles. Captures dans design/mockups. Les appareils iOS/Android physiques et les lecteurs d’écran restent à vérifier.
+
+Validation complémentaire : application des profils, export de thème, import valide et rejet des fichiers invalides. Le lien public et ses 140 entrées ont été vérifiés sans erreur JavaScript. Bibliothèque accessible dans la navigation mobile.
