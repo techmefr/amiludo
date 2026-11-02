@@ -6,7 +6,7 @@
 
 Compagnon open source pour les jeux de société, avec une direction rétrofuturiste Cyberdeck. Android, iOS et web à partir du même projet Flutter.
 
-**[Ouvrir l’application](https://techmefr.github.io/ludoply/app/)** · [APK Android de test](https://github.com/techmefr/ludoply/releases/download/v0.1.1-alpha.1/compagnon-0.1.1-alpha.1-android.apk) · [Maquettes](https://techmefr.github.io/ludoply/) · [État réel du développement](docs/APP-STATUS.md)
+**[Ouvrir l’application](https://techmefr.github.io/ludoply/app/)** · [APK Android de test](https://github.com/techmefr/ludoply/releases/download/v0.2.0-alpha.1/compagnon-0.2.0-alpha.1-android.apk) · [Maquettes](https://techmefr.github.io/ludoply/) · [État réel du développement](docs/APP-STATUS.md)
 
 ## Nouveautés de l’alpha 0.2.0
 
