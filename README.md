@@ -6,7 +6,7 @@
 
 Amiludo, compagnon open source pour les jeux de société, avec une direction illustrée Playroom et des thèmes personnalisables. Android, iOS et web à partir du même projet Flutter.
 
-**[Ouvrir l’application](https://techmefr.github.io/ludoply/app/)** · [APK Android de test](https://github.com/techmefr/ludoply/releases/download/v0.2.0-alpha.1/compagnon-0.2.0-alpha.1-android.apk) · [Maquettes](https://techmefr.github.io/ludoply/) · [État réel du développement](docs/APP-STATUS.md)
+**[Ouvrir l’application](https://techmefr.github.io/ludoply/app/)** · [APK Android de test](https://github.com/techmefr/ludoply/releases/download/v0.3.0-alpha.1/amiludo-0.3.0-alpha.1-android.apk) · [Maquettes](https://techmefr.github.io/ludoply/) · [État réel du développement](docs/APP-STATUS.md)
 
 ## Nouvelle direction visuelle — alpha 0.3.0
 

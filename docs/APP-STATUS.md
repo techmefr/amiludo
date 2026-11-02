@@ -1,6 +1,6 @@
 # Application — état réel
 
-Alpha 0.2.0. Nom : Amiludo. Code Flutter dans `app/`, application web dans `/app/`, anciennes maquettes à la racine du site.
+Alpha 0.3.0. Nom : Amiludo. Code Flutter dans `app/`, application web dans `/app/`, anciennes maquettes à la racine du site.
 
 ## Disponible
 
@@ -33,3 +33,5 @@ La [présentation joueur](presentation/Amiludo-presentation-joueurs.pdf) et le [
 L’alpha 0.3.0 ajoute Playroom, une palette Confettis, des illustrations originales et des titres plus chaleureux. Les styles enregistrés sont conservés. La nouvelle présentation PDF reprend cette direction graphique.
 
 Le nom affiché est Amiludo sur le web, Android et iOS. Les identifiants de stockage, formats de fichiers, paquets natifs et liens historiques sont conservés pour la continuité des données et des accès.
+
+Publication 0.3.0 vérifiée : analyse, 38 tests, compilations web/Android et déploiement réussis. Le site public affiche Amiludo, les écrans Playroom ont été contrôlés sur mobile et ordinateur, et la reprise des scores hors connexion a été vérifiée. APK et présentation : https://github.com/techmefr/ludoply/releases/tag/v0.3.0-alpha.1

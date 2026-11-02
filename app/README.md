@@ -34,7 +34,7 @@ Android : `flutter build apk --debug` pour une installation de test, avec Androi
 - Dés polyédriques multiples, verrouillage, expressions et symboles ; tirage sécurisé, équipes, ordre, roue pondérée, pièce, nombres, sac sans remise et rôles secrets.
 - Six modèles intégrés réellement utilisés et éditeur de modèles JSON.
 - Historique réel, import/export de parties et modèles, CSV, sauvegarde complète, restauration et suppression confirmée.
-- Univers Cyberdeck / Orbital / Carnet, dix palettes, sept polices locales, formes, densité, lecture agrandie, animations, profils de style et import/export.
+- Univers Playroom / Cyberdeck / Orbital / Carnet, onze palettes, sept polices locales, formes, densité, lecture agrandie, animations, profils de style et import/export.
 - Interface française et principaux contrôles en anglais. La traduction exhaustive et les tests de lecteurs d’écran restent à compléter.
 
 Les salles multi-appareils, le serveur, les tournois, les cadences avancées, les formules arbitraires et les intégrations ne sont pas implémentés. Le catalogue global distingue ces fonctionnalités planifiées. Cette version est une alpha fonctionnelle, pas l’ensemble des 148 fonctions.
