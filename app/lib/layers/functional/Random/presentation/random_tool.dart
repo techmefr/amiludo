@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import '../../../technical/Theme/deck_widgets.dart';
+import '../../../technical/Theme/game_art.dart';
 import '../domain/random_tools.dart';
 
 class RandomTool extends StatefulWidget {
@@ -408,7 +409,9 @@ class DeckRoleCard extends StatelessWidget {
     width: double.infinity,
     padding: const EdgeInsets.all(24),
     decoration: BoxDecoration(
-      border: Border.all(color: Theme.of(context).colorScheme.primary),
+      color: Theme.of(context).colorScheme.surfaceContainerHighest,
+      borderRadius: BorderRadius.circular(24),
+      border: Border.all(color: Theme.of(context).colorScheme.outline),
     ),
     child: Column(
       children: [
@@ -419,10 +422,18 @@ class DeckRoleCard extends StatelessWidget {
         const SizedBox(height: 20),
         if (revealed) ...[
           Text(
-            role,
-            style: Theme.of(context).textTheme.headlineLarge,
+            role.split('\n\n').first,
+            style: Theme.of(context).textTheme.headlineMedium,
             textAlign: TextAlign.center,
           ),
+          if (role.contains('\n\n'))
+            Padding(
+              padding: const EdgeInsets.only(top: 16),
+              child: Text(
+                role.split('\n\n').skip(1).join('\n\n'),
+                textAlign: TextAlign.center,
+              ),
+            ),
           const SizedBox(height: 20),
           FilledButton(
             onPressed: onNext,
@@ -430,11 +441,13 @@ class DeckRoleCard extends StatelessWidget {
               tr(context, 'Masquer et passer au suivant', 'Hide and pass'),
             ),
           ),
-        ] else
+        ] else ...[
+          const GameArt(tool: 'roles', height: 140),
           FilledButton(
             onPressed: onReveal,
             child: Text(tr(context, 'Voir mon rôle', 'Reveal my role')),
           ),
+        ],
       ],
     ),
   );

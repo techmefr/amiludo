@@ -313,3 +313,71 @@ class _GameArtPainter extends CustomPainter {
   @override
   bool shouldRepaint(_GameArtPainter old) => old.tool != tool;
 }
+
+class DieResult extends StatelessWidget {
+  const DieResult({super.key, required this.value, this.locked = false});
+  final int value;
+  final bool locked;
+  @override
+  Widget build(BuildContext context) => Semantics(
+    label: 'Dé $value${locked ? ", conservé" : ""}',
+    child: Container(
+      width: 64,
+      height: 64,
+      decoration: BoxDecoration(
+        color: const Color(0xffFFF9EA),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: locked
+              ? Theme.of(context).colorScheme.primary
+              : const Color(0xffDDD5E8),
+          width: locked ? 3 : 1,
+        ),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x1439304D),
+            offset: Offset(0, 4),
+            blurRadius: 8,
+          ),
+        ],
+      ),
+      child: value <= 6
+          ? CustomPaint(painter: _Pips(value))
+          : Center(
+              child: Text(
+                '$value',
+                style: const TextStyle(
+                  fontFamily: 'NunitoSans',
+                  fontSize: 28,
+                  fontWeight: FontWeight.w700,
+                  color: Color(0xff39304D),
+                ),
+              ),
+            ),
+    ),
+  );
+}
+
+class _Pips extends CustomPainter {
+  const _Pips(this.value);
+  final int value;
+  @override
+  void paint(Canvas c, Size s) {
+    final points = <Offset>[
+      if (value.isOdd) const Offset(.5, .5),
+      if (value >= 2) ...[const Offset(.26, .26), const Offset(.74, .74)],
+      if (value >= 4) ...[const Offset(.74, .26), const Offset(.26, .74)],
+      if (value == 6) ...[const Offset(.26, .5), const Offset(.74, .5)],
+    ];
+    for (final p in points) {
+      c.drawCircle(
+        Offset(p.dx * s.width, p.dy * s.height),
+        s.width * .063,
+        Paint()..color = const Color(0xff39304D),
+      );
+    }
+  }
+
+  @override
+  bool shouldRepaint(_Pips old) => old.value != value;
+}

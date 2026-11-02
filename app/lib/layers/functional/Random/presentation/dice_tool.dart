@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../technical/Theme/deck_widgets.dart';
+import '../../../technical/Theme/game_art.dart';
 import '../domain/random_tools.dart';
 
 class DiceTool extends StatefulWidget {
@@ -153,16 +154,21 @@ class _DiceToolState extends State<DiceTool> {
               ChoiceChip(
                 selected: locked.contains(i),
                 showCheckmark: false,
-                label: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Text(
-                    '${custom && values.length >= rolls[i] ? values[rolls[i] - 1] : rolls[i]}${locked.contains(i) ? ' ▣' : ''}',
-                    style: TextStyle(
-                      fontFamily: 'ChakraPetch',
-                      fontSize: custom ? 20 : 36,
-                    ),
-                  ),
-                ),
+                label: !custom
+                    ? DieResult(value: rolls[i], locked: locked.contains(i))
+                    : Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: Text(
+                          '${custom && values.length >= rolls[i] ? values[rolls[i] - 1] : rolls[i]}${locked.contains(i) ? ' ▣' : ''}',
+                          style: TextStyle(
+                            fontFamily: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.fontFamily,
+                            fontSize: custom ? 20 : 36,
+                          ),
+                        ),
+                      ),
                 onSelected: (v) =>
                     setState(() => v ? locked.add(i) : locked.remove(i)),
               ),
