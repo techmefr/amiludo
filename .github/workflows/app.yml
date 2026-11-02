@@ -1,4 +1,4 @@
-name: Verify and publish companion
+name: Verify and publish Amiludo
 on:
   push:
     branches: [main]
@@ -80,6 +80,6 @@ jobs:
         run: flutter build apk --debug
       - uses: actions/upload-artifact@v7.0.2
         with:
-          name: compagnon-android-debug
+          name: amiludo-android-debug
           path: app/build/app/outputs/flutter-apk/app-debug.apk
           retention-days: 14
