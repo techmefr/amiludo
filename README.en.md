@@ -1,6 +1,6 @@
-# Board game companion — working name
+# Amiludo — board game companion
 
-An MIT-licensed, offline board game companion for mobile and web, with customizable retrofuturistic themes. The final name is still undecided.
+An MIT-licensed, offline board game companion for mobile and web, with customizable retrofuturistic themes. The application is named Amiludo.
 
 **[Try the web app](https://techmefr.github.io/ludoply/app/)** · [Android test releases](https://github.com/techmefr/ludoply/releases) · [Français](README.md)
 

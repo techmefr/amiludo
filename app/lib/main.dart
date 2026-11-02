@@ -103,7 +103,7 @@ class CompanionApp extends ConsumerWidget {
       }
     });
     return MaterialApp.router(
-      title: 'Compagnon',
+      title: 'Amiludo',
       debugShowCheckedModeBanner: false,
       routerConfig: router,
       locale: Locale(appearance.language),
@@ -247,7 +247,7 @@ class AppShell extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Compagnon',
+                      'Amiludo',
                       style: theme.textTheme.titleLarge?.copyWith(
                         color: theme.brightness == Brightness.dark
                             ? theme.colorScheme.primary
@@ -300,8 +300,8 @@ class AppShell extends ConsumerWidget {
                     Text(
                       tr(
                         context,
-                        'Alpha / nom provisoire\nSans compte. Sans publicité.',
-                        'Alpha / working name\nNo account. No ads.',
+                        'Amiludo · Alpha\nSans compte. Sans publicité.',
+                        'Amiludo · Alpha\nNo account. No ads.',
                       ),
                       style: theme.textTheme.bodySmall,
                     ),
@@ -334,7 +334,9 @@ class AppShell extends ConsumerWidget {
                         if (!desktop) const SizedBox(width: 16),
                         Expanded(
                           child: Text(
-                            items[index < 0 ? 0 : index].$3,
+                            'Amiludo · ${items[index < 0 ? 0 : index].$3}',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                               fontFamily: 'NunitoSans',
                               fontSize: 12,

@@ -61,12 +61,12 @@ Future<void> openProjectLink(BuildContext context, String url) async {
 
 void showProjectInfo(BuildContext context) => showAboutDialog(
   context: context,
-  applicationName: 'Compagnon',
+  applicationName: 'Amiludo',
   applicationVersion: appVersion,
   applicationLegalese: tr(
     context,
-    'Code sous licence MIT. Nom provisoire.',
-    'MIT-licensed code. Working name.',
+    'Code sous licence MIT.',
+    'MIT-licensed code.',
   ),
   applicationIcon: DeckIcon(
     Icons.diamond_outlined,

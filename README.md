@@ -1,10 +1,10 @@
-# Compagnon — nom provisoire
+# Amiludo
 
-[Présentation pour les joueurs (PDF)](docs/presentation/Compagnon-presentation-joueurs-v2.pdf) · [Catalogue cible élargi](docs/VISION-COMPLETE.md) · [English](README.en.md) · [Tester et donner un avis](TESTING.md) · [Contribuer](CONTRIBUTING.md)
+[Présentation pour les joueurs (PDF)](docs/presentation/Amiludo-presentation-joueurs.pdf) · [Catalogue cible élargi](docs/VISION-COMPLETE.md) · [English](README.en.md) · [Tester et donner un avis](TESTING.md) · [Contribuer](CONTRIBUTING.md)
 
 **Tous les outils. Autour de la table.**
 
-Compagnon open source pour les jeux de société, avec une direction illustrée Playroom et des thèmes personnalisables. Android, iOS et web à partir du même projet Flutter.
+Amiludo, compagnon open source pour les jeux de société, avec une direction illustrée Playroom et des thèmes personnalisables. Android, iOS et web à partir du même projet Flutter.
 
 **[Ouvrir l’application](https://techmefr.github.io/ludoply/app/)** · [APK Android de test](https://github.com/techmefr/ludoply/releases/download/v0.2.0-alpha.1/compagnon-0.2.0-alpha.1-android.apk) · [Maquettes](https://techmefr.github.io/ludoply/) · [État réel du développement](docs/APP-STATUS.md)
 
@@ -28,7 +28,7 @@ Playroom : illustrations originales de dés, cartes et pions, couleurs par outil
 
 Aucun compte ni serveur requis pour ces fonctions. Aucun affichage publicitaire. La version web possède un cache explicite ; une première ouverture connectée est nécessaire pour télécharger les ressources. La fiabilité native et les comportements en arrière-plan doivent encore être vérifiés sur de vrais téléphones.
 
-Le catalogue comprend aussi des fonctions **non implémentées**, notamment les salles partagées et leur serveur, les tournois, les cadences avancées et les intégrations. Cette alpha ne constitue pas la livraison de la totalité des 148 fonctions prévues. Le nom Ludoply reste uniquement l’identifiant historique du dépôt.
+Le catalogue comprend aussi des fonctions **non implémentées**, notamment les salles partagées et leur serveur, les tournois, les cadences avancées et les intégrations. Cette alpha ne constitue pas la livraison de la totalité des 148 fonctions prévues. Ludoply reste l’identifiant technique historique du dépôt pour conserver les liens déjà partagés.
 
 ## Développer
 

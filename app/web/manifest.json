@@ -1,13 +1,13 @@
 {
-  "name": "Compagnon — jeux de société",
-  "short_name": "Compagnon",
-  "description": "Scores, dés, hasard et temps autour de votre table.",
+  "name": "Amiludo — compagnon de jeux",
+  "short_name": "Amiludo",
+  "description": "Vos jeux, vos outils, votre compagnon. Scores, dés, rôles et personnages.",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#0b100f",
-  "theme_color": "#0b100f",
+  "background_color": "#fff9f0",
+  "theme_color": "#fff9f0",
   "icons": [
     {
       "src": "icons/Icon-192.png",

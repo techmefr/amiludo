@@ -1,6 +1,6 @@
-# Compagnon — Flutter app (alpha)
+# Amiludo — Flutter app (alpha)
 
-Application Android, iOS et web, nom provisoire. Flutter 3.47.9 / Dart 3.13.7. Code en couches fonctionnelles et techniques. Les maquettes HTML restent dans ../prototype.
+Application Android, iOS et web. Flutter 3.47.9 / Dart 3.13.7. Code en couches fonctionnelles et techniques. Les maquettes HTML restent dans ../prototype.
 
 ## Lancer
 
