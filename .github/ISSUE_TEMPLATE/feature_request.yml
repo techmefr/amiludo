@@ -1,0 +1,25 @@
+name: Proposer une fonction / Suggest a feature
+description: Décrire un besoin autour de la table
+labels: [enhancement]
+body:
+  - type: textarea
+    id: usecase
+    attributes:
+      label: Jeu et besoin / Game and use case
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Comportement souhaité / Proposed behavior
+    validations:
+      required: true
+  - type: input
+    id: catalogue
+    attributes:
+      label: Référence du catalogue si connue / Catalogue reference if known
+      placeholder: F001
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives et contraintes / Alternatives and constraints

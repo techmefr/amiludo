@@ -259,6 +259,18 @@ class AppearanceScreen extends ConsumerWidget {
               ),
               SwitchListTile(
                 contentPadding: EdgeInsets.zero,
+                title: Text(tr(context, 'Sons des alertes', 'Alert sounds')),
+                value: a.sound,
+                onChanged: (v) => controller.appearance(a.copyWith(sound: v)),
+              ),
+              SwitchListTile(
+                contentPadding: EdgeInsets.zero,
+                title: Text(tr(context, 'Vibrations', 'Haptic feedback')),
+                value: a.haptics,
+                onChanged: (v) => controller.appearance(a.copyWith(haptics: v)),
+              ),
+              SwitchListTile(
+                contentPadding: EdgeInsets.zero,
                 title: Text(
                   tr(
                     context,

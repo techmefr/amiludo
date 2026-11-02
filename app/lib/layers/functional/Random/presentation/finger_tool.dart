@@ -1,13 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
+import '../../../technical/Feedback/device_feedback.dart';
 
 import '../../../technical/Theme/deck_widgets.dart';
 import '../domain/random_tools.dart';
 
 class FingerTool extends StatefulWidget {
-  const FingerTool({super.key, required this.names});
+  const FingerTool({super.key, required this.names, this.haptics = true});
+  final bool haptics;
   final List<String> names;
   @override
   State<FingerTool> createState() => _FingerToolState();
@@ -31,7 +33,7 @@ class _FingerToolState extends State<FingerTool> {
           );
           drawn = true;
         });
-        HapticFeedback.selectionClick();
+        DeviceFeedback.selection(haptics: widget.haptics);
       });
     }
   }

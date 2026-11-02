@@ -95,7 +95,7 @@
     "title": "Animations, sons et vibrations désactivables",
     "group": "Accès et expérience",
     "phase": "MVP",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "F015",

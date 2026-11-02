@@ -1,6 +1,6 @@
 # Application — état réel
 
-Version alpha 0.1.0. Code Flutter dans app/. Le nom est provisoire. Les maquettes HTML restent disponibles ; l’application est publiée séparément dans /app/.
+Version alpha 0.1.1. Code Flutter dans app/. Le nom est provisoire. Les maquettes HTML restent disponibles ; l’application est publiée séparément dans /app/.
 
 ## Réalisé
 
@@ -10,7 +10,7 @@ Trois univers, dix palettes et sept polices embarquées ; le thème s’applique
 
 ## Vérifié
 
-20 tests couvrent les scores par manche et catégorie, égalités, coopération, annulation/rétablissement, rotation, imports, sauvegardes, SQLite, écritures concurrentes, isolation des horloges entre tables, tirages, dés, temps et le parcours de création de partie. Les parcours navigateur et le fonctionnement hors connexion sont également contrôlés avant publication.
+26 tests couvrent les scores par manche et catégorie, égalités, coopération, annulation/rétablissement, rotation, imports, sauvegardes, SQLite, écritures concurrentes, isolation des horloges entre tables, tirages, dés, temps et le parcours de création de partie. Les parcours navigateur et le fonctionnement hors connexion sont également contrôlés avant publication.
 
 ## À réaliser
 
@@ -23,4 +23,6 @@ Une police de secours pour les symboles est également embarquée, et la roue re
 
 Le lien public a été testé dans Chromium : création de partie, scores persistants, rechargement sans réseau et nouvelle modification de score. Le chargement de l’interface ne sollicite plus de police ou de moteur externe pour les écrans vérifiés. Les sept choix de police ont également été contrôlés.
 
-Les contrôles locaux et GitHub comprennent 20 tests Flutter et un test de régression du paquet hors connexion. Les parcours navigateur couvrent aussi l’éditeur de modèles, le CSV et les onglets mobiles. Les cases du catalogue indiquent ce périmètre alpha, et non une validation exhaustive de tous les appareils.
+Les contrôles locaux et GitHub comprennent 26 tests Flutter et un test de régression du paquet hors connexion. Les parcours navigateur couvrent aussi l’éditeur de modèles, le CSV et les onglets mobiles. Les cases du catalogue indiquent ce périmètre alpha, et non une validation exhaustive de tous les appareils.
+
+L’alpha 0.1.1 ajoute les réglages séparés de sons et vibrations, un écran À propos et les liens de retour. Le guide TESTING.md et les formulaires publics accompagnent les essais.

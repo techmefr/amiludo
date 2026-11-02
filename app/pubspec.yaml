@@ -2,7 +2,7 @@ name: table_companion
 description: "Open-source offline board game companion."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 0.1.0+1
+version: 0.1.1+2
 
 environment:
   sdk: ^3.13.7
@@ -21,6 +21,7 @@ dependencies:
   wakelock_plus: ^1.8.2
   flutter_localizations:
     sdk: flutter
+  url_launcher: ^6.3.3
 
 dev_dependencies:
   flutter_test:

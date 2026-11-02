@@ -1,5 +1,7 @@
 # Compagnon — nom provisoire
 
+[English](README.en.md) · [Tester et donner un avis](TESTING.md) · [Contribuer](CONTRIBUTING.md)
+
 **Tous les outils. Autour de la table.**
 
 Compagnon open source pour les jeux de société, avec une direction rétrofuturiste Cyberdeck. Android, iOS et web à partir du même projet Flutter.
@@ -13,7 +15,8 @@ Compagnon open source pour les jeux de société, avec une direction rétrofutur
 - Dés multiples verrouillables, expressions et symboles ; choix du premier joueur, équipes, ordre, pièce, roue pondérée, nombres, sac de jetons et rôles secrets.
 - Six modèles intégrés exécutables et éditeur de modèles importables et partageables.
 - SQLite local, historique, JSON, CSV, sauvegarde/restauration complète et suppression confirmée.
-- Trois univers, dix palettes, sept polices embarquées et profils personnels.
+- Trois univers, dix palettes, sept polices embarquées et profils personnels ; sons, vibrations et animations désactivables.
+- Écran À propos avec version, signalement de bugs et licences.
 
 Aucun compte ni serveur requis pour ces fonctions. Aucun affichage publicitaire. La version web possède un cache explicite ; une première ouverture connectée est nécessaire pour télécharger les ressources. La fiabilité native et les comportements en arrière-plan doivent encore être vérifiés sur de vrais téléphones.
 

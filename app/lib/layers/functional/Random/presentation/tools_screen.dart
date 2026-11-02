@@ -43,7 +43,7 @@ class _ToolsScreenState extends ConsumerState<ToolsScreen> {
             ws.current?.players.map((p) => p.name).toList() ?? ws.playerNames;
     final child = switch (id) {
       'dice' => const DiceTool(),
-      'picker' => FingerTool(names: names),
+      'picker' => FingerTool(names: names, haptics: ws.appearance.haptics),
       _ => RandomTool(id: id, names: names),
     };
     await showFormDialog<void>(

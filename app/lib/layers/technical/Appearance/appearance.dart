@@ -8,11 +8,13 @@ class Appearance {
     this.compact = false,
     this.large = false,
     this.motion = true,
+    this.sound = true,
+    this.haptics = true,
     this.keepAwake = true,
     this.language = 'fr',
   });
   final String skin, palette, mode, font, shape, language;
-  final bool compact, large, motion, keepAwake;
+  final bool compact, large, motion, keepAwake, sound, haptics;
   static const palettes = [
     'acid',
     'neon',
@@ -43,6 +45,8 @@ class Appearance {
     bool? compact,
     bool? large,
     bool? motion,
+    bool? sound,
+    bool? haptics,
     bool? keepAwake,
     String? language,
   }) => Appearance(
@@ -54,6 +58,8 @@ class Appearance {
     compact: compact ?? this.compact,
     large: large ?? this.large,
     motion: motion ?? this.motion,
+    sound: sound ?? this.sound,
+    haptics: haptics ?? this.haptics,
     keepAwake: keepAwake ?? this.keepAwake,
     language: language ?? this.language,
   );
@@ -66,6 +72,8 @@ class Appearance {
     'compact': compact,
     'large': large,
     'motion': motion,
+    'sound': sound,
+    'haptics': haptics,
     'keepAwake': keepAwake,
     'language': language,
   };
@@ -89,6 +97,8 @@ class Appearance {
       compact: j['compact'] as bool? ?? j['density'] == 'compact',
       large: j['large'] as bool? ?? false,
       motion: j['motion'] as bool? ?? true,
+      sound: j['sound'] as bool? ?? true,
+      haptics: j['haptics'] as bool? ?? true,
       keepAwake: j['keepAwake'] as bool? ?? true,
       language: j['language'] as String? ?? 'fr',
     );

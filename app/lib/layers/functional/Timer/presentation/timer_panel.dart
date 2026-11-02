@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
+import '../../../technical/Feedback/device_feedback.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../technical/Theme/deck_widgets.dart';
@@ -31,8 +33,10 @@ class _TimerPanelState extends ConsumerState<TimerPanel> {
           !alerted) {
         alerted = true;
         controller.clock(ws.clock.pause(controller.time.now));
-        HapticFeedback.heavyImpact();
-        SystemSound.play(SystemSoundType.alert);
+        DeviceFeedback.expired(
+          sound: ws.appearance.sound,
+          haptics: ws.appearance.haptics,
+        );
         notify(
           context,
           tr(

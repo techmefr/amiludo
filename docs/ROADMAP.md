@@ -24,4 +24,4 @@ Prototype de salles et QR code avant choix définitif du serveur. Définir autor
 
 ## 5 — Tournois et intégrations
 
-Extensions indépendantes, selon les usages observés et les contributions. Pas de place de marché ou d’IA obligatoire dans le périmètre initial.
+Extensions indépendantes, selon les usages observés et les contributions. La priorité reste un compagnon local, accessible et personnalisable.

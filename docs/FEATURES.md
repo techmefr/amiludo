@@ -19,7 +19,7 @@ Le produit combine un accès immédiat aux outils et un mode partie qui partage 
 - [x] F011 — Grandes commandes utilisables autour de la table
 - [x] F012 — Couleurs accompagnées de noms ou symboles
 - [ ] F013 — Taille du texte et lecteurs d’écran
-- [ ] F014 — Animations, sons et vibrations désactivables
+- [x] F014 — Animations, sons et vibrations désactivables
 - [x] F015 — Maintien de l’écran allumé pendant une partie
 
 ## Joueurs et préparation — MVP

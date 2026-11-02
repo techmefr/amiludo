@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 import 'layers/technical/Appearance/appearance.dart';
+import 'layers/technical/About/app_info.dart';
 import 'layers/technical/Theme/deck_theme.dart';
 import 'layers/technical/Theme/deck_widgets.dart';
 import 'layers/functional/Workspace/workspace_controller.dart';
@@ -18,6 +19,7 @@ import 'layers/functional/Timer/presentation/timer_panel.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  registerFontLicenses();
   runApp(const ProviderScope(child: CompanionApp()));
 }
 
@@ -300,9 +302,18 @@ class AppShell extends ConsumerWidget {
                         ),
                         if (desktop)
                           Text(
-                            'ALPHA / LOCAL',
+                            'ALPHA / $appVersion',
                             style: theme.textTheme.labelSmall,
                           ),
+                        IconButton(
+                          tooltip: tr(
+                            context,
+                            'À propos et retours',
+                            'About and feedback',
+                          ),
+                          onPressed: () => showProjectInfo(context),
+                          icon: const Icon(Icons.info_outline, size: 20),
+                        ),
                         IconButton(
                           tooltip: tr(context, 'Historique', 'History'),
                           onPressed: () => context.go('/history'),

@@ -1,0 +1,46 @@
+name: Signaler un bug / Report a bug
+description: Un problème reproductible dans l’application
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Visible dans À propos / Shown in About
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Plateforme / Platform
+      options:
+        - Web ordinateur / desktop
+        - Web Android
+        - Web iPhone ou iPad
+        - APK Android
+        - Compilation locale / local build
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Appareil, système et navigateur / Device, OS and browser
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Étapes de reproduction / Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Résultat attendu et résultat observé / Expected and actual result
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Captures ou précisions / Screenshots or details
+      description: Utiliser des données fictives. Ne pas joindre de sauvegarde personnelle.
