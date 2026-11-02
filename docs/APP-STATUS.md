@@ -26,3 +26,7 @@ Le lien public a été testé dans Chromium : création de partie, scores persis
 Les contrôles locaux et GitHub comprennent 26 tests Flutter et un test de régression du paquet hors connexion. Les parcours navigateur couvrent aussi l’éditeur de modèles, le CSV et les onglets mobiles. Les cases du catalogue indiquent ce périmètre alpha, et non une validation exhaustive de tous les appareils.
 
 L’alpha 0.1.1 ajoute les réglages séparés de sons et vibrations, un écran À propos et les liens de retour. Le guide TESTING.md et les formulaires publics accompagnent les essais.
+
+La version publique 0.1.1 a passé les 26 tests Flutter, le test du cache et les compilations web/Android. Le site déployé a été contrôlé : numéro de version, ouverture du formulaire de bug, scores persistants et rechargement hors connexion. Les réglages de sons/vibrations et l’accès aux licences de polices ont été vérifiés sur Chromium à une largeur mobile. Cela ne remplace pas les essais sur téléphones physiques.
+
+APK : https://github.com/techmefr/ludoply/releases/tag/v0.1.1-alpha.1
