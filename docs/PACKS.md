@@ -26,3 +26,5 @@ Les calculs sont des opérations déclaratives limitées, pas un arbitre univers
 Les essais de multitouch sur appareils physiques restent nécessaires. Les créations en cours et tirages d’outils ne sont pas restaurés ; enregistrer une fiche ou un pack pour le conserver.
 
 Le mode libre ouvre les outils sans pack. Un compagnon par jeu rassemble les modules configurés dans un tableau de bord. Les icônes de l’interface utilisent Hugeicons Free, sous licence MIT ; elles sont incluses dans la compilation et ne demandent aucun chargement externe.
+
+Le builder se parcourt par étapes : nom local et anglais, sélection des modes, réglage des seuls modes choisis, résumé. Les métadonnées de publication restent repliées. Les outils non sélectionnés ne sont pas imposés au compagnon du jeu.

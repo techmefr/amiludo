@@ -63,9 +63,27 @@ void main() {
       find.widgetWithText(TextField, 'Nom du jeu ou du pack'),
       'My pack',
     );
+    await tester.enterText(
+      find.widgetWithText(TextField, 'Nom du jeu en anglais'),
+      'My game',
+    );
+    await tester.ensureVisible(find.text('Continuer'));
+    await tester.tap(find.text('Continuer'));
+    await tester.pump();
+    await tester.ensureVisible(find.text('Lancer les dés'));
+    await tester.tap(find.text('Lancer les dés'));
+    await tester.pump();
+    await tester.ensureVisible(find.text('Continuer'));
+    await tester.tap(find.text('Continuer'));
+    await tester.pump();
     await tester.ensureVisible(find.text('Ajouter un dé'));
     await tester.tap(find.text('Ajouter un dé'));
     await tester.pump();
+    while (find.text('Enregistrer le pack').evaluate().isEmpty) {
+      await tester.ensureVisible(find.text('Continuer'));
+      await tester.tap(find.text('Continuer'));
+      await tester.pump();
+    }
     await tester.ensureVisible(find.text('Enregistrer le pack'));
     await tester.tap(find.text('Enregistrer le pack'));
     await tester.pumpAndSettle();

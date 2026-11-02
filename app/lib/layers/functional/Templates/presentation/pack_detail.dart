@@ -11,6 +11,7 @@ import '../../../technical/About/app_info.dart';
 import '../../Workspace/workspace_controller.dart';
 import '../../Workspace/presentation/game_setup.dart';
 import '../domain/game_template.dart';
+import '../../Random/domain/tool_catalog.dart';
 
 class PackDetail extends ConsumerWidget {
   const PackDetail({super.key, required this.id, this.snapshot = false});
@@ -50,6 +51,8 @@ class PackDetail extends ConsumerWidget {
           ),
           if (p.edition.isNotEmpty) Text(p.edition),
           const SizedBox(height: 24),
+          if (p.englishName.isNotEmpty && p.englishName != p.name)
+            Text(p.englishName),
           Wrap(
             spacing: 12,
             runSpacing: 12,
@@ -58,30 +61,24 @@ class PackDetail extends ConsumerWidget {
                 onPressed: () => showNewGame(context, ref, template: p),
                 child: const Text('Jouer avec ce pack'),
               ),
-              if (p.creation.isNotEmpty)
+              for (final t in toolDefinitions.where(
+                (t) => p.modules.contains(t.id) && t.id != 'scores',
+              ))
                 OutlinedButton(
                   onPressed: () => context.push(
-                    '/tools/character?pack=${p.id}${snapshot ? '&session=1' : ''}',
+                    '/tools/${t.id}?pack=${p.id}${snapshot ? '&session=1' : ''}',
                   ),
-                  child: const Text('Créer un personnage'),
-                ),
-              if (p.dice.isNotEmpty)
-                OutlinedButton(
-                  onPressed: () => context.push(
-                    '/tools/dice?pack=${p.id}${snapshot ? '&session=1' : ''}',
+                  child: Text(
+                    t.id == 'character' ? 'Créer un personnage' : t.title,
                   ),
-                  child: const Text('Dés du jeu'),
-                ),
-              if (p.roles.isNotEmpty)
-                OutlinedButton(
-                  onPressed: () => context.push(
-                    '/tools/roles?pack=${p.id}${snapshot ? '&session=1' : ''}',
-                  ),
-                  child: const Text('Rôles du jeu'),
                 ),
               OutlinedButton(
                 onPressed: () => context.push('/builder/${p.id}'),
                 child: const Text('Personnaliser'),
+              ),
+              TextButton(
+                onPressed: () => context.go('/tools'),
+                child: const Text('Tous les outils en mode libre'),
               ),
             ],
           ),

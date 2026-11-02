@@ -18,6 +18,8 @@ class GameTemplate {
     this.rulesNotes = '',
     this.edition = '',
     this.language = 'fr',
+    this.englishName = '',
+    this.modules = const ['scores', 'timer'],
     this.dice = const [],
     this.roles = const [],
     this.scoring = const [],
@@ -25,6 +27,8 @@ class GameTemplate {
   });
   final String id, name, description, author, license;
   final String revision, rulesUrl, rulesNotes, edition, language;
+  final String englishName;
+  final List<String> modules;
   final List<GameDie> dice;
   final List<GameRole> roles;
   final List<ScoreRule> scoring;
@@ -36,6 +40,8 @@ class GameTemplate {
   Map<String, Object?> toJson() => {
     'id': id,
     'name': name,
+    'englishName': englishName.isEmpty ? name : englishName,
+    'modules': modules,
     'description': description,
     'categories': categories,
     'target': target,
@@ -58,6 +64,20 @@ class GameTemplate {
     final result = GameTemplate(
       id: j['id'] as String,
       name: j['name'] as String,
+      englishName: j['englishName'] as String? ?? j['name'] as String,
+      modules: List<String>.from(
+        j['modules'] as List? ??
+            [
+              'scores',
+              'timer',
+              if ((j['dice'] as List? ?? []).isNotEmpty) 'dice',
+              if ((j['roles'] as List? ?? []).isNotEmpty) 'roles',
+              if ((j['creation'] as List? ?? []).isNotEmpty) 'character',
+              if ((j['rulesNotes'] as String? ?? '').isNotEmpty ||
+                  (j['rulesUrl'] as String? ?? '').isNotEmpty)
+                'rules',
+            ],
+      ),
       description: j['description'] as String? ?? '',
       categories: List<String>.from(j['categories'] as List? ?? ['Points']),
       target: (j['target'] as num? ?? 0).toDouble(),
@@ -87,7 +107,29 @@ class GameTemplate {
           .map((v) => ScoreRule.fromJson(Map<String, dynamic>.from(v as Map)))
           .toList(),
     );
-    if (result.language.isEmpty ||
+    if (result.englishName.trim().isEmpty ||
+        result.englishName.length > 80 ||
+        result.modules.isEmpty ||
+        result.modules.length > 13 ||
+        result.modules.toSet().length != result.modules.length ||
+        result.modules.any(
+          (v) => ![
+            'scores',
+            'timer',
+            'dice',
+            'roles',
+            'character',
+            'rules',
+            'picker',
+            'teams',
+            'wheel',
+            'coin',
+            'order',
+            'number',
+            'bag',
+          ].contains(v),
+        ) ||
+        result.language.isEmpty ||
         result.language.length > 20 ||
         result.creation.length > 16 ||
         result.creation.map((c) => c.name).toSet().length !=

@@ -99,9 +99,9 @@ class _MarketplaceScreenState extends ConsumerState<MarketplaceScreen> {
     final shown = packs
         .where(
           (p) =>
-              '${p.name} ${p.description} ${p.author}'.toLowerCase().contains(
-                query.toLowerCase(),
-              ) &&
+              '${p.name} ${p.englishName} ${p.description} ${p.author}'
+                  .toLowerCase()
+                  .contains(query.toLowerCase()) &&
               (filter == 'Tous' ||
                   filter == 'Dés' && p.dice.isNotEmpty ||
                   filter == 'Rôles' && p.roles.isNotEmpty ||
