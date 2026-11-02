@@ -124,7 +124,7 @@ class AppearanceScreen extends ConsumerWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(
+                      DeckIcon(
                         id == 'cyber'
                             ? Icons.hexagon_outlined
                             : id == 'orbital'
@@ -306,7 +306,7 @@ class AppearanceScreen extends ConsumerWidget {
                   await controller.saveProfile(name.trim());
                 }
               },
-              icon: const Icon(Icons.add),
+              icon: const DeckIcon(Icons.add),
               label: Text(
                 tr(context, 'Enregistrer ce style', 'Save this style'),
               ),
@@ -343,7 +343,7 @@ class AppearanceScreen extends ConsumerWidget {
                 trailing: IconButton(
                   tooltip: tr(context, 'Supprimer ce profil', 'Delete profile'),
                   onPressed: () => controller.removeProfile(i),
-                  icon: const Icon(Icons.close),
+                  icon: const DeckIcon(Icons.close),
                 ),
               ),
             ),

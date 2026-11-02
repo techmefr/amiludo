@@ -145,7 +145,7 @@ class _FingerToolState extends State<FingerTool> {
                             ),
                           ),
                           child: winner == entry.key
-                              ? Icon(
+                              ? DeckIcon(
                                   Icons.check,
                                   color: theme.colorScheme.onPrimary,
                                 )
@@ -232,7 +232,7 @@ class _FingerToolState extends State<FingerTool> {
                           ),
                         ),
                         child: winner == entry.key
-                            ? Icon(
+                            ? DeckIcon(
                                 Icons.check,
                                 color: theme.colorScheme.onPrimary,
                               )

@@ -44,7 +44,7 @@ class HomeScreen extends ConsumerWidget {
           ),
           action: OutlinedButton.icon(
             onPressed: () => showNewGame(context, ref),
-            icon: const Icon(Icons.add, size: 18),
+            icon: const DeckIcon(Icons.add, size: 18),
             label: Text(tr(context, 'Nouvelle partie', 'New game')),
           ),
         ),
@@ -89,10 +89,17 @@ class HomeScreen extends ConsumerWidget {
                       const SizedBox(height: 24),
                       FilledButton.icon(
                         onPressed: () => context.go('/tools'),
-                        icon: const Icon(Icons.arrow_outward, size: 18),
-                        label: Text(
-                          tr(context, 'Explorer les outils', 'Explore tools'),
+                        icon: const DeckIcon(Icons.arrow_outward, size: 18),
+                        label: Text(tr(context, 'Mode libre', 'Free mode')),
+                      ),
+                      const SizedBox(height: 12),
+                      OutlinedButton.icon(
+                        onPressed: () => context.go('/templates'),
+                        icon: const DeckIcon(
+                          Icons.dashboard_outlined,
+                          size: 18,
                         ),
+                        label: const Text('Mes compagnons par jeu'),
                       ),
                     ],
                   ),
@@ -163,7 +170,10 @@ class HomeScreen extends ConsumerWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(toolIcon(t.id), color: theme.colorScheme.primary),
+                      DeckIcon(
+                        toolIcon(t.id),
+                        color: theme.colorScheme.primary,
+                      ),
                       const SizedBox(height: 20),
                       Text(
                         t.title.toUpperCase(),
@@ -209,7 +219,7 @@ class HomeScreen extends ConsumerWidget {
               padding: 20,
               child: Row(
                 children: [
-                  Icon(
+                  DeckIcon(
                     Icons.emoji_events_outlined,
                     color: theme.colorScheme.primary,
                   ),

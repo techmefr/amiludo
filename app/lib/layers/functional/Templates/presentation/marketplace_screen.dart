@@ -126,7 +126,7 @@ class _MarketplaceScreenState extends ConsumerState<MarketplaceScreen> {
             children: [
               FilledButton.icon(
                 onPressed: loading ? null : refresh,
-                icon: const Icon(Icons.refresh),
+                icon: const DeckIcon(Icons.refresh),
                 label: const Text('Actualiser la galerie'),
               ),
               OutlinedButton(
@@ -156,7 +156,7 @@ class _MarketplaceScreenState extends ConsumerState<MarketplaceScreen> {
           TextField(
             decoration: const InputDecoration(
               labelText: 'Rechercher un jeu, un pack ou un auteur',
-              prefixIcon: Icon(Icons.search),
+              prefixIcon: DeckIcon(Icons.search),
             ),
             onChanged: (v) => setState(() => query = v),
           ),

@@ -273,7 +273,7 @@ class _RandomToolState extends State<RandomTool>
             child: Center(
               child: Column(
                 children: [
-                  Icon(
+                  DeckIcon(
                     Icons.arrow_drop_down,
                     size: 32,
                     color: theme.colorScheme.primary,

@@ -52,7 +52,7 @@ class TemplatesScreen extends ConsumerWidget {
             'Vos règles / vos parties',
             'Your rules / your games',
           ),
-          title: tr(context, 'Votre prochaine partie', 'Your next game'),
+          title: tr(context, 'Vos compagnons de jeu', 'Your game companions'),
           subtitle: tr(
             context,
             'Vos packs réunissent dés, rôles, décompte et références de règles.',
@@ -60,8 +60,8 @@ class TemplatesScreen extends ConsumerWidget {
           ),
           action: FilledButton.icon(
             onPressed: () => create(context, ref),
-            icon: const Icon(Icons.add),
-            label: Text(tr(context, 'Créer un modèle', 'Create template')),
+            icon: const DeckIcon(Icons.add),
+            label: Text(tr(context, 'Créer un compagnon', 'Create companion')),
           ),
         ),
         Padding(
@@ -72,12 +72,12 @@ class TemplatesScreen extends ConsumerWidget {
             children: [
               OutlinedButton.icon(
                 onPressed: () => context.push('/marketplace'),
-                icon: const Icon(Icons.storefront_outlined),
+                icon: const DeckIcon(Icons.storefront_outlined),
                 label: const Text('Galerie communautaire'),
               ),
               OutlinedButton.icon(
                 onPressed: () => importTemplate(context, ref),
-                icon: const Icon(Icons.file_open_outlined),
+                icon: const DeckIcon(Icons.file_open_outlined),
                 label: Text(
                   tr(
                     context,
@@ -97,7 +97,7 @@ class TemplatesScreen extends ConsumerWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(
+                      DeckIcon(
                         t.cooperative
                             ? Icons.groups_outlined
                             : t.lowestWins

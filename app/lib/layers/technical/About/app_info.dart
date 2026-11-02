@@ -68,7 +68,7 @@ void showProjectInfo(BuildContext context) => showAboutDialog(
     'Code sous licence MIT. Nom provisoire.',
     'MIT-licensed code. Working name.',
   ),
-  applicationIcon: Icon(
+  applicationIcon: DeckIcon(
     Icons.diamond_outlined,
     size: 40,
     color: Theme.of(context).colorScheme.primary,
@@ -89,12 +89,12 @@ void showProjectInfo(BuildContext context) => showAboutDialog(
       children: [
         TextButton.icon(
           onPressed: () => openProjectLink(context, bugReportUrl),
-          icon: const Icon(Icons.bug_report_outlined),
+          icon: const DeckIcon(Icons.bug_report_outlined),
           label: Text(tr(context, 'Signaler un bug', 'Report a bug')),
         ),
         TextButton.icon(
           onPressed: () => openProjectLink(context, featureRequestUrl),
-          icon: const Icon(Icons.lightbulb_outline),
+          icon: const DeckIcon(Icons.lightbulb_outline),
           label: Text(tr(context, 'Proposer une idée', 'Suggest an idea')),
         ),
       ],

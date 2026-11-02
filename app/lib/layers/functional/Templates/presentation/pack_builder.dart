@@ -171,7 +171,7 @@ class _PackBuilderState extends ConsumerState<PackBuilder> {
   );
   Widget remove(String label, VoidCallback action) => TextButton.icon(
     onPressed: () => setState(action),
-    icon: const Icon(Icons.delete_outline),
+    icon: const DeckIcon(Icons.delete_outline),
     label: Text(label),
   );
   @override
@@ -256,7 +256,7 @@ class _PackBuilderState extends ConsumerState<PackBuilder> {
                                   (_) => f.dispose(),
                                 );
                               }),
-                              icon: const Icon(Icons.remove_circle_outline),
+                              icon: const DeckIcon(Icons.remove_circle_outline),
                             ),
                           ],
                         ),
@@ -281,7 +281,7 @@ class _PackBuilderState extends ConsumerState<PackBuilder> {
             onPressed: dice.length >= 16
                 ? null
                 : () => setState(() => dice.add(DieDraft(null))),
-            icon: const Icon(Icons.add),
+            icon: const DeckIcon(Icons.add),
             label: const Text('Ajouter un dé'),
           ),
           const SectionHeading('02 / Rôles du jeu'),
@@ -318,7 +318,7 @@ class _PackBuilderState extends ConsumerState<PackBuilder> {
             onPressed: roles.length >= 32
                 ? null
                 : () => setState(() => roles.add(RoleDraft(null))),
-            icon: const Icon(Icons.add),
+            icon: const DeckIcon(Icons.add),
             label: const Text('Ajouter un rôle'),
           ),
           const SectionHeading('03 / Décompte des points'),
@@ -400,7 +400,7 @@ class _PackBuilderState extends ConsumerState<PackBuilder> {
             onPressed: rules.length >= 32
                 ? null
                 : () => setState(() => rules.add(RuleDraft(null))),
-            icon: const Icon(Icons.add),
+            icon: const DeckIcon(Icons.add),
             label: const Text('Ajouter une catégorie'),
           ),
           const SizedBox(height: 20),
@@ -477,7 +477,7 @@ class _PackBuilderState extends ConsumerState<PackBuilder> {
             onPressed: creation.length >= 16
                 ? null
                 : () => setState(() => creation.add(CreationDraft(null))),
-            icon: const Icon(Icons.add),
+            icon: const DeckIcon(Icons.add),
             label: const Text('Ajouter une catégorie de personnage'),
           ),
           const SectionHeading('05 / Règles et références'),
@@ -504,7 +504,7 @@ class _PackBuilderState extends ConsumerState<PackBuilder> {
             ),
           FilledButton.icon(
             onPressed: save,
-            icon: const Icon(Icons.save_outlined),
+            icon: const DeckIcon(Icons.save_outlined),
             label: const Text('Enregistrer le pack'),
           ),
         ],

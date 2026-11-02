@@ -159,7 +159,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
                               'Joueur actif',
                               'Active player',
                             ),
-                            child: Icon(
+                            child: DeckIcon(
                               Icons.play_arrow,
                               size: 20,
                               color: theme.colorScheme.primary,
@@ -211,7 +211,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
                               'Custom value',
                             ),
                             onPressed: () => customScore(g.players[i]),
-                            icon: const Icon(Icons.edit_outlined),
+                            icon: const DeckIcon(Icons.edit_outlined),
                           ),
                         ],
                       ),
@@ -237,7 +237,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
                     if (g.finishedAt == null)
                       TextButton.icon(
                         onPressed: () => resource(g.players[i]),
-                        icon: const Icon(Icons.add, size: 16),
+                        icon: const DeckIcon(Icons.add, size: 16),
                         label: Text(tr(context, 'Compteur', 'Counter')),
                       ),
                   ],
@@ -253,19 +253,19 @@ class _GameScreenState extends ConsumerState<GameScreen> {
             children: [
               OutlinedButton.icon(
                 onPressed: g.cursor > 0 ? () => controller.undo() : null,
-                icon: const Icon(Icons.undo, size: 18),
+                icon: const DeckIcon(Icons.undo, size: 18),
                 label: Text(tr(context, 'Annuler', 'Undo')),
               ),
               OutlinedButton.icon(
                 onPressed: g.cursor < g.entries.length
                     ? () => controller.redo()
                     : null,
-                icon: const Icon(Icons.redo, size: 18),
+                icon: const DeckIcon(Icons.redo, size: 18),
                 label: Text(tr(context, 'Rétablir', 'Redo')),
               ),
               FilledButton.icon(
                 onPressed: () => controller.nextTurn(),
-                icon: const Icon(Icons.skip_next, size: 18),
+                icon: const DeckIcon(Icons.skip_next, size: 18),
                 label: Text(tr(context, 'Au suivant', 'Next player')),
               ),
             ],
@@ -309,7 +309,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
                 await controller.game(g.copyWith(notes: notes));
               }
             },
-            icon: const Icon(Icons.edit_note),
+            icon: const DeckIcon(Icons.edit_note),
           ),
         ),
         DeckPanel(
@@ -375,7 +375,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
                   onPressed: () => controller.saveWorkspace(
                     ws.copyWith(reverse: !ws.reverse),
                   ),
-                  icon: Icon(
+                  icon: DeckIcon(
                     ws.reverse ? Icons.rotate_left : Icons.rotate_right,
                     size: 18,
                   ),

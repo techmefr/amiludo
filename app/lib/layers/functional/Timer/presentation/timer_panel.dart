@@ -210,7 +210,9 @@ class _TimerPanelState extends ConsumerState<TimerPanel> {
             children: [
               FilledButton.icon(
                 onPressed: () => controller.toggleClock(),
-                icon: Icon(ws.clock.isRunning ? Icons.pause : Icons.play_arrow),
+                icon: DeckIcon(
+                  ws.clock.isRunning ? Icons.pause : Icons.play_arrow,
+                ),
                 label: Text(
                   ws.clock.isRunning
                       ? tr(context, 'Pause', 'Pause')
@@ -220,12 +222,12 @@ class _TimerPanelState extends ConsumerState<TimerPanel> {
               IconButton(
                 tooltip: tr(context, 'Réinitialiser', 'Reset'),
                 onPressed: () => controller.clock(ws.clock.reset()),
-                icon: const Icon(Icons.restart_alt),
+                icon: const DeckIcon(Icons.restart_alt),
               ),
               IconButton(
                 tooltip: tr(context, 'Réglages du minuteur', 'Timer settings'),
                 onPressed: configure,
-                icon: const Icon(Icons.tune),
+                icon: const DeckIcon(Icons.tune),
               ),
             ],
           ),

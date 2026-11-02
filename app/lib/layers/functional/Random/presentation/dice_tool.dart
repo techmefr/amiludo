@@ -179,7 +179,7 @@ class _DiceToolState extends State<DiceTool> {
         const SizedBox(height: 20),
         FilledButton.icon(
           onPressed: roll,
-          icon: const Icon(Icons.casino_outlined),
+          icon: const DeckIcon(Icons.casino_outlined),
           label: Text(tr(context, 'Lancer les dés', 'Roll dice')),
         ),
         const SizedBox(height: 12),
@@ -202,7 +202,7 @@ class _DiceToolState extends State<DiceTool> {
             ),
             suffixIcon: IconButton(
               tooltip: tr(context, 'Évaluer', 'Evaluate'),
-              icon: const Icon(Icons.play_arrow),
+              icon: const DeckIcon(Icons.play_arrow),
               onPressed: () {
                 try {
                   final result = random.evaluate(expression.text);

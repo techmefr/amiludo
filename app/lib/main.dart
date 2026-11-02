@@ -279,7 +279,7 @@ class AppShell extends ConsumerWidget {
                               : theme.colorScheme.onSurface,
                           selectedTileColor:
                               theme.colorScheme.surfaceContainerHighest,
-                          leading: Icon(icon, size: 20),
+                          leading: DeckIcon(icon, size: 20),
                           title: Text(
                             label,
                             style: const TextStyle(fontSize: 13),
@@ -353,12 +353,12 @@ class AppShell extends ConsumerWidget {
                             'About and feedback',
                           ),
                           onPressed: () => showProjectInfo(context),
-                          icon: const Icon(Icons.info_outline, size: 20),
+                          icon: const DeckIcon(Icons.info_outline, size: 20),
                         ),
                         IconButton(
                           tooltip: tr(context, 'Historique', 'History'),
                           onPressed: () => context.go('/history'),
-                          icon: const Icon(Icons.history, size: 20),
+                          icon: const DeckIcon(Icons.history, size: 20),
                         ),
                         IconButton(
                           tooltip: tr(
@@ -378,7 +378,7 @@ class AppShell extends ConsumerWidget {
                                       ),
                                     )
                               : null,
-                          icon: const Icon(Icons.contrast, size: 20),
+                          icon: const DeckIcon(Icons.contrast, size: 20),
                         ),
                       ],
                     ),
@@ -412,7 +412,7 @@ class AppShell extends ConsumerWidget {
               destinations: [
                 for (final i in [0, 1, 2, 3, 5])
                   NavigationDestination(
-                    icon: Icon(items[i].$2),
+                    icon: DeckIcon(items[i].$2),
                     label: items[i].$3,
                   ),
               ],

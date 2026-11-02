@@ -1,6 +1,6 @@
 # Packs, builders et galerie
 
-L’alpha 0.2.0 permet de construire un pack par jeu depuis Modèles → Créer un modèle. Tous les outils s’ouvrent sur une page avec retour ; la sélection au doigt possède une surface tactile qui occupe l’espace disponible. Les confirmations courtes restent des dialogues.
+L’alpha 0.2.0 permet de construire un pack par jeu depuis Modèles → Créer un compagnon. Tous les outils s’ouvrent sur une page avec retour ; la sélection au doigt possède une surface tactile qui occupe l’espace disponible. Les confirmations courtes restent des dialogues.
 
 ## Contenu d’un pack
 
@@ -24,3 +24,5 @@ Pour partager : exporter le pack puis proposer son fichier dans le dépôt publi
 Les calculs sont des opérations déclaratives limitées, pas un arbitre universel de toutes les règles d’un jeu. Les fiches générées contiennent les choix et descriptions ; les caractéristiques numériques, inventaires, combats et progressions libres restent à construire. Les cartes de booster ne constituent pas encore un moteur générique de pioche/main/défausse. Les mains privées sur plusieurs appareils nécessiteront les salles partagées.
 
 Les essais de multitouch sur appareils physiques restent nécessaires. Les créations en cours et tirages d’outils ne sont pas restaurés ; enregistrer une fiche ou un pack pour le conserver.
+
+Le mode libre ouvre les outils sans pack. Un compagnon par jeu rassemble les modules configurés dans un tableau de bord. Les icônes de l’interface utilisent Hugeicons Free, sous licence MIT ; elles sont incluses dans la compilation et ne demandent aucun chargement externe.

@@ -1,3 +1,6 @@
+export 'deck_icon.dart';
+import 'deck_icon.dart';
+
 import 'package:flutter/material.dart';
 
 import 'deck_theme.dart';
@@ -161,7 +164,7 @@ class EmptyPanel extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 24),
         child: Column(
           children: [
-            Icon(
+            DeckIcon(
               Icons.table_restaurant_outlined,
               size: 48,
               color: Theme.of(context).colorScheme.primary,

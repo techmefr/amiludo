@@ -93,7 +93,7 @@ class PackDetail extends ConsumerWidget {
           if (p.rulesUrl.isNotEmpty)
             OutlinedButton.icon(
               onPressed: () => openProjectLink(context, p.rulesUrl),
-              icon: const Icon(Icons.open_in_new),
+              icon: const DeckIcon(Icons.open_in_new),
               label: const Text('Ouvrir les règles de référence'),
             ),
           const SizedBox(height: 16),
@@ -120,7 +120,7 @@ class PackDetail extends ConsumerWidget {
                   }),
                   'pack-${p.id}.json',
                 ),
-                icon: const Icon(Icons.file_download_outlined),
+                icon: const DeckIcon(Icons.file_download_outlined),
                 label: const Text('Exporter le pack JSON'),
               ),
               OutlinedButton(

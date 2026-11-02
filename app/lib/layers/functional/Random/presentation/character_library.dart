@@ -48,7 +48,7 @@ class CharacterLibrary extends ConsumerWidget {
         const SectionHeading('Mes personnages'),
         OutlinedButton.icon(
           onPressed: () => import(context, ref),
-          icon: const Icon(Icons.file_open_outlined),
+          icon: const DeckIcon(Icons.file_open_outlined),
           label: const Text('Importer une fiche JSON'),
         ),
         const SizedBox(height: 16),

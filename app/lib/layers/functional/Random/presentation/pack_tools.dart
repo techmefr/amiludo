@@ -79,7 +79,7 @@ class _PackDiceToolState extends State<PackDiceTool> {
         ),
       FilledButton.icon(
         onPressed: roll,
-        icon: const Icon(Icons.casino_outlined),
+        icon: const DeckIcon(Icons.casino_outlined),
         label: const Text('Lancer les dés du jeu'),
       ),
       const SizedBox(height: 12),

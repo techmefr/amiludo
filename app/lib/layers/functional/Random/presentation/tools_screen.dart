@@ -79,7 +79,7 @@ class _ToolsScreenState extends ConsumerState<ToolsScreen> {
                     children: [
                       Row(
                         children: [
-                          Icon(
+                          DeckIcon(
                             toolIcon(t.id),
                             size: 28,
                             color: Theme.of(context).colorScheme.primary,
@@ -90,7 +90,7 @@ class _ToolsScreenState extends ConsumerState<ToolsScreen> {
                             onPressed: () => ref
                                 .read(workspaceProvider.notifier)
                                 .toggleFavorite(t.id),
-                            icon: Icon(
+                            icon: DeckIcon(
                               ws.favorites.contains(t.id)
                                   ? Icons.star
                                   : Icons.star_outline,

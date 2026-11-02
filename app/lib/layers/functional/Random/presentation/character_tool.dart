@@ -50,12 +50,12 @@ class _CharacterToolState extends ConsumerState<CharacterTool> {
               ButtonSegment(
                 value: false,
                 label: Text('Liste'),
-                icon: Icon(Icons.list),
+                icon: DeckIcon(Icons.list),
               ),
               ButtonSegment(
                 value: true,
                 label: Text('Boosters'),
-                icon: Icon(Icons.style_outlined),
+                icon: DeckIcon(Icons.style_outlined),
               ),
             ],
             selected: {boosters},
@@ -96,7 +96,7 @@ class _CharacterToolState extends ConsumerState<CharacterTool> {
               highlight: true,
               child: Column(
                 children: [
-                  const Icon(Icons.style_outlined, size: 72),
+                  const DeckIcon(Icons.style_outlined, size: 72),
                   const SizedBox(height: 16),
                   Text('${category.draw} cartes à découvrir'),
                   const SizedBox(height: 20),

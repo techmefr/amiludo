@@ -117,7 +117,7 @@ class _HistoryScreenState extends ConsumerState<HistoryScreen> {
               'Chercher un jeu, un joueur, une date',
               'Search a game, player or date',
             ),
-            prefixIcon: const Icon(Icons.search),
+            prefixIcon: const DeckIcon(Icons.search),
           ),
           onChanged: (v) => setState(() => query = v),
         ),
@@ -245,7 +245,7 @@ class _HistoryScreenState extends ConsumerState<HistoryScreen> {
                             await controller.deleteGame(g.id);
                           }
                         },
-                        icon: const Icon(Icons.delete_outline),
+                        icon: const DeckIcon(Icons.delete_outline),
                       ),
                     ],
                   ),
@@ -327,7 +327,7 @@ class _HistoryScreenState extends ConsumerState<HistoryScreen> {
               await controller.saveWorkspace(const Workspace());
             }
           },
-          icon: const Icon(Icons.delete_forever_outlined),
+          icon: const DeckIcon(Icons.delete_forever_outlined),
           label: Text(
             tr(context, 'Effacer toutes mes données', 'Erase all my data'),
           ),

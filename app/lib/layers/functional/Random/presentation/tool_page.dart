@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../technical/Theme/full_page.dart';
+import '../../../technical/Theme/deck_widgets.dart';
 import '../../Workspace/workspace_controller.dart';
 import '../../Templates/domain/game_template.dart';
 import '../../Timer/presentation/timer_panel.dart';
@@ -151,7 +152,7 @@ class _ToolPageState extends ConsumerState<ToolPage> {
                   onPressed: () => context.push(
                     current == null ? '/builder/new' : '/builder/${current.id}',
                   ),
-                  icon: const Icon(Icons.build_outlined),
+                  icon: const DeckIcon(Icons.build_outlined),
                   label: const Text('Ouvrir le builder'),
                 ),
                 TextButton(
