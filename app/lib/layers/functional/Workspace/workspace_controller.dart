@@ -111,6 +111,7 @@ class WorkspaceController extends AsyncNotifier<Workspace> {
     final current = GameSession(
       id: id,
       title: title.trim().isEmpty ? template.name : title.trim(),
+      pack: template,
       players: players,
       categories: template.categories,
       target: template.target,
@@ -205,6 +206,7 @@ class WorkspaceController extends AsyncNotifier<Workspace> {
         profiles: data.profiles,
         games: data.games.where((g) => g.id != id).toList(),
         templates: data.templates,
+        characters: data.characters,
         playerNames: data.playerNames,
         favorites: data.favorites,
         currentId: data.currentId == id ? null : data.currentId,

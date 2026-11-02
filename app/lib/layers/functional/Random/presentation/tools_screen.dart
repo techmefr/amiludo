@@ -6,9 +6,6 @@ import '../../../technical/Theme/deck_widgets.dart';
 import '../../../technical/Theme/deck_icons.dart';
 import '../../Workspace/workspace_controller.dart';
 import '../domain/tool_catalog.dart';
-import 'dice_tool.dart';
-import 'finger_tool.dart';
-import 'random_tool.dart';
 
 class ToolsScreen extends ConsumerStatefulWidget {
   const ToolsScreen({super.key, this.initialTool});
@@ -30,47 +27,7 @@ class _ToolsScreenState extends ConsumerState<ToolsScreen> {
   }
 
   Future<void> open(String id) async {
-    if (id == 'scores') {
-      context.go('/game');
-      return;
-    }
-    if (id == 'timer') {
-      context.go('/timer');
-      return;
-    }
-    final ws = ref.read(workspaceProvider).requireValue,
-        names =
-            ws.current?.players.map((p) => p.name).toList() ?? ws.playerNames;
-    final child = switch (id) {
-      'dice' => const DiceTool(),
-      'picker' => FingerTool(names: names, haptics: ws.appearance.haptics),
-      _ => RandomTool(id: id, names: names),
-    };
-    await showFormDialog<void>(
-      context: context,
-      builder: (dialog) => Dialog(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 640, maxHeight: 800),
-          child: Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(24, 56, 24, 24),
-                child: SingleChildScrollView(child: child),
-              ),
-              Positioned(
-                right: 8,
-                top: 8,
-                child: IconButton(
-                  tooltip: tr(context, 'Fermer', 'Close'),
-                  onPressed: () => Navigator.pop(dialog),
-                  icon: const Icon(Icons.close),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+    context.push('/tools/$id');
   }
 
   @override

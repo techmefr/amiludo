@@ -8,6 +8,10 @@ Compagnon open source pour les jeux de société, avec une direction rétrofutur
 
 **[Ouvrir l’application](https://techmefr.github.io/ludoply/app/)** · [APK Android de test](https://github.com/techmefr/ludoply/releases/download/v0.1.1-alpha.1/compagnon-0.1.1-alpha.1-android.apk) · [Maquettes](https://techmefr.github.io/ludoply/) · [État réel du développement](docs/APP-STATUS.md)
 
+## Nouveautés de l’alpha 0.2.0
+
+[Builders et packs](docs/PACKS.md) : dés par jeu, rôles, règles de décompte, personnages par listes ou boosters et galerie communautaire installable. Les outils s’ouvrent sur des pages avec retour. Les trois packs initiaux sont des exemples originaux à personnaliser.
+
 ## Version alpha fonctionnelle
 
 - Parties et scores réels : manches, catégories, ressources, objectifs coopératifs, classement et égalités, notes, annulation/rétablissement et revanche.
@@ -20,7 +24,7 @@ Compagnon open source pour les jeux de société, avec une direction rétrofutur
 
 Aucun compte ni serveur requis pour ces fonctions. Aucun affichage publicitaire. La version web possède un cache explicite ; une première ouverture connectée est nécessaire pour télécharger les ressources. La fiabilité native et les comportements en arrière-plan doivent encore être vérifiés sur de vrais téléphones.
 
-Le catalogue comprend aussi des fonctions **non implémentées**, notamment les salles partagées et leur serveur, les tournois, les cadences avancées et les intégrations. Cette alpha ne constitue pas la livraison de la totalité des 141 fonctions prévues. Le nom Ludoply reste uniquement l’identifiant historique du dépôt.
+Le catalogue comprend aussi des fonctions **non implémentées**, notamment les salles partagées et leur serveur, les tournois, les cadences avancées et les intégrations. Cette alpha ne constitue pas la livraison de la totalité des 148 fonctions prévues. Le nom Ludoply reste uniquement l’identifiant historique du dépôt.
 
 ## Développer
 

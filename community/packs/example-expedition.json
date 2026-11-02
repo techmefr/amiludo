@@ -1,0 +1,85 @@
+{
+  "format": "table-companion-template",
+  "version": 1,
+  "template": {
+    "target": 0,
+    "lowestWins": false,
+    "cooperative": false,
+    "seconds": 150,
+    "author": "Compagnon — exemples du projet",
+    "license": "MIT",
+    "revision": "1.0.0",
+    "edition": "Exemple original",
+    "rulesUrl": "",
+    "id": "example-expedition",
+    "name": "Expédition néon — exemple",
+    "description": "Pack de démonstration original : dés à symboles, rôles privés et décompte par lots. À adapter à votre jeu.",
+    "categories": [
+      "Cristaux",
+      "Pénalités"
+    ],
+    "dice": [
+      {
+        "name": "Exploration",
+        "count": 2,
+        "faces": [
+          {
+            "label": "Cristal",
+            "value": 2
+          },
+          {
+            "label": "Cristal",
+            "value": 2
+          },
+          {
+            "label": "Énergie",
+            "value": 1
+          },
+          {
+            "label": "Bouclier",
+            "value": 0
+          },
+          {
+            "label": "Risque",
+            "value": -1
+          },
+          {
+            "label": "Vide",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "name": "Éclaireur",
+        "count": 1,
+        "description": "Consigne de démonstration : cherchez les cristaux."
+      },
+      {
+        "name": "Équipier",
+        "count": 3,
+        "description": "Consigne de démonstration : soutenez l’expédition."
+      }
+    ],
+    "scoring": [
+      {
+        "name": "Cristaux",
+        "kind": "sets",
+        "factor": 5,
+        "step": 3,
+        "bonus": 0,
+        "table": []
+      },
+      {
+        "name": "Pénalités",
+        "kind": "linear",
+        "factor": -2,
+        "step": 1,
+        "bonus": 0,
+        "table": []
+      }
+    ],
+    "rulesNotes": "Exemple original sous licence MIT, sans affiliation à un jeu commercial. Pour quatre joueurs. Les dés donnent des résultats de démonstration ; comptez 5 points par lot de 3 cristaux et -2 par pénalité. Adaptez les effectifs et les valeurs dans le builder."
+  }
+}

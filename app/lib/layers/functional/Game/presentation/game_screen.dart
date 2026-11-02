@@ -95,6 +95,24 @@ class _GameScreenState extends ConsumerState<GameScreen> {
     final board = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        if (g.pack != null)
+          Wrap(
+            spacing: 12,
+            runSpacing: 8,
+            children: [
+              OutlinedButton(
+                onPressed: () => context.push('/pack/${g.pack!.id}?session=1'),
+                child: const Text('Outils et règles du jeu'),
+              ),
+              if (g.finishedAt == null && g.pack!.scoring.isNotEmpty)
+                for (final p in g.players)
+                  OutlinedButton(
+                    onPressed: () => context.push('/score/${p.id}'),
+                    child: Text('Décompte · ${p.name}'),
+                  ),
+            ],
+          ),
+        const SizedBox(height: 16),
         Wrap(
           spacing: 8,
           runSpacing: 8,

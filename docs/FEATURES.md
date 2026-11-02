@@ -104,23 +104,23 @@ Le produit combine un accès immédiat aux outils et un mode partie qui partage 
 - [ ] F078 — Cadences Bronstein, sablier et byo-yomi
 - [ ] F079 — Cadences à plusieurs phases
 - [x] F080 — Décompte de score par catégories
-- [ ] F081 — Formules de score déclaratives sans code exécuté
+- [x] F081 — Formules de score déclaratives sans code exécuté
 - [x] F082 — Objectifs coopératifs et résultats victoire/défaite
 - [x] F083 — Notes, objectifs et compteurs propres à la partie
 
 ## Modèles et communauté — V1
 
-- [ ] F084 — Préréglages complets par jeu
-- [ ] F085 — Éditeur de feuille de score
+- [x] F084 — Préréglages complets par jeu
+- [x] F085 — Éditeur de feuille de score
 - [x] F086 — Éditeur de configuration de partie
 - [x] F087 — Import et export de modèles JSON versionnés
 - [x] F088 — Bibliothèque embarquée utilisable hors ligne
-- [ ] F089 — Catalogue communautaire avec recherche et filtres
-- [ ] F090 — Contributions de modèles par pull request
+- [x] F089 — Catalogue communautaire avec recherche et filtres
+- [x] F090 — Contributions de modèles par pull request
 - [x] F091 — Validation automatique des modèles
-- [ ] F092 — Métadonnées auteur, version, langue et licence
+- [x] F092 — Métadonnées auteur, version, langue et licence
 - [ ] F093 — Favoris et variantes personnelles
-- [ ] F094 — Instructions courtes originales et liens vers les règles officielles
+- [x] F094 — Instructions courtes originales et liens vers les règles officielles
 - [ ] F095 — Gestion des versions et compatibilité des modèles
 
 ## Historique et soirées — V1
@@ -191,8 +191,18 @@ Le produit combine un accès immédiat aux outils et un mode partie qui partage 
 
 - [x] F141 — Trois univers visuels : Cyberdeck, Orbital 77 et Carnet
 
-**Total : 141 fonctionnalités planifiées.**
+## Personnages et cartes — V1
+
+- [x] F142 — Builder de catégories et cartes de création de personnage
+- [x] F143 — Génération par listes ou boosters avec minimum et maximum à conserver
+- [x] F144 — Fiches issues des choix, sauvegarde, import et export JSON
+- [ ] F145 — Fiches libres avec caractéristiques, compétences, inventaire et progression
+- [ ] F146 — Builder de paquets de cartes génériques : recto/verso, pioche, main et défausse
+- [ ] F147 — Plateaux, pistes et jetons personnalisables
+- [ ] F148 — Campagnes, scénarios et progression entre les séances
+
+**Total : 148 fonctionnalités planifiées.**
 
 La personnalisation est portée dans Flutter. Les cases cochées décrivent une alpha locale ; elles ne valent pas une certification Android/iOS ou une validation complète d’accessibilité.
 
-**Bilan alpha : 80 fonctions cochées ; 61 prévues ou incomplètes.**
+**Bilan alpha : 91 fonctions cochées ; 57 prévues ou incomplètes.**

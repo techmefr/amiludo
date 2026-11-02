@@ -30,3 +30,11 @@ Les parcours Chromium ont été contrôlés, dont les scores persistants et le r
 Le navigateur peut effacer le stockage local. Exporter régulièrement une sauvegarde. Les APK de test utilisent une signature de développement ; une mise à jour peut nécessiter une désinstallation. **Sauvegarder avant de mettre à jour**, car désinstaller efface les données locales.
 
 Les salles partagées, tournois et autres fonctions non cochées du [catalogue](docs/FEATURES.md) ne sont pas encore disponibles.
+
+## Nouveaux parcours de l’alpha 0.2.0
+
+- Depuis Modèles, ouvrir la galerie, installer un exemple et le retrouver dans la bibliothèque.
+- Créer un pack avec plusieurs dés, des rôles et un calcul ; le sauvegarder, le rouvrir et exporter son JSON.
+- Démarrer une partie avec ce pack et appliquer un décompte deux fois : le total d’une catégorie ne doit pas être doublé.
+- Installer « Origines », choisir les boosters, garder deux races puis terminer le personnage. Enregistrer la fiche, recharger et la retrouver. Tester aussi le mode liste et l’export/import de fiche.
+- Ouvrir « Qui commence ? » : la sélection tactile occupe la page ; le bouton retour ramène aux outils.

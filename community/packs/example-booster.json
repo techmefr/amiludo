@@ -1,0 +1,123 @@
+{
+  "format": "table-companion-template",
+  "version": 1,
+  "template": {
+    "id": "example-booster",
+    "name": "Origines — personnages en boosters",
+    "description": "Un générateur original pour choisir jusqu’à deux races, un métier, une histoire et un ou deux pouvoirs.",
+    "author": "Compagnon — exemples du projet",
+    "license": "MIT",
+    "revision": "1.0.0",
+    "edition": "Exemple original",
+    "categories": [
+      "Points"
+    ],
+    "creation": [
+      {
+        "name": "Races",
+        "draw": 4,
+        "keepMin": 1,
+        "keepMax": 2,
+        "cards": [
+          {
+            "name": "Humain",
+            "description": "Carte originale de démonstration : Humain. Définissez librement ses effets dans votre univers."
+          },
+          {
+            "name": "Elfe",
+            "description": "Carte originale de démonstration : Elfe. Définissez librement ses effets dans votre univers."
+          },
+          {
+            "name": "Nain",
+            "description": "Carte originale de démonstration : Nain. Définissez librement ses effets dans votre univers."
+          },
+          {
+            "name": "Orque",
+            "description": "Carte originale de démonstration : Orque. Définissez librement ses effets dans votre univers."
+          },
+          {
+            "name": "Métamorphe",
+            "description": "Carte originale de démonstration : Métamorphe. Définissez librement ses effets dans votre univers."
+          }
+        ]
+      },
+      {
+        "name": "Métiers",
+        "draw": 3,
+        "keepMin": 1,
+        "keepMax": 1,
+        "cards": [
+          {
+            "name": "Cartographe",
+            "description": "Carte originale de démonstration : Cartographe. Définissez librement ses effets dans votre univers."
+          },
+          {
+            "name": "Alchimiste",
+            "description": "Carte originale de démonstration : Alchimiste. Définissez librement ses effets dans votre univers."
+          },
+          {
+            "name": "Gardien",
+            "description": "Carte originale de démonstration : Gardien. Définissez librement ses effets dans votre univers."
+          },
+          {
+            "name": "Explorateur",
+            "description": "Carte originale de démonstration : Explorateur. Définissez librement ses effets dans votre univers."
+          }
+        ]
+      },
+      {
+        "name": "Histoires",
+        "draw": 2,
+        "keepMin": 1,
+        "keepMax": 1,
+        "cards": [
+          {
+            "name": "Exilé",
+            "description": "Carte originale de démonstration : Exilé. Définissez librement ses effets dans votre univers."
+          },
+          {
+            "name": "Héritier oublié",
+            "description": "Carte originale de démonstration : Héritier oublié. Définissez librement ses effets dans votre univers."
+          },
+          {
+            "name": "Ancien éclaireur",
+            "description": "Carte originale de démonstration : Ancien éclaireur. Définissez librement ses effets dans votre univers."
+          },
+          {
+            "name": "Voyageur sans souvenir",
+            "description": "Carte originale de démonstration : Voyageur sans souvenir. Définissez librement ses effets dans votre univers."
+          }
+        ]
+      },
+      {
+        "name": "Pouvoirs",
+        "draw": 3,
+        "keepMin": 1,
+        "keepMax": 2,
+        "cards": [
+          {
+            "name": "Lumière",
+            "description": "Carte originale de démonstration : Lumière. Définissez librement ses effets dans votre univers."
+          },
+          {
+            "name": "Brume",
+            "description": "Carte originale de démonstration : Brume. Définissez librement ses effets dans votre univers."
+          },
+          {
+            "name": "Écho",
+            "description": "Carte originale de démonstration : Écho. Définissez librement ses effets dans votre univers."
+          },
+          {
+            "name": "Flamme",
+            "description": "Carte originale de démonstration : Flamme. Définissez librement ses effets dans votre univers."
+          },
+          {
+            "name": "Métal",
+            "description": "Carte originale de démonstration : Métal. Définissez librement ses effets dans votre univers."
+          }
+        ]
+      }
+    ],
+    "rulesNotes": "Choisissez le mode liste ou booster. Les boosters proposent un échantillon sans doublon dans chaque catégorie. Gardez une ou deux races, un métier, une histoire et un ou deux pouvoirs. Les cartes de démonstration ne définissent pas de statistiques ou de système de combat."
+  }
+}

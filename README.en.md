@@ -17,7 +17,7 @@ No account or server is required for these functions. Load the web app online fi
 
 The interface is French with partial English support. Native iOS distribution is not available; iPhone users can test the website. Physical-device validation, full English translation and accessibility testing remain open work. Background alarms depend on platform behavior.
 
-Shared rooms, tournaments, advanced time controls, formulas and integrations are planned, not implemented. The [141-feature catalogue](docs/FEATURES.md) distinguishes implemented alpha features from future work.
+Shared rooms, tournaments, advanced time controls, integrations are planned, not implemented. The [148-feature catalogue](docs/FEATURES.md) distinguishes implemented alpha features from future work.
 
 ## Test and contribute
 
@@ -26,3 +26,5 @@ See the [testing guide](TESTING.md), [contribution guide](CONTRIBUTING.md), [act
 Flutter 3.47.9 / Dart 3.13.7. Run `flutter pub get`, `flutter analyze` and `flutter test` inside `app`. The web build script is `bash scripts/build_web.sh`.
 
 Source code is under the [MIT license](LICENSE). Bundled fonts and third-party components retain their own license notices, also accessible through the application’s About dialog.
+
+The 0.2.0 alpha adds full-page tools, reusable dice/role/scoring builders, character creation through lists or boosters, portable character sheets and an installable community catalogue. The three initial packs are original examples. Publication uses reviewed pull requests; there are no dedicated marketplace accounts or ratings. See [pack documentation](docs/PACKS.md).

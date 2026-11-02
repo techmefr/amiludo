@@ -1,32 +1,27 @@
 # Application — état réel
 
-Version alpha 0.1.1. Code Flutter dans app/. Le nom est provisoire. Les maquettes HTML restent disponibles ; l’application est publiée séparément dans /app/.
+Alpha 0.2.0. Nom provisoire. Code Flutter dans `app/`, application web dans `/app/`, anciennes maquettes à la racine du site.
 
-## Réalisé
+## Disponible
 
-Le moteur de scores, les parties locales, les modèles génériques, les ressources, les minuteries et les profils sont reliés à Drift/SQLite. Les données d’historique sont réelles. Les six modèles configurent effectivement les règles du compteur et la durée. Les outils aléatoires ont leurs propres interactions, et les favoris personnalisent l’accueil. Les sauvegardes JSON sont validées avant remplacement.
+Parties et scores locaux, manches, catégories, objectifs, journal annulable, ressources et notes ; horloges par table ; outils de hasard ; thèmes et profils ; stockage SQLite, historique, CSV et sauvegardes JSON.
 
-Trois univers, dix palettes et sept polices embarquées ; le thème s’applique à tous les écrans. Le projet contient les cibles Android, iOS et web. Le workflow vérifie l’analyse et les tests avant publication et construit un APK de test séparé.
+L’alpha 0.2.0 ajoute les pages d’outils avec retour, la surface tactile agrandie, les builders de packs par jeu (dés, rôles, calculs déclaratifs, notes et liens de règles), les personnages par listes ou boosters, les fiches sauvegardables/importables/exportables et la galerie installable. Voir [PACKS.md](PACKS.md).
 
-## Vérifié
+Le catalogue compte 148 fonctions, dont 91 cochées et 57 prévues ou incomplètes. Les trois packs initiaux sont des exemples originaux du projet. La publication communautaire passe par relecture des pull requests ; aucun contenu n’est présenté comme une contribution fictive.
 
-26 tests couvrent les scores par manche et catégorie, égalités, coopération, annulation/rétablissement, rotation, imports, sauvegardes, SQLite, écritures concurrentes, isolation des horloges entre tables, tirages, dés, temps et le parcours de création de partie. Les parcours navigateur et le fonctionnement hors connexion sont également contrôlés avant publication.
+## Vérifications
 
-## À réaliser
+38 tests Flutter couvrent les scores, imports, stockage, temps, tirages, profils, nouveaux calculs, packs, générations par listes/boosters, sauvegardes de fiches, navigation tactile et sauvegarde d’un pack depuis un lien direct. Un test Python vérifie le paquet hors connexion. Le workflow effectue l’analyse et les tests avant compilation web et APK Android.
 
-La totalité du catalogue de 141 fonctionnalités n’est pas livrée. Restent notamment les salles multi-appareils et leur serveur, les tournois, les cadences avancées, les formules de score, les profils de joueurs complets, les statistiques détaillées, les exports d’images, les intégrations et la traduction intégrale en anglais. Le comptage de doigts, l’audio, le maintien de l’écran et l’exécution en arrière-plan doivent être vérifiés sur les téléphones physiques ciblés.
+Les contrôles Chromium de la version précédente ont validé les scores persistants et le rechargement hors connexion. Les nouveaux parcours navigateur contrôlent l’installation d’un pack, les boosters, le choix de deux races, la fiche après rechargement et les pages dédiées. Les essais sur téléphones physiques, Safari, multitouch, sons, vibrations, veille et lecteurs d’écran restent à compléter.
 
-La cible iOS n’est pas compilée sur Linux ; la distribution native nécessite Xcode et une signature Apple. Un APK de test n’est pas une publication Google Play.
+## Limites
 
-Une police de secours pour les symboles est également embarquée, et la roue respecte la réduction des animations.
-## Validation de la publication
+Les salles multi-appareils, mains privées partagées, serveur, tournois, cadences avancées, formules arbitraires, intégrations, statistiques détaillées, export d’images et traduction anglaise exhaustive restent à développer. Les prochaines extensions sont les fiches libres avec inventaire/progression, les paquets de cartes génériques, plateaux et campagnes.
 
-Le lien public a été testé dans Chromium : création de partie, scores persistants, rechargement sans réseau et nouvelle modification de score. Le chargement de l’interface ne sollicite plus de police ou de moteur externe pour les écrans vérifiés. Les sept choix de police ont également été contrôlés.
+Les règles distantes sont des liens ; leurs livrets ne sont pas aspirés ou analysés. Les calculs disponibles ne vérifient pas toutes les règles d’un jeu. Une fiche générée contient les choix et descriptions du pack, pas encore un système complet de caractéristiques et de combat.
 
-Les contrôles locaux et GitHub comprennent 26 tests Flutter et un test de régression du paquet hors connexion. Les parcours navigateur couvrent aussi l’éditeur de modèles, le CSV et les onglets mobiles. Les cases du catalogue indiquent ce périmètre alpha, et non une validation exhaustive de tous les appareils.
+Une partie conserve la copie de son pack. Modifier la bibliothèque ne recalcule pas les parties existantes. Les anciennes sauvegardes restent lisibles ; exporter avant toute mise à jour reste recommandé. Les APK de développement peuvent imposer une désinstallation en cas de changement de signature.
 
-L’alpha 0.1.1 ajoute les réglages séparés de sons et vibrations, un écran À propos et les liens de retour. Le guide TESTING.md et les formulaires publics accompagnent les essais.
-
-La version publique 0.1.1 a passé les 26 tests Flutter, le test du cache et les compilations web/Android. Le site déployé a été contrôlé : numéro de version, ouverture du formulaire de bug, scores persistants et rechargement hors connexion. Les réglages de sons/vibrations et l’accès aux licences de polices ont été vérifiés sur Chromium à une largeur mobile. Cela ne remplace pas les essais sur téléphones physiques.
-
-APK : https://github.com/techmefr/ludoply/releases/tag/v0.1.1-alpha.1
+La cible iOS nécessite macOS, Xcode et une signature Apple ; aucune application iOS native n’est distribuée. Le site est accessible aux utilisateurs iPhone/iPad. Aucune alarme en arrière-plan n’est garantie lorsque le système suspend l’application.

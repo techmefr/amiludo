@@ -65,4 +65,10 @@ const toolDefinitions = [
     'Un téléphone, des rôles à découvrir.',
     'Partie',
   ),
+  ToolDefinition(
+    'character',
+    'Créer un personnage',
+    'Listes et boosters : vos cartes composent une fiche.',
+    'Partie',
+  ),
 ];

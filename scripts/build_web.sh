@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+python3 "$(dirname "$0")/build_catalog.py"
 project_root="$(cd "$(dirname "$0")/.." && pwd)"
 flutter_bin="${FLUTTER_BIN:-flutter}"
 cd "$project_root/app"

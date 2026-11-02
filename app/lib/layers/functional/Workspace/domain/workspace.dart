@@ -1,3 +1,5 @@
+import '../../Templates/domain/character_pack.dart';
+
 import 'dart:convert';
 
 import '../../../technical/Appearance/appearance.dart';
@@ -11,6 +13,7 @@ class Workspace {
     this.profiles = const [],
     this.games = const [],
     this.templates = const [],
+    this.characters = const [],
     this.playerNames = const ['Camille', 'Alex', 'Léa', 'Sam'],
     this.favorites = const [
       'dice',
@@ -31,6 +34,7 @@ class Workspace {
   final List<StyleProfile> profiles;
   final List<GameSession> games;
   final List<GameTemplate> templates;
+  final List<GameCharacter> characters;
   final List<String> playerNames, favorites;
   final String? currentId;
   final GameClock clock;
@@ -49,6 +53,7 @@ class Workspace {
     List<StyleProfile>? profiles,
     List<GameSession>? games,
     List<GameTemplate>? templates,
+    List<GameCharacter>? characters,
     List<String>? playerNames,
     List<String>? favorites,
     String? currentId,
@@ -62,6 +67,7 @@ class Workspace {
     profiles: profiles ?? this.profiles,
     games: games ?? this.games,
     templates: templates ?? this.templates,
+    characters: characters ?? this.characters,
     playerNames: playerNames ?? this.playerNames,
     favorites: favorites ?? this.favorites,
     currentId: currentId ?? this.currentId,
@@ -78,6 +84,7 @@ class Workspace {
     'profiles': profiles.map((p) => p.toJson()).toList(),
     'games': games.map((g) => g.toJson()).toList(),
     'templates': templates.map((t) => t.toJson()).toList(),
+    'characters': characters.map((c) => c.toJson()).toList(),
     'playerNames': playerNames,
     'favorites': favorites,
     'currentId': currentId,
@@ -109,6 +116,11 @@ class Workspace {
           )
           .toList(),
       games: games,
+      characters: (j['characters'] as List? ?? [])
+          .map(
+            (v) => GameCharacter.fromJson(Map<String, dynamic>.from(v as Map)),
+          )
+          .toList(),
       templates: (j['templates'] as List? ?? [])
           .map(
             (t) => GameTemplate.fromJson(Map<String, dynamic>.from(t as Map)),

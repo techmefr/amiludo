@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../technical/Theme/deck_widgets.dart';
 import '../../../technical/Files/file_transfer.dart';
@@ -12,175 +13,7 @@ import '../domain/game_template.dart';
 class TemplatesScreen extends ConsumerWidget {
   const TemplatesScreen({super.key});
   Future<void> create(BuildContext context, WidgetRef ref) async {
-    final name = TextEditingController(),
-        description = TextEditingController(),
-        categories = TextEditingController(text: 'Points, Bonus'),
-        target = TextEditingController(text: '0'),
-        seconds = TextEditingController(text: '150');
-    bool low = false, coop = false;
-    final form = GlobalKey<FormState>();
-    try {
-      final accepted = await showFormDialog<bool>(
-        context: context,
-        builder: (dialog) => StatefulBuilder(
-          builder: (context, set) => AlertDialog(
-            title: Text(
-              tr(context, 'Votre modèle de jeu', 'Your game template'),
-            ),
-            content: SizedBox(
-              width: 480,
-              child: SingleChildScrollView(
-                child: Form(
-                  key: form,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      TextFormField(
-                        controller: name,
-                        maxLength: 80,
-                        decoration: const InputDecoration(
-                          labelText: 'Nom / Name',
-                        ),
-                        validator: (v) =>
-                            v == null || v.trim().isEmpty ? 'Nom requis' : null,
-                      ),
-                      const SizedBox(height: 12),
-                      TextFormField(
-                        controller: description,
-                        decoration: const InputDecoration(
-                          labelText: 'Description',
-                        ),
-                        maxLength: 500,
-                      ),
-                      const SizedBox(height: 12),
-                      TextFormField(
-                        controller: categories,
-                        decoration: InputDecoration(
-                          labelText: tr(
-                            context,
-                            'Catégories séparées par des virgules',
-                            'Comma-separated categories',
-                          ),
-                        ),
-                        validator: (v) {
-                          final list = v!
-                              .split(',')
-                              .map((s) => s.trim())
-                              .toList();
-                          return list.isEmpty ||
-                                  list.length > 32 ||
-                                  list.any((s) => s.isEmpty || s.length > 40) ||
-                                  list.toSet().length != list.length
-                              ? 'Catégories invalides'
-                              : null;
-                        },
-                      ),
-                      const SizedBox(height: 12),
-                      TextFormField(
-                        controller: target,
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          labelText: tr(
-                            context,
-                            'Objectif de points (0 = libre)',
-                            'Target score (0 = free)',
-                          ),
-                        ),
-                        validator: (v) {
-                          final n = double.tryParse(v ?? '');
-                          return n == null || !n.isFinite || n < 0
-                              ? 'Objectif invalide'
-                              : null;
-                        },
-                      ),
-                      const SizedBox(height: 12),
-                      TextFormField(
-                        controller: seconds,
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          labelText: tr(
-                            context,
-                            'Temps par tour en secondes',
-                            'Seconds per turn',
-                          ),
-                        ),
-                        validator: (v) {
-                          final n = int.tryParse(v ?? '');
-                          return n == null || n < 1 || n > 86400
-                              ? '1–86400'
-                              : null;
-                        },
-                      ),
-                      SwitchListTile(
-                        contentPadding: EdgeInsets.zero,
-                        title: Text(
-                          tr(
-                            context,
-                            'Le moins de points gagne',
-                            'Lowest score wins',
-                          ),
-                        ),
-                        value: low,
-                        onChanged: (v) => set(() => low = v),
-                      ),
-                      SwitchListTile(
-                        contentPadding: EdgeInsets.zero,
-                        title: Text(
-                          tr(
-                            context,
-                            'Objectif coopératif',
-                            'Cooperative target',
-                          ),
-                        ),
-                        value: coop,
-                        onChanged: (v) => set(() => coop = v),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(dialog, false),
-                child: Text(tr(context, 'Annuler', 'Cancel')),
-              ),
-              FilledButton(
-                onPressed: () {
-                  if (form.currentState!.validate()) {
-                    Navigator.pop(dialog, true);
-                  }
-                },
-                child: Text(tr(context, 'Enregistrer', 'Save')),
-              ),
-            ],
-          ),
-        ),
-      );
-      if (accepted == true) {
-        await ref
-            .read(workspaceProvider.notifier)
-            .addTemplate(
-              GameTemplate(
-                id: 'custom-${DateTime.now().microsecondsSinceEpoch}',
-                name: name.text.trim(),
-                description: description.text,
-                categories: categories.text
-                    .split(',')
-                    .map((s) => s.trim())
-                    .toList(),
-                target: double.parse(target.text),
-                seconds: int.parse(seconds.text),
-                lowestWins: low,
-                cooperative: coop,
-              ),
-            );
-      }
-    } finally {
-      for (final c in [name, description, categories, target, seconds]) {
-        c.dispose();
-      }
-    }
+    context.push('/builder/new');
   }
 
   Future<void> importTemplate(BuildContext context, WidgetRef ref) async {
@@ -222,7 +55,7 @@ class TemplatesScreen extends ConsumerWidget {
           title: tr(context, 'Votre prochaine partie', 'Your next game'),
           subtitle: tr(
             context,
-            'Ces modèles configurent réellement les scores, objectifs et minuteries.',
+            'Vos packs réunissent dés, rôles, décompte et références de règles.',
             'These templates configure scores, targets and timers.',
           ),
           action: FilledButton.icon(
@@ -233,12 +66,27 @@ class TemplatesScreen extends ConsumerWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(bottom: 24),
-          child: OutlinedButton.icon(
-            onPressed: () => importTemplate(context, ref),
-            icon: const Icon(Icons.file_open_outlined),
-            label: Text(
-              tr(context, 'Importer un modèle JSON', 'Import JSON template'),
-            ),
+          child: Wrap(
+            spacing: 12,
+            runSpacing: 12,
+            children: [
+              OutlinedButton.icon(
+                onPressed: () => context.push('/marketplace'),
+                icon: const Icon(Icons.storefront_outlined),
+                label: const Text('Galerie communautaire'),
+              ),
+              OutlinedButton.icon(
+                onPressed: () => importTemplate(context, ref),
+                icon: const Icon(Icons.file_open_outlined),
+                label: Text(
+                  tr(
+                    context,
+                    'Importer un modèle JSON',
+                    'Import JSON template',
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
         ResponsiveGrid(
@@ -282,6 +130,18 @@ class TemplatesScreen extends ConsumerWidget {
                       Wrap(
                         spacing: 8,
                         children: [
+                          TextButton(
+                            onPressed: () => context.push('/builder/${t.id}'),
+                            child: Text(
+                              ws.templates.any((v) => v.id == t.id)
+                                  ? 'Modifier'
+                                  : 'Copier dans mon atelier',
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () => context.push('/pack/${t.id}'),
+                            child: const Text('Outils et règles du pack'),
+                          ),
                           TextButton(
                             onPressed: () => FileTransfer.shareText(
                               jsonEncode({

@@ -25,3 +25,7 @@ Prototype de salles et QR code avant choix définitif du serveur. Définir autor
 ## 5 — Tournois et intégrations
 
 Extensions indépendantes, selon les usages observés et les contributions. La priorité reste un compagnon local, accessible et personnalisable.
+
+## Personnages et cartes
+
+Les générateurs par listes/boosters sont disponibles. Prochaines étapes : fiches libres (caractéristiques, inventaire, progression), paquets de cartes génériques (pioche, main, défausse), plateaux/jetons et suivi de campagne. Les mains privées multi-appareils dépendent des futures salles partagées.

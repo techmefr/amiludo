@@ -173,7 +173,7 @@ class HomeScreen extends ConsumerWidget {
                       Text(t.subtitle),
                       const SizedBox(height: 16),
                       OutlinedButton(
-                        onPressed: () => context.go('/tools?tool=${t.id}'),
+                        onPressed: () => context.push('/tools/${t.id}'),
                         child: Text(tr(context, 'Ouvrir ↗', 'Open ↗')),
                       ),
                     ],

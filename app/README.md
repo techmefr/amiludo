@@ -37,7 +37,7 @@ Android : `flutter build apk --debug` pour une installation de test, avec Androi
 - Univers Cyberdeck / Orbital / Carnet, dix palettes, sept polices locales, formes, densité, lecture agrandie, animations, profils de style et import/export.
 - Interface française et principaux contrôles en anglais. La traduction exhaustive et les tests de lecteurs d’écran restent à compléter.
 
-Les salles multi-appareils, le serveur, les tournois, les cadences avancées, le moteur de formules et les intégrations ne sont pas implémentés. Le catalogue global distingue ces fonctionnalités planifiées. Cette version est une alpha fonctionnelle, pas l’ensemble des 141 fonctions.
+Les salles multi-appareils, le serveur, les tournois, les cadences avancées, les formules arbitraires et les intégrations ne sont pas implémentés. Le catalogue global distingue ces fonctionnalités planifiées. Cette version est une alpha fonctionnelle, pas l’ensemble des 148 fonctions.
 
 ## Données et limites
 
@@ -46,3 +46,5 @@ Drift/SQLite enregistre un document de bibliothèque versionné dans une transac
 Les horloges utilisent une horloge monotone pendant l’exécution et un délai persistant pour la reprise. L’application ne promet pas d’alarme sonore lorsque le système suspend ou ferme le navigateur. Le maintien de l’écran allumé dépend des autorisations de la plateforme. La sélection par doigts dépend du matériel. Une roue pondérée affiche des secteurs égaux ; les poids modifient le tirage et sont explicitement indiqués dans son formulaire.
 
 Une police de secours pour les symboles est également embarquée, et la roue respecte la réduction des animations.
+
+Packs et builders : voir [PACKS.md](../docs/PACKS.md). Les calculs déclaratifs limités et la génération de personnages par listes/boosters sont disponibles dans l’alpha 0.2.0.

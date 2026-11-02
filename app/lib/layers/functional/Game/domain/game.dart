@@ -1,3 +1,5 @@
+import '../../Templates/domain/game_template.dart';
+
 import 'dart:convert';
 
 String newId() => DateTime.now().microsecondsSinceEpoch.toString();
@@ -102,8 +104,10 @@ class GameSession {
     this.categories = const ['Points'],
     this.notes = '',
     this.finishedAt,
+    this.pack,
   });
   final String id, title, notes;
+  final GameTemplate? pack;
   final List<Player> players;
   final List<ScoreEntry> entries;
   final List<String> categories;
@@ -151,6 +155,7 @@ class GameSession {
   }) => GameSession(
     id: id,
     title: title,
+    pack: pack,
     players: players ?? this.players,
     entries: entries ?? this.entries,
     cursor: cursor ?? this.cursor,
@@ -194,6 +199,7 @@ class GameSession {
   );
   Map<String, Object?> toJson() => {
     'id': id,
+    'pack': pack?.toJson(),
     'title': title,
     'players': players.map((p) => p.toJson()).toList(),
     'entries': entries.map((e) => e.toJson()).toList(),
@@ -252,6 +258,11 @@ class GameSession {
     return GameSession(
       id: json['id'] as String,
       title: json['title'] as String,
+      pack: json['pack'] == null
+          ? null
+          : GameTemplate.fromJson(
+              Map<String, dynamic>.from(json['pack'] as Map),
+            ),
       players: players,
       entries: entries,
       cursor: cursor,

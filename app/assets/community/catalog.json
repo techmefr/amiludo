@@ -1,0 +1,260 @@
+{
+  "format": "table-companion-catalog",
+  "version": 1,
+  "packs": [
+    {
+      "id": "example-booster",
+      "name": "Origines — personnages en boosters",
+      "description": "Un générateur original pour choisir jusqu’à deux races, un métier, une histoire et un ou deux pouvoirs.",
+      "author": "Compagnon — exemples du projet",
+      "license": "MIT",
+      "revision": "1.0.0",
+      "edition": "Exemple original",
+      "categories": [
+        "Points"
+      ],
+      "creation": [
+        {
+          "name": "Races",
+          "draw": 4,
+          "keepMin": 1,
+          "keepMax": 2,
+          "cards": [
+            {
+              "name": "Humain",
+              "description": "Carte originale de démonstration : Humain. Définissez librement ses effets dans votre univers."
+            },
+            {
+              "name": "Elfe",
+              "description": "Carte originale de démonstration : Elfe. Définissez librement ses effets dans votre univers."
+            },
+            {
+              "name": "Nain",
+              "description": "Carte originale de démonstration : Nain. Définissez librement ses effets dans votre univers."
+            },
+            {
+              "name": "Orque",
+              "description": "Carte originale de démonstration : Orque. Définissez librement ses effets dans votre univers."
+            },
+            {
+              "name": "Métamorphe",
+              "description": "Carte originale de démonstration : Métamorphe. Définissez librement ses effets dans votre univers."
+            }
+          ]
+        },
+        {
+          "name": "Métiers",
+          "draw": 3,
+          "keepMin": 1,
+          "keepMax": 1,
+          "cards": [
+            {
+              "name": "Cartographe",
+              "description": "Carte originale de démonstration : Cartographe. Définissez librement ses effets dans votre univers."
+            },
+            {
+              "name": "Alchimiste",
+              "description": "Carte originale de démonstration : Alchimiste. Définissez librement ses effets dans votre univers."
+            },
+            {
+              "name": "Gardien",
+              "description": "Carte originale de démonstration : Gardien. Définissez librement ses effets dans votre univers."
+            },
+            {
+              "name": "Explorateur",
+              "description": "Carte originale de démonstration : Explorateur. Définissez librement ses effets dans votre univers."
+            }
+          ]
+        },
+        {
+          "name": "Histoires",
+          "draw": 2,
+          "keepMin": 1,
+          "keepMax": 1,
+          "cards": [
+            {
+              "name": "Exilé",
+              "description": "Carte originale de démonstration : Exilé. Définissez librement ses effets dans votre univers."
+            },
+            {
+              "name": "Héritier oublié",
+              "description": "Carte originale de démonstration : Héritier oublié. Définissez librement ses effets dans votre univers."
+            },
+            {
+              "name": "Ancien éclaireur",
+              "description": "Carte originale de démonstration : Ancien éclaireur. Définissez librement ses effets dans votre univers."
+            },
+            {
+              "name": "Voyageur sans souvenir",
+              "description": "Carte originale de démonstration : Voyageur sans souvenir. Définissez librement ses effets dans votre univers."
+            }
+          ]
+        },
+        {
+          "name": "Pouvoirs",
+          "draw": 3,
+          "keepMin": 1,
+          "keepMax": 2,
+          "cards": [
+            {
+              "name": "Lumière",
+              "description": "Carte originale de démonstration : Lumière. Définissez librement ses effets dans votre univers."
+            },
+            {
+              "name": "Brume",
+              "description": "Carte originale de démonstration : Brume. Définissez librement ses effets dans votre univers."
+            },
+            {
+              "name": "Écho",
+              "description": "Carte originale de démonstration : Écho. Définissez librement ses effets dans votre univers."
+            },
+            {
+              "name": "Flamme",
+              "description": "Carte originale de démonstration : Flamme. Définissez librement ses effets dans votre univers."
+            },
+            {
+              "name": "Métal",
+              "description": "Carte originale de démonstration : Métal. Définissez librement ses effets dans votre univers."
+            }
+          ]
+        }
+      ],
+      "rulesNotes": "Choisissez le mode liste ou booster. Les boosters proposent un échantillon sans doublon dans chaque catégorie. Gardez une ou deux races, un métier, une histoire et un ou deux pouvoirs. Les cartes de démonstration ne définissent pas de statistiques ou de système de combat."
+    },
+    {
+      "target": 0,
+      "lowestWins": false,
+      "cooperative": false,
+      "seconds": 150,
+      "author": "Compagnon — exemples du projet",
+      "license": "MIT",
+      "revision": "1.0.0",
+      "edition": "Exemple original",
+      "rulesUrl": "",
+      "id": "example-expedition",
+      "name": "Expédition néon — exemple",
+      "description": "Pack de démonstration original : dés à symboles, rôles privés et décompte par lots. À adapter à votre jeu.",
+      "categories": [
+        "Cristaux",
+        "Pénalités"
+      ],
+      "dice": [
+        {
+          "name": "Exploration",
+          "count": 2,
+          "faces": [
+            {
+              "label": "Cristal",
+              "value": 2
+            },
+            {
+              "label": "Cristal",
+              "value": 2
+            },
+            {
+              "label": "Énergie",
+              "value": 1
+            },
+            {
+              "label": "Bouclier",
+              "value": 0
+            },
+            {
+              "label": "Risque",
+              "value": -1
+            },
+            {
+              "label": "Vide",
+              "value": 0
+            }
+          ]
+        }
+      ],
+      "roles": [
+        {
+          "name": "Éclaireur",
+          "count": 1,
+          "description": "Consigne de démonstration : cherchez les cristaux."
+        },
+        {
+          "name": "Équipier",
+          "count": 3,
+          "description": "Consigne de démonstration : soutenez l’expédition."
+        }
+      ],
+      "scoring": [
+        {
+          "name": "Cristaux",
+          "kind": "sets",
+          "factor": 5,
+          "step": 3,
+          "bonus": 0,
+          "table": []
+        },
+        {
+          "name": "Pénalités",
+          "kind": "linear",
+          "factor": -2,
+          "step": 1,
+          "bonus": 0,
+          "table": []
+        }
+      ],
+      "rulesNotes": "Exemple original sous licence MIT, sans affiliation à un jeu commercial. Pour quatre joueurs. Les dés donnent des résultats de démonstration ; comptez 5 points par lot de 3 cristaux et -2 par pénalité. Adaptez les effectifs et les valeurs dans le builder."
+    },
+    {
+      "target": 0,
+      "lowestWins": false,
+      "cooperative": false,
+      "seconds": 150,
+      "author": "Compagnon — exemples du projet",
+      "license": "MIT",
+      "revision": "1.0.0",
+      "edition": "Exemple original",
+      "rulesUrl": "",
+      "id": "example-orbit",
+      "name": "Collection orbitale — exemple",
+      "description": "Exemple original de progression triangulaire, seuil et barème personnalisé.",
+      "categories": [
+        "Collection",
+        "Objectif",
+        "Bonus"
+      ],
+      "dice": [],
+      "roles": [],
+      "scoring": [
+        {
+          "name": "Collection",
+          "kind": "triangular",
+          "factor": 1,
+          "step": 1,
+          "bonus": 0,
+          "table": []
+        },
+        {
+          "name": "Objectif",
+          "kind": "threshold",
+          "factor": 10,
+          "step": 5,
+          "bonus": 0,
+          "table": []
+        },
+        {
+          "name": "Bonus",
+          "kind": "lookup",
+          "factor": 1,
+          "step": 1,
+          "bonus": 0,
+          "table": [
+            0,
+            2,
+            5,
+            9,
+            14
+          ]
+        }
+      ],
+      "rulesNotes": "Exemple original sous licence MIT. Collection : 1+2+…+n. Objectif : 10 points dès 5 unités. Bonus : barème pour 0 à 4 unités. Ce pack illustre les calculs disponibles ; ce n’est pas le règlement d’un jeu commercial."
+    }
+  ]
+}

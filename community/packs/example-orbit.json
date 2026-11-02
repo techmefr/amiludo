@@ -1,0 +1,58 @@
+{
+  "format": "table-companion-template",
+  "version": 1,
+  "template": {
+    "target": 0,
+    "lowestWins": false,
+    "cooperative": false,
+    "seconds": 150,
+    "author": "Compagnon — exemples du projet",
+    "license": "MIT",
+    "revision": "1.0.0",
+    "edition": "Exemple original",
+    "rulesUrl": "",
+    "id": "example-orbit",
+    "name": "Collection orbitale — exemple",
+    "description": "Exemple original de progression triangulaire, seuil et barème personnalisé.",
+    "categories": [
+      "Collection",
+      "Objectif",
+      "Bonus"
+    ],
+    "dice": [],
+    "roles": [],
+    "scoring": [
+      {
+        "name": "Collection",
+        "kind": "triangular",
+        "factor": 1,
+        "step": 1,
+        "bonus": 0,
+        "table": []
+      },
+      {
+        "name": "Objectif",
+        "kind": "threshold",
+        "factor": 10,
+        "step": 5,
+        "bonus": 0,
+        "table": []
+      },
+      {
+        "name": "Bonus",
+        "kind": "lookup",
+        "factor": 1,
+        "step": 1,
+        "bonus": 0,
+        "table": [
+          0,
+          2,
+          5,
+          9,
+          14
+        ]
+      }
+    ],
+    "rulesNotes": "Exemple original sous licence MIT. Collection : 1+2+…+n. Objectif : 10 points dès 5 unités. Bonus : barème pour 0 à 4 unités. Ce pack illustre les calculs disponibles ; ce n’est pas le règlement d’un jeu commercial."
+  }
+}

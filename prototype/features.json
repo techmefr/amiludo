@@ -564,7 +564,7 @@
     "title": "Formules de score déclaratives sans code exécuté",
     "group": "Personnalisation avancée",
     "phase": "V1",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "F082",
@@ -585,14 +585,14 @@
     "title": "Préréglages complets par jeu",
     "group": "Modèles et communauté",
     "phase": "V1",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "F085",
     "title": "Éditeur de feuille de score",
     "group": "Modèles et communauté",
     "phase": "V1",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "F086",
@@ -620,14 +620,14 @@
     "title": "Catalogue communautaire avec recherche et filtres",
     "group": "Modèles et communauté",
     "phase": "V1",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "F090",
     "title": "Contributions de modèles par pull request",
     "group": "Modèles et communauté",
     "phase": "V1",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "F091",
@@ -641,7 +641,7 @@
     "title": "Métadonnées auteur, version, langue et licence",
     "group": "Modèles et communauté",
     "phase": "V1",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "F093",
@@ -655,7 +655,7 @@
     "title": "Instructions courtes originales et liens vers les règles officielles",
     "group": "Modèles et communauté",
     "phase": "V1",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "F095",
@@ -985,5 +985,54 @@
     "group": "Personnalisation et profils de style",
     "phase": "MVP",
     "implemented": true
+  },
+  {
+    "id": "F142",
+    "title": "Builder de catégories et cartes de création de personnage",
+    "group": "Personnages et cartes",
+    "phase": "V1",
+    "implemented": true
+  },
+  {
+    "id": "F143",
+    "title": "Génération par listes ou boosters avec minimum et maximum à conserver",
+    "group": "Personnages et cartes",
+    "phase": "V1",
+    "implemented": true
+  },
+  {
+    "id": "F144",
+    "title": "Fiches issues des choix, sauvegarde, import et export JSON",
+    "group": "Personnages et cartes",
+    "phase": "V1",
+    "implemented": true
+  },
+  {
+    "id": "F145",
+    "title": "Fiches libres avec caractéristiques, compétences, inventaire et progression",
+    "group": "Personnages et cartes",
+    "phase": "V1",
+    "implemented": false
+  },
+  {
+    "id": "F146",
+    "title": "Builder de paquets de cartes génériques : recto/verso, pioche, main et défausse",
+    "group": "Personnages et cartes",
+    "phase": "V1",
+    "implemented": false
+  },
+  {
+    "id": "F147",
+    "title": "Plateaux, pistes et jetons personnalisables",
+    "group": "Personnages et cartes",
+    "phase": "V1",
+    "implemented": false
+  },
+  {
+    "id": "F148",
+    "title": "Campagnes, scénarios et progression entre les séances",
+    "group": "Personnages et cartes",
+    "phase": "V1",
+    "implemented": false
   }
 ]

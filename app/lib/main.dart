@@ -12,6 +12,13 @@ import 'layers/functional/Workspace/workspace_controller.dart';
 import 'layers/functional/Workspace/presentation/home_screen.dart';
 import 'layers/functional/Game/presentation/game_screen.dart';
 import 'layers/functional/Random/presentation/tools_screen.dart';
+import 'layers/functional/Random/presentation/tool_page.dart';
+import 'layers/functional/Templates/presentation/pack_builder.dart';
+import 'layers/functional/Templates/presentation/pack_detail.dart';
+import 'layers/functional/Templates/presentation/marketplace_screen.dart';
+import 'layers/functional/Templates/domain/game_template.dart';
+import 'layers/functional/Game/presentation/score_sheet.dart';
+import 'layers/technical/Theme/full_page.dart';
 import 'layers/functional/Templates/presentation/templates_screen.dart';
 import 'layers/functional/History/presentation/history_screen.dart';
 import 'layers/functional/Appearance/presentation/appearance_screen.dart';
@@ -19,12 +26,46 @@ import 'layers/functional/Timer/presentation/timer_panel.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  GoRouter.optionURLReflectsImperativeAPIs = true;
   registerFontLicenses();
   runApp(const ProviderScope(child: CompanionApp()));
 }
 
 final router = GoRouter(
   routes: [
+    GoRoute(
+      path: '/tools/:id',
+      builder: (context, state) => ToolPage(
+        id: state.pathParameters['id']!,
+        packId: state.uri.queryParameters['pack'],
+        snapshot: state.uri.queryParameters['session'] == '1',
+      ),
+    ),
+    GoRoute(
+      path: '/builder/new',
+      builder: (context, state) => const PackBuilder(),
+    ),
+    GoRoute(
+      path: '/builder/:id',
+      builder: (context, state) =>
+          BuilderEntry(id: state.pathParameters['id']!),
+    ),
+    GoRoute(
+      path: '/pack/:id',
+      builder: (context, state) => PackDetail(
+        id: state.pathParameters['id']!,
+        snapshot: state.uri.queryParameters['session'] == '1',
+      ),
+    ),
+    GoRoute(
+      path: '/marketplace',
+      builder: (context, state) => const MarketplaceScreen(),
+    ),
+    GoRoute(
+      path: '/score/:player',
+      builder: (context, state) =>
+          ScoreSheet(playerId: state.pathParameters['player']!),
+    ),
     for (final path in [
       '/',
       '/game',
@@ -376,6 +417,44 @@ class AppShell extends ConsumerWidget {
                   ),
               ],
             ),
+    );
+  }
+}
+
+class BuilderEntry extends ConsumerWidget {
+  const BuilderEntry({super.key, required this.id});
+  final String id;
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(workspaceProvider);
+    if (!state.hasValue) {
+      return const FullPage(
+        title: 'Atelier',
+        fallback: '/templates',
+        child: WorkspaceWait(),
+      );
+    }
+    final ws = state.requireValue;
+    final p = [
+      ...ws.templates,
+      ...GameTemplate.builtIn,
+    ].where((p) => p.id == id).firstOrNull;
+    if (p == null) {
+      return const FullPage(
+        title: 'Pack introuvable',
+        fallback: '/templates',
+        child: Text('Ce pack n’est plus installé.'),
+      );
+    }
+    final builtin = GameTemplate.builtIn.any((t) => t.id == id);
+    return PackBuilder(
+      template: builtin
+          ? GameTemplate.fromJson({
+              ...p.toJson(),
+              'id': 'custom-${DateTime.now().microsecondsSinceEpoch}',
+              'name': '${p.name} (copie)',
+            })
+          : p,
     );
   }
 }

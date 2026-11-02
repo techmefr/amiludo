@@ -1,3 +1,6 @@
+import 'pack_components.dart';
+import 'character_pack.dart';
+
 class GameTemplate {
   const GameTemplate({
     required this.id,
@@ -10,8 +13,22 @@ class GameTemplate {
     this.seconds = 150,
     this.author = '',
     this.license = 'MIT',
+    this.revision = '1.0.0',
+    this.rulesUrl = '',
+    this.rulesNotes = '',
+    this.edition = '',
+    this.language = 'fr',
+    this.dice = const [],
+    this.roles = const [],
+    this.scoring = const [],
+    this.creation = const [],
   });
   final String id, name, description, author, license;
+  final String revision, rulesUrl, rulesNotes, edition, language;
+  final List<GameDie> dice;
+  final List<GameRole> roles;
+  final List<ScoreRule> scoring;
+  final List<CreationCategory> creation;
   final List<String> categories;
   final double target;
   final bool lowestWins, cooperative;
@@ -27,6 +44,15 @@ class GameTemplate {
     'seconds': seconds,
     'author': author,
     'license': license,
+    'revision': revision,
+    'rulesUrl': rulesUrl,
+    'rulesNotes': rulesNotes,
+    'edition': edition,
+    'language': language,
+    'dice': dice.map((v) => v.toJson()).toList(),
+    'roles': roles.map((v) => v.toJson()).toList(),
+    'scoring': scoring.map((v) => v.toJson()).toList(),
+    'creation': creation.map((v) => v.toJson()).toList(),
   };
   factory GameTemplate.fromJson(Map<String, dynamic> j) {
     final result = GameTemplate(
@@ -40,8 +66,52 @@ class GameTemplate {
       seconds: j['seconds'] as int? ?? 150,
       author: j['author'] as String? ?? '',
       license: j['license'] as String? ?? 'MIT',
+      revision: j['revision'] as String? ?? '1.0.0',
+      rulesUrl: j['rulesUrl'] as String? ?? '',
+      rulesNotes: j['rulesNotes'] as String? ?? '',
+      edition: j['edition'] as String? ?? '',
+      language: j['language'] as String? ?? 'fr',
+      dice: (j['dice'] as List? ?? [])
+          .map((v) => GameDie.fromJson(Map<String, dynamic>.from(v as Map)))
+          .toList(),
+      roles: (j['roles'] as List? ?? [])
+          .map((v) => GameRole.fromJson(Map<String, dynamic>.from(v as Map)))
+          .toList(),
+      creation: (j['creation'] as List? ?? [])
+          .map(
+            (v) =>
+                CreationCategory.fromJson(Map<String, dynamic>.from(v as Map)),
+          )
+          .toList(),
+      scoring: (j['scoring'] as List? ?? [])
+          .map((v) => ScoreRule.fromJson(Map<String, dynamic>.from(v as Map)))
+          .toList(),
     );
-    if (result.name.trim().isEmpty ||
+    if (result.language.isEmpty ||
+        result.language.length > 20 ||
+        result.creation.length > 16 ||
+        result.creation.map((c) => c.name).toSet().length !=
+            result.creation.length ||
+        !RegExp(r'^[a-zA-Z0-9][a-zA-Z0-9._-]*$').hasMatch(result.id) ||
+        result.id.length > 120 ||
+        result.description.length > 500 ||
+        result.author.length > 120 ||
+        result.license.length > 120 ||
+        result.revision.isEmpty ||
+        result.revision.length > 40 ||
+        result.edition.length > 120 ||
+        result.rulesNotes.length > 12000 ||
+        !validRuleUrl(result.rulesUrl) ||
+        result.dice.length > 16 ||
+        result.dice.fold<int>(0, (n, d) => n + d.count) > 64 ||
+        result.roles.length > 32 ||
+        result.roles.fold<int>(0, (n, d) => n + d.count) > 32 ||
+        result.scoring.length > 32 ||
+        result.scoring.map((v) => v.name).toSet().length !=
+            result.scoring.length ||
+        result.scoring.any((v) => !result.categories.contains(v.name)) ||
+        result.categories.toSet().length != result.categories.length ||
+        result.name.trim().isEmpty ||
         result.name.length > 80 ||
         result.categories.isEmpty ||
         result.categories.length > 32 ||

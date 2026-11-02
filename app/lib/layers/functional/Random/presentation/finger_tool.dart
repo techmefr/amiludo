@@ -8,8 +8,13 @@ import '../../../technical/Theme/deck_widgets.dart';
 import '../domain/random_tools.dart';
 
 class FingerTool extends StatefulWidget {
-  const FingerTool({super.key, required this.names, this.haptics = true});
-  final bool haptics;
+  const FingerTool({
+    super.key,
+    required this.names,
+    this.haptics = true,
+    this.fullscreen = false,
+  });
+  final bool haptics, fullscreen;
   final List<String> names;
   @override
   State<FingerTool> createState() => _FingerToolState();
@@ -48,7 +53,7 @@ class _FingerToolState extends State<FingerTool> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Column(
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: widget.fullscreen ? MainAxisSize.max : MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
@@ -59,96 +64,185 @@ class _FingerToolState extends State<FingerTool> {
         Text(
           tr(
             context,
-            'Gardez vos doigts sur la zone : un contact est choisi après 1,6 seconde. Le nombre de contacts dépend de l’écran.',
+            'Gardez vos doigts sur l’écran : un contact est choisi après 1,6 seconde. La limite dépend de votre appareil.',
             'Hold your fingers on the area: one is chosen after 1.6 seconds. Contact limit depends on your screen.',
           ),
         ),
         const SizedBox(height: 20),
-        Listener(
-          onPointerDown: (e) {
-            setState(() {
-              contacts[e.pointer] = e.localPosition;
-              if (contacts.length == 1) {
-                drawn = false;
-                winner = null;
-              }
-            });
-            schedule();
-          },
-          onPointerMove: (e) {
-            if (contacts.containsKey(e.pointer)) {
-              setState(() => contacts[e.pointer] = e.localPosition);
-            }
-          },
-          onPointerUp: (e) {
-            setState(() => contacts.remove(e.pointer));
-            if (contacts.isEmpty) {
-              countdown?.cancel();
-            } else if (!drawn) {
-              schedule();
-            }
-          },
-          onPointerCancel: (e) {
-            setState(() => contacts.remove(e.pointer));
-            schedule();
-          },
-          child: Container(
-            height: 280,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: theme.colorScheme.surfaceContainerHighest,
-              border: Border.all(color: theme.colorScheme.outline),
-            ),
-            child: Stack(
-              clipBehavior: Clip.hardEdge,
-              children: [
-                Center(
-                  child: Text(
-                    winner != null
-                        ? tr(
-                            context,
-                            'Le contact choisi est illuminé.',
-                            'The chosen contact is highlighted.',
-                          )
-                        : contacts.isEmpty
-                        ? tr(
-                            context,
-                            'POSEZ VOS DOIGTS ICI',
-                            'PLACE YOUR FINGERS HERE',
-                          )
-                        : tr(context, 'On choisit…', 'Choosing…'),
-                    textAlign: TextAlign.center,
-                  ),
+        if (widget.fullscreen)
+          Expanded(
+            child: Listener(
+              onPointerDown: (e) {
+                setState(() {
+                  contacts[e.pointer] = e.localPosition;
+                  if (contacts.length == 1) {
+                    drawn = false;
+                    winner = null;
+                  }
+                });
+                schedule();
+              },
+              onPointerMove: (e) {
+                if (contacts.containsKey(e.pointer)) {
+                  setState(() => contacts[e.pointer] = e.localPosition);
+                }
+              },
+              onPointerUp: (e) {
+                setState(() => contacts.remove(e.pointer));
+                if (contacts.isEmpty) {
+                  countdown?.cancel();
+                } else if (!drawn) {
+                  schedule();
+                }
+              },
+              onPointerCancel: (e) {
+                setState(() => contacts.remove(e.pointer));
+                schedule();
+              },
+              child: Container(
+                height: widget.fullscreen ? double.infinity : 280,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.surfaceContainerHighest,
+                  border: Border.all(color: theme.colorScheme.outline),
                 ),
-                for (final entry in contacts.entries)
-                  Positioned(
-                    left: entry.value.dx - 32,
-                    top: entry.value.dy - 32,
-                    child: Container(
-                      width: 64,
-                      height: 64,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: winner == entry.key
-                            ? theme.colorScheme.primary
-                            : theme.colorScheme.surface,
-                        border: Border.all(
-                          color: theme.colorScheme.primary,
-                          width: winner == entry.key ? 8 : 3,
+                child: Stack(
+                  clipBehavior: Clip.hardEdge,
+                  children: [
+                    Center(
+                      child: Text(
+                        winner != null
+                            ? tr(
+                                context,
+                                'Le contact choisi est illuminé.',
+                                'The chosen contact is highlighted.',
+                              )
+                            : contacts.isEmpty
+                            ? tr(
+                                context,
+                                'POSEZ VOS DOIGTS ICI',
+                                'PLACE YOUR FINGERS HERE',
+                              )
+                            : tr(context, 'On choisit…', 'Choosing…'),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    for (final entry in contacts.entries)
+                      Positioned(
+                        left: entry.value.dx - 32,
+                        top: entry.value.dy - 32,
+                        child: Container(
+                          width: 64,
+                          height: 64,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: winner == entry.key
+                                ? theme.colorScheme.primary
+                                : theme.colorScheme.surface,
+                            border: Border.all(
+                              color: theme.colorScheme.primary,
+                              width: winner == entry.key ? 8 : 3,
+                            ),
+                          ),
+                          child: winner == entry.key
+                              ? Icon(
+                                  Icons.check,
+                                  color: theme.colorScheme.onPrimary,
+                                )
+                              : null,
                         ),
                       ),
-                      child: winner == entry.key
-                          ? Icon(
-                              Icons.check,
-                              color: theme.colorScheme.onPrimary,
+                  ],
+                ),
+              ),
+            ),
+          )
+        else
+          Listener(
+            onPointerDown: (e) {
+              setState(() {
+                contacts[e.pointer] = e.localPosition;
+                if (contacts.length == 1) {
+                  drawn = false;
+                  winner = null;
+                }
+              });
+              schedule();
+            },
+            onPointerMove: (e) {
+              if (contacts.containsKey(e.pointer)) {
+                setState(() => contacts[e.pointer] = e.localPosition);
+              }
+            },
+            onPointerUp: (e) {
+              setState(() => contacts.remove(e.pointer));
+              if (contacts.isEmpty) {
+                countdown?.cancel();
+              } else if (!drawn) {
+                schedule();
+              }
+            },
+            onPointerCancel: (e) {
+              setState(() => contacts.remove(e.pointer));
+              schedule();
+            },
+            child: Container(
+              height: widget.fullscreen ? double.infinity : 280,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: theme.colorScheme.surfaceContainerHighest,
+                border: Border.all(color: theme.colorScheme.outline),
+              ),
+              child: Stack(
+                clipBehavior: Clip.hardEdge,
+                children: [
+                  Center(
+                    child: Text(
+                      winner != null
+                          ? tr(
+                              context,
+                              'Le contact choisi est illuminé.',
+                              'The chosen contact is highlighted.',
                             )
-                          : null,
+                          : contacts.isEmpty
+                          ? tr(
+                              context,
+                              'POSEZ VOS DOIGTS ICI',
+                              'PLACE YOUR FINGERS HERE',
+                            )
+                          : tr(context, 'On choisit…', 'Choosing…'),
+                      textAlign: TextAlign.center,
                     ),
                   ),
-              ],
+                  for (final entry in contacts.entries)
+                    Positioned(
+                      left: entry.value.dx - 32,
+                      top: entry.value.dy - 32,
+                      child: Container(
+                        width: 64,
+                        height: 64,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: winner == entry.key
+                              ? theme.colorScheme.primary
+                              : theme.colorScheme.surface,
+                          border: Border.all(
+                            color: theme.colorScheme.primary,
+                            width: winner == entry.key ? 8 : 3,
+                          ),
+                        ),
+                        child: winner == entry.key
+                            ? Icon(
+                                Icons.check,
+                                color: theme.colorScheme.onPrimary,
+                              )
+                            : null,
+                      ),
+                    ),
+                ],
+              ),
             ),
           ),
-        ),
         const SizedBox(height: 24),
         Text(
           tr(
