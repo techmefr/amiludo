@@ -108,7 +108,7 @@ class TemplatesScreen extends ConsumerWidget {
                       ),
                       const SizedBox(height: 20),
                       Text(
-                        t.name.toUpperCase(),
+                        t.name,
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                       const SizedBox(height: 12),

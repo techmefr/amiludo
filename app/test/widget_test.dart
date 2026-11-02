@@ -20,7 +20,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    expect(find.text('ON JOUE À QUOI, AUJOURD’HUI ?'), findsOneWidget);
+    expect(find.text('On joue à quoi, aujourd’hui ?'), findsOneWidget);
     await tester.tap(find.text('Nouvelle partie'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('À vous de jouer'));

@@ -48,3 +48,5 @@ Les horloges utilisent une horloge monotone pendant l’exécution et un délai 
 Une police de secours pour les symboles est également embarquée, et la roue respecte la réduction des animations.
 
 Packs et builders : voir [PACKS.md](../docs/PACKS.md). Les calculs déclaratifs limités et la génération de personnages par listes/boosters sont disponibles dans l’alpha 0.2.0.
+
+L’alpha 0.3.0 ajoute Playroom, une palette Confettis, des illustrations originales et des titres plus chaleureux. Les styles enregistrés sont conservés. La nouvelle présentation PDF reprend cette direction graphique.

@@ -79,8 +79,8 @@ class AppearanceScreen extends ConsumerWidget {
           title: tr(context, 'À votre image', 'Make it yours'),
           subtitle: tr(
             context,
-            'Trois univers, dix palettes, sept polices. Tout reste sur cet appareil.',
-            'Three worlds, ten palettes, seven fonts. Saved on this device.',
+            'Quatre univers, onze palettes, sept polices. Tout reste sur cet appareil.',
+            'Four worlds, eleven palettes, seven fonts. Saved on this device.',
           ),
           action: OutlinedButton(
             onPressed: () => controller.appearance(const Appearance()),
@@ -92,6 +92,11 @@ class AppearanceScreen extends ConsumerWidget {
           minimumWidth: 200,
           children: [
             for (final (id, name, desc) in [
+              (
+                'play',
+                'Playroom',
+                'Des couleurs, des cartes et l’envie de jouer.',
+              ),
               ('cyber', 'CYBERDECK', 'Noir, néon, angles biseautés.'),
               ('orbital', 'ORBITAL 77', 'Ivoire, ambre, instruments rétro.'),
               ('paper', 'CARNET', 'Doux, coloré, esprit papier.'),
@@ -103,18 +108,24 @@ class AppearanceScreen extends ConsumerWidget {
                   onTap: () => controller.appearance(
                     a.copyWith(
                       skin: id,
-                      palette: id == 'cyber'
+                      palette: id == 'play'
+                          ? 'play'
+                          : id == 'cyber'
                           ? 'acid'
                           : id == 'orbital'
                           ? 'amber'
                           : 'lichen',
                       mode: id == 'cyber' ? 'dark' : 'light',
-                      shape: id == 'cyber'
+                      shape: id == 'play'
+                          ? 'round'
+                          : id == 'cyber'
                           ? 'cut'
                           : id == 'orbital'
                           ? 'square'
                           : 'soft',
-                      font: id == 'orbital'
+                      font: id == 'play'
+                          ? 'NunitoSans'
+                          : id == 'orbital'
                           ? 'Rajdhani'
                           : id == 'paper'
                           ? 'DMSans'

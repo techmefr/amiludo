@@ -172,7 +172,7 @@ Le produit combine un accès immédiat aux outils et un mode partie qui partage 
 ## Personnalisation et profils de style — MVP
 
 - [x] F124 — Mode clair, sombre et automatique selon le système
-- [x] F125 — Dix palettes coordonnées pour les fonds, textes et accents
+- [x] F125 — Onze palettes coordonnées pour les fonds, textes et accents
 - [x] F126 — Choix de sept familles typographiques lisibles
 - [x] F127 — Aperçu du thème en temps réel
 - [x] F128 — Application du style sur tous les écrans
@@ -189,7 +189,7 @@ Le produit combine un accès immédiat aux outils et un mode partie qui partage 
 - [x] F139 — Réinitialisation du style par défaut
 - [x] F140 — Conservation du style après fermeture et rechargement
 
-- [x] F141 — Trois univers visuels : Cyberdeck, Orbital 77 et Carnet
+- [x] F141 — Quatre univers visuels : Playroom, Cyberdeck, Orbital 77 et Carnet
 
 ## Personnages et cartes — V1
 

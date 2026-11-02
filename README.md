@@ -1,12 +1,16 @@
 # Compagnon — nom provisoire
 
-[Présentation pour les joueurs (PDF)](docs/presentation/Compagnon-presentation-joueurs.pdf) · [Catalogue cible élargi](docs/VISION-COMPLETE.md) · [English](README.en.md) · [Tester et donner un avis](TESTING.md) · [Contribuer](CONTRIBUTING.md)
+[Présentation pour les joueurs (PDF)](docs/presentation/Compagnon-presentation-joueurs-v2.pdf) · [Catalogue cible élargi](docs/VISION-COMPLETE.md) · [English](README.en.md) · [Tester et donner un avis](TESTING.md) · [Contribuer](CONTRIBUTING.md)
 
 **Tous les outils. Autour de la table.**
 
-Compagnon open source pour les jeux de société, avec une direction rétrofuturiste Cyberdeck. Android, iOS et web à partir du même projet Flutter.
+Compagnon open source pour les jeux de société, avec une direction illustrée Playroom et des thèmes personnalisables. Android, iOS et web à partir du même projet Flutter.
 
 **[Ouvrir l’application](https://techmefr.github.io/ludoply/app/)** · [APK Android de test](https://github.com/techmefr/ludoply/releases/download/v0.2.0-alpha.1/compagnon-0.2.0-alpha.1-android.apk) · [Maquettes](https://techmefr.github.io/ludoply/) · [État réel du développement](docs/APP-STATUS.md)
+
+## Nouvelle direction visuelle — alpha 0.3.0
+
+Playroom : illustrations originales de dés, cartes et pions, couleurs par outil, titres en casse normale et caractères arrondis. Les profils existants restent conservés ; choisir Playroom dans Apparence pour adopter le nouveau look.
 
 ## Nouveautés de l’alpha 0.2.0
 
@@ -19,7 +23,7 @@ Compagnon open source pour les jeux de société, avec une direction rétrofutur
 - Dés multiples verrouillables, expressions et symboles ; choix du premier joueur, équipes, ordre, pièce, roue pondérée, nombres, sac de jetons et rôles secrets.
 - Six modèles intégrés exécutables et éditeur de modèles importables et partageables.
 - SQLite local, historique, JSON, CSV, sauvegarde/restauration complète et suppression confirmée.
-- Trois univers, dix palettes, sept polices embarquées et profils personnels ; sons, vibrations et animations désactivables.
+- Quatre univers, onze palettes, sept polices embarquées et profils personnels ; sons, vibrations et animations désactivables.
 - Écran À propos avec version, signalement de bugs et licences.
 
 Aucun compte ni serveur requis pour ces fonctions. Aucun affichage publicitaire. La version web possède un cache explicite ; une première ouverture connectée est nécessaire pour télécharger les ressources. La fiabilité native et les comportements en arrière-plan doivent encore être vérifiés sur de vrais téléphones.

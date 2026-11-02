@@ -111,7 +111,7 @@ void main() {
       Map<String, dynamic>.from(jsonDecode(workspace.export())),
     );
     expect(imported.current!.title, 'Partie');
-    expect(imported.appearance.skin, 'cyber');
+    expect(imported.appearance.skin, workspace.appearance.skin);
   });
   test('CSV includes every round and escapes quotes', () {
     final game = example()

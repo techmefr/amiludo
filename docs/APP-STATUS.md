@@ -29,3 +29,5 @@ La cible iOS nécessite macOS, Xcode et une signature Apple ; aucune application
 La création guidée demande le nom local et le nom anglais, puis ne présente que les réglages des modes choisis. L’accueil distingue mode libre et compagnon par jeu ; les icônes utilisent Hugeicons Free.
 
 La [présentation joueur](presentation/Compagnon-presentation-joueurs.pdf) et le [catalogue cible élargi](VISION-COMPLETE.md) servent à recueillir les retours. Leur inventaire est une vision à enrichir, pas la liste de fonctions déjà livrées.
+
+L’alpha 0.3.0 ajoute Playroom, une palette Confettis, des illustrations originales et des titres plus chaleureux. Les styles enregistrés sont conservés. La nouvelle présentation PDF reprend cette direction graphique.

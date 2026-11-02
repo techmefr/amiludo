@@ -24,6 +24,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Ouvrir ↗').first);
     await tester.tap(find.text('Ouvrir ↗').first);
     await tester.pumpAndSettle();
     expect(find.byType(Dialog), findsNothing);
@@ -87,7 +88,7 @@ void main() {
     await tester.ensureVisible(find.text('Enregistrer le pack'));
     await tester.tap(find.text('Enregistrer le pack'));
     await tester.pumpAndSettle();
-    expect(find.text('MY PACK'), findsOneWidget);
+    expect(find.text('My pack'), findsOneWidget);
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox());
     await db.close();

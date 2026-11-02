@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../technical/Theme/deck_widgets.dart';
-import '../../../technical/Theme/deck_icons.dart';
+import '../../../technical/Theme/game_art.dart';
 import '../../Workspace/workspace_controller.dart';
 import '../domain/tool_catalog.dart';
 
@@ -74,17 +74,13 @@ class _ToolsScreenState extends ConsumerState<ToolsScreen> {
               .map(
                 (t) => DeckPanel(
                   padding: 20,
+                  color: toolSurface(context, t.id),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [
-                          DeckIcon(
-                            toolIcon(t.id),
-                            size: 28,
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
-                          const Spacer(),
+                          Expanded(child: GameArt(tool: t.id, height: 112)),
                           IconButton(
                             tooltip: tr(context, 'Favori', 'Favorite'),
                             onPressed: () => ref
@@ -101,7 +97,7 @@ class _ToolsScreenState extends ConsumerState<ToolsScreen> {
                       ),
                       const SizedBox(height: 20),
                       Text(
-                        t.title.toUpperCase(),
+                        t.title,
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       const SizedBox(height: 8),

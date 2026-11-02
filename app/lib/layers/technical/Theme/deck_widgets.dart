@@ -62,21 +62,20 @@ class DeckHeading extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    eyebrow.toUpperCase(),
+                    eyebrow
+                        .replaceAll(RegExp(r'^\d+ / '), '')
+                        .replaceAll(' / ', ' · '),
                     style: TextStyle(
-                      fontFamily: 'IBMPlexMono',
-                      fontSize: 10,
-                      letterSpacing: 1.4,
+                      fontFamily: styleHeadingFont(context),
+                      fontSize: 12,
+                      letterSpacing: .2,
                       color: theme.brightness == Brightness.dark
                           ? theme.colorScheme.primary
                           : theme.colorScheme.onSurface,
                     ),
                   ),
                   const SizedBox(height: 12),
-                  Text(
-                    title.toUpperCase(),
-                    style: theme.textTheme.headlineLarge,
-                  ),
+                  Text(title, style: theme.textTheme.headlineLarge),
                   if (subtitle.isNotEmpty) ...[
                     const SizedBox(height: 12),
                     Text(
@@ -109,10 +108,7 @@ class SectionHeading extends StatelessWidget {
     child: Row(
       children: [
         Expanded(
-          child: Text(
-            text.toUpperCase(),
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
+          child: Text(text, style: Theme.of(context).textTheme.titleLarge),
         ),
         ?action,
       ],
@@ -223,3 +219,6 @@ Future<T?> showFormDialog<T>({
   await route.completed;
   return result;
 }
+
+String styleHeadingFont(BuildContext context) =>
+    Theme.of(context).textTheme.bodyMedium?.fontFamily ?? 'DMSans';

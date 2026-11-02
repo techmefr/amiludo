@@ -26,6 +26,18 @@ class DeckPalette {
       darkBackground,
       signal;
   static const values = {
+    'play': DeckPalette(
+      'Confettis',
+      0xff292441,
+      0xff7150CC,
+      0xffEEE6FA,
+      0xffFFF9F0,
+      0xffF6F0FF,
+      0xffC7AEFF,
+      0xff302849,
+      0xff1C192B,
+      0xffFF956D,
+    ),
     'acid': DeckPalette(
       'Acid Circuit',
       0xff17211d,
@@ -217,7 +229,9 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
   final scheme = ColorScheme.fromSeed(seedColor: accent, brightness: brightness)
       .copyWith(
         primary: accent,
-        onPrimary: Color(p.darkBackground),
+        onPrimary: appearance.palette == 'play' && !dark
+            ? Colors.white
+            : Color(p.darkBackground),
         secondary: hero,
         onSecondary: ink,
         surface: surface,
@@ -246,19 +260,19 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
     textTheme: text.copyWith(
       headlineLarge: text.headlineLarge?.copyWith(
         fontFamily: heading,
-        fontSize: 36,
+        fontSize: appearance.skin == 'play' ? 32 : 36,
         fontWeight: FontWeight.w600,
         height: 1.1,
       ),
       headlineMedium: text.headlineMedium?.copyWith(
         fontFamily: heading,
-        fontSize: 28,
+        fontSize: appearance.skin == 'play' ? 24 : 28,
         fontWeight: FontWeight.w600,
         height: 1.1,
       ),
       titleLarge: text.titleLarge?.copyWith(
         fontFamily: heading,
-        fontSize: 22,
+        fontSize: appearance.skin == 'play' ? 20 : 22,
         fontWeight: FontWeight.w600,
       ),
       titleMedium: text.titleMedium?.copyWith(
@@ -281,7 +295,7 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
         textStyle: TextStyle(
           fontFamily: heading,
           fontWeight: FontWeight.w600,
-          letterSpacing: 1,
+          letterSpacing: appearance.skin == 'play' ? 0 : 1,
         ),
       ),
     ),
@@ -298,13 +312,13 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
       fillColor: surface,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(
-          appearance.shape == 'soft' ? 12 : 2,
+          ['soft', 'round'].contains(appearance.shape) ? 16 : 4,
         ),
         borderSide: BorderSide(color: border),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(
-          appearance.shape == 'soft' ? 12 : 2,
+          ['soft', 'round'].contains(appearance.shape) ? 16 : 4,
         ),
         borderSide: BorderSide(color: border),
       ),
@@ -316,7 +330,7 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
         TextStyle(
           fontFamily: appearance.font,
           fontFamilyFallback: const ['NotoSansSymbols2', 'NotoSansSymbols'],
-          fontSize: 10,
+          fontSize: 12,
         ),
       ),
     ),
@@ -333,7 +347,9 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
       ),
     ),
     chipTheme: base.chipTheme.copyWith(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(appearance.skin == 'play' ? 16 : 4),
+      ),
       side: BorderSide(color: border),
     ),
     cardTheme: CardThemeData(

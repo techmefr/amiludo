@@ -247,7 +247,7 @@ class AppShell extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '◈ COMPAGNON',
+                      'Compagnon',
                       style: theme.textTheme.titleLarge?.copyWith(
                         color: theme.brightness == Brightness.dark
                             ? theme.colorScheme.primary
@@ -256,9 +256,9 @@ class AppShell extends ConsumerWidget {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'BOARD GAME COMPANION',
+                      'Toutes vos parties',
                       style: theme.textTheme.labelSmall?.copyWith(
-                        fontFamily: 'IBMPlexMono',
+                        fontFamily: 'NunitoSans',
                         letterSpacing: 1,
                       ),
                     ),
@@ -336,14 +336,14 @@ class AppShell extends ConsumerWidget {
                           child: Text(
                             items[index < 0 ? 0 : index].$3,
                             style: const TextStyle(
-                              fontFamily: 'IBMPlexMono',
+                              fontFamily: 'NunitoSans',
                               fontSize: 12,
                             ),
                           ),
                         ),
                         if (desktop)
                           Text(
-                            'ALPHA / $appVersion',
+                            'Alpha $appVersion',
                             style: theme.textTheme.labelSmall,
                           ),
                         IconButton(

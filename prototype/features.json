@@ -869,7 +869,7 @@
   },
   {
     "id": "F125",
-    "title": "Dix palettes coordonnées pour les fonds, textes et accents",
+    "title": "Onze palettes coordonnées pour les fonds, textes et accents",
     "group": "Personnalisation et profils de style",
     "phase": "MVP",
     "implemented": true
@@ -981,7 +981,7 @@
   },
   {
     "id": "F141",
-    "title": "Trois univers visuels : Cyberdeck, Orbital 77 et Carnet",
+    "title": "Quatre univers visuels : Playroom, Cyberdeck, Orbital 77 et Carnet",
     "group": "Personnalisation et profils de style",
     "phase": "MVP",
     "implemented": true

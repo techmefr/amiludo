@@ -1,10 +1,10 @@
 class Appearance {
   const Appearance({
-    this.skin = 'cyber',
-    this.palette = 'acid',
-    this.mode = 'dark',
-    this.font = 'SpaceGrotesk',
-    this.shape = 'cut',
+    this.skin = 'play',
+    this.palette = 'play',
+    this.mode = 'light',
+    this.font = 'NunitoSans',
+    this.shape = 'round',
     this.compact = false,
     this.large = false,
     this.motion = true,
@@ -16,6 +16,7 @@ class Appearance {
   final String skin, palette, mode, font, shape, language;
   final bool compact, large, motion, keepAwake, sound, haptics;
   static const palettes = [
+    'play',
     'acid',
     'neon',
     'amber',
@@ -102,7 +103,7 @@ class Appearance {
       keepAwake: j['keepAwake'] as bool? ?? true,
       language: j['language'] as String? ?? 'fr',
     );
-    if (!['cyber', 'orbital', 'paper'].contains(a.skin) ||
+    if (!['play', 'cyber', 'orbital', 'paper'].contains(a.skin) ||
         !palettes.contains(a.palette) ||
         !['dark', 'light', 'system'].contains(a.mode) ||
         !fonts.contains(a.font) ||
