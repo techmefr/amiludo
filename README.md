@@ -1,6 +1,6 @@
 # Compagnon — nom provisoire
 
-[English](README.en.md) · [Tester et donner un avis](TESTING.md) · [Contribuer](CONTRIBUTING.md)
+[Présentation pour les joueurs (PDF)](docs/presentation/Compagnon-presentation-joueurs.pdf) · [Catalogue cible élargi](docs/VISION-COMPLETE.md) · [English](README.en.md) · [Tester et donner un avis](TESTING.md) · [Contribuer](CONTRIBUTING.md)
 
 **Tous les outils. Autour de la table.**
 

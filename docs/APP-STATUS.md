@@ -25,3 +25,7 @@ Les règles distantes sont des liens ; leurs livrets ne sont pas aspirés ou ana
 Une partie conserve la copie de son pack. Modifier la bibliothèque ne recalcule pas les parties existantes. Les anciennes sauvegardes restent lisibles ; exporter avant toute mise à jour reste recommandé. Les APK de développement peuvent imposer une désinstallation en cas de changement de signature.
 
 La cible iOS nécessite macOS, Xcode et une signature Apple ; aucune application iOS native n’est distribuée. Le site est accessible aux utilisateurs iPhone/iPad. Aucune alarme en arrière-plan n’est garantie lorsque le système suspend l’application.
+
+La création guidée demande le nom local et le nom anglais, puis ne présente que les réglages des modes choisis. L’accueil distingue mode libre et compagnon par jeu ; les icônes utilisent Hugeicons Free.
+
+La [présentation joueur](presentation/Compagnon-presentation-joueurs.pdf) et le [catalogue cible élargi](VISION-COMPLETE.md) servent à recueillir les retours. Leur inventaire est une vision à enrichir, pas la liste de fonctions déjà livrées.
