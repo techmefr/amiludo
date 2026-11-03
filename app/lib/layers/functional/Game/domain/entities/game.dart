@@ -13,22 +13,37 @@ class Player {
     required this.name,
     required this.color,
     this.resources = const {},
+    this.statuses = const {},
   });
   final String id;
   final String name;
   final int color;
   final Map<String, double> resources;
+  final Map<String, int> statuses;
   Player withResource(String key, double value) => Player(
     id: id,
     name: name,
     color: color,
     resources: {...resources, key: value},
+    statuses: statuses,
+  );
+  Player withStatus(String key, int stacks) => Player(
+    id: id,
+    name: name,
+    color: color,
+    resources: resources,
+    statuses: {
+      for (final e in statuses.entries)
+        if (e.key != key) e.key: e.value,
+      if (stacks > 0) key: stacks,
+    },
   );
   Map<String, Object?> toJson() => {
     'id': id,
     'name': name,
     'color': color,
     'resources': resources,
+    'statuses': statuses,
   };
   factory Player.fromJson(Map<String, dynamic> json) {
     final name = json['name'] as String;
@@ -41,13 +56,18 @@ class Player {
     if (resources.length > 100 || resources.values.any((v) => !v.isFinite)) {
       throw const FormatException('Compteurs invalides');
     }
+    final statuses = (json['statuses'] as Map<String, dynamic>? ?? {}).map(
+      (k, v) => MapEntry(k, v as int),
+    );
+    if (statuses.length > 100 || statuses.values.any((v) => v < 1)) {
+      throw const FormatException('Statuts invalides');
+    }
     return Player(
       id: json['id'] as String,
       name: name,
       color: json['color'] as int,
-      resources: (json['resources'] as Map<String, dynamic>? ?? {}).map(
-        (k, v) => MapEntry(k, (v as num).toDouble()),
-      ),
+      resources: resources,
+      statuses: statuses,
     );
   }
 }
@@ -189,6 +209,16 @@ class GameSession {
       ),
     ];
     return copyWith(entries: updated, cursor: updated.length);
+  }
+
+  GameSession updatePlayer(String playerId, Player Function(Player) update) {
+    if (finishedAt != null) throw StateError('Cette partie est terminée');
+    if (!players.any((p) => p.id == playerId)) {
+      throw ArgumentError('Joueur inconnu');
+    }
+    return copyWith(
+      players: [for (final p in players) p.id == playerId ? update(p) : p],
+    );
   }
 
   GameSession undo() => copyWith(cursor: cursor > 0 ? cursor - 1 : 0);

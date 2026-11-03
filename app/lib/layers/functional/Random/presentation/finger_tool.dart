@@ -49,6 +49,91 @@ class _FingerToolState extends State<FingerTool> {
     super.dispose();
   }
 
+  void onDown(PointerDownEvent e) {
+    setState(() {
+      contacts[e.pointer] = e.localPosition;
+      if (contacts.length == 1) {
+        drawn = false;
+        winner = null;
+      }
+    });
+    schedule();
+  }
+
+  void onMove(PointerMoveEvent e) {
+    if (contacts.containsKey(e.pointer)) {
+      setState(() => contacts[e.pointer] = e.localPosition);
+    }
+  }
+
+  void onUp(PointerUpEvent e) {
+    setState(() => contacts.remove(e.pointer));
+    if (contacts.isEmpty) {
+      countdown?.cancel();
+    } else if (!drawn) {
+      schedule();
+    }
+  }
+
+  void onCancel(PointerCancelEvent e) {
+    setState(() => contacts.remove(e.pointer));
+    schedule();
+  }
+
+  String hint() => winner != null
+      ? tr(
+          context,
+          'Le contact choisi est illuminé.',
+          'The chosen contact is highlighted.',
+        )
+      : contacts.isEmpty
+      ? tr(context, 'POSEZ VOS DOIGTS ICI', 'PLACE YOUR FINGERS HERE')
+      : tr(context, 'On choisit…', 'Choosing…');
+
+  Widget contact(ThemeData theme, MapEntry<int, Offset> entry) => Positioned(
+    left: entry.value.dx - 32,
+    top: entry.value.dy - 32,
+    child: Container(
+      width: 64,
+      height: 64,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: winner == entry.key
+            ? theme.colorScheme.primary
+            : theme.colorScheme.surface,
+        border: Border.all(
+          color: theme.colorScheme.primary,
+          width: winner == entry.key ? 8 : 3,
+        ),
+      ),
+      child: winner == entry.key
+          ? DeckIcon(Icons.check, color: theme.colorScheme.onPrimary)
+          : null,
+    ),
+  );
+
+  Widget area(ThemeData theme) => Listener(
+    onPointerDown: onDown,
+    onPointerMove: onMove,
+    onPointerUp: onUp,
+    onPointerCancel: onCancel,
+    child: Container(
+      height: widget.fullscreen ? double.infinity : 280,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surfaceContainerHighest,
+        border: Border.all(color: theme.colorScheme.outline),
+      ),
+      child: Stack(
+        clipBehavior: Clip.hardEdge,
+        children: [
+          Center(child: Text(hint(), textAlign: TextAlign.center)),
+          for (final entry in contacts.entries) contact(theme, entry),
+        ],
+      ),
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -64,180 +149,7 @@ class _FingerToolState extends State<FingerTool> {
           ),
         ),
         const SizedBox(height: 20),
-        if (widget.fullscreen)
-          Expanded(
-            child: Listener(
-              onPointerDown: (e) {
-                setState(() {
-                  contacts[e.pointer] = e.localPosition;
-                  if (contacts.length == 1) {
-                    drawn = false;
-                    winner = null;
-                  }
-                });
-                schedule();
-              },
-              onPointerMove: (e) {
-                if (contacts.containsKey(e.pointer)) {
-                  setState(() => contacts[e.pointer] = e.localPosition);
-                }
-              },
-              onPointerUp: (e) {
-                setState(() => contacts.remove(e.pointer));
-                if (contacts.isEmpty) {
-                  countdown?.cancel();
-                } else if (!drawn) {
-                  schedule();
-                }
-              },
-              onPointerCancel: (e) {
-                setState(() => contacts.remove(e.pointer));
-                schedule();
-              },
-              child: Container(
-                height: widget.fullscreen ? double.infinity : 280,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.surfaceContainerHighest,
-                  border: Border.all(color: theme.colorScheme.outline),
-                ),
-                child: Stack(
-                  clipBehavior: Clip.hardEdge,
-                  children: [
-                    Center(
-                      child: Text(
-                        winner != null
-                            ? tr(
-                                context,
-                                'Le contact choisi est illuminé.',
-                                'The chosen contact is highlighted.',
-                              )
-                            : contacts.isEmpty
-                            ? tr(
-                                context,
-                                'POSEZ VOS DOIGTS ICI',
-                                'PLACE YOUR FINGERS HERE',
-                              )
-                            : tr(context, 'On choisit…', 'Choosing…'),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    for (final entry in contacts.entries)
-                      Positioned(
-                        left: entry.value.dx - 32,
-                        top: entry.value.dy - 32,
-                        child: Container(
-                          width: 64,
-                          height: 64,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: winner == entry.key
-                                ? theme.colorScheme.primary
-                                : theme.colorScheme.surface,
-                            border: Border.all(
-                              color: theme.colorScheme.primary,
-                              width: winner == entry.key ? 8 : 3,
-                            ),
-                          ),
-                          child: winner == entry.key
-                              ? DeckIcon(
-                                  Icons.check,
-                                  color: theme.colorScheme.onPrimary,
-                                )
-                              : null,
-                        ),
-                      ),
-                  ],
-                ),
-              ),
-            ),
-          )
-        else
-          Listener(
-            onPointerDown: (e) {
-              setState(() {
-                contacts[e.pointer] = e.localPosition;
-                if (contacts.length == 1) {
-                  drawn = false;
-                  winner = null;
-                }
-              });
-              schedule();
-            },
-            onPointerMove: (e) {
-              if (contacts.containsKey(e.pointer)) {
-                setState(() => contacts[e.pointer] = e.localPosition);
-              }
-            },
-            onPointerUp: (e) {
-              setState(() => contacts.remove(e.pointer));
-              if (contacts.isEmpty) {
-                countdown?.cancel();
-              } else if (!drawn) {
-                schedule();
-              }
-            },
-            onPointerCancel: (e) {
-              setState(() => contacts.remove(e.pointer));
-              schedule();
-            },
-            child: Container(
-              height: widget.fullscreen ? double.infinity : 280,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: theme.colorScheme.surfaceContainerHighest,
-                border: Border.all(color: theme.colorScheme.outline),
-              ),
-              child: Stack(
-                clipBehavior: Clip.hardEdge,
-                children: [
-                  Center(
-                    child: Text(
-                      winner != null
-                          ? tr(
-                              context,
-                              'Le contact choisi est illuminé.',
-                              'The chosen contact is highlighted.',
-                            )
-                          : contacts.isEmpty
-                          ? tr(
-                              context,
-                              'POSEZ VOS DOIGTS ICI',
-                              'PLACE YOUR FINGERS HERE',
-                            )
-                          : tr(context, 'On choisit…', 'Choosing…'),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  for (final entry in contacts.entries)
-                    Positioned(
-                      left: entry.value.dx - 32,
-                      top: entry.value.dy - 32,
-                      child: Container(
-                        width: 64,
-                        height: 64,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: winner == entry.key
-                              ? theme.colorScheme.primary
-                              : theme.colorScheme.surface,
-                          border: Border.all(
-                            color: theme.colorScheme.primary,
-                            width: winner == entry.key ? 8 : 3,
-                          ),
-                        ),
-                        child: winner == entry.key
-                            ? DeckIcon(
-                                Icons.check,
-                                color: theme.colorScheme.onPrimary,
-                              )
-                            : null,
-                      ),
-                    ),
-                ],
-              ),
-            ),
-          ),
+        if (widget.fullscreen) Expanded(child: area(theme)) else area(theme),
         const SizedBox(height: 24),
         Text(
           tr(

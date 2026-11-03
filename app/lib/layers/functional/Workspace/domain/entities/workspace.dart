@@ -1,9 +1,12 @@
-import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
-
 import 'dart:convert';
 
-import 'package:amiludo/layers/technical/Appearance/appearance.dart';
+import 'package:amiludo/layers/functional/Friends/domain/entities/friend.dart';
+import 'package:amiludo/layers/functional/Friends/domain/entities/game_review.dart';
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
+import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
+import 'package:amiludo/layers/functional/Memories/domain/entities/game_memory.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
+import 'package:amiludo/layers/technical/Appearance/appearance.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Timer/domain/entities/game_clock.dart';
 
@@ -29,7 +32,15 @@ class Workspace {
     this.sessionClocks = const {},
     this.bankMode = false,
     this.reverse = false,
+    this.shelf = const [],
+    this.friends = const [],
+    this.reviews = const [],
+    this.memories = const [],
   });
+  final List<ShelfGame> shelf;
+  final List<Friend> friends;
+  final List<GameReview> reviews;
+  final List<GameMemory> memories;
   final Appearance appearance;
   final List<StyleProfile> profiles;
   final List<GameSession> games;
@@ -56,6 +67,18 @@ class Workspace {
   Workspace withGame(GameSession game) =>
       copyWith(games: [game, ...games.where((g) => g.id != game.id)]);
 
+  GameMemory memoryOf(String sessionId) => memories.firstWhere(
+    (m) => m.sessionId == sessionId,
+    orElse: () => GameMemory(sessionId: sessionId),
+  );
+
+  Workspace withMemory(GameMemory memory) => copyWith(
+    memories: [
+      memory,
+      ...memories.where((m) => m.sessionId != memory.sessionId),
+    ],
+  );
+
   Workspace copyWith({
     Appearance? appearance,
     List<StyleProfile>? profiles,
@@ -70,7 +93,15 @@ class Workspace {
     Map<String, ClockSnapshot>? sessionClocks,
     bool? bankMode,
     bool? reverse,
+    List<ShelfGame>? shelf,
+    List<Friend>? friends,
+    List<GameReview>? reviews,
+    List<GameMemory>? memories,
   }) => Workspace(
+    shelf: shelf ?? this.shelf,
+    friends: friends ?? this.friends,
+    reviews: reviews ?? this.reviews,
+    memories: memories ?? this.memories,
     appearance: appearance ?? this.appearance,
     profiles: profiles ?? this.profiles,
     games: games ?? this.games,
@@ -101,6 +132,10 @@ class Workspace {
     'sessionClocks': sessionClocks.map((k, v) => MapEntry(k, v.toJson())),
     'bankMode': bankMode,
     'reverse': reverse,
+    'shelf': shelf.map((g) => g.toJson()).toList(),
+    'friends': friends.map((f) => f.toJson()).toList(),
+    'reviews': reviews.map((r) => r.toJson()).toList(),
+    'memories': memories.map((m) => m.toJson()).toList(),
   };
   String export() => jsonEncode(toJson());
   factory Workspace.fromJson(Map<String, dynamic> j) {
@@ -118,22 +153,14 @@ class Workspace {
       appearance: Appearance.fromJson(
         Map<String, dynamic>.from(j['appearance'] as Map),
       ),
-      profiles: (j['profiles'] as List? ?? [])
-          .map(
-            (p) => StyleProfile.fromJson(Map<String, dynamic>.from(p as Map)),
-          )
-          .toList(),
+      profiles: _list(j['profiles'], StyleProfile.fromJson),
       games: games,
-      characters: (j['characters'] as List? ?? [])
-          .map(
-            (v) => GameCharacter.fromJson(Map<String, dynamic>.from(v as Map)),
-          )
-          .toList(),
-      templates: (j['templates'] as List? ?? [])
-          .map(
-            (t) => GameTemplate.fromJson(Map<String, dynamic>.from(t as Map)),
-          )
-          .toList(),
+      characters: _list(j['characters'], GameCharacter.fromJson),
+      templates: _list(j['templates'], GameTemplate.fromJson),
+      shelf: _list(j['shelf'], ShelfGame.fromJson),
+      friends: _list(j['friends'], Friend.fromJson),
+      reviews: _list(j['reviews'], GameReview.fromJson),
+      memories: _list(j['memories'], GameMemory.fromJson),
       playerNames: List<String>.from(j['playerNames'] as List? ?? []),
       favorites: List<String>.from(j['favorites'] as List? ?? []),
       currentId: j['currentId'] as String?,
@@ -154,3 +181,8 @@ class Workspace {
     );
   }
 }
+
+List<T> _list<T>(Object? raw, T Function(Map<String, dynamic>) parse) =>
+    (raw as List? ?? const [])
+        .map((v) => parse(Map<String, dynamic>.from(v as Map)))
+        .toList();

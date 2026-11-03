@@ -5,7 +5,7 @@ import 'package:file_selector/file_selector.dart';
 import 'package:share_plus/share_plus.dart';
 
 class FileTransfer {
-  static Future<String?> openJson() async {
+  static Future<String?> openJson({int maxMegabytes = 20}) async {
     final file = await openFile(
       acceptedTypeGroups: [
         const XTypeGroup(
@@ -16,10 +16,26 @@ class FileTransfer {
       ],
     );
     if (file == null) return null;
-    if (await file.length() > 20000000) {
-      throw const FormatException('Fichier trop volumineux (20 Mo maximum)');
+    if (await file.length() > maxMegabytes * 1000000) {
+      throw FormatException(
+        'Fichier trop volumineux ($maxMegabytes Mo maximum)',
+      );
     }
     return file.readAsString();
+  }
+
+  static Future<Uint8List?> openImage() async {
+    final file = await openFile(
+      acceptedTypeGroups: [
+        const XTypeGroup(
+          label: 'Images',
+          extensions: ['jpg', 'jpeg', 'png', 'webp', 'gif'],
+          mimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/gif'],
+          uniformTypeIdentifiers: ['public.image'],
+        ),
+      ],
+    );
+    return file?.readAsBytes();
   }
 
   static Future<void> shareText(

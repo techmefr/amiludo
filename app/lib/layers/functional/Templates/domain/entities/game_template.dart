@@ -24,6 +24,8 @@ class GameTemplate {
     this.roles = const [],
     this.scoring = const [],
     this.creation = const [],
+    this.resources = const {},
+    this.statuses = const [],
   });
   final String id, name, description, author, license;
   final String revision, rulesUrl, rulesNotes, edition, language;
@@ -33,7 +35,8 @@ class GameTemplate {
   final List<GameRole> roles;
   final List<ScoreRule> scoring;
   final List<CreationCategory> creation;
-  final List<String> categories;
+  final List<String> categories, statuses;
+  final Map<String, double> resources;
   final double target;
   final bool lowestWins, cooperative;
   final int seconds;
@@ -59,25 +62,49 @@ class GameTemplate {
     'roles': roles.map((v) => v.toJson()).toList(),
     'scoring': scoring.map((v) => v.toJson()).toList(),
     'creation': creation.map((v) => v.toJson()).toList(),
+    'resources': resources,
+    'statuses': statuses,
   };
+  static const knownModules = [
+    'scores',
+    'timer',
+    'dice',
+    'roles',
+    'character',
+    'rules',
+    'picker',
+    'teams',
+    'wheel',
+    'coin',
+    'order',
+    'number',
+    'bag',
+  ];
+
+  static List<T> _parse<T>(
+    Object? raw,
+    T Function(Map<String, dynamic>) read,
+  ) => (raw as List? ?? const [])
+      .map((v) => read(Map<String, dynamic>.from(v as Map)))
+      .toList();
+
+  static List<String> _defaultModules(Map<String, dynamic> j) => [
+    'scores',
+    'timer',
+    if ((j['dice'] as List? ?? []).isNotEmpty) 'dice',
+    if ((j['roles'] as List? ?? []).isNotEmpty) 'roles',
+    if ((j['creation'] as List? ?? []).isNotEmpty) 'character',
+    if ((j['rulesNotes'] as String? ?? '').isNotEmpty ||
+        (j['rulesUrl'] as String? ?? '').isNotEmpty)
+      'rules',
+  ];
+
   factory GameTemplate.fromJson(Map<String, dynamic> j) {
     final result = GameTemplate(
       id: j['id'] as String,
       name: j['name'] as String,
       englishName: j['englishName'] as String? ?? j['name'] as String,
-      modules: List<String>.from(
-        j['modules'] as List? ??
-            [
-              'scores',
-              'timer',
-              if ((j['dice'] as List? ?? []).isNotEmpty) 'dice',
-              if ((j['roles'] as List? ?? []).isNotEmpty) 'roles',
-              if ((j['creation'] as List? ?? []).isNotEmpty) 'character',
-              if ((j['rulesNotes'] as String? ?? '').isNotEmpty ||
-                  (j['rulesUrl'] as String? ?? '').isNotEmpty)
-                'rules',
-            ],
-      ),
+      modules: List<String>.from(j['modules'] as List? ?? _defaultModules(j)),
       description: j['description'] as String? ?? '',
       categories: List<String>.from(j['categories'] as List? ?? ['Points']),
       target: (j['target'] as num? ?? 0).toDouble(),
@@ -91,81 +118,70 @@ class GameTemplate {
       rulesNotes: j['rulesNotes'] as String? ?? '',
       edition: j['edition'] as String? ?? '',
       language: j['language'] as String? ?? 'fr',
-      dice: (j['dice'] as List? ?? [])
-          .map((v) => GameDie.fromJson(Map<String, dynamic>.from(v as Map)))
-          .toList(),
-      roles: (j['roles'] as List? ?? [])
-          .map((v) => GameRole.fromJson(Map<String, dynamic>.from(v as Map)))
-          .toList(),
-      creation: (j['creation'] as List? ?? [])
-          .map(
-            (v) =>
-                CreationCategory.fromJson(Map<String, dynamic>.from(v as Map)),
-          )
-          .toList(),
-      scoring: (j['scoring'] as List? ?? [])
-          .map((v) => ScoreRule.fromJson(Map<String, dynamic>.from(v as Map)))
-          .toList(),
+      dice: _parse(j['dice'], GameDie.fromJson),
+      roles: _parse(j['roles'], GameRole.fromJson),
+      creation: _parse(j['creation'], CreationCategory.fromJson),
+      scoring: _parse(j['scoring'], ScoreRule.fromJson),
+      resources: (j['resources'] as Map? ?? const {}).map(
+        (k, v) => MapEntry(k as String, (v as num).toDouble()),
+      ),
+      statuses: List<String>.from(j['statuses'] as List? ?? const []),
     );
-    if (result.englishName.trim().isEmpty ||
-        result.englishName.length > 80 ||
-        result.modules.isEmpty ||
-        result.modules.length > 13 ||
-        result.modules.toSet().length != result.modules.length ||
-        result.modules.any(
-          (v) => ![
-            'scores',
-            'timer',
-            'dice',
-            'roles',
-            'character',
-            'rules',
-            'picker',
-            'teams',
-            'wheel',
-            'coin',
-            'order',
-            'number',
-            'bag',
-          ].contains(v),
-        ) ||
-        result.language.isEmpty ||
-        result.language.length > 20 ||
-        result.creation.length > 16 ||
-        result.creation.map((c) => c.name).toSet().length !=
-            result.creation.length ||
-        !RegExp(r'^[a-zA-Z0-9][a-zA-Z0-9._-]*$').hasMatch(result.id) ||
-        result.id.length > 120 ||
-        result.description.length > 500 ||
-        result.author.length > 120 ||
-        result.license.length > 120 ||
-        result.revision.isEmpty ||
-        result.revision.length > 40 ||
-        result.edition.length > 120 ||
-        result.rulesNotes.length > 12000 ||
-        !validRuleUrl(result.rulesUrl) ||
-        result.dice.length > 16 ||
-        result.dice.fold<int>(0, (n, d) => n + d.count) > 64 ||
-        result.roles.length > 32 ||
-        result.roles.fold<int>(0, (n, d) => n + d.count) > 32 ||
-        result.scoring.length > 32 ||
-        result.scoring.map((v) => v.name).toSet().length !=
-            result.scoring.length ||
-        result.scoring.any((v) => !result.categories.contains(v.name)) ||
-        result.categories.toSet().length != result.categories.length ||
-        result.name.trim().isEmpty ||
-        result.name.length > 80 ||
-        result.categories.isEmpty ||
-        result.categories.length > 32 ||
-        result.categories.any((c) => c.trim().isEmpty || c.length > 40) ||
-        !result.target.isFinite ||
-        result.target < 0 ||
-        result.seconds < 1 ||
-        result.seconds > 86400) {
+    if (!result._validText || !result._validRules || !result._validParts) {
       throw const FormatException('Modèle invalide');
     }
     return result;
   }
+
+  bool get _validText =>
+      RegExp(r'^[a-zA-Z0-9][a-zA-Z0-9._-]*$').hasMatch(id) &&
+      id.length <= 120 &&
+      name.trim().isNotEmpty &&
+      name.length <= 80 &&
+      englishName.trim().isNotEmpty &&
+      englishName.length <= 80 &&
+      language.isNotEmpty &&
+      language.length <= 20 &&
+      description.length <= 500 &&
+      author.length <= 120 &&
+      license.length <= 120 &&
+      revision.isNotEmpty &&
+      revision.length <= 40 &&
+      edition.length <= 120 &&
+      rulesNotes.length <= 12000 &&
+      validRuleUrl(rulesUrl);
+
+  bool get _validRules =>
+      modules.isNotEmpty &&
+      modules.length <= 13 &&
+      modules.toSet().length == modules.length &&
+      modules.every(knownModules.contains) &&
+      categories.isNotEmpty &&
+      categories.length <= 32 &&
+      categories.toSet().length == categories.length &&
+      categories.every((c) => c.trim().isNotEmpty && c.length <= 40) &&
+      target.isFinite &&
+      target >= 0 &&
+      seconds >= 1 &&
+      seconds <= 86400;
+
+  bool get _validParts =>
+      creation.length <= 16 &&
+      creation.map((c) => c.name).toSet().length == creation.length &&
+      dice.length <= 16 &&
+      dice.fold<int>(0, (n, d) => n + d.count) <= 64 &&
+      roles.length <= 32 &&
+      roles.fold<int>(0, (n, d) => n + d.count) <= 32 &&
+      scoring.length <= 32 &&
+      scoring.map((v) => v.name).toSet().length == scoring.length &&
+      scoring.every((v) => categories.contains(v.name)) &&
+      resources.length <= 16 &&
+      resources.keys.every((k) => k.trim().isNotEmpty && k.length <= 40) &&
+      resources.values.every((v) => v.isFinite) &&
+      statuses.length <= 16 &&
+      statuses.toSet().length == statuses.length &&
+      statuses.every((s) => s.trim().isNotEmpty && s.length <= 40);
+
   static const builtIn = [
     GameTemplate(
       id: 'free',

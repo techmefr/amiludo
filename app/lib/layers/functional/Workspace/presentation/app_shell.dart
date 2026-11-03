@@ -8,246 +8,61 @@ import 'package:amiludo/layers/functional/Workspace/presentation/workspace_gate.
 import 'package:amiludo/layers/technical/About/app_info.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 
+typedef NavItem = (String route, IconData icon, String label);
+
+const _barRoutes = [0, 1, 2, 3, 4];
+
+List<NavItem> navItems(BuildContext context) => [
+  ('/', Icons.home_outlined, tr(context, 'Accueil', 'Home')),
+  ('/game', Icons.dashboard_outlined, tr(context, 'Ma partie', 'My game')),
+  ('/tools', Icons.casino_outlined, tr(context, 'Outils', 'Tools')),
+  ('/library', Icons.shelves, tr(context, 'Ludothèque', 'Shelf')),
+  ('/friends', Icons.people_outline, tr(context, 'Amis', 'Friends')),
+  ('/history', Icons.history, tr(context, 'Historique', 'History')),
+  ('/appearance', Icons.tune, tr(context, 'Apparence', 'Style')),
+];
+
+int navIndex(List<NavItem> items, String path) => switch (path) {
+  '/timer' => 2,
+  '/templates' => 3,
+  _ => items.indexWhere((i) => i.$1 == path),
+};
+
 class AppShell extends StatelessWidget {
   const AppShell({super.key, required this.path, required this.child});
   final String path;
   final Widget child;
   @override
   Widget build(BuildContext context) {
-    final workspace = context.watch<WorkspaceCubit>(),
-        state = workspace.state,
-        theme = Theme.of(context);
-    final items = [
-      ('/', Icons.home_outlined, tr(context, 'Accueil', 'Home')),
-      ('/game', Icons.dashboard_outlined, tr(context, 'Ma partie', 'My game')),
-      ('/tools', Icons.casino_outlined, tr(context, 'Outils', 'Tools')),
-      ('/templates', Icons.style_outlined, tr(context, 'Modèles', 'Templates')),
-      ('/history', Icons.history, tr(context, 'Historique', 'History')),
-      ('/appearance', Icons.tune, tr(context, 'Apparence', 'Style')),
-    ];
-    final index = path == '/timer' ? 2 : items.indexWhere((i) => i.$1 == path);
+    final items = navItems(context);
+    final index = navIndex(items, path);
     final size = MediaQuery.sizeOf(context);
     final desktop = size.width >= 1000;
     final rail = !desktop && size.width > size.height;
     final compact = size.height < 500;
-    const barRoutes = [0, 1, 2, 3, 5];
-    final page = WorkspaceGate(
-      child: SingleChildScrollView(
-        key: PageStorageKey(path),
-        padding: EdgeInsets.fromLTRB(
-          desktop ? 48 : 20,
-          desktop ? 40 : (compact ? 16 : 28),
-          desktop ? 48 : 20,
-          48,
-        ),
-        child: Align(
-          alignment: Alignment.topCenter,
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1320),
-            child: SizedBox(width: double.infinity, child: child),
-          ),
-        ),
-      ),
-    );
     return Scaffold(
       body: SafeArea(
         child: Row(
           children: [
-            if (desktop)
-              Container(
-                width: 240,
-                decoration: BoxDecoration(
-                  border: Border(
-                    right: BorderSide(color: theme.colorScheme.outline),
-                  ),
-                ),
-                padding: const EdgeInsets.fromLTRB(24, 36, 24, 24),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Image.asset(
-                          'assets/brand/amiludo-mark.png',
-                          width: 36,
-                          height: 36,
-                          excludeFromSemantics: true,
-                        ),
-                        const SizedBox(width: 10),
-                        Text(
-                          'amiLudo',
-                          style: theme.textTheme.titleLarge?.copyWith(
-                            color: theme.brightness == Brightness.dark
-                                ? theme.colorScheme.primary
-                                : theme.colorScheme.onSurface,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      'Toutes vos parties',
-                      style: theme.textTheme.labelSmall?.copyWith(
-                        fontFamily: 'LilGrotesk',
-                        letterSpacing: 1,
-                      ),
-                    ),
-                    const SizedBox(height: 48),
-                    for (final (route, icon, label) in items)
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 8),
-                        child: ListTile(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(2),
-                          ),
-                          contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                          ),
-                          selected: path == route,
-                          selectedColor: theme.brightness == Brightness.dark
-                              ? theme.colorScheme.primary
-                              : theme.colorScheme.onSurface,
-                          selectedTileColor:
-                              theme.colorScheme.surfaceContainerHighest,
-                          leading: DeckIcon(icon, size: 20),
-                          title: Text(
-                            label,
-                            style: theme.textTheme.labelLarge?.copyWith(
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          onTap: () => context.go(route),
-                        ),
-                      ),
-                    const Spacer(),
-                    Text(
-                      tr(
-                        context,
-                        '● Données sur cet appareil',
-                        '● Data on this device',
-                      ),
-                      style: theme.textTheme.bodySmall,
-                    ),
-                    const SizedBox(height: 12),
-                    Text(
-                      tr(
-                        context,
-                        'amiLudo · Alpha\nSans compte. Sans publicité.',
-                        'amiLudo · Alpha\nNo account. No ads.',
-                      ),
-                      style: theme.textTheme.bodySmall,
-                    ),
-                  ],
-                ),
-              ),
-            if (rail)
-              Container(
-                decoration: BoxDecoration(
-                  border: Border(
-                    right: BorderSide(color: theme.colorScheme.outline),
-                  ),
-                ),
-                child: NavigationRail(
-                  selectedIndex: index < 0 ? null : index,
-                  labelType: NavigationRailLabelType.none,
-                  groupAlignment: 0,
-                  onDestinationSelected: (i) => context.go(items[i].$1),
-                  destinations: [
-                    for (final (_, icon, label) in items)
-                      NavigationRailDestination(
-                        icon: Tooltip(message: label, child: DeckIcon(icon)),
-                        label: Text(label),
-                      ),
-                  ],
-                ),
-              ),
+            if (desktop) _Sidebar(items: items, path: path),
+            if (rail) _Rail(items: items, index: index),
             Expanded(
               child: Column(
                 children: [
-                  Container(
-                    height: desktop ? 80 : (compact ? 52 : 64),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: desktop ? 48 : 20,
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(color: theme.colorScheme.outline),
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        if (!desktop)
-                          Image.asset(
-                            'assets/brand/amiludo-mark.png',
-                            width: 32,
-                            height: 32,
-                            semanticLabel: 'amiLudo',
-                          ),
-                        if (!desktop) const SizedBox(width: 16),
-                        Expanded(
-                          child: Text(
-                            'amiLudo · ${items[index < 0 ? 0 : index].$3}',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.labelMedium,
-                          ),
-                        ),
-                        if (desktop)
-                          Text(
-                            'Alpha $appVersion',
-                            style: theme.textTheme.labelSmall,
-                          ),
-                        IconButton(
-                          tooltip: tr(
-                            context,
-                            'À propos et retours',
-                            'About and feedback',
-                          ),
-                          onPressed: () => showProjectInfo(context),
-                          icon: const DeckIcon(Icons.info_outline, size: 20),
-                        ),
-                        IconButton(
-                          tooltip: tr(context, 'Historique', 'History'),
-                          onPressed: () => context.go('/history'),
-                          icon: const DeckIcon(Icons.history, size: 20),
-                        ),
-                        IconButton(
-                          tooltip: tr(
-                            context,
-                            'Changer la lumière',
-                            'Toggle light',
-                          ),
-                          onPressed: state.status == WorkspaceStatus.ready
-                              ? () => workspace.changeAppearance(
-                                  state.workspace.appearance.copyWith(
-                                    mode: theme.brightness == Brightness.dark
-                                        ? 'light'
-                                        : 'dark',
-                                  ),
-                                )
-                              : null,
-                          icon: const DeckIcon(Icons.contrast, size: 20),
-                        ),
-                      ],
+                  _Header(
+                    label: items[index < 0 ? 0 : index].$3,
+                    desktop: desktop,
+                    compact: compact,
+                  ),
+                  const _SaveFailedBanner(),
+                  Expanded(
+                    child: _Page(
+                      path: path,
+                      desktop: desktop,
+                      compact: compact,
+                      child: child,
                     ),
                   ),
-                  if (state.saveFailed)
-                    MaterialBanner(
-                      content: Text(
-                        tr(
-                          context,
-                          'Enregistrement impossible. Exportez vos données avant de fermer.',
-                          'Saving failed. Export your data before closing.',
-                        ),
-                      ),
-                      actions: [
-                        TextButton(
-                          onPressed: workspace.retrySave,
-                          child: Text(tr(context, 'Réessayer', 'Retry')),
-                        ),
-                      ],
-                    ),
-                  Expanded(child: page),
                 ],
               ),
             ),
@@ -256,35 +71,320 @@ class AppShell extends StatelessWidget {
       ),
       bottomNavigationBar: desktop || rail
           ? null
-          : NavigationBarTheme(
-              data: barRoutes.contains(index)
-                  ? NavigationBarTheme.of(context)
-                  : NavigationBarTheme.of(context).copyWith(
-                      indicatorColor: Colors.transparent,
-                      iconTheme: WidgetStatePropertyAll(
-                        IconThemeData(
-                          color: theme.colorScheme.onSurfaceVariant,
-                        ),
-                      ),
-                      labelTextStyle: WidgetStatePropertyAll(
-                        theme.textTheme.labelMedium,
-                      ),
-                    ),
-              child: NavigationBar(
-                selectedIndex: barRoutes.contains(index)
-                    ? barRoutes.indexOf(index)
-                    : 0,
-                onDestinationSelected: (i) =>
-                    context.go(items[barRoutes[i]].$1),
-                destinations: [
-                  for (final i in barRoutes)
-                    NavigationDestination(
-                      icon: DeckIcon(items[i].$2),
-                      label: items[i].$3,
-                    ),
-                ],
+          : _BottomBar(items: items, index: index),
+    );
+  }
+}
+
+class _Page extends StatelessWidget {
+  const _Page({
+    required this.path,
+    required this.desktop,
+    required this.compact,
+    required this.child,
+  });
+  final String path;
+  final bool desktop, compact;
+  final Widget child;
+  @override
+  Widget build(BuildContext context) => WorkspaceGate(
+    child: SingleChildScrollView(
+      key: PageStorageKey(path),
+      padding: EdgeInsets.fromLTRB(
+        desktop ? 48 : 20,
+        desktop ? 40 : (compact ? 16 : 28),
+        desktop ? 48 : 20,
+        48,
+      ),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 1320),
+          child: SizedBox(width: double.infinity, child: child),
+        ),
+      ),
+    ),
+  );
+}
+
+class _Brand extends StatelessWidget {
+  const _Brand();
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Row(
+      children: [
+        Image.asset(
+          'assets/brand/amiludo-mark.png',
+          width: 36,
+          height: 36,
+          excludeFromSemantics: true,
+        ),
+        const SizedBox(width: 10),
+        Text(
+          'amiLudo',
+          style: theme.textTheme.titleLarge?.copyWith(
+            color: theme.brightness == Brightness.dark
+                ? theme.colorScheme.primary
+                : theme.colorScheme.onSurface,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _Sidebar extends StatelessWidget {
+  const _Sidebar({required this.items, required this.path});
+  final List<NavItem> items;
+  final String path;
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(
+      width: 240,
+      decoration: BoxDecoration(
+        border: Border(right: BorderSide(color: theme.colorScheme.outline)),
+      ),
+      padding: const EdgeInsets.fromLTRB(24, 36, 24, 24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const _Brand(),
+          const SizedBox(height: 8),
+          Text(
+            'Toutes vos parties',
+            style: theme.textTheme.labelSmall?.copyWith(
+              fontFamily: 'LilGrotesk',
+              letterSpacing: 1,
+            ),
+          ),
+          const SizedBox(height: 48),
+          for (final item in items)
+            _SidebarTile(
+              item: item,
+              selected: navIndex(items, path) == items.indexOf(item),
+            ),
+          const Spacer(),
+          Text(
+            tr(context, '● Données sur cet appareil', '● Data on this device'),
+            style: theme.textTheme.bodySmall,
+          ),
+          const SizedBox(height: 12),
+          Text(
+            tr(
+              context,
+              'amiLudo · Alpha\nSans compte. Sans publicité.',
+              'amiLudo · Alpha\nNo account. No ads.',
+            ),
+            style: theme.textTheme.bodySmall,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SidebarTile extends StatelessWidget {
+  const _SidebarTile({required this.item, required this.selected});
+  final NavItem item;
+  final bool selected;
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final (route, icon, label) = item;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: ListTile(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(2)),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+        selected: selected,
+        selectedColor: theme.brightness == Brightness.dark
+            ? theme.colorScheme.primary
+            : theme.colorScheme.onSurface,
+        selectedTileColor: theme.colorScheme.surfaceContainerHighest,
+        leading: DeckIcon(icon, size: 20),
+        title: Text(
+          label,
+          style: theme.textTheme.labelLarge?.copyWith(
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        onTap: () => context.go(route),
+      ),
+    );
+  }
+}
+
+class _Rail extends StatelessWidget {
+  const _Rail({required this.items, required this.index});
+  final List<NavItem> items;
+  final int index;
+  @override
+  Widget build(BuildContext context) => Container(
+    decoration: BoxDecoration(
+      border: Border(
+        right: BorderSide(color: Theme.of(context).colorScheme.outline),
+      ),
+    ),
+    child: NavigationRail(
+      selectedIndex: index < 0 ? null : index,
+      labelType: NavigationRailLabelType.none,
+      groupAlignment: 0,
+      onDestinationSelected: (i) => context.go(items[i].$1),
+      destinations: [
+        for (final (_, icon, label) in items)
+          NavigationRailDestination(
+            icon: Tooltip(message: label, child: DeckIcon(icon)),
+            label: Text(label),
+          ),
+      ],
+    ),
+  );
+}
+
+class _Header extends StatelessWidget {
+  const _Header({
+    required this.label,
+    required this.desktop,
+    required this.compact,
+  });
+  final String label;
+  final bool desktop, compact;
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(
+      height: desktop ? 80 : (compact ? 52 : 64),
+      padding: EdgeInsets.symmetric(horizontal: desktop ? 48 : 20),
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: theme.colorScheme.outline)),
+      ),
+      child: Row(
+        children: [
+          if (!desktop) ...[
+            Image.asset(
+              'assets/brand/amiludo-mark.png',
+              width: 32,
+              height: 32,
+              semanticLabel: 'amiLudo',
+            ),
+            const SizedBox(width: 16),
+          ],
+          Expanded(
+            child: Text(
+              'amiLudo · $label',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: theme.textTheme.labelMedium,
+            ),
+          ),
+          if (desktop)
+            Text('Alpha $appVersion', style: theme.textTheme.labelSmall),
+          _HeaderActions(desktop: desktop),
+        ],
+      ),
+    );
+  }
+}
+
+class _HeaderActions extends StatelessWidget {
+  const _HeaderActions({required this.desktop});
+  final bool desktop;
+  @override
+  Widget build(BuildContext context) {
+    final workspace = context.watch<WorkspaceCubit>(), state = workspace.state;
+    final dark = Theme.of(context).brightness == Brightness.dark;
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        IconButton(
+          tooltip: tr(context, 'À propos et retours', 'About and feedback'),
+          onPressed: () => showProjectInfo(context),
+          icon: const DeckIcon(Icons.info_outline, size: 20),
+        ),
+        IconButton(
+          tooltip: tr(context, 'Historique', 'History'),
+          onPressed: () => context.go('/history'),
+          icon: const DeckIcon(Icons.history, size: 20),
+        ),
+        if (!desktop)
+          IconButton(
+            tooltip: tr(context, 'Apparence', 'Style'),
+            onPressed: () => context.go('/appearance'),
+            icon: const DeckIcon(Icons.tune, size: 20),
+          ),
+        IconButton(
+          tooltip: tr(context, 'Changer la lumière', 'Toggle light'),
+          onPressed: state.status == WorkspaceStatus.ready
+              ? () => workspace.changeAppearance(
+                  state.workspace.appearance.copyWith(
+                    mode: dark ? 'light' : 'dark',
+                  ),
+                )
+              : null,
+          icon: const DeckIcon(Icons.contrast, size: 20),
+        ),
+      ],
+    );
+  }
+}
+
+class _SaveFailedBanner extends StatelessWidget {
+  const _SaveFailedBanner();
+  @override
+  Widget build(BuildContext context) {
+    final workspace = context.watch<WorkspaceCubit>();
+    if (!workspace.state.saveFailed) return const SizedBox.shrink();
+    return MaterialBanner(
+      content: Text(
+        tr(
+          context,
+          'Enregistrement impossible. Exportez vos données avant de fermer.',
+          'Saving failed. Export your data before closing.',
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: workspace.retrySave,
+          child: Text(tr(context, 'Réessayer', 'Retry')),
+        ),
+      ],
+    );
+  }
+}
+
+class _BottomBar extends StatelessWidget {
+  const _BottomBar({required this.items, required this.index});
+  final List<NavItem> items;
+  final int index;
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final active = _barRoutes.contains(index);
+    return NavigationBarTheme(
+      data: active
+          ? NavigationBarTheme.of(context)
+          : NavigationBarTheme.of(context).copyWith(
+              indicatorColor: Colors.transparent,
+              iconTheme: WidgetStatePropertyAll(
+                IconThemeData(color: theme.colorScheme.onSurfaceVariant),
+              ),
+              labelTextStyle: WidgetStatePropertyAll(
+                theme.textTheme.labelMedium,
               ),
             ),
+      child: NavigationBar(
+        selectedIndex: active ? _barRoutes.indexOf(index) : 0,
+        onDestinationSelected: (i) => context.go(items[_barRoutes[i]].$1),
+        destinations: [
+          for (final i in _barRoutes)
+            NavigationDestination(
+              icon: DeckIcon(items[i].$2),
+              label: items[i].$3,
+            ),
+        ],
+      ),
     );
   }
 }

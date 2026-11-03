@@ -37,6 +37,37 @@ class _GameSetupPageState extends State<GameSetupPage> {
     super.dispose();
   }
 
+  String? _validatePlayers(String? text) {
+    final values = text!
+        .split('\n')
+        .map((n) => n.trim())
+        .where((n) => n.isNotEmpty)
+        .toList();
+    return values.isEmpty ||
+            values.length > 32 ||
+            values.toSet().length != values.length ||
+            values.any((n) => n.length > 40)
+        ? 'Vérifiez les noms (40 caractères maximum).'
+        : null;
+  }
+
+  Future<void> _start() async {
+    if (!form.currentState!.validate()) return;
+    await context.read<WorkspaceCubit>().startGame(
+      title.text,
+      people.text
+          .split('\n')
+          .map((n) => n.trim())
+          .where((n) => n.isNotEmpty)
+          .toList(),
+      chosen,
+    );
+    if (mounted) {
+      Navigator.of(context).pop();
+      context.go('/game');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final ws = context.watch<WorkspaceCubit>().state.workspace;
@@ -93,38 +124,11 @@ class _GameSetupPageState extends State<GameSetupPage> {
                 labelText: 'Joueurs ou équipes : un nom par ligne',
                 helperText: '1 à 32 participants, sans doublon.',
               ),
-              validator: (text) {
-                final values = text!
-                    .split('\n')
-                    .map((n) => n.trim())
-                    .where((n) => n.isNotEmpty)
-                    .toList();
-                return values.isEmpty ||
-                        values.length > 32 ||
-                        values.toSet().length != values.length ||
-                        values.any((n) => n.length > 40)
-                    ? 'Vérifiez les noms (40 caractères maximum).'
-                    : null;
-              },
+              validator: _validatePlayers,
             ),
             const SizedBox(height: 24),
             FilledButton(
-              onPressed: () async {
-                if (!form.currentState!.validate()) return;
-                await context.read<WorkspaceCubit>().startGame(
-                  title.text,
-                  people.text
-                      .split('\n')
-                      .map((n) => n.trim())
-                      .where((n) => n.isNotEmpty)
-                      .toList(),
-                  chosen,
-                );
-                if (context.mounted) {
-                  Navigator.of(context).pop();
-                  context.go('/game');
-                }
-              },
+              onPressed: _start,
               child: Text(tr(context, 'À vous de jouer', 'Start playing')),
             ),
           ],

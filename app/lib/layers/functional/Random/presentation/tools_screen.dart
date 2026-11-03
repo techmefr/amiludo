@@ -30,6 +30,38 @@ class _ToolsScreenState extends State<ToolsScreen> {
     context.push('/tools/$id');
   }
 
+  Widget toolCard(ToolDefinition t, bool favorite) => DeckPanel(
+    padding: 20,
+    color: toolSurface(context, t.id),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Expanded(child: GameArt(tool: t.id, height: 112)),
+            IconButton(
+              tooltip: tr(context, 'Favori', 'Favorite'),
+              onPressed: () => context.read<RandomCubit>().toggleFavorite(t.id),
+              icon: DeckIcon(
+                favorite ? Icons.star : Icons.star_outline,
+                size: 20,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 20),
+        Text(t.title, style: Theme.of(context).textTheme.titleMedium),
+        const SizedBox(height: 8),
+        Text(t.subtitle),
+        const SizedBox(height: 16),
+        OutlinedButton(
+          onPressed: () => open(t.id),
+          child: Text(tr(context, 'Ouvrir ↗', 'Open ↗')),
+        ),
+      ],
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     final ws = context.watch<RandomCubit>().state;
@@ -71,46 +103,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
           minimumWidth: 210,
           children: toolDefinitions
               .where((t) => category == 'Tous' || t.category == category)
-              .map(
-                (t) => DeckPanel(
-                  padding: 20,
-                  color: toolSurface(context, t.id),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Expanded(child: GameArt(tool: t.id, height: 112)),
-                          IconButton(
-                            tooltip: tr(context, 'Favori', 'Favorite'),
-                            onPressed: () => context
-                                .read<RandomCubit>()
-                                .toggleFavorite(t.id),
-                            icon: DeckIcon(
-                              ws.favorites.contains(t.id)
-                                  ? Icons.star
-                                  : Icons.star_outline,
-                              size: 20,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      Text(
-                        t.title,
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(t.subtitle),
-                      const SizedBox(height: 16),
-                      OutlinedButton(
-                        onPressed: () => open(t.id),
-                        child: Text(tr(context, 'Ouvrir ↗', 'Open ↗')),
-                      ),
-                    ],
-                  ),
-                ),
-              )
+              .map((t) => toolCard(t, ws.favorites.contains(t.id)))
               .toList(),
         ),
       ],

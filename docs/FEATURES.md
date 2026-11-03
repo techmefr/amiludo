@@ -201,8 +201,25 @@ Le produit combine un accès immédiat aux outils et un mode partie qui partage 
 - [ ] F147 — Plateaux, pistes et jetons personnalisables
 - [ ] F148 — Campagnes, scénarios et progression entre les séances
 
-**Total : 148 fonctionnalités planifiées.**
+## Ludothèque, amis et souvenirs — V1
+
+Tout reste sur l’appareil, sans compte ni serveur. Les échanges passent par QR code ou par fichier chiffré.
+
+- [x] F149 — Ludothèque en étagères : chaque jeu possédé est une boîte avec genres, joueurs, durée et packs liés
+- [x] F150 — Fiche d’un jeu de la ludothèque : packs, parties jouées, note moyenne, jouer et partager
+- [x] F151 — Profils d’amis : prénom, couleur, genres aimés ou évités, durée maximale et jeux refusés
+- [x] F152 — Avis et notes de 1 à 5 étoiles par joueur à la fin d’une partie
+- [x] F153 — « On joue à quoi ce soir ? » : suggestions de la ludothèque selon les amis présents
+- [x] F154 — Souvenirs de partie : note, moments forts et photos
+- [x] F155 — Galerie privée exportée en fichier chiffré, clé transmise par QR code à la table
+- [x] F156 — Fusion des galeries reçues sans doublons
+- [x] F157 — Session partagée (packs, dés, fiches de personnage, joueurs, jeu) en QR code animé à 10 images par seconde
+- [x] F158 — Réception par scan avec codage fontaine : on peut commencer en cours de route et rater des images
+- [x] F159 — Ressources de départ et statuts définis par le pack, appliqués à chaque joueur
+- [x] F160 — Réglage rapide des ressources et des statuts cumulables pendant la partie
+
+**Total : 160 fonctionnalités planifiées.**
 
 La personnalisation est portée dans Flutter. Les cases cochées décrivent une alpha locale ; elles ne valent pas une certification Android/iOS ou une validation complète d’accessibilité.
 
-**Bilan alpha : 91 fonctions cochées ; 57 prévues ou incomplètes.**
+**Bilan alpha : 103 fonctions cochées ; 57 prévues ou incomplètes.**

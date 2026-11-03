@@ -191,102 +191,127 @@ class _GameArtPainter extends CustomPainter {
       pawn(canvas, 228, 132, mint);
       disk(canvas, const Offset(163, 36), 6, yellow);
     } else if (tool == 'timer') {
-      disk(canvas, const Offset(160, 115), 72, cream);
-      disk(canvas, const Offset(160, 115), 61, yellow);
-      final pen = Paint()
-        ..color = ink
-        ..strokeWidth = 7
-        ..strokeCap = StrokeCap.round;
-      canvas.drawLine(const Offset(160, 115), const Offset(160, 76), pen);
-      canvas.drawLine(const Offset(160, 115), const Offset(192, 132), pen);
-      tile(canvas, const Rect.fromLTWH(145, 26, 30, 15), purple, radius: 7);
-      disk(canvas, const Offset(160, 115), 6, ink);
+      _timer(canvas);
     } else if (tool == 'wheel') {
-      final colors = [purple, coral, mint, yellow, purple, mint];
-      for (var i = 0; i < 6; i++) {
-        canvas.drawArc(
-          const Rect.fromLTWH(85, 40, 150, 150),
-          -pi / 2 + i * pi / 3,
-          pi / 3,
-          true,
-          fill(colors[i]),
-        );
-      }
-      disk(canvas, const Offset(160, 115), 18, cream);
-      final pointer = Path()
-        ..moveTo(149, 27)
-        ..lineTo(171, 27)
-        ..lineTo(160, 49)
-        ..close();
-      canvas.drawPath(pointer, fill(ink));
+      _wheel(canvas);
     } else if (tool == 'coin') {
       token(canvas, 132, 145, yellow);
       token(canvas, 192, 111, coral);
       disk(canvas, const Offset(132, 140), 12, cream);
       disk(canvas, const Offset(192, 106), 12, cream);
     } else if (tool == 'order' || tool == 'number') {
-      for (var i = 0; i < 3; i++) {
-        tile(
-          canvas,
-          Rect.fromLTWH(61 + i * 69.0, 87 + (i == 1 ? -17 : 0), 59, 78),
-          [purple, mint, coral][i],
-        );
-        final t = TextPainter(
-          text: TextSpan(
-            text: '${i + 1}',
-            style: const TextStyle(
-              fontFamily: 'BricolageGrotesque',
-              fontSize: 40,
-              fontWeight: FontWeight.w700,
-              color: cream,
-            ),
-          ),
-          textDirection: TextDirection.ltr,
-        )..layout();
-        t.paint(canvas, Offset(80 + i * 69.0, 99 + (i == 1 ? -17 : 0)));
-      }
+      _numbers(canvas);
     } else if (tool == 'bag') {
-      final bag = Path()
-        ..moveTo(125, 61)
-        ..quadraticBezierTo(160, 80, 195, 61)
-        ..quadraticBezierTo(188, 85, 200, 103)
-        ..cubicTo(242, 158, 220, 188, 160, 188)
-        ..cubicTo(100, 188, 78, 158, 120, 103)
-        ..quadraticBezierTo(132, 85, 125, 61)
-        ..close();
-      canvas.drawPath(bag, fill(mint));
-      canvas.drawLine(
-        const Offset(125, 82),
-        const Offset(195, 82),
-        Paint()
-          ..color = ink
-          ..strokeWidth = 4
-          ..strokeCap = StrokeCap.round,
-      );
-      token(canvas, 217, 178, yellow);
-      token(canvas, 99, 183, coral);
+      _bag(canvas);
     } else if (tool == 'roles' || tool == 'character') {
       card(canvas, 127, 118, -.2, purple, face: true);
       card(canvas, 197, 112, .2, coral, face: true);
       token(canvas, 227, 180, yellow);
     } else if (tool == 'scores') {
-      tile(canvas, const Rect.fromLTWH(75, 47, 170, 136), cream);
-      for (var row = 0; row < 3; row++) {
-        disk(canvas, Offset(101, 79 + row * 35), 8, [purple, coral, mint][row]);
-        canvas.drawRRect(
-          RRect.fromRectAndRadius(
-            Rect.fromLTWH(123, 73 + row * 35, 91 - row * 13.0, 12),
-            const Radius.circular(6),
-          ),
-          fill([purple, coral, mint][row]),
-        );
-      }
-      token(canvas, 237, 177, yellow);
+      _scores(canvas);
     } else {
       card(canvas, 123, 109, -.2, mint);
       die(canvas, 203, 132, 84, .18, cream);
       token(canvas, 110, 184, yellow);
     }
+    _sparkles(canvas);
+    canvas.restore();
+  }
+
+  void _timer(Canvas canvas) {
+    disk(canvas, const Offset(160, 115), 72, cream);
+    disk(canvas, const Offset(160, 115), 61, yellow);
+    final pen = Paint()
+      ..color = ink
+      ..strokeWidth = 7
+      ..strokeCap = StrokeCap.round;
+    canvas.drawLine(const Offset(160, 115), const Offset(160, 76), pen);
+    canvas.drawLine(const Offset(160, 115), const Offset(192, 132), pen);
+    tile(canvas, const Rect.fromLTWH(145, 26, 30, 15), purple, radius: 7);
+    disk(canvas, const Offset(160, 115), 6, ink);
+  }
+
+  void _wheel(Canvas canvas) {
+    final colors = [purple, coral, mint, yellow, purple, mint];
+    for (var i = 0; i < 6; i++) {
+      canvas.drawArc(
+        const Rect.fromLTWH(85, 40, 150, 150),
+        -pi / 2 + i * pi / 3,
+        pi / 3,
+        true,
+        fill(colors[i]),
+      );
+    }
+    disk(canvas, const Offset(160, 115), 18, cream);
+    final pointer = Path()
+      ..moveTo(149, 27)
+      ..lineTo(171, 27)
+      ..lineTo(160, 49)
+      ..close();
+    canvas.drawPath(pointer, fill(ink));
+  }
+
+  void _numbers(Canvas canvas) {
+    for (var i = 0; i < 3; i++) {
+      tile(
+        canvas,
+        Rect.fromLTWH(61 + i * 69.0, 87 + (i == 1 ? -17 : 0), 59, 78),
+        [purple, mint, coral][i],
+      );
+      final t = TextPainter(
+        text: TextSpan(
+          text: '${i + 1}',
+          style: const TextStyle(
+            fontFamily: 'BricolageGrotesque',
+            fontSize: 40,
+            fontWeight: FontWeight.w700,
+            color: cream,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+      )..layout();
+      t.paint(canvas, Offset(80 + i * 69.0, 99 + (i == 1 ? -17 : 0)));
+    }
+  }
+
+  void _bag(Canvas canvas) {
+    final bag = Path()
+      ..moveTo(125, 61)
+      ..quadraticBezierTo(160, 80, 195, 61)
+      ..quadraticBezierTo(188, 85, 200, 103)
+      ..cubicTo(242, 158, 220, 188, 160, 188)
+      ..cubicTo(100, 188, 78, 158, 120, 103)
+      ..quadraticBezierTo(132, 85, 125, 61)
+      ..close();
+    canvas.drawPath(bag, fill(mint));
+    canvas.drawLine(
+      const Offset(125, 82),
+      const Offset(195, 82),
+      Paint()
+        ..color = ink
+        ..strokeWidth = 4
+        ..strokeCap = StrokeCap.round,
+    );
+    token(canvas, 217, 178, yellow);
+    token(canvas, 99, 183, coral);
+  }
+
+  void _scores(Canvas canvas) {
+    tile(canvas, const Rect.fromLTWH(75, 47, 170, 136), cream);
+    for (var row = 0; row < 3; row++) {
+      disk(canvas, Offset(101, 79 + row * 35), 8, [purple, coral, mint][row]);
+      canvas.drawRRect(
+        RRect.fromRectAndRadius(
+          Rect.fromLTWH(123, 73 + row * 35, 91 - row * 13.0, 12),
+          const Radius.circular(6),
+        ),
+        fill([purple, coral, mint][row]),
+      );
+    }
+    token(canvas, 237, 177, yellow);
+  }
+
+  void _sparkles(Canvas canvas) {
     for (final p in [
       const Offset(32, 52),
       const Offset(288, 77),
@@ -307,7 +332,6 @@ class _GameArtPainter extends CustomPainter {
           ..strokeWidth = 2,
       );
     }
-    canvas.restore();
   }
 
   @override

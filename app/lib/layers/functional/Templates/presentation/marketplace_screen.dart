@@ -64,30 +64,7 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
             title: 'Les outils se partagent',
             subtitle: 'Installez un pack, personnalisez-le et jouez hors connexion. Le catalogue démarre avec des exemples originaux ; les contributions sont relues sur le dépôt public.',
           ),
-          Wrap(
-            spacing: 12,
-            runSpacing: 12,
-            children: [
-              FilledButton.icon(
-                onPressed: catalog.loading
-                    ? null
-                    : context.read<MarketplaceCubit>().refresh,
-                icon: const DeckIcon(Icons.refresh),
-                label: const Text('Actualiser la galerie'),
-              ),
-              OutlinedButton(
-                onPressed: () => context.push('/builder/new'),
-                child: const Text('Créer mon pack'),
-              ),
-              TextButton(
-                onPressed: () => openProjectLink(
-                  context,
-                  '$projectUrl/blob/main/community/README.md',
-                ),
-                child: const Text('Comment publier mon pack ?'),
-              ),
-            ],
-          ),
+          _MarketplaceActions(loading: catalog.loading),
           const SizedBox(height: 16),
           Text(
             catalog.online ? 'Catalogue public actualisé' : 'Catalogue fourni avec l’application. Actualisez pour découvrir les nouvelles contributions.',
@@ -126,58 +103,103 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
           if (!catalog.loading && shown.isEmpty)
             const Text('Aucun pack pour cette recherche.'),
           for (final p in shown)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: DeckPanel(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      p.name,
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    const SizedBox(height: 8),
-                    Text(p.description),
-                    Text('${p.author} · ${p.revision} · ${p.license}'),
-                    const SizedBox(height: 12),
-                    Text(
-                      '${p.dice.length} types de dés · ${p.roles.length} rôles · ${p.scoring.length} catégories · ${p.creation.length} boosters',
-                    ),
-                    if (p.rulesNotes.isNotEmpty)
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12),
-                        child: Text(p.rulesNotes),
-                      ),
-                    if (p.rulesUrl.isNotEmpty)
-                      TextButton(
-                        onPressed: () => openProjectLink(context, p.rulesUrl),
-                        child: const Text('Règles de référence'),
-                      ),
-                    const SizedBox(height: 16),
-                    Wrap(
-                      spacing: 12,
-                      runSpacing: 8,
-                      children: [
-                        FilledButton(
-                          onPressed: () => install(p),
-                          child: Text(
-                            installed.any((t) => t.id == p.id)
-                                ? 'Réinstaller / remplacer'
-                                : 'Installer le pack',
-                          ),
-                        ),
-                        if (installed.any((t) => t.id == p.id))
-                          OutlinedButton(
-                            onPressed: () => context.push('/pack/${p.id}'),
-                            child: const Text('Ouvrir mon pack'),
-                          ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+            _PackCard(
+              pack: p,
+              installed: installed.any((t) => t.id == p.id),
+              onInstall: () => install(p),
             ),
         ],
+      ),
+    );
+  }
+}
+
+class _MarketplaceActions extends StatelessWidget {
+  const _MarketplaceActions({required this.loading});
+  final bool loading;
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: 12,
+      runSpacing: 12,
+      children: [
+        FilledButton.icon(
+          onPressed: loading ? null : context.read<MarketplaceCubit>().refresh,
+          icon: const DeckIcon(Icons.refresh),
+          label: const Text('Actualiser la galerie'),
+        ),
+        OutlinedButton(
+          onPressed: () => context.push('/builder/new'),
+          child: const Text('Créer mon pack'),
+        ),
+        TextButton(
+          onPressed: () => openProjectLink(
+            context,
+            '$projectUrl/blob/main/community/README.md',
+          ),
+          child: const Text('Comment publier mon pack ?'),
+        ),
+      ],
+    );
+  }
+}
+
+class _PackCard extends StatelessWidget {
+  const _PackCard({
+    required this.pack,
+    required this.installed,
+    required this.onInstall,
+  });
+  final GameTemplate pack;
+  final bool installed;
+  final VoidCallback onInstall;
+  @override
+  Widget build(BuildContext context) {
+    final p = pack;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: DeckPanel(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(p.name, style: Theme.of(context).textTheme.headlineSmall),
+            const SizedBox(height: 8),
+            Text(p.description),
+            Text('${p.author} · ${p.revision} · ${p.license}'),
+            const SizedBox(height: 12),
+            Text(
+              '${p.dice.length} types de dés · ${p.roles.length} rôles · ${p.scoring.length} catégories · ${p.creation.length} boosters',
+            ),
+            if (p.rulesNotes.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.only(top: 12),
+                child: Text(p.rulesNotes),
+              ),
+            if (p.rulesUrl.isNotEmpty)
+              TextButton(
+                onPressed: () => openProjectLink(context, p.rulesUrl),
+                child: const Text('Règles de référence'),
+              ),
+            const SizedBox(height: 16),
+            Wrap(
+              spacing: 12,
+              runSpacing: 8,
+              children: [
+                FilledButton(
+                  onPressed: onInstall,
+                  child: Text(
+                    installed ? 'Réinstaller / remplacer' : 'Installer le pack',
+                  ),
+                ),
+                if (installed)
+                  OutlinedButton(
+                    onPressed: () => context.push('/pack/${p.id}'),
+                    child: const Text('Ouvrir mon pack'),
+                  ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
