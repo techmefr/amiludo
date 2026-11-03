@@ -112,7 +112,9 @@ class AppShell extends StatelessWidget {
                           leading: DeckIcon(icon, size: 20),
                           title: Text(
                             label,
-                            style: const TextStyle(fontSize: 13),
+                            style: theme.textTheme.labelLarge?.copyWith(
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                           onTap: () => context.go(route),
                         ),
@@ -166,10 +168,7 @@ class AppShell extends StatelessWidget {
                             'amiLudo · ${items[index < 0 ? 0 : index].$3}',
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                              fontFamily: 'LilGrotesk',
-                              fontSize: 12,
-                            ),
+                            style: theme.textTheme.labelMedium,
                           ),
                         ),
                         if (desktop)

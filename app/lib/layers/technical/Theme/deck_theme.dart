@@ -250,36 +250,92 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
         ? VisualDensity.compact
         : VisualDensity.standard,
   );
-  final text = base.textTheme.apply(
-    fontSizeFactor: appearance.large ? 1.15 : 1.0,
-    bodyColor: ink,
-    displayColor: ink,
+  final scale = appearance.large ? 1.15 : 1.0;
+  final themed = appearance.skin == 'cyber' || appearance.skin == 'orbital';
+  final buttonFont = themed ? heading : appearance.font;
+  final buttonText = TextStyle(
+    fontFamily: buttonFont,
+    fontFamilyFallback: const ['NotoSansSymbols2', 'NotoSansSymbols'],
+    fontSize: 15 * scale,
+    fontWeight: FontWeight.w700,
+    letterSpacing: themed ? 1 : 0,
   );
+  TextStyle? headingStyle(
+    TextStyle? style,
+    double size,
+    FontWeight weight, {
+    double height = 1.2,
+    double letterSpacing = 0,
+  }) => style?.copyWith(
+    fontFamily: heading,
+    fontSize: size * scale,
+    fontWeight: weight,
+    height: height,
+    letterSpacing: themed ? 0 : letterSpacing,
+  );
+  TextStyle? bodyStyle(
+    TextStyle? style,
+    double size,
+    FontWeight weight, {
+    double height = 1.5,
+    double letterSpacing = 0,
+  }) => style?.copyWith(
+    fontSize: size * scale,
+    fontWeight: weight,
+    height: height,
+    letterSpacing: letterSpacing,
+  );
+  final text = base.textTheme.apply(bodyColor: ink, displayColor: ink);
   return base.copyWith(
     extensions: [style],
     textTheme: text.copyWith(
-      headlineLarge: text.headlineLarge?.copyWith(
-        fontFamily: heading,
-        fontSize: appearance.skin == 'play' ? 32 : 36,
-        fontWeight: FontWeight.w600,
+      displaySmall: headingStyle(
+        text.displaySmall,
+        44,
+        FontWeight.w800,
+        height: 1.05,
+        letterSpacing: -1,
+      ),
+      headlineLarge: headingStyle(
+        text.headlineLarge,
+        36,
+        FontWeight.w700,
         height: 1.1,
+        letterSpacing: -0.6,
       ),
-      headlineMedium: text.headlineMedium?.copyWith(
-        fontFamily: heading,
-        fontSize: appearance.skin == 'play' ? 24 : 28,
-        fontWeight: FontWeight.w600,
-        height: 1.1,
+      headlineMedium: headingStyle(
+        text.headlineMedium,
+        28,
+        FontWeight.w700,
+        height: 1.15,
+        letterSpacing: -0.4,
       ),
-      titleLarge: text.titleLarge?.copyWith(
-        fontFamily: heading,
-        fontSize: appearance.skin == 'play' ? 20 : 22,
-        fontWeight: FontWeight.w600,
+      headlineSmall: headingStyle(
+        text.headlineSmall,
+        22,
+        FontWeight.w700,
+        letterSpacing: -0.2,
       ),
-      titleMedium: text.titleMedium?.copyWith(
-        fontFamily: heading,
-        fontWeight: FontWeight.w600,
+      titleLarge: headingStyle(text.titleLarge, 20, FontWeight.w600),
+      titleMedium: headingStyle(text.titleMedium, 17, FontWeight.w600),
+      titleSmall: bodyStyle(text.titleSmall, 15, FontWeight.w700),
+      bodyLarge: bodyStyle(text.bodyLarge, 17, FontWeight.w400),
+      bodyMedium: bodyStyle(text.bodyMedium, 15, FontWeight.w400),
+      bodySmall: bodyStyle(text.bodySmall, 13, FontWeight.w400, height: 1.4),
+      labelLarge: bodyStyle(text.labelLarge, 15, FontWeight.w700, height: 1.2),
+      labelMedium: bodyStyle(
+        text.labelMedium,
+        13,
+        FontWeight.w500,
+        height: 1.3,
       ),
-      bodyMedium: text.bodyMedium?.copyWith(height: 1.5),
+      labelSmall: bodyStyle(
+        text.labelSmall,
+        12,
+        FontWeight.w500,
+        height: 1.3,
+        letterSpacing: 0.3,
+      ),
     ),
     dividerColor: border,
     appBarTheme: AppBarTheme(
@@ -292,19 +348,24 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
         minimumSize: const Size(48, 48),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         shape: style.border(Colors.transparent),
-        textStyle: TextStyle(
-          fontFamily: heading,
-          fontWeight: FontWeight.w600,
-          letterSpacing: appearance.skin == 'play' ? 0 : 1,
-        ),
+        textStyle: buttonText,
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         minimumSize: const Size(48, 48),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         foregroundColor: ink,
         side: BorderSide(color: border),
         shape: style.border(border),
+        textStyle: buttonText,
+      ),
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        minimumSize: const Size(48, 48),
+        foregroundColor: dark ? accent : ink,
+        textStyle: buttonText,
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -331,6 +392,7 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
           fontFamily: appearance.font,
           fontFamilyFallback: const ['NotoSansSymbols2', 'NotoSansSymbols'],
           fontSize: 12,
+          fontWeight: FontWeight.w500,
         ),
       ),
     ),

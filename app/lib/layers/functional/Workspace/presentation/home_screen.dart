@@ -60,14 +60,14 @@ class HomeScreen extends StatelessWidget {
                           context,
                           'Les bons outils, la bonne compagnie',
                           'Good tools. Great company.',
-                        ),
-                        style: const TextStyle(
-                          fontFamily: 'LilGrotesk',
-                          fontSize: 12,
-                          letterSpacing: 0,
+                        ).toUpperCase(),
+                        style: theme.textTheme.labelMedium?.copyWith(
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: 1.2,
+                          color: theme.colorScheme.primary,
                         ),
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: 12),
                       Text(
                         tr(
                           context,
@@ -85,19 +85,30 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 24),
-                      FilledButton.icon(
-                        onPressed: () => context.go('/tools'),
-                        icon: const DeckIcon(Icons.arrow_outward, size: 18),
-                        label: Text(tr(context, 'Mode libre', 'Free mode')),
-                      ),
-                      const SizedBox(height: 12),
-                      OutlinedButton.icon(
-                        onPressed: () => context.go('/templates'),
-                        icon: const DeckIcon(
-                          Icons.dashboard_outlined,
-                          size: 18,
-                        ),
-                        label: const Text('Mes compagnons par jeu'),
+                      Wrap(
+                        spacing: 12,
+                        runSpacing: 12,
+                        children: [
+                          FilledButton.icon(
+                            onPressed: () => context.go('/tools'),
+                            icon: const DeckIcon(Icons.arrow_outward, size: 18),
+                            label: Text(tr(context, 'Mode libre', 'Free mode')),
+                          ),
+                          OutlinedButton.icon(
+                            onPressed: () => context.go('/templates'),
+                            icon: const DeckIcon(
+                              Icons.dashboard_outlined,
+                              size: 18,
+                            ),
+                            label: Text(
+                              tr(
+                                context,
+                                'Mes compagnons par jeu',
+                                'My game companions',
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),

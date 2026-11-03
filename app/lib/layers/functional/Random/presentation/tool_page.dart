@@ -126,6 +126,7 @@ class _ToolPageState extends State<ToolPage> {
         children: [
           if (choose) ...[
             DropdownButtonFormField<String>(
+              style: Theme.of(context).textTheme.bodyLarge,
               key: ValueKey(current?.id ?? ''),
               initialValue: current?.id ?? '',
               isExpanded: true,

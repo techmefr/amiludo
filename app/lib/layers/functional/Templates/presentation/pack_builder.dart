@@ -409,6 +409,7 @@ class _PackBuilderState extends State<PackBuilder> {
                     children: [
                       field(d.name, 'Catégorie de points', maxLength: 40),
                       DropdownButtonFormField<String>(
+                        style: Theme.of(context).textTheme.bodyLarge,
                         initialValue: d.kind,
                         isExpanded: true,
                         decoration: const InputDecoration(

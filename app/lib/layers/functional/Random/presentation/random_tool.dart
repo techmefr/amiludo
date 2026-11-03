@@ -194,6 +194,7 @@ class _RandomToolState extends State<RandomTool>
         const SizedBox(height: 20),
         if (widget.id == 'teams')
           DropdownButtonFormField<int>(
+            style: Theme.of(context).textTheme.bodyLarge,
             initialValue: teamCount.clamp(2, max(2, widget.names.length)),
             decoration: InputDecoration(
               labelText: tr(context, 'Nombre d’équipes', 'Number of teams'),

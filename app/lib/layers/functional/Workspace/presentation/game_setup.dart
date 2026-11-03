@@ -61,6 +61,7 @@ class _GameSetupPageState extends State<GameSetupPage> {
             ),
             const SizedBox(height: 16),
             DropdownButtonFormField<String>(
+              style: Theme.of(context).textTheme.bodyLarge,
               initialValue: chosen.id,
               isExpanded: true,
               decoration: const InputDecoration(labelText: 'Pack / modèle'),

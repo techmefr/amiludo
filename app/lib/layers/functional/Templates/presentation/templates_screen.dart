@@ -116,37 +116,68 @@ class TemplatesScreen extends StatelessWidget {
                       Text(t.description),
                       const SizedBox(height: 16),
                       Text(
-                        '${t.categories.join(' / ')} · ${t.seconds}s',
+                        [
+                          t.categories.join(' / '),
+                          '${t.seconds}s',
+                          if (t.target > 0)
+                            tr(
+                              context,
+                              'Objectif ${t.target}',
+                              'Target ${t.target}',
+                            ),
+                        ].join(' · '),
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
-                      if (t.target > 0) Text('Objectif / ${t.target}'),
                       const SizedBox(height: 24),
-                      FilledButton(
-                        onPressed: () => context.push(
-                          GameSetupRequest.path,
-                          extra: GameSetupRequest(template: t),
-                        ),
-                        child: Text(
-                          tr(context, 'Jouer avec ce modèle', 'Use template'),
+                      SizedBox(
+                        width: double.infinity,
+                        child: FilledButton(
+                          onPressed: () => context.push(
+                            GameSetupRequest.path,
+                            extra: GameSetupRequest(template: t),
+                          ),
+                          child: Text(
+                            tr(context, 'Jouer avec ce modèle', 'Use template'),
+                          ),
                         ),
                       ),
-                      const SizedBox(height: 12),
-                      Wrap(
-                        spacing: 8,
+                      const SizedBox(height: 8),
+                      Row(
                         children: [
-                          TextButton(
+                          IconButton(
+                            tooltip: ws.templates.any((v) => v.id == t.id)
+                                ? tr(context, 'Modifier', 'Edit')
+                                : tr(
+                                    context,
+                                    'Copier dans mon atelier',
+                                    'Copy to my workshop',
+                                  ),
                             onPressed: () => context.push('/builder/${t.id}'),
-                            child: Text(
+                            icon: DeckIcon(
                               ws.templates.any((v) => v.id == t.id)
-                                  ? 'Modifier'
-                                  : 'Copier dans mon atelier',
+                                  ? Icons.edit_outlined
+                                  : Icons.copy_outlined,
+                              size: 20,
                             ),
                           ),
-                          TextButton(
+                          IconButton(
+                            tooltip: tr(
+                              context,
+                              'Outils et règles du pack',
+                              'Pack tools and rules',
+                            ),
                             onPressed: () => context.push('/pack/${t.id}'),
-                            child: const Text('Outils et règles du pack'),
+                            icon: const DeckIcon(
+                              Icons.menu_book_outlined,
+                              size: 20,
+                            ),
                           ),
-                          TextButton(
+                          IconButton(
+                            tooltip: tr(context, 'Partager', 'Share'),
+                            icon: const DeckIcon(
+                              Icons.share_outlined,
+                              size: 20,
+                            ),
                             onPressed: () => FileTransfer.shareText(
                               jsonEncode({
                                 'format': 'table-companion-template',
@@ -155,10 +186,14 @@ class TemplatesScreen extends StatelessWidget {
                               }),
                               'modele-${t.id}.json',
                             ),
-                            child: Text(tr(context, 'Partager', 'Share')),
                           ),
                           if (ws.templates.any((custom) => custom.id == t.id))
-                            TextButton(
+                            IconButton(
+                              tooltip: tr(context, 'Supprimer', 'Delete'),
+                              icon: const DeckIcon(
+                                Icons.delete_outline,
+                                size: 20,
+                              ),
                               onPressed: () async {
                                 final templates = context
                                     .read<TemplatesCubit>();
@@ -174,7 +209,6 @@ class TemplatesScreen extends StatelessWidget {
                                   await templates.removeTemplate(t.id);
                                 }
                               },
-                              child: Text(tr(context, 'Supprimer', 'Delete')),
                             ),
                         ],
                       ),

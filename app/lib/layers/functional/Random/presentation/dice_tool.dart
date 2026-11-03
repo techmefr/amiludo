@@ -79,6 +79,7 @@ class _DiceToolState extends State<DiceTool> {
             SizedBox(
               width: 150,
               child: DropdownButtonFormField<int>(
+                style: Theme.of(context).textTheme.bodyLarge,
                 initialValue: faces,
                 decoration: const InputDecoration(labelText: 'Faces'),
                 items: [4, 6, 8, 10, 12, 20, 100]
@@ -94,6 +95,7 @@ class _DiceToolState extends State<DiceTool> {
             SizedBox(
               width: 150,
               child: DropdownButtonFormField<int>(
+                style: Theme.of(context).textTheme.bodyLarge,
                 initialValue: count,
                 decoration: InputDecoration(
                   labelText: tr(context, 'Nombre', 'Count'),

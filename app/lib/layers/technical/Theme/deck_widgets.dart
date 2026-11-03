@@ -64,25 +64,23 @@ class DeckHeading extends StatelessWidget {
                   Text(
                     eyebrow
                         .replaceAll(RegExp(r'^\d+ / '), '')
-                        .replaceAll(' / ', ' · '),
-                    style: TextStyle(
-                      fontFamily: styleHeadingFont(context),
-                      fontSize: 12,
-                      letterSpacing: .2,
-                      color: theme.brightness == Brightness.dark
-                          ? theme.colorScheme.primary
-                          : theme.colorScheme.onSurface,
+                        .replaceAll(' / ', ' · ')
+                        .toUpperCase(),
+                    style: theme.textTheme.labelMedium?.copyWith(
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 1.2,
+                      color: theme.colorScheme.primary,
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 10),
                   Text(title, style: theme.textTheme.headlineLarge),
                   if (subtitle.isNotEmpty) ...[
                     const SizedBox(height: 12),
                     Text(
                       subtitle,
-                      style: theme.textTheme.bodyMedium?.copyWith(
+                      style: theme.textTheme.bodyLarge?.copyWith(
                         color: theme.colorScheme.onSurface.withValues(
-                          alpha: .72,
+                          alpha: .78,
                         ),
                       ),
                     ),
@@ -108,7 +106,7 @@ class SectionHeading extends StatelessWidget {
     child: Row(
       children: [
         Expanded(
-          child: Text(text, style: Theme.of(context).textTheme.titleLarge),
+          child: Text(text, style: Theme.of(context).textTheme.headlineSmall),
         ),
         ?action,
       ],
