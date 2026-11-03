@@ -1,19 +1,16 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
-import 'package:amiludo/layers/technical/Storage/store_database.dart';
+import 'package:amiludo/layers/technical/Storage/document_store.dart';
 
 class WorkspaceGatewayImpl implements WorkspaceGateway {
-  WorkspaceGatewayImpl(this._database);
+  WorkspaceGatewayImpl(this._store);
 
   static const _documentId = 'workspace';
 
-  final StoreDatabase _database;
+  final DocumentStore _store;
   final _changes = StreamController<Workspace>.broadcast(sync: true);
-  final _saveFailures = StreamController<bool>.broadcast(sync: true);
-  Future<void> _writes = Future.value();
   Workspace _current = const Workspace();
 
   @override
@@ -23,14 +20,12 @@ class WorkspaceGatewayImpl implements WorkspaceGateway {
   Stream<Workspace> get changes => _changes.stream;
 
   @override
-  Stream<bool> get saveFailures => _saveFailures.stream;
+  Stream<bool> get saveFailures => _store.failures;
 
   @override
   Future<Workspace> load() async {
-    final raw = await _database.readDocument(_documentId);
-    _current = raw == null
-        ? const Workspace()
-        : Workspace.fromJson(Map<String, dynamic>.from(jsonDecode(raw) as Map));
+    final stored = await _store.read(_documentId);
+    _current = stored == null ? const Workspace() : Workspace.fromJson(stored);
     _changes.add(_current);
     return _current;
   }
@@ -39,13 +34,9 @@ class WorkspaceGatewayImpl implements WorkspaceGateway {
   Future<void> save(Workspace workspace) {
     _current = workspace;
     _changes.add(workspace);
-    final payload = workspace.export();
-    _writes = _writes
-        .then((_) => _database.writeDocument(_documentId, payload))
-        .then(
-          (_) => _saveFailures.add(false),
-          onError: (Object error, StackTrace stack) => _saveFailures.add(true),
-        );
-    return _writes;
+    return _store.write(_documentId, workspace.toJson());
   }
+
+  @override
+  Future<void> retrySave() => _store.retry();
 }

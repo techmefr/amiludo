@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:amiludo/layers/functional/Friends/domain/entities/friend.dart';
+import 'package:amiludo/layers/functional/Friends/domain/entities/friend_circle.dart';
 import 'package:amiludo/layers/functional/Friends/domain/entities/game_review.dart';
 import 'package:amiludo/layers/functional/Friends/domain/use_cases/save_friend_use_case.dart';
 import 'package:amiludo/layers/functional/Friends/domain/use_cases/save_reviews_use_case.dart';
@@ -45,8 +46,10 @@ void main() {
 void _suggestionTests() {
   test('suggestions respect player count, tastes, length and refusals', () {
     final gateway = MemoryWorkspace(
-      const Workspace(
-        shelf: [coop, bluff, epic],
+      const Workspace(shelf: [coop, bluff, epic]),
+    );
+    final friends = MemoryFriends(
+      const FriendCircle(
         friends: [
           Friend(id: 'a', name: 'Alex', avoidedGenres: ['bluff']),
           Friend(id: 'b', name: 'Léa', maxMinutes: 90),
@@ -54,7 +57,7 @@ void _suggestionTests() {
         ],
       ),
     );
-    final suggest = SuggestGamesUseCase(gateway);
+    final suggest = SuggestGamesUseCase(gateway, friends);
     expect(suggest(['a']).map((s) => s.game.id), ['coop']);
     expect(suggest(['b', 'c']).map((s) => s.game.id), ['bluff']);
     expect(suggest(['a', 'b']).map((s) => s.game.id), ['coop']);
@@ -62,16 +65,16 @@ void _suggestionTests() {
   });
 
   test('guest reviews and liked genres rank suggestions', () async {
-    final gateway = MemoryWorkspace(
-      const Workspace(
-        shelf: [coop, bluff],
+    final gateway = MemoryWorkspace(const Workspace(shelf: [coop, bluff]));
+    final friends = MemoryFriends(
+      const FriendCircle(
         friends: [
           Friend(id: 'a', name: 'Alex', likedGenres: ['party']),
           Friend(id: 'b', name: 'Léa'),
         ],
       ),
     );
-    await SaveReviewsUseCase(gateway)('s1', const [
+    await SaveReviewsUseCase(friends)('s1', const [
       GameReview(
         id: 'r1',
         sessionId: 's1',
@@ -80,7 +83,7 @@ void _suggestionTests() {
         gameTitle: 'Pandemic',
       ),
     ]);
-    final ranked = SuggestGamesUseCase(gateway)(['a', 'b']);
+    final ranked = SuggestGamesUseCase(gateway, friends)(['a', 'b']);
     expect(ranked.first.game.id, 'coop');
     expect(ranked.first.averageStars, 5);
     expect(ranked.last.score, 3.5);
@@ -90,8 +93,10 @@ void _suggestionTests() {
 void _opinionSuggestionTests() {
   test('a loved game overrides avoided genres and length limits', () {
     final gateway = MemoryWorkspace(
-      const Workspace(
-        shelf: [coop, bluff, epic],
+      const Workspace(shelf: [coop, bluff, epic]),
+    );
+    final friends = MemoryFriends(
+      const FriendCircle(
         friends: [
           Friend(
             id: 'a',
@@ -104,22 +109,24 @@ void _opinionSuggestionTests() {
         ],
       ),
     );
-    final ranked = SuggestGamesUseCase(gateway)(['a', 'b']);
+    final ranked = SuggestGamesUseCase(gateway, friends)(['a', 'b']);
     expect(ranked.map((s) => s.game.id), ['epic']);
     expect(ranked.single.lovedBy, ['Alex']);
   });
 
   test('wishlists rank first and the time available filters', () {
     final gateway = MemoryWorkspace(
-      const Workspace(
-        shelf: [coop, bluff, epic],
+      const Workspace(shelf: [coop, bluff, epic]),
+    );
+    final friends = MemoryFriends(
+      const FriendCircle(
         friends: [
           Friend(id: 'a', name: 'Alex', wishedGameIds: ['epic']),
           Friend(id: 'b', name: 'Léa', likedGenres: ['party']),
         ],
       ),
     );
-    final suggest = SuggestGamesUseCase(gateway);
+    final suggest = SuggestGamesUseCase(gateway, friends);
     final evening = suggest(['a', 'b']);
     expect(evening.first.game.id, 'epic');
     expect(evening.first.wishedBy, ['Alex']);
@@ -133,7 +140,7 @@ void _opinionSuggestionTests() {
 
 void _friendTests() {
   test('reviews replace the same reviewer for the same game', () async {
-    final gateway = MemoryWorkspace();
+    final gateway = MemoryFriends();
     final save = SaveReviewsUseCase(gateway);
     const first = GameReview(
       id: '1',
@@ -153,7 +160,7 @@ void _friendTests() {
   });
 
   test('friend names stay unique', () async {
-    final gateway = MemoryWorkspace();
+    final gateway = MemoryFriends();
     final save = SaveFriendUseCase(gateway);
     await save(const Friend(id: '1', name: 'Alex'));
     expect(
@@ -163,17 +170,17 @@ void _friendTests() {
   });
 
   test('removing a shelf game cleans friends refusals', () async {
-    final gateway = MemoryWorkspace(
-      const Workspace(
-        shelf: [coop],
+    final gateway = MemoryWorkspace(const Workspace(shelf: [coop]));
+    final friends = MemoryFriends(
+      const FriendCircle(
         friends: [
           Friend(id: 'a', name: 'Alex', refusedGameIds: ['coop']),
         ],
       ),
     );
-    await RemoveShelfGameUseCase(gateway)('coop');
+    await RemoveShelfGameUseCase(gateway, friends)('coop');
     expect(gateway.current.shelf, isEmpty);
-    expect(gateway.current.friends.single.refusedGameIds, isEmpty);
+    expect(friends.current.friends.single.refusedGameIds, isEmpty);
   });
 
   test('a game opinion is exclusive and survives a backup', () {
@@ -202,16 +209,19 @@ void _storageTests() {
           );
     final restored = Workspace.fromJson(legacy);
     expect(restored.shelf, isEmpty);
-    expect(restored.friends, isEmpty);
-    final full = const Workspace(
-      shelf: [coop],
-      friends: [Friend(id: 'a', name: 'A')],
-    );
+    expect(FriendCircle.fromJson(legacy).friends, isEmpty);
+    final full = const Workspace(shelf: [coop]);
     final again = Workspace.fromJson(
       Map<String, dynamic>.from(jsonDecode(full.export()) as Map),
     );
     expect(again.shelf.single.name, 'Pandemic');
-    expect(again.friends.single.name, 'A');
+    const circle = FriendCircle(
+      friends: [Friend(id: 'a', name: 'A')],
+    );
+    final circleAgain = FriendCircle.fromJson(
+      Map<String, dynamic>.from(jsonDecode(jsonEncode(circle.toJson())) as Map),
+    );
+    expect(circleAgain.friends.single.name, 'A');
   });
 
   test('invalid shelf games are rejected', () {

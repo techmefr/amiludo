@@ -29,9 +29,13 @@ import 'package:amiludo/layers/technical/Network/room_network_impl.dart';
 import 'package:amiludo/layers/functional/Appearance/domain/use_cases/change_appearance_use_case.dart';
 import 'package:amiludo/layers/functional/Appearance/domain/use_cases/remove_style_profile_use_case.dart';
 import 'package:amiludo/layers/functional/Appearance/domain/use_cases/save_style_profile_use_case.dart';
+import 'package:amiludo/layers/functional/Friends/data/gateways/friends_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Friends/domain/gateways/friends_gateway.dart';
+import 'package:amiludo/layers/functional/Friends/domain/use_cases/read_friends_use_case.dart';
 import 'package:amiludo/layers/functional/Friends/domain/use_cases/remove_friend_use_case.dart';
 import 'package:amiludo/layers/functional/Friends/domain/use_cases/save_friend_use_case.dart';
 import 'package:amiludo/layers/functional/Friends/domain/use_cases/save_reviews_use_case.dart';
+import 'package:amiludo/layers/functional/Friends/domain/use_cases/watch_friends_use_case.dart';
 import 'package:amiludo/layers/functional/Game/domain/use_cases/add_score_use_case.dart';
 import 'package:amiludo/layers/functional/Game/domain/use_cases/choose_game_use_case.dart';
 import 'package:amiludo/layers/functional/Game/domain/use_cases/delete_game_use_case.dart';
@@ -74,12 +78,15 @@ import 'package:amiludo/layers/functional/Timer/domain/use_cases/toggle_clock_us
 import 'package:amiludo/layers/functional/Workspace/data/gateways/workspace_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/erase_workspace_use_case.dart';
+import 'package:amiludo/layers/functional/Workspace/domain/use_cases/export_backup_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/import_backup_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/load_workspace_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/read_workspace_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/retry_save_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/watch_save_failures_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/watch_workspace_use_case.dart';
+import 'package:amiludo/layers/technical/Storage/backup_section.dart';
+import 'package:amiludo/layers/technical/Storage/document_store.dart';
 import 'package:amiludo/layers/technical/Storage/store_database.dart';
 
 final getIt = GetIt.instance;
@@ -89,8 +96,16 @@ void configureDependencies(StoreDatabase database) {
   getIt
     ..registerSingleton<StoreDatabase>(database)
     ..registerLazySingleton<MonotonicTime>(MonotonicTime.new)
+    ..registerLazySingleton<DocumentStore>(() => DocumentStore(getIt()))
     ..registerLazySingleton<WorkspaceGateway>(
       () => WorkspaceGatewayImpl(getIt()),
+    )
+    ..registerLazySingleton<FriendsGatewayImpl>(
+      () => FriendsGatewayImpl(getIt()),
+    )
+    ..registerLazySingleton<FriendsGateway>(() => getIt<FriendsGatewayImpl>())
+    ..registerLazySingleton<List<BackupSection>>(
+      () => [getIt<FriendsGatewayImpl>()],
     )
     ..registerLazySingleton<PackCatalogGateway>(PackCatalogGatewayImpl.new)
     ..registerLazySingleton<PhotoGateway>(() => PhotoGatewayImpl(getIt()))
@@ -98,13 +113,14 @@ void configureDependencies(StoreDatabase database) {
     ..registerLazySingleton<LobbyGateway>(() => LobbyGatewayImpl(getIt()))
     ..registerLazySingleton<AccountGateway>(AccountGatewayImpl.new)
     ..registerLazySingleton<EveningRemoteGateway>(EveningRemoteGatewayImpl.new)
-    ..registerFactory(() => LoadWorkspaceUseCase(getIt()))
+    ..registerFactory(() => LoadWorkspaceUseCase(getIt(), getIt()))
     ..registerFactory(() => ReadWorkspaceUseCase(getIt()))
     ..registerFactory(() => WatchWorkspaceUseCase(getIt()))
     ..registerFactory(() => WatchSaveFailuresUseCase(getIt()))
     ..registerFactory(() => RetrySaveUseCase(getIt()))
-    ..registerFactory(() => ImportBackupUseCase(getIt()))
-    ..registerFactory(() => EraseWorkspaceUseCase(getIt()))
+    ..registerFactory(() => ImportBackupUseCase(getIt(), getIt()))
+    ..registerFactory(() => ExportBackupUseCase(getIt(), getIt()))
+    ..registerFactory(() => EraseWorkspaceUseCase(getIt(), getIt()))
     ..registerFactory(() => StartGameUseCase(getIt(), getIt()))
     ..registerFactory(() => SaveGameUseCase(getIt()))
     ..registerFactory(() => AddScoreUseCase(getIt()))
@@ -132,8 +148,10 @@ void configureDependencies(StoreDatabase database) {
     ..registerFactory(() => SaveCharacterUseCase(getIt()))
     ..registerFactory(() => RemoveCharacterUseCase(getIt()))
     ..registerFactory(() => SaveShelfGameUseCase(getIt()))
-    ..registerFactory(() => RemoveShelfGameUseCase(getIt()))
-    ..registerFactory(() => SuggestGamesUseCase(getIt()))
+    ..registerFactory(() => RemoveShelfGameUseCase(getIt(), getIt()))
+    ..registerFactory(() => SuggestGamesUseCase(getIt(), getIt()))
+    ..registerFactory(() => ReadFriendsUseCase(getIt()))
+    ..registerFactory(() => WatchFriendsUseCase(getIt()))
     ..registerFactory(() => SaveFriendUseCase(getIt()))
     ..registerFactory(() => RemoveFriendUseCase(getIt()))
     ..registerFactory(() => SaveReviewsUseCase(getIt()))

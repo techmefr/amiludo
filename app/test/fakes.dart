@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:typed_data';
 
+import 'package:amiludo/layers/functional/Friends/domain/entities/friend_circle.dart';
+import 'package:amiludo/layers/functional/Friends/domain/gateways/friends_gateway.dart';
 import 'package:amiludo/layers/functional/Memories/domain/gateways/photo_gateway.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
@@ -26,6 +28,27 @@ class MemoryWorkspace implements WorkspaceGateway {
   Future<void> save(Workspace workspace) async {
     current = workspace;
     _changes.add(workspace);
+  }
+
+  @override
+  Future<void> retrySave() async {}
+}
+
+class MemoryFriends implements FriendsGateway {
+  MemoryFriends([this.current = const FriendCircle()]);
+
+  @override
+  FriendCircle current;
+
+  final _changes = StreamController<FriendCircle>.broadcast();
+
+  @override
+  Stream<FriendCircle> get changes => _changes.stream;
+
+  @override
+  Future<void> save(FriendCircle circle) async {
+    current = circle;
+    _changes.add(circle);
   }
 }
 

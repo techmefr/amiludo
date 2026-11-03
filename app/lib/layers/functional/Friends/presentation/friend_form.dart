@@ -250,7 +250,7 @@ class _GameOpinions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final shelf = context.watch<FriendsCubit>().state.shelf;
+    final shelf = context.read<FriendsCubit>().shelf;
     if (shelf.isEmpty) {
       return Text(
         tr(context, 'Votre ludothèque est vide.', 'Your shelf is empty.'),

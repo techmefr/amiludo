@@ -25,8 +25,9 @@ class _ReviewScreenState extends State<ReviewScreen> {
   @override
   void initState() {
     super.initState();
-    final data = context.read<FriendsCubit>().state;
-    game = data.games.where((g) => g.id == widget.sessionId).firstOrNull;
+    final cubit = context.read<FriendsCubit>();
+    final data = cubit.state;
+    game = cubit.session(widget.sessionId);
     for (final p in game?.players ?? const <Player>[]) {
       final previous = data.reviews
           .where((r) => r.sessionId == widget.sessionId && r.reviewer == p.name)

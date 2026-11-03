@@ -1,5 +1,6 @@
 import 'package:amiludo/layers/functional/Friends/domain/entities/friend.dart';
 import 'package:amiludo/layers/functional/Friends/domain/entities/game_review.dart';
+import 'package:amiludo/layers/functional/Friends/domain/gateways/friends_gateway.dart';
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
 
@@ -19,19 +20,23 @@ class GameSuggestion {
 }
 
 class SuggestGamesUseCase {
-  SuggestGamesUseCase(this._workspace);
+  SuggestGamesUseCase(this._workspace, this._friends);
 
   final WorkspaceGateway _workspace;
+  final FriendsGateway _friends;
 
   List<GameSuggestion> call(List<String> friendIds, {int minutes = 0}) {
     final data = _workspace.current;
-    final guests = data.friends.where((f) => friendIds.contains(f.id)).toList();
+    final circle = _friends.current;
+    final guests = circle.friends
+        .where((f) => friendIds.contains(f.id))
+        .toList();
     final players = guests.length + 1;
     final suggestions = [
       for (final game in data.shelf)
         if (minutes <= 0 || game.minutes <= minutes)
           if (_acceptable(game, guests, players))
-            _rate(game, guests, data.reviews),
+            _rate(game, guests, circle.reviews),
     ]..sort((a, b) => b.score.compareTo(a.score));
     return suggestions;
   }
