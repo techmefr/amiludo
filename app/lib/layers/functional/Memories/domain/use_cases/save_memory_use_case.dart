@@ -1,11 +1,11 @@
 import 'package:amiludo/layers/functional/Memories/domain/entities/game_memory.dart';
-import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
+import 'package:amiludo/layers/functional/Memories/domain/gateways/memories_gateway.dart';
 
 class SaveMemoryUseCase {
-  SaveMemoryUseCase(this._workspace);
+  SaveMemoryUseCase(this._memories);
 
-  final WorkspaceGateway _workspace;
+  final MemoriesGateway _memories;
 
   Future<void> call(GameMemory memory) =>
-      _workspace.save(_workspace.current.withMemory(memory));
+      _memories.save(_memories.current.withMemory(memory));
 }

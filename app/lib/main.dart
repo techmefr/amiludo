@@ -104,6 +104,7 @@ List<BlocProvider> _providers() => [
       getIt(),
       getIt(),
       getIt(),
+      getIt(),
     ),
   ),
   ..._gatheringProviders(),

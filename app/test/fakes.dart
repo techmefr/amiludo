@@ -5,6 +5,8 @@ import 'package:amiludo/layers/functional/Friends/domain/entities/friend_circle.
 import 'package:amiludo/layers/functional/Friends/domain/gateways/friends_gateway.dart';
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf.dart';
 import 'package:amiludo/layers/functional/Library/domain/gateways/library_gateway.dart';
+import 'package:amiludo/layers/functional/Memories/domain/entities/memory_album.dart';
+import 'package:amiludo/layers/functional/Memories/domain/gateways/memories_gateway.dart';
 import 'package:amiludo/layers/functional/Memories/domain/gateways/photo_gateway.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
@@ -69,6 +71,24 @@ class MemoryShelf implements LibraryGateway {
   Future<void> save(Shelf shelf) async {
     current = shelf;
     _changes.add(shelf);
+  }
+}
+
+class MemoryAlbumStore implements MemoriesGateway {
+  MemoryAlbumStore([this.current = const MemoryAlbum()]);
+
+  @override
+  MemoryAlbum current;
+
+  final _changes = StreamController<MemoryAlbum>.broadcast();
+
+  @override
+  Stream<MemoryAlbum> get changes => _changes.stream;
+
+  @override
+  Future<void> save(MemoryAlbum album) async {
+    current = album;
+    _changes.add(album);
   }
 }
 

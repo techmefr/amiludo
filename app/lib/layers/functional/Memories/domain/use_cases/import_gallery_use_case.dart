@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Memories/domain/entities/game_memory.dart';
+import 'package:amiludo/layers/functional/Memories/domain/gateways/memories_gateway.dart';
 import 'package:amiludo/layers/functional/Memories/domain/gateways/photo_gateway.dart';
 import 'package:amiludo/layers/functional/Memories/domain/use_cases/export_gallery_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
@@ -9,9 +10,10 @@ import 'package:amiludo/layers/technical/Transfer/compression.dart';
 import 'package:amiludo/layers/technical/Transfer/sealed_box.dart';
 
 class ImportGalleryUseCase {
-  ImportGalleryUseCase(this._workspace, this._photos);
+  ImportGalleryUseCase(this._workspace, this._memories, this._photos);
 
   final WorkspaceGateway _workspace;
+  final MemoriesGateway _memories;
   final PhotoGateway _photos;
 
   Future<String> call(String fileText, String key) async {
@@ -34,9 +36,12 @@ class ImportGalleryUseCase {
     }
     final data = _workspace.current;
     final known = data.games.any((g) => g.id == game.id);
-    final base = known ? data : data.copyWith(games: [...data.games, game]);
-    await _workspace.save(
-      base.withMemory(data.memoryOf(game.id).merge(received)),
+    if (!known) {
+      await _workspace.save(data.copyWith(games: [...data.games, game]));
+    }
+    final album = _memories.current;
+    await _memories.save(
+      album.withMemory(album.memoryOf(game.id).merge(received)),
     );
     return game.id;
   }

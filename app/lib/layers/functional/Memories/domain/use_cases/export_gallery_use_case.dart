@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:amiludo/layers/functional/Memories/domain/gateways/memories_gateway.dart';
 import 'package:amiludo/layers/functional/Memories/domain/gateways/photo_gateway.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
 import 'package:amiludo/layers/technical/Transfer/compression.dart';
@@ -14,15 +15,15 @@ class GalleryExport {
 }
 
 class ExportGalleryUseCase {
-  ExportGalleryUseCase(this._workspace, this._photos);
+  ExportGalleryUseCase(this._workspace, this._memories, this._photos);
 
   final WorkspaceGateway _workspace;
+  final MemoriesGateway _memories;
   final PhotoGateway _photos;
 
   Future<GalleryExport> call(String sessionId, List<String> photoIds) async {
-    final data = _workspace.current;
-    final game = data.games.firstWhere((g) => g.id == sessionId);
-    final memory = data.memoryOf(sessionId);
+    final game = _workspace.current.games.firstWhere((g) => g.id == sessionId);
+    final memory = _memories.current.memoryOf(sessionId);
     final photos = <String, String>{};
     for (final id in photoIds.where(memory.photoIds.contains)) {
       final bytes = await _photos.read(id);

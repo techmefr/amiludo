@@ -8,6 +8,8 @@ import 'package:amiludo/layers/functional/Friends/data/gateways/friends_gateway_
 import 'package:amiludo/layers/functional/Friends/domain/gateways/friends_gateway.dart';
 import 'package:amiludo/layers/functional/Library/data/gateways/library_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Library/domain/gateways/library_gateway.dart';
+import 'package:amiludo/layers/functional/Memories/data/gateways/memories_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Memories/domain/gateways/memories_gateway.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/erase_workspace_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/export_backup_use_case.dart';
@@ -74,6 +76,28 @@ void main() {
     expect(reopened.current.games.single.name, 'Skull');
     await getIt<EraseWorkspaceUseCase>()();
     expect(getIt<LibraryGateway>().current.games, isEmpty);
+    await db.close();
+  });
+
+  test('a 0.4.0 database moves memories into their own document', () async {
+    final db = await _open(legacyWorkspace: _legacyBackup);
+    final sessionId = getIt<WorkspaceGateway>().current.games.single.id;
+    expect(
+      getIt<MemoriesGateway>().current.memoryOf(sessionId).note,
+      'Belle soirée',
+    );
+    final workspace = getIt<WorkspaceGateway>();
+    await workspace.save(workspace.current.copyWith(nickname: 'Sam'));
+    final stored = _decode((await db.readDocument('workspace'))!);
+    expect(stored.containsKey('memories'), isFalse);
+    final reopened = MemoriesGatewayImpl(DocumentStore(db));
+    await reopened.load();
+    expect(
+      reopened.current.memoryOf(sessionId).highlights.single.text,
+      'Bluff final',
+    );
+    await getIt<EraseWorkspaceUseCase>()();
+    expect(getIt<MemoriesGateway>().current.memories, isEmpty);
     await db.close();
   });
 
