@@ -19,6 +19,7 @@ class AccountGatewayImpl implements AccountGateway {
           id: user.id,
           email: user.email ?? '',
           name: user.userMetadata?['name'] as String? ?? user.email ?? '',
+          admin: user.appMetadata['role'] == 'admin',
         );
 
   @override
@@ -56,8 +57,30 @@ class AccountGatewayImpl implements AccountGateway {
       _guard(() => _auth.signInWithPassword(email: email, password: password));
 
   @override
-  Future<void> resetPassword(String email) =>
-      _guard(() => _auth.resetPasswordForEmail(email));
+  Future<void> resetPassword(String email) => _guard(
+    () => _auth.resetPasswordForEmail(
+      email,
+      redirectTo: RemoteConfig.authRedirect,
+    ),
+  );
+
+  @override
+  Future<void> sendSignInLink(String email) => _guard(
+    () => _auth.signInWithOtp(
+      email: email,
+      emailRedirectTo: RemoteConfig.authRedirect,
+    ),
+  );
+
+  @override
+  Future<void> verifyCode({required String email, required String code}) =>
+      _guard(
+        () => _auth.verifyOTP(type: OtpType.email, email: email, token: code),
+      );
+
+  @override
+  Future<void> changePassword(String password) =>
+      _guard(() => _auth.updateUser(UserAttributes(password: password)));
 
   @override
   Future<void> signOut() => _guard(_auth.signOut);

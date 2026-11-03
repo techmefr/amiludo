@@ -15,6 +15,12 @@ String checkedPassword(String password) {
   return password;
 }
 
+String checkedCode(String code) {
+  final clean = code.replaceAll(RegExp(r'\s'), '');
+  if (!RegExp(r'^\d{6,10}$').hasMatch(clean)) throw AccountError.invalidCode;
+  return clean;
+}
+
 String checkedName(String name) {
   final clean = name.trim();
   if (clean.isEmpty || clean.length > 40) {

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:amiludo/layers/functional/Account/presentation/account_form.dart';
 import 'package:amiludo/layers/functional/Account/presentation/account_texts.dart';
 import 'package:amiludo/layers/functional/Account/presentation/cubit/account_cubit.dart';
+import 'package:amiludo/layers/functional/Account/presentation/signed_in_panel.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
 
@@ -24,6 +25,16 @@ class AccountScreen extends StatelessWidget {
           context,
           'E-mail de réinitialisation envoyé.',
           'Reset email sent.',
+        ),
+        AccountNotice.linkSent => tr(
+          context,
+          'Lien de connexion envoyé : regardez vos e-mails.',
+          'Sign-in link sent: check your email.',
+        ),
+        AccountNotice.passwordChanged => tr(
+          context,
+          'Mot de passe modifié',
+          'Password changed',
         ),
       };
 
@@ -54,19 +65,7 @@ class AccountScreen extends StatelessWidget {
               ),
             )
           else if (state.account != null)
-            DeckPanel(
-              child: ListTile(
-                leading: const Icon(Icons.verified_user_outlined),
-                title: Text(state.account!.name),
-                subtitle: Text(state.account!.email),
-                trailing: TextButton(
-                  onPressed: state.busy
-                      ? null
-                      : context.read<AccountCubit>().signOut,
-                  child: Text(tr(context, 'Se déconnecter', 'Sign out')),
-                ),
-              ),
-            )
+            SignedInPanel(account: state.account!, busy: state.busy)
           else
             AccountForm(busy: state.busy, nickname: state.nickname),
         ],

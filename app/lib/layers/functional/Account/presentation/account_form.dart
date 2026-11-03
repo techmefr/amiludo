@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:amiludo/layers/functional/Account/presentation/cubit/account_cubit.dart';
+import 'package:amiludo/layers/functional/Account/presentation/sign_in_link_panel.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 
 class AccountForm extends StatefulWidget {
@@ -104,6 +105,8 @@ class _AccountFormState extends State<AccountForm> {
                 : () => context.read<AccountCubit>().resetPassword(email.text),
             child: Text(tr(context, 'Mot de passe oublié', 'Forgot password')),
           ),
+        if (!creating)
+          SignInLinkPanel(busy: widget.busy, email: () => email.text),
       ],
     ),
   );

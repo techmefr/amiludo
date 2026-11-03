@@ -17,5 +17,11 @@ abstract class AccountGateway {
 
   Future<void> resetPassword(String email);
 
+  Future<void> sendSignInLink(String email);
+
+  Future<void> verifyCode({required String email, required String code});
+
+  Future<void> changePassword(String password);
+
   Future<void> signOut();
 }

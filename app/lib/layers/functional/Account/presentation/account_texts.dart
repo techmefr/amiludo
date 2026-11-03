@@ -14,6 +14,11 @@ String accountErrorText(
     'Password: at least 8 characters',
   ),
   AccountError.invalidName => tr(context, 'Prénom invalide', 'Invalid name'),
+  AccountError.invalidCode => tr(
+    context,
+    'Code invalide : recopiez les chiffres de l’e-mail.',
+    'Invalid code: type the digits from the email.',
+  ),
   AccountError.signInRequired => tr(
     context,
     'Connectez-vous d’abord',

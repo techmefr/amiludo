@@ -19,7 +19,10 @@ Alpha **0.4.0**. Nom : amiLudo. Le code Flutter est dans `app/`, l’application
   - même Wi‑Fi sans serveur, avec découverte UDP et WebSocket ;
   - ou à distance par Supabase Realtime ;
   - l’hôte accepte ou refuse chaque joueur.
-- **Comptes facultatifs** : inscription, connexion, mot de passe oublié, prénom.
+- **Comptes facultatifs** :
+  - inscription, connexion par mot de passe ou par lien magique (lien ou code reçu par e-mail) ;
+  - mot de passe oublié, changement de mot de passe, prénom ;
+  - le rôle `admin` est porté par `app_metadata.role`, que seul le serveur peut attribuer.
 - **Soirées** : date, lieu, places, jeux prévus, réponses oui / peut-être / non, liste d’attente, invitation par lien, code ou QR. Sans serveur, l’hôte note les réponses.
 - **Stockage** : SQLite, historique, CSV et sauvegardes JSON.
 
@@ -37,7 +40,7 @@ Sans ces variables, l’app reste entièrement locale. Le salon Wi‑Fi n’exis
 
 ## Vérifications
 
-- **Tests** : 75 tests Flutter.
+- **Tests** : 109 tests Flutter.
   - Partie, hasard et données : scores, imports, stockage, temps, tirages, profils, packs, ludothèque, amis, suggestions, souvenirs, partage QR.
   - Salons : protocole, puis vrais sockets en boucle locale.
   - Soirées, comptes et liens.
@@ -57,7 +60,10 @@ Restent à faire :
 
 Un secret d’hôte et des canaux privés sont prévus avant une ouverture large (voir la feuille de route).
 
-**E-mails de compte** : ils partent par l’envoi intégré de Supabase, très limité en volume. Un SMTP dédié sera nécessaire pour un vrai usage.
+**E-mails de compte** :
+- ils partent par l’envoi intégré de Supabase : 2 e-mails par heure, en anglais ;
+- le plan gratuit n’autorise pas les modèles personnalisés sans SMTP dédié ;
+- les modèles français aux couleurs d’amiLudo sont prêts : `python3 server/supabase/auth_emails.py` produit le JSON à envoyer sur `/v1/projects/<ref>/config/auth` une fois le SMTP configuré.
 
 **Données** :
 - le document `Workspace` regroupe toutes les données de l’appareil et il est réécrit à chaque modification ;

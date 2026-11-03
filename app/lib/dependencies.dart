@@ -2,7 +2,10 @@ import 'package:get_it/get_it.dart';
 
 import 'package:amiludo/layers/functional/Account/data/gateways/account_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Account/domain/gateways/account_gateway.dart';
+import 'package:amiludo/layers/functional/Account/domain/use_cases/change_password_use_case.dart';
 import 'package:amiludo/layers/functional/Account/domain/use_cases/reset_password_use_case.dart';
+import 'package:amiludo/layers/functional/Account/domain/use_cases/send_sign_in_link_use_case.dart';
+import 'package:amiludo/layers/functional/Account/domain/use_cases/verify_email_code_use_case.dart';
 import 'package:amiludo/layers/functional/Account/domain/use_cases/save_nickname_use_case.dart';
 import 'package:amiludo/layers/functional/Account/domain/use_cases/sign_in_use_case.dart';
 import 'package:amiludo/layers/functional/Account/domain/use_cases/sign_out_use_case.dart';
@@ -213,6 +216,9 @@ void _registerGatherings() {
     ..registerFactory(() => SignInUseCase(getIt(), getIt()))
     ..registerFactory(() => SignOutUseCase(getIt()))
     ..registerFactory(() => ResetPasswordUseCase(getIt()))
+    ..registerFactory(() => SendSignInLinkUseCase(getIt()))
+    ..registerFactory(() => VerifyEmailCodeUseCase(getIt()))
+    ..registerFactory(() => ChangePasswordUseCase(getIt()))
     ..registerFactory(() => SaveNicknameUseCase(getIt()))
     ..registerFactory(() => SaveEveningUseCase(getIt(), getIt()))
     ..registerFactory(() => RemoveEveningUseCase(getIt(), getIt()))
