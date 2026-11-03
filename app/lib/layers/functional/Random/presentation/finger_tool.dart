@@ -57,11 +57,6 @@ class _FingerToolState extends State<FingerTool> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          tr(context, 'Qui commence ?', 'Who starts?'),
-          style: theme.textTheme.headlineMedium,
-        ),
-        const SizedBox(height: 12),
-        Text(
           tr(
             context,
             'Gardez vos doigts sur l’écran : un contact est choisi après 1,6 seconde. La limite dépend de votre appareil.',

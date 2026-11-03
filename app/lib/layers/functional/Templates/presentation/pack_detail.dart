@@ -34,7 +34,7 @@ class PackDetail extends StatelessWidget {
       );
     }
     return FullPage(
-      title: p.name,
+      title: tr(context, 'Fiche du pack', 'Pack sheet'),
       fallback: '/templates',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

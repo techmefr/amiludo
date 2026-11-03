@@ -21,11 +21,7 @@ class AppShell extends StatelessWidget {
       ('/', Icons.home_outlined, tr(context, 'Accueil', 'Home')),
       ('/game', Icons.dashboard_outlined, tr(context, 'Ma partie', 'My game')),
       ('/tools', Icons.casino_outlined, tr(context, 'Outils', 'Tools')),
-      (
-        '/templates',
-        Icons.style_outlined,
-        tr(context, 'Modèles', 'Templates'),
-      ),
+      ('/templates', Icons.style_outlined, tr(context, 'Modèles', 'Templates')),
       ('/history', Icons.history, tr(context, 'Historique', 'History')),
       ('/appearance', Icons.tune, tr(context, 'Apparence', 'Style')),
     ];

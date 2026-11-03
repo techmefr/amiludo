@@ -177,21 +177,10 @@ class _RandomToolState extends State<RandomTool>
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final title = switch (widget.id) {
-      'teams' => tr(context, 'Faire les équipes', 'Create teams'),
-      'order' => tr(context, 'Ordre de passage', 'Turn order'),
-      'coin' => tr(context, 'Pile ou face', 'Heads or tails'),
-      'number' => tr(context, 'Nombre aléatoire', 'Random number'),
-      'bag' => tr(context, 'Sac de jetons', 'Token bag'),
-      'roles' => tr(context, 'Rôles secrets', 'Secret roles'),
-      _ => tr(context, 'Tourner la roue', 'Spin the wheel'),
-    };
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: theme.textTheme.headlineMedium),
-        const SizedBox(height: 20),
         if (widget.id == 'teams')
           DropdownButtonFormField<int>(
             style: Theme.of(context).textTheme.bodyLarge,
@@ -310,6 +299,7 @@ class _RandomToolState extends State<RandomTool>
               ),
             ),
           ),
+        if (widget.id != 'wheel' && result.isEmpty) const SizedBox(height: 20),
         if (result.isNotEmpty)
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 24),
