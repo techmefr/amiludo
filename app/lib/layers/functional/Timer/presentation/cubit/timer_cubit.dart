@@ -33,7 +33,12 @@ class TimerCubit extends Cubit<Workspace> {
   Future<void> toggle() => _toggleClock();
 
   Future<void> configure(int seconds, int increment, bool bank) =>
-      _configureClock(seconds, increment, bank);
+      _configureClock(
+        seconds,
+        increment,
+        bank,
+        state.current?.players.map((p) => p.id) ?? const [],
+      );
 
   @override
   Future<void> close() async {
