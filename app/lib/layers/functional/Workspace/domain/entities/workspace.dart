@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:amiludo/layers/functional/Evenings/domain/entities/evening.dart';
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
-import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
 import 'package:amiludo/layers/functional/Memories/domain/entities/game_memory.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
 import 'package:amiludo/layers/technical/Appearance/appearance.dart';
@@ -31,14 +30,12 @@ class Workspace {
     this.sessionClocks = const {},
     this.bankMode = false,
     this.reverse = false,
-    this.shelf = const [],
     this.memories = const [],
     this.nickname = '',
     this.evenings = const [],
   });
   final String nickname;
   final List<Evening> evenings;
-  final List<ShelfGame> shelf;
   final List<GameMemory> memories;
   final Appearance appearance;
   final List<StyleProfile> profiles;
@@ -92,14 +89,12 @@ class Workspace {
     Map<String, ClockSnapshot>? sessionClocks,
     bool? bankMode,
     bool? reverse,
-    List<ShelfGame>? shelf,
     List<GameMemory>? memories,
     String? nickname,
     List<Evening>? evenings,
   }) => Workspace(
     nickname: nickname ?? this.nickname,
     evenings: evenings ?? this.evenings,
-    shelf: shelf ?? this.shelf,
     memories: memories ?? this.memories,
     appearance: appearance ?? this.appearance,
     profiles: profiles ?? this.profiles,
@@ -131,7 +126,6 @@ class Workspace {
     'sessionClocks': sessionClocks.map((k, v) => MapEntry(k, v.toJson())),
     'bankMode': bankMode,
     'reverse': reverse,
-    'shelf': shelf.map((g) => g.toJson()).toList(),
     'memories': memories.map((m) => m.toJson()).toList(),
     'nickname': nickname,
     'evenings': evenings.map((e) => e.toJson()).toList(),
@@ -156,7 +150,6 @@ class Workspace {
       games: games,
       characters: _list(j['characters'], GameCharacter.fromJson),
       templates: _list(j['templates'], GameTemplate.fromJson),
-      shelf: _list(j['shelf'], ShelfGame.fromJson),
       memories: _list(j['memories'], GameMemory.fromJson),
       nickname: (j['nickname'] as String? ?? '').trim(),
       evenings: _list(j['evenings'], Evening.fromJson),

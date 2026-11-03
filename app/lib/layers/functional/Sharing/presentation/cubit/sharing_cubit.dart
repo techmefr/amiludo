@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
+import 'package:amiludo/layers/functional/Library/domain/use_cases/read_shelf_use_case.dart';
 import 'package:amiludo/layers/functional/Sharing/domain/entities/session_bundle.dart';
 import 'package:amiludo/layers/functional/Sharing/domain/use_cases/build_session_bundle_use_case.dart';
 import 'package:amiludo/layers/functional/Sharing/domain/use_cases/import_session_bundle_use_case.dart';
@@ -15,13 +17,17 @@ class SharingCubit extends Cubit<Workspace> {
     WatchWorkspaceUseCase watchWorkspace,
     this._buildBundle,
     this._importBundle,
+    this._readShelf,
   ) : super(readWorkspace()) {
     _subscription = watchWorkspace().listen(emit);
   }
 
   final BuildSessionBundleUseCase _buildBundle;
   final ImportSessionBundleUseCase _importBundle;
+  final ReadShelfUseCase _readShelf;
   late final StreamSubscription<Workspace> _subscription;
+
+  List<ShelfGame> get shelf => _readShelf().games;
 
   SessionBundle bundle({
     List<String> shelfGameIds = const [],

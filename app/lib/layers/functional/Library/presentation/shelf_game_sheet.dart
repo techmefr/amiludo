@@ -7,7 +7,6 @@ import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dar
 import 'package:amiludo/layers/functional/Library/presentation/cubit/library_cubit.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
-import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 
 Future<void> showShelfGameSheet(BuildContext context, ShelfGame game) =>
@@ -21,9 +20,12 @@ Future<void> showShelfGameSheet(BuildContext context, ShelfGame game) =>
       ),
     );
 
-List<GameTemplate> linkedTemplates(Workspace data, ShelfGame game) => [
+List<GameTemplate> linkedTemplates(
+  List<GameTemplate> templates,
+  ShelfGame game,
+) => [
   ...GameTemplate.builtIn,
-  ...data.templates,
+  ...templates,
 ].where((t) => game.templateIds.contains(t.id)).toList();
 
 class _ShelfGameSheet extends StatelessWidget {
@@ -34,10 +36,9 @@ class _ShelfGameSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.watch<LibraryCubit>();
-    final data = cubit.state;
     final theme = Theme.of(context);
-    final templates = linkedTemplates(data, game);
-    final plays = data.games
+    final templates = linkedTemplates(cubit.templates, game);
+    final plays = cubit.sessions
         .where(
           (g) =>
               g.title.toLowerCase() == game.name.toLowerCase() ||

@@ -12,6 +12,7 @@ import 'package:amiludo/layers/functional/Friends/domain/use_cases/save_reviews_
 import 'package:amiludo/layers/functional/Friends/domain/use_cases/watch_friends_use_case.dart';
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
+import 'package:amiludo/layers/functional/Library/domain/use_cases/read_shelf_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/read_workspace_use_case.dart';
 
 class FriendsCubit extends Cubit<FriendCircle> {
@@ -19,6 +20,7 @@ class FriendsCubit extends Cubit<FriendCircle> {
     ReadFriendsUseCase readFriends,
     WatchFriendsUseCase watchFriends,
     this._readWorkspace,
+    this._readShelf,
     this._saveFriend,
     this._removeFriend,
     this._saveReviews,
@@ -27,12 +29,13 @@ class FriendsCubit extends Cubit<FriendCircle> {
   }
 
   final ReadWorkspaceUseCase _readWorkspace;
+  final ReadShelfUseCase _readShelf;
   final SaveFriendUseCase _saveFriend;
   final RemoveFriendUseCase _removeFriend;
   final SaveReviewsUseCase _saveReviews;
   late final StreamSubscription<FriendCircle> _subscription;
 
-  List<ShelfGame> get shelf => _readWorkspace().shelf;
+  List<ShelfGame> get shelf => _readShelf().games;
 
   GameSession? session(String id) =>
       _readWorkspace().games.where((g) => g.id == id).firstOrNull;

@@ -3,6 +3,8 @@ import 'dart:typed_data';
 
 import 'package:amiludo/layers/functional/Friends/domain/entities/friend_circle.dart';
 import 'package:amiludo/layers/functional/Friends/domain/gateways/friends_gateway.dart';
+import 'package:amiludo/layers/functional/Library/domain/entities/shelf.dart';
+import 'package:amiludo/layers/functional/Library/domain/gateways/library_gateway.dart';
 import 'package:amiludo/layers/functional/Memories/domain/gateways/photo_gateway.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
@@ -49,6 +51,24 @@ class MemoryFriends implements FriendsGateway {
   Future<void> save(FriendCircle circle) async {
     current = circle;
     _changes.add(circle);
+  }
+}
+
+class MemoryShelf implements LibraryGateway {
+  MemoryShelf([this.current = const Shelf()]);
+
+  @override
+  Shelf current;
+
+  final _changes = StreamController<Shelf>.broadcast();
+
+  @override
+  Stream<Shelf> get changes => _changes.stream;
+
+  @override
+  Future<void> save(Shelf shelf) async {
+    current = shelf;
+    _changes.add(shelf);
   }
 }
 
