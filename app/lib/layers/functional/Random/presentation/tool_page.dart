@@ -68,13 +68,17 @@ class _ToolPageState extends State<ToolPage> {
       switch (widget.id) {
         'character' =>
           current == null
-              ? const Column(
+              ? Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Installez un pack de personnages dans la galerie, ou créez vos catégories dans le builder.',
+                      tr(
+                        context,
+                        'Installez un pack de personnages dans la galerie, ou créez vos catégories dans le builder.',
+                        'Install a character pack from the gallery, or create your categories in the builder.',
+                      ),
                     ),
-                    CharacterLibrary(),
+                    const CharacterLibrary(),
                   ],
                 )
               : CharacterTool(key: ValueKey(current.id), pack: current),
@@ -111,9 +115,14 @@ class _ToolPageState extends State<ToolPage> {
       key: ValueKey(current?.id ?? ''),
       initialValue: current?.id ?? '',
       isExpanded: true,
-      decoration: const InputDecoration(labelText: 'Configuration de jeu'),
+      decoration: InputDecoration(
+        labelText: tr(context, 'Configuration de jeu', 'Game setup'),
+      ),
       items: [
-        const DropdownMenuItem(value: '', child: Text('Outil libre')),
+        DropdownMenuItem(
+          value: '',
+          child: Text(tr(context, 'Outil libre', 'Free tool')),
+        ),
         for (final p in packs)
           DropdownMenuItem(value: p.id, child: Text(p.name)),
       ],
@@ -129,11 +138,11 @@ class _ToolPageState extends State<ToolPage> {
             current == null ? '/builder/new' : '/builder/${current.id}',
           ),
           icon: const DeckIcon(Icons.build_outlined),
-          label: const Text('Ouvrir le builder'),
+          label: Text(tr(context, 'Ouvrir le builder', 'Open the builder')),
         ),
         TextButton(
           onPressed: () => context.push('/marketplace'),
-          child: const Text('Trouver un pack'),
+          child: Text(tr(context, 'Trouver un pack', 'Find a pack')),
         ),
       ],
     ),
@@ -150,9 +159,15 @@ class _ToolPageState extends State<ToolPage> {
         .firstOrNull
         ?.title;
     if (title == null) {
-      return const FullPage(
-        title: 'Outil introuvable',
-        child: Text('Revenez à la boîte à outils.'),
+      return FullPage(
+        title: tr(context, 'Outil introuvable', 'Tool not found'),
+        child: Text(
+          tr(
+            context,
+            'Revenez à la boîte à outils.',
+            'Go back to the toolbox.',
+          ),
+        ),
       );
     }
     final packs = packsFor(ws);

@@ -17,21 +17,42 @@ class CharacterLibrary extends StatelessWidget {
       if (text == null) return;
       final j = jsonDecode(text) as Map<String, dynamic>;
       if (j['format'] != 'table-companion-character' || j['version'] != 1) {
-        throw const FormatException('Fiche incompatible');
+        if (context.mounted) {
+          notify(
+            context,
+            tr(
+              context,
+              'Import impossible : fiche incompatible',
+              'Import failed: incompatible sheet',
+            ),
+          );
+        }
+        return;
       }
       final c = GameCharacter.fromJson(
         Map<String, dynamic>.from(j['character'] as Map),
       );
       if (ctl.state.characters.any((v) => v.id == c.id)) {
         if (!context.mounted ||
-            !await confirm(context, 'Remplacer cette fiche ?', c.name)) {
+            !await confirm(
+              context,
+              tr(context, 'Remplacer cette fiche ?', 'Replace this sheet?'),
+              c.name,
+            )) {
           return;
         }
       }
       await ctl.saveCharacter(c);
-      if (context.mounted) notify(context, 'Fiche importée');
+      if (context.mounted) {
+        notify(context, tr(context, 'Fiche importée', 'Sheet imported'));
+      }
     } catch (e) {
-      if (context.mounted) notify(context, 'Import impossible : $e');
+      if (context.mounted) {
+        notify(
+          context,
+          tr(context, 'Import impossible : $e', 'Import failed: $e'),
+        );
+      }
     }
   }
 
@@ -41,16 +62,22 @@ class CharacterLibrary extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SectionHeading('Mes personnages'),
+        SectionHeading(tr(context, 'Mes personnages', 'My characters')),
         OutlinedButton.icon(
           onPressed: () => import(context),
           icon: const DeckIcon(Icons.file_open_outlined),
-          label: const Text('Importer une fiche JSON'),
+          label: Text(
+            tr(context, 'Importer une fiche JSON', 'Import a JSON sheet'),
+          ),
         ),
         const SizedBox(height: 16),
         if (records.isEmpty)
-          const Text(
-            'Vos personnages enregistrés apparaîtront ici, même si leur pack est supprimé.',
+          Text(
+            tr(
+              context,
+              'Vos personnages enregistrés apparaîtront ici, même si leur pack est supprimé.',
+              'Your saved characters will appear here, even if their pack is deleted.',
+            ),
           ),
         for (final c in records)
           Padding(
@@ -80,20 +107,26 @@ class CharacterLibrary extends StatelessWidget {
                           }),
                           'personnage-${c.id}.json',
                         ),
-                        child: const Text('Exporter la fiche'),
+                        child: Text(
+                          tr(context, 'Exporter la fiche', 'Export the sheet'),
+                        ),
                       ),
                       TextButton(
                         onPressed: () async {
                           final controller = context.read<RandomCubit>();
                           if (await confirm(
                             context,
-                            'Supprimer ce personnage ?',
+                            tr(
+                              context,
+                              'Supprimer ce personnage ?',
+                              'Delete this character?',
+                            ),
                             c.name,
                           )) {
                             await controller.removeCharacter(c.id);
                           }
                         },
-                        child: const Text('Supprimer'),
+                        child: Text(tr(context, 'Supprimer', 'Delete')),
                       ),
                     ],
                   ),
