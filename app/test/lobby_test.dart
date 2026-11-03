@@ -41,6 +41,11 @@ void _linkTests() {
       isNull,
     );
     expect(RoomLink.parse('nope'), isNull);
+    final web = RoomLink.parse(
+      'https://techmefr.github.io/amiludo/app/#/evening/ABCDEFGH',
+    );
+    expect(web?.kind, RoomKind.evening);
+    expect(web?.code, 'ABCDEFGH');
   });
 }
 

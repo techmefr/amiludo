@@ -20,10 +20,9 @@ class RoomLink {
     queryParameters: lan == null ? null : {'lan': lan},
   );
 
-  Uri get shareUri => webBase.isEmpty
+  Uri get shareUri => webBase.isEmpty || lan != null
       ? appUri
-      : Uri.parse('$webBase/${kind.name}/$code')
-            .replace(queryParameters: lan == null ? null : {'lan': lan});
+      : Uri.parse('$webBase/${kind.name}/$code');
 
   String get route => lan == null
       ? '/${kind.name}/$code'
@@ -35,8 +34,11 @@ class RoomLink {
     if (direct != null && !text.contains('/')) {
       return RoomLink(direct.length == 8 ? RoomKind.evening : fallback, direct);
     }
-    final uri = Uri.tryParse(text);
-    if (uri == null) return null;
+    final full = Uri.tryParse(text);
+    if (full == null) return null;
+    final uri = full.fragment.startsWith('/')
+        ? Uri.tryParse(full.fragment) ?? full
+        : full;
     final parts = uri.pathSegments.where((p) => p.isNotEmpty).toList();
     if (parts.length < 2) return null;
     final kind = RoomKind.values.where(
