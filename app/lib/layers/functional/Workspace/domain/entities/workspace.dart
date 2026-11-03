@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:amiludo/layers/functional/Evenings/domain/entities/evening.dart';
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
 import 'package:amiludo/layers/technical/Appearance/appearance.dart';
@@ -30,10 +29,8 @@ class Workspace {
     this.bankMode = false,
     this.reverse = false,
     this.nickname = '',
-    this.evenings = const [],
   });
   final String nickname;
-  final List<Evening> evenings;
   final Appearance appearance;
   final List<StyleProfile> profiles;
   final List<GameSession> games;
@@ -75,10 +72,8 @@ class Workspace {
     bool? bankMode,
     bool? reverse,
     String? nickname,
-    List<Evening>? evenings,
   }) => Workspace(
     nickname: nickname ?? this.nickname,
-    evenings: evenings ?? this.evenings,
     appearance: appearance ?? this.appearance,
     profiles: profiles ?? this.profiles,
     games: games ?? this.games,
@@ -110,7 +105,6 @@ class Workspace {
     'bankMode': bankMode,
     'reverse': reverse,
     'nickname': nickname,
-    'evenings': evenings.map((e) => e.toJson()).toList(),
   };
   String export() => jsonEncode(toJson());
   factory Workspace.fromJson(Map<String, dynamic> j) {
@@ -133,7 +127,6 @@ class Workspace {
       characters: _list(j['characters'], GameCharacter.fromJson),
       templates: _list(j['templates'], GameTemplate.fromJson),
       nickname: (j['nickname'] as String? ?? '').trim(),
-      evenings: _list(j['evenings'], Evening.fromJson),
       playerNames: List<String>.from(j['playerNames'] as List? ?? []),
       favorites: List<String>.from(j['favorites'] as List? ?? []),
       currentId: j['currentId'] as String?,

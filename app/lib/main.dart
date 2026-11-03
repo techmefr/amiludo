@@ -162,6 +162,7 @@ List<BlocProvider> _gatheringProviders() => [
       getIt(),
       getIt(),
       getIt(),
+      getIt(),
     ),
   ),
 ];

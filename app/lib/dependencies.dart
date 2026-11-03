@@ -9,12 +9,16 @@ import 'package:amiludo/layers/functional/Account/domain/use_cases/sign_out_use_
 import 'package:amiludo/layers/functional/Account/domain/use_cases/sign_up_use_case.dart';
 import 'package:amiludo/layers/functional/Account/domain/use_cases/watch_account_use_case.dart';
 import 'package:amiludo/layers/functional/Evenings/data/gateways/evening_remote_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Evenings/data/gateways/evenings_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/gateways/evening_remote_gateway.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/gateways/evenings_gateway.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/answer_evening_use_case.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/fetch_evening_use_case.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/publish_evening_use_case.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/use_cases/read_agenda_use_case.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/remove_evening_use_case.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/save_evening_use_case.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/use_cases/watch_agenda_use_case.dart';
 import 'package:amiludo/layers/functional/Lobby/data/gateways/lobby_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Lobby/domain/gateways/lobby_gateway.dart';
 import 'package:amiludo/layers/functional/Lobby/domain/use_cases/decide_seat_use_case.dart';
@@ -125,8 +129,13 @@ void configureDependencies(StoreDatabase database) {
         getIt<FriendsGatewayImpl>(),
         getIt<LibraryGatewayImpl>(),
         getIt<MemoriesGatewayImpl>(),
+        getIt<EveningsGatewayImpl>(),
       ],
     )
+    ..registerLazySingleton<EveningsGatewayImpl>(
+      () => EveningsGatewayImpl(getIt()),
+    )
+    ..registerLazySingleton<EveningsGateway>(() => getIt<EveningsGatewayImpl>())
     ..registerLazySingleton<PackCatalogGateway>(PackCatalogGatewayImpl.new)
     ..registerLazySingleton<PhotoGateway>(() => PhotoGatewayImpl(getIt()))
     ..registerLazySingleton<RoomNetwork>(RoomNetworkImpl.new)
@@ -208,6 +217,10 @@ void _registerGatherings() {
     ..registerFactory(() => SaveEveningUseCase(getIt(), getIt()))
     ..registerFactory(() => RemoveEveningUseCase(getIt(), getIt()))
     ..registerFactory(() => PublishEveningUseCase(getIt(), getIt(), getIt()))
-    ..registerFactory(() => AnswerEveningUseCase(getIt(), getIt(), getIt()))
+    ..registerFactory(
+      () => AnswerEveningUseCase(getIt(), getIt(), getIt(), getIt()),
+    )
+    ..registerFactory(() => ReadAgendaUseCase(getIt()))
+    ..registerFactory(() => WatchAgendaUseCase(getIt()))
     ..registerFactory(() => FetchEveningUseCase(getIt(), getIt()));
 }

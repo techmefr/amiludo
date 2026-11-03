@@ -4,24 +4,26 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:amiludo/layers/functional/Account/domain/use_cases/watch_account_use_case.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/entities/evening.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/entities/evening_agenda.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/answer_evening_use_case.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/fetch_evening_use_case.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/publish_evening_use_case.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/use_cases/read_agenda_use_case.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/remove_evening_use_case.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/save_evening_use_case.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/use_cases/watch_agenda_use_case.dart';
 import 'package:amiludo/layers/functional/Friends/domain/entities/friend.dart';
 import 'package:amiludo/layers/functional/Friends/domain/use_cases/read_friends_use_case.dart';
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
 import 'package:amiludo/layers/functional/Library/domain/use_cases/read_shelf_use_case.dart';
-import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/read_workspace_use_case.dart';
-import 'package:amiludo/layers/functional/Workspace/domain/use_cases/watch_workspace_use_case.dart';
 import 'package:amiludo/layers/technical/Network/room_code.dart';
 
-class EveningsCubit extends Cubit<Workspace> {
+class EveningsCubit extends Cubit<EveningAgenda> {
   EveningsCubit(
-    ReadWorkspaceUseCase readWorkspace,
-    WatchWorkspaceUseCase watchWorkspace,
+    ReadAgendaUseCase readAgenda,
+    WatchAgendaUseCase watchAgenda,
+    this._readWorkspace,
     this._account,
     this._save,
     this._remove,
@@ -30,10 +32,11 @@ class EveningsCubit extends Cubit<Workspace> {
     this._fetch,
     this._readFriends,
     this._readShelf,
-  ) : super(readWorkspace()) {
-    _subscription = watchWorkspace().listen(emit);
+  ) : super(readAgenda()) {
+    _subscription = watchAgenda().listen(emit);
   }
 
+  final ReadWorkspaceUseCase _readWorkspace;
   final WatchAccountUseCase _account;
   final SaveEveningUseCase _save;
   final RemoveEveningUseCase _remove;
@@ -42,7 +45,7 @@ class EveningsCubit extends Cubit<Workspace> {
   final FetchEveningUseCase _fetch;
   final ReadFriendsUseCase _readFriends;
   final ReadShelfUseCase _readShelf;
-  late final StreamSubscription<Workspace> _subscription;
+  late final StreamSubscription<EveningAgenda> _subscription;
 
   List<Friend> get friends => _readFriends().friends;
 
@@ -64,7 +67,7 @@ class EveningsCubit extends Cubit<Workspace> {
       code: newRoomCode(8),
       title: '',
       startsAt: DateTime(tomorrow.year, tomorrow.month, tomorrow.day, 20),
-      hostName: state.nickname,
+      hostName: _readWorkspace().nickname,
       seats: 6,
     );
   }
