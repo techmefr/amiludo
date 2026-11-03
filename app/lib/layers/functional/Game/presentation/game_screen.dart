@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../../technical/Theme/deck_theme.dart';
-import '../../../technical/Files/file_transfer.dart';
-import '../../Workspace/workspace_controller.dart';
-import '../../Workspace/presentation/game_setup.dart';
-import '../../Timer/presentation/timer_panel.dart';
-import '../domain/game.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
+import 'package:amiludo/layers/technical/Files/file_transfer.dart';
+import 'package:amiludo/layers/functional/Game/presentation/cubit/game_cubit.dart';
+import 'package:amiludo/layers/technical/Theme/text_prompt.dart';
+import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
+import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 
-class GameScreen extends ConsumerStatefulWidget {
-  const GameScreen({super.key});
+class GameScreen extends StatefulWidget {
+  const GameScreen({super.key, required this.timer});
+  final WidgetBuilder timer;
   @override
-  ConsumerState<GameScreen> createState() => _GameScreenState();
+  State<GameScreen> createState() => _GameScreenState();
 }
 
-class _GameScreenState extends ConsumerState<GameScreen> {
+class _GameScreenState extends State<GameScreen> {
   String? category;
   @override
   Widget build(BuildContext context) {
-    final ws = ref.watch(workspaceProvider).requireValue,
+    final ws = context.watch<GameCubit>().state,
         g = ws.current,
-        controller = ref.read(workspaceProvider.notifier),
+        controller = context.read<GameCubit>(),
         theme = Theme.of(context);
     if (g == null) {
       return EmptyPanel(
@@ -33,7 +34,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
           'Create a game to track scores and turns.',
         ),
         action: FilledButton(
-          onPressed: () => showNewGame(context, ref),
+          onPressed: () => context.push(GameSetupRequest.path),
           child: Text(tr(context, 'Créer une partie', 'Create game')),
         ),
       );
@@ -79,7 +80,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
         if (context.mounted) notify(context, 'Valeur invalide');
         return;
       }
-      await controller.game(
+      await controller.saveGame(
         g.copyWith(
           players: g.players
               .map(
@@ -306,7 +307,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
                 multiline: true,
               );
               if (notes != null) {
-                await controller.game(g.copyWith(notes: notes));
+                await controller.saveGame(g.copyWith(notes: notes));
               }
             },
             icon: const DeckIcon(Icons.edit_note),
@@ -372,9 +373,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
                   child: Text(tr(context, 'Manche suivante', 'Next round')),
                 ),
                 OutlinedButton.icon(
-                  onPressed: () => controller.saveWorkspace(
-                    ws.copyWith(reverse: !ws.reverse),
-                  ),
+                  onPressed: controller.reverseTurnOrder,
                   icon: DeckIcon(
                     ws.reverse ? Icons.rotate_left : Icons.rotate_right,
                     size: 18,
@@ -410,14 +409,14 @@ class _GameScreenState extends ConsumerState<GameScreen> {
                   children: [
                     Expanded(child: board),
                     const SizedBox(width: 24),
-                    const SizedBox(width: 280, child: TimerPanel()),
+                    SizedBox(width: 280, child: widget.timer(context)),
                   ],
                 )
               : Column(
                   children: [
                     board,
                     const SizedBox(height: 24),
-                    if (g.finishedAt == null) const TimerPanel(),
+                    if (g.finishedAt == null) widget.timer(context),
                   ],
                 ),
         ),
@@ -425,10 +424,11 @@ class _GameScreenState extends ConsumerState<GameScreen> {
           Padding(
             padding: const EdgeInsets.only(top: 24),
             child: FilledButton(
-              onPressed: () => showNewGame(
-                context,
-                ref,
-                names: g.players.map((p) => p.name).toList(),
+              onPressed: () => context.push(
+                GameSetupRequest.path,
+                extra: GameSetupRequest(
+                  names: g.players.map((p) => p.name).toList(),
+                ),
               ),
               child: Text(tr(context, 'La revanche', 'Play again')),
             ),

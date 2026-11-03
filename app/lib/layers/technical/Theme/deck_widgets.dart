@@ -1,9 +1,9 @@
-export 'deck_icon.dart';
-import 'deck_icon.dart';
+export 'package:amiludo/layers/technical/Theme/deck_icon.dart';
+import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 
 import 'package:flutter/material.dart';
 
-import 'deck_theme.dart';
+import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
 
 class DeckPanel extends StatelessWidget {
   const DeckPanel({
@@ -221,4 +221,4 @@ Future<T?> showFormDialog<T>({
 }
 
 String styleHeadingFont(BuildContext context) =>
-    Theme.of(context).textTheme.bodyMedium?.fontFamily ?? 'DMSans';
+    Theme.of(context).textTheme.bodyMedium?.fontFamily ?? 'LilGrotesk';

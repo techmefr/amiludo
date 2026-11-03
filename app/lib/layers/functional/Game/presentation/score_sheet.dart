@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../technical/Theme/full_page.dart';
-import '../../Workspace/workspace_controller.dart';
-import '../../Templates/domain/pack_components.dart';
-import '../domain/game.dart';
+import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/functional/Game/presentation/cubit/game_cubit.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/pack_components.dart';
+import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 
-class ScoreSheet extends ConsumerStatefulWidget {
+class ScoreSheet extends StatefulWidget {
   const ScoreSheet({super.key, required this.playerId});
   final String playerId;
   @override
-  ConsumerState<ScoreSheet> createState() => _ScoreSheetState();
+  State<ScoreSheet> createState() => _ScoreSheetState();
 }
 
-class _ScoreSheetState extends ConsumerState<ScoreSheet> {
+class _ScoreSheetState extends State<ScoreSheet> {
   final input = <String, TextEditingController>{};
   String? error;
   @override
@@ -27,7 +27,7 @@ class _ScoreSheetState extends ConsumerState<ScoreSheet> {
 
   @override
   Widget build(BuildContext context) {
-    final g = ref.watch(workspaceProvider).value?.current,
+    final g = context.watch<GameCubit>().state.current,
         p = g?.players.where((p) => p.id == widget.playerId).firstOrNull;
     if (g == null || p == null) {
       return const FullPage(
@@ -126,7 +126,7 @@ class _ScoreSheetState extends ConsumerState<ScoreSheet> {
                       );
                     }
                   }
-                  await ref.read(workspaceProvider.notifier).game(updated);
+                  await context.read<GameCubit>().saveGame(updated);
                   if (context.mounted) context.pop();
                 } on FormatException catch (e) {
                   setState(() => error = e.message);

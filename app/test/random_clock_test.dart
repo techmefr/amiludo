@@ -1,9 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:table_companion/layers/functional/Random/domain/random_tools.dart';
-import 'package:table_companion/layers/functional/Timer/domain/game_clock.dart';
-import 'package:table_companion/layers/technical/Appearance/appearance.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
+import 'package:amiludo/layers/functional/Timer/domain/entities/game_clock.dart';
+import 'package:amiludo/layers/technical/Appearance/appearance.dart';
 
 void main() {
   test(

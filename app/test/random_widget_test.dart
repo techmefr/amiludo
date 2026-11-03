@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:table_companion/layers/functional/Random/presentation/random_tool.dart';
+import 'package:amiludo/layers/functional/Random/presentation/random_tool.dart';
 
 void main() {
   testWidgets(

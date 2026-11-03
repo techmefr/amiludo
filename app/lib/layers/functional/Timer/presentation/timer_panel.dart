@@ -2,22 +2,22 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../../technical/Feedback/device_feedback.dart';
+import 'package:amiludo/layers/technical/Feedback/device_feedback.dart';
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../../technical/Theme/deck_theme.dart';
-import '../../Workspace/workspace_controller.dart';
-import '../domain/game_clock.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
+import 'package:amiludo/layers/functional/Timer/presentation/cubit/timer_cubit.dart';
+import 'package:amiludo/layers/functional/Timer/domain/entities/game_clock.dart';
 
-class TimerPanel extends ConsumerStatefulWidget {
+class TimerPanel extends StatefulWidget {
   const TimerPanel({super.key});
   @override
-  ConsumerState<TimerPanel> createState() => _TimerPanelState();
+  State<TimerPanel> createState() => _TimerPanelState();
 }
 
-class _TimerPanelState extends ConsumerState<TimerPanel> {
+class _TimerPanelState extends State<TimerPanel> {
   Timer? ticker;
   bool alerted = false;
   @override
@@ -25,14 +25,12 @@ class _TimerPanelState extends ConsumerState<TimerPanel> {
     super.initState();
     ticker = Timer.periodic(const Duration(milliseconds: 200), (_) {
       if (!mounted) return;
-      final ws = ref.read(workspaceProvider).value;
-      if (ws == null) return;
-      final controller = ref.read(workspaceProvider.notifier);
+      final controller = context.read<TimerCubit>(), ws = controller.state;
       if (ws.clock.isRunning &&
           ws.clock.remainingAt(controller.time.now) == 0 &&
           !alerted) {
         alerted = true;
-        controller.clock(ws.clock.pause(controller.time.now));
+        controller.setClock(ws.clock.pause(controller.time.now));
         DeviceFeedback.expired(
           sound: ws.appearance.sound,
           haptics: ws.appearance.haptics,
@@ -58,7 +56,7 @@ class _TimerPanelState extends ConsumerState<TimerPanel> {
   }
 
   Future<void> configure() async {
-    final ws = ref.read(workspaceProvider).requireValue;
+    final ws = context.read<TimerCubit>().state;
     final seconds = TextEditingController(
           text: (ws.clock.durationMs ~/ 1000).toString(),
         ),
@@ -149,14 +147,12 @@ class _TimerPanelState extends ConsumerState<TimerPanel> {
           ),
         ),
       );
-      if (accepted == true) {
-        await ref
-            .read(workspaceProvider.notifier)
-            .configureClock(
-              int.parse(seconds.text),
-              int.parse(increment.text),
-              bank,
-            );
+      if (accepted == true && mounted) {
+        await context.read<TimerCubit>().configure(
+          int.parse(seconds.text),
+          int.parse(increment.text),
+          bank,
+        );
       }
     } finally {
       seconds.dispose();
@@ -166,8 +162,8 @@ class _TimerPanelState extends ConsumerState<TimerPanel> {
 
   @override
   Widget build(BuildContext context) {
-    final ws = ref.watch(workspaceProvider).requireValue,
-        controller = ref.read(workspaceProvider.notifier),
+    final ws = context.watch<TimerCubit>().state,
+        controller = context.read<TimerCubit>(),
         theme = Theme.of(context),
         remaining = ws.clock.remainingAt(controller.time.now);
     return DeckPanel(
@@ -209,7 +205,7 @@ class _TimerPanelState extends ConsumerState<TimerPanel> {
             runSpacing: 12,
             children: [
               FilledButton.icon(
-                onPressed: () => controller.toggleClock(),
+                onPressed: () => controller.toggle(),
                 icon: DeckIcon(
                   ws.clock.isRunning ? Icons.pause : Icons.play_arrow,
                 ),
@@ -221,7 +217,7 @@ class _TimerPanelState extends ConsumerState<TimerPanel> {
               ),
               IconButton(
                 tooltip: tr(context, 'Réinitialiser', 'Reset'),
-                onPressed: () => controller.clock(ws.clock.reset()),
+                onPressed: () => controller.setClock(ws.clock.reset()),
                 icon: const DeckIcon(Icons.restart_alt),
               ),
               IconButton(

@@ -1,36 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../technical/Theme/full_page.dart';
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../Workspace/workspace_controller.dart';
-import '../../Templates/domain/game_template.dart';
-import '../../Timer/presentation/timer_panel.dart';
-import '../../Game/presentation/game_screen.dart';
-import '../domain/tool_catalog.dart';
-import 'dice_tool.dart';
-import 'finger_tool.dart';
-import 'random_tool.dart';
-import 'pack_tools.dart';
-import 'character_tool.dart';
-import 'character_library.dart';
+import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.dart';
+import 'package:amiludo/layers/functional/Random/presentation/dice_tool.dart';
+import 'package:amiludo/layers/functional/Random/presentation/finger_tool.dart';
+import 'package:amiludo/layers/functional/Random/presentation/random_tool.dart';
+import 'package:amiludo/layers/functional/Random/presentation/pack_tools.dart';
+import 'package:amiludo/layers/functional/Random/presentation/character_tool.dart';
+import 'package:amiludo/layers/functional/Random/presentation/character_library.dart';
 
-class ToolPage extends ConsumerStatefulWidget {
+class ToolPage extends StatefulWidget {
   const ToolPage({
     super.key,
     required this.id,
     this.packId,
     this.snapshot = false,
+    this.embeddedTools = const {},
   });
   final String id;
   final String? packId;
   final bool snapshot;
+  final Map<String, WidgetBuilder> embeddedTools;
   @override
-  ConsumerState<ToolPage> createState() => _ToolPageState();
+  State<ToolPage> createState() => _ToolPageState();
 }
 
-class _ToolPageState extends ConsumerState<ToolPage> {
+class _ToolPageState extends State<ToolPage> {
   String? selected;
   @override
   void initState() {
@@ -40,11 +40,7 @@ class _ToolPageState extends ConsumerState<ToolPage> {
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(workspaceProvider);
-    if (!state.hasValue) {
-      return const FullPage(title: 'Outil', child: WorkspaceWait());
-    }
-    final ws = state.requireValue,
+    final ws = context.watch<RandomCubit>().state,
         names =
             ws.current?.players.map((p) => p.name).toList() ?? ws.playerNames;
     final title = toolDefinitions
@@ -112,8 +108,8 @@ class _ToolPageState extends ConsumerState<ToolPage> {
         haptics: ws.appearance.haptics,
         fullscreen: true,
       ),
-      'scores' => const GameScreen(),
-      'timer' => const TimerPanel(),
+      final id when widget.embeddedTools.containsKey(id) =>
+        widget.embeddedTools[id]!(context),
       _ => RandomTool(id: widget.id, names: names),
     };
     if (widget.id == 'picker') {

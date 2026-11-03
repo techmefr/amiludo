@@ -1,84 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../../technical/Theme/full_page.dart';
-import '../../Templates/domain/game_template.dart';
-import '../workspace_controller.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
+import 'package:amiludo/layers/functional/Workspace/presentation/cubit/workspace_cubit.dart';
 
-Future<String?> textPrompt(
-  BuildContext context,
-  String title, {
-  String initial = '',
-  String? label,
-  bool multiline = false,
-}) async {
-  final controller = TextEditingController(text: initial);
-
-  final route = MaterialPageRoute<String>(
-    builder: (page) => FullPage(
-      title: title,
-      fallback: '/game',
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TextField(
-            controller: controller,
-            autofocus: true,
-            minLines: multiline ? 4 : 1,
-            maxLines: multiline ? 8 : 1,
-            maxLength: multiline ? 4000 : 100,
-            decoration: InputDecoration(labelText: label),
-            onSubmitted: multiline ? null : (v) => Navigator.pop(page, v),
-          ),
-          const SizedBox(height: 20),
-          FilledButton(
-            onPressed: () => Navigator.pop(page, controller.text),
-            child: Text(tr(context, 'Enregistrer', 'Save')),
-          ),
-        ],
-      ),
-    ),
-  );
-  try {
-    final value = await Navigator.of(context).push(route);
-    await route.completed;
-    return value;
-  } finally {
-    controller.dispose();
-  }
-}
-
-Future<void> showNewGame(
-  BuildContext context,
-  WidgetRef ref, {
-  GameTemplate? template,
-  List<String>? names,
-}) async {
-  await Navigator.of(context).push<void>(
-    MaterialPageRoute(
-      builder: (_) => GameSetupPage(template: template, names: names),
-    ),
-  );
-}
-
-class GameSetupPage extends ConsumerStatefulWidget {
+class GameSetupPage extends StatefulWidget {
   const GameSetupPage({super.key, this.template, this.names});
   final GameTemplate? template;
   final List<String>? names;
   @override
-  ConsumerState<GameSetupPage> createState() => _GameSetupPageState();
+  State<GameSetupPage> createState() => _GameSetupPageState();
 }
 
-class _GameSetupPageState extends ConsumerState<GameSetupPage> {
+class _GameSetupPageState extends State<GameSetupPage> {
   late final TextEditingController title, people;
   late GameTemplate chosen;
   final form = GlobalKey<FormState>();
   @override
   void initState() {
     super.initState();
-    final ws = ref.read(workspaceProvider).requireValue;
+    final ws = context.read<WorkspaceCubit>().state.workspace;
     chosen = widget.template ?? GameTemplate.builtIn.first;
     title = TextEditingController(text: widget.template?.name ?? '');
     people = TextEditingController(
@@ -95,7 +39,7 @@ class _GameSetupPageState extends ConsumerState<GameSetupPage> {
 
   @override
   Widget build(BuildContext context) {
-    final ws = ref.watch(workspaceProvider).requireValue;
+    final ws = context.watch<WorkspaceCubit>().state.workspace;
     final templates = <String, GameTemplate>{
       for (final t in [...GameTemplate.builtIn, ...ws.templates, chosen])
         t.id: t,
@@ -157,17 +101,15 @@ class _GameSetupPageState extends ConsumerState<GameSetupPage> {
             FilledButton(
               onPressed: () async {
                 if (!form.currentState!.validate()) return;
-                await ref
-                    .read(workspaceProvider.notifier)
-                    .startGame(
-                      title.text,
-                      people.text
-                          .split('\n')
-                          .map((n) => n.trim())
-                          .where((n) => n.isNotEmpty)
-                          .toList(),
-                      chosen,
-                    );
+                await context.read<WorkspaceCubit>().startGame(
+                  title.text,
+                  people.text
+                      .split('\n')
+                      .map((n) => n.trim())
+                      .where((n) => n.isNotEmpty)
+                      .toList(),
+                  chosen,
+                );
                 if (context.mounted) {
                   Navigator.of(context).pop();
                   context.go('/game');

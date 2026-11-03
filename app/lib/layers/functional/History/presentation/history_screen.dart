@@ -1,25 +1,25 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../../technical/Files/file_transfer.dart';
-import '../../Game/domain/game.dart';
-import '../../Workspace/workspace_controller.dart';
-import '../../Workspace/domain/workspace.dart';
-import '../../Workspace/presentation/game_setup.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Files/file_transfer.dart';
+import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
+import 'package:amiludo/layers/functional/History/presentation/cubit/history_cubit.dart';
+import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
 
-class HistoryScreen extends ConsumerStatefulWidget {
+class HistoryScreen extends StatefulWidget {
   const HistoryScreen({super.key});
   @override
-  ConsumerState<HistoryScreen> createState() => _HistoryScreenState();
+  State<HistoryScreen> createState() => _HistoryScreenState();
 }
 
-class _HistoryScreenState extends ConsumerState<HistoryScreen> {
+class _HistoryScreenState extends State<HistoryScreen> {
   String query = '';
   Future<void> importGame() async {
+    final controller = context.read<HistoryCubit>();
     try {
       final text = await FileTransfer.openJson();
       if (text == null) return;
@@ -28,16 +28,15 @@ class _HistoryScreenState extends ConsumerState<HistoryScreen> {
         throw const FormatException('Format de partie incompatible');
       }
       final game = GameSession.fromJson(
-            Map<String, dynamic>.from(j['game'] as Map),
-          ),
-          controller = ref.read(workspaceProvider.notifier);
-      if (controller.data.games.any((g) => g.id == game.id)) {
+        Map<String, dynamic>.from(j['game'] as Map),
+      );
+      if (controller.state.games.any((g) => g.id == game.id)) {
         if (!mounted ||
             !await confirm(context, 'Remplacer cette partie ?', game.title)) {
           return;
         }
       }
-      await controller.game(game);
+      await controller.saveGame(game);
       if (mounted) {
         notify(context, tr(context, 'Partie importée', 'Game imported'));
       }
@@ -48,8 +47,8 @@ class _HistoryScreenState extends ConsumerState<HistoryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final ws = ref.watch(workspaceProvider).requireValue,
-        controller = ref.read(workspaceProvider.notifier),
+    final ws = context.watch<HistoryCubit>().state,
+        controller = context.read<HistoryCubit>(),
         theme = Theme.of(context);
     final games = ws.games
         .where(
@@ -200,10 +199,11 @@ class _HistoryScreenState extends ConsumerState<HistoryScreen> {
                         ),
                       ),
                       OutlinedButton(
-                        onPressed: () => showNewGame(
-                          context,
-                          ref,
-                          names: g.players.map((p) => p.name).toList(),
+                        onPressed: () => context.push(
+                          GameSetupRequest.path,
+                          extra: GameSetupRequest(
+                            names: g.players.map((p) => p.name).toList(),
+                          ),
                         ),
                         child: Text(tr(context, 'Revanche', 'Play again')),
                       ),
@@ -324,7 +324,7 @@ class _HistoryScreenState extends ConsumerState<HistoryScreen> {
                 'Games, templates, profiles and settings will be removed from this device. This cannot be undone.',
               ),
             )) {
-              await controller.saveWorkspace(const Workspace());
+              await controller.erase();
             }
           },
           icon: const DeckIcon(Icons.delete_forever_outlined),

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../../technical/Theme/game_art.dart';
-import '../../Game/domain/game.dart';
-import '../../Random/domain/tool_catalog.dart';
-import '../workspace_controller.dart';
-import 'game_setup.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Theme/game_art.dart';
+import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.dart';
+import 'package:amiludo/layers/functional/Workspace/presentation/cubit/workspace_cubit.dart';
+import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
 
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final ws = ref.watch(workspaceProvider).requireValue,
+  Widget build(BuildContext context) {
+    final ws = context.watch<WorkspaceCubit>().state.workspace,
         theme = Theme.of(context),
         current = ws.current;
     final finished = ws.games
@@ -40,7 +40,7 @@ class HomeScreen extends ConsumerWidget {
             'The right tools. Good company. Your actual games.',
           ),
           action: OutlinedButton.icon(
-            onPressed: () => showNewGame(context, ref),
+            onPressed: () => context.push(GameSetupRequest.path),
             icon: const DeckIcon(Icons.add, size: 18),
             label: Text(tr(context, 'Nouvelle partie', 'New game')),
           ),
@@ -62,7 +62,7 @@ class HomeScreen extends ConsumerWidget {
                           'Good tools. Great company.',
                         ),
                         style: const TextStyle(
-                          fontFamily: 'NunitoSans',
+                          fontFamily: 'LilGrotesk',
                           fontSize: 12,
                           letterSpacing: 0,
                         ),

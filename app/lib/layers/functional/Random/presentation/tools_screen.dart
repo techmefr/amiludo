@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../../technical/Theme/game_art.dart';
-import '../../Workspace/workspace_controller.dart';
-import '../domain/tool_catalog.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Theme/game_art.dart';
+import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.dart';
 
-class ToolsScreen extends ConsumerStatefulWidget {
+class ToolsScreen extends StatefulWidget {
   const ToolsScreen({super.key, this.initialTool});
   final String? initialTool;
   @override
-  ConsumerState<ToolsScreen> createState() => _ToolsScreenState();
+  State<ToolsScreen> createState() => _ToolsScreenState();
 }
 
-class _ToolsScreenState extends ConsumerState<ToolsScreen> {
+class _ToolsScreenState extends State<ToolsScreen> {
   String category = 'Tous';
   @override
   void initState() {
@@ -32,7 +32,7 @@ class _ToolsScreenState extends ConsumerState<ToolsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final ws = ref.watch(workspaceProvider).requireValue;
+    final ws = context.watch<RandomCubit>().state;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -83,8 +83,8 @@ class _ToolsScreenState extends ConsumerState<ToolsScreen> {
                           Expanded(child: GameArt(tool: t.id, height: 112)),
                           IconButton(
                             tooltip: tr(context, 'Favori', 'Favorite'),
-                            onPressed: () => ref
-                                .read(workspaceProvider.notifier)
+                            onPressed: () => context
+                                .read<RandomCubit>()
                                 .toggleFavorite(t.id),
                             icon: DeckIcon(
                               ws.favorites.contains(t.id)

@@ -1,22 +1,22 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../technical/Appearance/appearance.dart';
-import '../../../technical/Theme/deck_theme.dart';
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../../technical/Files/file_transfer.dart';
-import '../../Workspace/workspace_controller.dart';
-import '../../Workspace/presentation/game_setup.dart';
+import 'package:amiludo/layers/technical/Appearance/appearance.dart';
+import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Files/file_transfer.dart';
+import 'package:amiludo/layers/functional/Appearance/presentation/cubit/appearance_cubit.dart';
+import 'package:amiludo/layers/technical/Theme/text_prompt.dart';
 
-class AppearanceScreen extends ConsumerWidget {
+class AppearanceScreen extends StatelessWidget {
   const AppearanceScreen({super.key});
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final ws = ref.watch(workspaceProvider).requireValue,
+  Widget build(BuildContext context) {
+    final ws = context.watch<AppearanceCubit>().state,
         a = ws.appearance,
-        controller = ref.read(workspaceProvider.notifier),
+        controller = context.read<AppearanceCubit>(),
         theme = Theme.of(context);
     Widget choices(
       String title,
@@ -53,7 +53,7 @@ class AppearanceScreen extends ConsumerWidget {
         final imported = Appearance.fromJson(
           Map<String, dynamic>.from(json['settings'] as Map),
         );
-        await controller.appearance(imported);
+        await controller.change(imported);
         if (context.mounted) {
           notify(context, tr(context, 'Thème importé', 'Theme imported'));
         }
@@ -83,7 +83,7 @@ class AppearanceScreen extends ConsumerWidget {
             'Four worlds, eleven palettes, seven fonts. Saved on this device.',
           ),
           action: OutlinedButton(
-            onPressed: () => controller.appearance(const Appearance()),
+            onPressed: () => controller.change(const Appearance()),
             child: Text(tr(context, 'Réinitialiser', 'Reset')),
           ),
         ),
@@ -105,7 +105,7 @@ class AppearanceScreen extends ConsumerWidget {
                 highlight: a.skin == id,
                 padding: 20,
                 child: InkWell(
-                  onTap: () => controller.appearance(
+                  onTap: () => controller.change(
                     a.copyWith(
                       skin: id,
                       palette: id == 'play'
@@ -124,7 +124,7 @@ class AppearanceScreen extends ConsumerWidget {
                           ? 'square'
                           : 'soft',
                       font: id == 'play'
-                          ? 'NunitoSans'
+                          ? 'LilGrotesk'
                           : id == 'orbital'
                           ? 'Rajdhani'
                           : id == 'paper'
@@ -172,7 +172,7 @@ class AppearanceScreen extends ConsumerWidget {
             ('system', tr(context, 'Système', 'System')),
           ],
           a.mode,
-          (v) => controller.appearance(a.copyWith(mode: v)),
+          (v) => controller.change(a.copyWith(mode: v)),
         ),
         SectionHeading(tr(context, '03 / Palette', '03 / Palette')),
         ResponsiveGrid(
@@ -183,8 +183,7 @@ class AppearanceScreen extends ConsumerWidget {
               highlight: a.palette == entry.key,
               padding: 16,
               child: InkWell(
-                onTap: () =>
-                    controller.appearance(a.copyWith(palette: entry.key)),
+                onTap: () => controller.change(a.copyWith(palette: entry.key)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -215,7 +214,7 @@ class AppearanceScreen extends ConsumerWidget {
                   highlight: a.font == font,
                   padding: 20,
                   child: InkWell(
-                    onTap: () => controller.appearance(a.copyWith(font: font)),
+                    onTap: () => controller.change(a.copyWith(font: font)),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -244,7 +243,7 @@ class AppearanceScreen extends ConsumerWidget {
             ('round', tr(context, 'Arrondies', 'Rounded')),
           ],
           a.shape,
-          (v) => controller.appearance(a.copyWith(shape: v)),
+          (v) => controller.change(a.copyWith(shape: v)),
         ),
         SectionHeading(tr(context, '06 / Confort', '06 / Comfort')),
         DeckPanel(
@@ -254,31 +253,31 @@ class AppearanceScreen extends ConsumerWidget {
                 contentPadding: EdgeInsets.zero,
                 title: Text(tr(context, 'Affichage compact', 'Compact layout')),
                 value: a.compact,
-                onChanged: (v) => controller.appearance(a.copyWith(compact: v)),
+                onChanged: (v) => controller.change(a.copyWith(compact: v)),
               ),
               SwitchListTile(
                 contentPadding: EdgeInsets.zero,
                 title: Text(tr(context, 'Lecture agrandie', 'Larger text')),
                 value: a.large,
-                onChanged: (v) => controller.appearance(a.copyWith(large: v)),
+                onChanged: (v) => controller.change(a.copyWith(large: v)),
               ),
               SwitchListTile(
                 contentPadding: EdgeInsets.zero,
                 title: Text(tr(context, 'Animations', 'Animations')),
                 value: a.motion,
-                onChanged: (v) => controller.appearance(a.copyWith(motion: v)),
+                onChanged: (v) => controller.change(a.copyWith(motion: v)),
               ),
               SwitchListTile(
                 contentPadding: EdgeInsets.zero,
                 title: Text(tr(context, 'Sons des alertes', 'Alert sounds')),
                 value: a.sound,
-                onChanged: (v) => controller.appearance(a.copyWith(sound: v)),
+                onChanged: (v) => controller.change(a.copyWith(sound: v)),
               ),
               SwitchListTile(
                 contentPadding: EdgeInsets.zero,
                 title: Text(tr(context, 'Vibrations', 'Haptic feedback')),
                 value: a.haptics,
-                onChanged: (v) => controller.appearance(a.copyWith(haptics: v)),
+                onChanged: (v) => controller.change(a.copyWith(haptics: v)),
               ),
               SwitchListTile(
                 contentPadding: EdgeInsets.zero,
@@ -290,8 +289,7 @@ class AppearanceScreen extends ConsumerWidget {
                   ),
                 ),
                 value: a.keepAwake,
-                onChanged: (v) =>
-                    controller.appearance(a.copyWith(keepAwake: v)),
+                onChanged: (v) => controller.change(a.copyWith(keepAwake: v)),
               ),
             ],
           ),
@@ -300,7 +298,7 @@ class AppearanceScreen extends ConsumerWidget {
           'Langue / Language',
           [('fr', 'Français'), ('en', 'English')],
           a.language,
-          (v) => controller.appearance(a.copyWith(language: v)),
+          (v) => controller.change(a.copyWith(language: v)),
         ),
         SectionHeading(tr(context, '07 / Vos profils', '07 / Your profiles')),
         Wrap(
@@ -350,7 +348,7 @@ class AppearanceScreen extends ConsumerWidget {
                 subtitle: Text(
                   '${ws.profiles[i].appearance.skin} / ${ws.profiles[i].appearance.palette}',
                 ),
-                onTap: () => controller.appearance(ws.profiles[i].appearance),
+                onTap: () => controller.change(ws.profiles[i].appearance),
                 trailing: IconButton(
                   tooltip: tr(context, 'Supprimer ce profil', 'Delete profile'),
                   onPressed: () => controller.removeProfile(i),

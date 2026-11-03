@@ -1,4 +1,4 @@
-# Catalogue fonctionnel d’Amiludo
+# Catalogue fonctionnel d’amiLudo
 
 Statut : **[x] = implémenté dans l’alpha Flutter**, avec validation des parcours et limites décrites dans APP-STATUS.md ; **[ ] = prévu ou incomplet**. Les tests sur appareils physiques restent distincts. MVP = première version ; V1 = enrichissement individuel ; V2 = services partagés et extensions. Les priorités au sein des blocs restent ajustables.
 

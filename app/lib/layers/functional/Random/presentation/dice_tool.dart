@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../../technical/Theme/game_art.dart';
-import '../domain/random_tools.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Theme/game_art.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 
 class DiceTool extends StatefulWidget {
   const DiceTool({super.key});

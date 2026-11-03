@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../Templates/domain/character_pack.dart';
-import '../../Templates/domain/game_template.dart';
-import '../../Workspace/workspace_controller.dart';
-import '../../Game/domain/game.dart';
-import '../domain/character_draft.dart';
-import 'character_library.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
+import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit.dart';
+import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/character_draft.dart';
+import 'package:amiludo/layers/functional/Random/presentation/character_library.dart';
 
-class CharacterTool extends ConsumerStatefulWidget {
+class CharacterTool extends StatefulWidget {
   const CharacterTool({super.key, required this.pack});
   final GameTemplate pack;
   @override
-  ConsumerState<CharacterTool> createState() => _CharacterToolState();
+  State<CharacterTool> createState() => _CharacterToolState();
 }
 
-class _CharacterToolState extends ConsumerState<CharacterTool> {
+class _CharacterToolState extends State<CharacterTool> {
   bool boosters = true, opened = false, saved = false;
   CharacterDraft? draft;
   final selected = <int>{};
@@ -193,12 +193,7 @@ class _CharacterToolState extends ConsumerState<CharacterTool> {
                       createdAt: DateTime.now().millisecondsSinceEpoch,
                       choices: Map.from(d.choices),
                     );
-                    final controller = ref.read(workspaceProvider.notifier);
-                    await controller.saveWorkspace(
-                      controller.data.copyWith(
-                        characters: [c, ...controller.data.characters],
-                      ),
-                    );
+                    await context.read<RandomCubit>().saveCharacter(c);
                     if (mounted) {
                       setState(() {
                         saved = true;

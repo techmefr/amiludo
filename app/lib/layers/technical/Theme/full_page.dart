@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'deck_widgets.dart';
-
 class FullPage extends StatelessWidget {
   const FullPage({
     super.key,
@@ -44,16 +42,6 @@ class FullPage extends StatelessWidget {
               ),
             )
           : child,
-    ),
-  );
-}
-
-class WorkspaceWait extends StatelessWidget {
-  const WorkspaceWait({super.key});
-  @override
-  Widget build(BuildContext context) => Center(
-    child: Text(
-      tr(context, 'Chargement de votre bibliothèque…', 'Loading your library…'),
     ),
   );
 }

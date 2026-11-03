@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Appearance/appearance.dart';
+import 'package:amiludo/layers/technical/Appearance/appearance.dart';
 
 class DeckPalette {
   const DeckPalette(
@@ -219,7 +219,7 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
       ? 'ChakraPetch'
       : appearance.skin == 'orbital'
       ? 'Rajdhani'
-      : appearance.font;
+      : 'BricolageGrotesque';
   final style = DeckStyle(
     shape: appearance.shape,
     signal: dark ? Color(p.signal) : ink,

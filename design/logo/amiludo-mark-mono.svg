@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title">
+  <title id="title">amiLudo</title>
+  <defs>
+    <mask id="cuts" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
+      <rect width="256" height="256" fill="#fff"/>
+      <g fill="none" stroke="#000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M58 150 L132 178 L206 146"/>
+        <path d="M132 178 V244"/>
+        <path d="M58 150 L36 98"/>
+        <path d="M86 140 L60 76"/>
+        <path d="M86 146 L130 128 L176 145"/>
+      </g>
+    </mask>
+  </defs>
+  <g fill="#2A1F44" stroke="#2A1F44" stroke-width="10" stroke-linejoin="round" mask="url(#cuts)">
+    <path d="M60 74 L146 40 L170 98 L88 132 Z"/>
+    <path d="M56 148 L32 128 L22 104 L36 96 Z"/>
+    <path d="M62 150 L130 122 L202 148 L132 176 Z"/>
+  </g>
+  <g fill="#2A1F44">
+    <circle cx="182" cy="60" r="13"/>
+    <path d="M148 84 Q178 72 204 82 Q208 88 203 92 L180 106 L170 172 L156 172 L150 104 Q144 92 148 84 Z"/>
+    <path d="M212 82 L224 62" stroke="#2A1F44" stroke-width="10" stroke-linecap="round"/>
+    <path d="M214 108 L234 96" stroke="#2A1F44" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <g fill="#2A1F44" stroke="#2A1F44" stroke-width="10" stroke-linejoin="round" mask="url(#cuts)">
+    <path d="M60 154 L132 182 L204 152 L204 208 L132 238 L60 208 Z"/>
+  </g>
+</svg>

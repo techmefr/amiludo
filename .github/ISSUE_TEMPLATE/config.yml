@@ -1,11 +1,11 @@
 blank_issues_enabled: true
 contact_links:
   - name: Questions et retours / Questions and feedback
-    url: https://github.com/techmefr/ludoply/discussions
+    url: https://github.com/techmefr/amiludo/discussions
     about: Échanger sur les usages et les essais
   - name: Guide de test / Testing guide
-    url: https://github.com/techmefr/ludoply/blob/main/TESTING.md
+    url: https://github.com/techmefr/amiludo/blob/main/TESTING.md
     about: Installer et découvrir les limites de l’alpha
   - name: Vulnérabilité / Vulnerability
-    url: https://github.com/techmefr/ludoply/security/advisories/new
+    url: https://github.com/techmefr/amiludo/security/advisories/new
     about: Signaler un problème de sécurité en privé

@@ -235,7 +235,7 @@ class _GameArtPainter extends CustomPainter {
           text: TextSpan(
             text: '${i + 1}',
             style: const TextStyle(
-              fontFamily: 'NunitoSans',
+              fontFamily: 'BricolageGrotesque',
               fontSize: 40,
               fontWeight: FontWeight.w700,
               color: cream,
@@ -347,7 +347,7 @@ class DieResult extends StatelessWidget {
               child: Text(
                 '$value',
                 style: const TextStyle(
-                  fontFamily: 'NunitoSans',
+                  fontFamily: 'BricolageGrotesque',
                   fontSize: 28,
                   fontWeight: FontWeight.w700,
                   color: Color(0xff39304D),

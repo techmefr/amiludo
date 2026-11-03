@@ -1,22 +1,23 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../../technical/Files/file_transfer.dart';
-import '../../Workspace/workspace_controller.dart';
-import '../../Workspace/presentation/game_setup.dart';
-import '../domain/game_template.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Files/file_transfer.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
+import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 
-class TemplatesScreen extends ConsumerWidget {
+class TemplatesScreen extends StatelessWidget {
   const TemplatesScreen({super.key});
-  Future<void> create(BuildContext context, WidgetRef ref) async {
+  Future<void> create(BuildContext context) async {
     context.push('/builder/new');
   }
 
-  Future<void> importTemplate(BuildContext context, WidgetRef ref) async {
+  Future<void> importTemplate(BuildContext context) async {
+    final templates = context.read<TemplatesCubit>();
     try {
       final text = await FileTransfer.openJson();
       if (text == null) return;
@@ -31,7 +32,7 @@ class TemplatesScreen extends ConsumerWidget {
       if (GameTemplate.builtIn.any((t) => t.id == template.id)) {
         throw const FormatException('Identifiant réservé à un modèle intégré');
       }
-      await ref.read(workspaceProvider.notifier).addTemplate(template);
+      await templates.addTemplate(template);
       if (context.mounted) {
         notify(context, tr(context, 'Modèle importé', 'Template imported'));
       }
@@ -41,8 +42,8 @@ class TemplatesScreen extends ConsumerWidget {
   }
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final ws = ref.watch(workspaceProvider).requireValue;
+  Widget build(BuildContext context) {
+    final ws = context.watch<TemplatesCubit>().state;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -59,7 +60,7 @@ class TemplatesScreen extends ConsumerWidget {
             'These templates configure scores, targets and timers.',
           ),
           action: FilledButton.icon(
-            onPressed: () => create(context, ref),
+            onPressed: () => create(context),
             icon: const DeckIcon(Icons.add),
             label: Text(tr(context, 'Créer un compagnon', 'Create companion')),
           ),
@@ -76,7 +77,7 @@ class TemplatesScreen extends ConsumerWidget {
                 label: const Text('Galerie communautaire'),
               ),
               OutlinedButton.icon(
-                onPressed: () => importTemplate(context, ref),
+                onPressed: () => importTemplate(context),
                 icon: const DeckIcon(Icons.file_open_outlined),
                 label: Text(
                   tr(
@@ -121,7 +122,10 @@ class TemplatesScreen extends ConsumerWidget {
                       if (t.target > 0) Text('Objectif / ${t.target}'),
                       const SizedBox(height: 24),
                       FilledButton(
-                        onPressed: () => showNewGame(context, ref, template: t),
+                        onPressed: () => context.push(
+                          GameSetupRequest.path,
+                          extra: GameSetupRequest(template: t),
+                        ),
                         child: Text(
                           tr(context, 'Jouer avec ce modèle', 'Use template'),
                         ),
@@ -156,6 +160,8 @@ class TemplatesScreen extends ConsumerWidget {
                           if (ws.templates.any((custom) => custom.id == t.id))
                             TextButton(
                               onPressed: () async {
+                                final templates = context
+                                    .read<TemplatesCubit>();
                                 if (await confirm(
                                   context,
                                   tr(
@@ -165,15 +171,7 @@ class TemplatesScreen extends ConsumerWidget {
                                   ),
                                   t.name,
                                 )) {
-                                  await ref
-                                      .read(workspaceProvider.notifier)
-                                      .saveWorkspace(
-                                        ws.copyWith(
-                                          templates: ws.templates
-                                              .where((x) => x.id != t.id)
-                                              .toList(),
-                                        ),
-                                      );
+                                  await templates.removeTemplate(t.id);
                                 }
                               },
                               child: Text(tr(context, 'Supprimer', 'Delete')),

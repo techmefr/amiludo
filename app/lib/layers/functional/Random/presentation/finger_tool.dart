@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../../technical/Feedback/device_feedback.dart';
+import 'package:amiludo/layers/technical/Feedback/device_feedback.dart';
 
-import '../../../technical/Theme/deck_widgets.dart';
-import '../domain/random_tools.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 
 class FingerTool extends StatefulWidget {
   const FingerTool({

@@ -1,4 +1,4 @@
-name: Verify and publish Amiludo
+name: Verify and publish amiLudo
 on:
   push:
     branches: [main]

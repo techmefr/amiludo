@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:table_companion/layers/technical/Appearance/appearance.dart';
-import 'package:table_companion/layers/technical/Feedback/device_feedback.dart';
+import 'package:amiludo/layers/technical/Appearance/appearance.dart';
+import 'package:amiludo/layers/technical/Feedback/device_feedback.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

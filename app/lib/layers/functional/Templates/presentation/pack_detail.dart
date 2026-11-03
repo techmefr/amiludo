@@ -1,30 +1,30 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../technical/Theme/full_page.dart';
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../../technical/Files/file_transfer.dart';
-import '../../../technical/About/app_info.dart';
-import '../../Workspace/workspace_controller.dart';
-import '../../Workspace/presentation/game_setup.dart';
-import '../domain/game_template.dart';
-import '../../Random/domain/tool_catalog.dart';
+import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Files/file_transfer.dart';
+import 'package:amiludo/layers/technical/About/app_info.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
+import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.dart';
 
-class PackDetail extends ConsumerWidget {
+class PackDetail extends StatelessWidget {
   const PackDetail({super.key, required this.id, this.snapshot = false});
   final String id;
   final bool snapshot;
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final ws = ref.watch(workspaceProvider).value;
+  Widget build(BuildContext context) {
+    final ws = context.watch<TemplatesCubit>().state;
     final p = [
-      if (snapshot && ws?.current?.pack != null) ws!.current!.pack!,
-      ...?ws?.templates,
+      if (snapshot && ws.current?.pack != null) ws.current!.pack!,
+      ...ws.templates,
       ...GameTemplate.builtIn,
-      if (ws?.current?.pack != null) ws!.current!.pack!,
+      if (ws.current?.pack != null) ws.current!.pack!,
     ].where((t) => t.id == id).firstOrNull;
     if (p == null) {
       return const FullPage(
@@ -58,7 +58,10 @@ class PackDetail extends ConsumerWidget {
             runSpacing: 12,
             children: [
               FilledButton(
-                onPressed: () => showNewGame(context, ref, template: p),
+                onPressed: () => context.push(
+                  GameSetupRequest.path,
+                  extra: GameSetupRequest(template: p),
+                ),
                 child: const Text('Jouer avec ce pack'),
               ),
               for (final t in toolDefinitions.where(

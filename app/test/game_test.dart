@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:table_companion/layers/functional/Game/domain/game.dart';
-import 'package:table_companion/layers/functional/Workspace/domain/workspace.dart';
+import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
+import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 
 GameSession example({
   bool low = false,

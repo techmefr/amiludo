@@ -3,14 +3,14 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:table_companion/layers/functional/Templates/domain/game_template.dart';
-import 'package:table_companion/layers/functional/Templates/domain/pack_catalog.dart';
-import 'package:table_companion/layers/functional/Templates/domain/pack_components.dart';
-import 'package:table_companion/layers/functional/Templates/domain/character_pack.dart';
-import 'package:table_companion/layers/functional/Random/domain/character_draft.dart';
-import 'package:table_companion/layers/functional/Random/domain/random_tools.dart';
-import 'package:table_companion/layers/functional/Workspace/domain/workspace.dart';
-import 'package:table_companion/layers/functional/Game/domain/game.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/pack_catalog.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/pack_components.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/character_draft.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
+import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
+import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 
 void main() {
   final packs = PackCatalog.decode(

@@ -4,7 +4,7 @@ Nom volontairement provisoire : « compagnon ». Prototype web autonome, destin�
 
 ## Essayer
 
-Ouvrir https://techmefr.github.io/ludoply/ ou lancer `python3 -m http.server 4173 --directory prototype` à la racine du dépôt, puis ouvrir http://localhost:4173.
+Ouvrir https://techmefr.github.io/amiludo/ ou lancer `python3 -m http.server 4173 --directory prototype` à la racine du dépôt, puis ouvrir http://localhost:4173.
 
 ## Écrans
 

@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../../technical/Theme/full_page.dart';
-import '../../Workspace/workspace_controller.dart';
-import '../domain/game_template.dart';
-import '../domain/pack_components.dart';
-import 'creation_draft.dart';
-import '../../Random/domain/tool_catalog.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/pack_components.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/creation_draft.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.dart';
 
-class PackBuilder extends ConsumerStatefulWidget {
+class PackBuilder extends StatefulWidget {
   const PackBuilder({super.key, this.template});
   final GameTemplate? template;
   @override
-  ConsumerState<PackBuilder> createState() => _PackBuilderState();
+  State<PackBuilder> createState() => _PackBuilderState();
 }
 
-class _PackBuilderState extends ConsumerState<PackBuilder> {
+class _PackBuilderState extends State<PackBuilder> {
   late final TextEditingController name,
       englishName,
       description,
@@ -160,7 +160,7 @@ class _PackBuilderState extends ConsumerState<PackBuilder> {
   Future<void> save() async {
     try {
       final pack = compile();
-      await ref.read(workspaceProvider.notifier).addTemplate(pack);
+      await context.read<TemplatesCubit>().addTemplate(pack);
       if (mounted) {
         setState(() => saved = true);
         notify(context, 'Pack enregistré sur cet appareil');
