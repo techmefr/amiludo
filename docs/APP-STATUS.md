@@ -1,37 +1,78 @@
 # Application — état réel
 
-Alpha 0.3.0. Nom : amiLudo. Code Flutter dans `app/`, application web dans `/app/`, anciennes maquettes à la racine du site.
+Alpha **0.4.0**. Nom : amiLudo. Le code Flutter est dans `app/`, l’application web est publiée sous `/app/`, et les anciennes maquettes restent à la racine du site.
 
 ## Disponible
 
-Parties et scores locaux, manches, catégories, objectifs, journal annulable, ressources et notes ; horloges par table ; outils de hasard ; thèmes et profils ; stockage SQLite, historique, CSV et sauvegardes JSON.
+- **Partie** :
+  - scores locaux, manches, catégories, objectifs ;
+  - journal annulable, ressources et statuts, notes ;
+  - horloges par table, outils de hasard, équipes par noms, joueurs du salon ou doigts.
+- **Personnalisation** : thèmes et profils, builders de packs (dés, rôles, calculs déclaratifs, personnages par listes ou boosters) et galerie installable. Voir [PACKS.md](PACKS.md).
+- **Ludothèque et amis** :
+  - étagères de jeux, profils d’amis avec goûts, temps disponible et avis par jeu ;
+  - suggestions « On joue à quoi ce soir ? » ;
+  - souvenirs avec photos et galerie chiffrée.
+- **Partage hors ligne** : session complète en QR code animé à codage fontaine.
+- **Salons** :
+  - code court, QR ou lien ;
+  - même Wi‑Fi sans serveur, avec découverte UDP et WebSocket ;
+  - ou à distance par Supabase Realtime ;
+  - l’hôte accepte ou refuse chaque joueur.
+- **Comptes facultatifs** : inscription, connexion, mot de passe oublié, prénom.
+- **Soirées** : date, lieu, places, jeux prévus, réponses oui / peut-être / non, liste d’attente, invitation par lien, code ou QR. Sans serveur, l’hôte note les réponses.
+- **Stockage** : SQLite, historique, CSV et sauvegardes JSON.
 
-L’alpha 0.2.0 ajoute les pages d’outils avec retour, la surface tactile agrandie, les builders de packs par jeu (dés, rôles, calculs déclaratifs, notes et liens de règles), les personnages par listes ou boosters, les fiches sauvegardables/importables/exportables et la galerie installable. Voir [PACKS.md](PACKS.md).
+Le catalogue compte **170 fonctions : 113 cochées, 57 prévues ou incomplètes**. Les trois packs initiaux sont des exemples originaux du projet. La publication communautaire passe par la relecture des pull requests.
 
-Le catalogue compte 148 fonctions, dont 91 cochées et 57 prévues ou incomplètes. Les trois packs initiaux sont des exemples originaux du projet. La publication communautaire passe par relecture des pull requests ; aucun contenu n’est présenté comme une contribution fictive.
+## Serveur
+
+Projet Supabase facultatif, fourni au build par `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY` et `AMILUDO_LINK_BASE` (variables du dépôt GitHub dans la CI).
+
+Côté base, le schéma est dans `server/supabase/migrations` :
+- table `evenings` protégée par RLS ;
+- fonctions `publish_evening`, `get_evening` et `answer_evening`, réservées aux comptes connectés.
+
+Sans ces variables, l’app reste entièrement locale. Le salon Wi‑Fi n’existe pas dans le navigateur.
 
 ## Vérifications
 
-38 tests Flutter couvrent les scores, imports, stockage, temps, tirages, profils, nouveaux calculs, packs, générations par listes/boosters, sauvegardes de fiches, navigation tactile et sauvegarde d’un pack depuis un lien direct. Un test Python vérifie le paquet hors connexion. Le workflow effectue l’analyse et les tests avant compilation web et APK Android.
+- **Tests** : 75 tests Flutter.
+  - Partie, hasard et données : scores, imports, stockage, temps, tirages, profils, packs, ludothèque, amis, suggestions, souvenirs, partage QR.
+  - Salons : protocole, puis vrais sockets en boucle locale.
+  - Soirées, comptes et liens.
+  - Un test d’architecture vérifie les dépendances entre couches.
+- **CI** : le workflow analyse le code et lance les tests avant de compiler le web et l’APK Android.
+- **Version en ligne contrôlée** : la page répond, le bundle pointe vers le bon projet Supabase, les réglages d’auth sont joignables, et un appel anonyme aux soirées est refusé.
 
-Les contrôles Chromium de la version précédente ont validé les scores persistants et le rechargement hors connexion. Les nouveaux parcours navigateur contrôlent l’installation d’un pack, les boosters, le choix de deux races, la fiche après rechargement et les pages dédiées. Les essais sur téléphones physiques, Safari, multitouch, sons, vibrations, veille et lecteurs d’écran restent à compléter.
+Restent à faire :
+- les essais sur vrais téléphones : découverte Wi‑Fi, caméra, multitouch, veille, sons, vibrations ;
+- Safari et les lecteurs d’écran.
 
-## Limites
+## Limites connues
 
-Les salles multi-appareils, mains privées partagées, serveur, tournois, cadences avancées, formules arbitraires, intégrations, statistiques détaillées, export d’images et traduction anglaise exhaustive restent à développer. Les prochaines extensions sont les fiches libres avec inventaire/progression, les paquets de cartes génériques, plateaux et campagnes.
+**Salons** :
+- le code du salon est le seul contrôle d’accès ;
+- le canal à distance est public et le WebSocket local n’est pas chiffré.
 
-Les règles distantes sont des liens ; leurs livrets ne sont pas aspirés ou analysés. Les calculs disponibles ne vérifient pas toutes les règles d’un jeu. Une fiche générée contient les choix et descriptions du pack, pas encore un système complet de caractéristiques et de combat.
+Un secret d’hôte et des canaux privés sont prévus avant une ouverture large (voir la feuille de route).
 
-Une partie conserve la copie de son pack. Modifier la bibliothèque ne recalcule pas les parties existantes. Les anciennes sauvegardes restent lisibles ; exporter avant toute mise à jour reste recommandé. Les APK de développement peuvent imposer une désinstallation en cas de changement de signature.
+**E-mails de compte** : ils partent par l’envoi intégré de Supabase, très limité en volume. Un SMTP dédié sera nécessaire pour un vrai usage.
 
-La cible iOS nécessite macOS, Xcode et une signature Apple ; aucune application iOS native n’est distribuée. Le site est accessible aux utilisateurs iPhone/iPad. Aucune alarme en arrière-plan n’est garantie lorsque le système suspend l’application.
+**Données** :
+- le document `Workspace` regroupe toutes les données de l’appareil et il est réécrit à chaque modification ;
+- un découpage par fonctionnalité est prévu.
 
-La création guidée demande le nom local et le nom anglais, puis ne présente que les réglages des modes choisis. L’accueil distingue mode libre et compagnon par jeu ; les icônes utilisent Hugeicons Free.
+**Traduction** : l’anglais est partiel, et certains textes et messages d’erreur restent en français.
 
-La [présentation joueur](presentation/amiLudo-presentation-joueurs.pdf) et le [catalogue cible élargi](VISION-COMPLETE.md) servent à recueillir les retours. Leur inventaire est une vision à enrichir, pas la liste de fonctions déjà livrées.
+**Règles et calculs** :
+- les règles distantes sont des liens, sans analyse des livrets ;
+- les calculs disponibles ne vérifient pas toutes les règles d’un jeu ;
+- une partie garde la copie de son pack.
 
-L’alpha 0.3.0 ajoute Playroom, une palette Confettis, des illustrations originales et des titres plus chaleureux. Les styles enregistrés sont conservés. La nouvelle présentation PDF reprend cette direction graphique.
+**Plateformes** :
+- iOS natif demande macOS, Xcode et une signature Apple, et n’est pas distribué. Le site est utilisable sur iPhone et iPad.
+- Les APK sont des versions de test : exporter une sauvegarde avant toute mise à jour.
+- Aucune alarme en arrière-plan n’est garantie.
 
-Le nom affiché est amiLudo sur le web, Android et iOS. Les identifiants de stockage, formats de fichiers, paquets natifs et liens historiques sont conservés pour la continuité des données et des accès.
-
-Publication 0.3.0 vérifiée : analyse, 38 tests, compilations web/Android et déploiement réussis. Le site public affiche amiLudo, les écrans Playroom ont été contrôlés sur mobile et ordinateur, et la reprise des scores hors connexion a été vérifiée. APK et présentation : https://github.com/techmefr/amiludo/releases/tag/v0.3.0-alpha.1
+Les identifiants de stockage, les formats de fichiers et les paquets natifs historiques sont conservés pour la continuité des données.

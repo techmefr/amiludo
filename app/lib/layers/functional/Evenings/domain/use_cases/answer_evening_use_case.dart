@@ -18,8 +18,9 @@ class AnswerEveningUseCase {
     String? guestName,
     DateTime? now,
   }) async {
-    final data = _workspace.current;
-    final evening = data.evenings.firstWhere((e) => e.id == eveningId);
+    final evening = _workspace.current.evenings.firstWhere(
+      (e) => e.id == eveningId,
+    );
     final rsvp = _rsvp(evening, answer, guestId, guestName, now);
     final updated = evening.published && _remote.available
         ? await _remote.answer(evening.code, rsvp)
@@ -28,6 +29,7 @@ class AnswerEveningUseCase {
       ...updated.toJson(),
       'id': evening.id,
     }, mine: evening.mine);
+    final data = _workspace.current;
     await _workspace.save(
       data.copyWith(
         evenings: [kept, ...data.evenings.where((e) => e.id != eveningId)],

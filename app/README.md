@@ -37,7 +37,16 @@ Android : `flutter build apk --debug` pour une installation de test, avec Androi
 - Univers Playroom / Cyberdeck / Orbital / Carnet, onze palettes, sept polices locales, formes, densité, lecture agrandie, animations, profils de style et import/export.
 - Interface française et principaux contrôles en anglais. La traduction exhaustive et les tests de lecteurs d’écran restent à compléter.
 
-Les salles multi-appareils, le serveur, les tournois, les cadences avancées, les formules arbitraires et les intégrations ne sont pas implémentés. Le catalogue global distingue ces fonctionnalités planifiées. Cette version est une alpha fonctionnelle, pas l’ensemble des 148 fonctions.
+- Ludothèque, amis, suggestions de jeux, souvenirs et partage de session en QR code animé.
+- Salons à rejoindre par code, lien ou QR (même Wi‑Fi ou à distance), comptes facultatifs et soirées avec inscriptions.
+
+Les tournois, les cadences avancées, les formules arbitraires et les intégrations ne sont pas implémentés. Le catalogue global distingue ces fonctionnalités planifiées.
+
+## Fonctions en ligne
+
+Elles sont facultatives : passer `--dart-define=SUPABASE_URL=…`, `--dart-define=SUPABASE_PUBLISHABLE_KEY=…` et `--dart-define=AMILUDO_LINK_BASE=…`. `scripts/build_web.sh` les lit depuis l’environnement. Sans ces valeurs, l’app reste locale.
+
+Le salon Wi‑Fi demande les permissions réseau sur Android, et `NSLocalNetworkUsageDescription` sur iOS.
 
 ## Données et limites
 
@@ -49,4 +58,4 @@ Une police de secours pour les symboles est également embarquée, et la roue re
 
 Packs et builders : voir [PACKS.md](../docs/PACKS.md). Les calculs déclaratifs limités et la génération de personnages par listes/boosters sont disponibles dans l’alpha 0.2.0.
 
-L’alpha 0.3.0 ajoute Playroom, une palette Confettis, des illustrations originales et des titres plus chaleureux. Les styles enregistrés sont conservés. La nouvelle présentation PDF reprend cette direction graphique.
+L’alpha 0.3.0 ajoute Playroom, une palette Confettis, des illustrations originales et des titres plus chaleureux. L’alpha 0.4.0 ajoute la ludothèque, les amis, les salons et les soirées.

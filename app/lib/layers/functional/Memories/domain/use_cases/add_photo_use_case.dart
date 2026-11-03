@@ -21,10 +21,10 @@ class AddPhotoUseCase {
     }
     final id = '$sessionId-${newId()}';
     await _photos.write(id, bytes);
+    final latest = _workspace.current;
+    final saved = latest.memoryOf(sessionId);
     await _workspace.save(
-      _workspace.current.withMemory(
-        memory.copyWith(photoIds: [...memory.photoIds, id]),
-      ),
+      latest.withMemory(saved.copyWith(photoIds: [...saved.photoIds, id])),
     );
   }
 }

@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 
-const appVersion = '0.3.0-alpha.1';
+const appVersion = '0.4.0-alpha.1';
 const projectUrl = 'https://github.com/techmefr/amiludo';
 const bugReportUrl = '$projectUrl/issues/new?template=bug_report.yml';
 const featureRequestUrl = '$projectUrl/issues/new?template=feature_request.yml';

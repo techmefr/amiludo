@@ -17,7 +17,12 @@ Décision initiale du 30 octobre 2026. Ces choix sont désormais appliqués dans
 
 ## Structure visée
 
-Architecture OSDD : `lib/layers/functional/<Feature>` (Workspace, Game, Timer, Random, Templates, History, Appearance) et `lib/layers/technical/<Layer>` (Storage, Theme, Files, Feedback, About, Appearance). Chaque feature suit domain (entities, gateways, use_cases) → data (gateways) → presentation (cubit, écrans) ; une feature n’importe que le domain d’une autre, et technical n’importe jamais functional. `main.dart`, `router.dart` et `dependencies.dart` composent l’ensemble. Inutile de créer un monorepo ou plusieurs services au démarrage.
+Le code suit l’architecture OSDD :
+- **Couches fonctionnelles**, dans `lib/layers/functional/<Feature>` : Account, Appearance, Evenings, Friends, Game, History, Library, Lobby, Memories, Random, Sharing, Templates, Timer, Workspace.
+- **Couches techniques**, dans `lib/layers/technical/<Layer>` : About, Appearance, Feedback, Files, Network, Qr, Storage, Theme, Transfer.
+- **Dans chaque feature** : domain (entities, gateways, use_cases), puis data (gateways), puis presentation (cubit, écrans).
+- **Règles de dépendance** : une feature n’importe que le domain d’une autre, et technical n’importe jamais functional. `test/architecture_test.dart` fait échouer la CI si l’une de ces règles est enfreinte.
+- **Assemblage** : `main.dart`, `router.dart` et `dependencies.dart`.
 
 ## Hors connexion
 
@@ -29,9 +34,29 @@ Sur le web, configurer explicitement le moteur SQLite Wasm et ses fichiers/heade
 
 Le web applicatif sera Flutter. Un site vitrine et des documents indexables pourront être des pages HTML statiques séparées, générées avec Astro si le besoin apparaît. Pas de second framework avant ce besoin.
 
-## Serveur : différé
+## Réseau et serveur
 
-Aucun backend, compte ou abonnement nécessaire pour le MVP. Pour V2, Supabase/PostgreSQL est une piste pour les comptes facultatifs et les salles ; le choix dépendra d’un prototype de synchronisation. Realtime seul ne constitue pas un mécanisme de synchronisation hors ligne. Prévoir identifiants d’actions, idempotence, autorité, reprise et contrôle des accès. Aucun service payant ni projet cloud créé ici.
+**Salon sur le même Wi‑Fi**, sans aucun serveur :
+- l’hôte ouvre un `HttpServer` avec WebSocket sur `/room/CODE` (dart:io) ;
+- les invités trouvent l’adresse par une sonde UDP en broadcast sur le port 47474 ;
+- un lien peut aussi porter l’adresse (`?lan=ip:port`), limitée aux plages privées ;
+- indisponible dans le navigateur.
+
+**À distance** : Supabase Realtime, canal broadcast `room:CODE`.
+
+**Comptes et soirées** :
+- Supabase Auth et PostgreSQL ;
+- table `evenings` avec RLS, fonctions `security definer` réservées aux comptes connectés (`server/supabase/migrations`) ;
+- l’hôte fait autorité sur l’état du salon.
+
+Le serveur reste facultatif : sans `SUPABASE_URL` ni `SUPABASE_PUBLISHABLE_KEY` au build, tout fonctionne en local.
+
+Realtime seul ne constitue pas une synchronisation hors ligne. Pour partager l’état d’une partie, il faudra prévoir :
+- des identifiants d’actions ;
+- l’idempotence ;
+- l’autorité de l’hôte ;
+- la reprise ;
+- le contrôle des accès.
 
 ## Validation préalable au développement étendu
 

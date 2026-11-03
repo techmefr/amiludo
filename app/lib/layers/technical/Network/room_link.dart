@@ -50,6 +50,15 @@ class RoomLink {
     return RoomLink(kind.first, code, lan: _validLan(lan) ? lan : null);
   }
 
-  static bool _validLan(String? lan) =>
-      lan != null && RegExp(r'^\d{1,3}(\.\d{1,3}){3}:\d{2,5}$').hasMatch(lan);
+  static bool _validLan(String? lan) {
+    final match = RegExp(r'^(\d{1,3})\.(\d{1,3})\.\d{1,3}\.\d{1,3}:\d{2,5}$')
+        .firstMatch(lan ?? '');
+    if (match == null) return false;
+    final first = int.parse(match[1]!);
+    final second = int.parse(match[2]!);
+    return first == 10 ||
+        first == 127 ||
+        (first == 192 && second == 168) ||
+        (first == 172 && second >= 16 && second <= 31);
+  }
 }
