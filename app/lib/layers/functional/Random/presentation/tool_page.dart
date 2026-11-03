@@ -11,6 +11,7 @@ import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.da
 import 'package:amiludo/layers/functional/Random/presentation/dice_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/finger_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/random_tool.dart';
+import 'package:amiludo/layers/functional/Random/presentation/teams_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/pack_tools.dart';
 import 'package:amiludo/layers/functional/Random/presentation/character_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/character_library.dart';
@@ -89,6 +90,11 @@ class _ToolPageState extends State<ToolPage> {
                   pack: current,
                   names: names,
                 ),
+        'teams' => TeamsTool(
+          names: names,
+          lobbyNames: context.read<RandomCubit>().lobbyNames,
+          haptics: ws.appearance.haptics,
+        ),
         'picker' => FingerTool(
           names: names,
           haptics: ws.appearance.haptics,

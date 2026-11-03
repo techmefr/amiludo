@@ -69,7 +69,8 @@ List<BlocProvider> _providers() => [
     create: (_) => TemplatesCubit(getIt(), getIt(), getIt(), getIt()),
   ),
   BlocProvider<RandomCubit>(
-    create: (_) => RandomCubit(getIt(), getIt(), getIt(), getIt(), getIt()),
+    create: (_) =>
+        RandomCubit(getIt(), getIt(), getIt(), getIt(), getIt(), getIt()),
   ),
   BlocProvider<LibraryCubit>(
     create: (_) => LibraryCubit(getIt(), getIt(), getIt(), getIt(), getIt()),

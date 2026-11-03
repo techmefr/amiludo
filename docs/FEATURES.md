@@ -231,9 +231,10 @@ Le salon Wi-Fi marche sans serveur. Le jeu à distance, les comptes et les inscr
 - [x] F167 — Inscriptions oui / peut-être / non, premier arrivé premier servi, liste d’attente
 - [x] F168 — Invitation à une soirée par lien, code ou QR ; réponses enregistrées sur le serveur
 - [x] F169 — Sans serveur, l’hôte note lui-même les réponses de ses amis
+- [x] F170 — Équipes à partir des noms saisis, des joueurs du salon ou des doigts posés sur l’écran
 
-**Total : 169 fonctionnalités planifiées.**
+**Total : 170 fonctionnalités planifiées.**
 
 La personnalisation est portée dans Flutter. Les cases cochées décrivent une alpha locale ; elles ne valent pas une certification Android/iOS ou une validation complète d’accessibilité.
 
-**Bilan alpha : 112 fonctions cochées ; 57 prévues ou incomplètes.**
+**Bilan alpha : 113 fonctions cochées ; 57 prévues ou incomplètes.**

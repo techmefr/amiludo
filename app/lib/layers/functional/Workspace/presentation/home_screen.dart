@@ -251,6 +251,7 @@ class _ToolCard extends StatelessWidget {
           const SizedBox(height: 8),
           Text(tool.subtitle),
           const SizedBox(height: 16),
+          const Spacer(),
           OutlinedButton(
             onPressed: () => context.push('/tools/${tool.id}'),
             child: Text(tr(context, 'Ouvrir ↗', 'Open ↗')),
