@@ -3,6 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/dependencies.dart';
+import 'package:amiludo/layers/functional/Account/presentation/account_screen.dart';
+import 'package:amiludo/layers/functional/Evenings/presentation/evening_detail.dart';
+import 'package:amiludo/layers/functional/Evenings/presentation/evening_form.dart';
+import 'package:amiludo/layers/functional/Evenings/presentation/evening_invite_screen.dart';
+import 'package:amiludo/layers/functional/Evenings/presentation/evenings_screen.dart';
+import 'package:amiludo/layers/functional/Lobby/presentation/host_lobby_screen.dart';
+import 'package:amiludo/layers/functional/Lobby/presentation/join_screen.dart';
+import 'package:amiludo/layers/technical/Network/room_link.dart';
 import 'package:amiludo/layers/functional/Appearance/presentation/appearance_screen.dart';
 import 'package:amiludo/layers/functional/Friends/presentation/friend_form.dart';
 import 'package:amiludo/layers/functional/Friends/presentation/friends_screen.dart';
@@ -103,6 +111,33 @@ final router = GoRouter(
       ),
     ),
     _page('/share/receive', (state) => const ReceiveSessionScreen()),
+    _page('/lobby', (state) => const HostLobbyScreen()),
+    _page('/join', (state) => const JoinScreen()),
+    _page(
+      '/join/:code',
+      (state) => JoinScreen(
+        initial: state.uri.queryParameters['lan'] == null
+            ? state.pathParameters['code']!
+            : RoomLink(
+                RoomKind.join,
+                state.pathParameters['code']!,
+                lan: state.uri.queryParameters['lan'],
+              ).appUri.toString(),
+      ),
+    ),
+    _page('/account', (state) => const AccountScreen()),
+    _page(
+      '/evenings/edit/:id',
+      (state) => EveningForm(id: state.pathParameters['id']!),
+    ),
+    _page(
+      '/evenings/:id',
+      (state) => EveningDetail(id: state.pathParameters['id']!),
+    ),
+    _page(
+      '/evening/:code',
+      (state) => EveningInviteScreen(code: state.pathParameters['code']!),
+    ),
     _page(GameSetupRequest.path, (state) {
       final request = state.extra is GameSetupRequest
           ? state.extra! as GameSetupRequest
@@ -122,6 +157,7 @@ final router = GoRouter(
       ('/templates', (state) => const TemplatesScreen()),
       ('/library', (state) => const LibraryScreen()),
       ('/friends', (state) => const FriendsScreen()),
+      ('/evenings', (state) => const EveningsScreen()),
       ('/history', (state) => const HistoryScreen()),
       ('/appearance', (state) => const AppearanceScreen()),
       ('/timer', (state) => const TimerScreen()),

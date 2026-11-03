@@ -54,6 +54,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
         const SizedBox(height: 8),
         Text(t.subtitle),
         const SizedBox(height: 16),
+        const Spacer(),
         OutlinedButton(
           onPressed: () => open(t.id),
           child: Text(tr(context, 'Ouvrir ↗', 'Open ↗')),

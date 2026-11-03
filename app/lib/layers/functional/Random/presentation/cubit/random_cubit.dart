@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:amiludo/layers/functional/Lobby/domain/use_cases/watch_lobby_use_case.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/remove_character_use_case.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/save_character_use_case.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/toggle_favorite_tool_use_case.dart';
@@ -17,6 +18,7 @@ class RandomCubit extends Cubit<Workspace> {
     this._toggleFavoriteTool,
     this._saveCharacter,
     this._removeCharacter,
+    this._lobby,
   ) : super(readWorkspace()) {
     _subscription = watchWorkspace().listen(emit);
   }
@@ -24,7 +26,14 @@ class RandomCubit extends Cubit<Workspace> {
   final ToggleFavoriteToolUseCase _toggleFavoriteTool;
   final SaveCharacterUseCase _saveCharacter;
   final RemoveCharacterUseCase _removeCharacter;
+  final WatchLobbyUseCase _lobby;
   late final StreamSubscription<Workspace> _subscription;
+
+  List<String> get lobbyNames {
+    final session = _lobby.current;
+    if (session == null || session.ended) return const [];
+    return session.lobby.playerNames;
+  }
 
   Future<void> toggleFavorite(String tool) => _toggleFavoriteTool(tool);
 

@@ -23,7 +23,7 @@ class _RandomToolState extends State<RandomTool>
   late final AnimationController spin;
   Animation<double>? rotation;
   String result = '';
-  int teamCount = 2, roleIndex = 0;
+  int roleIndex = 0;
   bool revealed = false, hasDrawn = false;
   List<String> bag = [], roles = [];
   double angle = 0;
@@ -70,22 +70,6 @@ class _RandomToolState extends State<RandomTool>
       .where((s) => s.isNotEmpty)
       .toList();
   void fail(String message) => notify(context, message);
-  void drawTeams() {
-    if (widget.names.length < 2) {
-      fail('Au moins deux joueurs sont nécessaires.');
-      return;
-    }
-    final teams = random.teams(
-      widget.names,
-      teamCount.clamp(2, widget.names.length),
-    );
-    setState(
-      () => result = teams.indexed
-          .map((e) => 'ÉQUIPE ${e.$1 + 1}\n${e.$2.join(' · ')}')
-          .join('\n\n'),
-    );
-  }
-
   void drawOrder() => setState(
     () => result = random
         .shuffled(widget.names)
@@ -173,9 +157,7 @@ class _RandomToolState extends State<RandomTool>
 
   void draw() {
     try {
-      if (widget.id == 'teams') {
-        drawTeams();
-      } else if (widget.id == 'order') {
+      if (widget.id == 'order') {
         drawOrder();
       } else if (widget.id == 'coin') {
         setState(() => result = random.integer(0, 1) == 0 ? 'PILE' : 'FACE');
@@ -224,19 +206,6 @@ class _RandomToolState extends State<RandomTool>
       });
     }
   }
-
-  Widget teamCountField() => DropdownButtonFormField<int>(
-    style: Theme.of(context).textTheme.bodyLarge,
-    initialValue: teamCount.clamp(2, max(2, widget.names.length)),
-    decoration: InputDecoration(
-      labelText: tr(context, 'Nombre d’équipes', 'Number of teams'),
-    ),
-    items: List.generate(
-      max(1, widget.names.length - 1),
-      (i) => DropdownMenuItem(value: i + 2, child: Text('${i + 2}')),
-    ),
-    onChanged: (v) => setState(() => teamCount = v!),
-  );
 
   Widget boundField(TextEditingController controller, String label) => SizedBox(
     width: 180,
@@ -333,7 +302,7 @@ class _RandomToolState extends State<RandomTool>
       liveRegion: true,
       child: SelectableText(
         result,
-        style: widget.id == 'teams' || widget.id == 'order'
+        style: widget.id == 'order'
             ? theme.textTheme.titleLarge
             : theme.textTheme.headlineLarge,
       ),
@@ -367,7 +336,6 @@ class _RandomToolState extends State<RandomTool>
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (widget.id == 'teams') teamCountField(),
         if (widget.id == 'number') boundsFields(),
         if (['bag', 'wheel', 'roles'].contains(widget.id)) optionsField(),
         if (widget.id == 'wheel') wheel(theme),
@@ -392,7 +360,7 @@ class _RandomToolState extends State<RandomTool>
           const SizedBox(height: 20),
         ],
         actions(),
-        if (['teams', 'order'].contains(widget.id))
+        if (widget.id == 'order')
           Padding(
             padding: const EdgeInsets.only(top: 16),
             child: Text(
