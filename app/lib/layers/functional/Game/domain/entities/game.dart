@@ -3,6 +3,9 @@ import 'package:amiludo/layers/functional/Templates/domain/entities/game_templat
 import 'dart:convert';
 
 String newId() => DateTime.now().microsecondsSinceEpoch.toString();
+
+enum GameError implements Exception { invalidPlayers }
+
 String numberText(num value) => value == value.roundToDouble()
     ? value.toInt().toString()
     : value.toStringAsFixed(2).replaceFirst(RegExp(r'0+$'), '');

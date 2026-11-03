@@ -58,6 +58,13 @@ class _FriendFormState extends State<FriendForm> {
         friend.copyWith(name: name.text.trim()),
       );
       if (mounted) context.go('/friends');
+    } on FriendError {
+      if (mounted) {
+        notify(
+          context,
+          tr(context, 'Cet ami existe déjà.', 'This friend already exists.'),
+        );
+      }
     } on FormatException catch (error) {
       if (mounted) notify(context, error.message);
     }

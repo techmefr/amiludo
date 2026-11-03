@@ -117,16 +117,19 @@ void _localTests() {
     final workspace = MemoryWorkspace();
     await SaveNicknameUseCase(workspace)('  Camille ');
     expect(workspace.current.nickname, 'Camille');
-    expect(() => SaveNicknameUseCase(workspace)(' '), throwsFormatException);
+    expect(
+      () => SaveNicknameUseCase(workspace)(' '),
+      throwsA(AccountError.invalidName),
+    );
     final accounts = FakeAccounts();
     final signUp = SignUpUseCase(accounts, MemoryWorkspace());
     expect(
       () => signUp(email: 'nope', password: 'longenough', name: 'Léa'),
-      throwsFormatException,
+      throwsA(AccountError.invalidEmail),
     );
     expect(
       () => signUp(email: 'lea@example.test', password: 'short', name: 'Léa'),
-      throwsFormatException,
+      throwsA(AccountError.invalidPassword),
     );
     expect(accounts.signUps, isEmpty);
   });
@@ -158,7 +161,7 @@ void _onlineTests() {
     final reply = AnswerEveningUseCase(guestSpace, guestServer, guestAccounts);
     expect(
       () => reply(fetched.id, RsvpAnswer.yes),
-      throwsA(isA<AccountFailure>()),
+      throwsA(AccountError.signInRequired),
     );
     await SignUpUseCase(guestAccounts, guestSpace)(
       email: 'lea@example.test',
@@ -170,7 +173,7 @@ void _onlineTests() {
     expect(guestSpace.current.nickname, 'Léa');
     expect(
       () => reply(fetched.id, RsvpAnswer.yes, guestId: 'x', guestName: 'X'),
-      throwsFormatException,
+      throwsA(EveningError.hostOnly),
     );
   });
 }

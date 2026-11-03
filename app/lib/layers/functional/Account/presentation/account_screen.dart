@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:amiludo/layers/functional/Account/presentation/account_form.dart';
+import 'package:amiludo/layers/functional/Account/presentation/account_texts.dart';
 import 'package:amiludo/layers/functional/Account/presentation/cubit/account_cubit.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
@@ -32,8 +33,12 @@ class AccountScreen extends StatelessWidget {
     fallback: '/',
     child: BlocConsumer<AccountCubit, AccountState>(
       listenWhen: (a, b) => b.notice != null || b.error != null,
-      listener: (context, state) =>
-          notify(context, state.error ?? _notice(context, state.notice!)),
+      listener: (context, state) => notify(
+        context,
+        state.error == null
+            ? _notice(context, state.notice!)
+            : accountErrorText(context, state.error!),
+      ),
       builder: (context, state) => Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

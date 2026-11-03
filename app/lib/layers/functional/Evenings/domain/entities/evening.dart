@@ -1,5 +1,7 @@
 enum RsvpAnswer { yes, maybe, no }
 
+enum EveningError implements Exception { hostOnly }
+
 class Rsvp {
   const Rsvp({
     required this.id,

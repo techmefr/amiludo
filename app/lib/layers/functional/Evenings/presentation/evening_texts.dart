@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/functional/Account/domain/entities/account.dart';
+import 'package:amiludo/layers/functional/Account/presentation/account_texts.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/entities/evening.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 
@@ -31,6 +33,9 @@ String seatsLine(BuildContext context, Evening evening) {
 }
 
 String eveningErrorText(BuildContext context, Object error) => switch (error) {
+  EveningError.hostOnly => tr(context, 'Réservé à l’hôte', 'Host only'),
+  final AccountError account => accountErrorText(context, account),
+  AccountUnavailable() => accountErrorText(context, AccountError.unavailable),
   FormatException(:final message) => message,
   _ => tr(
     context,

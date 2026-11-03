@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/cubit/workspace_cubit.dart';
 
@@ -47,21 +48,39 @@ class _GameSetupPageState extends State<GameSetupPage> {
             values.length > 32 ||
             values.toSet().length != values.length ||
             values.any((n) => n.length > 40)
-        ? 'Vérifiez les noms (40 caractères maximum).'
+        ? tr(
+            context,
+            'Vérifiez les noms (40 caractères maximum).',
+            'Check the names (40 characters maximum).',
+          )
         : null;
   }
 
   Future<void> _start() async {
     if (!form.currentState!.validate()) return;
-    await context.read<WorkspaceCubit>().startGame(
-      title.text,
-      people.text
-          .split('\n')
-          .map((n) => n.trim())
-          .where((n) => n.isNotEmpty)
-          .toList(),
-      chosen,
-    );
+    try {
+      await context.read<WorkspaceCubit>().startGame(
+        title.text,
+        people.text
+            .split('\n')
+            .map((n) => n.trim())
+            .where((n) => n.isNotEmpty)
+            .toList(),
+        chosen,
+      );
+    } on GameError {
+      if (mounted) {
+        notify(
+          context,
+          tr(
+            context,
+            'Choisissez 1 à 32 prénoms différents.',
+            'Pick 1 to 32 different names.',
+          ),
+        );
+      }
+      return;
+    }
     if (mounted) {
       Navigator.of(context).pop();
       context.go('/game');

@@ -15,9 +15,12 @@ class MarketplaceCubit extends Cubit<MarketplaceState> {
     try {
       final packs = await _loadBundledCatalog();
       emit(MarketplaceState(packs: packs, loading: false));
-    } catch (e) {
+    } catch (_) {
       emit(
-        MarketplaceState(loading: false, error: 'Catalogue indisponible : $e'),
+        const MarketplaceState(
+          loading: false,
+          error: MarketplaceError.unavailable,
+        ),
       );
     }
   }
@@ -35,7 +38,7 @@ class MarketplaceCubit extends Cubit<MarketplaceState> {
           packs: state.packs,
           loading: false,
           online: state.online,
-          error: 'Actualisation impossible. Les packs installés restent disponibles hors connexion.',
+          error: MarketplaceError.refreshFailed,
         ),
       );
     }

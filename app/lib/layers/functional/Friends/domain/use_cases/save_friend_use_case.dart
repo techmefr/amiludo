@@ -13,7 +13,7 @@ class SaveFriendUseCase {
           f.id != friend.id &&
           f.name.toLowerCase() == friend.name.trim().toLowerCase(),
     );
-    if (duplicate) throw const FormatException('Cet ami existe déjà.');
+    if (duplicate) throw FriendError.duplicate;
     return _workspace.save(
       data.copyWith(
         friends: [

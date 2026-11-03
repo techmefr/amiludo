@@ -14,7 +14,7 @@ class PublishEveningUseCase {
   Future<Evening> call(Evening evening) async {
     if (!_remote.available) throw const AccountUnavailable();
     if (_accounts.current == null) {
-      throw const AccountFailure('Connectez-vous pour publier');
+      throw AccountError.signInRequired;
     }
     final published = evening.copyWith(published: true);
     await _save(published);
