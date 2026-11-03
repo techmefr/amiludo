@@ -76,7 +76,7 @@ class FriendAnswers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.watch<EveningsCubit>();
-    final friends = cubit.state.friends;
+    final friends = cubit.friends;
     if (friends.isEmpty) return const SizedBox.shrink();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

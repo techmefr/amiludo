@@ -9,6 +9,8 @@ import 'package:amiludo/layers/functional/Evenings/domain/use_cases/fetch_evenin
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/publish_evening_use_case.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/remove_evening_use_case.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/save_evening_use_case.dart';
+import 'package:amiludo/layers/functional/Friends/domain/entities/friend.dart';
+import 'package:amiludo/layers/functional/Friends/domain/use_cases/read_friends_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/read_workspace_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/watch_workspace_use_case.dart';
@@ -24,6 +26,7 @@ class EveningsCubit extends Cubit<Workspace> {
     this._publish,
     this._answer,
     this._fetch,
+    this._readFriends,
   ) : super(readWorkspace()) {
     _subscription = watchWorkspace().listen(emit);
   }
@@ -34,7 +37,10 @@ class EveningsCubit extends Cubit<Workspace> {
   final PublishEveningUseCase _publish;
   final AnswerEveningUseCase _answer;
   final FetchEveningUseCase _fetch;
+  final ReadFriendsUseCase _readFriends;
   late final StreamSubscription<Workspace> _subscription;
+
+  List<Friend> get friends => _readFriends().friends;
 
   bool get online => _account.available;
 

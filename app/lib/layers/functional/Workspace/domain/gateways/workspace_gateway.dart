@@ -6,4 +6,5 @@ abstract class WorkspaceGateway {
   Stream<bool> get saveFailures;
   Future<Workspace> load();
   Future<void> save(Workspace workspace);
+  Future<void> retrySave();
 }

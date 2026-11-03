@@ -1,8 +1,6 @@
 import 'dart:convert';
 
 import 'package:amiludo/layers/functional/Evenings/domain/entities/evening.dart';
-import 'package:amiludo/layers/functional/Friends/domain/entities/friend.dart';
-import 'package:amiludo/layers/functional/Friends/domain/entities/game_review.dart';
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
 import 'package:amiludo/layers/functional/Memories/domain/entities/game_memory.dart';
@@ -34,8 +32,6 @@ class Workspace {
     this.bankMode = false,
     this.reverse = false,
     this.shelf = const [],
-    this.friends = const [],
-    this.reviews = const [],
     this.memories = const [],
     this.nickname = '',
     this.evenings = const [],
@@ -43,8 +39,6 @@ class Workspace {
   final String nickname;
   final List<Evening> evenings;
   final List<ShelfGame> shelf;
-  final List<Friend> friends;
-  final List<GameReview> reviews;
   final List<GameMemory> memories;
   final Appearance appearance;
   final List<StyleProfile> profiles;
@@ -99,8 +93,6 @@ class Workspace {
     bool? bankMode,
     bool? reverse,
     List<ShelfGame>? shelf,
-    List<Friend>? friends,
-    List<GameReview>? reviews,
     List<GameMemory>? memories,
     String? nickname,
     List<Evening>? evenings,
@@ -108,8 +100,6 @@ class Workspace {
     nickname: nickname ?? this.nickname,
     evenings: evenings ?? this.evenings,
     shelf: shelf ?? this.shelf,
-    friends: friends ?? this.friends,
-    reviews: reviews ?? this.reviews,
     memories: memories ?? this.memories,
     appearance: appearance ?? this.appearance,
     profiles: profiles ?? this.profiles,
@@ -142,8 +132,6 @@ class Workspace {
     'bankMode': bankMode,
     'reverse': reverse,
     'shelf': shelf.map((g) => g.toJson()).toList(),
-    'friends': friends.map((f) => f.toJson()).toList(),
-    'reviews': reviews.map((r) => r.toJson()).toList(),
     'memories': memories.map((m) => m.toJson()).toList(),
     'nickname': nickname,
     'evenings': evenings.map((e) => e.toJson()).toList(),
@@ -169,8 +157,6 @@ class Workspace {
       characters: _list(j['characters'], GameCharacter.fromJson),
       templates: _list(j['templates'], GameTemplate.fromJson),
       shelf: _list(j['shelf'], ShelfGame.fromJson),
-      friends: _list(j['friends'], Friend.fromJson),
-      reviews: _list(j['reviews'], GameReview.fromJson),
       memories: _list(j['memories'], GameMemory.fromJson),
       nickname: (j['nickname'] as String? ?? '').trim(),
       evenings: _list(j['evenings'], Evening.fromJson),

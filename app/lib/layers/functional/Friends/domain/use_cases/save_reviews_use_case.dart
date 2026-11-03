@@ -1,18 +1,18 @@
 import 'package:amiludo/layers/functional/Friends/domain/entities/game_review.dart';
-import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
+import 'package:amiludo/layers/functional/Friends/domain/gateways/friends_gateway.dart';
 
 class SaveReviewsUseCase {
-  SaveReviewsUseCase(this._workspace);
+  SaveReviewsUseCase(this._friends);
 
-  final WorkspaceGateway _workspace;
+  final FriendsGateway _friends;
 
   Future<void> call(String sessionId, List<GameReview> reviews) {
-    final data = _workspace.current;
+    final circle = _friends.current;
     final reviewers = reviews.map((r) => r.reviewer.toLowerCase()).toSet();
-    return _workspace.save(
-      data.copyWith(
+    return _friends.save(
+      circle.copyWith(
         reviews: [
-          ...data.reviews.where(
+          ...circle.reviews.where(
             (r) =>
                 r.sessionId != sessionId ||
                 !reviewers.contains(r.reviewer.toLowerCase()),

@@ -5,5 +5,5 @@ class RetrySaveUseCase {
 
   final WorkspaceGateway _workspace;
 
-  Future<void> call() => _workspace.save(_workspace.current);
+  Future<void> call() => _workspace.retrySave();
 }

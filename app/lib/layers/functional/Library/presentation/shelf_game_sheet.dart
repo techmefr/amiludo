@@ -33,7 +33,8 @@ class _ShelfGameSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final data = context.watch<LibraryCubit>().state;
+    final cubit = context.watch<LibraryCubit>();
+    final data = cubit.state;
     final theme = Theme.of(context);
     final templates = linkedTemplates(data, game);
     final plays = data.games
@@ -44,7 +45,9 @@ class _ShelfGameSheet extends StatelessWidget {
         )
         .length;
     final stars = averageStars(
-      data.reviews.where((r) => r.concerns(game.name, game.templateIds)),
+      cubit.circle.reviews.where(
+        (r) => r.concerns(game.name, game.templateIds),
+      ),
     );
     return SafeArea(
       child: SingleChildScrollView(

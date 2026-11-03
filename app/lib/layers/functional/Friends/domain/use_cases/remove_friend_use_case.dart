@@ -1,14 +1,16 @@
-import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
+import 'package:amiludo/layers/functional/Friends/domain/gateways/friends_gateway.dart';
 
 class RemoveFriendUseCase {
-  RemoveFriendUseCase(this._workspace);
+  RemoveFriendUseCase(this._friends);
 
-  final WorkspaceGateway _workspace;
+  final FriendsGateway _friends;
 
   Future<void> call(String id) {
-    final data = _workspace.current;
-    return _workspace.save(
-      data.copyWith(friends: data.friends.where((f) => f.id != id).toList()),
+    final circle = _friends.current;
+    return _friends.save(
+      circle.copyWith(
+        friends: circle.friends.where((f) => f.id != id).toList(),
+      ),
     );
   }
 }
