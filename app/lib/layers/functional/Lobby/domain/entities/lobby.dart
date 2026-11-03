@@ -159,13 +159,17 @@ class Lobby {
 }
 
 class LobbySession {
-  const LobbySession(this.lobby, {this.me, this.ended = false});
+  const LobbySession(this.lobby, {this.me, this.ended = false, this.secret});
 
   final Lobby lobby;
   final String? me;
   final bool ended;
+  final String? secret;
 
   bool get isHost => me == null;
+
+  RoomLink get link =>
+      RoomLink(RoomKind.join, lobby.code, lan: lobby.lan, secret: secret);
 
   SeatStatus? get myStatus => me == null ? null : lobby.seat(me!)?.status;
 }

@@ -116,12 +116,13 @@ final router = GoRouter(
     _page(
       '/join/:code',
       (state) => JoinScreen(
-        initial: state.uri.queryParameters['lan'] == null
+        initial: state.uri.queryParameters.isEmpty
             ? state.pathParameters['code']!
             : RoomLink(
                 RoomKind.join,
                 state.pathParameters['code']!,
                 lan: state.uri.queryParameters['lan'],
+                secret: state.uri.queryParameters['k'],
               ).appUri.toString(),
       ),
     ),

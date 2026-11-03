@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:amiludo/layers/technical/Network/room_channel.dart';
+import 'package:amiludo/layers/technical/Network/room_seal.dart';
 
 const lanDiscoveryPort = 47474;
 const _maxMessage = 64 * 1024;
@@ -12,7 +13,9 @@ RoomMessage? _decode(Object? data) {
   if (data is! String || data.length > _maxMessage) return null;
   try {
     final value = jsonDecode(data);
-    return value is Map ? Map<String, dynamic>.from(value) : null;
+    if (value is! Map) return null;
+    return Map<String, dynamic>.from(value)
+      ..removeWhere((key, _) => key.startsWith('_'));
   } on FormatException {
     return null;
   }
@@ -40,13 +43,21 @@ Future<String> _localAddress() async {
 }
 
 class LanHostedRoom implements HostedRoom {
-  LanHostedRoom._(this._server, this._discovery, this.address, this.code) {
+  LanHostedRoom._(
+    this._server,
+    this._discovery,
+    this.address,
+    this.code,
+    this._seal,
+  ) : _room = roomFingerprint(code) {
     _server.listen(_accept);
     _discovery?.listen(_answer);
   }
 
   final HttpServer _server;
   final RawDatagramSocket? _discovery;
+  final RoomSeal _seal;
+  final String _room;
   final String code;
   @override
   final String address;
@@ -54,7 +65,7 @@ class LanHostedRoom implements HostedRoom {
   final _messages = StreamController<RoomMessage>.broadcast();
   var _next = 0;
 
-  static Future<LanHostedRoom> open(String code) async {
+  static Future<LanHostedRoom> open(String code, {String? secret}) async {
     final server = await HttpServer.bind(InternetAddress.anyIPv4, 0);
     RawDatagramSocket? discovery;
     try {
@@ -67,25 +78,31 @@ class LanHostedRoom implements HostedRoom {
       discovery = null;
     }
     final ip = await _localAddress();
-    return LanHostedRoom._(server, discovery, '$ip:${server.port}', code);
+    final seal = RoomSeal(secret ?? newRoomSecret());
+    return LanHostedRoom._(server, discovery, '$ip:${server.port}', code, seal);
   }
 
   void _answer(RawSocketEvent event) {
     if (event != RawSocketEvent.read) return;
     final datagram = _discovery?.receive();
     if (datagram == null) return;
-    if (utf8.decode(datagram.data, allowMalformed: true) != 'AMILUDO?$code') {
-      return;
-    }
+    final ask = utf8.decode(datagram.data, allowMalformed: true).split('?');
+    if (ask.length != 3 || ask[0] != 'AMILUDO' || ask[1] != _room) return;
+    final nonce = ask[2];
+    if (!isRoomSecret(nonce)) return;
+    final port = _server.port;
+    final proof = _seal.sign('lan|$_room|$nonce|$port');
     _discovery?.send(
-      utf8.encode('AMILUDO!$code!${_server.port}'),
+      utf8.encode('AMILUDO!$_room!$port!$proof'),
       datagram.address,
       datagram.port,
     );
   }
 
   Future<void> _accept(HttpRequest request) async {
-    if (request.uri.path != '/room/$code' ||
+    final nonce = request.uri.queryParameters['n'];
+    if (request.uri.path != '/room/$_room' ||
+        !isRoomSecret(nonce) ||
         !WebSocketTransformer.isUpgradeRequest(request) ||
         _peers.length >= _maxPeers) {
       request.response.statusCode = HttpStatus.notFound;
@@ -95,6 +112,9 @@ class LanHostedRoom implements HostedRoom {
     final socket = await WebSocketTransformer.upgrade(request);
     final peer = 'peer${_next++}';
     _peers[peer] = socket;
+    socket.add(
+      jsonEncode({'type': 'hello', 'proof': _seal.sign('ws|$_room|$nonce')}),
+    );
     socket.listen(
       (data) {
         final message = _decode(data);
@@ -102,7 +122,11 @@ class LanHostedRoom implements HostedRoom {
       },
       onDone: () {
         _peers.remove(peer);
-        _emit(_messages, {'type': 'disconnected', '_peer': peer});
+        _emit(_messages, {
+          'type': 'disconnected',
+          '_peer': peer,
+          '_local': true,
+        });
       },
       cancelOnError: true,
     );
@@ -131,24 +155,62 @@ class LanHostedRoom implements HostedRoom {
 }
 
 class LanClientRoom implements RoomChannel {
-  LanClientRoom._(this._socket) {
+  LanClientRoom._(this._socket, this._expected, this._seal) {
+    _greeted.future.ignore();
     _socket.listen(
-      (data) {
-        final message = _decode(data);
-        if (message != null) _emit(_messages, message);
+      _receive,
+      onDone: () {
+        if (!_greeted.isCompleted) {
+          _greeted.completeError(const RoomHostUnverified());
+        }
+        _emit(_messages, {'type': 'disconnected', '_local': true});
       },
-      onDone: () => _emit(_messages, {'type': 'disconnected'}),
       cancelOnError: true,
     );
   }
 
   final WebSocket _socket;
+  final String _expected;
+  final RoomSeal? _seal;
+  final _greeted = Completer<void>();
   final _messages = StreamController<RoomMessage>.broadcast();
 
-  static Future<LanClientRoom> connect(String address, String code) async {
-    final socket = await WebSocket.connect('ws://$address/room/$code')
+  static Future<LanClientRoom> connect(
+    String address,
+    String code, {
+    String? secret,
+  }) async {
+    final room = roomFingerprint(code);
+    final nonce = newRoomSecret();
+    final socket = await WebSocket.connect('ws://$address/room/$room?n=$nonce')
         .timeout(const Duration(seconds: 6));
-    return LanClientRoom._(socket);
+    final client = LanClientRoom._(
+      socket,
+      'ws|$room|$nonce',
+      secret == null ? null : RoomSeal(secret),
+    );
+    try {
+      await client._greeted.future.timeout(const Duration(seconds: 6));
+    } on Object {
+      await client.close();
+      rethrow;
+    }
+    return client;
+  }
+
+  void _receive(Object? data) {
+    final message = _decode(data);
+    if (message == null) return;
+    if (_greeted.isCompleted) {
+      _emit(_messages, message);
+    } else if (message['type'] == 'hello') {
+      final seal = _seal;
+      if (seal == null || seal.verify(_expected, message['proof'])) {
+        _greeted.complete();
+      } else {
+        _greeted.completeError(const RoomHostUnverified());
+      }
+    }
   }
 
   @override
@@ -166,22 +228,28 @@ class LanClientRoom implements RoomChannel {
 
 Future<String?> discoverLanRoom(
   String code, {
+  String? secret,
   Duration wait = const Duration(seconds: 2),
 }) async {
   final socket = await RawDatagramSocket.bind(InternetAddress.anyIPv4, 0)
     ..broadcastEnabled = true;
   final found = Completer<String?>();
-  final prefix = 'AMILUDO!$code!';
+  final room = roomFingerprint(code);
+  final nonce = newRoomSecret();
+  final seal = secret == null ? null : RoomSeal(secret);
   socket.listen((event) {
     final datagram = event == RawSocketEvent.read ? socket.receive() : null;
     if (datagram == null || found.isCompleted) return;
-    final text = utf8.decode(datagram.data, allowMalformed: true);
-    final port = int.tryParse(text.replaceFirst(prefix, ''));
-    if (text.startsWith(prefix) && port != null) {
-      found.complete('${datagram.address.address}:$port');
+    final reply = utf8.decode(datagram.data, allowMalformed: true).split('!');
+    if (reply.length != 4 || reply[0] != 'AMILUDO' || reply[1] != room) return;
+    final port = int.tryParse(reply[2]);
+    if (port == null) return;
+    if (seal != null && !seal.verify('lan|$room|$nonce|$port', reply[3])) {
+      return;
     }
+    found.complete('${datagram.address.address}:$port');
   });
-  final ask = utf8.encode('AMILUDO?$code');
+  final ask = utf8.encode('AMILUDO?$room?$nonce');
   for (final target in ['255.255.255.255', '127.0.0.1']) {
     socket.send(ask, InternetAddress(target), lanDiscoveryPort);
   }

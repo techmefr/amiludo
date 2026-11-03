@@ -12,16 +12,20 @@ abstract class HostedRoom implements RoomChannel {
   String get address;
 }
 
+class RoomHostUnverified implements Exception {
+  const RoomHostUnverified();
+}
+
 abstract class RoomNetwork {
   bool get lanSupported;
 
   bool get remoteSupported;
 
-  Future<HostedRoom> hostLan(String code);
+  Future<HostedRoom> hostLan(String code, String secret);
 
-  Future<RoomChannel> joinLan(String address, String code);
+  Future<RoomChannel> joinLan(String address, String code, {String? secret});
 
-  Future<String?> discoverLan(String code);
+  Future<String?> discoverLan(String code, {String? secret});
 
   Future<RoomChannel> remote(String code);
 }

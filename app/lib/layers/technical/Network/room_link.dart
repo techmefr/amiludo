@@ -1,9 +1,10 @@
 import 'package:amiludo/layers/technical/Network/room_code.dart';
+import 'package:amiludo/layers/technical/Network/room_seal.dart';
 
 enum RoomKind { join, evening }
 
 class RoomLink {
-  const RoomLink(this.kind, this.code, {this.lan});
+  const RoomLink(this.kind, this.code, {this.lan, this.secret});
 
   static const scheme = 'amiludo';
   static const host = 'amiludo.app';
@@ -12,21 +13,33 @@ class RoomLink {
   final RoomKind kind;
   final String code;
   final String? lan;
+  final String? secret;
+
+  Map<String, String>? get _query {
+    final query = {'lan': ?lan, 'k': ?secret};
+    return query.isEmpty ? null : query;
+  }
 
   Uri get appUri => Uri(
     scheme: scheme,
     host: host,
     path: '/${kind.name}/$code',
-    queryParameters: lan == null ? null : {'lan': lan},
+    queryParameters: _query,
   );
 
   Uri get shareUri => webBase.isEmpty || lan != null
       ? appUri
-      : Uri.parse('$webBase/${kind.name}/$code');
+      : Uri.parse('$webBase/${kind.name}/$code')
+            .replace(queryParameters: _query);
 
-  String get route => lan == null
-      ? '/${kind.name}/$code'
-      : '/${kind.name}/$code?lan=${Uri.encodeQueryComponent(lan!)}';
+  String get route {
+    final query = _query;
+    if (query == null) return '/${kind.name}/$code';
+    final pairs = query.entries.map(
+      (e) => '${e.key}=${Uri.encodeQueryComponent(e.value)}',
+    );
+    return '/${kind.name}/$code?${pairs.join('&')}';
+  }
 
   static RoomLink? parse(String input, {RoomKind fallback = RoomKind.join}) {
     final text = input.trim();
@@ -47,7 +60,13 @@ class RoomLink {
     final code = normalizeRoomCode(parts.last);
     if (kind.isEmpty || code == null) return null;
     final lan = uri.queryParameters['lan'];
-    return RoomLink(kind.first, code, lan: _validLan(lan) ? lan : null);
+    final secret = uri.queryParameters['k'];
+    return RoomLink(
+      kind.first,
+      code,
+      lan: _validLan(lan) ? lan : null,
+      secret: isRoomSecret(secret) ? secret : null,
+    );
   }
 
   static bool _validLan(String? lan) {
