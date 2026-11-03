@@ -32,4 +32,6 @@ class StoreDatabase extends _$StoreDatabase {
       StoredDocumentsCompanion.insert(id: id, payload: payload),
     ),
   );
+  Future<void> deleteDocument(String id) =>
+      (delete(storedDocuments)..where((t) => t.id.equals(id))).go();
 }

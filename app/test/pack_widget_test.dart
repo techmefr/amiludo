@@ -8,6 +8,11 @@ import 'package:amiludo/router.dart';
 import 'package:amiludo/layers/functional/Random/presentation/finger_tool.dart';
 
 void main() {
+  _fingerToolTests();
+  _builderTests();
+}
+
+void _fingerToolTests() {
   testWidgets('finger tool is a dedicated page, expands and returns to tools', (
     tester,
   ) async {
@@ -41,6 +46,9 @@ void main() {
     await db.close();
     router.go('/');
   });
+}
+
+void _builderTests() {
   testWidgets('builder opened directly saves dice and returns to the library', (
     tester,
   ) async {

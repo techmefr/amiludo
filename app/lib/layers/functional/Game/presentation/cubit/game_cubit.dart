@@ -9,6 +9,8 @@ import 'package:amiludo/layers/functional/Game/domain/use_cases/next_round_use_c
 import 'package:amiludo/layers/functional/Game/domain/use_cases/redo_score_use_case.dart';
 import 'package:amiludo/layers/functional/Game/domain/use_cases/reverse_turn_order_use_case.dart';
 import 'package:amiludo/layers/functional/Game/domain/use_cases/save_game_use_case.dart';
+import 'package:amiludo/layers/functional/Game/domain/use_cases/set_resource_use_case.dart';
+import 'package:amiludo/layers/functional/Game/domain/use_cases/set_status_use_case.dart';
 import 'package:amiludo/layers/functional/Game/domain/use_cases/undo_score_use_case.dart';
 import 'package:amiludo/layers/functional/Timer/domain/use_cases/next_turn_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
@@ -27,6 +29,8 @@ class GameCubit extends Cubit<Workspace> {
     this._finishGame,
     this._reverseTurnOrder,
     this._nextTurn,
+    this._setResource,
+    this._setStatus,
   ) : super(readWorkspace()) {
     _subscription = watchWorkspace().listen(emit);
   }
@@ -39,6 +43,8 @@ class GameCubit extends Cubit<Workspace> {
   final FinishGameUseCase _finishGame;
   final ReverseTurnOrderUseCase _reverseTurnOrder;
   final NextTurnUseCase _nextTurn;
+  final SetResourceUseCase _setResource;
+  final SetStatusUseCase _setStatus;
   late final StreamSubscription<Workspace> _subscription;
 
   Future<void> score(String player, double value, String category) =>
@@ -57,6 +63,12 @@ class GameCubit extends Cubit<Workspace> {
   Future<void> reverseTurnOrder() => _reverseTurnOrder();
 
   Future<void> nextTurn() => _nextTurn();
+
+  Future<void> setResource(String player, String key, double value) =>
+      _setResource(player, key, value);
+
+  Future<void> setStatus(String player, String status, int stacks) =>
+      _setStatus(player, status, stacks);
 
   @override
   Future<void> close() async {

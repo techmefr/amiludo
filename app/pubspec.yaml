@@ -25,6 +25,11 @@ dependencies:
   hugeicons: ^4.4.0
   flutter_bloc: ^9.1.1
   get_it: ^9.3.0
+  qr_flutter: ^4.1.0
+  mobile_scanner: ^7.5.0
+  cryptography: ^2.9.0
+  archive: ^4.6.0
+  supabase_flutter: ^2.18.3
 
 dev_dependencies:
   flutter_test:

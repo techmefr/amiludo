@@ -14,7 +14,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ws = context.watch<WorkspaceCubit>().state.workspace,
-        theme = Theme.of(context),
         current = ws.current;
     final finished = ws.games
         .where((g) => g.finishedAt != null)
@@ -23,102 +22,8 @@ class HomeScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        DeckHeading(
-          eyebrow: tr(
-            context,
-            'Jouez ensemble / restez dans la partie',
-            'Play together / stay in the game',
-          ),
-          title: tr(
-            context,
-            'On joue à quoi, aujourd’hui ?',
-            'What are we playing today?',
-          ),
-          subtitle: tr(
-            context,
-            'Les bons outils. La bonne compagnie. Vos vraies parties.',
-            'The right tools. Good company. Your actual games.',
-          ),
-          action: OutlinedButton.icon(
-            onPressed: () => context.push(GameSetupRequest.path),
-            icon: const DeckIcon(Icons.add, size: 18),
-            label: Text(tr(context, 'Nouvelle partie', 'New game')),
-          ),
-        ),
-        DeckPanel(
-          color: theme.colorScheme.surfaceContainerHighest,
-          child: LayoutBuilder(
-            builder: (context, c) => Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (c.maxWidth <= 650) const GameArt(height: 180),
-                      Text(
-                        tr(
-                          context,
-                          'Les bons outils, la bonne compagnie',
-                          'Good tools. Great company.',
-                        ).toUpperCase(),
-                        style: theme.textTheme.labelMedium?.copyWith(
-                          fontWeight: FontWeight.w700,
-                          letterSpacing: 1.2,
-                          color: theme.colorScheme.primary,
-                        ),
-                      ),
-                      const SizedBox(height: 12),
-                      Text(
-                        tr(
-                          context,
-                          'Une table, des amis.\nÀ vous de jouer !',
-                          'Your friends, your table.\nLet’s play!',
-                        ),
-                        style: theme.textTheme.headlineMedium,
-                      ),
-                      const SizedBox(height: 16),
-                      Text(
-                        tr(
-                          context,
-                          'Scores, hasard et tempo :\ngardez l’esprit dans la partie.',
-                          'Scores, chance and timing:\nkeep your mind in the game.',
-                        ),
-                      ),
-                      const SizedBox(height: 24),
-                      Wrap(
-                        spacing: 12,
-                        runSpacing: 12,
-                        children: [
-                          FilledButton.icon(
-                            onPressed: () => context.go('/tools'),
-                            icon: const DeckIcon(Icons.arrow_outward, size: 18),
-                            label: Text(tr(context, 'Mode libre', 'Free mode')),
-                          ),
-                          OutlinedButton.icon(
-                            onPressed: () => context.go('/templates'),
-                            icon: const DeckIcon(
-                              Icons.dashboard_outlined,
-                              size: 18,
-                            ),
-                            label: Text(
-                              tr(
-                                context,
-                                'Mes compagnons par jeu',
-                                'My game companions',
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                if (c.maxWidth > 650)
-                  const SizedBox(width: 320, child: GameArt(height: 260)),
-              ],
-            ),
-          ),
-        ),
+        const _HomeHeading(),
+        const _HeroPanel(),
         if (current != null && current.finishedAt == null) ...[
           SectionHeading(
             tr(context, 'La partie continue', 'Your game continues'),
@@ -127,31 +32,7 @@ class HomeScreen extends StatelessWidget {
               child: const Text('→'),
             ),
           ),
-          DeckPanel(
-            highlight: true,
-            child: Wrap(
-              spacing: 24,
-              runSpacing: 20,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(current.title, style: theme.textTheme.titleLarge),
-                    Text(
-                      '${current.players.length} joueurs · Manche ${current.round} · ${current.players[current.activeIndex].name}',
-                    ),
-                  ],
-                ),
-                FilledButton(
-                  onPressed: () => context.go('/game'),
-                  child: Text(
-                    tr(context, 'Reprendre la partie', 'Resume game'),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          _CurrentGamePanel(game: current),
         ],
         SectionHeading(
           tr(context, 'Les outils de la table', 'Tools for your table'),
@@ -164,27 +45,7 @@ class HomeScreen extends StatelessWidget {
           minimumWidth: MediaQuery.sizeOf(context).width < 760 ? 150 : 280,
           children: toolDefinitions
               .where((t) => ws.favorites.contains(t.id))
-              .map(
-                (t) => DeckPanel(
-                  padding: 20,
-                  color: toolSurface(context, t.id),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      GameArt(tool: t.id, height: 112),
-                      const SizedBox(height: 20),
-                      Text(t.title, style: theme.textTheme.titleMedium),
-                      const SizedBox(height: 8),
-                      Text(t.subtitle),
-                      const SizedBox(height: 16),
-                      OutlinedButton(
-                        onPressed: () => context.push('/tools/${t.id}'),
-                        child: Text(tr(context, 'Ouvrir ↗', 'Open ↗')),
-                      ),
-                    ],
-                  ),
-                ),
-              )
+              .map((t) => _ToolCard(tool: t))
               .toList(),
         ),
         SectionHeading(
@@ -207,38 +68,235 @@ class HomeScreen extends StatelessWidget {
               'Your real results will appear here.',
             ),
           ),
-        for (final g in finished)
-          Padding(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: DeckPanel(
-              padding: 20,
-              child: Row(
+        for (final g in finished) _FinishedGameRow(game: g),
+      ],
+    );
+  }
+}
+
+class _HomeHeading extends StatelessWidget {
+  const _HomeHeading();
+  @override
+  Widget build(BuildContext context) {
+    return DeckHeading(
+      eyebrow: tr(
+        context,
+        'Jouez ensemble / restez dans la partie',
+        'Play together / stay in the game',
+      ),
+      title: tr(
+        context,
+        'On joue à quoi, aujourd’hui ?',
+        'What are we playing today?',
+      ),
+      subtitle: tr(
+        context,
+        'Les bons outils. La bonne compagnie. Vos vraies parties.',
+        'The right tools. Good company. Your actual games.',
+      ),
+      action: OutlinedButton.icon(
+        onPressed: () => context.push(GameSetupRequest.path),
+        icon: const DeckIcon(Icons.add, size: 18),
+        label: Text(tr(context, 'Nouvelle partie', 'New game')),
+      ),
+    );
+  }
+}
+
+class _HeroPanel extends StatelessWidget {
+  const _HeroPanel();
+  @override
+  Widget build(BuildContext context) {
+    return DeckPanel(
+      color: Theme.of(context).colorScheme.surfaceContainerHighest,
+      child: LayoutBuilder(
+        builder: (context, c) => Row(
+          children: [
+            Expanded(child: _HeroText(compact: c.maxWidth <= 650)),
+            if (c.maxWidth > 650)
+              const SizedBox(width: 320, child: GameArt(height: 260)),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _HeroText extends StatelessWidget {
+  const _HeroText({required this.compact});
+  final bool compact;
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (compact) const GameArt(height: 180),
+        Text(
+          tr(
+            context,
+            'Les bons outils, la bonne compagnie',
+            'Good tools. Great company.',
+          ).toUpperCase(),
+          style: theme.textTheme.labelMedium?.copyWith(
+            fontWeight: FontWeight.w700,
+            letterSpacing: 1.2,
+            color: theme.colorScheme.primary,
+          ),
+        ),
+        const SizedBox(height: 12),
+        Text(
+          tr(
+            context,
+            'Une table, des amis.\nÀ vous de jouer !',
+            'Your friends, your table.\nLet’s play!',
+          ),
+          style: theme.textTheme.headlineMedium,
+        ),
+        const SizedBox(height: 16),
+        Text(
+          tr(
+            context,
+            'Scores, hasard et tempo :\ngardez l’esprit dans la partie.',
+            'Scores, chance and timing:\nkeep your mind in the game.',
+          ),
+        ),
+        const SizedBox(height: 24),
+        const _HeroActions(),
+      ],
+    );
+  }
+}
+
+class _HeroActions extends StatelessWidget {
+  const _HeroActions();
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: 12,
+      runSpacing: 12,
+      children: [
+        FilledButton.icon(
+          onPressed: () => context.go('/tools'),
+          icon: const DeckIcon(Icons.arrow_outward, size: 18),
+          label: Text(tr(context, 'Mode libre', 'Free mode')),
+        ),
+        OutlinedButton.icon(
+          onPressed: () => context.go('/templates'),
+          icon: const DeckIcon(Icons.dashboard_outlined, size: 18),
+          label: Text(
+            tr(context, 'Mes compagnons par jeu', 'My game companions'),
+          ),
+        ),
+        OutlinedButton.icon(
+          onPressed: () => context.go('/lobby'),
+          icon: const DeckIcon(Icons.wifi_tethering, size: 18),
+          label: Text(tr(context, 'Ouvrir un salon', 'Open a lobby')),
+        ),
+        OutlinedButton.icon(
+          onPressed: () => context.go('/join'),
+          icon: const DeckIcon(Icons.login, size: 18),
+          label: Text(tr(context, 'Rejoindre une partie', 'Join a game')),
+        ),
+      ],
+    );
+  }
+}
+
+class _CurrentGamePanel extends StatelessWidget {
+  const _CurrentGamePanel({required this.game});
+  final GameSession game;
+  @override
+  Widget build(BuildContext context) {
+    return DeckPanel(
+      highlight: true,
+      child: Wrap(
+        spacing: 24,
+        runSpacing: 20,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(game.title, style: Theme.of(context).textTheme.titleLarge),
+              Text(
+                '${game.players.length} joueurs · Manche ${game.round} · ${game.players[game.activeIndex].name}',
+              ),
+            ],
+          ),
+          FilledButton(
+            onPressed: () => context.go('/game'),
+            child: Text(tr(context, 'Reprendre la partie', 'Resume game')),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ToolCard extends StatelessWidget {
+  const _ToolCard({required this.tool});
+  final ToolDefinition tool;
+  @override
+  Widget build(BuildContext context) {
+    return DeckPanel(
+      padding: 20,
+      color: toolSurface(context, tool.id),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          GameArt(tool: tool.id, height: 112),
+          const SizedBox(height: 20),
+          Text(tool.title, style: Theme.of(context).textTheme.titleMedium),
+          const SizedBox(height: 8),
+          Text(tool.subtitle),
+          const SizedBox(height: 16),
+          const Spacer(),
+          OutlinedButton(
+            onPressed: () => context.push('/tools/${tool.id}'),
+            child: Text(tr(context, 'Ouvrir ↗', 'Open ↗')),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _FinishedGameRow extends StatelessWidget {
+  const _FinishedGameRow({required this.game});
+  final GameSession game;
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context), g = game;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: DeckPanel(
+        padding: 20,
+        child: Row(
+          children: [
+            DeckIcon(
+              Icons.emoji_events_outlined,
+              color: theme.colorScheme.primary,
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  DeckIcon(
-                    Icons.emoji_events_outlined,
-                    color: theme.colorScheme.primary,
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(g.title, style: theme.textTheme.titleMedium),
-                        Text(
-                          '${g.winners.map((p) => p.name).join(' & ')} · ${numberText(g.score(g.winners.first.id))} pts',
-                        ),
-                      ],
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () => context.go('/history'),
-                    child: const Text('↗'),
+                  Text(g.title, style: theme.textTheme.titleMedium),
+                  Text(
+                    '${g.winners.map((p) => p.name).join(' & ')} · ${numberText(g.score(g.winners.first.id))} pts',
                   ),
                 ],
               ),
             ),
-          ),
-      ],
+            TextButton(
+              onPressed: () => context.go('/history'),
+              child: const Text('↗'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

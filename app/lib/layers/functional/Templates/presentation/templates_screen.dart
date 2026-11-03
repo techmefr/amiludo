@@ -65,159 +65,169 @@ class TemplatesScreen extends StatelessWidget {
             label: Text(tr(context, 'Créer un compagnon', 'Create companion')),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 24),
-          child: Wrap(
-            spacing: 12,
-            runSpacing: 12,
-            children: [
-              OutlinedButton.icon(
-                onPressed: () => context.push('/marketplace'),
-                icon: const DeckIcon(Icons.storefront_outlined),
-                label: const Text('Galerie communautaire'),
-              ),
-              OutlinedButton.icon(
-                onPressed: () => importTemplate(context),
-                icon: const DeckIcon(Icons.file_open_outlined),
-                label: Text(
-                  tr(
-                    context,
-                    'Importer un modèle JSON',
-                    'Import JSON template',
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+        _TemplatesToolbar(onImport: () => importTemplate(context)),
         ResponsiveGrid(
           minimumWidth: 250,
           children: [...GameTemplate.builtIn, ...ws.templates]
               .map(
-                (t) => DeckPanel(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      DeckIcon(
-                        t.cooperative
-                            ? Icons.groups_outlined
-                            : t.lowestWins
-                            ? Icons.south
-                            : Icons.dashboard_outlined,
-                        size: 40,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                      const SizedBox(height: 20),
-                      Text(
-                        t.name,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                      const SizedBox(height: 12),
-                      Text(t.description),
-                      const SizedBox(height: 16),
-                      Text(
-                        [
-                          t.categories.join(' / '),
-                          '${t.seconds}s',
-                          if (t.target > 0)
-                            tr(
-                              context,
-                              'Objectif ${t.target}',
-                              'Target ${t.target}',
-                            ),
-                        ].join(' · '),
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                      const SizedBox(height: 24),
-                      SizedBox(
-                        width: double.infinity,
-                        child: FilledButton(
-                          onPressed: () => context.push(
-                            GameSetupRequest.path,
-                            extra: GameSetupRequest(template: t),
-                          ),
-                          child: Text(
-                            tr(context, 'Jouer avec ce modèle', 'Use template'),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: [
-                          IconButton(
-                            tooltip: ws.templates.any((v) => v.id == t.id)
-                                ? tr(context, 'Modifier', 'Edit')
-                                : tr(
-                                    context,
-                                    'Copier dans mon atelier',
-                                    'Copy to my workshop',
-                                  ),
-                            onPressed: () => context.push('/builder/${t.id}'),
-                            icon: DeckIcon(
-                              ws.templates.any((v) => v.id == t.id)
-                                  ? Icons.edit_outlined
-                                  : Icons.copy_outlined,
-                              size: 20,
-                            ),
-                          ),
-                          IconButton(
-                            tooltip: tr(
-                              context,
-                              'Outils et règles du pack',
-                              'Pack tools and rules',
-                            ),
-                            onPressed: () => context.push('/pack/${t.id}'),
-                            icon: const DeckIcon(
-                              Icons.menu_book_outlined,
-                              size: 20,
-                            ),
-                          ),
-                          IconButton(
-                            tooltip: tr(context, 'Partager', 'Share'),
-                            icon: const DeckIcon(
-                              Icons.share_outlined,
-                              size: 20,
-                            ),
-                            onPressed: () => FileTransfer.shareText(
-                              jsonEncode({
-                                'format': 'table-companion-template',
-                                'version': 1,
-                                'template': t.toJson(),
-                              }),
-                              'modele-${t.id}.json',
-                            ),
-                          ),
-                          if (ws.templates.any((custom) => custom.id == t.id))
-                            IconButton(
-                              tooltip: tr(context, 'Supprimer', 'Delete'),
-                              icon: const DeckIcon(
-                                Icons.delete_outline,
-                                size: 20,
-                              ),
-                              onPressed: () async {
-                                final templates = context
-                                    .read<TemplatesCubit>();
-                                if (await confirm(
-                                  context,
-                                  tr(
-                                    context,
-                                    'Supprimer le modèle ?',
-                                    'Delete template?',
-                                  ),
-                                  t.name,
-                                )) {
-                                  await templates.removeTemplate(t.id);
-                                }
-                              },
-                            ),
-                        ],
-                      ),
-                    ],
-                  ),
+                (t) => _TemplateCard(
+                  template: t,
+                  custom: ws.templates.any((v) => v.id == t.id),
                 ),
               )
               .toList(),
         ),
+      ],
+    );
+  }
+}
+
+class _TemplatesToolbar extends StatelessWidget {
+  const _TemplatesToolbar({required this.onImport});
+  final VoidCallback onImport;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 24),
+      child: Wrap(
+        spacing: 12,
+        runSpacing: 12,
+        children: [
+          OutlinedButton.icon(
+            onPressed: () => context.push('/marketplace'),
+            icon: const DeckIcon(Icons.storefront_outlined),
+            label: const Text('Galerie communautaire'),
+          ),
+          OutlinedButton.icon(
+            onPressed: onImport,
+            icon: const DeckIcon(Icons.file_open_outlined),
+            label: Text(
+              tr(context, 'Importer un modèle JSON', 'Import JSON template'),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _TemplateCard extends StatelessWidget {
+  const _TemplateCard({required this.template, required this.custom});
+  final GameTemplate template;
+  final bool custom;
+  @override
+  Widget build(BuildContext context) {
+    final t = template, theme = Theme.of(context);
+    return DeckPanel(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          DeckIcon(
+            t.cooperative
+                ? Icons.groups_outlined
+                : t.lowestWins
+                ? Icons.south
+                : Icons.dashboard_outlined,
+            size: 40,
+            color: theme.colorScheme.primary,
+          ),
+          const SizedBox(height: 20),
+          Text(t.name, style: theme.textTheme.titleLarge),
+          const SizedBox(height: 12),
+          Text(t.description),
+          const SizedBox(height: 16),
+          Text(
+            [
+              t.categories.join(' / '),
+              '${t.seconds}s',
+              if (t.target > 0)
+                tr(context, 'Objectif ${t.target}', 'Target ${t.target}'),
+            ].join(' · '),
+            style: theme.textTheme.bodySmall,
+          ),
+          const SizedBox(height: 24),
+          SizedBox(
+            width: double.infinity,
+            child: FilledButton(
+              onPressed: () => context.push(
+                GameSetupRequest.path,
+                extra: GameSetupRequest(template: t),
+              ),
+              child: Text(tr(context, 'Jouer avec ce modèle', 'Use template')),
+            ),
+          ),
+          const SizedBox(height: 8),
+          _TemplateActions(template: t, custom: custom),
+        ],
+      ),
+    );
+  }
+}
+
+class _TemplateActions extends StatelessWidget {
+  const _TemplateActions({required this.template, required this.custom});
+  final GameTemplate template;
+  final bool custom;
+
+  Future<void> _remove(BuildContext context) async {
+    final templates = context.read<TemplatesCubit>();
+    if (await confirm(
+      context,
+      tr(context, 'Supprimer le modèle ?', 'Delete template?'),
+      template.name,
+    )) {
+      await templates.removeTemplate(template.id);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = template;
+    return Wrap(
+      children: [
+        IconButton(
+          tooltip: custom
+              ? tr(context, 'Modifier', 'Edit')
+              : tr(context, 'Copier dans mon atelier', 'Copy to my workshop'),
+          onPressed: () => context.push('/builder/${t.id}'),
+          icon: DeckIcon(
+            custom ? Icons.edit_outlined : Icons.copy_outlined,
+            size: 20,
+          ),
+        ),
+        IconButton(
+          tooltip: tr(
+            context,
+            'Outils et règles du pack',
+            'Pack tools and rules',
+          ),
+          onPressed: () => context.push('/pack/${t.id}'),
+          icon: const DeckIcon(Icons.menu_book_outlined, size: 20),
+        ),
+        IconButton(
+          tooltip: tr(context, 'Partager', 'Share'),
+          icon: const DeckIcon(Icons.share_outlined, size: 20),
+          onPressed: () => FileTransfer.shareText(
+            jsonEncode({
+              'format': 'table-companion-template',
+              'version': 1,
+              'template': t.toJson(),
+            }),
+            'modele-${t.id}.json',
+          ),
+        ),
+        if (custom) ...[
+          IconButton(
+            tooltip: tr(context, 'Partager en QR', 'Share by QR'),
+            icon: const DeckIcon(Icons.qr_code_2, size: 20),
+            onPressed: () => context.push('/share?pack=${t.id}'),
+          ),
+          IconButton(
+            tooltip: tr(context, 'Supprimer', 'Delete'),
+            icon: const DeckIcon(Icons.delete_outline, size: 20),
+            onPressed: () => _remove(context),
+          ),
+        ],
       ],
     );
   }

@@ -131,12 +131,22 @@ class ResponsiveGrid extends StatelessWidget {
         6,
       );
       final width = (c.maxWidth - gap * (columns - 1)) / columns;
-      return Wrap(
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         spacing: gap,
-        runSpacing: gap,
-        children: children
-            .map((w) => SizedBox(width: width, child: w))
-            .toList(),
+        children: [
+          for (var start = 0; start < children.length; start += columns)
+            IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                spacing: gap,
+                children: [
+                  for (final child in children.skip(start).take(columns))
+                    SizedBox(width: width, child: child),
+                ],
+              ),
+            ),
+        ],
       );
     },
   );

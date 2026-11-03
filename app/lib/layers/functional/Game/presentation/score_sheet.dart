@@ -70,23 +70,7 @@ class _ScoreSheetState extends State<ScoreSheet> {
             const Text(
               'Ce modèle utilise les scores libres. Ajoutez des règles de calcul dans le builder puis démarrez une partie avec ce pack.',
             ),
-          for (final r in rules)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: TextField(
-                controller: input[r.name],
-                keyboardType: const TextInputType.numberWithOptions(
-                  decimal: true,
-                  signed: true,
-                ),
-                decoration: InputDecoration(
-                  labelText: r.name,
-                  helperText:
-                      'Total actuel : ${numberText(g.score(p.id, inRound: g.round, category: r.name))} · Calcul : ${totals.containsKey(r.name) ? numberText(totals[r.name]!) : "—"}',
-                ),
-                onChanged: (_) => setState(() {}),
-              ),
-            ),
+          for (final r in rules) _ruleField(g, p, r, totals),
           if (error != null)
             Text(
               error!,
@@ -94,48 +78,63 @@ class _ScoreSheetState extends State<ScoreSheet> {
             ),
           if (ready)
             FilledButton(
-              onPressed: () async {
-                try {
-                  final quantities = <String, double>{};
-                  for (final r in rules) {
-                    final text = input[r.name]!.text.trim();
-                    if (text.isNotEmpty) {
-                      quantities[r.name] = double.parse(
-                        text.replaceAll(',', '.'),
-                      );
-                    }
-                  }
-                  if (quantities.isEmpty) {
-                    throw const FormatException(
-                      'Renseignez au moins une quantité.',
-                    );
-                  }
-                  var updated = g;
-                  for (final r in rules) {
-                    if (quantities.containsKey(r.name)) {
-                      final total = r.calculate(quantities[r.name]!);
-                      updated = updated.addScore(
-                        p.id,
-                        total -
-                            updated.score(
-                              p.id,
-                              inRound: g.round,
-                              category: r.name,
-                            ),
-                        r.name,
-                      );
-                    }
-                  }
-                  await context.read<GameCubit>().saveGame(updated);
-                  if (context.mounted) context.pop();
-                } on FormatException catch (e) {
-                  setState(() => error = e.message);
-                }
-              },
+              onPressed: () => _apply(g, p, rules),
               child: const Text('Appliquer ce décompte'),
             ),
         ],
       ),
     );
+  }
+
+  Widget _ruleField(
+    GameSession g,
+    Player p,
+    ScoreRule r,
+    Map<String, double> totals,
+  ) => Padding(
+    padding: const EdgeInsets.only(bottom: 20),
+    child: TextField(
+      controller: input[r.name],
+      keyboardType: const TextInputType.numberWithOptions(
+        decimal: true,
+        signed: true,
+      ),
+      decoration: InputDecoration(
+        labelText: r.name,
+        helperText:
+            'Total actuel : ${numberText(g.score(p.id, inRound: g.round, category: r.name))} · Calcul : ${totals.containsKey(r.name) ? numberText(totals[r.name]!) : "—"}',
+      ),
+      onChanged: (_) => setState(() {}),
+    ),
+  );
+
+  Future<void> _apply(GameSession g, Player p, List<ScoreRule> rules) async {
+    try {
+      final quantities = <String, double>{};
+      for (final r in rules) {
+        final text = input[r.name]!.text.trim();
+        if (text.isNotEmpty) {
+          quantities[r.name] = double.parse(text.replaceAll(',', '.'));
+        }
+      }
+      if (quantities.isEmpty) {
+        throw const FormatException('Renseignez au moins une quantité.');
+      }
+      var updated = g;
+      for (final r in rules) {
+        if (quantities.containsKey(r.name)) {
+          final total = r.calculate(quantities[r.name]!);
+          updated = updated.addScore(
+            p.id,
+            total - updated.score(p.id, inRound: g.round, category: r.name),
+            r.name,
+          );
+        }
+      }
+      await context.read<GameCubit>().saveGame(updated);
+      if (mounted) context.pop();
+    } on FormatException catch (e) {
+      setState(() => error = e.message);
+    }
   }
 }

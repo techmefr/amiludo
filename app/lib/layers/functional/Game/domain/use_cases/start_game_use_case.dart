@@ -33,6 +33,7 @@ class StartGameUseCase {
           id: '$id-$i',
           name: names[i].trim(),
           color: _colors[i % _colors.length],
+          resources: template.resources,
         ),
     ];
     final current = GameSession(
