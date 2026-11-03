@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:amiludo/dependencies.dart';
+import 'package:amiludo/layers/functional/Evenings/data/gateways/evenings_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/gateways/evenings_gateway.dart';
 import 'package:amiludo/layers/functional/Friends/data/gateways/friends_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Friends/domain/gateways/friends_gateway.dart';
 import 'package:amiludo/layers/functional/Library/data/gateways/library_gateway_impl.dart';
@@ -98,6 +100,24 @@ void main() {
     );
     await getIt<EraseWorkspaceUseCase>()();
     expect(getIt<MemoriesGateway>().current.memories, isEmpty);
+    await db.close();
+  });
+
+  test('a 0.4.0 database moves evenings into their own document', () async {
+    final db = await _open(legacyWorkspace: _legacyBackup);
+    expect(
+      getIt<EveningsGateway>().current.evenings.single.title,
+      'Vendredi jeux',
+    );
+    final workspace = getIt<WorkspaceGateway>();
+    await workspace.save(workspace.current.copyWith(nickname: 'Sam'));
+    final stored = _decode((await db.readDocument('workspace'))!);
+    expect(stored.containsKey('evenings'), isFalse);
+    final reopened = EveningsGatewayImpl(DocumentStore(db));
+    await reopened.load();
+    expect(reopened.current.evenings.single.code, 'ABCDEFGH');
+    await getIt<EraseWorkspaceUseCase>()();
+    expect(getIt<EveningsGateway>().current.evenings, isEmpty);
     await db.close();
   });
 
