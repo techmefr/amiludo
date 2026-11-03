@@ -3,6 +3,7 @@ import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Game/domain/use_cases/set_resource_use_case.dart';
 import 'package:amiludo/layers/functional/Game/domain/use_cases/set_status_use_case.dart';
 import 'package:amiludo/layers/functional/Game/domain/use_cases/start_game_use_case.dart';
+import 'package:amiludo/layers/functional/Library/domain/entities/shelf.dart';
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
 import 'package:amiludo/layers/functional/Memories/domain/entities/game_memory.dart';
 import 'package:amiludo/layers/functional/Memories/domain/use_cases/add_photo_use_case.dart';
@@ -44,15 +45,19 @@ void _sharingTests() {
   test(
     'a session bundle carries the shelf game, its pack and sheets',
     () async {
-      final sender = MemoryWorkspace(
-        Workspace(
-          shelf: const [
+      final senderShelf = MemoryShelf(
+        const Shelf(
+          games: [
             ShelfGame(
               id: 'dt',
               name: 'Dice Throne',
               templateIds: ['custom-heroes', 'free'],
             ),
           ],
+        ),
+      );
+      final sender = MemoryWorkspace(
+        Workspace(
           templates: const [heroes],
           characters: [
             GameCharacter(
@@ -72,7 +77,9 @@ void _sharingTests() {
           ],
         ),
       );
-      final bundle = BuildSessionBundleUseCase(sender)(shelfGameIds: ['dt']);
+      final bundle = BuildSessionBundleUseCase(sender, senderShelf)(
+        shelfGameIds: ['dt'],
+      );
       final travelled = SessionBundle.fromJson(
         Map<String, dynamic>.from(
           unpackJson(packJson(bundle.toJson()))! as Map,
@@ -85,12 +92,14 @@ void _sharingTests() {
           templates: [GameTemplate(id: 'custom-heroes', name: 'Old')],
         ),
       );
-      final result = await ImportSessionBundleUseCase(receiver)(travelled);
+      final receiverShelf = MemoryShelf();
+      final receive = ImportSessionBundleUseCase(receiver, receiverShelf);
+      final result = await receive(travelled);
       expect(result.templates, 1);
       expect(receiver.current.templates.single.name, 'Héros');
-      expect(receiver.current.shelf.single.name, 'Dice Throne');
-      await ImportSessionBundleUseCase(receiver)(travelled);
-      expect(receiver.current.shelf, hasLength(1));
+      expect(receiverShelf.current.games.single.name, 'Dice Throne');
+      await receive(travelled);
+      expect(receiverShelf.current.games, hasLength(1));
       expect(receiver.current.characters, hasLength(1));
     },
   );

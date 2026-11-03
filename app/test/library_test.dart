@@ -6,6 +6,7 @@ import 'package:amiludo/layers/functional/Friends/domain/entities/friend_circle.
 import 'package:amiludo/layers/functional/Friends/domain/entities/game_review.dart';
 import 'package:amiludo/layers/functional/Friends/domain/use_cases/save_friend_use_case.dart';
 import 'package:amiludo/layers/functional/Friends/domain/use_cases/save_reviews_use_case.dart';
+import 'package:amiludo/layers/functional/Library/domain/entities/shelf.dart';
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
 import 'package:amiludo/layers/functional/Library/domain/use_cases/remove_shelf_game_use_case.dart';
 import 'package:amiludo/layers/functional/Library/domain/use_cases/suggest_games_use_case.dart';
@@ -45,9 +46,7 @@ void main() {
 
 void _suggestionTests() {
   test('suggestions respect player count, tastes, length and refusals', () {
-    final gateway = MemoryWorkspace(
-      const Workspace(shelf: [coop, bluff, epic]),
-    );
+    final gateway = MemoryShelf(const Shelf(games: [coop, bluff, epic]));
     final friends = MemoryFriends(
       const FriendCircle(
         friends: [
@@ -65,7 +64,7 @@ void _suggestionTests() {
   });
 
   test('guest reviews and liked genres rank suggestions', () async {
-    final gateway = MemoryWorkspace(const Workspace(shelf: [coop, bluff]));
+    final gateway = MemoryShelf(const Shelf(games: [coop, bluff]));
     final friends = MemoryFriends(
       const FriendCircle(
         friends: [
@@ -92,9 +91,7 @@ void _suggestionTests() {
 
 void _opinionSuggestionTests() {
   test('a loved game overrides avoided genres and length limits', () {
-    final gateway = MemoryWorkspace(
-      const Workspace(shelf: [coop, bluff, epic]),
-    );
+    final gateway = MemoryShelf(const Shelf(games: [coop, bluff, epic]));
     final friends = MemoryFriends(
       const FriendCircle(
         friends: [
@@ -115,9 +112,7 @@ void _opinionSuggestionTests() {
   });
 
   test('wishlists rank first and the time available filters', () {
-    final gateway = MemoryWorkspace(
-      const Workspace(shelf: [coop, bluff, epic]),
-    );
+    final gateway = MemoryShelf(const Shelf(games: [coop, bluff, epic]));
     final friends = MemoryFriends(
       const FriendCircle(
         friends: [
@@ -170,7 +165,7 @@ void _friendTests() {
   });
 
   test('removing a shelf game cleans friends refusals', () async {
-    final gateway = MemoryWorkspace(const Workspace(shelf: [coop]));
+    final gateway = MemoryShelf(const Shelf(games: [coop]));
     final friends = MemoryFriends(
       const FriendCircle(
         friends: [
@@ -179,7 +174,7 @@ void _friendTests() {
       ),
     );
     await RemoveShelfGameUseCase(gateway, friends)('coop');
-    expect(gateway.current.shelf, isEmpty);
+    expect(gateway.current.games, isEmpty);
     expect(friends.current.friends.single.refusedGameIds, isEmpty);
   });
 
@@ -207,14 +202,14 @@ void _storageTests() {
           ..removeWhere(
             (k, _) => ['shelf', 'friends', 'reviews', 'memories'].contains(k),
           );
-    final restored = Workspace.fromJson(legacy);
-    expect(restored.shelf, isEmpty);
+    Workspace.fromJson(legacy);
+    expect(Shelf.fromJson(legacy).games, isEmpty);
     expect(FriendCircle.fromJson(legacy).friends, isEmpty);
-    final full = const Workspace(shelf: [coop]);
-    final again = Workspace.fromJson(
-      Map<String, dynamic>.from(jsonDecode(full.export()) as Map),
+    const full = Shelf(games: [coop]);
+    final again = Shelf.fromJson(
+      Map<String, dynamic>.from(jsonDecode(jsonEncode(full.toJson())) as Map),
     );
-    expect(again.shelf.single.name, 'Pandemic');
+    expect(again.games.single.name, 'Pandemic');
     const circle = FriendCircle(
       friends: [Friend(id: 'a', name: 'A')],
     );

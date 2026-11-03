@@ -25,7 +25,7 @@ class _ShelfGameFormState extends State<ShelfGameForm> {
   @override
   void initState() {
     super.initState();
-    final shelf = context.read<LibraryCubit>().state.shelf;
+    final shelf = context.read<LibraryCubit>().state.games;
     game =
         shelf.where((g) => g.id == widget.id).firstOrNull ??
         ShelfGame(
@@ -65,7 +65,7 @@ class _ShelfGameFormState extends State<ShelfGameForm> {
   Widget build(BuildContext context) {
     final templates = [
       ...GameTemplate.builtIn,
-      ...context.watch<LibraryCubit>().state.templates,
+      ...context.watch<LibraryCubit>().templates,
     ];
     return FullPage(
       title: tr(context, 'Jeu de la ludothèque', 'Shelf game'),

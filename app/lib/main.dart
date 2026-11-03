@@ -73,12 +73,26 @@ List<BlocProvider> _providers() => [
         RandomCubit(getIt(), getIt(), getIt(), getIt(), getIt(), getIt()),
   ),
   BlocProvider<LibraryCubit>(
-    create: (_) =>
-        LibraryCubit(getIt(), getIt(), getIt(), getIt(), getIt(), getIt()),
+    create: (_) => LibraryCubit(
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+    ),
   ),
   BlocProvider<FriendsCubit>(
-    create: (_) =>
-        FriendsCubit(getIt(), getIt(), getIt(), getIt(), getIt(), getIt()),
+    create: (_) => FriendsCubit(
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+    ),
   ),
   BlocProvider<MemoriesCubit>(
     create: (_) => MemoriesCubit(
@@ -94,7 +108,7 @@ List<BlocProvider> _providers() => [
   ),
   ..._gatheringProviders(),
   BlocProvider<SharingCubit>(
-    create: (_) => SharingCubit(getIt(), getIt(), getIt(), getIt()),
+    create: (_) => SharingCubit(getIt(), getIt(), getIt(), getIt(), getIt()),
   ),
   BlocProvider<HistoryCubit>(
     create: (_) => HistoryCubit(
@@ -137,6 +151,7 @@ List<BlocProvider> _gatheringProviders() => [
   ),
   BlocProvider<EveningsCubit>(
     create: (_) => EveningsCubit(
+      getIt(),
       getIt(),
       getIt(),
       getIt(),

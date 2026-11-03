@@ -1,15 +1,15 @@
+import 'package:amiludo/layers/functional/Library/domain/entities/shelf.dart';
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
-import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
+import 'package:amiludo/layers/functional/Library/domain/gateways/library_gateway.dart';
 
 class SaveShelfGameUseCase {
-  SaveShelfGameUseCase(this._workspace);
+  SaveShelfGameUseCase(this._library);
 
-  final WorkspaceGateway _workspace;
+  final LibraryGateway _library;
 
-  Future<void> call(ShelfGame game) {
-    final data = _workspace.current;
-    return _workspace.save(
-      data.copyWith(shelf: [game, ...data.shelf.where((g) => g.id != game.id)]),
-    );
-  }
+  Future<void> call(ShelfGame game) => _library.save(
+    Shelf(
+      games: [game, ..._library.current.games.where((g) => g.id != game.id)],
+    ),
+  );
 }

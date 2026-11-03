@@ -11,6 +11,8 @@ import 'package:amiludo/layers/functional/Evenings/domain/use_cases/remove_eveni
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/save_evening_use_case.dart';
 import 'package:amiludo/layers/functional/Friends/domain/entities/friend.dart';
 import 'package:amiludo/layers/functional/Friends/domain/use_cases/read_friends_use_case.dart';
+import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
+import 'package:amiludo/layers/functional/Library/domain/use_cases/read_shelf_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/read_workspace_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/watch_workspace_use_case.dart';
@@ -27,6 +29,7 @@ class EveningsCubit extends Cubit<Workspace> {
     this._answer,
     this._fetch,
     this._readFriends,
+    this._readShelf,
   ) : super(readWorkspace()) {
     _subscription = watchWorkspace().listen(emit);
   }
@@ -38,9 +41,12 @@ class EveningsCubit extends Cubit<Workspace> {
   final AnswerEveningUseCase _answer;
   final FetchEveningUseCase _fetch;
   final ReadFriendsUseCase _readFriends;
+  final ReadShelfUseCase _readShelf;
   late final StreamSubscription<Workspace> _subscription;
 
   List<Friend> get friends => _readFriends().friends;
+
+  List<ShelfGame> get shelf => _readShelf().games;
 
   bool get online => _account.available;
 

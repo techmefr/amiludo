@@ -48,9 +48,13 @@ import 'package:amiludo/layers/functional/Game/domain/use_cases/set_resource_use
 import 'package:amiludo/layers/functional/Game/domain/use_cases/set_status_use_case.dart';
 import 'package:amiludo/layers/functional/Game/domain/use_cases/start_game_use_case.dart';
 import 'package:amiludo/layers/functional/Game/domain/use_cases/undo_score_use_case.dart';
+import 'package:amiludo/layers/functional/Library/data/gateways/library_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Library/domain/gateways/library_gateway.dart';
+import 'package:amiludo/layers/functional/Library/domain/use_cases/read_shelf_use_case.dart';
 import 'package:amiludo/layers/functional/Library/domain/use_cases/remove_shelf_game_use_case.dart';
 import 'package:amiludo/layers/functional/Library/domain/use_cases/save_shelf_game_use_case.dart';
 import 'package:amiludo/layers/functional/Library/domain/use_cases/suggest_games_use_case.dart';
+import 'package:amiludo/layers/functional/Library/domain/use_cases/watch_shelf_use_case.dart';
 import 'package:amiludo/layers/functional/Memories/data/gateways/photo_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Memories/domain/gateways/photo_gateway.dart';
 import 'package:amiludo/layers/functional/Memories/domain/use_cases/add_photo_use_case.dart';
@@ -104,8 +108,12 @@ void configureDependencies(StoreDatabase database) {
       () => FriendsGatewayImpl(getIt()),
     )
     ..registerLazySingleton<FriendsGateway>(() => getIt<FriendsGatewayImpl>())
+    ..registerLazySingleton<LibraryGatewayImpl>(
+      () => LibraryGatewayImpl(getIt()),
+    )
+    ..registerLazySingleton<LibraryGateway>(() => getIt<LibraryGatewayImpl>())
     ..registerLazySingleton<List<BackupSection>>(
-      () => [getIt<FriendsGatewayImpl>()],
+      () => [getIt<FriendsGatewayImpl>(), getIt<LibraryGatewayImpl>()],
     )
     ..registerLazySingleton<PackCatalogGateway>(PackCatalogGatewayImpl.new)
     ..registerLazySingleton<PhotoGateway>(() => PhotoGatewayImpl(getIt()))
@@ -150,6 +158,8 @@ void configureDependencies(StoreDatabase database) {
     ..registerFactory(() => SaveShelfGameUseCase(getIt()))
     ..registerFactory(() => RemoveShelfGameUseCase(getIt(), getIt()))
     ..registerFactory(() => SuggestGamesUseCase(getIt(), getIt()))
+    ..registerFactory(() => ReadShelfUseCase(getIt()))
+    ..registerFactory(() => WatchShelfUseCase(getIt()))
     ..registerFactory(() => ReadFriendsUseCase(getIt()))
     ..registerFactory(() => WatchFriendsUseCase(getIt()))
     ..registerFactory(() => SaveFriendUseCase(getIt()))
@@ -161,8 +171,8 @@ void configureDependencies(StoreDatabase database) {
     ..registerFactory(() => ReadPhotoUseCase(getIt()))
     ..registerFactory(() => ExportGalleryUseCase(getIt(), getIt()))
     ..registerFactory(() => ImportGalleryUseCase(getIt(), getIt()))
-    ..registerFactory(() => BuildSessionBundleUseCase(getIt()))
-    ..registerFactory(() => ImportSessionBundleUseCase(getIt()));
+    ..registerFactory(() => BuildSessionBundleUseCase(getIt(), getIt()))
+    ..registerFactory(() => ImportSessionBundleUseCase(getIt(), getIt()));
   _registerGatherings();
 }
 
