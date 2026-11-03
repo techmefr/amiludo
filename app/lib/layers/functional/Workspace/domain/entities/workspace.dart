@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:amiludo/layers/functional/Evenings/domain/entities/evening.dart';
 import 'package:amiludo/layers/functional/Friends/domain/entities/friend.dart';
 import 'package:amiludo/layers/functional/Friends/domain/entities/game_review.dart';
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
@@ -36,7 +37,11 @@ class Workspace {
     this.friends = const [],
     this.reviews = const [],
     this.memories = const [],
+    this.nickname = '',
+    this.evenings = const [],
   });
+  final String nickname;
+  final List<Evening> evenings;
   final List<ShelfGame> shelf;
   final List<Friend> friends;
   final List<GameReview> reviews;
@@ -97,7 +102,11 @@ class Workspace {
     List<Friend>? friends,
     List<GameReview>? reviews,
     List<GameMemory>? memories,
+    String? nickname,
+    List<Evening>? evenings,
   }) => Workspace(
+    nickname: nickname ?? this.nickname,
+    evenings: evenings ?? this.evenings,
     shelf: shelf ?? this.shelf,
     friends: friends ?? this.friends,
     reviews: reviews ?? this.reviews,
@@ -136,6 +145,8 @@ class Workspace {
     'friends': friends.map((f) => f.toJson()).toList(),
     'reviews': reviews.map((r) => r.toJson()).toList(),
     'memories': memories.map((m) => m.toJson()).toList(),
+    'nickname': nickname,
+    'evenings': evenings.map((e) => e.toJson()).toList(),
   };
   String export() => jsonEncode(toJson());
   factory Workspace.fromJson(Map<String, dynamic> j) {
@@ -161,6 +172,8 @@ class Workspace {
       friends: _list(j['friends'], Friend.fromJson),
       reviews: _list(j['reviews'], GameReview.fromJson),
       memories: _list(j['memories'], GameMemory.fromJson),
+      nickname: (j['nickname'] as String? ?? '').trim(),
+      evenings: _list(j['evenings'], Evening.fromJson),
       playerNames: List<String>.from(j['playerNames'] as List? ?? []),
       favorites: List<String>.from(j['favorites'] as List? ?? []),
       currentId: j['currentId'] as String?,

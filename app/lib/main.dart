@@ -6,6 +6,10 @@ import 'package:wakelock_plus/wakelock_plus.dart';
 
 import 'package:amiludo/dependencies.dart';
 import 'package:amiludo/router.dart';
+import 'package:amiludo/layers/functional/Account/presentation/cubit/account_cubit.dart';
+import 'package:amiludo/layers/functional/Evenings/presentation/cubit/evenings_cubit.dart';
+import 'package:amiludo/layers/functional/Lobby/presentation/cubit/lobby_cubit.dart';
+import 'package:amiludo/layers/technical/Network/remote_config.dart';
 import 'package:amiludo/layers/functional/Appearance/presentation/cubit/appearance_cubit.dart';
 import 'package:amiludo/layers/functional/Friends/presentation/cubit/friends_cubit.dart';
 import 'package:amiludo/layers/functional/Game/presentation/cubit/game_cubit.dart';
@@ -23,8 +27,9 @@ import 'package:amiludo/layers/technical/Appearance/appearance.dart';
 import 'package:amiludo/layers/technical/Storage/store_database.dart';
 import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await RemoteConfig.start();
   GoRouter.optionURLReflectsImperativeAPIs = true;
   registerFontLicenses();
   configureDependencies(StoreDatabase());
@@ -84,11 +89,51 @@ List<BlocProvider> _providers() => [
       getIt(),
     ),
   ),
+  ..._gatheringProviders(),
   BlocProvider<SharingCubit>(
     create: (_) => SharingCubit(getIt(), getIt(), getIt(), getIt()),
   ),
   BlocProvider<HistoryCubit>(
     create: (_) => HistoryCubit(
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+    ),
+  ),
+];
+
+List<BlocProvider> _gatheringProviders() => [
+  BlocProvider<LobbyCubit>(
+    create: (_) => LobbyCubit(
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+    ),
+  ),
+  BlocProvider<AccountCubit>(
+    create: (_) => AccountCubit(
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
+    ),
+  ),
+  BlocProvider<EveningsCubit>(
+    create: (_) => EveningsCubit(
+      getIt(),
       getIt(),
       getIt(),
       getIt(),

@@ -29,6 +29,7 @@ dependencies:
   mobile_scanner: ^7.5.0
   cryptography: ^2.9.0
   archive: ^4.6.0
+  supabase_flutter: ^2.18.3
 
 dev_dependencies:
   flutter_test:

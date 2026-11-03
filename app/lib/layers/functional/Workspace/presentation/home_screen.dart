@@ -188,6 +188,16 @@ class _HeroActions extends StatelessWidget {
             tr(context, 'Mes compagnons par jeu', 'My game companions'),
           ),
         ),
+        OutlinedButton.icon(
+          onPressed: () => context.go('/lobby'),
+          icon: const DeckIcon(Icons.wifi_tethering, size: 18),
+          label: Text(tr(context, 'Ouvrir un salon', 'Open a lobby')),
+        ),
+        OutlinedButton.icon(
+          onPressed: () => context.go('/join'),
+          icon: const DeckIcon(Icons.login, size: 18),
+          label: Text(tr(context, 'Rejoindre une partie', 'Join a game')),
+        ),
       ],
     );
   }

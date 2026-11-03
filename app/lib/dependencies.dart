@@ -1,5 +1,31 @@
 import 'package:get_it/get_it.dart';
 
+import 'package:amiludo/layers/functional/Account/data/gateways/account_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Account/domain/gateways/account_gateway.dart';
+import 'package:amiludo/layers/functional/Account/domain/use_cases/reset_password_use_case.dart';
+import 'package:amiludo/layers/functional/Account/domain/use_cases/save_nickname_use_case.dart';
+import 'package:amiludo/layers/functional/Account/domain/use_cases/sign_in_use_case.dart';
+import 'package:amiludo/layers/functional/Account/domain/use_cases/sign_out_use_case.dart';
+import 'package:amiludo/layers/functional/Account/domain/use_cases/sign_up_use_case.dart';
+import 'package:amiludo/layers/functional/Account/domain/use_cases/watch_account_use_case.dart';
+import 'package:amiludo/layers/functional/Evenings/data/gateways/evening_remote_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/gateways/evening_remote_gateway.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/use_cases/answer_evening_use_case.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/use_cases/fetch_evening_use_case.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/use_cases/publish_evening_use_case.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/use_cases/remove_evening_use_case.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/use_cases/save_evening_use_case.dart';
+import 'package:amiludo/layers/functional/Lobby/data/gateways/lobby_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Lobby/domain/gateways/lobby_gateway.dart';
+import 'package:amiludo/layers/functional/Lobby/domain/use_cases/decide_seat_use_case.dart';
+import 'package:amiludo/layers/functional/Lobby/domain/use_cases/host_lobby_use_case.dart';
+import 'package:amiludo/layers/functional/Lobby/domain/use_cases/join_lobby_use_case.dart';
+import 'package:amiludo/layers/functional/Lobby/domain/use_cases/leave_lobby_use_case.dart';
+import 'package:amiludo/layers/functional/Lobby/domain/use_cases/start_lobby_game_use_case.dart';
+import 'package:amiludo/layers/functional/Lobby/domain/use_cases/toggle_lobby_open_use_case.dart';
+import 'package:amiludo/layers/functional/Lobby/domain/use_cases/watch_lobby_use_case.dart';
+import 'package:amiludo/layers/technical/Network/room_channel.dart';
+import 'package:amiludo/layers/technical/Network/room_network_impl.dart';
 import 'package:amiludo/layers/functional/Appearance/domain/use_cases/change_appearance_use_case.dart';
 import 'package:amiludo/layers/functional/Appearance/domain/use_cases/remove_style_profile_use_case.dart';
 import 'package:amiludo/layers/functional/Appearance/domain/use_cases/save_style_profile_use_case.dart';
@@ -68,6 +94,10 @@ void configureDependencies(StoreDatabase database) {
     )
     ..registerLazySingleton<PackCatalogGateway>(PackCatalogGatewayImpl.new)
     ..registerLazySingleton<PhotoGateway>(() => PhotoGatewayImpl(getIt()))
+    ..registerLazySingleton<RoomNetwork>(RoomNetworkImpl.new)
+    ..registerLazySingleton<LobbyGateway>(() => LobbyGatewayImpl(getIt()))
+    ..registerLazySingleton<AccountGateway>(AccountGatewayImpl.new)
+    ..registerLazySingleton<EveningRemoteGateway>(EveningRemoteGatewayImpl.new)
     ..registerFactory(() => LoadWorkspaceUseCase(getIt()))
     ..registerFactory(() => ReadWorkspaceUseCase(getIt()))
     ..registerFactory(() => WatchWorkspaceUseCase(getIt()))
@@ -115,4 +145,27 @@ void configureDependencies(StoreDatabase database) {
     ..registerFactory(() => ImportGalleryUseCase(getIt(), getIt()))
     ..registerFactory(() => BuildSessionBundleUseCase(getIt()))
     ..registerFactory(() => ImportSessionBundleUseCase(getIt()));
+  _registerGatherings();
+}
+
+void _registerGatherings() {
+  getIt
+    ..registerFactory(() => WatchLobbyUseCase(getIt()))
+    ..registerFactory(() => HostLobbyUseCase(getIt(), getIt()))
+    ..registerFactory(() => JoinLobbyUseCase(getIt(), getIt()))
+    ..registerFactory(() => DecideSeatUseCase(getIt()))
+    ..registerFactory(() => ToggleLobbyOpenUseCase(getIt()))
+    ..registerFactory(() => StartLobbyGameUseCase(getIt()))
+    ..registerFactory(() => LeaveLobbyUseCase(getIt()))
+    ..registerFactory(() => WatchAccountUseCase(getIt()))
+    ..registerFactory(() => SignUpUseCase(getIt(), getIt()))
+    ..registerFactory(() => SignInUseCase(getIt(), getIt()))
+    ..registerFactory(() => SignOutUseCase(getIt()))
+    ..registerFactory(() => ResetPasswordUseCase(getIt()))
+    ..registerFactory(() => SaveNicknameUseCase(getIt()))
+    ..registerFactory(() => SaveEveningUseCase(getIt(), getIt()))
+    ..registerFactory(() => RemoveEveningUseCase(getIt(), getIt()))
+    ..registerFactory(() => PublishEveningUseCase(getIt(), getIt(), getIt()))
+    ..registerFactory(() => AnswerEveningUseCase(getIt(), getIt(), getIt()))
+    ..registerFactory(() => FetchEveningUseCase(getIt(), getIt()));
 }

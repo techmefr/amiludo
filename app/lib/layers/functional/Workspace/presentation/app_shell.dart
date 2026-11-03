@@ -18,6 +18,7 @@ List<NavItem> navItems(BuildContext context) => [
   ('/tools', Icons.casino_outlined, tr(context, 'Outils', 'Tools')),
   ('/library', Icons.shelves, tr(context, 'Ludothèque', 'Shelf')),
   ('/friends', Icons.people_outline, tr(context, 'Amis', 'Friends')),
+  ('/evenings', Icons.event_outlined, tr(context, 'Soirées', 'Nights')),
   ('/history', Icons.history, tr(context, 'Historique', 'History')),
   ('/appearance', Icons.tune, tr(context, 'Apparence', 'Style')),
 ];
@@ -302,6 +303,11 @@ class _HeaderActions extends StatelessWidget {
           tooltip: tr(context, 'À propos et retours', 'About and feedback'),
           onPressed: () => showProjectInfo(context),
           icon: const DeckIcon(Icons.info_outline, size: 20),
+        ),
+        IconButton(
+          tooltip: tr(context, 'Mon profil', 'My profile'),
+          onPressed: () => context.go('/account'),
+          icon: const DeckIcon(Icons.account_circle_outlined, size: 20),
         ),
         IconButton(
           tooltip: tr(context, 'Historique', 'History'),
