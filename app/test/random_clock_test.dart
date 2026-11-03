@@ -1,11 +1,16 @@
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:table_companion/layers/functional/Random/domain/random_tools.dart';
-import 'package:table_companion/layers/functional/Timer/domain/game_clock.dart';
-import 'package:table_companion/layers/technical/Appearance/appearance.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
+import 'package:amiludo/layers/functional/Timer/domain/entities/game_clock.dart';
+import 'package:amiludo/layers/technical/Appearance/appearance.dart';
 
 void main() {
+  _randomTests();
+  _clockAndAppearanceTests();
+}
+
+void _randomTests() {
   test(
     'shuffling and team creation neither lose nor duplicate participants',
     () {
@@ -42,6 +47,9 @@ void main() {
     expect(() => random.weighted(['a'], [0]), throwsArgumentError);
     expect(() => random.weighted(['a'], [-1]), throwsArgumentError);
   });
+}
+
+void _clockAndAppearanceTests() {
   test('clock freezes on pause, clamps expiry and applies increments', () {
     const clock = GameClock(
       remainingMs: 5000,

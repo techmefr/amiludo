@@ -2,22 +2,22 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../../technical/Feedback/device_feedback.dart';
+import 'package:amiludo/layers/technical/Feedback/device_feedback.dart';
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../../technical/Theme/deck_theme.dart';
-import '../../Workspace/workspace_controller.dart';
-import '../domain/game_clock.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
+import 'package:amiludo/layers/functional/Timer/presentation/cubit/timer_cubit.dart';
+import 'package:amiludo/layers/functional/Timer/domain/entities/game_clock.dart';
 
-class TimerPanel extends ConsumerStatefulWidget {
+class TimerPanel extends StatefulWidget {
   const TimerPanel({super.key});
   @override
-  ConsumerState<TimerPanel> createState() => _TimerPanelState();
+  State<TimerPanel> createState() => _TimerPanelState();
 }
 
-class _TimerPanelState extends ConsumerState<TimerPanel> {
+class _TimerPanelState extends State<TimerPanel> {
   Timer? ticker;
   bool alerted = false;
   @override
@@ -25,14 +25,12 @@ class _TimerPanelState extends ConsumerState<TimerPanel> {
     super.initState();
     ticker = Timer.periodic(const Duration(milliseconds: 200), (_) {
       if (!mounted) return;
-      final ws = ref.read(workspaceProvider).value;
-      if (ws == null) return;
-      final controller = ref.read(workspaceProvider.notifier);
+      final controller = context.read<TimerCubit>(), ws = controller.state;
       if (ws.clock.isRunning &&
           ws.clock.remainingAt(controller.time.now) == 0 &&
           !alerted) {
         alerted = true;
-        controller.clock(ws.clock.pause(controller.time.now));
+        controller.setClock(ws.clock.pause(controller.time.now));
         DeviceFeedback.expired(
           sound: ws.appearance.sound,
           haptics: ws.appearance.haptics,
@@ -58,7 +56,7 @@ class _TimerPanelState extends ConsumerState<TimerPanel> {
   }
 
   Future<void> configure() async {
-    final ws = ref.read(workspaceProvider).requireValue;
+    final ws = context.read<TimerCubit>().state;
     final seconds = TextEditingController(
           text: (ws.clock.durationMs ~/ 1000).toString(),
         ),
@@ -77,58 +75,11 @@ class _TimerPanelState extends ConsumerState<TimerPanel> {
               width: 400,
               child: Form(
                 key: form,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    TextFormField(
-                      controller: seconds,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        labelText: tr(
-                          context,
-                          'Durée en secondes',
-                          'Duration in seconds',
-                        ),
-                      ),
-                      validator: (v) {
-                        final n = int.tryParse(v ?? '');
-                        return n == null || n < 1 || n > 86400
-                            ? '1–86400'
-                            : null;
-                      },
-                    ),
-                    const SizedBox(height: 16),
-                    TextFormField(
-                      controller: increment,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        labelText: tr(
-                          context,
-                          'Incrément par tour (secondes)',
-                          'Increment per turn (seconds)',
-                        ),
-                      ),
-                      validator: (v) {
-                        final n = int.tryParse(v ?? '');
-                        return n == null || n < 0 || n > 600 ? '0–600' : null;
-                      },
-                    ),
-                    SwitchListTile(
-                      contentPadding: EdgeInsets.zero,
-                      title: Text(
-                        tr(context, 'Réserve par joueur', 'Bank per player'),
-                      ),
-                      subtitle: Text(
-                        tr(
-                          context,
-                          'Sinon : durée fixe à chaque tour.',
-                          'Otherwise: fixed time each turn.',
-                        ),
-                      ),
-                      value: bank,
-                      onChanged: (v) => set(() => bank = v),
-                    ),
-                  ],
+                child: _TimerSettingsFields(
+                  seconds: seconds,
+                  increment: increment,
+                  bank: bank,
+                  onBankChanged: (v) => set(() => bank = v),
                 ),
               ),
             ),
@@ -149,14 +100,12 @@ class _TimerPanelState extends ConsumerState<TimerPanel> {
           ),
         ),
       );
-      if (accepted == true) {
-        await ref
-            .read(workspaceProvider.notifier)
-            .configureClock(
-              int.parse(seconds.text),
-              int.parse(increment.text),
-              bank,
-            );
+      if (accepted == true && mounted) {
+        await context.read<TimerCubit>().configure(
+          int.parse(seconds.text),
+          int.parse(increment.text),
+          bank,
+        );
       }
     } finally {
       seconds.dispose();
@@ -166,8 +115,8 @@ class _TimerPanelState extends ConsumerState<TimerPanel> {
 
   @override
   Widget build(BuildContext context) {
-    final ws = ref.watch(workspaceProvider).requireValue,
-        controller = ref.read(workspaceProvider.notifier),
+    final ws = context.watch<TimerCubit>().state,
+        controller = context.read<TimerCubit>(),
         theme = Theme.of(context),
         remaining = ws.clock.remainingAt(controller.time.now);
     return DeckPanel(
@@ -190,46 +139,13 @@ class _TimerPanelState extends ConsumerState<TimerPanel> {
             style: theme.textTheme.titleLarge,
           ),
           const SizedBox(height: 24),
-          Semantics(
-            liveRegion: remaining < 10000,
-            label: tr(context, 'Temps restant', 'Time remaining'),
-            child: Text(
-              clockText(remaining),
-              style: TextStyle(
-                fontFamily: theme.extension<DeckStyle>()!.headingFont,
-                fontSize: 64,
-                height: 1.1,
-                color: theme.extension<DeckStyle>()!.signal,
-              ),
-            ),
-          ),
+          _ClockReadout(remaining: remaining),
           const SizedBox(height: 24),
-          Wrap(
-            spacing: 8,
-            runSpacing: 12,
-            children: [
-              FilledButton.icon(
-                onPressed: () => controller.toggleClock(),
-                icon: DeckIcon(
-                  ws.clock.isRunning ? Icons.pause : Icons.play_arrow,
-                ),
-                label: Text(
-                  ws.clock.isRunning
-                      ? tr(context, 'Pause', 'Pause')
-                      : tr(context, 'Démarrer', 'Start'),
-                ),
-              ),
-              IconButton(
-                tooltip: tr(context, 'Réinitialiser', 'Reset'),
-                onPressed: () => controller.clock(ws.clock.reset()),
-                icon: const DeckIcon(Icons.restart_alt),
-              ),
-              IconButton(
-                tooltip: tr(context, 'Réglages du minuteur', 'Timer settings'),
-                onPressed: configure,
-                icon: const DeckIcon(Icons.tune),
-              ),
-            ],
+          _TimerControls(
+            running: ws.clock.isRunning,
+            onToggle: () => controller.toggle(),
+            onReset: () => controller.setClock(ws.clock.reset()),
+            onConfigure: configure,
           ),
           const SizedBox(height: 16),
           Text(
@@ -260,4 +176,121 @@ class _TimerPanelState extends ConsumerState<TimerPanel> {
       ),
     );
   }
+}
+
+class _ClockReadout extends StatelessWidget {
+  const _ClockReadout({required this.remaining});
+  final int remaining;
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Semantics(
+      liveRegion: remaining < 10000,
+      label: tr(context, 'Temps restant', 'Time remaining'),
+      child: Text(
+        clockText(remaining),
+        style: TextStyle(
+          fontFamily: theme.extension<DeckStyle>()!.headingFont,
+          fontSize: 64,
+          height: 1.1,
+          color: theme.extension<DeckStyle>()!.signal,
+        ),
+      ),
+    );
+  }
+}
+
+class _TimerControls extends StatelessWidget {
+  const _TimerControls({
+    required this.running,
+    required this.onToggle,
+    required this.onReset,
+    required this.onConfigure,
+  });
+  final bool running;
+  final VoidCallback onToggle, onReset, onConfigure;
+  @override
+  Widget build(BuildContext context) => Wrap(
+    spacing: 8,
+    runSpacing: 12,
+    children: [
+      FilledButton.icon(
+        onPressed: onToggle,
+        icon: DeckIcon(running ? Icons.pause : Icons.play_arrow),
+        label: Text(
+          running
+              ? tr(context, 'Pause', 'Pause')
+              : tr(context, 'Démarrer', 'Start'),
+        ),
+      ),
+      IconButton(
+        tooltip: tr(context, 'Réinitialiser', 'Reset'),
+        onPressed: onReset,
+        icon: const DeckIcon(Icons.restart_alt),
+      ),
+      IconButton(
+        tooltip: tr(context, 'Réglages du minuteur', 'Timer settings'),
+        onPressed: onConfigure,
+        icon: const DeckIcon(Icons.tune),
+      ),
+    ],
+  );
+}
+
+class _TimerSettingsFields extends StatelessWidget {
+  const _TimerSettingsFields({
+    required this.seconds,
+    required this.increment,
+    required this.bank,
+    required this.onBankChanged,
+  });
+  final TextEditingController seconds, increment;
+  final bool bank;
+  final ValueChanged<bool> onBankChanged;
+  @override
+  Widget build(BuildContext context) => Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      TextFormField(
+        controller: seconds,
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          labelText: tr(context, 'Durée en secondes', 'Duration in seconds'),
+        ),
+        validator: (v) {
+          final n = int.tryParse(v ?? '');
+          return n == null || n < 1 || n > 86400 ? '1–86400' : null;
+        },
+      ),
+      const SizedBox(height: 16),
+      TextFormField(
+        controller: increment,
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          labelText: tr(
+            context,
+            'Incrément par tour (secondes)',
+            'Increment per turn (seconds)',
+          ),
+        ),
+        validator: (v) {
+          final n = int.tryParse(v ?? '');
+          return n == null || n < 0 || n > 600 ? '0–600' : null;
+        },
+      ),
+      SwitchListTile(
+        contentPadding: EdgeInsets.zero,
+        title: Text(tr(context, 'Réserve par joueur', 'Bank per player')),
+        subtitle: Text(
+          tr(
+            context,
+            'Sinon : durée fixe à chaque tour.',
+            'Otherwise: fixed time each turn.',
+          ),
+        ),
+        value: bank,
+        onChanged: onBankChanged,
+      ),
+    ],
+  );
 }

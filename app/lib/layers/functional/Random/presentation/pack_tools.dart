@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../Templates/domain/game_template.dart';
-import '../../Templates/domain/pack_components.dart';
-import '../../Game/domain/game.dart';
-import '../domain/random_tools.dart';
-import 'random_tool.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/pack_components.dart';
+import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
+import 'package:amiludo/layers/functional/Random/presentation/random_tool.dart';
 
 class PackDiceTool extends StatefulWidget {
   const PackDiceTool({super.key, required this.pack});

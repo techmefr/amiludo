@@ -3,15 +3,17 @@ import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 
 const appVersion = '0.3.0-alpha.1';
-const projectUrl = 'https://github.com/techmefr/ludoply';
+const projectUrl = 'https://github.com/techmefr/amiludo';
 const bugReportUrl = '$projectUrl/issues/new?template=bug_report.yml';
 const featureRequestUrl = '$projectUrl/issues/new?template=feature_request.yml';
 void registerFontLicenses() {
   LicenseRegistry.addLicense(() async* {
     for (final font in [
+      'LilGrotesk',
+      'BricolageGrotesque',
       'SpaceGrotesk',
       'ChakraPetch',
       'Rajdhani',
@@ -61,7 +63,7 @@ Future<void> openProjectLink(BuildContext context, String url) async {
 
 void showProjectInfo(BuildContext context) => showAboutDialog(
   context: context,
-  applicationName: 'Amiludo',
+  applicationName: 'amiLudo',
   applicationVersion: appVersion,
   applicationLegalese: tr(
     context,

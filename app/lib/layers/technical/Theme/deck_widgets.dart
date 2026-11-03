@@ -1,9 +1,9 @@
-export 'deck_icon.dart';
-import 'deck_icon.dart';
+export 'package:amiludo/layers/technical/Theme/deck_icon.dart';
+import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 
 import 'package:flutter/material.dart';
 
-import 'deck_theme.dart';
+import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
 
 class DeckPanel extends StatelessWidget {
   const DeckPanel({
@@ -64,25 +64,23 @@ class DeckHeading extends StatelessWidget {
                   Text(
                     eyebrow
                         .replaceAll(RegExp(r'^\d+ / '), '')
-                        .replaceAll(' / ', ' · '),
-                    style: TextStyle(
-                      fontFamily: styleHeadingFont(context),
-                      fontSize: 12,
-                      letterSpacing: .2,
-                      color: theme.brightness == Brightness.dark
-                          ? theme.colorScheme.primary
-                          : theme.colorScheme.onSurface,
+                        .replaceAll(' / ', ' · ')
+                        .toUpperCase(),
+                    style: theme.textTheme.labelMedium?.copyWith(
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 1.2,
+                      color: theme.colorScheme.primary,
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 10),
                   Text(title, style: theme.textTheme.headlineLarge),
                   if (subtitle.isNotEmpty) ...[
                     const SizedBox(height: 12),
                     Text(
                       subtitle,
-                      style: theme.textTheme.bodyMedium?.copyWith(
+                      style: theme.textTheme.bodyLarge?.copyWith(
                         color: theme.colorScheme.onSurface.withValues(
-                          alpha: .72,
+                          alpha: .78,
                         ),
                       ),
                     ),
@@ -108,7 +106,7 @@ class SectionHeading extends StatelessWidget {
     child: Row(
       children: [
         Expanded(
-          child: Text(text, style: Theme.of(context).textTheme.titleLarge),
+          child: Text(text, style: Theme.of(context).textTheme.headlineSmall),
         ),
         ?action,
       ],
@@ -133,12 +131,22 @@ class ResponsiveGrid extends StatelessWidget {
         6,
       );
       final width = (c.maxWidth - gap * (columns - 1)) / columns;
-      return Wrap(
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         spacing: gap,
-        runSpacing: gap,
-        children: children
-            .map((w) => SizedBox(width: width, child: w))
-            .toList(),
+        children: [
+          for (var start = 0; start < children.length; start += columns)
+            IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                spacing: gap,
+                children: [
+                  for (final child in children.skip(start).take(columns))
+                    SizedBox(width: width, child: child),
+                ],
+              ),
+            ),
+        ],
       );
     },
   );
@@ -221,4 +229,4 @@ Future<T?> showFormDialog<T>({
 }
 
 String styleHeadingFont(BuildContext context) =>
-    Theme.of(context).textTheme.bodyMedium?.fontFamily ?? 'DMSans';
+    Theme.of(context).textTheme.bodyMedium?.fontFamily ?? 'LilGrotesk';

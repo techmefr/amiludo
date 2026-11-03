@@ -1,6 +1,6 @@
 {
-  "name": "Amiludo — compagnon de jeux",
-  "short_name": "Amiludo",
+  "name": "amiLudo — compagnon de jeux",
+  "short_name": "amiLudo",
   "description": "Vos jeux, vos outils, votre compagnon. Scores, dés, rôles et personnages.",
   "start_url": ".",
   "scope": ".",

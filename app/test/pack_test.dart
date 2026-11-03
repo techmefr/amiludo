@@ -3,19 +3,26 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:table_companion/layers/functional/Templates/domain/game_template.dart';
-import 'package:table_companion/layers/functional/Templates/domain/pack_catalog.dart';
-import 'package:table_companion/layers/functional/Templates/domain/pack_components.dart';
-import 'package:table_companion/layers/functional/Templates/domain/character_pack.dart';
-import 'package:table_companion/layers/functional/Random/domain/character_draft.dart';
-import 'package:table_companion/layers/functional/Random/domain/random_tools.dart';
-import 'package:table_companion/layers/functional/Workspace/domain/workspace.dart';
-import 'package:table_companion/layers/functional/Game/domain/game.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/pack_catalog.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/pack_components.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/character_draft.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
+import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
+import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 
 void main() {
   final packs = PackCatalog.decode(
     File('assets/community/catalog.json').readAsStringSync(),
   );
+  _templateTests(packs);
+  _scoreTests(packs);
+  _characterTests(packs);
+  _catalogTests(packs);
+}
+
+void _templateTests(List<GameTemplate> packs) {
   test('every public pack validates and survives portable JSON', () {
     expect(packs.length, 3);
     for (final p in packs) {
@@ -81,6 +88,9 @@ void main() {
       );
     },
   );
+}
+
+void _scoreTests(List<GameTemplate> packs) {
   test('invalid counts, nonfinite values, unsafe links and absent categories rejected', () {
     final p = packs.firstWhere((p) => p.id == 'example-expedition');
     expect(
@@ -151,6 +161,9 @@ void main() {
     expect(g.score('a'), 15);
     expect(g.undo().score('a'), 10);
   });
+}
+
+void _characterTests(List<GameTemplate> packs) {
   test(
     'boosters draw without repeats, enforce keep limits and support two races',
     () {
@@ -191,6 +204,9 @@ void main() {
       expect(() => d.choose({0}), throwsStateError);
     },
   );
+}
+
+void _catalogTests(List<GameTemplate> packs) {
   test('character categories reject impossible booster and keep sizes', () {
     final c = packs.firstWhere((p) => p.id == 'example-booster').creation.first;
     expect(

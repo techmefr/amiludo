@@ -1,8 +1,8 @@
-# Amiludo — board game companion
+# amiLudo — board game companion
 
-An MIT-licensed, offline board game companion for mobile and web, with customizable retrofuturistic themes. The application is named Amiludo.
+An MIT-licensed, offline board game companion for mobile and web, with customizable retrofuturistic themes. The application is named amiLudo.
 
-**[Try the web app](https://techmefr.github.io/ludoply/app/)** · [Android test releases](https://github.com/techmefr/ludoply/releases) · [Français](README.md)
+**[Try the web app](https://techmefr.github.io/amiludo/app/)** · [Android test releases](https://github.com/techmefr/amiludo/releases) · [Français](README.md)
 
 ## Available in the public alpha
 
@@ -21,7 +21,7 @@ Shared rooms, tournaments, advanced time controls, integrations are planned, not
 
 ## Test and contribute
 
-See the [testing guide](TESTING.md), [contribution guide](CONTRIBUTING.md), [actual development status](docs/APP-STATUS.md), [issues](https://github.com/techmefr/ludoply/issues) and [discussions](https://github.com/techmefr/ludoply/discussions). Reports in French or English are welcome.
+See the [testing guide](TESTING.md), [contribution guide](CONTRIBUTING.md), [actual development status](docs/APP-STATUS.md), [issues](https://github.com/techmefr/amiludo/issues) and [discussions](https://github.com/techmefr/amiludo/discussions). Reports in French or English are welcome.
 
 Flutter 3.47.9 / Dart 3.13.7. Run `flutter pub get`, `flutter analyze` and `flutter test` inside `app`. The web build script is `bash scripts/build_web.sh`.
 

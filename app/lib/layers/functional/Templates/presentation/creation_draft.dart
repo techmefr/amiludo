@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../domain/character_pack.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
 
 class CardDraft {
   CardDraft(CharacterCard? c)

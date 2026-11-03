@@ -1,0 +1,84 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+
+import 'package:amiludo/layers/functional/Evenings/domain/entities/evening.dart';
+import 'package:amiludo/layers/functional/Evenings/presentation/cubit/evenings_cubit.dart';
+import 'package:amiludo/layers/functional/Evenings/presentation/evening_texts.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+
+class EveningsScreen extends StatelessWidget {
+  const EveningsScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final evenings = [...context.watch<EveningsCubit>().state.evenings]
+      ..sort((a, b) => a.startsAt.compareTo(b.startsAt));
+    final now = DateTime.now().toUtc().subtract(const Duration(hours: 6));
+    final upcoming = evenings.where((e) => e.startsAt.isAfter(now)).toList();
+    final past = evenings.where((e) => !e.startsAt.isAfter(now)).toList();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Wrap(
+          spacing: 12,
+          runSpacing: 12,
+          children: [
+            FilledButton.icon(
+              onPressed: () => context.go('/evenings/edit/new'),
+              icon: const Icon(Icons.event_available),
+              label: Text(tr(context, 'Organiser une soirée', 'Plan a night')),
+            ),
+            OutlinedButton.icon(
+              onPressed: () => context.go('/join'),
+              icon: const Icon(Icons.login),
+              label: Text(tr(context, 'J’ai un code', 'I have a code')),
+            ),
+          ],
+        ),
+        SectionHeading(tr(context, 'À venir', 'Upcoming')),
+        if (upcoming.isEmpty)
+          EmptyPanel(
+            title: tr(context, 'Aucune soirée prévue', 'No night planned'),
+            message: tr(
+              context,
+              'Fixez une date, invitez par lien ou QR, et chacun s’inscrit.',
+              'Pick a date, invite by link or QR, and everyone signs up.',
+            ),
+          ),
+        for (final e in upcoming) _EveningTile(evening: e),
+        if (past.isNotEmpty) ...[
+          SectionHeading(tr(context, 'Passées', 'Past')),
+          for (final e in past.reversed) _EveningTile(evening: e),
+        ],
+      ],
+    );
+  }
+}
+
+class _EveningTile extends StatelessWidget {
+  const _EveningTile({required this.evening});
+
+  final Evening evening;
+
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.only(bottom: 12),
+    child: DeckPanel(
+      padding: 8,
+      child: ListTile(
+        leading: Icon(evening.mine ? Icons.star_outline : Icons.mail_outline),
+        title: Text(evening.title),
+        subtitle: Text(
+          [
+            eveningWhen(context, evening.startsAt),
+            if (evening.place.isNotEmpty) evening.place,
+            seatsLine(context, evening),
+          ].join('\n'),
+        ),
+        trailing: const DeckIcon(Icons.chevron_right),
+        onTap: () => context.go('/evenings/${evening.id}'),
+      ),
+    ),
+  );
+}

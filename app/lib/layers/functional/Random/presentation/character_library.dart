@@ -1,16 +1,17 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../../technical/Files/file_transfer.dart';
-import '../../Templates/domain/character_pack.dart';
-import '../../Workspace/workspace_controller.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Files/file_transfer.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
+import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit.dart';
 
-class CharacterLibrary extends ConsumerWidget {
+class CharacterLibrary extends StatelessWidget {
   const CharacterLibrary({super.key});
-  Future<void> import(BuildContext context, WidgetRef ref) async {
+  Future<void> import(BuildContext context) async {
+    final ctl = context.read<RandomCubit>();
     try {
       final text = await FileTransfer.openJson();
       if (text == null) return;
@@ -21,18 +22,13 @@ class CharacterLibrary extends ConsumerWidget {
       final c = GameCharacter.fromJson(
         Map<String, dynamic>.from(j['character'] as Map),
       );
-      final ctl = ref.read(workspaceProvider.notifier);
-      if (ctl.data.characters.any((v) => v.id == c.id)) {
+      if (ctl.state.characters.any((v) => v.id == c.id)) {
         if (!context.mounted ||
             !await confirm(context, 'Remplacer cette fiche ?', c.name)) {
           return;
         }
       }
-      await ctl.saveWorkspace(
-        ctl.data.copyWith(
-          characters: [c, ...ctl.data.characters.where((v) => v.id != c.id)],
-        ),
-      );
+      await ctl.saveCharacter(c);
       if (context.mounted) notify(context, 'Fiche importée');
     } catch (e) {
       if (context.mounted) notify(context, 'Import impossible : $e');
@@ -40,14 +36,14 @@ class CharacterLibrary extends ConsumerWidget {
   }
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final records = ref.watch(workspaceProvider).requireValue.characters;
+  Widget build(BuildContext context) {
+    final records = context.watch<RandomCubit>().state.characters;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SectionHeading('Mes personnages'),
         OutlinedButton.icon(
-          onPressed: () => import(context, ref),
+          onPressed: () => import(context),
           icon: const DeckIcon(Icons.file_open_outlined),
           label: const Text('Importer une fiche JSON'),
         ),
@@ -88,21 +84,13 @@ class CharacterLibrary extends ConsumerWidget {
                       ),
                       TextButton(
                         onPressed: () async {
+                          final controller = context.read<RandomCubit>();
                           if (await confirm(
                             context,
                             'Supprimer ce personnage ?',
                             c.name,
                           )) {
-                            final controller = ref.read(
-                              workspaceProvider.notifier,
-                            );
-                            await controller.saveWorkspace(
-                              controller.data.copyWith(
-                                characters: controller.data.characters
-                                    .where((v) => v.id != c.id)
-                                    .toList(),
-                              ),
-                            );
+                            await controller.removeCharacter(c.id);
                           }
                         },
                         child: const Text('Supprimer'),

@@ -1,13 +1,18 @@
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:table_companion/main.dart';
-import 'package:table_companion/layers/technical/Storage/store_database.dart';
-import 'package:table_companion/layers/functional/Workspace/workspace_controller.dart';
-import 'package:table_companion/layers/functional/Random/presentation/finger_tool.dart';
+import 'package:amiludo/main.dart';
+import 'package:amiludo/layers/technical/Storage/store_database.dart';
+import 'package:amiludo/dependencies.dart';
+import 'package:amiludo/router.dart';
+import 'package:amiludo/layers/functional/Random/presentation/finger_tool.dart';
 
 void main() {
+  _fingerToolTests();
+  _builderTests();
+}
+
+void _fingerToolTests() {
   testWidgets('finger tool is a dedicated page, expands and returns to tools', (
     tester,
   ) async {
@@ -16,13 +21,10 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
     final db = StoreDatabase.forTesting(NativeDatabase.memory());
+    configureDependencies(db);
+    addTearDown(getIt.reset);
     router.go('/tools');
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [databaseProvider.overrideWithValue(db)],
-        child: const CompanionApp(),
-      ),
-    );
+    await tester.pumpWidget(const AmiludoApp());
     await tester.pumpAndSettle();
     await tester.ensureVisible(find.text('Ouvrir ↗').first);
     await tester.tap(find.text('Ouvrir ↗').first);
@@ -44,6 +46,9 @@ void main() {
     await db.close();
     router.go('/');
   });
+}
+
+void _builderTests() {
   testWidgets('builder opened directly saves dice and returns to the library', (
     tester,
   ) async {
@@ -52,13 +57,10 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
     final db = StoreDatabase.forTesting(NativeDatabase.memory());
+    configureDependencies(db);
+    addTearDown(getIt.reset);
     router.go('/builder/new');
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [databaseProvider.overrideWithValue(db)],
-        child: const CompanionApp(),
-      ),
-    );
+    await tester.pumpWidget(const AmiludoApp());
     await tester.pumpAndSettle();
     await tester.enterText(
       find.widgetWithText(TextField, 'Nom du jeu ou du pack'),

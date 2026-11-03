@@ -1,0 +1,50 @@
+import 'package:amiludo/layers/functional/Sharing/domain/entities/session_bundle.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
+import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
+
+class SessionImport {
+  const SessionImport(this.games, this.templates, this.characters);
+
+  final int games, templates, characters;
+}
+
+class ImportSessionBundleUseCase {
+  ImportSessionBundleUseCase(this._workspace);
+
+  final WorkspaceGateway _workspace;
+
+  Future<SessionImport> call(SessionBundle bundle) async {
+    final data = _workspace.current;
+    final builtIn = GameTemplate.builtIn.map((t) => t.id).toSet();
+    final templates = bundle.templates
+        .where((t) => !builtIn.contains(t.id))
+        .toList();
+    final ids = templates.map((t) => t.id).toSet();
+    final games = bundle.games.map((g) => g.id).toSet();
+    final characters = bundle.characters.map((c) => c.id).toSet();
+    await _workspace.save(
+      data.copyWith(
+        shelf: [
+          ...bundle.games,
+          ...data.shelf.where((g) => !games.contains(g.id)),
+        ],
+        templates: [
+          ...templates,
+          ...data.templates.where((t) => !ids.contains(t.id)),
+        ],
+        characters: [
+          ...bundle.characters,
+          ...data.characters.where((c) => !characters.contains(c.id)),
+        ],
+        playerNames: bundle.playerNames.isEmpty
+            ? data.playerNames
+            : bundle.playerNames,
+      ),
+    );
+    return SessionImport(
+      bundle.games.length,
+      templates.length,
+      bundle.characters.length,
+    );
+  }
+}

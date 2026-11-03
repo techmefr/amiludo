@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:table_companion/layers/functional/Game/domain/game.dart';
-import 'package:table_companion/layers/functional/Workspace/domain/workspace.dart';
+import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
+import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 
 GameSession example({
   bool low = false,
@@ -22,6 +22,11 @@ GameSession example({
   target: target,
 );
 void main() {
+  _scoringTests();
+  _persistenceTests();
+}
+
+void _scoringTests() {
   test('scores stay scoped to player, round and category', () {
     var game = example().addScore('a', 5, 'Points').addScore('a', 2.5, 'Bonus');
     game = game
@@ -62,6 +67,9 @@ void main() {
     expect(example().nextTurn(reverse: true).activeIndex, 1);
     expect(example().nextTurn().nextTurn().activeIndex, 0);
   });
+}
+
+void _persistenceTests() {
   test('invalid edits cannot enter the score journal', () {
     expect(
       () => example().addScore('missing', 1, 'Points'),

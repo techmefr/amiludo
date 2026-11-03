@@ -1,4 +1,4 @@
-# Catalogue fonctionnel d’Amiludo
+# Catalogue fonctionnel d’amiLudo
 
 Statut : **[x] = implémenté dans l’alpha Flutter**, avec validation des parcours et limites décrites dans APP-STATUS.md ; **[ ] = prévu ou incomplet**. Les tests sur appareils physiques restent distincts. MVP = première version ; V1 = enrichissement individuel ; V2 = services partagés et extensions. Les priorités au sein des blocs restent ajustables.
 
@@ -201,8 +201,40 @@ Le produit combine un accès immédiat aux outils et un mode partie qui partage 
 - [ ] F147 — Plateaux, pistes et jetons personnalisables
 - [ ] F148 — Campagnes, scénarios et progression entre les séances
 
-**Total : 148 fonctionnalités planifiées.**
+## Ludothèque, amis et souvenirs — V1
+
+Tout reste sur l’appareil, sans compte ni serveur. Les échanges passent par QR code ou par fichier chiffré.
+
+- [x] F149 — Ludothèque en étagères : chaque jeu possédé est une boîte avec genres, joueurs, durée et packs liés
+- [x] F150 — Fiche d’un jeu de la ludothèque : packs, parties jouées, note moyenne, jouer et partager
+- [x] F151 — Profils d’amis : prénom, couleur, genres aimés ou évités, durée maximale et jeux refusés
+- [x] F152 — Avis et notes de 1 à 5 étoiles par joueur à la fin d’une partie
+- [x] F153 — « On joue à quoi ce soir ? » : suggestions de la ludothèque selon les amis présents
+- [x] F154 — Souvenirs de partie : note, moments forts et photos
+- [x] F155 — Galerie privée exportée en fichier chiffré, clé transmise par QR code à la table
+- [x] F156 — Fusion des galeries reçues sans doublons
+- [x] F157 — Session partagée (packs, dés, fiches de personnage, joueurs, jeu) en QR code animé à 10 images par seconde
+- [x] F158 — Réception par scan avec codage fontaine : on peut commencer en cours de route et rater des images
+- [x] F159 — Ressources de départ et statuts définis par le pack, appliqués à chaque joueur
+- [x] F160 — Réglage rapide des ressources et des statuts cumulables pendant la partie
+- [x] F161 — Avis par jeu sur chaque ami (envie, adore malgré le genre, refusé) et temps disponible pour les suggestions
+
+## Rejoindre, comptes et soirées — V1
+
+Le salon Wi-Fi marche sans serveur. Le jeu à distance, les comptes et les inscriptions en ligne demandent un projet Supabase fourni au build (`SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`) ; sans lui, l’app reste en mode local.
+
+- [x] F162 — Salon de partie ouvert par l’hôte : code court, QR code et lien partageable
+- [x] F163 — Rejoindre par code, lien ou scan, sur le même Wi-Fi (découverte automatique) ou à distance
+- [x] F164 — L’hôte accepte ou refuse chaque demande, ferme le salon et lance la partie avec les joueurs acceptés
+- [x] F165 — Prénom local et compte en ligne facultatif : inscription, connexion, mot de passe oublié
+- [x] F166 — Soirées : date, lieu, places, jeux prévus
+- [x] F167 — Inscriptions oui / peut-être / non, premier arrivé premier servi, liste d’attente
+- [x] F168 — Invitation à une soirée par lien, code ou QR ; réponses enregistrées sur le serveur
+- [x] F169 — Sans serveur, l’hôte note lui-même les réponses de ses amis
+- [x] F170 — Équipes à partir des noms saisis, des joueurs du salon ou des doigts posés sur l’écran
+
+**Total : 170 fonctionnalités planifiées.**
 
 La personnalisation est portée dans Flutter. Les cases cochées décrivent une alpha locale ; elles ne valent pas une certification Android/iOS ou une validation complète d’accessibilité.
 
-**Bilan alpha : 91 fonctions cochées ; 57 prévues ou incomplètes.**
+**Bilan alpha : 113 fonctions cochées ; 57 prévues ou incomplètes.**

@@ -1,6 +1,6 @@
 # Application — état réel
 
-Alpha 0.3.0. Nom : Amiludo. Code Flutter dans `app/`, application web dans `/app/`, anciennes maquettes à la racine du site.
+Alpha 0.3.0. Nom : amiLudo. Code Flutter dans `app/`, application web dans `/app/`, anciennes maquettes à la racine du site.
 
 ## Disponible
 
@@ -28,10 +28,10 @@ La cible iOS nécessite macOS, Xcode et une signature Apple ; aucune application
 
 La création guidée demande le nom local et le nom anglais, puis ne présente que les réglages des modes choisis. L’accueil distingue mode libre et compagnon par jeu ; les icônes utilisent Hugeicons Free.
 
-La [présentation joueur](presentation/Amiludo-presentation-joueurs.pdf) et le [catalogue cible élargi](VISION-COMPLETE.md) servent à recueillir les retours. Leur inventaire est une vision à enrichir, pas la liste de fonctions déjà livrées.
+La [présentation joueur](presentation/amiLudo-presentation-joueurs.pdf) et le [catalogue cible élargi](VISION-COMPLETE.md) servent à recueillir les retours. Leur inventaire est une vision à enrichir, pas la liste de fonctions déjà livrées.
 
 L’alpha 0.3.0 ajoute Playroom, une palette Confettis, des illustrations originales et des titres plus chaleureux. Les styles enregistrés sont conservés. La nouvelle présentation PDF reprend cette direction graphique.
 
-Le nom affiché est Amiludo sur le web, Android et iOS. Les identifiants de stockage, formats de fichiers, paquets natifs et liens historiques sont conservés pour la continuité des données et des accès.
+Le nom affiché est amiLudo sur le web, Android et iOS. Les identifiants de stockage, formats de fichiers, paquets natifs et liens historiques sont conservés pour la continuité des données et des accès.
 
-Publication 0.3.0 vérifiée : analyse, 38 tests, compilations web/Android et déploiement réussis. Le site public affiche Amiludo, les écrans Playroom ont été contrôlés sur mobile et ordinateur, et la reprise des scores hors connexion a été vérifiée. APK et présentation : https://github.com/techmefr/ludoply/releases/tag/v0.3.0-alpha.1
+Publication 0.3.0 vérifiée : analyse, 38 tests, compilations web/Android et déploiement réussis. Le site public affiche amiLudo, les écrans Playroom ont été contrôlés sur mobile et ordinateur, et la reprise des scores hors connexion a été vérifiée. APK et présentation : https://github.com/techmefr/amiludo/releases/tag/v0.3.0-alpha.1

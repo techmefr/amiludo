@@ -4,7 +4,7 @@ Aucune échéance promise ; chaque étape dépend de critères de sortie.
 
 ## 0 — Fondations (réalisées, identité provisoire)
 
-Nom de travail, catalogue, choix techniques et trois concepts de logo. Choisir ensuite un concept et préparer le kit d’identité. Le dépôt contient maintenant une application Flutter alpha et les maquettes initiales.
+Nom de travail, catalogue, choix techniques et logo « La boîte » retenu (design/logo). Le dépôt contient maintenant une application Flutter alpha et les maquettes initiales.
 
 ## 1 — Tranche verticale (réalisée et testée)
 

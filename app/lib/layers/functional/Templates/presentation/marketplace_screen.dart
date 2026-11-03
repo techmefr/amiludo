@@ -1,83 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../technical/Theme/full_page.dart';
-import '../../../technical/Theme/deck_widgets.dart';
-import '../../../technical/About/app_info.dart';
-import '../../Workspace/workspace_controller.dart';
-import '../domain/game_template.dart';
-import '../domain/pack_catalog.dart';
+import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/About/app_info.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/cubit/marketplace_cubit.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
 
-class MarketplaceScreen extends ConsumerStatefulWidget {
+class MarketplaceScreen extends StatefulWidget {
   const MarketplaceScreen({super.key});
   @override
-  ConsumerState<MarketplaceScreen> createState() => _MarketplaceScreenState();
+  State<MarketplaceScreen> createState() => _MarketplaceScreenState();
 }
 
-class _MarketplaceScreenState extends ConsumerState<MarketplaceScreen> {
-  List<GameTemplate> packs = [];
-  bool loading = true;
+class _MarketplaceScreenState extends State<MarketplaceScreen> {
   String query = '', filter = 'Tous';
-  String? error;
-  bool online = false;
-  @override
-  void initState() {
-    super.initState();
-    loadLocal();
-  }
-
-  Future<void> loadLocal() async {
-    try {
-      final data = PackCatalog.decode(
-        await rootBundle.loadString('assets/community/catalog.json'),
-      );
-      if (mounted) {
-        setState(() {
-          packs = data;
-          loading = false;
-        });
-      }
-    } catch (e) {
-      if (mounted) {
-        setState(() {
-          loading = false;
-          error = 'Catalogue indisponible : $e';
-        });
-      }
-    }
-  }
-
-  Future<void> refresh() async {
-    setState(() {
-      loading = true;
-      error = null;
-    });
-    try {
-      final data = await PackCatalog.fetch();
-      if (mounted) {
-        setState(() {
-          packs = data;
-          online = true;
-        });
-      }
-    } catch (e) {
-      if (mounted) {
-        setState(
-          () => error = 'Actualisation impossible. Les packs installés restent disponibles hors connexion.',
-        );
-      }
-    } finally {
-      if (mounted) setState(() => loading = false);
-    }
-  }
 
   Future<void> install(GameTemplate p) async {
-    final existing = ref
-        .read(workspaceProvider)
-        .requireValue
-        .templates
+    final templates = context.read<TemplatesCubit>();
+    final existing = templates.state.templates
         .where((t) => t.id == p.id)
         .firstOrNull;
     if (!await confirm(
@@ -87,7 +30,7 @@ class _MarketplaceScreenState extends ConsumerState<MarketplaceScreen> {
     )) {
       return;
     }
-    await ref.read(workspaceProvider.notifier).addTemplate(p);
+    await templates.addTemplate(p);
     if (mounted) {
       notify(context, 'Pack installé. Retrouvez-le dans vos modèles.');
     }
@@ -95,8 +38,9 @@ class _MarketplaceScreenState extends ConsumerState<MarketplaceScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final ws = ref.watch(workspaceProvider).value;
-    final shown = packs
+    final installed = context.watch<TemplatesCubit>().state.templates;
+    final catalog = context.watch<MarketplaceCubit>().state;
+    final shown = catalog.packs
         .where(
           (p) =>
               '${p.name} ${p.englishName} ${p.description} ${p.author}'
@@ -120,43 +64,26 @@ class _MarketplaceScreenState extends ConsumerState<MarketplaceScreen> {
             title: 'Les outils se partagent',
             subtitle: 'Installez un pack, personnalisez-le et jouez hors connexion. Le catalogue démarre avec des exemples originaux ; les contributions sont relues sur le dépôt public.',
           ),
-          Wrap(
-            spacing: 12,
-            runSpacing: 12,
-            children: [
-              FilledButton.icon(
-                onPressed: loading ? null : refresh,
-                icon: const DeckIcon(Icons.refresh),
-                label: const Text('Actualiser la galerie'),
-              ),
-              OutlinedButton(
-                onPressed: () => context.push('/builder/new'),
-                child: const Text('Créer mon pack'),
-              ),
-              TextButton(
-                onPressed: () => openProjectLink(
-                  context,
-                  '$projectUrl/blob/main/community/README.md',
-                ),
-                child: const Text('Comment publier mon pack ?'),
-              ),
-            ],
-          ),
+          _MarketplaceActions(loading: catalog.loading),
           const SizedBox(height: 16),
           Text(
-            online ? 'Catalogue public actualisé' : 'Catalogue fourni avec l’application. Actualisez pour découvrir les nouvelles contributions.',
+            catalog.online ? 'Catalogue public actualisé' : 'Catalogue fourni avec l’application. Actualisez pour découvrir les nouvelles contributions.',
           ),
-          if (loading) const LinearProgressIndicator(),
-          if (error != null)
+          if (catalog.loading) const LinearProgressIndicator(),
+          if (catalog.error case final error?)
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 12),
-              child: Text(error!),
+              child: Text(error),
             ),
           const SizedBox(height: 20),
           TextField(
             decoration: const InputDecoration(
               labelText: 'Rechercher un jeu, un pack ou un auteur',
-              prefixIcon: DeckIcon(Icons.search),
+              prefixIcon: Center(
+                widthFactor: 1,
+                heightFactor: 1,
+                child: DeckIcon(Icons.search, size: 20),
+              ),
             ),
             onChanged: (v) => setState(() => query = v),
           ),
@@ -173,61 +100,106 @@ class _MarketplaceScreenState extends ConsumerState<MarketplaceScreen> {
             ],
           ),
           const SizedBox(height: 24),
-          if (!loading && shown.isEmpty)
+          if (!catalog.loading && shown.isEmpty)
             const Text('Aucun pack pour cette recherche.'),
           for (final p in shown)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: DeckPanel(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      p.name,
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    const SizedBox(height: 8),
-                    Text(p.description),
-                    Text('${p.author} · ${p.revision} · ${p.license}'),
-                    const SizedBox(height: 12),
-                    Text(
-                      '${p.dice.length} types de dés · ${p.roles.length} rôles · ${p.scoring.length} catégories · ${p.creation.length} boosters',
-                    ),
-                    if (p.rulesNotes.isNotEmpty)
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12),
-                        child: Text(p.rulesNotes),
-                      ),
-                    if (p.rulesUrl.isNotEmpty)
-                      TextButton(
-                        onPressed: () => openProjectLink(context, p.rulesUrl),
-                        child: const Text('Règles de référence'),
-                      ),
-                    const SizedBox(height: 16),
-                    Wrap(
-                      spacing: 12,
-                      runSpacing: 8,
-                      children: [
-                        FilledButton(
-                          onPressed: ws == null ? null : () => install(p),
-                          child: Text(
-                            ws?.templates.any((t) => t.id == p.id) == true
-                                ? 'Réinstaller / remplacer'
-                                : 'Installer le pack',
-                          ),
-                        ),
-                        if (ws?.templates.any((t) => t.id == p.id) == true)
-                          OutlinedButton(
-                            onPressed: () => context.push('/pack/${p.id}'),
-                            child: const Text('Ouvrir mon pack'),
-                          ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+            _PackCard(
+              pack: p,
+              installed: installed.any((t) => t.id == p.id),
+              onInstall: () => install(p),
             ),
         ],
+      ),
+    );
+  }
+}
+
+class _MarketplaceActions extends StatelessWidget {
+  const _MarketplaceActions({required this.loading});
+  final bool loading;
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: 12,
+      runSpacing: 12,
+      children: [
+        FilledButton.icon(
+          onPressed: loading ? null : context.read<MarketplaceCubit>().refresh,
+          icon: const DeckIcon(Icons.refresh),
+          label: const Text('Actualiser la galerie'),
+        ),
+        OutlinedButton(
+          onPressed: () => context.push('/builder/new'),
+          child: const Text('Créer mon pack'),
+        ),
+        TextButton(
+          onPressed: () => openProjectLink(
+            context,
+            '$projectUrl/blob/main/community/README.md',
+          ),
+          child: const Text('Comment publier mon pack ?'),
+        ),
+      ],
+    );
+  }
+}
+
+class _PackCard extends StatelessWidget {
+  const _PackCard({
+    required this.pack,
+    required this.installed,
+    required this.onInstall,
+  });
+  final GameTemplate pack;
+  final bool installed;
+  final VoidCallback onInstall;
+  @override
+  Widget build(BuildContext context) {
+    final p = pack;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: DeckPanel(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(p.name, style: Theme.of(context).textTheme.headlineSmall),
+            const SizedBox(height: 8),
+            Text(p.description),
+            Text('${p.author} · ${p.revision} · ${p.license}'),
+            const SizedBox(height: 12),
+            Text(
+              '${p.dice.length} types de dés · ${p.roles.length} rôles · ${p.scoring.length} catégories · ${p.creation.length} boosters',
+            ),
+            if (p.rulesNotes.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.only(top: 12),
+                child: Text(p.rulesNotes),
+              ),
+            if (p.rulesUrl.isNotEmpty)
+              TextButton(
+                onPressed: () => openProjectLink(context, p.rulesUrl),
+                child: const Text('Règles de référence'),
+              ),
+            const SizedBox(height: 16),
+            Wrap(
+              spacing: 12,
+              runSpacing: 8,
+              children: [
+                FilledButton(
+                  onPressed: onInstall,
+                  child: Text(
+                    installed ? 'Réinstaller / remplacer' : 'Installer le pack',
+                  ),
+                ),
+                if (installed)
+                  OutlinedButton(
+                    onPressed: () => context.push('/pack/${p.id}'),
+                    child: const Text('Ouvrir mon pack'),
+                  ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

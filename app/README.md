@@ -1,4 +1,4 @@
-# Amiludo — Flutter app (alpha)
+# amiLudo — Flutter app (alpha)
 
 Application Android, iOS et web. Flutter 3.47.9 / Dart 3.13.7. Code en couches fonctionnelles et techniques. Les maquettes HTML restent dans ../prototype.
 
@@ -22,7 +22,7 @@ Après une modification des tables Drift : `dart run build_runner build`. Les so
 
 ## Construire
 
-À la racine du dépôt : `bash scripts/build_web.sh`. APP_BASE_PATH permet de changer le chemin public ; la valeur par défaut est /ludoply/app/. Le script produit un cache hors connexion à partir des fichiers compilés. Une première ouverture connectée et la fin du téléchargement sont nécessaires avant une utilisation sans réseau. Le navigateur peut effacer ses données : exporter une sauvegarde reste utile.
+À la racine du dépôt : `bash scripts/build_web.sh`. APP_BASE_PATH permet de changer le chemin public ; la valeur par défaut est /amiludo/app/. Le script produit un cache hors connexion à partir des fichiers compilés. Une première ouverture connectée et la fin du téléchargement sont nécessaires avant une utilisation sans réseau. Le navigateur peut effacer ses données : exporter une sauvegarde reste utile.
 
 Android : `flutter build apk --debug` pour une installation de test, avec Android SDK et JDK 17. Le workflow GitHub produit cet APK en artefact. Il ne s’agit pas d’une version signée pour les boutiques. Le projet iOS nécessite macOS, Xcode et une identité de signature pour distribuer une application native ; il n’est pas compilé sur Linux.
 

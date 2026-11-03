@@ -3,7 +3,7 @@ class Appearance {
     this.skin = 'play',
     this.palette = 'play',
     this.mode = 'light',
-    this.font = 'NunitoSans',
+    this.font = 'LilGrotesk',
     this.shape = 'round',
     this.compact = false,
     this.large = false,
@@ -29,6 +29,7 @@ class Appearance {
     'rose',
   ];
   static const fonts = [
+    'LilGrotesk',
     'SpaceGrotesk',
     'ChakraPetch',
     'Rajdhani',

@@ -2,8 +2,8 @@
 
 L’alpha est publique, gratuite et utilisable sans compte. Le nom reste provisoire.
 
-- **Web, ordinateur et mobile :** https://techmefr.github.io/ludoply/app/
-- **Android :** télécharger le fichier APK de la dernière [version de test](https://github.com/techmefr/ludoply/releases). Autoriser son installation depuis votre navigateur si Android le demande.
+- **Web, ordinateur et mobile :** https://techmefr.github.io/amiludo/app/
+- **Android :** télécharger le fichier APK de la dernière [version de test](https://github.com/techmefr/amiludo/releases). Autoriser son installation depuis votre navigateur si Android le demande.
 - **iPhone et iPad :** tester le site dans Safari. Aucune application iOS native n’est distribuée actuellement.
 
 ## Un premier essai en dix minutes
@@ -19,9 +19,9 @@ L’alpha est publique, gratuite et utilisable sans compte. Le nom reste proviso
 
 ## Signaler un problème
 
-Utiliser le [formulaire de bug](https://github.com/techmefr/ludoply/issues/new?template=bug_report.yml). Indiquer la version affichée dans « À propos », l’appareil, le navigateur et les étapes pour reproduire. Ne joindre aucune sauvegarde contenant des informations personnelles ; utiliser des joueurs fictifs.
+Utiliser le [formulaire de bug](https://github.com/techmefr/amiludo/issues/new?template=bug_report.yml). Indiquer la version affichée dans « À propos », l’appareil, le navigateur et les étapes pour reproduire. Ne joindre aucune sauvegarde contenant des informations personnelles ; utiliser des joueurs fictifs.
 
-Les [Discussions](https://github.com/techmefr/ludoply/discussions) accueillent les questions et les retours d’usage. Pour une nouvelle fonction, décrire le jeu concerné et le besoin dans le [formulaire de proposition](https://github.com/techmefr/ludoply/issues/new?template=feature_request.yml).
+Les [Discussions](https://github.com/techmefr/amiludo/discussions) accueillent les questions et les retours d’usage. Pour une nouvelle fonction, décrire le jeu concerné et le besoin dans le [formulaire de proposition](https://github.com/techmefr/amiludo/issues/new?template=feature_request.yml).
 
 ## Limites de cette alpha
 

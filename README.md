@@ -1,12 +1,12 @@
-# Amiludo
+# amiLudo
 
-[Présentation pour les joueurs (PDF)](docs/presentation/Amiludo-presentation-joueurs.pdf) · [Catalogue cible élargi](docs/VISION-COMPLETE.md) · [English](README.en.md) · [Tester et donner un avis](TESTING.md) · [Contribuer](CONTRIBUTING.md)
+[Présentation pour les joueurs (PDF)](docs/presentation/amiLudo-presentation-joueurs.pdf) · [Catalogue cible élargi](docs/VISION-COMPLETE.md) · [English](README.en.md) · [Tester et donner un avis](TESTING.md) · [Contribuer](CONTRIBUTING.md)
 
 **Tous les outils. Autour de la table.**
 
-Amiludo, compagnon open source pour les jeux de société, avec une direction illustrée Playroom et des thèmes personnalisables. Android, iOS et web à partir du même projet Flutter.
+amiLudo, compagnon open source pour les jeux de société, avec une direction illustrée Playroom et des thèmes personnalisables. Android, iOS et web à partir du même projet Flutter.
 
-**[Ouvrir l’application](https://techmefr.github.io/ludoply/app/)** · [APK Android de test](https://github.com/techmefr/ludoply/releases/download/v0.3.0-alpha.1/amiludo-0.3.0-alpha.1-android.apk) · [Maquettes](https://techmefr.github.io/ludoply/) · [État réel du développement](docs/APP-STATUS.md)
+**[Ouvrir l’application](https://techmefr.github.io/amiludo/app/)** · [APK Android de test](https://github.com/techmefr/amiludo/releases/download/v0.3.0-alpha.1/amiludo-0.3.0-alpha.1-android.apk) · [Maquettes](https://techmefr.github.io/amiludo/) · [État réel du développement](docs/APP-STATUS.md)
 
 ## Nouvelle direction visuelle — alpha 0.3.0
 
@@ -28,7 +28,7 @@ Playroom : illustrations originales de dés, cartes et pions, couleurs par outil
 
 Aucun compte ni serveur requis pour ces fonctions. Aucun affichage publicitaire. La version web possède un cache explicite ; une première ouverture connectée est nécessaire pour télécharger les ressources. La fiabilité native et les comportements en arrière-plan doivent encore être vérifiés sur de vrais téléphones.
 
-Le catalogue comprend aussi des fonctions **non implémentées**, notamment les salles partagées et leur serveur, les tournois, les cadences avancées et les intégrations. Cette alpha ne constitue pas la livraison de la totalité des 148 fonctions prévues. Ludoply reste l’identifiant technique historique du dépôt pour conserver les liens déjà partagés.
+Le catalogue comprend aussi des fonctions **non implémentées**, notamment les salles partagées et leur serveur, les tournois, les cadences avancées et les intégrations. Cette alpha ne constitue pas la livraison de la totalité des 148 fonctions prévues.
 
 ## Développer
 
@@ -55,4 +55,4 @@ Le workflow GitHub vérifie le code avant de publier la version web et construit
 - [Contribuer](CONTRIBUTING.md)
 - [Maquettes et captures](design/mockups/)
 
-Code et concepts originaux sous licence MIT. Les polices embarquées conservent leurs licences OFL. Le nom définitif et le logo restent à choisir.
+Code et concepts originaux sous licence MIT. Les polices embarquées conservent leurs licences OFL. Le logo retenu est « La boîte » (design/logo).

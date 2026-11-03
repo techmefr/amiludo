@@ -1,23 +1,23 @@
 # Choix techniques
 
-Décision initiale du 30 octobre 2026. Ces choix sont désormais appliqués dans app/ : Flutter 3.47.9, Riverpod, Drift/SQLite, polices locales et fichiers JSON. Les versions exactes sont dans app/pubspec.lock.
+Décision initiale du 30 octobre 2026. Ces choix sont désormais appliqués dans app/ : Flutter 3.47.9, flutter_bloc (Cubit) + get_it, Drift/SQLite, polices locales et fichiers JSON. Les versions exactes sont dans app/pubspec.lock.
 
 | Besoin | Choix | Motif |
 |---|---|---|
 | Android, iOS, web interactif | Flutter stable + Dart | Un code applicatif partagé, adapté aux interactions tactiles et au mode table |
-| État et dépendances | Riverpod | États testables et partage des joueurs, scores et outils |
+| État et dépendances | flutter_bloc (Cubit) + get_it | Cubit par feature, use cases injectés, contrats de gateway testables |
 | Navigation | go_router | Navigation déclarative et liens vers les outils |
 | Persistance | Drift + SQLite | Données relationnelles, transactions et migrations ; moteur natif sur mobile et Wasm sur web |
 | Modèles communautaires | JSON + JSON Schema | Contributions simples, validation et versionnement ; aucune exécution arbitraire |
 | Traductions | Flutter l10n, fichiers ARB | Français et anglais dès le départ |
-| Identité | SVG originaux | Icônes vectorielles légères, concepts à valider |
+| Identité | SVG originaux | Logo « La boîte » dans design/logo, icônes générées depuis le SVG |
 | Vérifications | flutter_test + integration_test | Calculs, annulation, reprise, migrations, parcours essentiels |
 | Automatisation | GitHub Actions | Analyse, tests et construction web ; builds mobiles à ajouter après configuration |
 | Licence | MIT | Réutilisation et contributions ouvertes ; le nom ne vaut pas autorisation de représenter le projet |
 
 ## Structure visée
 
-Une application Flutter organisée par fonctions : players, sessions, scores, random, timers, presets, history. Un cœur Dart indépendant de l’interface contient les calculs et les événements de partie. Inutile de créer un monorepo ou plusieurs services au démarrage.
+Architecture OSDD : `lib/layers/functional/<Feature>` (Workspace, Game, Timer, Random, Templates, History, Appearance) et `lib/layers/technical/<Layer>` (Storage, Theme, Files, Feedback, About, Appearance). Chaque feature suit domain (entities, gateways, use_cases) → data (gateways) → presentation (cubit, écrans) ; une feature n’importe que le domain d’une autre, et technical n’importe jamais functional. `main.dart`, `router.dart` et `dependencies.dart` composent l’ensemble. Inutile de créer un monorepo ou plusieurs services au démarrage.
 
 ## Hors connexion
 
@@ -45,4 +45,4 @@ Aucun backend, compte ou abonnement nécessaire pour le MVP. Pour V2, Supabase/P
 
 - https://docs.flutter.dev/platform-integration/web
 - https://drift.simonbinder.eu/platforms/
-- https://riverpod.dev/
+- https://bloclibrary.dev/

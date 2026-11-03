@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Appearance/appearance.dart';
+import 'package:amiludo/layers/technical/Appearance/appearance.dart';
 
 class DeckPalette {
   const DeckPalette(
@@ -206,6 +206,8 @@ class DeckStyle extends ThemeExtension<DeckStyle> {
       t < .5 ? this : other ?? this;
 }
 
+const _symbolFallback = ['NotoSansSymbols2', 'NotoSansSymbols'];
+
 ThemeData deckTheme(Appearance appearance, Brightness brightness) {
   final dark = brightness == Brightness.dark,
       p = DeckPalette.values[appearance.palette]!;
@@ -219,7 +221,7 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
       ? 'ChakraPetch'
       : appearance.skin == 'orbital'
       ? 'Rajdhani'
-      : appearance.font;
+      : 'BricolageGrotesque';
   final style = DeckStyle(
     shape: appearance.shape,
     signal: dark ? Color(p.signal) : ink,
@@ -239,119 +241,37 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
         outline: border,
         surfaceContainerHighest: hero,
       );
-  final base = ThemeData(
-    useMaterial3: true,
-    brightness: brightness,
-    colorScheme: scheme,
-    scaffoldBackgroundColor: background,
-    fontFamily: appearance.font,
-    fontFamilyFallback: const ['NotoSansSymbols2', 'NotoSansSymbols'],
-    visualDensity: appearance.compact
-        ? VisualDensity.compact
-        : VisualDensity.standard,
+  final base = _deckBase(appearance, brightness, scheme, background);
+  final scale = appearance.large ? 1.15 : 1.0;
+  final themed = appearance.skin == 'cyber' || appearance.skin == 'orbital';
+  final buttonText = TextStyle(
+    fontFamily: themed ? heading : appearance.font,
+    fontFamilyFallback: _symbolFallback,
+    fontSize: 15 * scale,
+    fontWeight: FontWeight.w700,
+    letterSpacing: themed ? 1 : 0,
   );
-  final text = base.textTheme.apply(
-    fontSizeFactor: appearance.large ? 1.15 : 1.0,
-    bodyColor: ink,
-    displayColor: ink,
-  );
+  final text = base.textTheme.apply(bodyColor: ink, displayColor: ink);
   return base.copyWith(
     extensions: [style],
-    textTheme: text.copyWith(
-      headlineLarge: text.headlineLarge?.copyWith(
-        fontFamily: heading,
-        fontSize: appearance.skin == 'play' ? 32 : 36,
-        fontWeight: FontWeight.w600,
-        height: 1.1,
-      ),
-      headlineMedium: text.headlineMedium?.copyWith(
-        fontFamily: heading,
-        fontSize: appearance.skin == 'play' ? 24 : 28,
-        fontWeight: FontWeight.w600,
-        height: 1.1,
-      ),
-      titleLarge: text.titleLarge?.copyWith(
-        fontFamily: heading,
-        fontSize: appearance.skin == 'play' ? 20 : 22,
-        fontWeight: FontWeight.w600,
-      ),
-      titleMedium: text.titleMedium?.copyWith(
-        fontFamily: heading,
-        fontWeight: FontWeight.w600,
-      ),
-      bodyMedium: text.bodyMedium?.copyWith(height: 1.5),
-    ),
+    textTheme: _deckTextTheme(text, heading, scale, themed),
     dividerColor: border,
     appBarTheme: AppBarTheme(
       backgroundColor: background,
       foregroundColor: ink,
       centerTitle: false,
     ),
-    filledButtonTheme: FilledButtonThemeData(
-      style: FilledButton.styleFrom(
-        minimumSize: const Size(48, 48),
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        shape: style.border(Colors.transparent),
-        textStyle: TextStyle(
-          fontFamily: heading,
-          fontWeight: FontWeight.w600,
-          letterSpacing: appearance.skin == 'play' ? 0 : 1,
-        ),
-      ),
-    ),
-    outlinedButtonTheme: OutlinedButtonThemeData(
-      style: OutlinedButton.styleFrom(
-        minimumSize: const Size(48, 48),
-        foregroundColor: ink,
-        side: BorderSide(color: border),
-        shape: style.border(border),
-      ),
-    ),
-    inputDecorationTheme: InputDecorationTheme(
-      filled: true,
-      fillColor: surface,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(
-          ['soft', 'round'].contains(appearance.shape) ? 16 : 4,
-        ),
-        borderSide: BorderSide(color: border),
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(
-          ['soft', 'round'].contains(appearance.shape) ? 16 : 4,
-        ),
-        borderSide: BorderSide(color: border),
-      ),
-    ),
-    navigationBarTheme: NavigationBarThemeData(
-      backgroundColor: background,
-      indicatorColor: hero,
-      labelTextStyle: WidgetStatePropertyAll(
-        TextStyle(
-          fontFamily: appearance.font,
-          fontFamilyFallback: const ['NotoSansSymbols2', 'NotoSansSymbols'],
-          fontSize: 12,
-        ),
-      ),
-    ),
+    filledButtonTheme: _filledButtonTheme(style, buttonText),
+    outlinedButtonTheme: _outlinedButtonTheme(style, buttonText, ink, border),
+    textButtonTheme: _textButtonTheme(dark ? accent : ink, buttonText),
+    inputDecorationTheme: _inputTheme(appearance, surface, border),
+    navigationBarTheme: _navigationBarTheme(appearance, background, hero),
     dialogTheme: DialogThemeData(
       backgroundColor: surface,
       shape: style.border(border),
     ),
-    snackBarTheme: SnackBarThemeData(
-      backgroundColor: ink,
-      contentTextStyle: TextStyle(
-        color: background,
-        fontFamily: appearance.font,
-        fontFamilyFallback: const ['NotoSansSymbols2', 'NotoSansSymbols'],
-      ),
-    ),
-    chipTheme: base.chipTheme.copyWith(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(appearance.skin == 'play' ? 16 : 4),
-      ),
-      side: BorderSide(color: border),
-    ),
+    snackBarTheme: _snackBarTheme(appearance, ink, background),
+    chipTheme: _chipTheme(base.chipTheme, appearance, border),
     cardTheme: CardThemeData(
       color: surface,
       shape: style.border(border),
@@ -359,3 +279,204 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
     ),
   );
 }
+
+ThemeData _deckBase(
+  Appearance appearance,
+  Brightness brightness,
+  ColorScheme scheme,
+  Color background,
+) => ThemeData(
+  useMaterial3: true,
+  brightness: brightness,
+  colorScheme: scheme,
+  scaffoldBackgroundColor: background,
+  fontFamily: appearance.font,
+  fontFamilyFallback: _symbolFallback,
+  visualDensity: appearance.compact
+      ? VisualDensity.compact
+      : VisualDensity.standard,
+);
+
+TextButtonThemeData _textButtonTheme(Color foreground, TextStyle text) =>
+    TextButtonThemeData(
+      style: TextButton.styleFrom(
+        minimumSize: const Size(48, 48),
+        foregroundColor: foreground,
+        textStyle: text,
+      ),
+    );
+
+ChipThemeData _chipTheme(
+  ChipThemeData chip,
+  Appearance appearance,
+  Color border,
+) => chip.copyWith(
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(appearance.skin == 'play' ? 16 : 4),
+  ),
+  side: BorderSide(color: border),
+);
+
+SnackBarThemeData _snackBarTheme(
+  Appearance appearance,
+  Color ink,
+  Color background,
+) => SnackBarThemeData(
+  backgroundColor: ink,
+  contentTextStyle: TextStyle(
+    color: background,
+    fontFamily: appearance.font,
+    fontFamilyFallback: _symbolFallback,
+  ),
+);
+
+TextTheme _deckTextTheme(
+  TextTheme text,
+  String heading,
+  double scale,
+  bool themed,
+) => _bodyTextTheme(_headingTextTheme(text, heading, scale, themed), scale);
+
+TextTheme _headingTextTheme(
+  TextTheme text,
+  String heading,
+  double scale,
+  bool themed,
+) {
+  TextStyle? headingStyle(
+    TextStyle? style,
+    double size,
+    FontWeight weight, {
+    double height = 1.2,
+    double letterSpacing = 0,
+  }) => style?.copyWith(
+    fontFamily: heading,
+    fontSize: size * scale,
+    fontWeight: weight,
+    height: height,
+    letterSpacing: themed ? 0 : letterSpacing,
+  );
+  return text.copyWith(
+    displaySmall: headingStyle(
+      text.displaySmall,
+      44,
+      FontWeight.w800,
+      height: 1.05,
+      letterSpacing: -1,
+    ),
+    headlineLarge: headingStyle(
+      text.headlineLarge,
+      36,
+      FontWeight.w700,
+      height: 1.1,
+      letterSpacing: -0.6,
+    ),
+    headlineMedium: headingStyle(
+      text.headlineMedium,
+      28,
+      FontWeight.w700,
+      height: 1.15,
+      letterSpacing: -0.4,
+    ),
+    headlineSmall: headingStyle(
+      text.headlineSmall,
+      22,
+      FontWeight.w700,
+      letterSpacing: -0.2,
+    ),
+    titleLarge: headingStyle(text.titleLarge, 20, FontWeight.w600),
+    titleMedium: headingStyle(text.titleMedium, 17, FontWeight.w600),
+  );
+}
+
+TextTheme _bodyTextTheme(TextTheme text, double scale) {
+  TextStyle? bodyStyle(
+    TextStyle? style,
+    double size,
+    FontWeight weight, {
+    double height = 1.5,
+    double letterSpacing = 0,
+  }) => style?.copyWith(
+    fontSize: size * scale,
+    fontWeight: weight,
+    height: height,
+    letterSpacing: letterSpacing,
+  );
+  return text.copyWith(
+    titleSmall: bodyStyle(text.titleSmall, 15, FontWeight.w700),
+    bodyLarge: bodyStyle(text.bodyLarge, 17, FontWeight.w400),
+    bodyMedium: bodyStyle(text.bodyMedium, 15, FontWeight.w400),
+    bodySmall: bodyStyle(text.bodySmall, 13, FontWeight.w400, height: 1.4),
+    labelLarge: bodyStyle(text.labelLarge, 15, FontWeight.w700, height: 1.2),
+    labelMedium: bodyStyle(text.labelMedium, 13, FontWeight.w500, height: 1.3),
+    labelSmall: bodyStyle(
+      text.labelSmall,
+      12,
+      FontWeight.w500,
+      height: 1.3,
+      letterSpacing: 0.3,
+    ),
+  );
+}
+
+FilledButtonThemeData _filledButtonTheme(DeckStyle style, TextStyle text) =>
+    FilledButtonThemeData(
+      style: FilledButton.styleFrom(
+        minimumSize: const Size(48, 48),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        shape: style.border(Colors.transparent),
+        textStyle: text,
+      ),
+    );
+
+OutlinedButtonThemeData _outlinedButtonTheme(
+  DeckStyle style,
+  TextStyle text,
+  Color ink,
+  Color border,
+) => OutlinedButtonThemeData(
+  style: OutlinedButton.styleFrom(
+    minimumSize: const Size(48, 48),
+    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+    foregroundColor: ink,
+    side: BorderSide(color: border),
+    shape: style.border(border),
+    textStyle: text,
+  ),
+);
+
+InputDecorationTheme _inputTheme(
+  Appearance appearance,
+  Color surface,
+  Color border,
+) {
+  OutlineInputBorder outline() => OutlineInputBorder(
+    borderRadius: BorderRadius.circular(
+      ['soft', 'round'].contains(appearance.shape) ? 16 : 4,
+    ),
+    borderSide: BorderSide(color: border),
+  );
+  return InputDecorationTheme(
+    filled: true,
+    fillColor: surface,
+    border: outline(),
+    enabledBorder: outline(),
+  );
+}
+
+NavigationBarThemeData _navigationBarTheme(
+  Appearance appearance,
+  Color background,
+  Color hero,
+) => NavigationBarThemeData(
+  backgroundColor: background,
+  indicatorColor: hero,
+  labelTextStyle: WidgetStatePropertyAll(
+    TextStyle(
+      fontFamily: appearance.font,
+      fontFamilyFallback: _symbolFallback,
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+    ),
+  ),
+);
