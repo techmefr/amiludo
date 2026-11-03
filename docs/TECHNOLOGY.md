@@ -53,6 +53,7 @@ Le web applicatif sera Flutter. Un site vitrine et des documents indexables pour
 **Comptes et soirées** :
 - Supabase Auth (mot de passe, lien magique en PKCE avec code de secours, retour sur l’app web ou `amiludo://amiludo.app/account`) et PostgreSQL ;
 - table `evenings` avec RLS, fonctions `security definer` réservées aux comptes connectés (`server/supabase/migrations`) ;
+- fonction Edge `admin-users` (Deno) pour la gestion des comptes par les admins, avec la clé de service côté serveur uniquement ;
 - l’hôte fait autorité sur l’état du salon.
 
 Le serveur reste facultatif : sans `SUPABASE_URL` ni `SUPABASE_PUBLISHABLE_KEY` au build, tout fonctionne en local.

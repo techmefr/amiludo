@@ -66,35 +66,7 @@ class PackDetail extends StatelessWidget {
           if (p.englishName.isNotEmpty && p.englishName != p.name)
             Text(p.englishName),
           _PackPlayActions(pack: p, snapshot: snapshot),
-          SectionHeading(tr(context, 'Décompte', 'Scoring')),
-          for (final rule in p.scoring)
-            Text('${rule.name} · ${rule.explanation}'),
-          if (p.scoring.isEmpty) Text(p.categories.join(' · ')),
-          SectionHeading(
-            tr(context, 'Règles et variantes', 'Rules and variants'),
-          ),
-          if (p.rulesUrl.isNotEmpty)
-            OutlinedButton.icon(
-              onPressed: () => openProjectLink(context, p.rulesUrl),
-              icon: const DeckIcon(Icons.open_in_new),
-              label: Text(
-                tr(
-                  context,
-                  'Ouvrir les règles de référence',
-                  'Open the reference rules',
-                ),
-              ),
-            ),
-          const SizedBox(height: 16),
-          SelectableText(
-            p.rulesNotes.isEmpty
-                ? tr(
-                    context,
-                    'Aucune consigne ajoutée. Vous pouvez écrire vos variantes dans le builder.',
-                    'No notes yet. You can write your variants in the builder.',
-                  )
-                : p.rulesNotes,
-          ),
+          _PackRules(pack: p),
           SectionHeading(tr(context, 'Partager', 'Share')),
           Text(
             tr(
@@ -117,6 +89,46 @@ class PackDetail extends StatelessWidget {
       ),
     );
   }
+}
+
+class _PackRules extends StatelessWidget {
+  const _PackRules({required this.pack});
+
+  final GameTemplate pack;
+
+  @override
+  Widget build(BuildContext context) => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      SectionHeading(tr(context, 'Décompte', 'Scoring')),
+      for (final rule in pack.scoring)
+        Text('${rule.name} · ${rule.explanation}'),
+      if (pack.scoring.isEmpty) Text(pack.categories.join(' · ')),
+      SectionHeading(tr(context, 'Règles et variantes', 'Rules and variants')),
+      if (pack.rulesUrl.isNotEmpty)
+        OutlinedButton.icon(
+          onPressed: () => openProjectLink(context, pack.rulesUrl),
+          icon: const DeckIcon(Icons.open_in_new),
+          label: Text(
+            tr(
+              context,
+              'Ouvrir les règles de référence',
+              'Open the reference rules',
+            ),
+          ),
+        ),
+      const SizedBox(height: 16),
+      SelectableText(
+        pack.rulesNotes.isEmpty
+            ? tr(
+                context,
+                'Aucune consigne ajoutée. Vous pouvez écrire vos variantes dans le builder.',
+                'No notes yet. You can write your variants in the builder.',
+              )
+            : pack.rulesNotes,
+      ),
+    ],
+  );
 }
 
 class _PackPlayActions extends StatelessWidget {

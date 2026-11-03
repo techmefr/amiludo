@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/layers/functional/Account/domain/entities/account.dart';
 import 'package:amiludo/layers/functional/Account/presentation/cubit/account_cubit.dart';
@@ -67,6 +68,14 @@ class _SignedInPanelState extends State<SignedInPanel> {
                 tr(context, 'Changer le mot de passe', 'Change password'),
               ),
             ),
+            if (widget.account.admin)
+              OutlinedButton.icon(
+                onPressed: () => context.push('/admin'),
+                icon: const Icon(Icons.manage_accounts_outlined),
+                label: Text(
+                  tr(context, 'Gérer les comptes', 'Manage accounts'),
+                ),
+              ),
             TextButton(
               onPressed: widget.busy
                   ? null

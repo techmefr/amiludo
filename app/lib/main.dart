@@ -37,6 +37,12 @@ Future<void> main() async {
 }
 
 List<BlocProvider> _providers() => [
+  ..._tableProviders(),
+  ..._collectionProviders(),
+  ..._gatheringProviders(),
+];
+
+List<BlocProvider> _tableProviders() => [
   BlocProvider<WorkspaceCubit>(
     create: (_) =>
         WorkspaceCubit(getIt(), getIt(), getIt(), getIt(), getIt(), getIt())
@@ -72,6 +78,9 @@ List<BlocProvider> _providers() => [
     create: (_) =>
         RandomCubit(getIt(), getIt(), getIt(), getIt(), getIt(), getIt()),
   ),
+];
+
+List<BlocProvider> _collectionProviders() => [
   BlocProvider<LibraryCubit>(
     create: (_) => LibraryCubit(
       getIt(),
@@ -107,7 +116,6 @@ List<BlocProvider> _providers() => [
       getIt(),
     ),
   ),
-  ..._gatheringProviders(),
   BlocProvider<SharingCubit>(
     create: (_) => SharingCubit(getIt(), getIt(), getIt(), getIt(), getIt()),
   ),

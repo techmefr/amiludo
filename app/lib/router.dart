@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/dependencies.dart';
 import 'package:amiludo/layers/functional/Account/presentation/account_screen.dart';
+import 'package:amiludo/layers/functional/Admin/presentation/admin_screen.dart';
+import 'package:amiludo/layers/functional/Admin/presentation/cubit/admin_cubit.dart';
 import 'package:amiludo/layers/functional/Evenings/presentation/evening_detail.dart';
 import 'package:amiludo/layers/functional/Evenings/presentation/evening_form.dart';
 import 'package:amiludo/layers/functional/Evenings/presentation/evening_invite_screen.dart';
@@ -44,6 +46,17 @@ import 'package:amiludo/layers/functional/Workspace/presentation/workspace_gate.
 Widget _timer(BuildContext context) => const TimerPanel();
 
 Widget _scores(BuildContext context) => const GameScreen(timer: _timer);
+
+class _AdminPage extends StatelessWidget {
+  const _AdminPage();
+
+  @override
+  Widget build(BuildContext context) => BlocProvider(
+    create: (_) =>
+        AdminCubit(getIt(), getIt(), getIt(), getIt(), getIt())..load(),
+    child: const AdminScreen(),
+  );
+}
 
 GoRoute _page(String path, Widget Function(GoRouterState state) page) =>
     GoRoute(
@@ -127,6 +140,7 @@ final router = GoRouter(
       ),
     ),
     _page('/account', (state) => const AccountScreen()),
+    _page('/admin', (state) => const _AdminPage()),
     _page(
       '/evenings/edit/:id',
       (state) => EveningForm(id: state.pathParameters['id']!),

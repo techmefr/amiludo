@@ -79,62 +79,70 @@ class CharacterLibrary extends StatelessWidget {
               'Your saved characters will appear here, even if their pack is deleted.',
             ),
           ),
-        for (final c in records)
-          Padding(
-            padding: const EdgeInsets.only(bottom: 16),
-            child: DeckPanel(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(c.name, style: Theme.of(context).textTheme.titleLarge),
-                  Text(c.packName),
-                  for (final e in c.choices.entries)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 12),
-                      child: Text(
-                        '${e.key} : ${e.value.map((v) => v.name).join(" + ")}\n${e.value.map((v) => v.description).where((s) => s.isNotEmpty).join("\n")}',
-                      ),
-                    ),
-                  Wrap(
-                    spacing: 12,
-                    children: [
-                      TextButton(
-                        onPressed: () => FileTransfer.shareText(
-                          jsonEncode({
-                            'format': 'table-companion-character',
-                            'version': 1,
-                            'character': c.toJson(),
-                          }),
-                          'personnage-${c.id}.json',
-                        ),
-                        child: Text(
-                          tr(context, 'Exporter la fiche', 'Export the sheet'),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () async {
-                          final controller = context.read<RandomCubit>();
-                          if (await confirm(
-                            context,
-                            tr(
-                              context,
-                              'Supprimer ce personnage ?',
-                              'Delete this character?',
-                            ),
-                            c.name,
-                          )) {
-                            await controller.removeCharacter(c.id);
-                          }
-                        },
-                        child: Text(tr(context, 'Supprimer', 'Delete')),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
+        for (final c in records) _CharacterCard(character: c),
       ],
     );
   }
+}
+
+class _CharacterCard extends StatelessWidget {
+  const _CharacterCard({required this.character});
+
+  final GameCharacter character;
+
+  Future<void> _remove(BuildContext context) async {
+    final controller = context.read<RandomCubit>();
+    if (await confirm(
+      context,
+      tr(context, 'Supprimer ce personnage ?', 'Delete this character?'),
+      character.name,
+    )) {
+      await controller.removeCharacter(character.id);
+    }
+  }
+
+  void _export() => FileTransfer.shareText(
+    jsonEncode({
+      'format': 'table-companion-character',
+      'version': 1,
+      'character': character.toJson(),
+    }),
+    'personnage-${character.id}.json',
+  );
+
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.only(bottom: 16),
+    child: DeckPanel(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(character.name, style: Theme.of(context).textTheme.titleLarge),
+          Text(character.packName),
+          for (final e in character.choices.entries)
+            Padding(
+              padding: const EdgeInsets.only(top: 12),
+              child: Text(
+                '${e.key} : ${e.value.map((v) => v.name).join(" + ")}\n${e.value.map((v) => v.description).where((s) => s.isNotEmpty).join("\n")}',
+              ),
+            ),
+          Wrap(
+            spacing: 12,
+            children: [
+              TextButton(
+                onPressed: _export,
+                child: Text(
+                  tr(context, 'Exporter la fiche', 'Export the sheet'),
+                ),
+              ),
+              TextButton(
+                onPressed: () => _remove(context),
+                child: Text(tr(context, 'Supprimer', 'Delete')),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
 }
