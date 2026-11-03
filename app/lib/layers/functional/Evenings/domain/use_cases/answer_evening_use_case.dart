@@ -47,12 +47,12 @@ class AnswerEveningUseCase {
   ) {
     final at = (now ?? DateTime.now()).toUtc();
     if (guestId != null) {
-      if (!evening.mine) throw const FormatException('Réservé à l’hôte');
+      if (!evening.mine) throw EveningError.hostOnly;
       return Rsvp(id: guestId, name: guestName ?? '?', answer: answer, at: at);
     }
     final account = _accounts.current;
     if (evening.published && account == null) {
-      throw const AccountFailure('Connectez-vous pour répondre');
+      throw AccountError.signInRequired;
     }
     final name = account?.name ?? _workspace.current.nickname;
     return Rsvp(

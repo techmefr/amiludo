@@ -5,7 +5,7 @@ import 'package:amiludo/layers/functional/Templates/domain/entities/game_templat
 import 'package:amiludo/layers/functional/Templates/domain/entities/pack_components.dart';
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
-import 'package:amiludo/layers/functional/Random/presentation/random_tool.dart';
+import 'package:amiludo/layers/functional/Random/presentation/roles_tool.dart';
 
 class PackDiceTool extends StatefulWidget {
   const PackDiceTool({super.key, required this.pack});

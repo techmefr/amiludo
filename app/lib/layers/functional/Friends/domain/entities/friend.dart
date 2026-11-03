@@ -1,5 +1,7 @@
 enum GameOpinion { neutral, wished, loved, refused }
 
+enum FriendError implements Exception { duplicate }
+
 class Friend {
   const Friend({
     required this.id,

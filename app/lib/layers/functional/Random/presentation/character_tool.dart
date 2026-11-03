@@ -17,11 +17,10 @@ class CharacterTool extends StatefulWidget {
 }
 
 class _CharacterToolState extends State<CharacterTool> {
-  bool boosters = true, opened = false, saved = false;
+  bool boosters = true, opened = false, saved = false, missingName = false;
   CharacterDraft? draft;
   final selected = <int>{};
   final name = TextEditingController();
-  String? error;
   @override
   void dispose() {
     name.dispose();
@@ -33,12 +32,12 @@ class _CharacterToolState extends State<CharacterTool> {
     opened = !boosters;
     selected.clear();
     saved = false;
-    error = null;
+    missingName = false;
   });
 
   Future<void> save(CharacterDraft d) async {
     if (name.text.trim().isEmpty) {
-      setState(() => error = 'Donnez un nom au personnage.');
+      setState(() => missingName = true);
       return;
     }
     final c = GameCharacter(
@@ -52,7 +51,7 @@ class _CharacterToolState extends State<CharacterTool> {
     if (mounted) {
       setState(() {
         saved = true;
-        error = null;
+        missingName = false;
       });
     }
   }
@@ -60,8 +59,12 @@ class _CharacterToolState extends State<CharacterTool> {
   Future<void> restart() async {
     if (await confirm(
       context,
-      'Recommencer la création ?',
-      'Les choix en cours seront abandonnés. Les fiches déjà enregistrées restent conservées.',
+      tr(context, 'Recommencer la création ?', 'Restart creation?'),
+      tr(
+        context,
+        'Les choix en cours seront abandonnés. Les fiches déjà enregistrées restent conservées.',
+        'Current choices will be discarded. Saved sheets are kept.',
+      ),
     )) {
       if (!mounted) return;
       setState(() {
@@ -76,13 +79,13 @@ class _CharacterToolState extends State<CharacterTool> {
 
   List<Widget> setup() => [
     SegmentedButton<bool>(
-      segments: const [
+      segments: [
         ButtonSegment(
           value: false,
-          label: Text('Liste'),
-          icon: DeckIcon(Icons.list),
+          label: Text(tr(context, 'Liste', 'List')),
+          icon: const DeckIcon(Icons.list),
         ),
-        ButtonSegment(
+        const ButtonSegment(
           value: true,
           label: Text('Boosters'),
           icon: DeckIcon(Icons.style_outlined),
@@ -96,11 +99,20 @@ class _CharacterToolState extends State<CharacterTool> {
       Padding(
         padding: const EdgeInsets.only(bottom: 8),
         child: Text(
-          '${c.name} · ${c.cards.length} cartes · ${c.draw} proposées par booster · garder ${c.keepMin} à ${c.keepMax}',
+          tr(
+            context,
+            '${c.name} · ${c.cards.length} cartes · ${c.draw} proposées par booster · garder ${c.keepMin} à ${c.keepMax}',
+            '${c.name} · ${c.cards.length} cards · ${c.draw} offered per booster · keep ${c.keepMin} to ${c.keepMax}',
+          ),
         ),
       ),
     const SizedBox(height: 16),
-    FilledButton(onPressed: start, child: const Text('Générer mon personnage')),
+    FilledButton(
+      onPressed: start,
+      child: Text(
+        tr(context, 'Générer mon personnage', 'Generate my character'),
+      ),
+    ),
   ];
 
   Widget booster(CreationCategory category) => DeckPanel(
@@ -109,11 +121,23 @@ class _CharacterToolState extends State<CharacterTool> {
       children: [
         const DeckIcon(Icons.style_outlined, size: 72),
         const SizedBox(height: 16),
-        Text('${category.draw} cartes à découvrir'),
+        Text(
+          tr(
+            context,
+            '${category.draw} cartes à découvrir',
+            '${category.draw} cards to reveal',
+          ),
+        ),
         const SizedBox(height: 20),
         FilledButton(
           onPressed: () => setState(() => opened = true),
-          child: Text('Ouvrir le booster · ${category.name}'),
+          child: Text(
+            tr(
+              context,
+              'Ouvrir le booster · ${category.name}',
+              'Open the booster · ${category.name}',
+            ),
+          ),
         ),
       ],
     ),
@@ -133,7 +157,7 @@ class _CharacterToolState extends State<CharacterTool> {
         const SizedBox(height: 20),
         CheckboxListTile(
           contentPadding: EdgeInsets.zero,
-          title: const Text('Garder cette carte'),
+          title: Text(tr(context, 'Garder cette carte', 'Keep this card')),
           value: selected.contains(i),
           onChanged:
               !selected.contains(i) && selected.length >= category.keepMax
@@ -165,20 +189,24 @@ class _CharacterToolState extends State<CharacterTool> {
             }),
       child: Text(
         d.index + 1 == d.categories.length
-            ? 'Créer la fiche'
-            : 'Valider et continuer',
+            ? tr(context, 'Créer la fiche', 'Create the sheet')
+            : tr(context, 'Valider et continuer', 'Confirm and continue'),
       ),
     ),
   ];
 
   List<Widget> step(CharacterDraft d, CreationCategory category) => [
     Text(
-      'ÉTAPE ${d.index + 1} / ${d.categories.length} · ${category.name}',
+      '${tr(context, 'ÉTAPE', 'STEP')} ${d.index + 1} / ${d.categories.length} · ${category.name}',
       style: Theme.of(context).textTheme.titleLarge,
     ),
     const SizedBox(height: 12),
     Text(
-      'Gardez ${category.keepMin == category.keepMax ? "${category.keepMax}" : "${category.keepMin} à ${category.keepMax}"} carte(s). ${selected.length} sélectionnée(s).',
+      tr(
+        context,
+        'Gardez ${category.keepMin == category.keepMax ? "${category.keepMax}" : "${category.keepMin} à ${category.keepMax}"} carte(s). ${selected.length} sélectionnée(s).',
+        'Keep ${category.keepMin == category.keepMax ? "${category.keepMax}" : "${category.keepMin} to ${category.keepMax}"} card(s). ${selected.length} selected.',
+      ),
     ),
     const SizedBox(height: 20),
     if (!opened) booster(category),
@@ -186,7 +214,7 @@ class _CharacterToolState extends State<CharacterTool> {
   ];
 
   List<Widget> summary(CharacterDraft d) => [
-    const SectionHeading('Votre personnage'),
+    SectionHeading(tr(context, 'Votre personnage', 'Your character')),
     for (final e in d.choices.entries) ...[
       Text(e.key, style: Theme.of(context).textTheme.titleMedium),
       for (final card in e.value)
@@ -199,13 +227,26 @@ class _CharacterToolState extends State<CharacterTool> {
     TextField(
       controller: name,
       maxLength: 80,
-      decoration: const InputDecoration(labelText: 'Nom du personnage'),
+      decoration: InputDecoration(
+        labelText: tr(context, 'Nom du personnage', 'Character name'),
+      ),
     ),
-    if (error != null) Text(error!),
+    if (missingName)
+      Text(
+        tr(
+          context,
+          'Donnez un nom au personnage.',
+          'Give the character a name.',
+        ),
+      ),
     const SizedBox(height: 16),
     FilledButton(
       onPressed: saved ? null : () => save(d),
-      child: Text(saved ? 'Personnage enregistré' : 'Enregistrer la fiche'),
+      child: Text(
+        saved
+            ? tr(context, 'Personnage enregistré', 'Character saved')
+            : tr(context, 'Enregistrer la fiche', 'Save the sheet'),
+      ),
     ),
   ];
 
@@ -221,8 +262,12 @@ class _CharacterToolState extends State<CharacterTool> {
           style: Theme.of(context).textTheme.headlineMedium,
         ),
         const SizedBox(height: 12),
-        const Text(
-          'Composez votre personnage avec les cartes du pack. Les limites de sélection sont définies par son créateur.',
+        Text(
+          tr(
+            context,
+            'Composez votre personnage avec les cartes du pack. Les limites de sélection sont définies par son créateur.',
+            'Build your character with the pack cards. Selection limits are set by its creator.',
+          ),
         ),
         const SizedBox(height: 20),
         if (d == null) ...setup(),
@@ -230,7 +275,10 @@ class _CharacterToolState extends State<CharacterTool> {
         if (d != null && d.complete) ...summary(d),
         if (d != null) ...[
           const SizedBox(height: 16),
-          OutlinedButton(onPressed: restart, child: const Text('Recommencer')),
+          OutlinedButton(
+            onPressed: restart,
+            child: Text(tr(context, 'Recommencer', 'Restart')),
+          ),
         ],
         const CharacterLibrary(),
       ],

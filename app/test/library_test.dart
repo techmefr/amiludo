@@ -158,7 +158,7 @@ void _friendTests() {
     await save(const Friend(id: '1', name: 'Alex'));
     expect(
       () => save(const Friend(id: '2', name: 'alex')),
-      throwsFormatException,
+      throwsA(FriendError.duplicate),
     );
   });
 

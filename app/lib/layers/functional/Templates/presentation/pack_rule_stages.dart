@@ -20,8 +20,12 @@ class ModesStage extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      const Text(
-        'Choisissez uniquement les outils utiles à ce jeu. Les étapes suivantes s’adaptent à votre sélection.',
+      Text(
+        tr(
+          context,
+          'Choisissez uniquement les outils utiles à ce jeu. Les étapes suivantes s’adaptent à votre sélection.',
+          'Pick only the tools this game needs. The next steps adapt to your choice.',
+        ),
       ),
       const SizedBox(height: 16),
       for (final t in toolDefinitions)
@@ -34,14 +38,26 @@ class ModesStage extends StatelessWidget {
         ),
       CheckboxListTile(
         contentPadding: EdgeInsets.zero,
-        title: const Text('Règles et variantes'),
+        title: Text(tr(context, 'Règles et variantes', 'Rules and variants')),
         value: modes.contains('rules'),
         onChanged: (v) => onTool('rules', v == true),
       ),
       CheckboxListTile(
         contentPadding: EdgeInsets.zero,
-        title: const Text('Compteurs et statuts de joueur'),
-        subtitle: const Text('Vies, énergie, poison, bouclier…'),
+        title: Text(
+          tr(
+            context,
+            'Compteurs et statuts de joueur',
+            'Player counters and statuses',
+          ),
+        ),
+        subtitle: Text(
+          tr(
+            context,
+            'Vies, énergie, poison, bouclier…',
+            'Lives, energy, poison, shield…',
+          ),
+        ),
         value: trackers,
         onChanged: (v) => onTrackers(v == true),
       ),
@@ -49,13 +65,23 @@ class ModesStage extends StatelessWidget {
   );
 }
 
-const _ruleKinds = [
-  ('linear', 'Quantité × points'),
-  ('sets', 'Lots complets'),
-  ('triangular', 'Progression 1 + 2 + 3…'),
-  ('threshold', 'Bonus à partir d’un seuil'),
-  ('lookup', 'Barème personnalisé'),
-];
+const _ruleKinds = ['linear', 'sets', 'triangular', 'threshold', 'lookup'];
+
+String _ruleKindLabel(BuildContext context, String kind) => switch (kind) {
+  'linear' => tr(context, 'Quantité × points', 'Quantity × points'),
+  'sets' => tr(context, 'Lots complets', 'Complete sets'),
+  'triangular' => tr(
+    context,
+    'Progression 1 + 2 + 3…',
+    'Progression 1 + 2 + 3…',
+  ),
+  'threshold' => tr(
+    context,
+    'Bonus à partir d’un seuil',
+    'Bonus from a threshold',
+  ),
+  _ => tr(context, 'Barème personnalisé', 'Custom table'),
+};
 
 class PointsStage extends StatelessWidget {
   const PointsStage({
@@ -77,9 +103,13 @@ class PointsStage extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      const SectionHeading('03 / Décompte des points'),
-      const Text(
-        'Chaque catégorie calcule un total à partir d’une quantité. La feuille de décompte remplace le total de la catégorie ; elle ne l’ajoute pas une deuxième fois.',
+      SectionHeading(tr(context, '03 / Décompte des points', '03 / Scoring')),
+      Text(
+        tr(
+          context,
+          'Chaque catégorie calcule un total à partir d’une quantité. La feuille de décompte remplace le total de la catégorie ; elle ne l’ajoute pas une deuxième fois.',
+          'Each category computes a total from a quantity. The score sheet replaces the category total; it does not add it twice.',
+        ),
       ),
       const SizedBox(height: 16),
       for (final d in rules)
@@ -102,19 +132,24 @@ class PointsStage extends StatelessWidget {
             ? null
             : () => refresh(() => rules.add(RuleDraft(null))),
         icon: const DeckIcon(Icons.add),
-        label: const Text('Ajouter une catégorie'),
+        label: Text(tr(context, 'Ajouter une catégorie', 'Add a category')),
       ),
       const SizedBox(height: 20),
-      BuilderField(target, 'Objectif de points (0 = libre)'),
+      BuilderField(
+        target,
+        tr(context, 'Objectif de points (0 = libre)', 'Points goal (0 = none)'),
+      ),
       SwitchListTile(
         contentPadding: EdgeInsets.zero,
-        title: const Text('Le score le plus bas gagne'),
+        title: Text(
+          tr(context, 'Le score le plus bas gagne', 'Lowest score wins'),
+        ),
         value: low,
         onChanged: onLow,
       ),
       SwitchListTile(
         contentPadding: EdgeInsets.zero,
-        title: const Text('Objectif coopératif'),
+        title: Text(tr(context, 'Objectif coopératif', 'Cooperative goal')),
         value: coop,
         onChanged: onCoop,
       ),
@@ -134,15 +169,24 @@ class _RuleEditor extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Column(
     children: [
-      BuilderField(rule.name, 'Catégorie de points', maxLength: 40),
+      BuilderField(
+        rule.name,
+        tr(context, 'Catégorie de points', 'Points category'),
+        maxLength: 40,
+      ),
       DropdownButtonFormField<String>(
         style: Theme.of(context).textTheme.bodyLarge,
         initialValue: rule.kind,
         isExpanded: true,
-        decoration: const InputDecoration(labelText: 'Méthode de calcul'),
+        decoration: InputDecoration(
+          labelText: tr(context, 'Méthode de calcul', 'Calculation method'),
+        ),
         items: [
-          for (final (value, label) in _ruleKinds)
-            DropdownMenuItem(value: value, child: Text(label)),
+          for (final value in _ruleKinds)
+            DropdownMenuItem(
+              value: value,
+              child: Text(_ruleKindLabel(context, value)),
+            ),
         ],
         onChanged: (v) => refresh(() => rule.kind = v!),
       ),
@@ -151,22 +195,42 @@ class _RuleEditor extends StatelessWidget {
         BuilderField(
           rule.factor,
           rule.kind == 'threshold'
-              ? 'Points si le seuil est atteint'
-              : 'Points par unité ou lot',
+              ? tr(
+                  context,
+                  'Points si le seuil est atteint',
+                  'Points when the threshold is reached',
+                )
+              : tr(
+                  context,
+                  'Points par unité ou lot',
+                  'Points per unit or set',
+                ),
         ),
       if (['sets', 'threshold'].contains(rule.kind))
         BuilderField(
           rule.step,
-          rule.kind == 'sets' ? 'Taille d’un lot' : 'Seuil à atteindre',
+          rule.kind == 'sets'
+              ? tr(context, 'Taille d’un lot', 'Set size')
+              : tr(context, 'Seuil à atteindre', 'Threshold to reach'),
         ),
       if (rule.kind == 'lookup')
         BuilderField(
           rule.table,
-          'Barème pour 0, 1, 2, 3…',
-          hint: 'Valeurs séparées par des virgules : 0, 1, 3, 6, 10',
+          tr(context, 'Barème pour 0, 1, 2, 3…', 'Table for 0, 1, 2, 3…'),
+          hint: tr(
+            context,
+            'Valeurs séparées par des virgules : 0, 1, 3, 6, 10',
+            'Comma-separated values: 0, 1, 3, 6, 10',
+          ),
         ),
-      BuilderField(rule.bonus, 'Bonus ou malus fixe'),
-      RemoveDraftButton('Retirer cette catégorie', onRemove),
+      BuilderField(
+        rule.bonus,
+        tr(context, 'Bonus ou malus fixe', 'Fixed bonus or penalty'),
+      ),
+      RemoveDraftButton(
+        tr(context, 'Retirer cette catégorie', 'Remove this category'),
+        onRemove,
+      ),
     ],
   );
 }
@@ -177,18 +241,32 @@ class RulesStage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Column(
     children: [
-      const SectionHeading('05 / Règles et références'),
+      SectionHeading(
+        tr(context, '05 / Règles et références', '05 / Rules and references'),
+      ),
       BuilderField(
         url,
-        'Lien HTTPS vers les règles ou le site de l’éditeur',
-        hint: 'Le lien s’ouvrira dans le navigateur. Le livret distant n’est pas téléchargé.',
+        tr(
+          context,
+          'Lien HTTPS vers les règles ou le site de l’éditeur',
+          'HTTPS link to the rules or the publisher site',
+        ),
+        hint: tr(
+          context,
+          'Le lien s’ouvrira dans le navigateur. Le livret distant n’est pas téléchargé.',
+          'The link opens in the browser. The remote booklet is not downloaded.',
+        ),
       ),
       BuilderField(
         notes,
-        'Vos consignes et variantes',
+        tr(context, 'Vos consignes et variantes', 'Your notes and variants'),
         lines: 6,
         maxLength: 12000,
-        hint: 'Ces notes seront disponibles hors connexion dans le pack.',
+        hint: tr(
+          context,
+          'Ces notes seront disponibles hors connexion dans le pack.',
+          'These notes will be available offline in the pack.',
+        ),
       ),
     ],
   );
@@ -212,18 +290,33 @@ class SummaryStage extends StatelessWidget {
     children: [
       Text(title, style: Theme.of(context).textTheme.headlineSmall),
       const SizedBox(height: 16),
-      Text('Outils choisis : ${modes.join(' · ')}'),
+      Text(
+        '${tr(context, 'Outils choisis', 'Chosen tools')} : ${modes.join(' · ')}',
+      ),
       const SizedBox(height: 16),
       ExpansionTile(
-        title: const Text('Publication et crédits'),
+        title: Text(
+          tr(context, 'Publication et crédits', 'Publishing and credits'),
+        ),
         children: [
-          BuilderField(author, 'Auteur du pack', maxLength: 120),
+          BuilderField(
+            author,
+            tr(context, 'Auteur du pack', 'Pack author'),
+            maxLength: 120,
+          ),
           BuilderField(
             license,
-            'Licence du pack',
-            hint: 'MIT, CC0-1.0, CC-BY-4.0… Les contenus doivent vous appartenir ou être autorisés.',
+            tr(context, 'Licence du pack', 'Pack licence'),
+            hint: tr(
+              context,
+              'MIT, CC0-1.0, CC-BY-4.0… Les contenus doivent vous appartenir ou être autorisés.',
+              'MIT, CC0-1.0, CC-BY-4.0… The content must be yours or allowed.',
+            ),
           ),
-          BuilderField(revision, 'Version du pack'),
+          BuilderField(
+            revision,
+            tr(context, 'Version du pack', 'Pack version'),
+          ),
         ],
       ),
     ],

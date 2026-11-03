@@ -23,7 +23,7 @@ class StartGameUseCase {
         names.length > 32 ||
         names.map((n) => n.trim()).toSet().length != names.length ||
         names.any((n) => n.trim().isEmpty || n.length > 40)) {
-      throw const FormatException('Choisissez 1 à 32 prénoms différents.');
+      throw GameError.invalidPlayers;
     }
     final data = _workspace.current;
     final id = newId();

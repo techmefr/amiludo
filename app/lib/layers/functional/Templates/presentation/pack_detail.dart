@@ -27,10 +27,16 @@ class PackDetail extends StatelessWidget {
       if (ws.current?.pack != null) ws.current!.pack!,
     ].where((t) => t.id == id).firstOrNull;
     if (p == null) {
-      return const FullPage(
-        title: 'Pack introuvable',
+      return FullPage(
+        title: tr(context, 'Pack introuvable', 'Pack not found'),
         fallback: '/templates',
-        child: Text('Ce pack n’est pas installé sur cet appareil.'),
+        child: Text(
+          tr(
+            context,
+            'Ce pack n’est pas installé sur cet appareil.',
+            'This pack is not installed on this device.',
+          ),
+        ),
       );
     }
     return FullPage(
@@ -40,46 +46,72 @@ class PackDetail extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (snapshot)
-            const Text('Copie des règles conservée pour cette partie.'),
+            Text(
+              tr(
+                context,
+                'Copie des règles conservée pour cette partie.',
+                'Rules copy kept for this game.',
+              ),
+            ),
           DeckHeading(
             eyebrow: 'PACK / ${p.revision}',
             title: p.name,
             subtitle: p.description,
           ),
           Text(
-            '${p.author.isEmpty ? 'Auteur non renseigné' : p.author} · ${p.license}',
+            '${p.author.isEmpty ? tr(context, 'Auteur non renseigné', 'Unknown author') : p.author} · ${p.license}',
           ),
           if (p.edition.isNotEmpty) Text(p.edition),
           const SizedBox(height: 24),
           if (p.englishName.isNotEmpty && p.englishName != p.name)
             Text(p.englishName),
           _PackPlayActions(pack: p, snapshot: snapshot),
-          const SectionHeading('Décompte'),
+          SectionHeading(tr(context, 'Décompte', 'Scoring')),
           for (final rule in p.scoring)
             Text('${rule.name} · ${rule.explanation}'),
           if (p.scoring.isEmpty) Text(p.categories.join(' · ')),
-          const SectionHeading('Règles et variantes'),
+          SectionHeading(
+            tr(context, 'Règles et variantes', 'Rules and variants'),
+          ),
           if (p.rulesUrl.isNotEmpty)
             OutlinedButton.icon(
               onPressed: () => openProjectLink(context, p.rulesUrl),
               icon: const DeckIcon(Icons.open_in_new),
-              label: const Text('Ouvrir les règles de référence'),
+              label: Text(
+                tr(
+                  context,
+                  'Ouvrir les règles de référence',
+                  'Open the reference rules',
+                ),
+              ),
             ),
           const SizedBox(height: 16),
           SelectableText(
             p.rulesNotes.isEmpty
-                ? 'Aucune consigne ajoutée. Vous pouvez écrire vos variantes dans le builder.'
+                ? tr(
+                    context,
+                    'Aucune consigne ajoutée. Vous pouvez écrire vos variantes dans le builder.',
+                    'No notes yet. You can write your variants in the builder.',
+                  )
                 : p.rulesNotes,
           ),
-          const SectionHeading('Partager'),
-          const Text(
-            'Le fichier contient les dés, rôles, décomptes et notes du pack. Il ne contient pas vos parties.',
+          SectionHeading(tr(context, 'Partager', 'Share')),
+          Text(
+            tr(
+              context,
+              'Le fichier contient les dés, rôles, décomptes et notes du pack. Il ne contient pas vos parties.',
+              'The file holds the pack dice, roles, scoring and notes. It does not hold your games.',
+            ),
           ),
           const SizedBox(height: 16),
           _PackShareActions(pack: p),
           const SizedBox(height: 12),
-          const Text(
-            'Pour proposer votre création : exportez le JSON, ouvrez GitHub, ajoutez le fichier et proposez une pull request. La publication suit une relecture. Un compte GitHub est nécessaire pour contribuer au catalogue.',
+          Text(
+            tr(
+              context,
+              'Pour proposer votre création : exportez le JSON, ouvrez GitHub, ajoutez le fichier et proposez une pull request. La publication suit une relecture. Un compte GitHub est nécessaire pour contribuer au catalogue.',
+              'To submit your creation: export the JSON, open GitHub, add the file and open a pull request. Publication follows a review. A GitHub account is needed to contribute to the catalogue.',
+            ),
           ),
         ],
       ),
@@ -103,7 +135,7 @@ class _PackPlayActions extends StatelessWidget {
             GameSetupRequest.path,
             extra: GameSetupRequest(template: p),
           ),
-          child: const Text('Jouer avec ce pack'),
+          child: Text(tr(context, 'Jouer avec ce pack', 'Play with this pack')),
         ),
         for (final t in toolDefinitions.where(
           (t) => p.modules.contains(t.id) && t.id != 'scores',
@@ -112,15 +144,25 @@ class _PackPlayActions extends StatelessWidget {
             onPressed: () => context.push(
               '/tools/${t.id}?pack=${p.id}${snapshot ? '&session=1' : ''}',
             ),
-            child: Text(t.id == 'character' ? 'Créer un personnage' : t.title),
+            child: Text(
+              t.id == 'character'
+                  ? tr(context, 'Créer un personnage', 'Create a character')
+                  : t.title,
+            ),
           ),
         OutlinedButton(
           onPressed: () => context.push('/builder/${p.id}'),
-          child: const Text('Personnaliser'),
+          child: Text(tr(context, 'Personnaliser', 'Customise')),
         ),
         TextButton(
           onPressed: () => context.go('/tools'),
-          child: const Text('Tous les outils en mode libre'),
+          child: Text(
+            tr(
+              context,
+              'Tous les outils en mode libre',
+              'All tools in free mode',
+            ),
+          ),
         ),
       ],
     );
@@ -146,14 +188,18 @@ class _PackShareActions extends StatelessWidget {
             'pack-${pack.id}.json',
           ),
           icon: const DeckIcon(Icons.file_download_outlined),
-          label: const Text('Exporter le pack JSON'),
+          label: Text(
+            tr(context, 'Exporter le pack JSON', 'Export the pack JSON'),
+          ),
         ),
         OutlinedButton(
           onPressed: () => openProjectLink(
             context,
             '$projectUrl/upload/main/community/packs',
           ),
-          child: const Text('Proposer à la galerie'),
+          child: Text(
+            tr(context, 'Proposer à la galerie', 'Submit to the gallery'),
+          ),
         ),
       ],
     );

@@ -4,6 +4,16 @@ class Account {
   final String id, email, name;
 }
 
+enum AccountError implements Exception {
+  invalidEmail,
+  invalidPassword,
+  invalidName,
+  signInRequired,
+  rejected,
+  unavailable,
+  unreachable,
+}
+
 class AccountFailure implements Exception {
   const AccountFailure(this.message);
 

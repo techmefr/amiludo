@@ -18,10 +18,26 @@ class PhotoGrid extends StatelessWidget {
     try {
       final bytes = await FileTransfer.openImage();
       if (bytes != null) await cubit.addPhoto(memory.sessionId, bytes);
+    } on PhotoError catch (error) {
+      if (context.mounted) notify(context, _photoErrorText(context, error));
     } on FormatException catch (error) {
       if (context.mounted) notify(context, error.message);
     }
   }
+
+  String _photoErrorText(BuildContext context, PhotoError error) =>
+      switch (error) {
+        PhotoError.tooLarge => tr(
+          context,
+          'Photo trop lourde (8 Mo maximum).',
+          'Photo too large (8 MB maximum).',
+        ),
+        PhotoError.tooMany => tr(
+          context,
+          '60 photos maximum par partie.',
+          '60 photos maximum per game.',
+        ),
+      };
 
   @override
   Widget build(BuildContext context) => Column(

@@ -12,6 +12,19 @@ import 'package:amiludo/layers/functional/Templates/presentation/pack_component_
 import 'package:amiludo/layers/functional/Templates/presentation/pack_drafts.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/pack_rule_stages.dart';
 
+enum BuilderStage {
+  game,
+  modes,
+  dice,
+  roles,
+  points,
+  trackers,
+  characters,
+  timer,
+  rules,
+  summary,
+}
+
 class PackBuilder extends StatefulWidget {
   const PackBuilder({super.key, this.template});
   final GameTemplate? template;
@@ -35,17 +48,17 @@ class _PackBuilderState extends State<PackBuilder> {
   int stage = 0;
   final modes = <String>{};
   bool trackers = false;
-  List<String> get stages => [
-    'Jeu',
-    'Modes',
-    if (modes.contains('dice')) 'Dés',
-    if (modes.contains('roles')) 'Rôles',
-    if (modes.contains('scores')) 'Points',
-    if (trackers) 'Compteurs',
-    if (modes.contains('character')) 'Personnages',
-    if (modes.contains('timer')) 'Temps',
-    if (modes.contains('rules')) 'Règles',
-    'Résumé',
+  List<BuilderStage> get stages => [
+    BuilderStage.game,
+    BuilderStage.modes,
+    if (modes.contains('dice')) BuilderStage.dice,
+    if (modes.contains('roles')) BuilderStage.roles,
+    if (modes.contains('scores')) BuilderStage.points,
+    if (trackers) BuilderStage.trackers,
+    if (modes.contains('character')) BuilderStage.characters,
+    if (modes.contains('timer')) BuilderStage.timer,
+    if (modes.contains('rules')) BuilderStage.rules,
+    BuilderStage.summary,
   ];
   final creation = <CreationDraft>[];
   final dice = <DieDraft>[], roles = <RoleDraft>[], rules = <RuleDraft>[];
@@ -194,13 +207,26 @@ class _PackBuilderState extends State<PackBuilder> {
     try {
       await context.read<TemplatesCubit>().addTemplate(compile());
       if (mounted) {
-        notify(context, 'Pack enregistré sur cet appareil');
+        notify(
+          context,
+          tr(
+            context,
+            'Pack enregistré sur cet appareil',
+            'Pack saved on this device',
+          ),
+        );
         _leave();
       }
     } on FormatException catch (e) {
       setState(() => error = e.message);
     } on TypeError {
-      setState(() => error = 'Vérifiez les nombres et les champs du pack.');
+      setState(
+        () => error = tr(
+          context,
+          'Vérifiez les nombres et les champs du pack.',
+          'Check the numbers and fields of the pack.',
+        ),
+      );
     }
   }
 
@@ -216,11 +242,23 @@ class _PackBuilderState extends State<PackBuilder> {
   void _next() {
     if (stage == 0 &&
         (name.text.trim().isEmpty || englishName.text.trim().isEmpty)) {
-      setState(() => error = 'Renseignez le nom du jeu et son nom anglais.');
+      setState(
+        () => error = tr(
+          context,
+          'Renseignez le nom du jeu et son nom anglais.',
+          'Fill in the game name and its English name.',
+        ),
+      );
       return;
     }
     if (stage == 1 && modes.isEmpty) {
-      setState(() => error = 'Choisissez au moins un outil.');
+      setState(
+        () => error = tr(
+          context,
+          'Choisissez au moins un outil.',
+          'Pick at least one tool.',
+        ),
+      );
       return;
     }
     setState(() {
@@ -229,25 +267,47 @@ class _PackBuilderState extends State<PackBuilder> {
     });
   }
 
+  Widget _gameStage() => Column(
+    children: [
+      BuilderField(
+        name,
+        tr(context, 'Nom du jeu ou du pack', 'Game or pack name'),
+        maxLength: 80,
+      ),
+      BuilderField(
+        englishName,
+        tr(context, 'Nom du jeu en anglais', 'English game name'),
+        maxLength: 80,
+      ),
+      BuilderField(
+        description,
+        tr(context, 'Présentation', 'Description'),
+        lines: 2,
+        maxLength: 500,
+      ),
+      BuilderField(
+        edition,
+        tr(context, 'Édition ou variante', 'Edition or variant'),
+        maxLength: 120,
+      ),
+      BuilderField(
+        language,
+        tr(context, 'Langue du pack (fr, en…)', 'Pack language (fr, en…)'),
+      ),
+    ],
+  );
+
   Widget _stage() => switch (stages[stage]) {
-    'Jeu' => Column(
-      children: [
-        BuilderField(name, 'Nom du jeu ou du pack', maxLength: 80),
-        BuilderField(englishName, 'Nom du jeu en anglais', maxLength: 80),
-        BuilderField(description, 'Présentation', lines: 2, maxLength: 500),
-        BuilderField(edition, 'Édition ou variante', maxLength: 120),
-        BuilderField(language, 'Langue du pack (fr, en…)'),
-      ],
-    ),
-    'Modes' => ModesStage(
+    BuilderStage.game => _gameStage(),
+    BuilderStage.modes => ModesStage(
       modes: modes,
       trackers: trackers,
       onTool: _toggleTool,
       onTrackers: (v) => setState(() => trackers = v),
     ),
-    'Dés' => DiceStage(dice: dice, refresh: setState),
-    'Rôles' => RolesStage(roles: roles, refresh: setState),
-    'Points' => PointsStage(
+    BuilderStage.dice => DiceStage(dice: dice, refresh: setState),
+    BuilderStage.roles => RolesStage(roles: roles, refresh: setState),
+    BuilderStage.points => PointsStage(
       rules: rules,
       target: target,
       low: low,
@@ -256,29 +316,52 @@ class _PackBuilderState extends State<PackBuilder> {
       onCoop: (v) => setState(() => coop = v),
       refresh: setState,
     ),
-    'Compteurs' => TrackersStage(
+    BuilderStage.trackers => TrackersStage(
       resources: resources,
       statuses: statuses,
       refresh: setState,
     ),
-    'Personnages' => CharactersStage(creation: creation, refresh: setState),
-    'Temps' => BuilderField(seconds, 'Temps par tour en secondes'),
-    'Règles' => RulesStage(url: url, notes: notes),
-    _ => SummaryStage(
+    BuilderStage.characters => CharactersStage(
+      creation: creation,
+      refresh: setState,
+    ),
+    BuilderStage.timer => BuilderField(
+      seconds,
+      tr(context, 'Temps par tour en secondes', 'Turn time in seconds'),
+    ),
+    BuilderStage.rules => RulesStage(url: url, notes: notes),
+    BuilderStage.summary => SummaryStage(
       title: '${name.text} / ${englishName.text}',
-      modes: {...modes, if (trackers) 'compteurs'},
+      modes: {...modes, if (trackers) tr(context, 'compteurs', 'counters')},
       author: author,
       license: license,
       revision: revision,
     ),
   };
 
+  String _stageLabel(BuilderStage stage) => switch (stage) {
+    BuilderStage.game => tr(context, 'Jeu', 'Game'),
+    BuilderStage.modes => tr(context, 'Modes', 'Modes'),
+    BuilderStage.dice => tr(context, 'Dés', 'Dice'),
+    BuilderStage.roles => tr(context, 'Rôles', 'Roles'),
+    BuilderStage.points => tr(context, 'Points', 'Points'),
+    BuilderStage.trackers => tr(context, 'Compteurs', 'Counters'),
+    BuilderStage.characters => tr(context, 'Personnages', 'Characters'),
+    BuilderStage.timer => tr(context, 'Temps', 'Time'),
+    BuilderStage.rules => tr(context, 'Règles', 'Rules'),
+    BuilderStage.summary => tr(context, 'Résumé', 'Summary'),
+  };
+
   Future<void> _confirmLeave(bool didPop, Object? result) async {
     if (didPop) return;
     if (await confirm(
           context,
-          'Quitter le builder ?',
-          'Les modifications non enregistrées seront perdues.',
+          tr(context, 'Quitter le builder ?', 'Leave the builder?'),
+          tr(
+            context,
+            'Les modifications non enregistrées seront perdues.',
+            'Unsaved changes will be lost.',
+          ),
         ) &&
         mounted) {
       _leave();
@@ -291,19 +374,23 @@ class _PackBuilderState extends State<PackBuilder> {
     onPopInvokedWithResult: _confirmLeave,
     child: FullPage(
       title: widget.template == null
-          ? 'Créer un pack de jeu'
-          : 'Modifier le pack',
+          ? tr(context, 'Créer un pack de jeu', 'Create a game pack')
+          : tr(context, 'Modifier le pack', 'Edit the pack'),
       fallback: '/templates',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const DeckHeading(
-            eyebrow: 'ATELIER / VOTRE JEU',
-            title: 'Un jeu, vos outils',
-            subtitle: 'Construisez les dés, les rôles et le décompte. Enregistrez, testez puis partagez votre pack.',
+          DeckHeading(
+            eyebrow: tr(context, 'ATELIER / VOTRE JEU', 'WORKSHOP / YOUR GAME'),
+            title: tr(context, 'Un jeu, vos outils', 'One game, your tools'),
+            subtitle: tr(
+              context,
+              'Construisez les dés, les rôles et le décompte. Enregistrez, testez puis partagez votre pack.',
+              'Build the dice, roles and scoring. Save, test, then share your pack.',
+            ),
           ),
           Text(
-            'Étape ${stage + 1} / ${stages.length} · ${stages[stage]}',
+            '${tr(context, 'Étape', 'Step')} ${stage + 1} / ${stages.length} · ${_stageLabel(stages[stage])}',
             style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(height: 12),
@@ -311,7 +398,7 @@ class _PackBuilderState extends State<PackBuilder> {
           const SizedBox(height: 24),
           _stage(),
           _StageNavigation(
-            last: stages[stage] == 'Résumé',
+            last: stages[stage] == BuilderStage.summary,
             first: stage == 0,
             error: error,
             onNext: _next,
@@ -344,9 +431,15 @@ class _StageNavigation extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       if (!last)
-        FilledButton(onPressed: onNext, child: const Text('Continuer')),
+        FilledButton(
+          onPressed: onNext,
+          child: Text(tr(context, 'Continuer', 'Continue')),
+        ),
       if (!first)
-        TextButton(onPressed: onBack, child: const Text('Étape précédente')),
+        TextButton(
+          onPressed: onBack,
+          child: Text(tr(context, 'Étape précédente', 'Previous step')),
+        ),
       if (error != null)
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 16),
@@ -359,7 +452,7 @@ class _StageNavigation extends StatelessWidget {
         FilledButton.icon(
           onPressed: onSave,
           icon: const DeckIcon(Icons.save_outlined),
-          label: const Text('Enregistrer le pack'),
+          label: Text(tr(context, 'Enregistrer le pack', 'Save the pack')),
         ),
     ],
   );

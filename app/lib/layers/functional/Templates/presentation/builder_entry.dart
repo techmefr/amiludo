@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/pack_builder.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
 
 class BuilderEntry extends StatelessWidget {
@@ -17,10 +18,16 @@ class BuilderEntry extends StatelessWidget {
       ...GameTemplate.builtIn,
     ].where((p) => p.id == id).firstOrNull;
     if (p == null) {
-      return const FullPage(
-        title: 'Pack introuvable',
+      return FullPage(
+        title: tr(context, 'Pack introuvable', 'Pack not found'),
         fallback: '/templates',
-        child: Text('Ce pack n’est plus installé.'),
+        child: Text(
+          tr(
+            context,
+            'Ce pack n’est plus installé.',
+            'This pack is no longer installed.',
+          ),
+        ),
       );
     }
     final builtin = GameTemplate.builtIn.any((t) => t.id == id);
@@ -29,7 +36,7 @@ class BuilderEntry extends StatelessWidget {
           ? GameTemplate.fromJson({
               ...p.toJson(),
               'id': 'custom-${DateTime.now().microsecondsSinceEpoch}',
-              'name': '${p.name} (copie)',
+              'name': '${p.name} (${tr(context, 'copie', 'copy')})',
             })
           : p,
     );

@@ -1,3 +1,5 @@
+enum PhotoError implements Exception { tooLarge, tooMany }
+
 class Highlight {
   const Highlight({required this.id, required this.text, this.at = 0});
 

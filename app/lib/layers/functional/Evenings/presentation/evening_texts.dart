@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/functional/Account/domain/entities/account.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/entities/evening.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 
@@ -31,6 +32,17 @@ String seatsLine(BuildContext context, Evening evening) {
 }
 
 String eveningErrorText(BuildContext context, Object error) => switch (error) {
+  EveningError.hostOnly => tr(context, 'Réservé à l’hôte', 'Host only'),
+  AccountError.signInRequired => tr(
+    context,
+    'Connectez-vous d’abord',
+    'Sign in first',
+  ),
+  AccountUnavailable() => tr(
+    context,
+    'Serveur non configuré',
+    'No server configured',
+  ),
   FormatException(:final message) => message,
   _ => tr(
     context,

@@ -27,7 +27,7 @@ class AccountState {
   final bool available, busy;
   final String nickname;
   final Account? account;
-  final String? error;
+  final AccountError? error;
   final AccountNotice? notice;
 
   AccountState copyWith({
@@ -35,7 +35,7 @@ class AccountState {
     Account? account,
     bool signedOut = false,
     bool? busy,
-    String? error,
+    AccountError? error,
     AccountNotice? notice,
   }) => AccountState(
     available: available,
@@ -87,14 +87,14 @@ class AccountCubit extends Cubit<AccountState> {
     try {
       final notice = await action();
       emit(state.copyWith(busy: false, notice: notice));
-    } on FormatException catch (error) {
-      emit(state.copyWith(busy: false, error: error.message));
-    } on AccountFailure catch (error) {
-      emit(state.copyWith(busy: false, error: error.message));
+    } on AccountError catch (error) {
+      emit(state.copyWith(busy: false, error: error));
+    } on AccountFailure {
+      emit(state.copyWith(busy: false, error: AccountError.rejected));
     } on AccountUnavailable {
-      emit(state.copyWith(busy: false, error: 'Serveur non configuré'));
+      emit(state.copyWith(busy: false, error: AccountError.unavailable));
     } catch (_) {
-      emit(state.copyWith(busy: false, error: 'Connexion impossible'));
+      emit(state.copyWith(busy: false, error: AccountError.unreachable));
     }
   }
 
