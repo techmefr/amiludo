@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Lobby/presentation/cubit/lobby_cubit.d
 import 'package:amiludo/layers/functional/Lobby/presentation/lobby_members.dart';
 import 'package:amiludo/layers/functional/Lobby/presentation/lobby_texts.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
+import 'package:amiludo/layers/technical/Network/room_link.dart';
 import 'package:amiludo/layers/technical/Qr/invite_card.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
@@ -22,7 +23,7 @@ class HostLobbyScreen extends StatelessWidget {
       builder: (context, state) {
         final session = state.session;
         if (session == null || !session.isHost) return _LobbyForm(state: state);
-        return _OpenLobby(lobby: session.lobby);
+        return _OpenLobby(lobby: session.lobby, link: session.link);
       },
     ),
   );
@@ -173,9 +174,10 @@ class _ReachSwitches extends StatelessWidget {
 }
 
 class _OpenLobby extends StatelessWidget {
-  const _OpenLobby({required this.lobby});
+  const _OpenLobby({required this.lobby, required this.link});
 
   final Lobby lobby;
+  final RoomLink link;
 
   @override
   Widget build(BuildContext context) {
@@ -183,7 +185,7 @@ class _OpenLobby extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        InviteCard(link: lobby.link, title: lobby.title),
+        InviteCard(link: link, title: lobby.title),
         SwitchListTile(
           value: lobby.open,
           onChanged: (_) => cubit.toggleOpen(),

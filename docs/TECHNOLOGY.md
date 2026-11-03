@@ -37,12 +37,18 @@ Le web applicatif sera Flutter. Un site vitrine et des documents indexables pour
 ## Réseau et serveur
 
 **Salon sur le même Wi‑Fi**, sans aucun serveur :
-- l’hôte ouvre un `HttpServer` avec WebSocket sur `/room/CODE` (dart:io) ;
-- les invités trouvent l’adresse par une sonde UDP en broadcast sur le port 47474 ;
+- l’hôte ouvre un `HttpServer` avec WebSocket sur `/room/<empreinte du code>` (dart:io) ;
+- les invités trouvent l’adresse par une sonde UDP en broadcast sur le port 47474, qui ne porte qu’une empreinte du code ;
 - un lien peut aussi porter l’adresse (`?lan=ip:port`), limitée aux plages privées ;
 - indisponible dans le navigateur.
 
 **À distance** : Supabase Realtime, canal broadcast `room:CODE`.
+
+**Contrôle d’accès des salons** :
+- le lien et le QR portent un secret d’hôte (`?k=`) ; l’hôte signe chaque état et la fermeture (HMAC-SHA256, numéro de séquence contre le rejeu) ;
+- en Wi‑Fi, l’hôte prouve ce secret lors de la découverte et à la connexion ;
+- chaque invité joint l’empreinte d’une clé à sa demande et ne libère que son propre siège en révélant cette clé ;
+- un invité qui saisit seulement le code ne peut pas vérifier l’hôte.
 
 **Comptes et soirées** :
 - Supabase Auth et PostgreSQL ;

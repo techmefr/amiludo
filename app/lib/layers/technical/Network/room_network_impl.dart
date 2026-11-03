@@ -11,14 +11,16 @@ class RoomNetworkImpl implements RoomNetwork {
   bool get remoteSupported => RemoteConfig.configured;
 
   @override
-  Future<HostedRoom> hostLan(String code) => LanHostedRoom.open(code);
+  Future<HostedRoom> hostLan(String code, String secret) =>
+      LanHostedRoom.open(code, secret: secret);
 
   @override
-  Future<RoomChannel> joinLan(String address, String code) =>
-      LanClientRoom.connect(address, code);
+  Future<RoomChannel> joinLan(String address, String code, {String? secret}) =>
+      LanClientRoom.connect(address, code, secret: secret);
 
   @override
-  Future<String?> discoverLan(String code) => discoverLanRoom(code);
+  Future<String?> discoverLan(String code, {String? secret}) =>
+      discoverLanRoom(code, secret: secret);
 
   @override
   Future<RoomChannel> remote(String code) => RemoteRoom.open(code);

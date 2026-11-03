@@ -52,14 +52,18 @@ class FakeRoomNetwork implements RoomNetwork {
   }
 
   @override
-  Future<HostedRoom> hostLan(String code) async => _open('lan:$code');
-
-  @override
-  Future<RoomChannel> joinLan(String address, String code) async =>
+  Future<HostedRoom> hostLan(String code, String secret) async =>
       _open('lan:$code');
 
   @override
-  Future<String?> discoverLan(String code) async =>
+  Future<RoomChannel> joinLan(
+    String address,
+    String code, {
+    String? secret,
+  }) async => _open('lan:$code');
+
+  @override
+  Future<String?> discoverLan(String code, {String? secret}) async =>
       (hubs['lan:$code'] ?? const []).isEmpty ? null : '10.0.0.2:4000';
 
   @override
