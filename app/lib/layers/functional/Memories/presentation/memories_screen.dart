@@ -16,8 +16,9 @@ class MemoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final data = context.watch<MemoriesCubit>().state;
-    final game = data.games.where((g) => g.id == sessionId).firstOrNull;
+    final cubit = context.watch<MemoriesCubit>();
+    final data = cubit.state;
+    final game = cubit.session(sessionId);
     final memory = data.memoryOf(sessionId);
     return FullPage(
       title: tr(context, 'Souvenirs', 'Memories'),

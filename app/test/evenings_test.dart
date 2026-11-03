@@ -5,6 +5,7 @@ import 'package:amiludo/layers/functional/Account/domain/entities/account.dart';
 import 'package:amiludo/layers/functional/Account/domain/use_cases/save_nickname_use_case.dart';
 import 'package:amiludo/layers/functional/Account/domain/use_cases/sign_up_use_case.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/entities/evening.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/entities/evening_agenda.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/answer_evening_use_case.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/fetch_evening_use_case.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/use_cases/publish_evening_use_case.dart';
@@ -71,14 +72,16 @@ void _ruleTests() {
       ..remove('evenings');
     final restored = Workspace.fromJson(old);
     expect(restored.nickname, '');
-    expect(restored.evenings, isEmpty);
+    expect(EveningAgenda.fromJson(old).evenings, isEmpty);
     final full = Workspace.fromJson(
-      const Workspace(nickname: 'Camille')
-          .copyWith(evenings: [night()])
-          .toJson(),
+      const Workspace(nickname: 'Camille').toJson(),
     );
     expect(full.nickname, 'Camille');
-    expect(full.evenings.single.code, 'ABCDEFGH');
+    final agenda = EveningAgenda.fromJson(
+      jsonDecode(jsonEncode(EveningAgenda(evenings: [night()]).toJson()))
+          as Map<String, dynamic>,
+    );
+    expect(agenda.evenings.single.code, 'ABCDEFGH');
   });
 }
 
@@ -87,28 +90,34 @@ void _localTests() {
     final accounts = FakeAccounts(available: false);
     final remote = MemoryEvenings(available: false, accounts: accounts);
     final workspace = MemoryWorkspace();
-    await SaveEveningUseCase(workspace, remote)(night());
-    final answerUseCase = AnswerEveningUseCase(workspace, remote, accounts);
+    final agenda = MemoryAgenda();
+    await SaveEveningUseCase(agenda, remote)(night());
+    final answerUseCase = AnswerEveningUseCase(
+      workspace,
+      agenda,
+      remote,
+      accounts,
+    );
     await answerUseCase(
       'e1',
       RsvpAnswer.yes,
       guestId: 'friend:a',
       guestName: 'Alex',
     );
-    final e = workspace.current.evenings.single;
+    final e = agenda.current.evenings.single;
     expect(e.going.single.name, 'Alex');
     expect(remote.stored, isEmpty);
     expect(
       () => PublishEveningUseCase(
         accounts,
         remote,
-        SaveEveningUseCase(workspace, remote),
+        SaveEveningUseCase(agenda, remote),
       )(e),
       throwsA(isA<AccountUnavailable>()),
     );
-    expect(await FetchEveningUseCase(workspace, remote)('abcdefgh'), isNotNull);
+    expect(await FetchEveningUseCase(agenda, remote)('abcdefgh'), isNotNull);
     expect(
-      () => SaveEveningUseCase(workspace, remote)(night().copyWith(title: ' ')),
+      () => SaveEveningUseCase(agenda, remote)(night().copyWith(title: ' ')),
       throwsFormatException,
     );
   });
@@ -141,11 +150,10 @@ void _onlineTests() {
       current: const Account(id: 'host', email: 'h@x.test', name: 'Camille'),
     );
     final server = MemoryEvenings(accounts: hostAccounts);
-    final hostSpace = MemoryWorkspace();
     final publish = PublishEveningUseCase(
       hostAccounts,
       server,
-      SaveEveningUseCase(hostSpace, server),
+      SaveEveningUseCase(MemoryAgenda(), server),
     );
     await publish(night(seats: 2));
     expect(server.stored['ABCDEFGH']!.published, isTrue);
@@ -154,11 +162,17 @@ void _onlineTests() {
     final guestServer = MemoryEvenings(accounts: guestAccounts)
       ..stored.addAll(server.stored);
     final guestSpace = MemoryWorkspace();
-    final fetched = await FetchEveningUseCase(guestSpace, guestServer)(
+    final guestAgenda = MemoryAgenda();
+    final fetched = await FetchEveningUseCase(guestAgenda, guestServer)(
       'ABCD-EFGH',
     );
     expect(fetched!.mine, isFalse);
-    final reply = AnswerEveningUseCase(guestSpace, guestServer, guestAccounts);
+    final reply = AnswerEveningUseCase(
+      guestSpace,
+      guestAgenda,
+      guestServer,
+      guestAccounts,
+    );
     expect(
       () => reply(fetched.id, RsvpAnswer.yes),
       throwsA(AccountError.signInRequired),

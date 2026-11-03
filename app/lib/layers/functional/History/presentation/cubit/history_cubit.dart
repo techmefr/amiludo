@@ -8,6 +8,7 @@ import 'package:amiludo/layers/functional/Game/domain/use_cases/delete_game_use_
 import 'package:amiludo/layers/functional/Game/domain/use_cases/save_game_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/erase_workspace_use_case.dart';
+import 'package:amiludo/layers/functional/Workspace/domain/use_cases/export_backup_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/import_backup_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/read_workspace_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/watch_workspace_use_case.dart';
@@ -21,6 +22,7 @@ class HistoryCubit extends Cubit<Workspace> {
     this._deleteGame,
     this._importBackup,
     this._eraseWorkspace,
+    this._exportBackup,
   ) : super(readWorkspace()) {
     _subscription = watchWorkspace().listen(emit);
   }
@@ -30,6 +32,7 @@ class HistoryCubit extends Cubit<Workspace> {
   final DeleteGameUseCase _deleteGame;
   final ImportBackupUseCase _importBackup;
   final EraseWorkspaceUseCase _eraseWorkspace;
+  final ExportBackupUseCase _exportBackup;
   late final StreamSubscription<Workspace> _subscription;
 
   Future<void> saveGame(GameSession game) => _saveGame(game);
@@ -41,6 +44,8 @@ class HistoryCubit extends Cubit<Workspace> {
   Future<void> importBackup(String text) => _importBackup(text);
 
   Future<void> erase() => _eraseWorkspace();
+
+  String exportBackup() => _exportBackup();
 
   @override
   Future<void> close() async {

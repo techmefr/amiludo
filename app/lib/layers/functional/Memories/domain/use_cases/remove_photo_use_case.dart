@@ -1,16 +1,16 @@
+import 'package:amiludo/layers/functional/Memories/domain/gateways/memories_gateway.dart';
 import 'package:amiludo/layers/functional/Memories/domain/gateways/photo_gateway.dart';
-import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
 
 class RemovePhotoUseCase {
-  RemovePhotoUseCase(this._workspace, this._photos);
+  RemovePhotoUseCase(this._memories, this._photos);
 
-  final WorkspaceGateway _workspace;
+  final MemoriesGateway _memories;
   final PhotoGateway _photos;
 
   Future<void> call(String sessionId, String photoId) async {
-    final memory = _workspace.current.memoryOf(sessionId);
-    await _workspace.save(
-      _workspace.current.withMemory(
+    final memory = _memories.current.memoryOf(sessionId);
+    await _memories.save(
+      _memories.current.withMemory(
         memory.copyWith(
           photoIds: memory.photoIds.where((p) => p != photoId).toList(),
         ),

@@ -1,11 +1,12 @@
 import 'package:amiludo/layers/functional/Evenings/domain/entities/evening.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/entities/evening_agenda.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/gateways/evening_remote_gateway.dart';
-import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/gateways/evenings_gateway.dart';
 
 class SaveEveningUseCase {
-  SaveEveningUseCase(this._workspace, this._remote);
+  SaveEveningUseCase(this._evenings, this._remote);
 
-  final WorkspaceGateway _workspace;
+  final EveningsGateway _evenings;
   final EveningRemoteGateway _remote;
 
   Future<void> call(Evening evening) async {
@@ -15,10 +16,10 @@ class SaveEveningUseCase {
     if (evening.published && evening.mine && _remote.available) {
       await _remote.publish(evening);
     }
-    final data = _workspace.current;
-    await _workspace.save(
-      data.copyWith(
-        evenings: [evening, ...data.evenings.where((e) => e.id != evening.id)],
+    final evenings = _evenings.current.evenings;
+    await _evenings.save(
+      EveningAgenda(
+        evenings: [evening, ...evenings.where((e) => e.id != evening.id)],
       ),
     );
   }

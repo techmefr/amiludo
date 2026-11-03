@@ -1,13 +1,21 @@
 import 'package:amiludo/layers/functional/Account/domain/entities/account.dart';
 import 'package:amiludo/layers/functional/Account/domain/gateways/account_gateway.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/entities/evening.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/entities/evening_agenda.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/gateways/evening_remote_gateway.dart';
+import 'package:amiludo/layers/functional/Evenings/domain/gateways/evenings_gateway.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
 
 class AnswerEveningUseCase {
-  AnswerEveningUseCase(this._workspace, this._remote, this._accounts);
+  AnswerEveningUseCase(
+    this._workspace,
+    this._evenings,
+    this._remote,
+    this._accounts,
+  );
 
   final WorkspaceGateway _workspace;
+  final EveningsGateway _evenings;
   final EveningRemoteGateway _remote;
   final AccountGateway _accounts;
 
@@ -18,7 +26,7 @@ class AnswerEveningUseCase {
     String? guestName,
     DateTime? now,
   }) async {
-    final evening = _workspace.current.evenings.firstWhere(
+    final evening = _evenings.current.evenings.firstWhere(
       (e) => e.id == eveningId,
     );
     final rsvp = _rsvp(evening, answer, guestId, guestName, now);
@@ -29,10 +37,10 @@ class AnswerEveningUseCase {
       ...updated.toJson(),
       'id': evening.id,
     }, mine: evening.mine);
-    final data = _workspace.current;
-    await _workspace.save(
-      data.copyWith(
-        evenings: [kept, ...data.evenings.where((e) => e.id != eveningId)],
+    final evenings = _evenings.current.evenings;
+    await _evenings.save(
+      EveningAgenda(
+        evenings: [kept, ...evenings.where((e) => e.id != eveningId)],
       ),
     );
     return kept;

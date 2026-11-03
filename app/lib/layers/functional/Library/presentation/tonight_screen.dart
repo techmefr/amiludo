@@ -22,7 +22,7 @@ class _TonightScreenState extends State<TonightScreen> {
   @override
   Widget build(BuildContext context) {
     final cubit = context.watch<LibraryCubit>();
-    final friends = cubit.state.friends;
+    final friends = cubit.circle.friends;
     final suggestions = cubit.suggest(guests.toList(), minutes: minutes);
     return FullPage(
       title: tr(context, 'On joue à quoi ce soir ?', 'What to play tonight?'),

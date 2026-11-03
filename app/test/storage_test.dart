@@ -1,6 +1,7 @@
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:amiludo/dependencies.dart';
+import 'package:amiludo/layers/technical/Storage/document_store.dart';
 import 'package:amiludo/layers/technical/Storage/store_database.dart';
 import 'package:amiludo/layers/functional/Game/domain/use_cases/add_score_use_case.dart';
 import 'package:amiludo/layers/functional/Game/domain/use_cases/choose_game_use_case.dart';
@@ -38,7 +39,7 @@ void main() {
     final second = score(id, 5, 'Points');
     await Future.wait([first, second]);
     expect(workspace.current.current!.score(id), 6);
-    final restored = await WorkspaceGatewayImpl(db).load();
+    final restored = await WorkspaceGatewayImpl(DocumentStore(db)).load();
     expect(restored.current!.score(id), 6);
     expect(restored.current!.cursor, 2);
     await db.close();

@@ -67,7 +67,7 @@ class _ShareSessionScreenState extends State<ShareSessionScreen> {
             spacing: 8,
             runSpacing: 8,
             children: [
-              for (final g in data.shelf)
+              for (final g in context.read<SharingCubit>().shelf)
                 FilterChip(
                   label: Text(g.name),
                   selected: games.contains(g.id),

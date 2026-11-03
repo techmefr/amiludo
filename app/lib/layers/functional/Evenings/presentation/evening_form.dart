@@ -80,7 +80,7 @@ class _EveningFormState extends State<EveningForm> {
 
   @override
   Widget build(BuildContext context) {
-    final shelf = context.watch<EveningsCubit>().state.shelf;
+    final shelf = context.watch<EveningsCubit>().shelf;
     return FullPage(
       title: tr(context, 'Soirée', 'Game night'),
       fallback: '/evenings',

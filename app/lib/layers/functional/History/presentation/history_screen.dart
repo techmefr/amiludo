@@ -228,7 +228,7 @@ class _DataControls extends StatelessWidget {
           children: [
             FilledButton(
               onPressed: () => FileTransfer.shareText(
-                context.read<HistoryCubit>().state.export(),
+                context.read<HistoryCubit>().exportBackup(),
                 'compagnon-sauvegarde.json',
               ),
               child: Text(
