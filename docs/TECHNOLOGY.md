@@ -51,7 +51,7 @@ Le web applicatif sera Flutter. Un site vitrine et des documents indexables pour
 - un invité qui saisit seulement le code ne peut pas vérifier l’hôte.
 
 **Comptes et soirées** :
-- Supabase Auth et PostgreSQL ;
+- Supabase Auth (mot de passe, lien magique en PKCE avec code de secours, retour sur l’app web ou `amiludo://amiludo.app/account`) et PostgreSQL ;
 - table `evenings` avec RLS, fonctions `security definer` réservées aux comptes connectés (`server/supabase/migrations`) ;
 - l’hôte fait autorité sur l’état du salon.
 

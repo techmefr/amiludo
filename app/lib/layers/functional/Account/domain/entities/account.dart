@@ -1,13 +1,20 @@
 class Account {
-  const Account({required this.id, required this.email, required this.name});
+  const Account({
+    required this.id,
+    required this.email,
+    required this.name,
+    this.admin = false,
+  });
 
   final String id, email, name;
+  final bool admin;
 }
 
 enum AccountError implements Exception {
   invalidEmail,
   invalidPassword,
   invalidName,
+  invalidCode,
   signInRequired,
   rejected,
   unavailable,

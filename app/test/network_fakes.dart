@@ -102,6 +102,21 @@ class FakeAccounts implements AccountGateway {
   @override
   Future<void> resetPassword(String email) async {}
 
+  final links = <String>[];
+  final passwords = <String>[];
+
+  @override
+  Future<void> sendSignInLink(String email) async => links.add(email);
+
+  @override
+  Future<void> verifyCode({
+    required String email,
+    required String code,
+  }) async => current = Account(id: 'u-$email', email: email, name: 'Remote');
+
+  @override
+  Future<void> changePassword(String password) async => passwords.add(password);
+
   @override
   Future<void> signOut() async => current = null;
 }

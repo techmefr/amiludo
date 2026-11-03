@@ -148,6 +148,9 @@ List<BlocProvider> _gatheringProviders() => [
       getIt(),
       getIt(),
       getIt(),
+      getIt(),
+      getIt(),
+      getIt(),
     ),
   ),
   BlocProvider<EveningsCubit>(

@@ -3,16 +3,27 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:amiludo/layers/functional/Account/domain/entities/account.dart';
+import 'package:amiludo/layers/functional/Account/domain/use_cases/change_password_use_case.dart';
 import 'package:amiludo/layers/functional/Account/domain/use_cases/reset_password_use_case.dart';
 import 'package:amiludo/layers/functional/Account/domain/use_cases/save_nickname_use_case.dart';
+import 'package:amiludo/layers/functional/Account/domain/use_cases/send_sign_in_link_use_case.dart';
 import 'package:amiludo/layers/functional/Account/domain/use_cases/sign_in_use_case.dart';
 import 'package:amiludo/layers/functional/Account/domain/use_cases/sign_out_use_case.dart';
 import 'package:amiludo/layers/functional/Account/domain/use_cases/sign_up_use_case.dart';
+import 'package:amiludo/layers/functional/Account/domain/use_cases/verify_email_code_use_case.dart';
 import 'package:amiludo/layers/functional/Account/domain/use_cases/watch_account_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/read_workspace_use_case.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/watch_workspace_use_case.dart';
 
-enum AccountNotice { saved, checkMail, signedIn, signedOut, resetSent }
+enum AccountNotice {
+  saved,
+  checkMail,
+  signedIn,
+  signedOut,
+  resetSent,
+  linkSent,
+  passwordChanged,
+}
 
 class AccountState {
   const AccountState({
@@ -57,6 +68,9 @@ class AccountCubit extends Cubit<AccountState> {
     this._signOut,
     this._resetPassword,
     this._saveNickname,
+    this._sendSignInLink,
+    this._verifyCode,
+    this._changePassword,
   ) : super(
         AccountState(
           available: watchAccount.available,
@@ -80,6 +94,9 @@ class AccountCubit extends Cubit<AccountState> {
   final SignOutUseCase _signOut;
   final ResetPasswordUseCase _resetPassword;
   final SaveNicknameUseCase _saveNickname;
+  final SendSignInLinkUseCase _sendSignInLink;
+  final VerifyEmailCodeUseCase _verifyCode;
+  final ChangePasswordUseCase _changePassword;
   late final List<StreamSubscription<Object?>> _subscriptions;
 
   Future<void> _run(Future<AccountNotice> Function() action) async {
@@ -121,6 +138,21 @@ class AccountCubit extends Cubit<AccountState> {
   Future<void> resetPassword(String email) => _run(() async {
     await _resetPassword(email);
     return AccountNotice.resetSent;
+  });
+
+  Future<void> sendSignInLink(String email) => _run(() async {
+    await _sendSignInLink(email);
+    return AccountNotice.linkSent;
+  });
+
+  Future<void> verifyCode(String email, String code) => _run(() async {
+    await _verifyCode(email: email, code: code);
+    return AccountNotice.signedIn;
+  });
+
+  Future<void> changePassword(String password) => _run(() async {
+    await _changePassword(password);
+    return AccountNotice.passwordChanged;
   });
 
   Future<void> signOut() => _run(() async {

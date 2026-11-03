@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class RemoteConfig {
@@ -7,6 +8,10 @@ class RemoteConfig {
   );
 
   static bool get configured => url.isNotEmpty && publishableKey.isNotEmpty;
+
+  static String get authRedirect => kIsWeb
+      ? '${Uri.base.origin}${Uri.base.path}'
+      : 'amiludo://amiludo.app/account';
 
   static Future<void> start() async {
     if (configured) {
