@@ -23,20 +23,24 @@ class AppShell extends StatelessWidget {
       ('/tools', Icons.casino_outlined, tr(context, 'Outils', 'Tools')),
       (
         '/templates',
-        Icons.view_module_outlined,
+        Icons.style_outlined,
         tr(context, 'Modèles', 'Templates'),
       ),
       ('/history', Icons.history, tr(context, 'Historique', 'History')),
       ('/appearance', Icons.tune, tr(context, 'Apparence', 'Style')),
     ];
     final index = path == '/timer' ? 2 : items.indexWhere((i) => i.$1 == path);
-    final desktop = MediaQuery.sizeOf(context).width >= 1000;
+    final size = MediaQuery.sizeOf(context);
+    final desktop = size.width >= 1000;
+    final rail = !desktop && size.width > size.height;
+    final compact = size.height < 500;
+    const barRoutes = [0, 1, 2, 3, 5];
     final page = WorkspaceGate(
       child: SingleChildScrollView(
         key: PageStorageKey(path),
         padding: EdgeInsets.fromLTRB(
           desktop ? 48 : 20,
-          desktop ? 40 : 28,
+          desktop ? 40 : (compact ? 16 : 28),
           desktop ? 48 : 20,
           48,
         ),
@@ -44,7 +48,7 @@ class AppShell extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 1320),
-            child: child,
+            child: SizedBox(width: double.infinity, child: child),
           ),
         ),
       ),
@@ -140,11 +144,32 @@ class AppShell extends StatelessWidget {
                   ],
                 ),
               ),
+            if (rail)
+              Container(
+                decoration: BoxDecoration(
+                  border: Border(
+                    right: BorderSide(color: theme.colorScheme.outline),
+                  ),
+                ),
+                child: NavigationRail(
+                  selectedIndex: index < 0 ? null : index,
+                  labelType: NavigationRailLabelType.none,
+                  groupAlignment: 0,
+                  onDestinationSelected: (i) => context.go(items[i].$1),
+                  destinations: [
+                    for (final (_, icon, label) in items)
+                      NavigationRailDestination(
+                        icon: Tooltip(message: label, child: DeckIcon(icon)),
+                        label: Text(label),
+                      ),
+                  ],
+                ),
+              ),
             Expanded(
               child: Column(
                 children: [
                   Container(
-                    height: desktop ? 80 : 64,
+                    height: desktop ? 80 : (compact ? 52 : 64),
                     padding: EdgeInsets.symmetric(
                       horizontal: desktop ? 48 : 20,
                     ),
@@ -233,21 +258,36 @@ class AppShell extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: desktop
+      bottomNavigationBar: desktop || rail
           ? null
-          : NavigationBar(
-              selectedIndex: [0, 1, 2, 3, 5].contains(index)
-                  ? [0, 1, 2, 3, 5].indexOf(index)
-                  : 0,
-              onDestinationSelected: (i) =>
-                  context.go(items[[0, 1, 2, 3, 5][i]].$1),
-              destinations: [
-                for (final i in [0, 1, 2, 3, 5])
-                  NavigationDestination(
-                    icon: DeckIcon(items[i].$2),
-                    label: items[i].$3,
-                  ),
-              ],
+          : NavigationBarTheme(
+              data: barRoutes.contains(index)
+                  ? NavigationBarTheme.of(context)
+                  : NavigationBarTheme.of(context).copyWith(
+                      indicatorColor: Colors.transparent,
+                      iconTheme: WidgetStatePropertyAll(
+                        IconThemeData(
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                      labelTextStyle: WidgetStatePropertyAll(
+                        theme.textTheme.labelMedium,
+                      ),
+                    ),
+              child: NavigationBar(
+                selectedIndex: barRoutes.contains(index)
+                    ? barRoutes.indexOf(index)
+                    : 0,
+                onDestinationSelected: (i) =>
+                    context.go(items[barRoutes[i]].$1),
+                destinations: [
+                  for (final i in barRoutes)
+                    NavigationDestination(
+                      icon: DeckIcon(items[i].$2),
+                      label: items[i].$3,
+                    ),
+                ],
+              ),
             ),
     );
   }

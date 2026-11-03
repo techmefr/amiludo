@@ -52,6 +52,15 @@ class _GameSetupPageState extends State<GameSetupPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            DeckHeading(
+              eyebrow: tr(context, 'Nouvelle partie', 'New game'),
+              title: tr(context, 'Qui est à la table ?', 'Who is playing?'),
+              subtitle: tr(
+                context,
+                'Un nom, un pack, vos joueurs. Le reste se règle en jouant.',
+                'A name, a pack, your players. The rest happens as you play.',
+              ),
+            ),
             TextFormField(
               controller: title,
               maxLength: 80,

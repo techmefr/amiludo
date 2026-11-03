@@ -80,7 +80,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
           ),
         ),
         ResponsiveGrid(
-          minimumWidth: 200,
+          minimumWidth: MediaQuery.sizeOf(context).width < 600 ? 96 : 200,
           children: [
             for (final (value, label) in [
               (
@@ -97,12 +97,20 @@ class _HistoryScreenState extends State<HistoryScreen> {
               ),
             ])
               DeckPanel(
+                padding: MediaQuery.sizeOf(context).width < 600 ? 14 : 24,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(value, style: theme.textTheme.headlineLarge),
                     const SizedBox(height: 12),
-                    Text(label, style: theme.textTheme.labelSmall),
+                    Text(
+                      label,
+                      style: theme.textTheme.labelSmall?.copyWith(
+                        fontSize: MediaQuery.sizeOf(context).width < 600
+                            ? 10
+                            : null,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -116,7 +124,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
               'Chercher un jeu, un joueur, une date',
               'Search a game, player or date',
             ),
-            prefixIcon: const DeckIcon(Icons.search),
+            prefixIcon: const Center(
+              widthFactor: 1,
+              heightFactor: 1,
+              child: DeckIcon(Icons.search, size: 20),
+            ),
           ),
           onChanged: (v) => setState(() => query = v),
         ),

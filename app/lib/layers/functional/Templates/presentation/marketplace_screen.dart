@@ -102,7 +102,11 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
           TextField(
             decoration: const InputDecoration(
               labelText: 'Rechercher un jeu, un pack ou un auteur',
-              prefixIcon: DeckIcon(Icons.search),
+              prefixIcon: Center(
+                widthFactor: 1,
+                heightFactor: 1,
+                child: DeckIcon(Icons.search, size: 20),
+              ),
             ),
             onChanged: (v) => setState(() => query = v),
           ),

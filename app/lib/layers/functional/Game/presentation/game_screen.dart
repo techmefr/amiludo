@@ -101,10 +101,18 @@ class _GameScreenState extends State<GameScreen> {
             spacing: 12,
             runSpacing: 8,
             children: [
-              OutlinedButton(
-                onPressed: () => context.push('/pack/${g.pack!.id}?session=1'),
-                child: const Text('Outils et règles du jeu'),
-              ),
+              if (g.finishedAt != null)
+                OutlinedButton(
+                  onPressed: () =>
+                      context.push('/pack/${g.pack!.id}?session=1'),
+                  child: Text(
+                    tr(
+                      context,
+                      'Outils et règles du jeu',
+                      'Game tools and rules',
+                    ),
+                  ),
+                ),
               if (g.finishedAt == null && g.pack!.scoring.isNotEmpty)
                 for (final p in g.players)
                   OutlinedButton(
@@ -344,11 +352,13 @@ class _GameScreenState extends State<GameScreen> {
                   : g.lowestWins
                   ? tr(context, 'Le moins de points gagne', 'Lowest score wins')
                   : tr(context, 'Le plus de points gagne', 'Highest score wins')}',
-          action: OutlinedButton(
-            onPressed: () =>
-                FileTransfer.shareText(g.export(), 'partie-${g.id}.json'),
-            child: Text(tr(context, 'Exporter', 'Export')),
-          ),
+          action: g.finishedAt == null
+              ? null
+              : OutlinedButton(
+                  onPressed: () =>
+                      FileTransfer.shareText(g.export(), 'partie-${g.id}.json'),
+                  child: Text(tr(context, 'Exporter', 'Export')),
+                ),
         ),
         if (g.target > 0)
           Padding(
@@ -364,40 +374,80 @@ class _GameScreenState extends State<GameScreen> {
         if (g.finishedAt == null)
           Padding(
             padding: const EdgeInsets.only(bottom: 24),
-            child: Wrap(
-              spacing: 12,
-              runSpacing: 12,
+            child: Row(
               children: [
-                OutlinedButton(
-                  onPressed: () => controller.nextRound(),
-                  child: Text(tr(context, 'Manche suivante', 'Next round')),
-                ),
                 OutlinedButton.icon(
-                  onPressed: controller.reverseTurnOrder,
-                  icon: DeckIcon(
-                    ws.reverse ? Icons.rotate_left : Icons.rotate_right,
-                    size: 18,
-                  ),
-                  label: Text(
-                    tr(context, 'Sens de rotation', 'Turn direction'),
-                  ),
+                  onPressed: () => controller.nextRound(),
+                  icon: const DeckIcon(Icons.skip_next_outlined, size: 18),
+                  label: Text(tr(context, 'Manche suivante', 'Next round')),
                 ),
-                OutlinedButton(
-                  onPressed: () async {
-                    if (await confirm(
-                      context,
-                      tr(context, 'Terminer la partie ?', 'Finish game?'),
-                      tr(
-                        context,
-                        'Les scores seront conservés dans votre historique.',
-                        'Scores will be kept in your history.',
+                const SizedBox(width: 8),
+                MenuAnchor(
+                  builder: (context, menu, _) => IconButton(
+                    tooltip: tr(context, 'Plus d’actions', 'More actions'),
+                    onPressed: () => menu.isOpen ? menu.close() : menu.open(),
+                    icon: const DeckIcon(Icons.more_horiz),
+                  ),
+                  menuChildren: [
+                    MenuItemButton(
+                      leadingIcon: DeckIcon(
+                        ws.reverse ? Icons.rotate_left : Icons.rotate_right,
+                        size: 18,
                       ),
-                    )) {
-                      await controller.finish();
-                      if (context.mounted) context.go('/history');
-                    }
-                  },
-                  child: Text(tr(context, 'Terminer', 'Finish')),
+                      onPressed: controller.reverseTurnOrder,
+                      child: Text(
+                        tr(context, 'Sens de rotation', 'Turn direction'),
+                      ),
+                    ),
+                    if (g.pack != null)
+                      MenuItemButton(
+                        leadingIcon: const DeckIcon(
+                          Icons.menu_book_outlined,
+                          size: 18,
+                        ),
+                        onPressed: () =>
+                            context.push('/pack/${g.pack!.id}?session=1'),
+                        child: Text(
+                          tr(
+                            context,
+                            'Outils et règles du jeu',
+                            'Game tools and rules',
+                          ),
+                        ),
+                      ),
+                    MenuItemButton(
+                      leadingIcon: const DeckIcon(
+                        Icons.ios_share_outlined,
+                        size: 18,
+                      ),
+                      onPressed: () => FileTransfer.shareText(
+                        g.export(),
+                        'partie-${g.id}.json',
+                      ),
+                      child: Text(tr(context, 'Exporter', 'Export')),
+                    ),
+                    MenuItemButton(
+                      leadingIcon: const DeckIcon(
+                        Icons.flag_outlined,
+                        size: 18,
+                      ),
+                      onPressed: () async {
+                        if (await confirm(
+                          context,
+                          tr(context, 'Terminer la partie ?', 'Finish game?'),
+                          tr(
+                            context,
+                            'Les scores seront conservés dans votre historique.',
+                            'Scores will be kept in your history.',
+                          ),
+                        )) {
+                          await controller.finish();
+                          if (context.mounted) context.go('/history');
+                        }
+                      },
+                      child: Text(tr(context, 'Terminer', 'Finish')),
+                    ),
+                  ],
                 ),
               ],
             ),

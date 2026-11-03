@@ -15,7 +15,7 @@ class TimerScreen extends StatelessWidget {
         title: tr(context, 'Un temps pour jouer', 'Time to play'),
       ),
       ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 600),
+        constraints: const BoxConstraints(maxWidth: 420),
         child: const TimerPanel(),
       ),
     ],
