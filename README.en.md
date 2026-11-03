@@ -19,7 +19,7 @@
   <img alt="Version" src="https://img.shields.io/badge/version-0.4.0--alpha-orange?style=flat-square">
   <img alt="Flutter" src="https://img.shields.io/badge/Flutter-3.47-02569B?style=flat-square&logo=flutter">
   <img alt="Platforms" src="https://img.shields.io/badge/Android%20·%20iOS%20·%20Web-one%20codebase-8250df?style=flat-square">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-109-1a7f37?style=flat-square">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-115-1a7f37?style=flat-square">
   <img alt="No ads" src="https://img.shields.io/badge/ads-none-1a7f37?style=flat-square">
   <a href="LICENSE"><img alt="MIT licence" src="https://img.shields.io/badge/licence-MIT-blue?style=flat-square"></a>
 </p>

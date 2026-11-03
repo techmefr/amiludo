@@ -22,7 +22,8 @@ Alpha **0.4.0**. Nom : amiLudo. Le code Flutter est dans `app/`, l’application
 - **Comptes facultatifs** :
   - inscription, connexion par mot de passe ou par lien magique (lien ou code reçu par e-mail) ;
   - mot de passe oublié, changement de mot de passe, prénom ;
-  - le rôle `admin` est porté par `app_metadata.role`, que seul le serveur peut attribuer.
+  - le rôle `admin` est porté par `app_metadata.role`, que seul le serveur peut attribuer ;
+  - écran « Gérer les comptes » réservé aux admins : liste, invitation par e-mail, rôle admin, blocage, suppression. Une action sur son propre compte est refusée.
 - **Soirées** : date, lieu, places, jeux prévus, réponses oui / peut-être / non, liste d’attente, invitation par lien, code ou QR. Sans serveur, l’hôte note les réponses.
 - **Stockage** : SQLite, historique, CSV et sauvegardes JSON.
 
@@ -34,16 +35,17 @@ Projet Supabase facultatif, fourni au build par `SUPABASE_URL`, `SUPABASE_PUBLIS
 
 Côté base, le schéma est dans `server/supabase/migrations` :
 - table `evenings` protégée par RLS ;
-- fonctions `publish_evening`, `get_evening` et `answer_evening`, réservées aux comptes connectés.
+- fonctions `publish_evening`, `get_evening` et `answer_evening`, réservées aux comptes connectés ;
+- fonction Edge `admin-users` (`server/supabase/functions`) : elle vérifie le rôle admin de l’appelant, puis passe par l’API d’administration de Supabase Auth.
 
 Sans ces variables, l’app reste entièrement locale. Le salon Wi‑Fi n’existe pas dans le navigateur.
 
 ## Vérifications
 
-- **Tests** : 109 tests Flutter.
+- **Tests** : 115 tests Flutter.
   - Partie, hasard et données : scores, imports, stockage, temps, tirages, profils, packs, ludothèque, amis, suggestions, souvenirs, partage QR.
   - Salons : protocole, puis vrais sockets en boucle locale.
-  - Soirées, comptes et liens.
+  - Soirées, comptes, gestion des comptes et liens.
   - Un test d’architecture vérifie les dépendances entre couches.
 - **CI** : le workflow analyse le code et lance les tests avant de compiler le web et l’APK Android.
 - **Version en ligne contrôlée** : la page répond, le bundle pointe vers le bon projet Supabase, les réglages d’auth sont joignables, et un appel anonyme aux soirées est refusé.

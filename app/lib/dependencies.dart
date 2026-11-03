@@ -11,6 +11,13 @@ import 'package:amiludo/layers/functional/Account/domain/use_cases/sign_in_use_c
 import 'package:amiludo/layers/functional/Account/domain/use_cases/sign_out_use_case.dart';
 import 'package:amiludo/layers/functional/Account/domain/use_cases/sign_up_use_case.dart';
 import 'package:amiludo/layers/functional/Account/domain/use_cases/watch_account_use_case.dart';
+import 'package:amiludo/layers/functional/Admin/data/gateways/user_admin_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Admin/domain/gateways/user_admin_gateway.dart';
+import 'package:amiludo/layers/functional/Admin/domain/use_cases/invite_user_use_case.dart';
+import 'package:amiludo/layers/functional/Admin/domain/use_cases/list_users_use_case.dart';
+import 'package:amiludo/layers/functional/Admin/domain/use_cases/remove_user_use_case.dart';
+import 'package:amiludo/layers/functional/Admin/domain/use_cases/set_user_admin_use_case.dart';
+import 'package:amiludo/layers/functional/Admin/domain/use_cases/set_user_blocked_use_case.dart';
 import 'package:amiludo/layers/functional/Evenings/data/gateways/evening_remote_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Evenings/data/gateways/evenings_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Evenings/domain/gateways/evening_remote_gateway.dart';
@@ -144,7 +151,14 @@ void configureDependencies(StoreDatabase database) {
     ..registerLazySingleton<RoomNetwork>(RoomNetworkImpl.new)
     ..registerLazySingleton<LobbyGateway>(() => LobbyGatewayImpl(getIt()))
     ..registerLazySingleton<AccountGateway>(AccountGatewayImpl.new)
-    ..registerLazySingleton<EveningRemoteGateway>(EveningRemoteGatewayImpl.new)
+    ..registerLazySingleton<EveningRemoteGateway>(EveningRemoteGatewayImpl.new);
+  _registerTable();
+  _registerCollections();
+  _registerGatherings();
+}
+
+void _registerTable() {
+  getIt
     ..registerFactory(() => LoadWorkspaceUseCase(getIt(), getIt()))
     ..registerFactory(() => ReadWorkspaceUseCase(getIt()))
     ..registerFactory(() => WatchWorkspaceUseCase(getIt()))
@@ -176,7 +190,11 @@ void configureDependencies(StoreDatabase database) {
     ..registerFactory(() => RemoveTemplateUseCase(getIt()))
     ..registerFactory(() => LoadBundledCatalogUseCase(getIt()))
     ..registerFactory(() => FetchPackCatalogUseCase(getIt()))
-    ..registerFactory(() => ToggleFavoriteToolUseCase(getIt()))
+    ..registerFactory(() => ToggleFavoriteToolUseCase(getIt()));
+}
+
+void _registerCollections() {
+  getIt
     ..registerFactory(() => SaveCharacterUseCase(getIt()))
     ..registerFactory(() => RemoveCharacterUseCase(getIt()))
     ..registerFactory(() => SaveShelfGameUseCase(getIt()))
@@ -199,7 +217,6 @@ void configureDependencies(StoreDatabase database) {
     ..registerFactory(() => WatchAlbumUseCase(getIt()))
     ..registerFactory(() => BuildSessionBundleUseCase(getIt(), getIt()))
     ..registerFactory(() => ImportSessionBundleUseCase(getIt(), getIt()));
-  _registerGatherings();
 }
 
 void _registerGatherings() {
@@ -229,4 +246,15 @@ void _registerGatherings() {
     ..registerFactory(() => ReadAgendaUseCase(getIt()))
     ..registerFactory(() => WatchAgendaUseCase(getIt()))
     ..registerFactory(() => FetchEveningUseCase(getIt(), getIt()));
+  _registerAdmin();
+}
+
+void _registerAdmin() {
+  getIt
+    ..registerLazySingleton<UserAdminGateway>(UserAdminGatewayImpl.new)
+    ..registerFactory(() => ListUsersUseCase(getIt()))
+    ..registerFactory(() => InviteUserUseCase(getIt()))
+    ..registerFactory(() => SetUserAdminUseCase(getIt(), getIt()))
+    ..registerFactory(() => SetUserBlockedUseCase(getIt(), getIt()))
+    ..registerFactory(() => RemoveUserUseCase(getIt(), getIt()));
 }
