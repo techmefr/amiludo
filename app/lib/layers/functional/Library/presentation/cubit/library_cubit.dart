@@ -30,8 +30,8 @@ class LibraryCubit extends Cubit<Workspace> {
 
   Future<void> remove(String id) => _removeGame(id);
 
-  List<GameSuggestion> suggest(List<String> friendIds) =>
-      _suggestGames(friendIds);
+  List<GameSuggestion> suggest(List<String> friendIds, {int minutes = 0}) =>
+      _suggestGames(friendIds, minutes: minutes);
 
   @override
   Future<void> close() async {

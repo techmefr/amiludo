@@ -1,3 +1,4 @@
+import 'package:amiludo/layers/functional/Friends/domain/entities/friend.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
 
 class RemoveShelfGameUseCase {
@@ -11,10 +12,7 @@ class RemoveShelfGameUseCase {
       data.copyWith(
         shelf: data.shelf.where((g) => g.id != id).toList(),
         friends: [
-          for (final f in data.friends)
-            f.copyWith(
-              refusedGameIds: f.refusedGameIds.where((g) => g != id).toList(),
-            ),
+          for (final f in data.friends) f.withOpinion(id, GameOpinion.neutral),
         ],
       ),
     );

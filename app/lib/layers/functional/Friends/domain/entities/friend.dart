@@ -1,3 +1,5 @@
+enum GameOpinion { neutral, wished, loved, refused }
+
 class Friend {
   const Friend({
     required this.id,
@@ -7,11 +9,14 @@ class Friend {
     this.avoidedGenres = const [],
     this.maxMinutes = 0,
     this.refusedGameIds = const [],
+    this.wishedGameIds = const [],
+    this.lovedGameIds = const [],
   });
 
   final String id, name;
   final int color, maxMinutes;
   final List<String> likedGenres, avoidedGenres, refusedGameIds;
+  final List<String> wishedGameIds, lovedGameIds;
 
   Friend copyWith({
     String? name,
@@ -20,6 +25,8 @@ class Friend {
     List<String>? avoidedGenres,
     int? maxMinutes,
     List<String>? refusedGameIds,
+    List<String>? wishedGameIds,
+    List<String>? lovedGameIds,
   }) => Friend(
     id: id,
     name: name ?? this.name,
@@ -28,7 +35,29 @@ class Friend {
     avoidedGenres: avoidedGenres ?? this.avoidedGenres,
     maxMinutes: maxMinutes ?? this.maxMinutes,
     refusedGameIds: refusedGameIds ?? this.refusedGameIds,
+    wishedGameIds: wishedGameIds ?? this.wishedGameIds,
+    lovedGameIds: lovedGameIds ?? this.lovedGameIds,
   );
+
+  Friend withOpinion(String gameId, GameOpinion opinion) {
+    List<String> set(List<String> ids, GameOpinion kind) => [
+      ...ids.where((id) => id != gameId),
+      if (opinion == kind) gameId,
+    ];
+    return copyWith(
+      refusedGameIds: set(refusedGameIds, GameOpinion.refused),
+      wishedGameIds: set(wishedGameIds, GameOpinion.wished),
+      lovedGameIds: set(lovedGameIds, GameOpinion.loved),
+    );
+  }
+
+  GameOpinion opinionOf(String gameId) => refusedGameIds.contains(gameId)
+      ? GameOpinion.refused
+      : wishedGameIds.contains(gameId)
+      ? GameOpinion.wished
+      : lovedGameIds.contains(gameId)
+      ? GameOpinion.loved
+      : GameOpinion.neutral;
 
   Map<String, Object?> toJson() => {
     'id': id,
@@ -38,6 +67,8 @@ class Friend {
     'avoidedGenres': avoidedGenres,
     'maxMinutes': maxMinutes,
     'refusedGameIds': refusedGameIds,
+    'wishedGameIds': wishedGameIds,
+    'lovedGameIds': lovedGameIds,
   };
 
   factory Friend.fromJson(Map<String, dynamic> j) {
@@ -55,6 +86,8 @@ class Friend {
       refusedGameIds: List<String>.from(
         j['refusedGameIds'] as List? ?? const [],
       ),
+      wishedGameIds: List<String>.from(j['wishedGameIds'] as List? ?? const []),
+      lovedGameIds: List<String>.from(j['lovedGameIds'] as List? ?? const []),
     );
   }
 }

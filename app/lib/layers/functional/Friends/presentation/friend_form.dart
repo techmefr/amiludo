@@ -110,11 +110,18 @@ class _FriendFormState extends State<FriendForm> {
           onChanged: (v) =>
               setState(() => friend = friend.copyWith(maxMinutes: v.round())),
         ),
-        SectionHeading(tr(context, 'Jeux refusés', 'Refused games')),
-        _RefusedGames(
+        SectionHeading(tr(context, 'Avis par jeu', 'Per-game opinion')),
+        Text(
+          tr(
+            context,
+            'Touchez un jeu : envie, adore même hors de ses genres, refusé, neutre.',
+            'Tap a game: wants it, loves it despite the genre, refuses it, neutral.',
+          ),
+        ),
+        const SizedBox(height: 12),
+        _GameOpinions(
           friend: friend,
-          onChanged: (ids) =>
-              setState(() => friend = friend.copyWith(refusedGameIds: ids)),
+          onChanged: (updated) => setState(() => friend = updated),
         ),
         const SizedBox(height: 32),
         Wrap(
@@ -208,11 +215,31 @@ class _TasteChip extends StatelessWidget {
   }
 }
 
-class _RefusedGames extends StatelessWidget {
-  const _RefusedGames({required this.friend, required this.onChanged});
+class _GameOpinions extends StatelessWidget {
+  const _GameOpinions({required this.friend, required this.onChanged});
 
   final Friend friend;
-  final ValueChanged<List<String>> onChanged;
+  final ValueChanged<Friend> onChanged;
+
+  static const _next = {
+    GameOpinion.neutral: GameOpinion.wished,
+    GameOpinion.wished: GameOpinion.loved,
+    GameOpinion.loved: GameOpinion.refused,
+    GameOpinion.refused: GameOpinion.neutral,
+  };
+
+  static const _icons = {
+    GameOpinion.wished: Icons.bookmark_add_outlined,
+    GameOpinion.loved: Icons.favorite,
+    GameOpinion.refused: Icons.block,
+  };
+
+  String _label(BuildContext context, GameOpinion opinion) => switch (opinion) {
+    GameOpinion.wished => tr(context, 'envie', 'wants'),
+    GameOpinion.loved => tr(context, 'adore', 'loves'),
+    GameOpinion.refused => tr(context, 'refusé', 'refused'),
+    GameOpinion.neutral => '',
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -227,14 +254,21 @@ class _RefusedGames extends StatelessWidget {
       runSpacing: 8,
       children: [
         for (final game in shelf)
-          FilterChip(
-            label: Text(game.name),
-            selected: friend.refusedGameIds.contains(game.id),
-            onSelected: (on) => onChanged(
-              on
-                  ? [...friend.refusedGameIds, game.id]
-                  : friend.refusedGameIds.where((g) => g != game.id).toList(),
-            ),
+          Builder(
+            builder: (context) {
+              final opinion = friend.opinionOf(game.id);
+              final icon = _icons[opinion];
+              return ActionChip(
+                avatar: icon == null ? null : Icon(icon, size: 18),
+                label: Text(
+                  opinion == GameOpinion.neutral
+                      ? game.name
+                      : '${game.name} · ${_label(context, opinion)}',
+                ),
+                onPressed: () =>
+                    onChanged(friend.withOpinion(game.id, _next[opinion]!)),
+              );
+            },
           ),
       ],
     );

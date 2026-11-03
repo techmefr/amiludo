@@ -37,6 +37,7 @@ const epic = ShelfGame(
 
 void main() {
   _suggestionTests();
+  _opinionSuggestionTests();
   _friendTests();
   _storageTests();
 }
@@ -86,6 +87,50 @@ void _suggestionTests() {
   });
 }
 
+void _opinionSuggestionTests() {
+  test('a loved game overrides avoided genres and length limits', () {
+    final gateway = MemoryWorkspace(
+      const Workspace(
+        shelf: [coop, bluff, epic],
+        friends: [
+          Friend(
+            id: 'a',
+            name: 'Alex',
+            avoidedGenres: ['bluff', 'strategy'],
+            maxMinutes: 30,
+            lovedGameIds: ['epic'],
+          ),
+          Friend(id: 'b', name: 'Léa'),
+        ],
+      ),
+    );
+    final ranked = SuggestGamesUseCase(gateway)(['a', 'b']);
+    expect(ranked.map((s) => s.game.id), ['epic']);
+    expect(ranked.single.lovedBy, ['Alex']);
+  });
+
+  test('wishlists rank first and the time available filters', () {
+    final gateway = MemoryWorkspace(
+      const Workspace(
+        shelf: [coop, bluff, epic],
+        friends: [
+          Friend(id: 'a', name: 'Alex', wishedGameIds: ['epic']),
+          Friend(id: 'b', name: 'Léa', likedGenres: ['party']),
+        ],
+      ),
+    );
+    final suggest = SuggestGamesUseCase(gateway);
+    final evening = suggest(['a', 'b']);
+    expect(evening.first.game.id, 'epic');
+    expect(evening.first.wishedBy, ['Alex']);
+    expect(suggest(['a', 'b'], minutes: 60).map((s) => s.game.id), [
+      'bluff',
+      'coop',
+    ]);
+    expect(suggest([], minutes: 30).map((s) => s.game.id), ['bluff']);
+  });
+}
+
 void _friendTests() {
   test('reviews replace the same reviewer for the same game', () async {
     final gateway = MemoryWorkspace();
@@ -129,6 +174,22 @@ void _friendTests() {
     await RemoveShelfGameUseCase(gateway)('coop');
     expect(gateway.current.shelf, isEmpty);
     expect(gateway.current.friends.single.refusedGameIds, isEmpty);
+  });
+
+  test('a game opinion is exclusive and survives a backup', () {
+    final friend = const Friend(id: 'a', name: 'Alex')
+        .withOpinion('coop', GameOpinion.wished)
+        .withOpinion('coop', GameOpinion.loved);
+    expect(friend.opinionOf('coop'), GameOpinion.loved);
+    expect(friend.wishedGameIds, isEmpty);
+    final restored = Friend.fromJson(
+      jsonDecode(jsonEncode(friend.toJson())) as Map<String, dynamic>,
+    );
+    expect(restored.opinionOf('coop'), GameOpinion.loved);
+    expect(
+      Friend.fromJson({'id': 'b', 'name': 'Léa'}).opinionOf('coop'),
+      GameOpinion.neutral,
+    );
   });
 }
 

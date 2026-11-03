@@ -17,12 +17,13 @@ class TonightScreen extends StatefulWidget {
 
 class _TonightScreenState extends State<TonightScreen> {
   final guests = <String>{};
+  int minutes = 0;
 
   @override
   Widget build(BuildContext context) {
     final cubit = context.watch<LibraryCubit>();
     final friends = cubit.state.friends;
-    final suggestions = cubit.suggest(guests.toList());
+    final suggestions = cubit.suggest(guests.toList(), minutes: minutes);
     return FullPage(
       title: tr(context, 'On joue à quoi ce soir ?', 'What to play tonight?'),
       fallback: '/library',
@@ -53,6 +54,19 @@ class _TonightScreenState extends State<TonightScreen> {
                   ),
                 ),
             ],
+          ),
+          SectionHeading(tr(context, 'Temps devant nous', 'Time available')),
+          Slider(
+            max: 240,
+            divisions: 16,
+            value: minutes.toDouble(),
+            label: minutes == 0
+                ? tr(context, 'Toute la soirée', 'All evening')
+                : '$minutes min',
+            semanticFormatterCallback: (v) => v == 0
+                ? tr(context, 'Toute la soirée', 'All evening')
+                : '${v.round()} min',
+            onChanged: (v) => setState(() => minutes = v.round()),
           ),
           SectionHeading(
             tr(
@@ -94,7 +108,21 @@ class _SuggestionTile extends StatelessWidget {
           leading: Container(width: 10, height: 44, color: Color(game.color)),
           title: Text(game.name),
           subtitle: Text(
-            '${game.minPlayers}-${game.maxPlayers} · ${game.minutes} min${stars == null ? '' : ' · ${stars.toStringAsFixed(1)} ★'}',
+            [
+              '${game.minPlayers}-${game.maxPlayers} · ${game.minutes} min${stars == null ? '' : ' · ${stars.toStringAsFixed(1)} ★'}',
+              if (suggestion.wishedBy.isNotEmpty)
+                tr(
+                  context,
+                  'Envie : ${suggestion.wishedBy.join(', ')}',
+                  'Wanted by ${suggestion.wishedBy.join(', ')}',
+                ),
+              if (suggestion.lovedBy.isNotEmpty)
+                tr(
+                  context,
+                  'Adoré par ${suggestion.lovedBy.join(', ')}',
+                  'Loved by ${suggestion.lovedBy.join(', ')}',
+                ),
+            ].join('\n'),
           ),
           trailing: const DeckIcon(Icons.chevron_right),
           onTap: () => showShelfGameSheet(context, game),

@@ -4,11 +4,18 @@ import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dar
 import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
 
 class GameSuggestion {
-  const GameSuggestion(this.game, this.score, this.averageStars);
+  const GameSuggestion(
+    this.game,
+    this.score,
+    this.averageStars, {
+    this.wishedBy = const [],
+    this.lovedBy = const [],
+  });
 
   final ShelfGame game;
   final double score;
   final double? averageStars;
+  final List<String> wishedBy, lovedBy;
 }
 
 class SuggestGamesUseCase {
@@ -16,28 +23,30 @@ class SuggestGamesUseCase {
 
   final WorkspaceGateway _workspace;
 
-  List<GameSuggestion> call(List<String> friendIds) {
+  List<GameSuggestion> call(List<String> friendIds, {int minutes = 0}) {
     final data = _workspace.current;
     final guests = data.friends.where((f) => friendIds.contains(f.id)).toList();
     final players = guests.length + 1;
     final suggestions = [
       for (final game in data.shelf)
-        if (_acceptable(game, guests, players))
-          _rate(game, guests, data.reviews),
+        if (minutes <= 0 || game.minutes <= minutes)
+          if (_acceptable(game, guests, players))
+            _rate(game, guests, data.reviews),
     ]..sort((a, b) => b.score.compareTo(a.score));
     return suggestions;
   }
 
   bool _acceptable(ShelfGame game, List<Friend> guests, int players) {
     if (guests.isNotEmpty && !game.fits(players)) return false;
-    for (final friend in guests) {
-      if (friend.refusedGameIds.contains(game.id)) return false;
-      if (friend.avoidedGenres.any(game.genres.contains)) return false;
-      if (friend.maxMinutes > 0 && game.minutes > friend.maxMinutes) {
-        return false;
-      }
-    }
-    return true;
+    return guests.every((friend) => _accepts(friend, game));
+  }
+
+  bool _accepts(Friend friend, ShelfGame game) {
+    final opinion = friend.opinionOf(game.id);
+    if (opinion == GameOpinion.refused) return false;
+    if (opinion != GameOpinion.neutral) return true;
+    if (friend.avoidedGenres.any(game.genres.contains)) return false;
+    return friend.maxMinutes <= 0 || game.minutes <= friend.maxMinutes;
   }
 
   GameSuggestion _rate(
@@ -58,6 +67,20 @@ class SuggestGamesUseCase {
       0,
       (sum, f) => sum + f.likedGenres.where(game.genres.contains).length,
     );
-    return GameSuggestion(game, guestAverage + liked * .5, average);
+    List<String> who(GameOpinion opinion) => [
+      for (final f in guests)
+        if (f.opinionOf(game.id) == opinion) f.name,
+    ];
+    final wishedBy = who(GameOpinion.wished);
+    final lovedBy = who(GameOpinion.loved);
+    final score =
+        guestAverage + liked * .5 + wishedBy.length * 1.5 + lovedBy.length;
+    return GameSuggestion(
+      game,
+      score,
+      average,
+      wishedBy: wishedBy,
+      lovedBy: lovedBy,
+    );
   }
 }
