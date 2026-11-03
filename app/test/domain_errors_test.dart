@@ -4,20 +4,20 @@ import 'package:amiludo/layers/functional/Friends/domain/use_cases/save_friend_u
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Game/domain/use_cases/start_game_use_case.dart';
 import 'package:amiludo/layers/functional/Memories/domain/entities/game_memory.dart';
+import 'package:amiludo/layers/functional/Memories/domain/entities/memory_album.dart';
 import 'package:amiludo/layers/functional/Memories/domain/use_cases/add_photo_use_case.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/marketplace_state.dart';
 import 'package:amiludo/layers/functional/Timer/domain/entities/game_clock.dart';
-import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 
 import 'fakes.dart';
 
 void main() {
   test('a friend with the same name is a typed duplicate', () async {
-    final workspace = MemoryWorkspace();
-    await SaveFriendUseCase(workspace)(const Friend(id: 'a', name: 'Léa'));
+    final friends = MemoryFriends();
+    await SaveFriendUseCase(friends)(const Friend(id: 'a', name: 'Léa'));
     expect(
-      () => SaveFriendUseCase(workspace)(const Friend(id: 'b', name: ' léa ')),
+      () => SaveFriendUseCase(friends)(const Friend(id: 'b', name: ' léa ')),
       throwsA(FriendError.duplicate),
     );
   });
@@ -37,13 +37,13 @@ void main() {
 
   test('photos are limited in size and count', () async {
     final photos = MemoryPhotos();
-    final add = AddPhotoUseCase(MemoryWorkspace(), photos);
+    final add = AddPhotoUseCase(MemoryAlbumStore(), photos);
     expect(
       () => add('night', List.filled(AddPhotoUseCase.maxBytes + 1, 0)),
       throwsA(PhotoError.tooLarge),
     );
-    final full = MemoryWorkspace(
-      const Workspace().withMemory(
+    final full = MemoryAlbumStore(
+      const MemoryAlbum().withMemory(
         GameMemory(
           sessionId: 'night',
           photoIds: [for (var i = 0; i < AddPhotoUseCase.maxPhotos; i++) '$i'],
