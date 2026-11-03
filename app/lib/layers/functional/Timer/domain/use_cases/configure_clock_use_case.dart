@@ -1,4 +1,3 @@
-import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Timer/domain/entities/game_clock.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
 
@@ -7,7 +6,12 @@ class ConfigureClockUseCase {
 
   final WorkspaceGateway _workspace;
 
-  Future<void> call(int seconds, int increment, bool bank) {
+  Future<void> call(
+    int seconds,
+    int increment,
+    bool bank,
+    Iterable<String> playerIds,
+  ) {
     final data = _workspace.current;
     return _workspace.save(
       data.copyWith(
@@ -17,10 +21,7 @@ class ConfigureClockUseCase {
           incrementMs: increment * 1000,
         ),
         bankMode: bank,
-        banks: {
-          for (final p in data.current?.players ?? <Player>[])
-            p.id: seconds * 1000,
-        },
+        banks: {for (final id in playerIds) id: seconds * 1000},
       ),
     );
   }

@@ -55,10 +55,13 @@ void main() {
           chooseGame = getIt<ChooseGameUseCase>();
       await startGame('First', ['A', 'B'], GameTemplate.builtIn.first);
       final first = workspace.current.currentId!;
-      await configureClock(120, 3, true);
+      Iterable<String> players() =>
+          workspace.current.current!.players.map((p) => p.id);
+      await configureClock(120, 3, true, players());
+      expect(workspace.current.banks.values, [120000, 120000]);
       await startGame('Second', ['C', 'D'], GameTemplate.builtIn.first);
       final second = workspace.current.currentId!;
-      await configureClock(60, 0, false);
+      await configureClock(60, 0, false, players());
       await chooseGame(first);
       expect(workspace.current.clock.durationMs, 120000);
       expect(workspace.current.clock.incrementMs, 3000);
