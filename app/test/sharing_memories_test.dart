@@ -140,28 +140,34 @@ void _galleryTests() {
   test('an encrypted gallery travels with its key only', () async {
     final photos = MemoryPhotos();
     final sender = MemoryWorkspace(Workspace(games: [session]));
-    await AddPhotoUseCase(sender, photos)('night', [1, 2, 3]);
-    await SaveMemoryUseCase(sender)(
-      sender.current
+    final senderAlbum = MemoryAlbumStore();
+    await AddPhotoUseCase(senderAlbum, photos)('night', [1, 2, 3]);
+    await SaveMemoryUseCase(senderAlbum)(
+      senderAlbum.current
           .memoryOf('night')
           .copyWith(
             note: 'Quelle soirée',
             highlights: const [Highlight(id: 'h', text: 'Triple six', at: 2)],
           ),
     );
-    final export = await ExportGalleryUseCase(sender, photos)(
+    final export = await ExportGalleryUseCase(sender, senderAlbum, photos)(
       'night',
-      sender.current.memoryOf('night').photoIds,
+      senderAlbum.current.memoryOf('night').photoIds,
     );
     final receivedPhotos = MemoryPhotos();
     final receiver = MemoryWorkspace();
-    final import = ImportGalleryUseCase(receiver, receivedPhotos);
+    final receiverAlbum = MemoryAlbumStore();
+    final import = ImportGalleryUseCase(
+      receiver,
+      receiverAlbum,
+      receivedPhotos,
+    );
     await expectLater(
       import(export.fileText, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA='),
       throwsFormatException,
     );
     expect(await import(export.fileText, export.key), 'night');
-    final memory = receiver.current.memoryOf('night');
+    final memory = receiverAlbum.current.memoryOf('night');
     expect(receiver.current.games.single.title, 'Soirée');
     expect(memory.note, 'Quelle soirée');
     expect(memory.highlights.single.text, 'Triple six');

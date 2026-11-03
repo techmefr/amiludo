@@ -55,14 +55,18 @@ import 'package:amiludo/layers/functional/Library/domain/use_cases/remove_shelf_
 import 'package:amiludo/layers/functional/Library/domain/use_cases/save_shelf_game_use_case.dart';
 import 'package:amiludo/layers/functional/Library/domain/use_cases/suggest_games_use_case.dart';
 import 'package:amiludo/layers/functional/Library/domain/use_cases/watch_shelf_use_case.dart';
+import 'package:amiludo/layers/functional/Memories/data/gateways/memories_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Memories/data/gateways/photo_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Memories/domain/gateways/memories_gateway.dart';
 import 'package:amiludo/layers/functional/Memories/domain/gateways/photo_gateway.dart';
 import 'package:amiludo/layers/functional/Memories/domain/use_cases/add_photo_use_case.dart';
 import 'package:amiludo/layers/functional/Memories/domain/use_cases/export_gallery_use_case.dart';
 import 'package:amiludo/layers/functional/Memories/domain/use_cases/import_gallery_use_case.dart';
+import 'package:amiludo/layers/functional/Memories/domain/use_cases/read_album_use_case.dart';
 import 'package:amiludo/layers/functional/Memories/domain/use_cases/read_photo_use_case.dart';
 import 'package:amiludo/layers/functional/Memories/domain/use_cases/remove_photo_use_case.dart';
 import 'package:amiludo/layers/functional/Memories/domain/use_cases/save_memory_use_case.dart';
+import 'package:amiludo/layers/functional/Memories/domain/use_cases/watch_album_use_case.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/remove_character_use_case.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/save_character_use_case.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/toggle_favorite_tool_use_case.dart';
@@ -112,8 +116,16 @@ void configureDependencies(StoreDatabase database) {
       () => LibraryGatewayImpl(getIt()),
     )
     ..registerLazySingleton<LibraryGateway>(() => getIt<LibraryGatewayImpl>())
+    ..registerLazySingleton<MemoriesGatewayImpl>(
+      () => MemoriesGatewayImpl(getIt()),
+    )
+    ..registerLazySingleton<MemoriesGateway>(() => getIt<MemoriesGatewayImpl>())
     ..registerLazySingleton<List<BackupSection>>(
-      () => [getIt<FriendsGatewayImpl>(), getIt<LibraryGatewayImpl>()],
+      () => [
+        getIt<FriendsGatewayImpl>(),
+        getIt<LibraryGatewayImpl>(),
+        getIt<MemoriesGatewayImpl>(),
+      ],
     )
     ..registerLazySingleton<PackCatalogGateway>(PackCatalogGatewayImpl.new)
     ..registerLazySingleton<PhotoGateway>(() => PhotoGatewayImpl(getIt()))
@@ -169,8 +181,10 @@ void configureDependencies(StoreDatabase database) {
     ..registerFactory(() => AddPhotoUseCase(getIt(), getIt()))
     ..registerFactory(() => RemovePhotoUseCase(getIt(), getIt()))
     ..registerFactory(() => ReadPhotoUseCase(getIt()))
-    ..registerFactory(() => ExportGalleryUseCase(getIt(), getIt()))
-    ..registerFactory(() => ImportGalleryUseCase(getIt(), getIt()))
+    ..registerFactory(() => ExportGalleryUseCase(getIt(), getIt(), getIt()))
+    ..registerFactory(() => ImportGalleryUseCase(getIt(), getIt(), getIt()))
+    ..registerFactory(() => ReadAlbumUseCase(getIt()))
+    ..registerFactory(() => WatchAlbumUseCase(getIt()))
     ..registerFactory(() => BuildSessionBundleUseCase(getIt(), getIt()))
     ..registerFactory(() => ImportSessionBundleUseCase(getIt(), getIt()));
   _registerGatherings();

@@ -1,18 +1,18 @@
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
+import 'package:amiludo/layers/functional/Memories/domain/gateways/memories_gateway.dart';
 import 'package:amiludo/layers/functional/Memories/domain/gateways/photo_gateway.dart';
-import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
 
 class AddPhotoUseCase {
-  AddPhotoUseCase(this._workspace, this._photos);
+  AddPhotoUseCase(this._memories, this._photos);
 
   static const maxBytes = 8000000;
   static const maxPhotos = 60;
 
-  final WorkspaceGateway _workspace;
+  final MemoriesGateway _memories;
   final PhotoGateway _photos;
 
   Future<void> call(String sessionId, List<int> bytes) async {
-    final memory = _workspace.current.memoryOf(sessionId);
+    final memory = _memories.current.memoryOf(sessionId);
     if (bytes.length > maxBytes) {
       throw const FormatException('Photo trop lourde (8 Mo maximum).');
     }
@@ -21,9 +21,9 @@ class AddPhotoUseCase {
     }
     final id = '$sessionId-${newId()}';
     await _photos.write(id, bytes);
-    final latest = _workspace.current;
+    final latest = _memories.current;
     final saved = latest.memoryOf(sessionId);
-    await _workspace.save(
+    await _memories.save(
       latest.withMemory(saved.copyWith(photoIds: [...saved.photoIds, id])),
     );
   }
