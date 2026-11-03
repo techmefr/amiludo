@@ -41,6 +41,21 @@ void _linkTests() {
       isNull,
     );
     expect(RoomLink.parse('nope'), isNull);
+    for (final outside in [
+      '8.8.8.8:443',
+      '172.32.0.1:4000',
+      '192.169.1.1:80',
+    ]) {
+      expect(
+        RoomLink.parse('amiludo://amiludo.app/join/ABC234?lan=$outside')?.lan,
+        isNull,
+      );
+    }
+    expect(
+      RoomLink.parse('amiludo://amiludo.app/join/ABC234?lan=10.0.0.2:4000')
+          ?.lan,
+      '10.0.0.2:4000',
+    );
     final web = RoomLink.parse(
       'https://techmefr.github.io/amiludo/app/#/evening/ABCDEFGH',
     );

@@ -50,7 +50,7 @@ class _EveningFormState extends State<EveningForm> {
       context: context,
       initialTime: TimeOfDay.fromDateTime(local),
     );
-    if (time == null) return;
+    if (time == null || !mounted) return;
     setState(
       () => evening = evening.copyWith(
         startsAt: DateTime(

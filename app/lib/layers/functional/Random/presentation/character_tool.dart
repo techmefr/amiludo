@@ -63,6 +63,7 @@ class _CharacterToolState extends State<CharacterTool> {
       'Recommencer la création ?',
       'Les choix en cours seront abandonnés. Les fiches déjà enregistrées restent conservées.',
     )) {
+      if (!mounted) return;
       setState(() {
         draft = null;
         selected.clear();

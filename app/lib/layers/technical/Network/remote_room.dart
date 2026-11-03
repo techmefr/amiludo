@@ -29,7 +29,12 @@ class RemoteRoom implements RoomChannel {
         ready.completeError(error ?? StateError(status.name));
       }
     });
-    await ready.future.timeout(const Duration(seconds: 8));
+    try {
+      await ready.future.timeout(const Duration(seconds: 8));
+    } catch (_) {
+      await room.close();
+      rethrow;
+    }
     return room;
   }
 
@@ -37,7 +42,8 @@ class RemoteRoom implements RoomChannel {
     final inner = payload['payload'];
     final message = payload['event'] == 'msg' && inner is Map
         ? Map<String, dynamic>.from(inner)
-        : payload;
+        : Map<String, dynamic>.from(payload);
+    message.removeWhere((key, _) => key.startsWith('_'));
     if (!_messages.isClosed) _messages.add(message);
   }
 

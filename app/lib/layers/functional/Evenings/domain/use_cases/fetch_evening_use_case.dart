@@ -12,10 +12,13 @@ class FetchEveningUseCase {
   Future<Evening?> call(String code) async {
     final clean = normalizeRoomCode(code);
     if (clean == null) throw const FormatException('Code invalide');
+    final before = _workspace.current.evenings;
+    if (!_remote.available) {
+      return before.where((e) => e.code == clean).firstOrNull;
+    }
+    final remote = await _remote.fetch(clean);
     final data = _workspace.current;
     final known = data.evenings.where((e) => e.code == clean).firstOrNull;
-    if (!_remote.available) return known;
-    final remote = await _remote.fetch(clean);
     if (remote == null) return known;
     final merged = Evening.fromJson({
       ...remote.toJson(),
