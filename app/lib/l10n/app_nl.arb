@@ -714,5 +714,6 @@
   "timerOtherwiseFixedTimeEachTurn": "Anders: vaste tijd per beurt.",
   "timerTimeToPlay": "Tijd om te spelen",
   "randomKeepCards": "Houd {range} kaart(en). {selected} geselecteerd.",
-  "randomKeepRangeBetween": "{min} tot {max}"
+  "randomKeepRangeBetween": "{min} tot {max}",
+  "randomPreviousStep": "Vorige booster"
 }

@@ -714,5 +714,6 @@
   "timerOtherwiseFixedTimeEachTurn": "Sonst: feste Zeit pro Zug.",
   "timerTimeToPlay": "Zeit zum Spielen",
   "randomKeepCards": "Behalte {range} Karte(n). {selected} ausgewählt.",
-  "randomKeepRangeBetween": "{min} bis {max}"
+  "randomKeepRangeBetween": "{min} bis {max}",
+  "randomPreviousStep": "Vorheriges Booster"
 }

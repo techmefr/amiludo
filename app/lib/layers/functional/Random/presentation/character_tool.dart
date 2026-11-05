@@ -147,7 +147,18 @@ class _CharacterToolState extends State<CharacterTool> {
     ),
   ];
 
+  void goBack(CharacterDraft d) {
+    d.back();
+    cubit.saveDraft(d);
+    setState(() {
+      selected.clear();
+      opened = true;
+    });
+  }
+
   List<Widget> step(CharacterDraft d, CreationCategory category) => [
+    LinearProgressIndicator(value: d.index / d.categories.length),
+    const SizedBox(height: 12),
     Text(
       '${context.l10n.randomStep} ${d.index + 1} / ${d.categories.length} · ${category.name}',
       style: Theme.of(context).textTheme.titleLarge,
@@ -189,6 +200,13 @@ class _CharacterToolState extends State<CharacterTool> {
               ? context.l10n.randomCreateTheSheet
               : context.l10n.randomConfirmAndContinue,
         ),
+      ),
+    ],
+    if (d.canGoBack) ...[
+      const SizedBox(height: 8),
+      TextButton(
+        onPressed: () => goBack(d),
+        child: Text(context.l10n.randomPreviousStep),
       ),
     ],
   ];

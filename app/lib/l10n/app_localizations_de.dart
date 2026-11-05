@@ -2386,4 +2386,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String randomKeepRangeBetween(int min, int max) {
     return '$min bis $max';
   }
+
+  @override
+  String get randomPreviousStep => 'Vorheriges Booster';
 }

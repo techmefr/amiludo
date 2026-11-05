@@ -2384,4 +2384,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String randomKeepRangeBetween(int min, int max) {
     return '$min a $max';
   }
+
+  @override
+  String get randomPreviousStep => 'Pacote anterior';
 }

@@ -714,5 +714,6 @@
   "timerOtherwiseFixedTimeEachTurn": "Sinon : durée fixe à chaque tour.",
   "timerTimeToPlay": "Un temps pour jouer",
   "randomKeepCards": "Gardez {range} carte(s). {selected} sélectionnée(s).",
-  "randomKeepRangeBetween": "{min} à {max}"
+  "randomKeepRangeBetween": "{min} à {max}",
+  "randomPreviousStep": "Booster précédent"
 }

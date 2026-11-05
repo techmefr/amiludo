@@ -714,5 +714,6 @@
   "timerOtherwiseFixedTimeEachTurn": "Altrimenti: tempo fisso a ogni turno.",
   "timerTimeToPlay": "Tempo di giocare",
   "randomKeepCards": "Tieni {range} carta/e. {selected} selezionata/e.",
-  "randomKeepRangeBetween": "{min}-{max}"
+  "randomKeepRangeBetween": "{min}-{max}",
+  "randomPreviousStep": "Bustina precedente"
 }

@@ -938,5 +938,6 @@
         "type": "int"
       }
     }
-  }
+  },
+  "randomPreviousStep": "Previous booster"
 }
