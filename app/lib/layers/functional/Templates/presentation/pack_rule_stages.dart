@@ -21,9 +21,7 @@ class ModesStage extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(
-        context.l10n.templatesPickOnlyTheToolsThis,
-      ),
+      Text(context.l10n.templatesPickOnlyTheToolsThis),
       const SizedBox(height: 16),
       for (final t in toolDefinitions)
         CheckboxListTile(
@@ -41,12 +39,8 @@ class ModesStage extends StatelessWidget {
       ),
       CheckboxListTile(
         contentPadding: EdgeInsets.zero,
-        title: Text(
-          context.l10n.templatesPlayerCountersAndStatuses,
-        ),
-        subtitle: Text(
-          context.l10n.templatesLivesEnergyPoisonShield,
-        ),
+        title: Text(context.l10n.templatesPlayerCountersAndStatuses),
+        subtitle: Text(context.l10n.templatesLivesEnergyPoisonShield),
         value: trackers,
         onChanged: (v) => onTrackers(v == true),
       ),
@@ -85,9 +79,7 @@ class PointsStage extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       SectionHeading(context.l10n.templates03Scoring),
-      Text(
-        context.l10n.templatesEachCategoryComputesATotal,
-      ),
+      Text(context.l10n.templatesEachCategoryComputesATotal),
       const SizedBox(height: 16),
       for (final d in rules)
         Padding(
@@ -112,15 +104,10 @@ class PointsStage extends StatelessWidget {
         label: Text(context.l10n.templatesAddACategory),
       ),
       const SizedBox(height: 20),
-      BuilderField(
-        target,
-        context.l10n.templatesPointsGoal0None,
-      ),
+      BuilderField(target, context.l10n.templatesPointsGoal0None),
       SwitchListTile(
         contentPadding: EdgeInsets.zero,
-        title: Text(
-          context.l10n.templatesLowestScoreWins,
-        ),
+        title: Text(context.l10n.templatesLowestScoreWins),
         value: low,
         onChanged: onLow,
       ),
@@ -188,14 +175,8 @@ class _RuleEditor extends StatelessWidget {
           context.l10n.templatesTableFor012,
           hint: context.l10n.templatesCommaSeparatedValues01,
         ),
-      BuilderField(
-        rule.bonus,
-        context.l10n.templatesFixedBonusOrPenalty,
-      ),
-      RemoveDraftButton(
-        context.l10n.templatesRemoveThisCategory,
-        onRemove,
-      ),
+      BuilderField(rule.bonus, context.l10n.templatesFixedBonusOrPenalty),
+      RemoveDraftButton(context.l10n.templatesRemoveThisCategory, onRemove),
     ],
   );
 }
@@ -206,9 +187,7 @@ class RulesStage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Column(
     children: [
-      SectionHeading(
-        context.l10n.templates05RulesAndReferences,
-      ),
+      SectionHeading(context.l10n.templates05RulesAndReferences),
       BuilderField(
         url,
         context.l10n.templatesHttpsLinkToTheRules,
@@ -243,14 +222,10 @@ class SummaryStage extends StatelessWidget {
     children: [
       Text(title, style: Theme.of(context).textTheme.headlineSmall),
       const SizedBox(height: 16),
-      Text(
-        '${context.l10n.templatesChosenTools} : ${modes.join(' · ')}',
-      ),
+      Text('${context.l10n.templatesChosenTools} : ${modes.join(' · ')}'),
       const SizedBox(height: 16),
       ExpansionTile(
-        title: Text(
-          context.l10n.templatesPublishingAndCredits,
-        ),
+        title: Text(context.l10n.templatesPublishingAndCredits),
         children: [
           BuilderField(
             author,
@@ -262,10 +237,7 @@ class SummaryStage extends StatelessWidget {
             context.l10n.templatesPackLicence,
             hint: context.l10n.templatesMitCc010Cc,
           ),
-          BuilderField(
-            revision,
-            context.l10n.templatesPackVersion,
-          ),
+          BuilderField(revision, context.l10n.templatesPackVersion),
         ],
       ),
     ],

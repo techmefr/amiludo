@@ -56,9 +56,7 @@ class _ShareSessionScreenState extends State<ShareSessionScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            context.l10n.sharingYourFriendOpensReceiveBy,
-          ),
+          Text(context.l10n.sharingYourFriendOpensReceiveBy),
           SectionHeading(context.l10n.sharingContent),
           Wrap(
             spacing: 8,
@@ -110,7 +108,12 @@ class _SharePreview extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         Text(
-          context.l10n.sharingGamesPacksSheetsFrames(bundle.games.length, bundle.templates.length, bundle.characters.length, encoder.count),
+          context.l10n.sharingGamesPacksSheetsFrames(
+            bundle.games.length,
+            bundle.templates.length,
+            bundle.characters.length,
+            encoder.count,
+          ),
         ),
         const SizedBox(height: 16),
         OutlinedButton(

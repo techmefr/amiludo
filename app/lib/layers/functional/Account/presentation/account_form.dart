@@ -49,10 +49,7 @@ class _AccountFormState extends State<AccountForm> {
               value: false,
               label: Text(context.l10n.accountSignIn),
             ),
-            ButtonSegment(
-              value: true,
-              label: Text(context.l10n.accountSignUp),
-            ),
+            ButtonSegment(value: true, label: Text(context.l10n.accountSignUp)),
           ],
           selected: {creating},
           onSelectionChanged: (v) => setState(() => creating = v.first),
@@ -63,17 +60,13 @@ class _AccountFormState extends State<AccountForm> {
             controller: name,
             maxLength: 40,
             autofillHints: const [AutofillHints.givenName],
-            decoration: InputDecoration(
-              labelText: context.l10n.accountName,
-            ),
+            decoration: InputDecoration(labelText: context.l10n.accountName),
           ),
         TextField(
           controller: email,
           keyboardType: TextInputType.emailAddress,
           autofillHints: const [AutofillHints.email],
-          decoration: InputDecoration(
-            labelText: context.l10n.accountEmail,
-          ),
+          decoration: InputDecoration(labelText: context.l10n.accountEmail),
         ),
         TextField(
           controller: password,

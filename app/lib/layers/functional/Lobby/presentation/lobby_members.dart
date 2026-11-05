@@ -47,9 +47,7 @@ class _SeatTile extends StatelessWidget {
     return ListTile(
       leading: CircleAvatar(backgroundColor: Color(seat.color)),
       title: Text(seat.name),
-      subtitle: pending
-          ? Text(context.l10n.lobbyWantsToJoin)
-          : null,
+      subtitle: pending ? Text(context.l10n.lobbyWantsToJoin) : null,
       trailing: !host
           ? null
           : Row(

@@ -6,10 +6,10 @@
 
 ## Lot 1 - Foundations
 
-- [ ] T001 Create `Theme/tokens/` (spacing, radius, elevation, type scale, motion)
-- [ ] T002 Split `deck_theme.dart` under 200 lines per file, same behaviour
-- [ ] T003 [US3] Motion tokens honouring reduced motion
-- [ ] T004 `app/test/design_tokens_test.dart`: forbids hard-coded sizes, colours and fonts in presentation code
+- [x] T001 Create `Theme/tokens/` (spacing, radius, elevation, type scale, motion)
+- [x] T002 Split `deck_theme.dart` under 200 lines per file, same behaviour
+- [x] T003 [US3] Motion tokens honouring reduced motion
+- [x] T004 `app/test/design_tokens_test.dart`: forbids hard-coded sizes, colours and fonts in presentation code
 
 ## Lot 2 - Components
 

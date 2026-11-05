@@ -105,9 +105,7 @@ class _DiceToolState extends State<DiceTool> {
         child: DropdownButtonFormField<int>(
           style: Theme.of(context).textTheme.bodyLarge,
           initialValue: count,
-          decoration: InputDecoration(
-            labelText: context.l10n.randomCount,
-          ),
+          decoration: InputDecoration(labelText: context.l10n.randomCount),
           items: List.generate(
             12,
             (i) => DropdownMenuItem(value: i + 1, child: Text('${i + 1}')),
@@ -188,10 +186,7 @@ class _DiceToolState extends State<DiceTool> {
         ),
         if (custom) symbolsField(),
         const SizedBox(height: 24),
-        if (rolls.isEmpty)
-          Text(
-            context.l10n.randomPressTheButtonToRoll,
-          ),
+        if (rolls.isEmpty) Text(context.l10n.randomPressTheButtonToRoll),
         Wrap(
           spacing: 12,
           runSpacing: 12,

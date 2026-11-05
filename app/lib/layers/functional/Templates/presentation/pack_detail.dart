@@ -31,9 +31,7 @@ class PackDetail extends StatelessWidget {
       return FullPage(
         title: context.l10n.templatesPackNotFound,
         fallback: '/templates',
-        child: Text(
-          context.l10n.templatesThisPackIsNotInstalled,
-        ),
+        child: Text(context.l10n.templatesThisPackIsNotInstalled),
       );
     }
     return FullPage(
@@ -42,10 +40,7 @@ class PackDetail extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (snapshot)
-            Text(
-              context.l10n.templatesRulesCopyKeptForThis,
-            ),
+          if (snapshot) Text(context.l10n.templatesRulesCopyKeptForThis),
           DeckHeading(
             eyebrow: 'PACK / ${p.revision}',
             title: p.name,
@@ -61,15 +56,11 @@ class PackDetail extends StatelessWidget {
           _PackPlayActions(pack: p, snapshot: snapshot),
           _PackRules(pack: p),
           SectionHeading(context.l10n.templatesShare),
-          Text(
-            context.l10n.templatesTheFileHoldsThePack,
-          ),
+          Text(context.l10n.templatesTheFileHoldsThePack),
           const SizedBox(height: 16),
           _PackShareActions(pack: p),
           const SizedBox(height: 12),
-          Text(
-            context.l10n.templatesToSubmitYourCreationExport,
-          ),
+          Text(context.l10n.templatesToSubmitYourCreationExport),
         ],
       ),
     );
@@ -94,9 +85,7 @@ class _PackRules extends StatelessWidget {
         OutlinedButton.icon(
           onPressed: () => openProjectLink(context, pack.rulesUrl),
           icon: const DeckIcon(Icons.open_in_new),
-          label: Text(
-            context.l10n.templatesOpenTheReferenceRules,
-          ),
+          label: Text(context.l10n.templatesOpenTheReferenceRules),
         ),
       const SizedBox(height: 16),
       SelectableText(
@@ -145,9 +134,7 @@ class _PackPlayActions extends StatelessWidget {
         ),
         TextButton(
           onPressed: () => context.go('/tools'),
-          child: Text(
-            context.l10n.templatesAllToolsInFreeMode,
-          ),
+          child: Text(context.l10n.templatesAllToolsInFreeMode),
         ),
       ],
     );
@@ -173,18 +160,14 @@ class _PackShareActions extends StatelessWidget {
             'pack-${pack.id}.json',
           ),
           icon: const DeckIcon(Icons.file_download_outlined),
-          label: Text(
-            context.l10n.templatesExportThePackJson,
-          ),
+          label: Text(context.l10n.templatesExportThePackJson),
         ),
         OutlinedButton(
           onPressed: () => openProjectLink(
             context,
             '$projectUrl/upload/main/community/packs',
           ),
-          child: Text(
-            context.l10n.templatesSubmitToTheGallery,
-          ),
+          child: Text(context.l10n.templatesSubmitToTheGallery),
         ),
       ],
     );

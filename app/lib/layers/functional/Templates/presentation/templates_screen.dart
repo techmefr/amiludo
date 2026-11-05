@@ -94,9 +94,7 @@ class _TemplatesToolbar extends StatelessWidget {
           OutlinedButton.icon(
             onPressed: onImport,
             icon: const DeckIcon(Icons.file_open_outlined),
-            label: Text(
-              context.l10n.templatesImportJsonTemplate,
-            ),
+            label: Text(context.l10n.templatesImportJsonTemplate),
           ),
         ],
       ),
@@ -133,8 +131,7 @@ class _TemplateCard extends StatelessWidget {
             [
               t.categories.join(' / '),
               '${t.seconds}s',
-              if (t.target > 0)
-                context.l10n.templatesTarget(t.target),
+              if (t.target > 0) context.l10n.templatesTarget(t.target),
             ].join(' · '),
             style: theme.textTheme.bodySmall,
           ),

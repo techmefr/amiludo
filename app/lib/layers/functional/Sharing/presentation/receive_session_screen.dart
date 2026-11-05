@@ -53,7 +53,11 @@ class _ReceiveSessionScreenState extends State<ReceiveSessionScreen> {
       if (!mounted) return;
       notify(
         context,
-        context.l10n.sharingReceivedGamesPacksSheets(result.games, result.templates, result.characters),
+        context.l10n.sharingReceivedGamesPacksSheets(
+          result.games,
+          result.templates,
+          result.characters,
+        ),
       );
       context.go('/library');
     } catch (error) {
@@ -69,9 +73,7 @@ class _ReceiveSessionScreenState extends State<ReceiveSessionScreen> {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          context.l10n.sharingPointAtYourFriendS,
-        ),
+        Text(context.l10n.sharingPointAtYourFriendS),
         const SizedBox(height: 16),
         QrScannerView(
           onCode: _frame,

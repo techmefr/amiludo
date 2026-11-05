@@ -61,17 +61,13 @@ class _SignedInPanelState extends State<SignedInPanel> {
           children: [
             FilledButton.tonal(
               onPressed: widget.busy ? null : _change,
-              child: Text(
-                context.l10n.accountChangePassword,
-              ),
+              child: Text(context.l10n.accountChangePassword),
             ),
             if (widget.account.admin)
               OutlinedButton.icon(
                 onPressed: () => context.push('/admin'),
                 icon: const Icon(Icons.manage_accounts_outlined),
-                label: Text(
-                  context.l10n.accountManageAccounts,
-                ),
+                label: Text(context.l10n.accountManageAccounts),
               ),
             TextButton(
               onPressed: widget.busy

@@ -95,9 +95,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                   ),
                 FilledButton(
                   onPressed: stars.isEmpty ? null : () => _save(game),
-                  child: Text(
-                    context.l10n.friendsSaveReviews,
-                  ),
+                  child: Text(context.l10n.friendsSaveReviews),
                 ),
               ],
             ),

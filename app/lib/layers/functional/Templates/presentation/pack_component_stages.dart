@@ -50,9 +50,7 @@ class DiceStage extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       SectionHeading(context.l10n.templates01GameDice),
-      Text(
-        context.l10n.templatesSetTheLabelAndValue,
-      ),
+      Text(context.l10n.templatesSetTheLabelAndValue),
       const SizedBox(height: 16),
       _DraftList<DieDraft>(
         drafts: dice,
@@ -86,10 +84,7 @@ class _DieEditor extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     children: [
       BuilderField(die.name, context.l10n.templatesDieName),
-      BuilderField(
-        die.count,
-        context.l10n.templatesNumberOfCopies,
-      ),
+      BuilderField(die.count, context.l10n.templatesNumberOfCopies),
       for (final f in die.faces)
         Padding(
           key: ObjectKey(f),
@@ -98,10 +93,7 @@ class _DieEditor extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: BuilderField(
-                  f.label,
-                  context.l10n.templatesFaceSymbol,
-                ),
+                child: BuilderField(f.label, context.l10n.templatesFaceSymbol),
               ),
               const SizedBox(width: 8),
               SizedBox(
@@ -125,10 +117,7 @@ class _DieEditor extends StatelessWidget {
             : () => refresh(() => die.faces.add(FaceDraft(null))),
         child: Text(context.l10n.templatesAddAFace),
       ),
-      RemoveDraftButton(
-        context.l10n.templatesRemoveThisDie,
-        onRemove,
-      ),
+      RemoveDraftButton(context.l10n.templatesRemoveThisDie, onRemove),
     ],
   );
 }
@@ -142,9 +131,7 @@ class RolesStage extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       SectionHeading(context.l10n.templates02GameRoles),
-      Text(
-        context.l10n.templatesPickHowManyCardsEach,
-      ),
+      Text(context.l10n.templatesPickHowManyCardsEach),
       const SizedBox(height: 16),
       _DraftList<RoleDraft>(
         drafts: roles,
@@ -155,10 +142,7 @@ class RolesStage extends StatelessWidget {
         item: (d) => Column(
           children: [
             BuilderField(d.name, context.l10n.templatesRoleName),
-            BuilderField(
-              d.count,
-              context.l10n.templatesNumberOfCards,
-            ),
+            BuilderField(d.count, context.l10n.templatesNumberOfCards),
             BuilderField(
               d.description,
               context.l10n.templatesPowerGoalOrPrivateInstruction,
@@ -191,12 +175,8 @@ class CharactersStage extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      SectionHeading(
-        context.l10n.templates04CharactersAndBoosters,
-      ),
-      Text(
-        context.l10n.templatesCreateYourCategoriesRacesJobs,
-      ),
+      SectionHeading(context.l10n.templates04CharactersAndBoosters),
+      Text(context.l10n.templatesCreateYourCategoriesRacesJobs),
       const SizedBox(height: 16),
       _DraftList<CreationDraft>(
         drafts: creation,
@@ -229,22 +209,10 @@ class _CreationEditor extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Column(
     children: [
-      BuilderField(
-        draft.name,
-        context.l10n.templatesCharacterCategory,
-      ),
-      BuilderField(
-        draft.draw,
-        context.l10n.templatesCardsOfferedPerBooster,
-      ),
-      BuilderField(
-        draft.keepMin,
-        context.l10n.templatesMinimumCardsToKeep,
-      ),
-      BuilderField(
-        draft.keepMax,
-        context.l10n.templatesMaximumCardsToKeep,
-      ),
+      BuilderField(draft.name, context.l10n.templatesCharacterCategory),
+      BuilderField(draft.draw, context.l10n.templatesCardsOfferedPerBooster),
+      BuilderField(draft.keepMin, context.l10n.templatesMinimumCardsToKeep),
+      BuilderField(draft.keepMax, context.l10n.templatesMaximumCardsToKeep),
       for (final c in draft.cards)
         Padding(
           key: ObjectKey(c),
@@ -297,9 +265,7 @@ class TrackersStage extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       SectionHeading(context.l10n.templatesPlayerCounters),
-      Text(
-        context.l10n.templatesLivesEnergyCombatPointsEach,
-      ),
+      Text(context.l10n.templatesLivesEnergyCombatPointsEach),
       const SizedBox(height: 16),
       _DraftList<ResourceDraft>(
         drafts: resources,
@@ -314,10 +280,7 @@ class TrackersStage extends StatelessWidget {
               context.l10n.templatesCounterName,
               maxLength: 40,
             ),
-            BuilderField(
-              d.start,
-              context.l10n.templatesStartingValue,
-            ),
+            BuilderField(d.start, context.l10n.templatesStartingValue),
             RemoveDraftButton(
               context.l10n.templatesRemoveThisCounter,
               () => refresh(() {
@@ -329,9 +292,7 @@ class TrackersStage extends StatelessWidget {
         ),
       ),
       SectionHeading(context.l10n.templatesStackableStatuses),
-      Text(
-        context.l10n.templatesPoisonShieldStunnedPlayersStack,
-      ),
+      Text(context.l10n.templatesPoisonShieldStunnedPlayersStack),
       const SizedBox(height: 16),
       _DraftList<TextEditingController>(
         drafts: statuses,

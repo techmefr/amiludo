@@ -64,13 +64,15 @@ class _TonightScreenState extends State<TonightScreen> {
             label: minutes == 0
                 ? context.l10n.libraryAllEvening
                 : '$minutes min',
-            semanticFormatterCallback: (v) => v == 0
-                ? context.l10n.libraryAllEvening
-                : '${v.round()} min',
+            semanticFormatterCallback: (v) =>
+                v == 0 ? context.l10n.libraryAllEvening : '${v.round()} min',
             onChanged: (v) => setState(() => minutes = v.round()),
           ),
           SectionHeading(
-            context.l10n.libraryGamesForPlayers(suggestions.length, guests.length + 1),
+            context.l10n.libraryGamesForPlayers(
+              suggestions.length,
+              guests.length + 1,
+            ),
           ),
           if (suggestions.isEmpty)
             EmptyPanel(

@@ -58,9 +58,7 @@ class _GalleryImportScreenState extends State<GalleryImportScreen> {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          context.l10n.memories1PickTheReceivedFile,
-        ),
+        Text(context.l10n.memories1PickTheReceivedFile),
         const SizedBox(height: 20),
         OutlinedButton(
           onPressed: _pick,

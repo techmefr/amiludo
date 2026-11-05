@@ -12,22 +12,14 @@ class EveningRsvpLists extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final groups = [
-      (
-        context.l10n.eveningsGoing,
-        Icons.check_circle_outline,
-        evening.going,
-      ),
+      (context.l10n.eveningsGoing, Icons.check_circle_outline, evening.going),
       (
         context.l10n.eveningsWaitingList,
         Icons.hourglass_empty,
         evening.waitlist,
       ),
       (context.l10n.eveningsMaybe, Icons.help_outline, evening.maybe),
-      (
-        context.l10n.eveningsNotComing,
-        Icons.cancel_outlined,
-        evening.declined,
-      ),
+      (context.l10n.eveningsNotComing, Icons.cancel_outlined, evening.declined),
     ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

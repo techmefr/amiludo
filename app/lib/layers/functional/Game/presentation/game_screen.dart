@@ -169,9 +169,7 @@ class _GameToolbar extends StatelessWidget {
                   ),
                   onPressed: () =>
                       context.push('/pack/${game.pack!.id}?session=1'),
-                  child: Text(
-                    context.l10n.gameGameToolsAndRules,
-                  ),
+                  child: Text(context.l10n.gameGameToolsAndRules),
                 ),
               MenuItemButton(
                 leadingIcon: const DeckIcon(Icons.ios_share_outlined, size: 18),

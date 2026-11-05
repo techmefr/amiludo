@@ -67,9 +67,7 @@ class _BagToolState extends State<BagTool> {
       if (hasDrawn)
         Padding(
           padding: const EdgeInsets.only(bottom: 20),
-          child: Text(
-            '${bag.length} ${context.l10n.randomTokensRemaining}',
-          ),
+          child: Text('${bag.length} ${context.l10n.randomTokensRemaining}'),
         ),
       Wrap(
         spacing: 12,

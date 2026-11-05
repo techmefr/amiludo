@@ -36,10 +36,7 @@ class _TimerPanelState extends State<TimerPanel> {
           sound: ws.appearance.sound,
           haptics: ws.appearance.haptics,
         );
-        notify(
-          context,
-          context.l10n.timerTimeIsUpPassThe,
-        );
+        notify(context, context.l10n.timerTimeIsUpPassThe);
       }
       if (ws.clock.remainingAt(controller.time.now) > 0) alerted = false;
       setState(() {});
@@ -215,9 +212,7 @@ class _TimerControls extends StatelessWidget {
         onPressed: onToggle,
         icon: DeckIcon(running ? Icons.pause : Icons.play_arrow),
         label: Text(
-          running
-              ? context.l10n.timerPause
-              : context.l10n.timerStart,
+          running ? context.l10n.timerPause : context.l10n.timerStart,
         ),
       ),
       IconButton(
@@ -274,9 +269,7 @@ class _TimerSettingsFields extends StatelessWidget {
       SwitchListTile(
         contentPadding: EdgeInsets.zero,
         title: Text(context.l10n.timerBankPerPlayer),
-        subtitle: Text(
-          context.l10n.timerOtherwiseFixedTimeEachTurn,
-        ),
+        subtitle: Text(context.l10n.timerOtherwiseFixedTimeEachTurn),
         value: bank,
         onChanged: onBankChanged,
       ),

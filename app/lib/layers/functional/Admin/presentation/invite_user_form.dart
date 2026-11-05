@@ -37,16 +37,12 @@ class _InviteUserFormState extends State<InviteUserForm> {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(
-          context.l10n.adminTheyGetAnEmailTo,
-        ),
+        Text(context.l10n.adminTheyGetAnEmailTo),
         const SizedBox(height: 12),
         TextField(
           controller: email,
           keyboardType: TextInputType.emailAddress,
-          decoration: InputDecoration(
-            labelText: context.l10n.accountEmail,
-          ),
+          decoration: InputDecoration(labelText: context.l10n.accountEmail),
         ),
         TextField(
           controller: name,

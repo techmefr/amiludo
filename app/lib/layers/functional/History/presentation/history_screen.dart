@@ -118,18 +118,12 @@ class _HistoryStats extends StatelessWidget {
       (sum, g) => sum + g.finishedAt! - g.createdAt,
     );
     final stats = [
-      (
-        '${completed.length}',
-        context.l10n.historyCompletedGames,
-      ),
+      ('${completed.length}', context.l10n.historyCompletedGames),
       (
         '${workspace.games.where((g) => g.finishedAt == null).length}',
         context.l10n.historyActiveTables,
       ),
-      (
-        '${(duration / 60000).round()}',
-        context.l10n.historyMinutesPlayed,
-      ),
+      ('${(duration / 60000).round()}', context.l10n.historyMinutesPlayed),
     ];
     return ResponsiveGrid(
       minimumWidth: phone ? 96 : 200,
@@ -195,9 +189,7 @@ class _DataControls extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      SectionHeading(
-        context.l10n.historyYourDataBelongsToYou,
-      ),
+      SectionHeading(context.l10n.historyYourDataBelongsToYou),
       DeckPanel(
         child: Wrap(
           spacing: 12,
@@ -208,9 +200,7 @@ class _DataControls extends StatelessWidget {
                 context.read<HistoryCubit>().exportBackup(),
                 'compagnon-sauvegarde.json',
               ),
-              child: Text(
-                context.l10n.historyBackUpEverything,
-              ),
+              child: Text(context.l10n.historyBackUpEverything),
             ),
             OutlinedButton(
               onPressed: () => _restore(context),
@@ -223,9 +213,7 @@ class _DataControls extends StatelessWidget {
       TextButton.icon(
         onPressed: () => _erase(context),
         icon: const DeckIcon(Icons.delete_forever_outlined),
-        label: Text(
-          context.l10n.historyEraseAllMyData,
-        ),
+        label: Text(context.l10n.historyEraseAllMyData),
       ),
     ],
   );

@@ -42,15 +42,9 @@ class _GalleryExportButtonState extends State<GalleryExportButton> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              dialog.l10n.memoriesLetYourFriendsScanThis,
-            ),
+            Text(dialog.l10n.memoriesLetYourFriendsScanThis),
             const SizedBox(height: 16),
-            QrCode(
-              data: key,
-              size: 220,
-              label: dialog.l10n.memoriesKeyQrCode,
-            ),
+            QrCode(data: key, size: 220, label: dialog.l10n.memoriesKeyQrCode),
             const SizedBox(height: 12),
             SelectableText(
               key,

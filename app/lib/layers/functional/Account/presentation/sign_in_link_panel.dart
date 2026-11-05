@@ -40,15 +40,11 @@ class _SignInLinkPanelState extends State<SignInLinkPanel> {
       OutlinedButton.icon(
         onPressed: widget.busy ? null : _send,
         icon: const Icon(Icons.mark_email_unread_outlined),
-        label: Text(
-          context.l10n.accountEmailMeASignIn,
-        ),
+        label: Text(context.l10n.accountEmailMeASignIn),
       ),
       if (sent) ...[
         const SizedBox(height: 12),
-        Text(
-          context.l10n.accountOpenTheLinkOnThis,
-        ),
+        Text(context.l10n.accountOpenTheLinkOnThis),
         TextField(
           controller: code,
           keyboardType: TextInputType.number,

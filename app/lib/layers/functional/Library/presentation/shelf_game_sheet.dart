@@ -103,11 +103,7 @@ class _SheetActions extends StatelessWidget {
   Future<void> _remove(BuildContext context) async {
     final cubit = context.read<LibraryCubit>();
     final navigator = Navigator.of(context);
-    if (await confirm(
-      context,
-      context.l10n.libraryRemoveThisGame,
-      game.name,
-    )) {
+    if (await confirm(context, context.l10n.libraryRemoveThisGame, game.name)) {
       await cubit.remove(game.id);
       navigator.pop();
     }

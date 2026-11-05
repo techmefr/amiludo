@@ -15,7 +15,8 @@ class AccountScreen extends StatelessWidget {
   String _notice(BuildContext context, AccountNotice notice) =>
       switch (notice) {
         AccountNotice.saved => context.l10n.accountNameSaved,
-        AccountNotice.checkMail => context.l10n.accountAccountCreatedConfirmWithThe,
+        AccountNotice.checkMail =>
+          context.l10n.accountAccountCreatedConfirmWithThe,
         AccountNotice.signedIn => context.l10n.accountSignedIn,
         AccountNotice.signedOut => context.l10n.accountSignedOut,
         AccountNotice.resetSent => context.l10n.accountResetEmailSent,
@@ -77,17 +78,13 @@ class _NicknameState extends State<_Nickname> {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(
-        context.l10n.accountTheNameFriendsSeeWhen,
-      ),
+      Text(context.l10n.accountTheNameFriendsSeeWhen),
       const SizedBox(height: 12),
       TextField(
         controller: name,
         maxLength: 40,
         autofillHints: const [AutofillHints.givenName],
-        decoration: InputDecoration(
-          labelText: context.l10n.accountYourName,
-        ),
+        decoration: InputDecoration(labelText: context.l10n.accountYourName),
       ),
       FilledButton(
         onPressed: () => context.read<AccountCubit>().saveNickname(name.text),

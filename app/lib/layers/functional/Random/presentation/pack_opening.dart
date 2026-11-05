@@ -26,15 +26,11 @@ class ClosedPack extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 8),
-        Text(
-          context.l10n.randomCardsToReveal(category.draw),
-        ),
+        Text(context.l10n.randomCardsToReveal(category.draw)),
         const SizedBox(height: 20),
         FilledButton(
           onPressed: onOpen,
-          child: Text(
-            context.l10n.randomOpenThePack(category.name),
-          ),
+          child: Text(context.l10n.randomOpenThePack(category.name)),
         ),
       ],
     ),
