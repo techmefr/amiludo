@@ -7,6 +7,7 @@ import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/cubit/workspace_cubit.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class GameSetupPage extends StatefulWidget {
   const GameSetupPage({super.key, this.template, this.names});
@@ -48,11 +49,7 @@ class _GameSetupPageState extends State<GameSetupPage> {
             values.length > 32 ||
             values.toSet().length != values.length ||
             values.any((n) => n.length > 40)
-        ? tr(
-            context,
-            'Vérifiez les noms (40 caractères maximum).',
-            'Check the names (40 characters maximum).',
-          )
+        ? context.l10n.workspaceCheckTheNames40Characters
         : null;
   }
 
@@ -70,14 +67,7 @@ class _GameSetupPageState extends State<GameSetupPage> {
       );
     } on GameError {
       if (mounted) {
-        notify(
-          context,
-          tr(
-            context,
-            'Choisissez 1 à 32 prénoms différents.',
-            'Pick 1 to 32 different names.',
-          ),
-        );
+        notify(context, context.l10n.workspacePick1To32Different);
       }
       return;
     }
@@ -95,7 +85,7 @@ class _GameSetupPageState extends State<GameSetupPage> {
         t.id: t,
     };
     return FullPage(
-      title: tr(context, 'Préparer la table', 'Set up the table'),
+      title: context.l10n.workspaceSetUpTheTable,
       fallback: '/',
       child: Form(
         key: form,
@@ -103,19 +93,15 @@ class _GameSetupPageState extends State<GameSetupPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             DeckHeading(
-              eyebrow: tr(context, 'Nouvelle partie', 'New game'),
-              title: tr(context, 'Qui est à la table ?', 'Who is playing?'),
-              subtitle: tr(
-                context,
-                'Un nom, un pack, vos joueurs. Le reste se règle en jouant.',
-                'A name, a pack, your players. The rest happens as you play.',
-              ),
+              eyebrow: context.l10n.workspaceNewGame,
+              title: context.l10n.workspaceWhoIsPlaying,
+              subtitle: context.l10n.workspaceANameAPackYour,
             ),
             TextFormField(
               controller: title,
               maxLength: 80,
               decoration: InputDecoration(
-                labelText: tr(context, 'Nom de la partie', 'Game name'),
+                labelText: context.l10n.workspaceGameName,
               ),
             ),
             const SizedBox(height: 16),
@@ -148,7 +134,7 @@ class _GameSetupPageState extends State<GameSetupPage> {
             const SizedBox(height: 24),
             FilledButton(
               onPressed: _start,
-              child: Text(tr(context, 'À vous de jouer', 'Start playing')),
+              child: Text(context.l10n.workspaceStartPlaying),
             ),
           ],
         ),

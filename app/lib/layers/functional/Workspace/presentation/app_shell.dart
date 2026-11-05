@@ -7,20 +7,21 @@ import 'package:amiludo/layers/functional/Workspace/presentation/cubit/workspace
 import 'package:amiludo/layers/functional/Workspace/presentation/workspace_gate.dart';
 import 'package:amiludo/layers/technical/About/app_info.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 typedef NavItem = (String route, IconData icon, String label);
 
 const _barRoutes = [0, 1, 2, 3, 4];
 
 List<NavItem> navItems(BuildContext context) => [
-  ('/', Icons.home_outlined, tr(context, 'Accueil', 'Home')),
-  ('/game', Icons.dashboard_outlined, tr(context, 'Ma partie', 'My game')),
-  ('/tools', Icons.casino_outlined, tr(context, 'Outils', 'Tools')),
-  ('/library', Icons.shelves, tr(context, 'Ludothèque', 'Shelf')),
-  ('/friends', Icons.people_outline, tr(context, 'Amis', 'Friends')),
-  ('/evenings', Icons.event_outlined, tr(context, 'Soirées', 'Nights')),
-  ('/history', Icons.history, tr(context, 'Historique', 'History')),
-  ('/appearance', Icons.tune, tr(context, 'Apparence', 'Style')),
+  ('/', Icons.home_outlined, context.l10n.workspaceHome),
+  ('/game', Icons.dashboard_outlined, context.l10n.workspaceMyGame),
+  ('/tools', Icons.casino_outlined, context.l10n.workspaceTools),
+  ('/library', Icons.shelves, context.l10n.workspaceShelf),
+  ('/friends', Icons.people_outline, context.l10n.workspaceFriends),
+  ('/evenings', Icons.event_outlined, context.l10n.workspaceNights),
+  ('/history', Icons.history, context.l10n.workspaceHistory),
+  ('/appearance', Icons.tune, context.l10n.workspaceStyle),
 ];
 
 int navIndex(List<NavItem> items, String path) => switch (path) {
@@ -168,16 +169,12 @@ class _Sidebar extends StatelessWidget {
             ),
           const Spacer(),
           Text(
-            tr(context, '● Données sur cet appareil', '● Data on this device'),
+            context.l10n.workspaceDataOnThisDevice,
             style: theme.textTheme.bodySmall,
           ),
           const SizedBox(height: 12),
           Text(
-            tr(
-              context,
-              'amiLudo · Alpha\nSans compte. Sans publicité.',
-              'amiLudo · Alpha\nNo account. No ads.',
-            ),
+            context.l10n.workspaceAmiludoAlphaNoAccountNo,
             style: theme.textTheme.bodySmall,
           ),
         ],
@@ -300,28 +297,28 @@ class _HeaderActions extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         IconButton(
-          tooltip: tr(context, 'À propos et retours', 'About and feedback'),
+          tooltip: context.l10n.workspaceAboutAndFeedback,
           onPressed: () => showProjectInfo(context),
           icon: const DeckIcon(Icons.info_outline, size: 20),
         ),
         IconButton(
-          tooltip: tr(context, 'Mon profil', 'My profile'),
+          tooltip: context.l10n.workspaceMyProfile,
           onPressed: () => context.go('/account'),
           icon: const DeckIcon(Icons.account_circle_outlined, size: 20),
         ),
         IconButton(
-          tooltip: tr(context, 'Historique', 'History'),
+          tooltip: context.l10n.workspaceHistory,
           onPressed: () => context.go('/history'),
           icon: const DeckIcon(Icons.history, size: 20),
         ),
         if (!desktop)
           IconButton(
-            tooltip: tr(context, 'Apparence', 'Style'),
+            tooltip: context.l10n.workspaceStyle,
             onPressed: () => context.go('/appearance'),
             icon: const DeckIcon(Icons.tune, size: 20),
           ),
         IconButton(
-          tooltip: tr(context, 'Changer la lumière', 'Toggle light'),
+          tooltip: context.l10n.workspaceToggleLight,
           onPressed: state.status == WorkspaceStatus.ready
               ? () => workspace.changeAppearance(
                   state.workspace.appearance.copyWith(
@@ -343,17 +340,11 @@ class _SaveFailedBanner extends StatelessWidget {
     final workspace = context.watch<WorkspaceCubit>();
     if (!workspace.state.saveFailed) return const SizedBox.shrink();
     return MaterialBanner(
-      content: Text(
-        tr(
-          context,
-          'Enregistrement impossible. Exportez vos données avant de fermer.',
-          'Saving failed. Export your data before closing.',
-        ),
-      ),
+      content: Text(context.l10n.workspaceSavingFailedExportYourData),
       actions: [
         TextButton(
           onPressed: workspace.retrySave,
-          child: Text(tr(context, 'Réessayer', 'Retry')),
+          child: Text(context.l10n.workspaceRetry),
         ),
       ],
     );

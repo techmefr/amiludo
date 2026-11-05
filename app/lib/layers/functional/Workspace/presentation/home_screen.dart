@@ -8,6 +8,7 @@ import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/cubit/workspace_cubit.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -26,7 +27,7 @@ class HomeScreen extends StatelessWidget {
         const _HeroPanel(),
         if (current != null && current.finishedAt == null) ...[
           SectionHeading(
-            tr(context, 'La partie continue', 'Your game continues'),
+            context.l10n.workspaceYourGameContinues,
             action: TextButton(
               onPressed: () => context.go('/game'),
               child: const Text('→'),
@@ -35,10 +36,10 @@ class HomeScreen extends StatelessWidget {
           _CurrentGamePanel(game: current),
         ],
         SectionHeading(
-          tr(context, 'Les outils de la table', 'Tools for your table'),
+          context.l10n.workspaceToolsForYourTable,
           action: TextButton(
             onPressed: () => context.go('/tools'),
-            child: Text(tr(context, 'Tout voir ↗', 'View all ↗')),
+            child: Text(context.l10n.workspaceViewAll),
           ),
         ),
         ResponsiveGrid(
@@ -49,24 +50,16 @@ class HomeScreen extends StatelessWidget {
               .toList(),
         ),
         SectionHeading(
-          tr(context, 'Vos derniers bons moments', 'Recent good times'),
+          context.l10n.workspaceRecentGoodTimes,
           action: TextButton(
             onPressed: () => context.go('/history'),
-            child: Text(tr(context, 'Historique ↗', 'History ↗')),
+            child: Text(context.l10n.workspaceHistory2),
           ),
         ),
         if (finished.isEmpty)
           EmptyPanel(
-            title: tr(
-              context,
-              'La première partie vous attend',
-              'Your first game awaits',
-            ),
-            message: tr(
-              context,
-              'Vos résultats apparaîtront ici. Aucune partie fictive.',
-              'Your real results will appear here.',
-            ),
+            title: context.l10n.workspaceYourFirstGameAwaits,
+            message: context.l10n.workspaceYourRealResultsWillAppear,
           ),
         for (final g in finished) _FinishedGameRow(game: g),
       ],
@@ -79,25 +72,13 @@ class _HomeHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DeckHeading(
-      eyebrow: tr(
-        context,
-        'Jouez ensemble / restez dans la partie',
-        'Play together / stay in the game',
-      ),
-      title: tr(
-        context,
-        'On joue à quoi, aujourd’hui ?',
-        'What are we playing today?',
-      ),
-      subtitle: tr(
-        context,
-        'Les bons outils. La bonne compagnie. Vos vraies parties.',
-        'The right tools. Good company. Your actual games.',
-      ),
+      eyebrow: context.l10n.workspacePlayTogetherStayInThe,
+      title: context.l10n.workspaceWhatAreWePlayingToday,
+      subtitle: context.l10n.workspaceTheRightToolsGoodCompany,
       action: OutlinedButton.icon(
         onPressed: () => context.push(GameSetupRequest.path),
         icon: const DeckIcon(Icons.add, size: 18),
-        label: Text(tr(context, 'Nouvelle partie', 'New game')),
+        label: Text(context.l10n.workspaceNewGame),
       ),
     );
   }
@@ -133,11 +114,7 @@ class _HeroText extends StatelessWidget {
       children: [
         if (compact) const GameArt(height: 180),
         Text(
-          tr(
-            context,
-            'Les bons outils, la bonne compagnie',
-            'Good tools. Great company.',
-          ).toUpperCase(),
+          context.l10n.workspaceGoodToolsGreatCompany.toUpperCase(),
           style: theme.textTheme.labelMedium?.copyWith(
             fontWeight: FontWeight.w700,
             letterSpacing: 1.2,
@@ -146,21 +123,11 @@ class _HeroText extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         Text(
-          tr(
-            context,
-            'Une table, des amis.\nÀ vous de jouer !',
-            'Your friends, your table.\nLet’s play!',
-          ),
+          context.l10n.workspaceYourFriendsYourTableLet,
           style: theme.textTheme.headlineMedium,
         ),
         const SizedBox(height: 16),
-        Text(
-          tr(
-            context,
-            'Scores, hasard et tempo :\ngardez l’esprit dans la partie.',
-            'Scores, chance and timing:\nkeep your mind in the game.',
-          ),
-        ),
+        Text(context.l10n.workspaceScoresChanceAndTimingKeep),
         const SizedBox(height: 24),
         const _HeroActions(),
       ],
@@ -179,24 +146,22 @@ class _HeroActions extends StatelessWidget {
         FilledButton.icon(
           onPressed: () => context.go('/tools'),
           icon: const DeckIcon(Icons.arrow_outward, size: 18),
-          label: Text(tr(context, 'Mode libre', 'Free mode')),
+          label: Text(context.l10n.workspaceFreeMode),
         ),
         OutlinedButton.icon(
           onPressed: () => context.go('/templates'),
           icon: const DeckIcon(Icons.dashboard_outlined, size: 18),
-          label: Text(
-            tr(context, 'Mes compagnons par jeu', 'My game companions'),
-          ),
+          label: Text(context.l10n.workspaceMyGameCompanions),
         ),
         OutlinedButton.icon(
           onPressed: () => context.go('/lobby'),
           icon: const DeckIcon(Icons.wifi_tethering, size: 18),
-          label: Text(tr(context, 'Ouvrir un salon', 'Open a lobby')),
+          label: Text(context.l10n.workspaceOpenALobby),
         ),
         OutlinedButton.icon(
           onPressed: () => context.go('/join'),
           icon: const DeckIcon(Icons.login, size: 18),
-          label: Text(tr(context, 'Rejoindre une partie', 'Join a game')),
+          label: Text(context.l10n.workspaceJoinAGame),
         ),
       ],
     );
@@ -226,7 +191,7 @@ class _CurrentGamePanel extends StatelessWidget {
           ),
           FilledButton(
             onPressed: () => context.go('/game'),
-            child: Text(tr(context, 'Reprendre la partie', 'Resume game')),
+            child: Text(context.l10n.workspaceResumeGame),
           ),
         ],
       ),
@@ -254,7 +219,7 @@ class _ToolCard extends StatelessWidget {
           const Spacer(),
           OutlinedButton(
             onPressed: () => context.push('/tools/${tool.id}'),
-            child: Text(tr(context, 'Ouvrir ↗', 'Open ↗')),
+            child: Text(context.l10n.workspaceOpen),
           ),
         ],
       ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:amiludo/l10n/app_localizations.dart';
+import 'package:amiludo/layers/technical/Locale/supported_languages.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
@@ -228,9 +230,15 @@ class _AmiludoRouter extends StatelessWidget {
       title: 'amiLudo',
       debugShowCheckedModeBanner: false,
       routerConfig: router,
-      locale: Locale(appearance.language),
-      supportedLocales: const [Locale('fr'), Locale('en')],
-      localizationsDelegates: GlobalMaterialLocalizations.delegates,
+      locale: appearance.language == autoLanguage
+          ? null
+          : Locale(appearance.language),
+      supportedLocales: AppLocalizations.supportedLocales,
+      localeResolutionCallback: resolveLocale,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        ...GlobalMaterialLocalizations.delegates,
+      ],
       theme: deckTheme(appearance, Brightness.light),
       darkTheme: deckTheme(appearance, Brightness.dark),
       themeMode: _mode(appearance),

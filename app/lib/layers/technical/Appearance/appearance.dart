@@ -1,3 +1,5 @@
+import 'package:amiludo/layers/technical/Locale/supported_languages.dart';
+
 class Appearance {
   const Appearance({
     this.skin = 'play',
@@ -109,7 +111,7 @@ class Appearance {
         !['dark', 'light', 'system'].contains(a.mode) ||
         !fonts.contains(a.font) ||
         !['cut', 'square', 'soft', 'round'].contains(a.shape) ||
-        !['fr', 'en'].contains(a.language)) {
+        !isValidLanguage(a.language)) {
       throw const FormatException('Thème invalide');
     }
     return a;

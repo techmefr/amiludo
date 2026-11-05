@@ -3,12 +3,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:amiludo/layers/technical/Locale/supported_languages.dart';
 import 'package:amiludo/layers/technical/Appearance/appearance.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Files/file_transfer.dart';
 import 'package:amiludo/layers/functional/Appearance/presentation/cubit/appearance_cubit.dart';
 import 'package:amiludo/layers/functional/Appearance/presentation/appearance_style_grids.dart';
 import 'package:amiludo/layers/technical/Theme/text_prompt.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class AppearanceScreen extends StatelessWidget {
   const AppearanceScreen({super.key});
@@ -29,14 +31,11 @@ class AppearanceScreen extends StatelessWidget {
       );
       await controller.change(imported);
       if (context.mounted) {
-        notify(context, tr(context, 'Thème importé', 'Theme imported'));
+        notify(context, context.l10n.appearanceThemeImported);
       }
     } catch (error) {
       if (context.mounted) {
-        notify(
-          context,
-          '${tr(context, 'Import impossible', 'Import failed')} : $error',
-        );
+        notify(context, '${context.l10n.appearanceImportFailed} : $error');
       }
     }
   }
@@ -51,42 +50,46 @@ class AppearanceScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _AppearanceHeading(controller: controller),
-        SectionHeading(tr(context, '01 / Votre univers', '01 / Your world')),
+        SectionHeading(context.l10n.appearance01YourWorld),
         AppearanceSkinGrid(appearance: a, controller: controller),
         _ChoiceSection(
-          title: tr(context, '02 / Lumière', '02 / Light'),
+          title: context.l10n.appearance02Light,
           options: [
-            ('light', tr(context, 'Clair', 'Light')),
-            ('dark', tr(context, 'Sombre', 'Dark')),
-            ('system', tr(context, 'Système', 'System')),
+            ('light', context.l10n.appearanceLight),
+            ('dark', context.l10n.appearanceDark),
+            ('system', context.l10n.appearanceSystem),
           ],
           selected: a.mode,
           change: (v) => controller.change(a.copyWith(mode: v)),
         ),
-        SectionHeading(tr(context, '03 / Palette', '03 / Palette')),
+        SectionHeading(context.l10n.appearance03Palette),
         AppearancePaletteGrid(appearance: a, controller: controller),
-        SectionHeading(tr(context, '04 / Caractères', '04 / Typeface')),
+        SectionHeading(context.l10n.appearance04Typeface),
         AppearanceFontGrid(appearance: a, controller: controller),
         _ChoiceSection(
-          title: tr(context, '05 / Formes', '05 / Shapes'),
+          title: context.l10n.appearance05Shapes,
           options: [
-            ('cut', tr(context, 'Biseautées', 'Beveled')),
-            ('square', tr(context, 'Nettes', 'Sharp')),
-            ('soft', tr(context, 'Douces', 'Soft')),
-            ('round', tr(context, 'Arrondies', 'Rounded')),
+            ('cut', context.l10n.appearanceBeveled),
+            ('square', context.l10n.appearanceSharp),
+            ('soft', context.l10n.appearanceSoft),
+            ('round', context.l10n.appearanceRounded),
           ],
           selected: a.shape,
           change: (v) => controller.change(a.copyWith(shape: v)),
         ),
-        SectionHeading(tr(context, '06 / Confort', '06 / Comfort')),
+        SectionHeading(context.l10n.appearance06Comfort),
         _ComfortPanel(appearance: a, controller: controller),
         _ChoiceSection(
-          title: 'Langue / Language',
-          options: const [('fr', 'Français'), ('en', 'English')],
+          title: context.l10n.appearanceLanguageTitle,
+          options: [
+            (autoLanguage, context.l10n.appearanceLanguageAuto),
+            for (final language in supportedLanguages)
+              (language.code, '${language.flag} ${language.name}'),
+          ],
           selected: a.language,
           change: (v) => controller.change(a.copyWith(language: v)),
         ),
-        SectionHeading(tr(context, '07 / Vos profils', '07 / Your profiles')),
+        SectionHeading(context.l10n.appearance07YourProfiles),
         _ProfileActions(
           appearance: a,
           controller: controller,
@@ -101,11 +104,7 @@ class AppearanceScreen extends StatelessWidget {
           ),
         const SizedBox(height: 24),
         Text(
-          tr(
-            context,
-            'Polices intégrées à l’application. Les profils sont personnels à cet appareil ; vous pouvez les partager par fichier.',
-            'Fonts are bundled. Profiles belong to this device and can be shared as files.',
-          ),
+          context.l10n.appearanceFontsAreBundledProfilesBelong,
           style: theme.textTheme.bodySmall,
         ),
       ],
@@ -119,20 +118,12 @@ class _AppearanceHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DeckHeading(
-      eyebrow: tr(
-        context,
-        'Votre univers / vos règles',
-        'Your world / your rules',
-      ),
-      title: tr(context, 'À votre image', 'Make it yours'),
-      subtitle: tr(
-        context,
-        'Quatre univers, onze palettes, sept polices. Tout reste sur cet appareil.',
-        'Four worlds, eleven palettes, seven fonts. Saved on this device.',
-      ),
+      eyebrow: context.l10n.appearanceYourWorldYourRules,
+      title: context.l10n.appearanceMakeItYours,
+      subtitle: context.l10n.appearanceFourWorldsElevenPalettesSeven,
       action: OutlinedButton(
         onPressed: () => controller.change(const Appearance()),
-        child: Text(tr(context, 'Réinitialiser', 'Reset')),
+        child: Text(context.l10n.appearanceReset),
       ),
     );
   }
@@ -193,36 +184,32 @@ class _ComfortPanel extends StatelessWidget {
       child: Column(
         children: [
           _toggle(
-            tr(context, 'Affichage compact', 'Compact layout'),
+            context.l10n.appearanceCompactLayout,
             a.compact,
             (v) => a.copyWith(compact: v),
           ),
           _toggle(
-            tr(context, 'Lecture agrandie', 'Larger text'),
+            context.l10n.appearanceLargerText,
             a.large,
             (v) => a.copyWith(large: v),
           ),
           _toggle(
-            tr(context, 'Animations', 'Animations'),
+            context.l10n.appearanceAnimations,
             a.motion,
             (v) => a.copyWith(motion: v),
           ),
           _toggle(
-            tr(context, 'Sons des alertes', 'Alert sounds'),
+            context.l10n.appearanceAlertSounds,
             a.sound,
             (v) => a.copyWith(sound: v),
           ),
           _toggle(
-            tr(context, 'Vibrations', 'Haptic feedback'),
+            context.l10n.appearanceHapticFeedback,
             a.haptics,
             (v) => a.copyWith(haptics: v),
           ),
           _toggle(
-            tr(
-              context,
-              'Garder l’écran allumé pendant une partie',
-              'Keep screen awake during games',
-            ),
+            context.l10n.appearanceKeepScreenAwakeDuringGames,
             a.keepAwake,
             (v) => a.copyWith(keepAwake: v),
           ),
@@ -251,14 +238,14 @@ class _ProfileActions extends StatelessWidget {
           onPressed: () async {
             final name = await textPrompt(
               context,
-              tr(context, 'Nom du profil', 'Profile name'),
+              context.l10n.appearanceProfileName,
             );
             if (name != null && name.trim().isNotEmpty) {
               await controller.saveProfile(name.trim());
             }
           },
           icon: const DeckIcon(Icons.add),
-          label: Text(tr(context, 'Enregistrer ce style', 'Save this style')),
+          label: Text(context.l10n.appearanceSaveThisStyle),
         ),
         OutlinedButton(
           onPressed: () => FileTransfer.shareText(
@@ -269,11 +256,11 @@ class _ProfileActions extends StatelessWidget {
             }),
             'mon-style.json',
           ),
-          child: Text(tr(context, 'Exporter', 'Export')),
+          child: Text(context.l10n.appearanceExport),
         ),
         OutlinedButton(
           onPressed: onImport,
-          child: Text(tr(context, 'Importer', 'Import')),
+          child: Text(context.l10n.appearanceImport),
         ),
       ],
     );
@@ -301,7 +288,7 @@ class _ProfileTile extends StatelessWidget {
           ),
           onTap: onApply,
           trailing: IconButton(
-            tooltip: tr(context, 'Supprimer ce profil', 'Delete profile'),
+            tooltip: context.l10n.appearanceDeleteProfile,
             onPressed: onRemove,
             icon: const DeckIcon(Icons.close),
           ),

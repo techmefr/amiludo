@@ -4,6 +4,7 @@ import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class DeckPanel extends StatelessWidget {
   const DeckPanel({
@@ -190,7 +191,7 @@ class EmptyPanel extends StatelessWidget {
 }
 
 String tr(BuildContext context, String french, String english) =>
-    Localizations.localeOf(context).languageCode == 'en' ? english : french;
+    Localizations.localeOf(context).languageCode == 'fr' ? french : english;
 void notify(BuildContext context, String message) =>
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(message)));
@@ -207,11 +208,11 @@ Future<bool> confirm(
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: Text(tr(context, 'Annuler', 'Cancel')),
+            child: Text(context.l10n.themeCancel),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(context, true),
-            child: Text(tr(context, 'Confirmer', 'Confirm')),
+            child: Text(context.l10n.themeConfirm),
           ),
         ],
       ),

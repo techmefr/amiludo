@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 const appVersion = '0.4.0-alpha.1';
 const projectUrl = 'https://github.com/techmefr/amiludo';
@@ -38,25 +39,11 @@ Future<void> openProjectLink(BuildContext context, String url) async {
       mode: LaunchMode.externalApplication,
     );
     if (!opened && context.mounted) {
-      notify(
-        context,
-        tr(
-          context,
-          'Le navigateur n’a pas ouvert le lien. Copiez le lien du projet affiché ci-dessous.',
-          'The browser could not open the link. Copy the project link shown below.',
-        ),
-      );
+      notify(context, context.l10n.aboutTheBrowserCouldNotOpen);
     }
   } on PlatformException {
     if (context.mounted) {
-      notify(
-        context,
-        tr(
-          context,
-          'Impossible d’ouvrir le navigateur.',
-          'Could not open the browser.',
-        ),
-      );
+      notify(context, context.l10n.aboutCouldNotOpenTheBrowser);
     }
   }
 }
@@ -65,11 +52,7 @@ void showProjectInfo(BuildContext context) => showAboutDialog(
   context: context,
   applicationName: 'amiLudo',
   applicationVersion: appVersion,
-  applicationLegalese: tr(
-    context,
-    'Code sous licence MIT.',
-    'MIT-licensed code.',
-  ),
+  applicationLegalese: context.l10n.aboutMitLicensedCode,
   applicationIcon: DeckIcon(
     Icons.diamond_outlined,
     size: 40,
@@ -77,13 +60,7 @@ void showProjectInfo(BuildContext context) => showAboutDialog(
   ),
   children: [
     const SizedBox(height: 16),
-    Text(
-      tr(
-        context,
-        'Participez aux essais ou proposez une amélioration. Le code et la feuille de route sont publics.',
-        'Join testing or propose an improvement. Source code and roadmap are public.',
-      ),
-    ),
+    Text(context.l10n.aboutJoinTestingOrProposeAn),
     const SizedBox(height: 16),
     Wrap(
       spacing: 8,
@@ -92,12 +69,12 @@ void showProjectInfo(BuildContext context) => showAboutDialog(
         TextButton.icon(
           onPressed: () => openProjectLink(context, bugReportUrl),
           icon: const DeckIcon(Icons.bug_report_outlined),
-          label: Text(tr(context, 'Signaler un bug', 'Report a bug')),
+          label: Text(context.l10n.aboutReportABug),
         ),
         TextButton.icon(
           onPressed: () => openProjectLink(context, featureRequestUrl),
           icon: const DeckIcon(Icons.lightbulb_outline),
-          label: Text(tr(context, 'Proposer une idée', 'Suggest an idea')),
+          label: Text(context.l10n.aboutSuggestAnIdea),
         ),
       ],
     ),
