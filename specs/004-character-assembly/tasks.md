@@ -14,9 +14,9 @@
 
 ## Lot 2 - Renderer
 
-- [ ] T006 [US4] Technical Avatar layer stack with drawing order
-- [ ] T007 [US4] Masking of hidden body parts and fallbacks for missing layers
-- [ ] T008 Tests with placeholder layers
+- [x] T006 [US4] Technical Avatar layer stack with drawing order
+- [x] T007 [US4] Masking of hidden body parts and fallbacks for missing layers
+- [x] T008 Tests with placeholder layers
 
 ## Lot 3 - Appearance step and recap
 
