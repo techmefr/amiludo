@@ -11,13 +11,14 @@ import 'package:amiludo/layers/technical/Network/room_link.dart';
 import 'package:amiludo/layers/technical/Qr/invite_card.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class HostLobbyScreen extends StatelessWidget {
   const HostLobbyScreen({super.key});
 
   @override
   Widget build(BuildContext context) => FullPage(
-    title: tr(context, 'Ouvrir un salon', 'Open a lobby'),
+    title: context.l10n.workspaceOpenALobby,
     fallback: '/',
     child: BlocBuilder<LobbyCubit, LobbyState>(
       builder: (context, state) {
@@ -72,18 +73,18 @@ class _LobbyFormState extends State<_LobbyForm> {
           controller: name,
           maxLength: 40,
           decoration: InputDecoration(
-            labelText: tr(context, 'Votre prénom', 'Your name'),
+            labelText: context.l10n.accountYourName,
           ),
         ),
         TextField(
           controller: title,
           maxLength: 60,
           decoration: InputDecoration(
-            labelText: tr(context, 'Nom de la partie', 'Game name'),
-            hintText: tr(context, 'Soirée Skull', 'Skull night'),
+            labelText: context.l10n.workspaceGameName,
+            hintText: context.l10n.lobbySkullNight,
           ),
         ),
-        SectionHeading(tr(context, 'Places : $seats', 'Seats: $seats')),
+        SectionHeading(context.l10n.lobbySeats(seats)),
         Slider(
           min: 2,
           max: 12,
@@ -110,7 +111,7 @@ class _LobbyFormState extends State<_LobbyForm> {
         FilledButton.icon(
           onPressed: state.busy || !(lan || remote) ? null : _open,
           icon: const Icon(Icons.wifi_tethering),
-          label: Text(tr(context, 'Ouvrir le salon', 'Open the lobby')),
+          label: Text(context.l10n.lobbyOpenTheLobby),
         ),
       ],
     );
@@ -136,37 +137,21 @@ class _ReachSwitches extends StatelessWidget {
       SwitchListTile(
         value: lan && state.lanSupported,
         onChanged: state.lanSupported ? onLan : null,
-        title: Text(tr(context, 'Même Wi-Fi', 'Same Wi-Fi')),
+        title: Text(context.l10n.lobbySameWiFi),
         subtitle: Text(
           state.lanSupported
-              ? tr(
-                  context,
-                  'Autour de la table, sans serveur.',
-                  'Around the table, no server.',
-                )
-              : tr(
-                  context,
-                  'Indisponible dans le navigateur.',
-                  'Not available in the browser.',
-                ),
+              ? context.l10n.lobbyAroundTheTableNoServer
+              : context.l10n.lobbyNotAvailableInTheBrowser,
         ),
       ),
       SwitchListTile(
         value: remote && state.remoteSupported,
         onChanged: state.remoteSupported ? onRemote : null,
-        title: Text(tr(context, 'À distance', 'Remote')),
+        title: Text(context.l10n.lobbyRemote),
         subtitle: Text(
           state.remoteSupported
-              ? tr(
-                  context,
-                  'Par Internet, avec le lien ou le code.',
-                  'Over the Internet, with the link or code.',
-                )
-              : tr(
-                  context,
-                  'Serveur non configuré pour cette version.',
-                  'No server configured for this build.',
-                ),
+              ? context.l10n.lobbyOverTheInternetWithThe
+              : context.l10n.lobbyNoServerConfiguredForThis,
         ),
       ),
     ],
@@ -189,7 +174,7 @@ class _OpenLobby extends StatelessWidget {
         SwitchListTile(
           value: lobby.open,
           onChanged: (_) => cubit.toggleOpen(),
-          title: Text(tr(context, 'Accepter les demandes', 'Accept requests')),
+          title: Text(context.l10n.lobbyAcceptRequests),
         ),
         LobbyMembers(lobby: lobby, host: true),
         const SizedBox(height: 24),
@@ -207,16 +192,12 @@ class _OpenLobby extends StatelessWidget {
               },
               icon: const Icon(Icons.play_arrow),
               label: Text(
-                tr(
-                  context,
-                  'Lancer avec ${lobby.playerNames.length} joueurs',
-                  'Start with ${lobby.playerNames.length} players',
-                ),
+                context.l10n.lobbyStartWithPlayers(lobby.playerNames.length),
               ),
             ),
             OutlinedButton(
               onPressed: cubit.leave,
-              child: Text(tr(context, 'Fermer le salon', 'Close the lobby')),
+              child: Text(context.l10n.lobbyCloseTheLobby),
             ),
           ],
         ),

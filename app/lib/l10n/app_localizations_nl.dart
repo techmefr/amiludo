@@ -1339,6 +1339,1041 @@ class AppLocalizationsNl extends AppLocalizations {
       'Dit sjabloon gebruikt vrije scores. Voeg puntenregels toe in de bouwer en start dan een spel met dit pakket.';
 
   @override
+  String get accountSignIn => 'Inloggen';
+
+  @override
+  String get accountSignUp => 'Registreren';
+
+  @override
+  String get accountName => 'Naam';
+
+  @override
+  String get accountEmail => 'E-mail';
+
+  @override
+  String get accountPassword => 'Wachtwoord';
+
+  @override
+  String get accountAtLeast8Characters => 'Minstens 8 tekens';
+
+  @override
+  String get accountCreateMyAccount => 'Mijn account aanmaken';
+
+  @override
+  String get accountSignIn2 => 'Inloggen';
+
+  @override
+  String get accountForgotPassword => 'Wachtwoord vergeten';
+
+  @override
+  String get accountNameSaved => 'Naam opgeslagen';
+
+  @override
+  String get accountAccountCreatedConfirmWithThe =>
+      'Account aangemaakt: bevestig met de ontvangen e-mail.';
+
+  @override
+  String get accountSignedIn => 'Ingelogd';
+
+  @override
+  String get accountSignedOut => 'Uitgelogd';
+
+  @override
+  String get accountResetEmailSent => 'Reset-e-mail verzonden.';
+
+  @override
+  String get accountSignInLinkSentCheck =>
+      'Inloglink verzonden: controleer je e-mail.';
+
+  @override
+  String get accountPasswordChanged => 'Wachtwoord gewijzigd';
+
+  @override
+  String get accountOnlineAccount => 'Online account';
+
+  @override
+  String get accountLocalMode => 'Lokale modus';
+
+  @override
+  String get accountThisBuildHasNoServer =>
+      'Deze build heeft geen server: alles blijft op het apparaat. Wifi-lobby\'s werken zonder account.';
+
+  @override
+  String get accountTheNameFriendsSeeWhen =>
+      'De naam die vrienden zien wanneer je een spel betreedt.';
+
+  @override
+  String get accountYourName => 'Jouw naam';
+
+  @override
+  String get accountInvalidEmail => 'Ongeldig e-mailadres';
+
+  @override
+  String get accountPasswordAtLeast8Characters =>
+      'Wachtwoord: minstens 8 tekens';
+
+  @override
+  String get accountInvalidName => 'Ongeldige naam';
+
+  @override
+  String get accountInvalidCodeTypeTheDigits =>
+      'Ongeldige code: typ de cijfers uit de e-mail.';
+
+  @override
+  String get accountSignInFirst => 'Log eerst in';
+
+  @override
+  String get accountTheServerRefusedCheckThe =>
+      'De server weigerde: controleer e-mail en wachtwoord.';
+
+  @override
+  String get accountNoServerConfigured => 'Geen server geconfigureerd';
+
+  @override
+  String get accountCouldNotConnect => 'Kan geen verbinding maken';
+
+  @override
+  String get accountEmailMeASignIn => 'Mail me een inloglink';
+
+  @override
+  String get accountOpenTheLinkOnThis =>
+      'Open de link op dit apparaat of typ de code uit de e-mail.';
+
+  @override
+  String get accountCodeReceived => 'Ontvangen code';
+
+  @override
+  String get accountConfirmTheCode => 'Code bevestigen';
+
+  @override
+  String get accountAdmin => 'Beheer';
+
+  @override
+  String get accountNewPassword => 'Nieuw wachtwoord';
+
+  @override
+  String get accountOptionalTheEmailLinkIs =>
+      'Optioneel: de link in de e-mail is genoeg om in te loggen.';
+
+  @override
+  String get accountChangePassword => 'Wachtwoord wijzigen';
+
+  @override
+  String get accountManageAccounts => 'Accounts beheren';
+
+  @override
+  String get accountSignOut => 'Uitloggen';
+
+  @override
+  String get adminListUnavailable => 'Lijst niet beschikbaar';
+
+  @override
+  String get adminAccounts => 'Accounts';
+
+  @override
+  String get adminInviteSomeone => 'Iemand uitnodigen';
+
+  @override
+  String adminAccounts2(Object count) {
+    return '$count accounts';
+  }
+
+  @override
+  String get adminAdminsOnlySignInAgain =>
+      'Alleen beheerders: log opnieuw in als je de rol net hebt gekregen.';
+
+  @override
+  String get adminNotPossibleOnYourOwn => 'Niet mogelijk met je eigen account.';
+
+  @override
+  String get adminTheServerRefusedTheOperation =>
+      'De server weigerde de bewerking.';
+
+  @override
+  String get adminInvitationSent => 'Uitnodiging verzonden';
+
+  @override
+  String get adminAccountUpdated => 'Account bijgewerkt';
+
+  @override
+  String get adminAccountDeleted => 'Account verwijderd';
+
+  @override
+  String get adminNeverSignedIn => 'Nooit ingelogd';
+
+  @override
+  String adminLastSignIn(Object value) {
+    return 'Laatste login: $value';
+  }
+
+  @override
+  String get adminTheyGetAnEmailTo =>
+      'Ze krijgen een e-mail om hun account te activeren.';
+
+  @override
+  String get adminNameOptional => 'Naam (optioneel)';
+
+  @override
+  String get adminInvite => 'Uitnodigen';
+
+  @override
+  String adminDelete(Object label) {
+    return '$label verwijderen?';
+  }
+
+  @override
+  String get adminTheAccountAndItsPublished =>
+      'Het account en de gepubliceerde avonden worden verwijderd. Dit kan niet ongedaan worden gemaakt.';
+
+  @override
+  String get adminBlocked => 'Geblokkeerd';
+
+  @override
+  String get adminPending => 'In afwachting';
+
+  @override
+  String get adminAccountActions => 'Acties voor het account';
+
+  @override
+  String get adminRemoveAdminRole => 'Beheerdersrol verwijderen';
+
+  @override
+  String get adminMakeAdmin => 'Beheerder maken';
+
+  @override
+  String get adminUnblock => 'Deblokkeren';
+
+  @override
+  String get adminBlock => 'Blokkeren';
+
+  @override
+  String get eveningsRemoveThisNight => 'Deze avond verwijderen?';
+
+  @override
+  String get eveningsSignUpsWillBeLost => 'De aanmeldingen gaan verloren.';
+
+  @override
+  String get eveningsItLeavesYourList => 'Hij verdwijnt van je lijst.';
+
+  @override
+  String get eveningsGameNight => 'Spelavond';
+
+  @override
+  String get eveningsRefresh => 'Vernieuwen';
+
+  @override
+  String get eveningsRemove => 'Verwijderen';
+
+  @override
+  String get eveningsNightNotFound => 'Avond niet gevonden';
+
+  @override
+  String get eveningsItWasRemoved => 'Hij is verwijderd.';
+
+  @override
+  String eveningsOnTheMenu(Object value) {
+    return 'Op het menu: $value';
+  }
+
+  @override
+  String get eveningsYourAnswer => 'Jouw antwoord';
+
+  @override
+  String get eveningsSignInToSignUp => 'Log in om je aan te melden';
+
+  @override
+  String get eveningsFullYouAreOnThe => 'Vol: je staat op de wachtlijst.';
+
+  @override
+  String get eveningsTitle => 'Titel';
+
+  @override
+  String get eveningsGamesAtLAS => 'Spellen bij Léa';
+
+  @override
+  String get eveningsPlace => 'Plaats';
+
+  @override
+  String get eveningsChange => 'Wijzigen';
+
+  @override
+  String get eveningsSeatsNoLimit => 'Plaatsen: geen limiet';
+
+  @override
+  String eveningsSeatsYouIncluded(Object seats) {
+    return 'Plaatsen: $seats (jij inbegrepen)';
+  }
+
+  @override
+  String get eveningsPlannedGames => 'Geplande spellen';
+
+  @override
+  String get eveningsWithoutAServerRecordYour =>
+      'Zonder server noteer je de antwoorden van je vrienden hieronder zelf.';
+
+  @override
+  String get eveningsInviteOnline => 'Online uitnodigen';
+
+  @override
+  String get eveningsPublishTheNightFriendsSign =>
+      'Publiceer de avond: vrienden melden zich aan via link, code of QR.';
+
+  @override
+  String get eveningsPublish => 'Publiceren';
+
+  @override
+  String get eveningsSignInToPublish => 'Log in om te publiceren';
+
+  @override
+  String get eveningsFriendsAnswers => 'Antwoorden van vrienden';
+
+  @override
+  String get eveningsNoAnswer => 'Geen antwoord';
+
+  @override
+  String eveningsSAnswer(Object name) {
+    return 'Antwoord van $name';
+  }
+
+  @override
+  String get eveningsInvitation => 'Uitnodiging';
+
+  @override
+  String get eveningsCheckTheCodeWithThe =>
+      'Controleer de code bij de gastheer.';
+
+  @override
+  String get eveningsThisBuildHasNoServer =>
+      'Deze build heeft geen server om avonden op te zoeken.';
+
+  @override
+  String get eveningsGoing => 'Komen';
+
+  @override
+  String get eveningsWaitingList => 'Wachtlijst';
+
+  @override
+  String get eveningsMaybe => 'Misschien';
+
+  @override
+  String get eveningsNotComing => 'Komen niet';
+
+  @override
+  String get eveningsHosting => 'Gastheer';
+
+  @override
+  String get eveningsIMIn => 'Ik ben erbij';
+
+  @override
+  String get eveningsNotThisTime => 'Deze keer niet';
+
+  @override
+  String eveningsGoing2(Object going) {
+    return '$going komen';
+  }
+
+  @override
+  String eveningsSeats(Object going, Object seats) {
+    return '$going/$seats plaatsen';
+  }
+
+  @override
+  String eveningsWaiting(Object base, Object waiting) {
+    return '$base · $waiting wachtend';
+  }
+
+  @override
+  String get eveningsHostOnly => 'Alleen gastheer';
+
+  @override
+  String get eveningsCouldNotDoItCheck =>
+      'Mislukt: controleer de verbinding en je account.';
+
+  @override
+  String get eveningsPlanANight => 'Een avond plannen';
+
+  @override
+  String get eveningsIHaveACode => 'Ik heb een code';
+
+  @override
+  String get eveningsUpcoming => 'Binnenkort';
+
+  @override
+  String get eveningsNoNightPlanned => 'Geen avond gepland';
+
+  @override
+  String get eveningsPickADateInviteBy =>
+      'Kies een datum, nodig uit via link of QR en iedereen meldt zich aan.';
+
+  @override
+  String get eveningsPast => 'Voorbij';
+
+  @override
+  String get friendsThisFriendAlreadyExists => 'Deze vriend bestaat al.';
+
+  @override
+  String get friendsRemoveThisFriend => 'Deze vriend verwijderen?';
+
+  @override
+  String get friendsFriendProfile => 'Vriendenprofiel';
+
+  @override
+  String get friendsNameOrNickname => 'Naam of bijnaam';
+
+  @override
+  String get friendsTastes => 'Smaak';
+
+  @override
+  String get friendsTapAGenreLikesThen =>
+      'Tik op een genre: vind ik leuk, dan niet leuk, dan neutraal.';
+
+  @override
+  String get friendsLongestGame => 'Langste spel';
+
+  @override
+  String get friendsNoLimit => 'Geen limiet';
+
+  @override
+  String get friendsPerGameOpinion => 'Mening per spel';
+
+  @override
+  String get friendsTapAGameWantsIt =>
+      'Tik op een spel: wil het, houdt ervan ondanks het genre, weigert het, neutraal.';
+
+  @override
+  String get friendsLikes => 'houdt van';
+
+  @override
+  String get friendsDislikes => 'houdt niet van';
+
+  @override
+  String get friendsNeutral => 'neutraal';
+
+  @override
+  String get friendsWants => 'wil het';
+
+  @override
+  String get friendsLoves => 'is er dol op';
+
+  @override
+  String get friendsRefused => 'geweigerd';
+
+  @override
+  String get friendsYourShelfIsEmpty => 'Je kast is leeg.';
+
+  @override
+  String get friendsAroundTheTable => 'Rond de tafel';
+
+  @override
+  String get friendsMyFriends => 'Mijn vrienden';
+
+  @override
+  String get friendsTheirTastesAndReviewsTo =>
+      'Hun smaak en beoordelingen, om het juiste spel te kiezen.';
+
+  @override
+  String get friendsAddAFriend => 'Vriend toevoegen';
+
+  @override
+  String get friendsNobodyYet => 'Nog niemand';
+
+  @override
+  String get friendsAddYourGamePartnersAnd =>
+      'Voeg je medespelers toe en wat ze leuk vinden.';
+
+  @override
+  String get friendsLatestReviews => 'Laatste beoordelingen';
+
+  @override
+  String get friendsLikes2 => 'Houdt van';
+
+  @override
+  String get friendsDislikes2 => 'Houdt niet van';
+
+  @override
+  String get friendsGamesUpTo => 'Spellen tot';
+
+  @override
+  String friendsStarsOutOf5(Object stars) {
+    return '$stars sterren van 5';
+  }
+
+  @override
+  String get friendsReviewsSaved => 'Beoordelingen opgeslagen';
+
+  @override
+  String get friendsRateTheGame => 'Beoordeel het spel';
+
+  @override
+  String get friendsGameNotFound => 'Spel niet gevonden';
+
+  @override
+  String get friendsItMayHaveBeenDeleted => 'Hij is mogelijk verwijderd.';
+
+  @override
+  String get friendsSaveReviews => 'Beoordelingen opslaan';
+
+  @override
+  String friendsStarSOf5(Object i) {
+    return '$i ster(ren) van 5';
+  }
+
+  @override
+  String get friendsAWordOnTheGame => 'Een woordje over het spel';
+
+  @override
+  String get historyTeam => 'Team';
+
+  @override
+  String get historyLeading => 'Aan de leiding';
+
+  @override
+  String get historyWinner => 'Winnaar';
+
+  @override
+  String get historyActive => 'Actief';
+
+  @override
+  String get historyComplete => 'Voltooid';
+
+  @override
+  String get historyRounds => 'rondes';
+
+  @override
+  String get historyDeleteThisGame => 'Dit spel verwijderen?';
+
+  @override
+  String get historyThisAlsoRemovesScoresAnd =>
+      'Hierdoor verdwijnen ook scores en notities.';
+
+  @override
+  String get historyResume => 'Hervatten';
+
+  @override
+  String get historyDetails => 'Details';
+
+  @override
+  String get historyPlayAgain => 'Opnieuw spelen';
+
+  @override
+  String get historyRate => 'Beoordelen';
+
+  @override
+  String get historyMemories => 'Herinneringen';
+
+  @override
+  String get historyDeleteGame => 'Spel verwijderen';
+
+  @override
+  String get historyGameImported => 'Spel geïmporteerd';
+
+  @override
+  String get historyKeepTheGoodTimes => 'Bewaar de mooie momenten';
+
+  @override
+  String get historyTheGoodTimes => 'De mooie momenten';
+
+  @override
+  String get historyYourGamesAndResultsSaved =>
+      'Je spellen en resultaten, opgeslagen op dit apparaat.';
+
+  @override
+  String get historyImportGame => 'Spel importeren';
+
+  @override
+  String get historyOpenGallery => 'Galerij openen';
+
+  @override
+  String get historySearchAGamePlayerOr => 'Zoek een spel, speler of datum';
+
+  @override
+  String get historyNoGamesFound => 'Geen spellen gevonden';
+
+  @override
+  String get historyGamesAppearHereWhenCreated =>
+      'Spellen verschijnen hier zodra ze zijn gemaakt.';
+
+  @override
+  String get historyCompletedGames => 'VOLTOOIDE SPELLEN';
+
+  @override
+  String get historyActiveTables => 'ACTIEVE TAFELS';
+
+  @override
+  String get historyMinutesPlayed => 'GESPEELDE MINUTEN';
+
+  @override
+  String get historyRestoreBackup => 'Back-up herstellen?';
+
+  @override
+  String get historyYourCurrentLibraryWillBe =>
+      'Je huidige bibliotheek wordt vervangen. Exporteer haar eerst indien nodig.';
+
+  @override
+  String get historyBackupRestored => 'Back-up hersteld';
+
+  @override
+  String get historyEraseAllData => 'Alle gegevens wissen?';
+
+  @override
+  String get historyGamesTemplatesProfilesAndSettings =>
+      'Spellen, sjablonen, profielen en instellingen worden van dit apparaat verwijderd. Dit kan niet ongedaan worden gemaakt.';
+
+  @override
+  String get historyYourDataBelongsToYou => 'Je gegevens zijn van jou';
+
+  @override
+  String get historyBackUpEverything => 'Alles back-uppen';
+
+  @override
+  String get historyRestore => 'Herstellen';
+
+  @override
+  String get historyEraseAllMyData => 'Al mijn gegevens wissen';
+
+  @override
+  String get libraryGameShelf => 'Spellenkast';
+
+  @override
+  String get libraryMyGames => 'Mijn spellen';
+
+  @override
+  String libraryBoxesStoredOnThisDevice(Object count) {
+    return '$count dozen opgeslagen op dit apparaat.';
+  }
+
+  @override
+  String get libraryAddAGame => 'Spel toevoegen';
+
+  @override
+  String get libraryEmptyShelves => 'Lege kasten';
+
+  @override
+  String get libraryNoGameFound => 'Geen spel gevonden';
+
+  @override
+  String get libraryStoreYourBoxesHereTo =>
+      'Bewaar hier je dozen om je spellen, pakketten en beoordelingen terug te vinden.';
+
+  @override
+  String get libraryWhatToPlay => 'Wat spelen?';
+
+  @override
+  String get libraryReceiveByQr => 'Ontvangen via QR';
+
+  @override
+  String get libraryShareASession => 'Een sessie delen';
+
+  @override
+  String get libraryPacksAndTemplates => 'Pakketten en sjablonen';
+
+  @override
+  String get librarySearchAGame => 'Spel zoeken';
+
+  @override
+  String get libraryNameTheGame => 'Geef het spel een naam.';
+
+  @override
+  String get libraryShelfGame => 'Spel in de kast';
+
+  @override
+  String get libraryGameName => 'Naam van het spel';
+
+  @override
+  String get libraryGenres => 'Genres';
+
+  @override
+  String get libraryBoxColour => 'Kleur van de doos';
+
+  @override
+  String get libraryLinkedPacks => 'Gekoppelde pakketten';
+
+  @override
+  String get libraryPutOnShelf => 'In de kast zetten';
+
+  @override
+  String get libraryPlayers => 'Spelers';
+
+  @override
+  String get libraryLength => 'Duur';
+
+  @override
+  String get libraryColour => 'Kleur';
+
+  @override
+  String get libraryPlays => 'potjes';
+
+  @override
+  String get libraryRemoveThisGame => 'Dit spel verwijderen?';
+
+  @override
+  String get libraryPlay => 'Spelen';
+
+  @override
+  String get libraryRemoveFromShelf => 'Uit de kast halen';
+
+  @override
+  String get libraryWhatToPlayTonight => 'Wat spelen we vanavond?';
+
+  @override
+  String get libraryWhoIsHere => 'Wie is er?';
+
+  @override
+  String get libraryAddFriends => 'Vrienden toevoegen';
+
+  @override
+  String get libraryTimeAvailable => 'Beschikbare tijd';
+
+  @override
+  String get libraryAllEvening => 'De hele avond';
+
+  @override
+  String libraryGamesForPlayers(Object count, Object value) {
+    return '$count spellen voor $value spelers';
+  }
+
+  @override
+  String get libraryNothingFits => 'Niets past';
+
+  @override
+  String get libraryAddGamesOrRelaxYour =>
+      'Voeg spellen toe of versoepel de smaak van je vrienden.';
+
+  @override
+  String libraryWantedBy(Object value) {
+    return 'Gewild door $value';
+  }
+
+  @override
+  String libraryLovedBy(Object value) {
+    return 'Geliefd door $value';
+  }
+
+  @override
+  String get lobbySkullNight => 'Skull-avond';
+
+  @override
+  String lobbySeats(Object seats) {
+    return 'Plaatsen: $seats';
+  }
+
+  @override
+  String get lobbyOpenTheLobby => 'Lobby openen';
+
+  @override
+  String get lobbySameWiFi => 'Zelfde wifi';
+
+  @override
+  String get lobbyAroundTheTableNoServer => 'Rond de tafel, zonder server.';
+
+  @override
+  String get lobbyNotAvailableInTheBrowser => 'Niet beschikbaar in de browser.';
+
+  @override
+  String get lobbyRemote => 'Op afstand';
+
+  @override
+  String get lobbyOverTheInternetWithThe =>
+      'Via internet, met de link of code.';
+
+  @override
+  String get lobbyNoServerConfiguredForThis =>
+      'Geen server geconfigureerd voor deze build.';
+
+  @override
+  String get lobbyAcceptRequests => 'Verzoeken accepteren';
+
+  @override
+  String lobbyStartWithPlayers(Object count) {
+    return 'Starten met $count spelers';
+  }
+
+  @override
+  String get lobbyCloseTheLobby => 'Lobby sluiten';
+
+  @override
+  String get lobbyJoin => 'Meedoen';
+
+  @override
+  String get lobbyEnterYourName => 'Voer je naam in';
+
+  @override
+  String get lobbyCodeOrLink => 'Code of link';
+
+  @override
+  String get lobbyScanAQr => 'QR scannen';
+
+  @override
+  String get lobbyCameraUnavailableTypeTheCode =>
+      'Camera niet beschikbaar: typ de code.';
+
+  @override
+  String get lobbyTheHostClosedTheLobby =>
+      'De gastheer heeft de lobby gesloten.';
+
+  @override
+  String lobbyHereWeGoTheGame(Object hostName) {
+    return 'Daar gaan we! Het spel draait op het apparaat van $hostName.';
+  }
+
+  @override
+  String get lobbyYouAreInWaitFor => 'Je doet mee. Wacht op de start.';
+
+  @override
+  String get lobbyTheHostDidNotAccept =>
+      'De gastheer heeft je verzoek niet geaccepteerd.';
+
+  @override
+  String lobbyRequestSentTo(Object hostName) {
+    return 'Verzoek verzonden naar $hostName…';
+  }
+
+  @override
+  String get lobbyLeave => 'Verlaten';
+
+  @override
+  String lobbyPlayers(Object count, Object seats) {
+    return 'Spelers $count/$seats';
+  }
+
+  @override
+  String get lobbyHost => 'Gastheer';
+
+  @override
+  String get lobbyRequests => 'Verzoeken';
+
+  @override
+  String get lobbyWantsToJoin => 'Wil meedoen';
+
+  @override
+  String get lobbyNoSeatLeft => 'Geen plaats meer';
+
+  @override
+  String lobbyAccept(Object name) {
+    return '$name accepteren';
+  }
+
+  @override
+  String lobbyRefuse(Object name) {
+    return '$name weigeren';
+  }
+
+  @override
+  String lobbyRemove(Object name) {
+    return '$name verwijderen';
+  }
+
+  @override
+  String get lobbyCheckTheCodeAndYour => 'Controleer de code en je naam.';
+
+  @override
+  String get lobbyNoOpenGameWithThis =>
+      'Geen open spel met deze code. Heeft de gastheer de lobby geopend?';
+
+  @override
+  String get lobbyCannotConnectJoinTheSame =>
+      'Verbinden niet mogelijk: sluit je aan op hetzelfde wifi of zet internet aan.';
+
+  @override
+  String get lobbySomethingWentWrongTryAgain =>
+      'Er ging iets mis, probeer het opnieuw.';
+
+  @override
+  String get memoriesGalleryKey => 'Galeriesleutel';
+
+  @override
+  String get memoriesLetYourFriendsScanThis =>
+      'Laat je vrienden deze code scannen. Zonder blijft het bestand onleesbaar.';
+
+  @override
+  String get memoriesKeyQrCode => 'QR-code van de sleutel';
+
+  @override
+  String get memoriesDone => 'Klaar';
+
+  @override
+  String get memoriesShareEncrypted => 'Versleuteld delen';
+
+  @override
+  String get memoriesOpenAGallery => 'Een galerij openen';
+
+  @override
+  String get memories1PickTheReceivedFile =>
+      '1. Kies het ontvangen bestand. 2. Scan de sleutel die je vriend toont.';
+
+  @override
+  String get memoriesPickTheFile => 'Bestand kiezen';
+
+  @override
+  String get memoriesFileReady => 'Bestand klaar ✓';
+
+  @override
+  String get memoriesScanTheKey => 'Sleutel scannen';
+
+  @override
+  String get memoriesCameraUnavailableTypeTheKey =>
+      'Camera niet beschikbaar. Typ in plaats daarvan de sleutel.';
+
+  @override
+  String get memoriesDecrypt => 'Ontsleutelen';
+
+  @override
+  String get memoriesTheStory => 'Het verhaal';
+
+  @override
+  String get memoriesHighlights => 'Hoogtepunten';
+
+  @override
+  String get memoriesPrivateGallery => 'Privégalerij';
+
+  @override
+  String get memoriesStorySaved => 'Verhaal opgeslagen';
+
+  @override
+  String get memoriesWhatWeLlRememberOf =>
+      'Wat we ons van deze avond herinneren';
+
+  @override
+  String get memoriesSaveTheStory => 'Verhaal opslaan';
+
+  @override
+  String get memoriesRemoveThisMoment => 'Dit moment verwijderen';
+
+  @override
+  String get memoriesAHighlightThenEnter => 'Een hoogtepunt, dan Enter';
+
+  @override
+  String get memoriesPhotoTooLarge8Mb => 'Foto te groot (maximaal 8 MB).';
+
+  @override
+  String get memories60PhotosMaximumPerGame => 'Maximaal 60 foto\'s per spel.';
+
+  @override
+  String get memoriesPhotosStayOnThisDevice =>
+      'Foto\'s blijven op dit apparaat. Om ze te delen wordt de galerij versleuteld en wordt de sleutel aan tafel via een QR-code doorgegeven.';
+
+  @override
+  String get memoriesAddAPhoto => 'Foto toevoegen';
+
+  @override
+  String get memoriesDeleteThePhoto => 'Foto verwijderen?';
+
+  @override
+  String get memoriesItWillBeErased => 'Ze wordt gewist.';
+
+  @override
+  String get memoriesGamePhoto => 'Spelfoto';
+
+  @override
+  String get memoriesDeletePhoto => 'Foto verwijderen';
+
+  @override
+  String sharingReceivedGamesPacksSheets(
+    Object games,
+    Object templates,
+    Object characters,
+  ) {
+    return 'Ontvangen: $games spellen, $templates pakketten, $characters bladen';
+  }
+
+  @override
+  String get sharingReceiveASession => 'Een sessie ontvangen';
+
+  @override
+  String get sharingPointAtYourFriendS =>
+      'Richt op de geanimeerde QR-code van je vriend en houd hem in beeld tot 100%.';
+
+  @override
+  String get sharingCameraUnavailableAskForThe =>
+      'Camera niet beschikbaar. Vraag in plaats daarvan om het bestand.';
+
+  @override
+  String get sharingReceiveProgress => 'Voortgang van ontvangst';
+
+  @override
+  String get sharingWaiting => 'Wachten…';
+
+  @override
+  String get sharingOpenAFile => 'Een bestand openen';
+
+  @override
+  String get sharingYourFriendOpensReceiveBy =>
+      'Je vriend opent „Ontvangen via QR” en richt op het scherm: spellen, pakketten, dobbelstenen en personagebladen komen op zijn apparaat.';
+
+  @override
+  String get sharingContent => 'Inhoud';
+
+  @override
+  String get sharingNothingToShare => 'Niets om te delen';
+
+  @override
+  String get sharingPickAtLeastOneGame => 'Kies minstens één spel of pakket.';
+
+  @override
+  String get sharingSessionQrCode => 'QR-code van de sessie';
+
+  @override
+  String sharingGamesPacksSheetsFrames(
+    Object count,
+    Object count2,
+    Object count3,
+    Object count4,
+  ) {
+    return '$count spellen · $count2 pakketten · $count3 bladen · $count4 frames';
+  }
+
+  @override
+  String get sharingSendAsAFile => 'Als bestand verzenden';
+
+  @override
+  String get timerTimeIsUpPassThe => 'De tijd is om. Geef de beurt door.';
+
+  @override
+  String get timerConfigureTime => 'Tijd instellen';
+
+  @override
+  String get timerApply => 'Toepassen';
+
+  @override
+  String get timerTimeToThink => 'TIJD OM NA TE DENKEN';
+
+  @override
+  String get timerQuickTimer => 'Snelle timer';
+
+  @override
+  String get timerPlayerBank => 'Tijdbank per speler';
+
+  @override
+  String get timerTimePerTurn => 'Tijd per beurt';
+
+  @override
+  String get timerTimeRemaining => 'Resterende tijd';
+
+  @override
+  String get timerPause => 'Pauze';
+
+  @override
+  String get timerStart => 'Starten';
+
+  @override
+  String get timerTimerSettings => 'Timerinstellingen';
+
+  @override
+  String get timerDurationInSeconds => 'Duur in seconden';
+
+  @override
+  String get timerIncrementPerTurnSeconds => 'Toeslag per beurt (seconden)';
+
+  @override
+  String get timerBankPerPlayer => 'Tijdbank per speler';
+
+  @override
+  String get timerOtherwiseFixedTimeEachTurn => 'Anders: vaste tijd per beurt.';
+
+  @override
+  String get timerTimeToPlay => 'Tijd om te spelen';
+
+  @override
   String randomKeepCards(String range, int selected) {
     return 'Houd $range kaart(en). $selected geselecteerd.';
   }

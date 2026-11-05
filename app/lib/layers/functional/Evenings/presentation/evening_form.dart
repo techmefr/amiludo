@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Evenings/presentation/cubit/evenings_c
 import 'package:amiludo/layers/functional/Evenings/presentation/evening_texts.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class EveningForm extends StatefulWidget {
   const EveningForm({super.key, required this.id});
@@ -82,7 +83,7 @@ class _EveningFormState extends State<EveningForm> {
   Widget build(BuildContext context) {
     final shelf = context.watch<EveningsCubit>().shelf;
     return FullPage(
-      title: tr(context, 'Soirée', 'Game night'),
+      title: context.l10n.eveningsGameNight,
       fallback: '/evenings',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -91,15 +92,15 @@ class _EveningFormState extends State<EveningForm> {
             controller: title,
             maxLength: 80,
             decoration: InputDecoration(
-              labelText: tr(context, 'Titre', 'Title'),
-              hintText: tr(context, 'Soirée jeux chez Léa', 'Games at Léa’s'),
+              labelText: context.l10n.eveningsTitle,
+              hintText: context.l10n.eveningsGamesAtLAS,
             ),
           ),
           TextField(
             controller: place,
             maxLength: 120,
             decoration: InputDecoration(
-              labelText: tr(context, 'Lieu', 'Place'),
+              labelText: context.l10n.eveningsPlace,
             ),
           ),
           ListTile(
@@ -108,17 +109,13 @@ class _EveningFormState extends State<EveningForm> {
             title: Text(eveningWhen(context, evening.startsAt)),
             trailing: TextButton(
               onPressed: _pickDate,
-              child: Text(tr(context, 'Changer', 'Change')),
+              child: Text(context.l10n.eveningsChange),
             ),
           ),
           SectionHeading(
             evening.seats == 0
-                ? tr(context, 'Places : sans limite', 'Seats: no limit')
-                : tr(
-                    context,
-                    'Places : ${evening.seats} (vous compris)',
-                    'Seats: ${evening.seats} (you included)',
-                  ),
+                ? context.l10n.eveningsSeatsNoLimit
+                : context.l10n.eveningsSeatsYouIncluded(evening.seats),
           ),
           Slider(
             max: 20,
@@ -138,7 +135,7 @@ class _EveningFormState extends State<EveningForm> {
           const SizedBox(height: 32),
           FilledButton(
             onPressed: _save,
-            child: Text(tr(context, 'Enregistrer', 'Save')),
+            child: Text(context.l10n.themeSave),
           ),
         ],
       ),
@@ -160,7 +157,7 @@ class _PlannedGames extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.stretch,
     children: [
-      SectionHeading(tr(context, 'Jeux prévus', 'Planned games')),
+      SectionHeading(context.l10n.eveningsPlannedGames),
       Wrap(
         spacing: 8,
         runSpacing: 8,

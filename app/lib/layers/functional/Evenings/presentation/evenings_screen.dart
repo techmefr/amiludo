@@ -6,6 +6,7 @@ import 'package:amiludo/layers/functional/Evenings/domain/entities/evening.dart'
 import 'package:amiludo/layers/functional/Evenings/presentation/cubit/evenings_cubit.dart';
 import 'package:amiludo/layers/functional/Evenings/presentation/evening_texts.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class EveningsScreen extends StatelessWidget {
   const EveningsScreen({super.key});
@@ -27,28 +28,24 @@ class EveningsScreen extends StatelessWidget {
             FilledButton.icon(
               onPressed: () => context.go('/evenings/edit/new'),
               icon: const Icon(Icons.event_available),
-              label: Text(tr(context, 'Organiser une soirée', 'Plan a night')),
+              label: Text(context.l10n.eveningsPlanANight),
             ),
             OutlinedButton.icon(
               onPressed: () => context.go('/join'),
               icon: const Icon(Icons.login),
-              label: Text(tr(context, 'J’ai un code', 'I have a code')),
+              label: Text(context.l10n.eveningsIHaveACode),
             ),
           ],
         ),
-        SectionHeading(tr(context, 'À venir', 'Upcoming')),
+        SectionHeading(context.l10n.eveningsUpcoming),
         if (upcoming.isEmpty)
           EmptyPanel(
-            title: tr(context, 'Aucune soirée prévue', 'No night planned'),
-            message: tr(
-              context,
-              'Fixez une date, invitez par lien ou QR, et chacun s’inscrit.',
-              'Pick a date, invite by link or QR, and everyone signs up.',
-            ),
+            title: context.l10n.eveningsNoNightPlanned,
+            message: context.l10n.eveningsPickADateInviteBy,
           ),
         for (final e in upcoming) _EveningTile(evening: e),
         if (past.isNotEmpty) ...[
-          SectionHeading(tr(context, 'Passées', 'Past')),
+          SectionHeading(context.l10n.eveningsPast),
           for (final e in past.reversed) _EveningTile(evening: e),
         ],
       ],

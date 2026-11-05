@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:amiludo/layers/functional/Lobby/domain/entities/lobby.dart';
 import 'package:amiludo/layers/functional/Lobby/presentation/cubit/lobby_cubit.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class LobbyMembers extends StatelessWidget {
   const LobbyMembers({super.key, required this.lobby, this.host = false});
@@ -16,20 +17,16 @@ class LobbyMembers extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.stretch,
     children: [
       SectionHeading(
-        tr(
-          context,
-          'Joueurs ${lobby.playerNames.length}/${lobby.seats}',
-          'Players ${lobby.playerNames.length}/${lobby.seats}',
-        ),
+        context.l10n.lobbyPlayers(lobby.playerNames.length, lobby.seats),
       ),
       ListTile(
         leading: const Icon(Icons.star),
         title: Text(lobby.hostName),
-        subtitle: Text(tr(context, 'Hôte', 'Host')),
+        subtitle: Text(context.l10n.lobbyHost),
       ),
       for (final seat in lobby.accepted) _SeatTile(seat: seat, host: host),
       if (host && lobby.pending.isNotEmpty) ...[
-        SectionHeading(tr(context, 'Demandes', 'Requests')),
+        SectionHeading(context.l10n.lobbyRequests),
         for (final seat in lobby.pending)
           _SeatTile(seat: seat, host: host, full: lobby.full),
       ],
@@ -51,7 +48,7 @@ class _SeatTile extends StatelessWidget {
       leading: CircleAvatar(backgroundColor: Color(seat.color)),
       title: Text(seat.name),
       subtitle: pending
-          ? Text(tr(context, 'Veut rejoindre', 'Wants to join'))
+          ? Text(context.l10n.lobbyWantsToJoin)
           : null,
       trailing: !host
           ? null
@@ -61,12 +58,8 @@ class _SeatTile extends StatelessWidget {
                 if (pending)
                   IconButton(
                     tooltip: full
-                        ? tr(context, 'Plus de place', 'No seat left')
-                        : tr(
-                            context,
-                            'Accepter ${seat.name}',
-                            'Accept ${seat.name}',
-                          ),
+                        ? context.l10n.lobbyNoSeatLeft
+                        : context.l10n.lobbyAccept(seat.name),
                     onPressed: full
                         ? null
                         : () => cubit.decide(seat.id, accept: true),
@@ -74,16 +67,8 @@ class _SeatTile extends StatelessWidget {
                   ),
                 IconButton(
                   tooltip: pending
-                      ? tr(
-                          context,
-                          'Refuser ${seat.name}',
-                          'Refuse ${seat.name}',
-                        )
-                      : tr(
-                          context,
-                          'Retirer ${seat.name}',
-                          'Remove ${seat.name}',
-                        ),
+                      ? context.l10n.lobbyRefuse(seat.name)
+                      : context.l10n.lobbyRemove(seat.name),
                   onPressed: () => cubit.decide(seat.id, accept: false),
                   icon: const Icon(Icons.cancel_outlined),
                 ),

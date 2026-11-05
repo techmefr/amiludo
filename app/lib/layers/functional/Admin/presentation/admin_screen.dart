@@ -8,6 +8,7 @@ import 'package:amiludo/layers/functional/Admin/presentation/invite_user_form.da
 import 'package:amiludo/layers/functional/Admin/presentation/managed_user_tile.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class AdminScreen extends StatelessWidget {
   const AdminScreen({super.key});
@@ -19,14 +20,14 @@ class AdminScreen extends StatelessWidget {
           child: Center(child: CircularProgressIndicator()),
         ),
         AdminStatus.failed => EmptyPanel(
-          title: tr(context, 'Liste indisponible', 'List unavailable'),
+          title: context.l10n.adminListUnavailable,
           message: adminErrorText(
             context,
             state.error ?? AdminError.unreachable,
           ),
           action: FilledButton(
             onPressed: context.read<AdminCubit>().load,
-            child: Text(tr(context, 'Réessayer', 'Retry')),
+            child: Text(context.l10n.workspaceRetry),
           ),
         ),
         AdminStatus.ready => Column(
@@ -41,7 +42,7 @@ class AdminScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => FullPage(
-    title: tr(context, 'Comptes', 'Accounts'),
+    title: context.l10n.adminAccounts,
     fallback: '/account',
     child: BlocConsumer<AdminCubit, AdminState>(
       listenWhen: (a, b) =>
@@ -56,16 +57,12 @@ class AdminScreen extends StatelessWidget {
       builder: (context, state) => Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          SectionHeading(tr(context, 'Inviter quelqu’un', 'Invite someone')),
+          SectionHeading(context.l10n.adminInviteSomeone),
           InviteUserForm(busy: state.busy),
           SectionHeading(
             state.status == AdminStatus.ready
-                ? tr(
-                    context,
-                    '${state.users.length} comptes',
-                    '${state.users.length} accounts',
-                  )
-                : tr(context, 'Comptes', 'Accounts'),
+                ? context.l10n.adminAccounts2(state.users.length)
+                : context.l10n.adminAccounts,
           ),
           _users(context, state),
         ],

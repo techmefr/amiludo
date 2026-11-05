@@ -2537,6 +2537,1875 @@ abstract class AppLocalizations {
   /// **'This template uses free scores. Add scoring rules in the builder, then start a game with this pack.'**
   String get gameThisTemplateUsesFreeScores;
 
+  /// No description provided for @accountSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get accountSignIn;
+
+  /// No description provided for @accountSignUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign up'**
+  String get accountSignUp;
+
+  /// No description provided for @accountName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get accountName;
+
+  /// No description provided for @accountEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get accountEmail;
+
+  /// No description provided for @accountPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get accountPassword;
+
+  /// No description provided for @accountAtLeast8Characters.
+  ///
+  /// In en, this message translates to:
+  /// **'At least 8 characters'**
+  String get accountAtLeast8Characters;
+
+  /// No description provided for @accountCreateMyAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create my account'**
+  String get accountCreateMyAccount;
+
+  /// No description provided for @accountSignIn2.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get accountSignIn2;
+
+  /// No description provided for @accountForgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password'**
+  String get accountForgotPassword;
+
+  /// No description provided for @accountNameSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Name saved'**
+  String get accountNameSaved;
+
+  /// No description provided for @accountAccountCreatedConfirmWithThe.
+  ///
+  /// In en, this message translates to:
+  /// **'Account created: confirm with the email you received.'**
+  String get accountAccountCreatedConfirmWithThe;
+
+  /// No description provided for @accountSignedIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Signed in'**
+  String get accountSignedIn;
+
+  /// No description provided for @accountSignedOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Signed out'**
+  String get accountSignedOut;
+
+  /// No description provided for @accountResetEmailSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset email sent.'**
+  String get accountResetEmailSent;
+
+  /// No description provided for @accountSignInLinkSentCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign-in link sent: check your email.'**
+  String get accountSignInLinkSentCheck;
+
+  /// No description provided for @accountPasswordChanged.
+  ///
+  /// In en, this message translates to:
+  /// **'Password changed'**
+  String get accountPasswordChanged;
+
+  /// No description provided for @accountOnlineAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Online account'**
+  String get accountOnlineAccount;
+
+  /// No description provided for @accountLocalMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Local mode'**
+  String get accountLocalMode;
+
+  /// No description provided for @accountThisBuildHasNoServer.
+  ///
+  /// In en, this message translates to:
+  /// **'This build has no server: everything stays on the device. Wi-Fi lobbies work without an account.'**
+  String get accountThisBuildHasNoServer;
+
+  /// No description provided for @accountTheNameFriendsSeeWhen.
+  ///
+  /// In en, this message translates to:
+  /// **'The name friends see when you join a game.'**
+  String get accountTheNameFriendsSeeWhen;
+
+  /// No description provided for @accountYourName.
+  ///
+  /// In en, this message translates to:
+  /// **'Your name'**
+  String get accountYourName;
+
+  /// No description provided for @accountInvalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid email'**
+  String get accountInvalidEmail;
+
+  /// No description provided for @accountPasswordAtLeast8Characters.
+  ///
+  /// In en, this message translates to:
+  /// **'Password: at least 8 characters'**
+  String get accountPasswordAtLeast8Characters;
+
+  /// No description provided for @accountInvalidName.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid name'**
+  String get accountInvalidName;
+
+  /// No description provided for @accountInvalidCodeTypeTheDigits.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid code: type the digits from the email.'**
+  String get accountInvalidCodeTypeTheDigits;
+
+  /// No description provided for @accountSignInFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in first'**
+  String get accountSignInFirst;
+
+  /// No description provided for @accountTheServerRefusedCheckThe.
+  ///
+  /// In en, this message translates to:
+  /// **'The server refused: check the email and password.'**
+  String get accountTheServerRefusedCheckThe;
+
+  /// No description provided for @accountNoServerConfigured.
+  ///
+  /// In en, this message translates to:
+  /// **'No server configured'**
+  String get accountNoServerConfigured;
+
+  /// No description provided for @accountCouldNotConnect.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not connect'**
+  String get accountCouldNotConnect;
+
+  /// No description provided for @accountEmailMeASignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Email me a sign-in link'**
+  String get accountEmailMeASignIn;
+
+  /// No description provided for @accountOpenTheLinkOnThis.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the link on this device, or type the code from the email.'**
+  String get accountOpenTheLinkOnThis;
+
+  /// No description provided for @accountCodeReceived.
+  ///
+  /// In en, this message translates to:
+  /// **'Code received'**
+  String get accountCodeReceived;
+
+  /// No description provided for @accountConfirmTheCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm the code'**
+  String get accountConfirmTheCode;
+
+  /// No description provided for @accountAdmin.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin'**
+  String get accountAdmin;
+
+  /// No description provided for @accountNewPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'New password'**
+  String get accountNewPassword;
+
+  /// No description provided for @accountOptionalTheEmailLinkIs.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional: the email link is enough to sign in.'**
+  String get accountOptionalTheEmailLinkIs;
+
+  /// No description provided for @accountChangePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Change password'**
+  String get accountChangePassword;
+
+  /// No description provided for @accountManageAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage accounts'**
+  String get accountManageAccounts;
+
+  /// No description provided for @accountSignOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out'**
+  String get accountSignOut;
+
+  /// No description provided for @adminListUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'List unavailable'**
+  String get adminListUnavailable;
+
+  /// No description provided for @adminAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Accounts'**
+  String get adminAccounts;
+
+  /// No description provided for @adminInviteSomeone.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite someone'**
+  String get adminInviteSomeone;
+
+  /// No description provided for @adminAccounts2.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} accounts'**
+  String adminAccounts2(Object count);
+
+  /// No description provided for @adminAdminsOnlySignInAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Admins only: sign in again if you just got the role.'**
+  String get adminAdminsOnlySignInAgain;
+
+  /// No description provided for @adminNotPossibleOnYourOwn.
+  ///
+  /// In en, this message translates to:
+  /// **'Not possible on your own account.'**
+  String get adminNotPossibleOnYourOwn;
+
+  /// No description provided for @adminTheServerRefusedTheOperation.
+  ///
+  /// In en, this message translates to:
+  /// **'The server refused the operation.'**
+  String get adminTheServerRefusedTheOperation;
+
+  /// No description provided for @adminInvitationSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Invitation sent'**
+  String get adminInvitationSent;
+
+  /// No description provided for @adminAccountUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Account updated'**
+  String get adminAccountUpdated;
+
+  /// No description provided for @adminAccountDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Account deleted'**
+  String get adminAccountDeleted;
+
+  /// No description provided for @adminNeverSignedIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Never signed in'**
+  String get adminNeverSignedIn;
+
+  /// No description provided for @adminLastSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Last sign-in: {value}'**
+  String adminLastSignIn(Object value);
+
+  /// No description provided for @adminTheyGetAnEmailTo.
+  ///
+  /// In en, this message translates to:
+  /// **'They get an email to activate their account.'**
+  String get adminTheyGetAnEmailTo;
+
+  /// No description provided for @adminNameOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Name (optional)'**
+  String get adminNameOptional;
+
+  /// No description provided for @adminInvite.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite'**
+  String get adminInvite;
+
+  /// No description provided for @adminDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete {label}?'**
+  String adminDelete(Object label);
+
+  /// No description provided for @adminTheAccountAndItsPublished.
+  ///
+  /// In en, this message translates to:
+  /// **'The account and its published nights will be deleted. This cannot be undone.'**
+  String get adminTheAccountAndItsPublished;
+
+  /// No description provided for @adminBlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked'**
+  String get adminBlocked;
+
+  /// No description provided for @adminPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get adminPending;
+
+  /// No description provided for @adminAccountActions.
+  ///
+  /// In en, this message translates to:
+  /// **'Account actions'**
+  String get adminAccountActions;
+
+  /// No description provided for @adminRemoveAdminRole.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove admin role'**
+  String get adminRemoveAdminRole;
+
+  /// No description provided for @adminMakeAdmin.
+  ///
+  /// In en, this message translates to:
+  /// **'Make admin'**
+  String get adminMakeAdmin;
+
+  /// No description provided for @adminUnblock.
+  ///
+  /// In en, this message translates to:
+  /// **'Unblock'**
+  String get adminUnblock;
+
+  /// No description provided for @adminBlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Block'**
+  String get adminBlock;
+
+  /// No description provided for @eveningsRemoveThisNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove this night?'**
+  String get eveningsRemoveThisNight;
+
+  /// No description provided for @eveningsSignUpsWillBeLost.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign-ups will be lost.'**
+  String get eveningsSignUpsWillBeLost;
+
+  /// No description provided for @eveningsItLeavesYourList.
+  ///
+  /// In en, this message translates to:
+  /// **'It leaves your list.'**
+  String get eveningsItLeavesYourList;
+
+  /// No description provided for @eveningsGameNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Game night'**
+  String get eveningsGameNight;
+
+  /// No description provided for @eveningsRefresh.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh'**
+  String get eveningsRefresh;
+
+  /// No description provided for @eveningsRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get eveningsRemove;
+
+  /// No description provided for @eveningsNightNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Night not found'**
+  String get eveningsNightNotFound;
+
+  /// No description provided for @eveningsItWasRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'It was removed.'**
+  String get eveningsItWasRemoved;
+
+  /// No description provided for @eveningsOnTheMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'On the menu: {value}'**
+  String eveningsOnTheMenu(Object value);
+
+  /// No description provided for @eveningsYourAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Your answer'**
+  String get eveningsYourAnswer;
+
+  /// No description provided for @eveningsSignInToSignUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to sign up'**
+  String get eveningsSignInToSignUp;
+
+  /// No description provided for @eveningsFullYouAreOnThe.
+  ///
+  /// In en, this message translates to:
+  /// **'Full: you are on the waiting list.'**
+  String get eveningsFullYouAreOnThe;
+
+  /// No description provided for @eveningsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get eveningsTitle;
+
+  /// No description provided for @eveningsGamesAtLAS.
+  ///
+  /// In en, this message translates to:
+  /// **'Games at Léa’s'**
+  String get eveningsGamesAtLAS;
+
+  /// No description provided for @eveningsPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Place'**
+  String get eveningsPlace;
+
+  /// No description provided for @eveningsChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Change'**
+  String get eveningsChange;
+
+  /// No description provided for @eveningsSeatsNoLimit.
+  ///
+  /// In en, this message translates to:
+  /// **'Seats: no limit'**
+  String get eveningsSeatsNoLimit;
+
+  /// No description provided for @eveningsSeatsYouIncluded.
+  ///
+  /// In en, this message translates to:
+  /// **'Seats: {seats} (you included)'**
+  String eveningsSeatsYouIncluded(Object seats);
+
+  /// No description provided for @eveningsPlannedGames.
+  ///
+  /// In en, this message translates to:
+  /// **'Planned games'**
+  String get eveningsPlannedGames;
+
+  /// No description provided for @eveningsWithoutAServerRecordYour.
+  ///
+  /// In en, this message translates to:
+  /// **'Without a server, record your friends’ answers yourself below.'**
+  String get eveningsWithoutAServerRecordYour;
+
+  /// No description provided for @eveningsInviteOnline.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite online'**
+  String get eveningsInviteOnline;
+
+  /// No description provided for @eveningsPublishTheNightFriendsSign.
+  ///
+  /// In en, this message translates to:
+  /// **'Publish the night: friends sign up with the link, code or QR.'**
+  String get eveningsPublishTheNightFriendsSign;
+
+  /// No description provided for @eveningsPublish.
+  ///
+  /// In en, this message translates to:
+  /// **'Publish'**
+  String get eveningsPublish;
+
+  /// No description provided for @eveningsSignInToPublish.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to publish'**
+  String get eveningsSignInToPublish;
+
+  /// No description provided for @eveningsFriendsAnswers.
+  ///
+  /// In en, this message translates to:
+  /// **'Friends’ answers'**
+  String get eveningsFriendsAnswers;
+
+  /// No description provided for @eveningsNoAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'No answer'**
+  String get eveningsNoAnswer;
+
+  /// No description provided for @eveningsSAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}’s answer'**
+  String eveningsSAnswer(Object name);
+
+  /// No description provided for @eveningsInvitation.
+  ///
+  /// In en, this message translates to:
+  /// **'Invitation'**
+  String get eveningsInvitation;
+
+  /// No description provided for @eveningsCheckTheCodeWithThe.
+  ///
+  /// In en, this message translates to:
+  /// **'Check the code with the host.'**
+  String get eveningsCheckTheCodeWithThe;
+
+  /// No description provided for @eveningsThisBuildHasNoServer.
+  ///
+  /// In en, this message translates to:
+  /// **'This build has no server to look up nights.'**
+  String get eveningsThisBuildHasNoServer;
+
+  /// No description provided for @eveningsGoing.
+  ///
+  /// In en, this message translates to:
+  /// **'Going'**
+  String get eveningsGoing;
+
+  /// No description provided for @eveningsWaitingList.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting list'**
+  String get eveningsWaitingList;
+
+  /// No description provided for @eveningsMaybe.
+  ///
+  /// In en, this message translates to:
+  /// **'Maybe'**
+  String get eveningsMaybe;
+
+  /// No description provided for @eveningsNotComing.
+  ///
+  /// In en, this message translates to:
+  /// **'Not coming'**
+  String get eveningsNotComing;
+
+  /// No description provided for @eveningsHosting.
+  ///
+  /// In en, this message translates to:
+  /// **'Hosting'**
+  String get eveningsHosting;
+
+  /// No description provided for @eveningsIMIn.
+  ///
+  /// In en, this message translates to:
+  /// **'I’m in'**
+  String get eveningsIMIn;
+
+  /// No description provided for @eveningsNotThisTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Not this time'**
+  String get eveningsNotThisTime;
+
+  /// No description provided for @eveningsGoing2.
+  ///
+  /// In en, this message translates to:
+  /// **'{going} going'**
+  String eveningsGoing2(Object going);
+
+  /// No description provided for @eveningsSeats.
+  ///
+  /// In en, this message translates to:
+  /// **'{going}/{seats} seats'**
+  String eveningsSeats(Object going, Object seats);
+
+  /// No description provided for @eveningsWaiting.
+  ///
+  /// In en, this message translates to:
+  /// **'{base} · {waiting} waiting'**
+  String eveningsWaiting(Object base, Object waiting);
+
+  /// No description provided for @eveningsHostOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Host only'**
+  String get eveningsHostOnly;
+
+  /// No description provided for @eveningsCouldNotDoItCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not do it: check the connection and your account.'**
+  String get eveningsCouldNotDoItCheck;
+
+  /// No description provided for @eveningsPlanANight.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan a night'**
+  String get eveningsPlanANight;
+
+  /// No description provided for @eveningsIHaveACode.
+  ///
+  /// In en, this message translates to:
+  /// **'I have a code'**
+  String get eveningsIHaveACode;
+
+  /// No description provided for @eveningsUpcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get eveningsUpcoming;
+
+  /// No description provided for @eveningsNoNightPlanned.
+  ///
+  /// In en, this message translates to:
+  /// **'No night planned'**
+  String get eveningsNoNightPlanned;
+
+  /// No description provided for @eveningsPickADateInviteBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a date, invite by link or QR, and everyone signs up.'**
+  String get eveningsPickADateInviteBy;
+
+  /// No description provided for @eveningsPast.
+  ///
+  /// In en, this message translates to:
+  /// **'Past'**
+  String get eveningsPast;
+
+  /// No description provided for @friendsThisFriendAlreadyExists.
+  ///
+  /// In en, this message translates to:
+  /// **'This friend already exists.'**
+  String get friendsThisFriendAlreadyExists;
+
+  /// No description provided for @friendsRemoveThisFriend.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove this friend?'**
+  String get friendsRemoveThisFriend;
+
+  /// No description provided for @friendsFriendProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Friend profile'**
+  String get friendsFriendProfile;
+
+  /// No description provided for @friendsNameOrNickname.
+  ///
+  /// In en, this message translates to:
+  /// **'Name or nickname'**
+  String get friendsNameOrNickname;
+
+  /// No description provided for @friendsTastes.
+  ///
+  /// In en, this message translates to:
+  /// **'Tastes'**
+  String get friendsTastes;
+
+  /// No description provided for @friendsTapAGenreLikesThen.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a genre: likes, then dislikes, then neutral.'**
+  String get friendsTapAGenreLikesThen;
+
+  /// No description provided for @friendsLongestGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Longest game'**
+  String get friendsLongestGame;
+
+  /// No description provided for @friendsNoLimit.
+  ///
+  /// In en, this message translates to:
+  /// **'No limit'**
+  String get friendsNoLimit;
+
+  /// No description provided for @friendsPerGameOpinion.
+  ///
+  /// In en, this message translates to:
+  /// **'Per-game opinion'**
+  String get friendsPerGameOpinion;
+
+  /// No description provided for @friendsTapAGameWantsIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a game: wants it, loves it despite the genre, refuses it, neutral.'**
+  String get friendsTapAGameWantsIt;
+
+  /// No description provided for @friendsLikes.
+  ///
+  /// In en, this message translates to:
+  /// **'likes'**
+  String get friendsLikes;
+
+  /// No description provided for @friendsDislikes.
+  ///
+  /// In en, this message translates to:
+  /// **'dislikes'**
+  String get friendsDislikes;
+
+  /// No description provided for @friendsNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'neutral'**
+  String get friendsNeutral;
+
+  /// No description provided for @friendsWants.
+  ///
+  /// In en, this message translates to:
+  /// **'wants'**
+  String get friendsWants;
+
+  /// No description provided for @friendsLoves.
+  ///
+  /// In en, this message translates to:
+  /// **'loves'**
+  String get friendsLoves;
+
+  /// No description provided for @friendsRefused.
+  ///
+  /// In en, this message translates to:
+  /// **'refused'**
+  String get friendsRefused;
+
+  /// No description provided for @friendsYourShelfIsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Your shelf is empty.'**
+  String get friendsYourShelfIsEmpty;
+
+  /// No description provided for @friendsAroundTheTable.
+  ///
+  /// In en, this message translates to:
+  /// **'Around the table'**
+  String get friendsAroundTheTable;
+
+  /// No description provided for @friendsMyFriends.
+  ///
+  /// In en, this message translates to:
+  /// **'My friends'**
+  String get friendsMyFriends;
+
+  /// No description provided for @friendsTheirTastesAndReviewsTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Their tastes and reviews, to pick the right game.'**
+  String get friendsTheirTastesAndReviewsTo;
+
+  /// No description provided for @friendsAddAFriend.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a friend'**
+  String get friendsAddAFriend;
+
+  /// No description provided for @friendsNobodyYet.
+  ///
+  /// In en, this message translates to:
+  /// **'Nobody yet'**
+  String get friendsNobodyYet;
+
+  /// No description provided for @friendsAddYourGamePartnersAnd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your game partners and what they like.'**
+  String get friendsAddYourGamePartnersAnd;
+
+  /// No description provided for @friendsLatestReviews.
+  ///
+  /// In en, this message translates to:
+  /// **'Latest reviews'**
+  String get friendsLatestReviews;
+
+  /// No description provided for @friendsLikes2.
+  ///
+  /// In en, this message translates to:
+  /// **'Likes'**
+  String get friendsLikes2;
+
+  /// No description provided for @friendsDislikes2.
+  ///
+  /// In en, this message translates to:
+  /// **'Dislikes'**
+  String get friendsDislikes2;
+
+  /// No description provided for @friendsGamesUpTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Games up to'**
+  String get friendsGamesUpTo;
+
+  /// No description provided for @friendsStarsOutOf5.
+  ///
+  /// In en, this message translates to:
+  /// **'{stars} stars out of 5'**
+  String friendsStarsOutOf5(Object stars);
+
+  /// No description provided for @friendsReviewsSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Reviews saved'**
+  String get friendsReviewsSaved;
+
+  /// No description provided for @friendsRateTheGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate the game'**
+  String get friendsRateTheGame;
+
+  /// No description provided for @friendsGameNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Game not found'**
+  String get friendsGameNotFound;
+
+  /// No description provided for @friendsItMayHaveBeenDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'It may have been deleted.'**
+  String get friendsItMayHaveBeenDeleted;
+
+  /// No description provided for @friendsSaveReviews.
+  ///
+  /// In en, this message translates to:
+  /// **'Save reviews'**
+  String get friendsSaveReviews;
+
+  /// No description provided for @friendsStarSOf5.
+  ///
+  /// In en, this message translates to:
+  /// **'{i} star(s) of 5'**
+  String friendsStarSOf5(Object i);
+
+  /// No description provided for @friendsAWordOnTheGame.
+  ///
+  /// In en, this message translates to:
+  /// **'A word on the game'**
+  String get friendsAWordOnTheGame;
+
+  /// No description provided for @historyTeam.
+  ///
+  /// In en, this message translates to:
+  /// **'Team'**
+  String get historyTeam;
+
+  /// No description provided for @historyLeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Leading'**
+  String get historyLeading;
+
+  /// No description provided for @historyWinner.
+  ///
+  /// In en, this message translates to:
+  /// **'Winner'**
+  String get historyWinner;
+
+  /// No description provided for @historyActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get historyActive;
+
+  /// No description provided for @historyComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete'**
+  String get historyComplete;
+
+  /// No description provided for @historyRounds.
+  ///
+  /// In en, this message translates to:
+  /// **'rounds'**
+  String get historyRounds;
+
+  /// No description provided for @historyDeleteThisGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this game?'**
+  String get historyDeleteThisGame;
+
+  /// No description provided for @historyThisAlsoRemovesScoresAnd.
+  ///
+  /// In en, this message translates to:
+  /// **'This also removes scores and notes.'**
+  String get historyThisAlsoRemovesScoresAnd;
+
+  /// No description provided for @historyResume.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume'**
+  String get historyResume;
+
+  /// No description provided for @historyDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get historyDetails;
+
+  /// No description provided for @historyPlayAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Play again'**
+  String get historyPlayAgain;
+
+  /// No description provided for @historyRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate'**
+  String get historyRate;
+
+  /// No description provided for @historyMemories.
+  ///
+  /// In en, this message translates to:
+  /// **'Memories'**
+  String get historyMemories;
+
+  /// No description provided for @historyDeleteGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete game'**
+  String get historyDeleteGame;
+
+  /// No description provided for @historyGameImported.
+  ///
+  /// In en, this message translates to:
+  /// **'Game imported'**
+  String get historyGameImported;
+
+  /// No description provided for @historyKeepTheGoodTimes.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep the good times'**
+  String get historyKeepTheGoodTimes;
+
+  /// No description provided for @historyTheGoodTimes.
+  ///
+  /// In en, this message translates to:
+  /// **'The good times'**
+  String get historyTheGoodTimes;
+
+  /// No description provided for @historyYourGamesAndResultsSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Your games and results, saved on this device.'**
+  String get historyYourGamesAndResultsSaved;
+
+  /// No description provided for @historyImportGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Import game'**
+  String get historyImportGame;
+
+  /// No description provided for @historyOpenGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Open gallery'**
+  String get historyOpenGallery;
+
+  /// No description provided for @historySearchAGamePlayerOr.
+  ///
+  /// In en, this message translates to:
+  /// **'Search a game, player or date'**
+  String get historySearchAGamePlayerOr;
+
+  /// No description provided for @historyNoGamesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No games found'**
+  String get historyNoGamesFound;
+
+  /// No description provided for @historyGamesAppearHereWhenCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Games appear here when created.'**
+  String get historyGamesAppearHereWhenCreated;
+
+  /// No description provided for @historyCompletedGames.
+  ///
+  /// In en, this message translates to:
+  /// **'COMPLETED GAMES'**
+  String get historyCompletedGames;
+
+  /// No description provided for @historyActiveTables.
+  ///
+  /// In en, this message translates to:
+  /// **'ACTIVE TABLES'**
+  String get historyActiveTables;
+
+  /// No description provided for @historyMinutesPlayed.
+  ///
+  /// In en, this message translates to:
+  /// **'MINUTES PLAYED'**
+  String get historyMinutesPlayed;
+
+  /// No description provided for @historyRestoreBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore backup?'**
+  String get historyRestoreBackup;
+
+  /// No description provided for @historyYourCurrentLibraryWillBe.
+  ///
+  /// In en, this message translates to:
+  /// **'Your current library will be replaced. Export it first if needed.'**
+  String get historyYourCurrentLibraryWillBe;
+
+  /// No description provided for @historyBackupRestored.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup restored'**
+  String get historyBackupRestored;
+
+  /// No description provided for @historyEraseAllData.
+  ///
+  /// In en, this message translates to:
+  /// **'Erase all data?'**
+  String get historyEraseAllData;
+
+  /// No description provided for @historyGamesTemplatesProfilesAndSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Games, templates, profiles and settings will be removed from this device. This cannot be undone.'**
+  String get historyGamesTemplatesProfilesAndSettings;
+
+  /// No description provided for @historyYourDataBelongsToYou.
+  ///
+  /// In en, this message translates to:
+  /// **'Your data belongs to you'**
+  String get historyYourDataBelongsToYou;
+
+  /// No description provided for @historyBackUpEverything.
+  ///
+  /// In en, this message translates to:
+  /// **'Back up everything'**
+  String get historyBackUpEverything;
+
+  /// No description provided for @historyRestore.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore'**
+  String get historyRestore;
+
+  /// No description provided for @historyEraseAllMyData.
+  ///
+  /// In en, this message translates to:
+  /// **'Erase all my data'**
+  String get historyEraseAllMyData;
+
+  /// No description provided for @libraryGameShelf.
+  ///
+  /// In en, this message translates to:
+  /// **'Game shelf'**
+  String get libraryGameShelf;
+
+  /// No description provided for @libraryMyGames.
+  ///
+  /// In en, this message translates to:
+  /// **'My games'**
+  String get libraryMyGames;
+
+  /// No description provided for @libraryBoxesStoredOnThisDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} boxes stored on this device.'**
+  String libraryBoxesStoredOnThisDevice(Object count);
+
+  /// No description provided for @libraryAddAGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a game'**
+  String get libraryAddAGame;
+
+  /// No description provided for @libraryEmptyShelves.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty shelves'**
+  String get libraryEmptyShelves;
+
+  /// No description provided for @libraryNoGameFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No game found'**
+  String get libraryNoGameFound;
+
+  /// No description provided for @libraryStoreYourBoxesHereTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Store your boxes here to find your games, packs and reviews.'**
+  String get libraryStoreYourBoxesHereTo;
+
+  /// No description provided for @libraryWhatToPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'What to play?'**
+  String get libraryWhatToPlay;
+
+  /// No description provided for @libraryReceiveByQr.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive by QR'**
+  String get libraryReceiveByQr;
+
+  /// No description provided for @libraryShareASession.
+  ///
+  /// In en, this message translates to:
+  /// **'Share a session'**
+  String get libraryShareASession;
+
+  /// No description provided for @libraryPacksAndTemplates.
+  ///
+  /// In en, this message translates to:
+  /// **'Packs and templates'**
+  String get libraryPacksAndTemplates;
+
+  /// No description provided for @librarySearchAGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Search a game'**
+  String get librarySearchAGame;
+
+  /// No description provided for @libraryNameTheGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Name the game.'**
+  String get libraryNameTheGame;
+
+  /// No description provided for @libraryShelfGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Shelf game'**
+  String get libraryShelfGame;
+
+  /// No description provided for @libraryGameName.
+  ///
+  /// In en, this message translates to:
+  /// **'Game name'**
+  String get libraryGameName;
+
+  /// No description provided for @libraryGenres.
+  ///
+  /// In en, this message translates to:
+  /// **'Genres'**
+  String get libraryGenres;
+
+  /// No description provided for @libraryBoxColour.
+  ///
+  /// In en, this message translates to:
+  /// **'Box colour'**
+  String get libraryBoxColour;
+
+  /// No description provided for @libraryLinkedPacks.
+  ///
+  /// In en, this message translates to:
+  /// **'Linked packs'**
+  String get libraryLinkedPacks;
+
+  /// No description provided for @libraryPutOnShelf.
+  ///
+  /// In en, this message translates to:
+  /// **'Put on shelf'**
+  String get libraryPutOnShelf;
+
+  /// No description provided for @libraryPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Players'**
+  String get libraryPlayers;
+
+  /// No description provided for @libraryLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Length'**
+  String get libraryLength;
+
+  /// No description provided for @libraryColour.
+  ///
+  /// In en, this message translates to:
+  /// **'Colour'**
+  String get libraryColour;
+
+  /// No description provided for @libraryPlays.
+  ///
+  /// In en, this message translates to:
+  /// **'plays'**
+  String get libraryPlays;
+
+  /// No description provided for @libraryRemoveThisGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove this game?'**
+  String get libraryRemoveThisGame;
+
+  /// No description provided for @libraryPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Play'**
+  String get libraryPlay;
+
+  /// No description provided for @libraryRemoveFromShelf.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from shelf'**
+  String get libraryRemoveFromShelf;
+
+  /// No description provided for @libraryWhatToPlayTonight.
+  ///
+  /// In en, this message translates to:
+  /// **'What to play tonight?'**
+  String get libraryWhatToPlayTonight;
+
+  /// No description provided for @libraryWhoIsHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Who is here?'**
+  String get libraryWhoIsHere;
+
+  /// No description provided for @libraryAddFriends.
+  ///
+  /// In en, this message translates to:
+  /// **'Add friends'**
+  String get libraryAddFriends;
+
+  /// No description provided for @libraryTimeAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Time available'**
+  String get libraryTimeAvailable;
+
+  /// No description provided for @libraryAllEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'All evening'**
+  String get libraryAllEvening;
+
+  /// No description provided for @libraryGamesForPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} games for {value} players'**
+  String libraryGamesForPlayers(Object count, Object value);
+
+  /// No description provided for @libraryNothingFits.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing fits'**
+  String get libraryNothingFits;
+
+  /// No description provided for @libraryAddGamesOrRelaxYour.
+  ///
+  /// In en, this message translates to:
+  /// **'Add games or relax your friends’ tastes.'**
+  String get libraryAddGamesOrRelaxYour;
+
+  /// No description provided for @libraryWantedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Wanted by {value}'**
+  String libraryWantedBy(Object value);
+
+  /// No description provided for @libraryLovedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Loved by {value}'**
+  String libraryLovedBy(Object value);
+
+  /// No description provided for @lobbySkullNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Skull night'**
+  String get lobbySkullNight;
+
+  /// No description provided for @lobbySeats.
+  ///
+  /// In en, this message translates to:
+  /// **'Seats: {seats}'**
+  String lobbySeats(Object seats);
+
+  /// No description provided for @lobbyOpenTheLobby.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the lobby'**
+  String get lobbyOpenTheLobby;
+
+  /// No description provided for @lobbySameWiFi.
+  ///
+  /// In en, this message translates to:
+  /// **'Same Wi-Fi'**
+  String get lobbySameWiFi;
+
+  /// No description provided for @lobbyAroundTheTableNoServer.
+  ///
+  /// In en, this message translates to:
+  /// **'Around the table, no server.'**
+  String get lobbyAroundTheTableNoServer;
+
+  /// No description provided for @lobbyNotAvailableInTheBrowser.
+  ///
+  /// In en, this message translates to:
+  /// **'Not available in the browser.'**
+  String get lobbyNotAvailableInTheBrowser;
+
+  /// No description provided for @lobbyRemote.
+  ///
+  /// In en, this message translates to:
+  /// **'Remote'**
+  String get lobbyRemote;
+
+  /// No description provided for @lobbyOverTheInternetWithThe.
+  ///
+  /// In en, this message translates to:
+  /// **'Over the Internet, with the link or code.'**
+  String get lobbyOverTheInternetWithThe;
+
+  /// No description provided for @lobbyNoServerConfiguredForThis.
+  ///
+  /// In en, this message translates to:
+  /// **'No server configured for this build.'**
+  String get lobbyNoServerConfiguredForThis;
+
+  /// No description provided for @lobbyAcceptRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept requests'**
+  String get lobbyAcceptRequests;
+
+  /// No description provided for @lobbyStartWithPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Start with {count} players'**
+  String lobbyStartWithPlayers(Object count);
+
+  /// No description provided for @lobbyCloseTheLobby.
+  ///
+  /// In en, this message translates to:
+  /// **'Close the lobby'**
+  String get lobbyCloseTheLobby;
+
+  /// No description provided for @lobbyJoin.
+  ///
+  /// In en, this message translates to:
+  /// **'Join'**
+  String get lobbyJoin;
+
+  /// No description provided for @lobbyEnterYourName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your name'**
+  String get lobbyEnterYourName;
+
+  /// No description provided for @lobbyCodeOrLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Code or link'**
+  String get lobbyCodeOrLink;
+
+  /// No description provided for @lobbyScanAQr.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan a QR'**
+  String get lobbyScanAQr;
+
+  /// No description provided for @lobbyCameraUnavailableTypeTheCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera unavailable: type the code.'**
+  String get lobbyCameraUnavailableTypeTheCode;
+
+  /// No description provided for @lobbyTheHostClosedTheLobby.
+  ///
+  /// In en, this message translates to:
+  /// **'The host closed the lobby.'**
+  String get lobbyTheHostClosedTheLobby;
+
+  /// No description provided for @lobbyHereWeGoTheGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Here we go! The game runs on {hostName}’s device.'**
+  String lobbyHereWeGoTheGame(Object hostName);
+
+  /// No description provided for @lobbyYouAreInWaitFor.
+  ///
+  /// In en, this message translates to:
+  /// **'You are in. Wait for the start.'**
+  String get lobbyYouAreInWaitFor;
+
+  /// No description provided for @lobbyTheHostDidNotAccept.
+  ///
+  /// In en, this message translates to:
+  /// **'The host did not accept your request.'**
+  String get lobbyTheHostDidNotAccept;
+
+  /// No description provided for @lobbyRequestSentTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Request sent to {hostName}…'**
+  String lobbyRequestSentTo(Object hostName);
+
+  /// No description provided for @lobbyLeave.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave'**
+  String get lobbyLeave;
+
+  /// No description provided for @lobbyPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Players {count}/{seats}'**
+  String lobbyPlayers(Object count, Object seats);
+
+  /// No description provided for @lobbyHost.
+  ///
+  /// In en, this message translates to:
+  /// **'Host'**
+  String get lobbyHost;
+
+  /// No description provided for @lobbyRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Requests'**
+  String get lobbyRequests;
+
+  /// No description provided for @lobbyWantsToJoin.
+  ///
+  /// In en, this message translates to:
+  /// **'Wants to join'**
+  String get lobbyWantsToJoin;
+
+  /// No description provided for @lobbyNoSeatLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'No seat left'**
+  String get lobbyNoSeatLeft;
+
+  /// No description provided for @lobbyAccept.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept {name}'**
+  String lobbyAccept(Object name);
+
+  /// No description provided for @lobbyRefuse.
+  ///
+  /// In en, this message translates to:
+  /// **'Refuse {name}'**
+  String lobbyRefuse(Object name);
+
+  /// No description provided for @lobbyRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove {name}'**
+  String lobbyRemove(Object name);
+
+  /// No description provided for @lobbyCheckTheCodeAndYour.
+  ///
+  /// In en, this message translates to:
+  /// **'Check the code and your name.'**
+  String get lobbyCheckTheCodeAndYour;
+
+  /// No description provided for @lobbyNoOpenGameWithThis.
+  ///
+  /// In en, this message translates to:
+  /// **'No open game with this code. Has the host opened the lobby?'**
+  String get lobbyNoOpenGameWithThis;
+
+  /// No description provided for @lobbyCannotConnectJoinTheSame.
+  ///
+  /// In en, this message translates to:
+  /// **'Cannot connect: join the same Wi-Fi or turn on Internet.'**
+  String get lobbyCannotConnectJoinTheSame;
+
+  /// No description provided for @lobbySomethingWentWrongTryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong, try again.'**
+  String get lobbySomethingWentWrongTryAgain;
+
+  /// No description provided for @memoriesGalleryKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Gallery key'**
+  String get memoriesGalleryKey;
+
+  /// No description provided for @memoriesLetYourFriendsScanThis.
+  ///
+  /// In en, this message translates to:
+  /// **'Let your friends scan this code. Without it, the file stays unreadable.'**
+  String get memoriesLetYourFriendsScanThis;
+
+  /// No description provided for @memoriesKeyQrCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Key QR code'**
+  String get memoriesKeyQrCode;
+
+  /// No description provided for @memoriesDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get memoriesDone;
+
+  /// No description provided for @memoriesShareEncrypted.
+  ///
+  /// In en, this message translates to:
+  /// **'Share encrypted'**
+  String get memoriesShareEncrypted;
+
+  /// No description provided for @memoriesOpenAGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Open a gallery'**
+  String get memoriesOpenAGallery;
+
+  /// No description provided for @memories1PickTheReceivedFile.
+  ///
+  /// In en, this message translates to:
+  /// **'1. Pick the received file. 2. Scan the key shown by your friend.'**
+  String get memories1PickTheReceivedFile;
+
+  /// No description provided for @memoriesPickTheFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick the file'**
+  String get memoriesPickTheFile;
+
+  /// No description provided for @memoriesFileReady.
+  ///
+  /// In en, this message translates to:
+  /// **'File ready ✓'**
+  String get memoriesFileReady;
+
+  /// No description provided for @memoriesScanTheKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan the key'**
+  String get memoriesScanTheKey;
+
+  /// No description provided for @memoriesCameraUnavailableTypeTheKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera unavailable. Type the key instead.'**
+  String get memoriesCameraUnavailableTypeTheKey;
+
+  /// No description provided for @memoriesDecrypt.
+  ///
+  /// In en, this message translates to:
+  /// **'Decrypt'**
+  String get memoriesDecrypt;
+
+  /// No description provided for @memoriesTheStory.
+  ///
+  /// In en, this message translates to:
+  /// **'The story'**
+  String get memoriesTheStory;
+
+  /// No description provided for @memoriesHighlights.
+  ///
+  /// In en, this message translates to:
+  /// **'Highlights'**
+  String get memoriesHighlights;
+
+  /// No description provided for @memoriesPrivateGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Private gallery'**
+  String get memoriesPrivateGallery;
+
+  /// No description provided for @memoriesStorySaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Story saved'**
+  String get memoriesStorySaved;
+
+  /// No description provided for @memoriesWhatWeLlRememberOf.
+  ///
+  /// In en, this message translates to:
+  /// **'What we’ll remember of this night'**
+  String get memoriesWhatWeLlRememberOf;
+
+  /// No description provided for @memoriesSaveTheStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Save the story'**
+  String get memoriesSaveTheStory;
+
+  /// No description provided for @memoriesRemoveThisMoment.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove this moment'**
+  String get memoriesRemoveThisMoment;
+
+  /// No description provided for @memoriesAHighlightThenEnter.
+  ///
+  /// In en, this message translates to:
+  /// **'A highlight, then Enter'**
+  String get memoriesAHighlightThenEnter;
+
+  /// No description provided for @memoriesPhotoTooLarge8Mb.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo too large (8 MB maximum).'**
+  String get memoriesPhotoTooLarge8Mb;
+
+  /// No description provided for @memories60PhotosMaximumPerGame.
+  ///
+  /// In en, this message translates to:
+  /// **'60 photos maximum per game.'**
+  String get memories60PhotosMaximumPerGame;
+
+  /// No description provided for @memoriesPhotosStayOnThisDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos stay on this device. To share them, the gallery is encrypted and the key is passed by QR code at the table.'**
+  String get memoriesPhotosStayOnThisDevice;
+
+  /// No description provided for @memoriesAddAPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a photo'**
+  String get memoriesAddAPhoto;
+
+  /// No description provided for @memoriesDeleteThePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete the photo?'**
+  String get memoriesDeleteThePhoto;
+
+  /// No description provided for @memoriesItWillBeErased.
+  ///
+  /// In en, this message translates to:
+  /// **'It will be erased.'**
+  String get memoriesItWillBeErased;
+
+  /// No description provided for @memoriesGamePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Game photo'**
+  String get memoriesGamePhoto;
+
+  /// No description provided for @memoriesDeletePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete photo'**
+  String get memoriesDeletePhoto;
+
+  /// No description provided for @sharingReceivedGamesPacksSheets.
+  ///
+  /// In en, this message translates to:
+  /// **'Received: {games} games, {templates} packs, {characters} sheets'**
+  String sharingReceivedGamesPacksSheets(
+    Object games,
+    Object templates,
+    Object characters,
+  );
+
+  /// No description provided for @sharingReceiveASession.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive a session'**
+  String get sharingReceiveASession;
+
+  /// No description provided for @sharingPointAtYourFriendS.
+  ///
+  /// In en, this message translates to:
+  /// **'Point at your friend’s animated QR code and keep it framed until 100%.'**
+  String get sharingPointAtYourFriendS;
+
+  /// No description provided for @sharingCameraUnavailableAskForThe.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera unavailable. Ask for the file instead.'**
+  String get sharingCameraUnavailableAskForThe;
+
+  /// No description provided for @sharingReceiveProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive progress'**
+  String get sharingReceiveProgress;
+
+  /// No description provided for @sharingWaiting.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting…'**
+  String get sharingWaiting;
+
+  /// No description provided for @sharingOpenAFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Open a file'**
+  String get sharingOpenAFile;
+
+  /// No description provided for @sharingYourFriendOpensReceiveBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Your friend opens “Receive by QR” and points at the screen: games, packs, dice and character sheets land on their device.'**
+  String get sharingYourFriendOpensReceiveBy;
+
+  /// No description provided for @sharingContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Content'**
+  String get sharingContent;
+
+  /// No description provided for @sharingNothingToShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing to share'**
+  String get sharingNothingToShare;
+
+  /// No description provided for @sharingPickAtLeastOneGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick at least one game or pack.'**
+  String get sharingPickAtLeastOneGame;
+
+  /// No description provided for @sharingSessionQrCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Session QR code'**
+  String get sharingSessionQrCode;
+
+  /// No description provided for @sharingGamesPacksSheetsFrames.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} games · {count2} packs · {count3} sheets · {count4} frames'**
+  String sharingGamesPacksSheetsFrames(
+    Object count,
+    Object count2,
+    Object count3,
+    Object count4,
+  );
+
+  /// No description provided for @sharingSendAsAFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Send as a file'**
+  String get sharingSendAsAFile;
+
+  /// No description provided for @timerTimeIsUpPassThe.
+  ///
+  /// In en, this message translates to:
+  /// **'Time is up. Pass the turn.'**
+  String get timerTimeIsUpPassThe;
+
+  /// No description provided for @timerConfigureTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Configure time'**
+  String get timerConfigureTime;
+
+  /// No description provided for @timerApply.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply'**
+  String get timerApply;
+
+  /// No description provided for @timerTimeToThink.
+  ///
+  /// In en, this message translates to:
+  /// **'TIME TO THINK'**
+  String get timerTimeToThink;
+
+  /// No description provided for @timerQuickTimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick timer'**
+  String get timerQuickTimer;
+
+  /// No description provided for @timerPlayerBank.
+  ///
+  /// In en, this message translates to:
+  /// **'Player bank'**
+  String get timerPlayerBank;
+
+  /// No description provided for @timerTimePerTurn.
+  ///
+  /// In en, this message translates to:
+  /// **'Time per turn'**
+  String get timerTimePerTurn;
+
+  /// No description provided for @timerTimeRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'Time remaining'**
+  String get timerTimeRemaining;
+
+  /// No description provided for @timerPause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause'**
+  String get timerPause;
+
+  /// No description provided for @timerStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get timerStart;
+
+  /// No description provided for @timerTimerSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Timer settings'**
+  String get timerTimerSettings;
+
+  /// No description provided for @timerDurationInSeconds.
+  ///
+  /// In en, this message translates to:
+  /// **'Duration in seconds'**
+  String get timerDurationInSeconds;
+
+  /// No description provided for @timerIncrementPerTurnSeconds.
+  ///
+  /// In en, this message translates to:
+  /// **'Increment per turn (seconds)'**
+  String get timerIncrementPerTurnSeconds;
+
+  /// No description provided for @timerBankPerPlayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Bank per player'**
+  String get timerBankPerPlayer;
+
+  /// No description provided for @timerOtherwiseFixedTimeEachTurn.
+  ///
+  /// In en, this message translates to:
+  /// **'Otherwise: fixed time each turn.'**
+  String get timerOtherwiseFixedTimeEachTurn;
+
+  /// No description provided for @timerTimeToPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Time to play'**
+  String get timerTimeToPlay;
+
   /// No description provided for @randomKeepCards.
   ///
   /// In en, this message translates to:

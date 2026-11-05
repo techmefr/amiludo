@@ -6,6 +6,7 @@ import 'package:amiludo/layers/functional/Evenings/presentation/cubit/evenings_c
 import 'package:amiludo/layers/functional/Evenings/presentation/evening_detail.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class EveningInviteScreen extends StatefulWidget {
   const EveningInviteScreen({super.key, required this.code});
@@ -23,7 +24,7 @@ class _EveningInviteScreenState extends State<EveningInviteScreen> {
 
   @override
   Widget build(BuildContext context) => FullPage(
-    title: tr(context, 'Invitation', 'Invitation'),
+    title: context.l10n.eveningsInvitation,
     fallback: '/evenings',
     child: FutureBuilder<Evening?>(
       future: loading,
@@ -37,18 +38,10 @@ class _EveningInviteScreenState extends State<EveningInviteScreen> {
             : cubit.evening(snapshot.data!.id) ?? snapshot.data;
         if (evening == null) {
           return EmptyPanel(
-            title: tr(context, 'Soirée introuvable', 'Night not found'),
+            title: context.l10n.eveningsNightNotFound,
             message: cubit.online
-                ? tr(
-                    context,
-                    'Vérifiez le code auprès de l’organisateur.',
-                    'Check the code with the host.',
-                  )
-                : tr(
-                    context,
-                    'Cette version n’a pas de serveur pour retrouver les soirées.',
-                    'This build has no server to look up nights.',
-                  ),
+                ? context.l10n.eveningsCheckTheCodeWithThe
+                : context.l10n.eveningsThisBuildHasNoServer,
           );
         }
         return Column(

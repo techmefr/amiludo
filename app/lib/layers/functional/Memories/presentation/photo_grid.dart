@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Memories/domain/entities/game_memory.d
 import 'package:amiludo/layers/functional/Memories/presentation/cubit/memories_cubit.dart';
 import 'package:amiludo/layers/technical/Files/file_transfer.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class PhotoGrid extends StatelessWidget {
   const PhotoGrid({super.key, required this.memory});
@@ -27,16 +28,8 @@ class PhotoGrid extends StatelessWidget {
 
   String _photoErrorText(BuildContext context, PhotoError error) =>
       switch (error) {
-        PhotoError.tooLarge => tr(
-          context,
-          'Photo trop lourde (8 Mo maximum).',
-          'Photo too large (8 MB maximum).',
-        ),
-        PhotoError.tooMany => tr(
-          context,
-          '60 photos maximum par partie.',
-          '60 photos maximum per game.',
-        ),
+        PhotoError.tooLarge => context.l10n.memoriesPhotoTooLarge8Mb,
+        PhotoError.tooMany => context.l10n.memories60PhotosMaximumPerGame,
       };
 
   @override
@@ -44,11 +37,7 @@ class PhotoGrid extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
-        tr(
-          context,
-          'Les photos restent sur cet appareil. Pour les partager, la galerie est chiffrée et la clé se passe par QR code à la table.',
-          'Photos stay on this device. To share them, the gallery is encrypted and the key is passed by QR code at the table.',
-        ),
+        context.l10n.memoriesPhotosStayOnThisDevice,
       ),
       const SizedBox(height: 16),
       ResponsiveGrid(
@@ -60,7 +49,7 @@ class PhotoGrid extends StatelessWidget {
           OutlinedButton.icon(
             onPressed: () => _add(context),
             icon: const DeckIcon(Icons.add_photo_alternate_outlined),
-            label: Text(tr(context, 'Ajouter une photo', 'Add a photo')),
+            label: Text(context.l10n.memoriesAddAPhoto),
           ),
         ],
       ),
@@ -86,8 +75,8 @@ class _PhotoState extends State<_Photo> {
     final cubit = context.read<MemoriesCubit>();
     if (await confirm(
       context,
-      tr(context, 'Supprimer la photo ?', 'Delete the photo?'),
-      tr(context, 'Elle sera effacée de cet appareil.', 'It will be erased.'),
+      context.l10n.memoriesDeleteThePhoto,
+      context.l10n.memoriesItWillBeErased,
     )) {
       await cubit.removePhoto(widget.sessionId, widget.id);
     }
@@ -108,17 +97,13 @@ class _PhotoState extends State<_Photo> {
               : Image.memory(
                   snapshot.data!,
                   fit: BoxFit.cover,
-                  semanticLabel: tr(
-                    context,
-                    'Photo de la partie',
-                    'Game photo',
-                  ),
+                  semanticLabel: context.l10n.memoriesGamePhoto,
                 ),
         ),
         Align(
           alignment: Alignment.topRight,
           child: IconButton.filledTonal(
-            tooltip: tr(context, 'Supprimer la photo', 'Delete photo'),
+            tooltip: context.l10n.memoriesDeletePhoto,
             onPressed: _remove,
             icon: const DeckIcon(Icons.delete_outline, size: 18),
           ),

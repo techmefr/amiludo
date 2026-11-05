@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Friends/presentation/cubit/friends_cub
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class ReviewScreen extends StatefulWidget {
   const ReviewScreen({super.key, required this.sessionId});
@@ -61,7 +62,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
         ),
     ]);
     if (mounted) {
-      notify(context, tr(context, 'Avis enregistrés', 'Reviews saved'));
+      notify(context, context.l10n.friendsReviewsSaved);
       context.go('/history');
     }
   }
@@ -70,16 +71,12 @@ class _ReviewScreenState extends State<ReviewScreen> {
   Widget build(BuildContext context) {
     final game = this.game;
     return FullPage(
-      title: tr(context, 'Noter la partie', 'Rate the game'),
+      title: context.l10n.friendsRateTheGame,
       fallback: '/history',
       child: game == null
           ? EmptyPanel(
-              title: tr(context, 'Partie introuvable', 'Game not found'),
-              message: tr(
-                context,
-                'Elle a peut-être été supprimée.',
-                'It may have been deleted.',
-              ),
+              title: context.l10n.friendsGameNotFound,
+              message: context.l10n.friendsItMayHaveBeenDeleted,
             )
           : Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,7 +96,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                 FilledButton(
                   onPressed: stars.isEmpty ? null : () => _save(game),
                   child: Text(
-                    tr(context, 'Enregistrer les avis', 'Save reviews'),
+                    context.l10n.friendsSaveReviews,
                   ),
                 ),
               ],
@@ -134,7 +131,7 @@ class _PlayerReview extends StatelessWidget {
             children: [
               for (var i = 1; i <= 5; i++)
                 IconButton(
-                  tooltip: tr(context, '$i étoile(s) sur 5', '$i star(s) of 5'),
+                  tooltip: context.l10n.friendsStarSOf5(i),
                   isSelected: i <= stars,
                   onPressed: () => onStars(i),
                   icon: Icon(
@@ -152,11 +149,7 @@ class _PlayerReview extends StatelessWidget {
             maxLines: 3,
             minLines: 1,
             decoration: InputDecoration(
-              labelText: tr(
-                context,
-                'Un mot sur la partie',
-                'A word on the game',
-              ),
+              labelText: context.l10n.friendsAWordOnTheGame,
             ),
           ),
         ],

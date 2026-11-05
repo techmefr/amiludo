@@ -5,6 +5,7 @@ import 'package:amiludo/layers/functional/Memories/presentation/cubit/memories_c
 import 'package:amiludo/layers/technical/Files/file_transfer.dart';
 import 'package:amiludo/layers/technical/Qr/qr_code.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class GalleryExportButton extends StatefulWidget {
   const GalleryExportButton({super.key, required this.sessionId});
@@ -36,23 +37,19 @@ class _GalleryExportButtonState extends State<GalleryExportButton> {
   Future<void> _showKey(String key) => showFormDialog<void>(
     context: context,
     builder: (dialog) => AlertDialog(
-      title: Text(tr(dialog, 'Clé de la galerie', 'Gallery key')),
+      title: Text(dialog.l10n.memoriesGalleryKey),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              tr(
-                dialog,
-                'Faites scanner ce code par vos amis. Sans lui, le fichier envoyé reste illisible.',
-                'Let your friends scan this code. Without it, the file stays unreadable.',
-              ),
+              dialog.l10n.memoriesLetYourFriendsScanThis,
             ),
             const SizedBox(height: 16),
             QrCode(
               data: key,
               size: 220,
-              label: tr(dialog, 'QR code de la clé', 'Key QR code'),
+              label: dialog.l10n.memoriesKeyQrCode,
             ),
             const SizedBox(height: 12),
             SelectableText(
@@ -65,7 +62,7 @@ class _GalleryExportButtonState extends State<GalleryExportButton> {
       actions: [
         FilledButton(
           onPressed: () => Navigator.pop(dialog),
-          child: Text(tr(dialog, 'Terminé', 'Done')),
+          child: Text(dialog.l10n.memoriesDone),
         ),
       ],
     ),
@@ -75,6 +72,6 @@ class _GalleryExportButtonState extends State<GalleryExportButton> {
   Widget build(BuildContext context) => FilledButton.icon(
     onPressed: busy ? null : _export,
     icon: const DeckIcon(Icons.lock_outline, size: 18),
-    label: Text(tr(context, 'Partager chiffrée', 'Share encrypted')),
+    label: Text(context.l10n.memoriesShareEncrypted),
   );
 }

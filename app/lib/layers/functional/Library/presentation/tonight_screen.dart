@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Library/presentation/cubit/library_cub
 import 'package:amiludo/layers/functional/Library/presentation/shelf_game_sheet.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class TonightScreen extends StatefulWidget {
   const TonightScreen({super.key});
@@ -25,20 +26,20 @@ class _TonightScreenState extends State<TonightScreen> {
     final friends = cubit.circle.friends;
     final suggestions = cubit.suggest(guests.toList(), minutes: minutes);
     return FullPage(
-      title: tr(context, 'On joue à quoi ce soir ?', 'What to play tonight?'),
+      title: context.l10n.libraryWhatToPlayTonight,
       fallback: '/library',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            tr(context, 'Qui est là ?', 'Who is here?'),
+            context.l10n.libraryWhoIsHere,
             style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(height: 12),
           if (friends.isEmpty)
             TextButton(
               onPressed: () => context.go('/friends'),
-              child: Text(tr(context, 'Ajouter des amis', 'Add friends')),
+              child: Text(context.l10n.libraryAddFriends),
             ),
           Wrap(
             spacing: 8,
@@ -55,34 +56,26 @@ class _TonightScreenState extends State<TonightScreen> {
                 ),
             ],
           ),
-          SectionHeading(tr(context, 'Temps devant nous', 'Time available')),
+          SectionHeading(context.l10n.libraryTimeAvailable),
           Slider(
             max: 240,
             divisions: 16,
             value: minutes.toDouble(),
             label: minutes == 0
-                ? tr(context, 'Toute la soirée', 'All evening')
+                ? context.l10n.libraryAllEvening
                 : '$minutes min',
             semanticFormatterCallback: (v) => v == 0
-                ? tr(context, 'Toute la soirée', 'All evening')
+                ? context.l10n.libraryAllEvening
                 : '${v.round()} min',
             onChanged: (v) => setState(() => minutes = v.round()),
           ),
           SectionHeading(
-            tr(
-              context,
-              '${suggestions.length} jeux pour ${guests.length + 1} joueurs',
-              '${suggestions.length} games for ${guests.length + 1} players',
-            ),
+            context.l10n.libraryGamesForPlayers(suggestions.length, guests.length + 1),
           ),
           if (suggestions.isEmpty)
             EmptyPanel(
-              title: tr(context, 'Rien ne convient', 'Nothing fits'),
-              message: tr(
-                context,
-                'Ajoutez des jeux ou assouplissez les goûts de vos amis.',
-                'Add games or relax your friends’ tastes.',
-              ),
+              title: context.l10n.libraryNothingFits,
+              message: context.l10n.libraryAddGamesOrRelaxYour,
             ),
           for (final s in suggestions) _SuggestionTile(suggestion: s),
         ],
@@ -111,17 +104,9 @@ class _SuggestionTile extends StatelessWidget {
             [
               '${game.minPlayers}-${game.maxPlayers} · ${game.minutes} min${stars == null ? '' : ' · ${stars.toStringAsFixed(1)} ★'}',
               if (suggestion.wishedBy.isNotEmpty)
-                tr(
-                  context,
-                  'Envie : ${suggestion.wishedBy.join(', ')}',
-                  'Wanted by ${suggestion.wishedBy.join(', ')}',
-                ),
+                context.l10n.libraryWantedBy(suggestion.wishedBy.join(', ')),
               if (suggestion.lovedBy.isNotEmpty)
-                tr(
-                  context,
-                  'Adoré par ${suggestion.lovedBy.join(', ')}',
-                  'Loved by ${suggestion.lovedBy.join(', ')}',
-                ),
+                context.l10n.libraryLovedBy(suggestion.lovedBy.join(', ')),
             ].join('\n'),
           ),
           trailing: const DeckIcon(Icons.chevron_right),
