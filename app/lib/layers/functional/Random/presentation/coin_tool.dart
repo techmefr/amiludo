@@ -21,7 +21,7 @@ class _CoinToolState extends State<CoinTool> {
     children: [
       RandomResultSlot(
         text: switch (heads) {
-          null => '',
+          null => context.l10n.randomPressTheButtonToRoll,
           true => context.l10n.randomHeads,
           false => context.l10n.randomTails,
         },
