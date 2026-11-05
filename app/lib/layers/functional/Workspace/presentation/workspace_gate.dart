@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/cubit/workspace_cubit.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/cubit/workspace_state.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class WorkspaceGate extends StatelessWidget {
   const WorkspaceGate({super.key, required this.child});
@@ -25,9 +26,7 @@ class WorkspaceGate extends StatelessWidget {
             children: [
               const CircularProgressIndicator(),
               const SizedBox(height: 24),
-              Text(
-                tr(context, 'Ouverture de votre table…', 'Opening your table…'),
-              ),
+              Text(context.l10n.workspaceOpeningYourTable),
             ],
           ),
         ),
@@ -40,19 +39,11 @@ class WorkspaceGate extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(24),
               child: EmptyPanel(
-                title: tr(
-                  context,
-                  'La bibliothèque n’a pas pu être ouverte',
-                  'Could not open your library',
-                ),
-                message: tr(
-                  context,
-                  'Vos données ne sont pas écrasées. Vérifiez que ce navigateur autorise le stockage local et réessayez.',
-                  'Your data has not been overwritten. Check browser storage permissions and retry.',
-                ),
+                title: context.l10n.workspaceCouldNotOpenYourLibrary,
+                message: context.l10n.workspaceYourDataHasNotBeen,
                 action: FilledButton(
                   onPressed: context.read<WorkspaceCubit>().load,
-                  child: Text(tr(context, 'Réessayer', 'Retry')),
+                  child: Text(context.l10n.workspaceRetry),
                 ),
               ),
             ),

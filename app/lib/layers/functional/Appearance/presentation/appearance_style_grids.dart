@@ -4,6 +4,7 @@ import 'package:amiludo/layers/technical/Appearance/appearance.dart';
 import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Appearance/presentation/cubit/appearance_cubit.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class AppearanceSkinGrid extends StatelessWidget {
   const AppearanceSkinGrid({
@@ -102,8 +103,8 @@ class _SkinCard extends StatelessWidget {
         const SizedBox(height: 12),
         Text(
           selected
-              ? '✓ ${tr(context, 'Sélectionné', 'Selected')}'
-              : tr(context, 'Choisir cet univers ↗', 'Choose this world ↗'),
+              ? '✓ ${context.l10n.appearanceSelected}'
+              : context.l10n.appearanceChooseThisWorld,
         ),
       ],
     );

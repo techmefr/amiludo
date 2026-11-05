@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 Future<String?> textPrompt(
   BuildContext context,
@@ -31,7 +31,7 @@ Future<String?> textPrompt(
           const SizedBox(height: 20),
           FilledButton(
             onPressed: () => Navigator.pop(page, controller.text),
-            child: Text(tr(context, 'Enregistrer', 'Save')),
+            child: Text(context.l10n.themeSave),
           ),
         ],
       ),

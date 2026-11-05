@@ -4,6 +4,7 @@ import 'package:amiludo/layers/technical/Network/link_share.dart';
 import 'package:amiludo/layers/technical/Network/room_link.dart';
 import 'package:amiludo/layers/technical/Qr/qr_code.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class InviteCard extends StatelessWidget {
   const InviteCard({super.key, required this.link, required this.title});
@@ -22,7 +23,7 @@ class InviteCard extends StatelessWidget {
         children: [
           QrCode(data: url, size: 220),
           const SizedBox(height: 16),
-          Text(tr(context, 'Code', 'Code')),
+          Text(context.l10n.qrCode),
           SelectableText(
             _spaced,
             style: Theme.of(context).textTheme.displaySmall,
@@ -36,25 +37,21 @@ class InviteCard extends StatelessWidget {
             children: [
               FilledButton.icon(
                 onPressed: () => shareLink(
-                  tr(
-                    context,
-                    'Rejoins « $title » sur amiLudo : $url (code ${link.code})',
-                    'Join “$title” on amiLudo: $url (code ${link.code})',
-                  ),
+                  context.l10n.qrJoinOnAmiludoCode(title, url, link.code),
                   subject: title,
                 ),
                 icon: const Icon(Icons.share),
-                label: Text(tr(context, 'Partager le lien', 'Share link')),
+                label: Text(context.l10n.qrShareLink),
               ),
               OutlinedButton.icon(
                 onPressed: () async {
                   await copyText(link.code);
                   if (context.mounted) {
-                    notify(context, tr(context, 'Code copié', 'Code copied'));
+                    notify(context, context.l10n.qrCodeCopied);
                   }
                 },
                 icon: const Icon(Icons.copy),
-                label: Text(tr(context, 'Copier le code', 'Copy code')),
+                label: Text(context.l10n.qrCopyCode),
               ),
             ],
           ),
