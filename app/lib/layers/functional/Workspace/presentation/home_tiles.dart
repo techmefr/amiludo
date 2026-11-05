@@ -8,7 +8,7 @@ import 'package:amiludo/layers/technical/Theme/deck_icons.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 
 double tileWidth(BuildContext context) =>
-    MediaQuery.sizeOf(context).width < 760 ? 150 : 240;
+    MediaQuery.sizeOf(context).width < 760 ? 150 : 200;
 
 class HomeWaysToPlay extends StatelessWidget {
   const HomeWaysToPlay({super.key});

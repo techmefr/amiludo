@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/home_hero.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/home_tiles.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
@@ -25,7 +26,7 @@ class HomeScreen extends StatelessWidget {
       children: [
         const _HomeHeading(),
         const HomeHero(),
-        SectionHeading(context.l10n.workspacePlayTogetherStayInThe),
+        const SizedBox(height: Space.xl),
         const HomeWaysToPlay(),
         if (current != null && current.finishedAt == null) ...[
           SectionHeading(

@@ -65,7 +65,7 @@ class _DeckTileState extends State<DeckTile> {
                     Text(
                       widget.title,
                       style: theme.textTheme.titleMedium,
-                      maxLines: 2,
+                      maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                     ),
                     if (widget.subtitle != null) ...[
