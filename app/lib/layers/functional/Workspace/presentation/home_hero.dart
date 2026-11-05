@@ -29,10 +29,13 @@ class HomeHero extends StatelessWidget {
               const SizedBox(height: Space.md),
               Text(context.l10n.workspaceScoresChanceAndTimingKeep),
               const SizedBox(height: Space.xl),
-              FilledButton.icon(
-                onPressed: () => context.push(GameSetupRequest.path),
-                icon: const DeckIcon(Icons.add, size: 20),
-                label: Text(context.l10n.workspaceNewGame),
+              SizedBox(
+                width: wide ? null : double.infinity,
+                child: FilledButton.icon(
+                  onPressed: () => context.push(GameSetupRequest.path),
+                  icon: const DeckIcon(Icons.add, size: 20),
+                  label: Text(context.l10n.workspaceNewGame),
+                ),
               ),
             ],
           );

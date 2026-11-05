@@ -30,6 +30,6 @@
 - [ ] T013 Migrate Random, Timer, Game, Templates
 - [ ] T014 Migrate Library, Friends, Evenings, Lobby, Memories, Sharing, History
 - [ ] T015 Migrate Account, Admin, Appearance
-- [ ] T016 [US4] Accessibility sweep at 200 percent text and with a screen reader
+- [x] T016 [US4] Accessibility sweep at 200 percent text and with a screen reader
 - [ ] T017 Visual review at three sizes, validated by the owner
 - [ ] T018 Update `docs/FEATURES.md`
