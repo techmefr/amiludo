@@ -70,6 +70,11 @@ import 'package:amiludo/layers/functional/Library/domain/use_cases/save_shelf_ga
 import 'package:amiludo/layers/functional/Library/domain/use_cases/suggest_games_use_case.dart';
 import 'package:amiludo/layers/functional/Library/domain/use_cases/watch_shelf_use_case.dart';
 import 'package:amiludo/layers/functional/Memories/data/gateways/memories_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Random/data/gateways/character_draft_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Random/domain/gateways/character_draft_gateway.dart';
+import 'package:amiludo/layers/functional/Random/domain/use_cases/clear_character_draft_use_case.dart';
+import 'package:amiludo/layers/functional/Random/domain/use_cases/read_character_draft_use_case.dart';
+import 'package:amiludo/layers/functional/Random/domain/use_cases/save_character_draft_use_case.dart';
 import 'package:amiludo/layers/functional/Memories/data/gateways/photo_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Memories/domain/gateways/memories_gateway.dart';
 import 'package:amiludo/layers/functional/Memories/domain/gateways/photo_gateway.dart';
@@ -134,12 +139,19 @@ void configureDependencies(StoreDatabase database) {
       () => MemoriesGatewayImpl(getIt()),
     )
     ..registerLazySingleton<MemoriesGateway>(() => getIt<MemoriesGatewayImpl>())
+    ..registerLazySingleton<CharacterDraftGatewayImpl>(
+      () => CharacterDraftGatewayImpl(getIt()),
+    )
+    ..registerLazySingleton<CharacterDraftGateway>(
+      () => getIt<CharacterDraftGatewayImpl>(),
+    )
     ..registerLazySingleton<List<BackupSection>>(
       () => [
         getIt<FriendsGatewayImpl>(),
         getIt<LibraryGatewayImpl>(),
         getIt<MemoriesGatewayImpl>(),
         getIt<EveningsGatewayImpl>(),
+        getIt<CharacterDraftGatewayImpl>(),
       ],
     )
     ..registerLazySingleton<EveningsGatewayImpl>(
@@ -197,6 +209,9 @@ void _registerCollections() {
   getIt
     ..registerFactory(() => SaveCharacterUseCase(getIt()))
     ..registerFactory(() => RemoveCharacterUseCase(getIt()))
+    ..registerFactory(() => ReadCharacterDraftUseCase(getIt()))
+    ..registerFactory(() => SaveCharacterDraftUseCase(getIt()))
+    ..registerFactory(() => ClearCharacterDraftUseCase(getIt()))
     ..registerFactory(() => SaveShelfGameUseCase(getIt()))
     ..registerFactory(() => RemoveShelfGameUseCase(getIt(), getIt()))
     ..registerFactory(() => SuggestGamesUseCase(getIt(), getIt()))
