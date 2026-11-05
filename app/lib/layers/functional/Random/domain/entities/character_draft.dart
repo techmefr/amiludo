@@ -24,8 +24,11 @@ class CharacterDraft {
     this.offers,
     this.index,
     Map<String, List<CharacterCard>> choices,
+    Map<String, String> appearance,
+    this.catalogueVersion,
   ) {
     this.choices.addAll(choices);
+    this.appearance.addAll(appearance);
   }
 
   factory CharacterDraft.fromJson(Map<String, dynamic> j) {
@@ -55,6 +58,11 @@ class CharacterDraft {
       offers,
       index,
       choices,
+      (j['appearance'] as Map?)?.map(
+            (k, v) => MapEntry(k as String, v as String),
+          ) ??
+          {},
+      j['catalogueVersion'] as int? ?? 1,
     );
   }
 
@@ -63,6 +71,8 @@ class CharacterDraft {
   final bool boosters;
   final List<List<CharacterCard>> offers;
   final Map<String, List<CharacterCard>> choices = {};
+  final Map<String, String> appearance = {};
+  int catalogueVersion = 1;
   int index = 0;
   bool get complete => index >= categories.length;
 
@@ -70,6 +80,8 @@ class CharacterDraft {
     'packName': packName,
     'boosters': boosters,
     'index': index,
+    'catalogueVersion': catalogueVersion,
+    'appearance': appearance,
     'categories': categories.map((c) => c.toJson()).toList(),
     'offers': offers.map((o) => o.map((c) => c.toJson()).toList()).toList(),
     'choices': choices.map(
@@ -87,5 +99,13 @@ class CharacterDraft {
     }
     choices[c.name] = selected.map((i) => offers[index][i]).toList();
     index++;
+  }
+
+  bool get canGoBack => index > 0;
+
+  void back() {
+    if (!canGoBack) throw StateError('Premier booster');
+    index--;
+    choices.remove(categories[index].name);
   }
 }

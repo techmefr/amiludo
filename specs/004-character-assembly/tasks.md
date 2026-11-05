@@ -6,17 +6,17 @@
 
 ## Lot 1 - Model
 
-- [ ] T001 Card and appearance item entities with identifiers and versioned catalogue
-- [ ] T002 [US2] Extend the character draft with appearance, draws per booster, step and catalogue version
-- [ ] T003 [US2] Stepwise flow: stable draws, provisional selection, confirmation, back navigation
-- [ ] T004 [US2] Automatic save and resume
-- [ ] T005 Tests for stable draws, resume and rule effects without images
+- [x] T001 Card and appearance item entities with identifiers and versioned catalogue
+- [x] T002 [US2] Extend the character draft with appearance, draws per booster, step and catalogue version
+- [x] T003 [US2] Stepwise flow: stable draws, provisional selection, confirmation, back navigation
+- [x] T004 [US2] Automatic save and resume
+- [x] T005 Tests for stable draws, resume and rule effects without images
 
 ## Lot 2 - Renderer
 
-- [ ] T006 [US4] Technical Avatar layer stack with drawing order
-- [ ] T007 [US4] Masking of hidden body parts and fallbacks for missing layers
-- [ ] T008 Tests with placeholder layers
+- [x] T006 [US4] Technical Avatar layer stack with drawing order
+- [x] T007 [US4] Masking of hidden body parts and fallbacks for missing layers
+- [x] T008 Tests with placeholder layers
 
 ## Lot 3 - Appearance step and recap
 
