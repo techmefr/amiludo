@@ -127,10 +127,13 @@ class ResponsiveGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, c) {
-      final columns = ((c.maxWidth + gap) / (minimumWidth + gap)).floor().clamp(
-        1,
-        6,
+      final textScale = (MediaQuery.textScalerOf(context).scale(16) / 16).clamp(
+        1.0,
+        1.8,
       );
+      final columns = ((c.maxWidth + gap) / (minimumWidth * textScale + gap))
+          .floor()
+          .clamp(1, 6);
       final width = (c.maxWidth - gap * (columns - 1)) / columns;
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,

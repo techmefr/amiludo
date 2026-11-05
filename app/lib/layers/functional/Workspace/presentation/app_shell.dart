@@ -39,7 +39,8 @@ class AppShell extends StatelessWidget {
     final items = navItems(context);
     final index = navIndex(items, path);
     final size = MediaQuery.sizeOf(context);
-    final desktop = size.width >= 1000;
+    final largeText = MediaQuery.textScalerOf(context).scale(16) > 20;
+    final desktop = size.width >= 1000 && !largeText;
     final rail = !desktop && size.width > size.height;
     final compact = size.height < 500;
     return Scaffold(
