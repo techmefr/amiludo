@@ -8,6 +8,8 @@ import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/character_draft.dart';
 import 'package:amiludo/layers/functional/Random/presentation/character_library.dart';
+import 'package:amiludo/layers/functional/Random/presentation/character_sheet_stack.dart';
+import 'package:amiludo/layers/functional/Random/presentation/pack_opening.dart';
 
 class CharacterTool extends StatefulWidget {
   const CharacterTool({super.key, required this.pack});
@@ -18,22 +20,40 @@ class CharacterTool extends StatefulWidget {
 
 class _CharacterToolState extends State<CharacterTool> {
   bool boosters = true, opened = false, saved = false, missingName = false;
-  CharacterDraft? draft;
+  late CharacterDraft? draft;
   final selected = <int>{};
   final name = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    draft = context.read<RandomCubit>().draftFor(widget.pack.name);
+    opened = draft != null && !draft!.boosters;
+  }
+
   @override
   void dispose() {
     name.dispose();
     super.dispose();
   }
 
-  void start() => setState(() {
-    draft = CharacterDraft(widget.pack.creation, boosters: boosters);
-    opened = !boosters;
-    selected.clear();
-    saved = false;
-    missingName = false;
-  });
+  RandomCubit get cubit => context.read<RandomCubit>();
+
+  void start() {
+    final fresh = CharacterDraft(
+      widget.pack.creation,
+      packName: widget.pack.name,
+      boosters: boosters,
+    );
+    cubit.saveDraft(fresh);
+    setState(() {
+      draft = fresh;
+      opened = !boosters;
+      selected.clear();
+      saved = false;
+      missingName = false;
+    });
+  }
 
   Future<void> save(CharacterDraft d) async {
     if (name.text.trim().isEmpty) {
@@ -47,7 +67,8 @@ class _CharacterToolState extends State<CharacterTool> {
       createdAt: DateTime.now().millisecondsSinceEpoch,
       choices: Map.from(d.choices),
     );
-    await context.read<RandomCubit>().saveCharacter(c);
+    await cubit.saveCharacter(c);
+    await cubit.clearDraft();
     if (mounted) {
       setState(() {
         saved = true;
@@ -57,7 +78,7 @@ class _CharacterToolState extends State<CharacterTool> {
   }
 
   Future<void> restart() async {
-    if (await confirm(
+    final confirmed = await confirm(
       context,
       tr(context, 'Recommencer la création ?', 'Restart creation?'),
       tr(
@@ -65,17 +86,31 @@ class _CharacterToolState extends State<CharacterTool> {
         'Les choix en cours seront abandonnés. Les fiches déjà enregistrées restent conservées.',
         'Current choices will be discarded. Saved sheets are kept.',
       ),
-    )) {
-      if (!mounted) return;
-      setState(() {
-        draft = null;
-        selected.clear();
-        opened = false;
-        saved = false;
-        name.clear();
-      });
-    }
+    );
+    if (!confirmed || !mounted) return;
+    await cubit.clearDraft();
+    if (!mounted) return;
+    setState(() {
+      draft = null;
+      selected.clear();
+      opened = false;
+      saved = false;
+      name.clear();
+    });
   }
+
+  void confirmStep(CharacterDraft d) {
+    d.choose(selected);
+    cubit.saveDraft(d);
+    setState(() {
+      selected.clear();
+      opened = !d.boosters;
+    });
+  }
+
+  void toggle(int i) => setState(
+    () => selected.contains(i) ? selected.remove(i) : selected.add(i),
+  );
 
   List<Widget> setup() => [
     SegmentedButton<bool>(
@@ -85,10 +120,10 @@ class _CharacterToolState extends State<CharacterTool> {
           label: Text(tr(context, 'Liste', 'List')),
           icon: const DeckIcon(Icons.list),
         ),
-        const ButtonSegment(
+        ButtonSegment(
           value: true,
-          label: Text('Boosters'),
-          icon: DeckIcon(Icons.style_outlined),
+          label: Text(tr(context, 'Packs', 'Packs')),
+          icon: const DeckIcon(Icons.style_outlined),
         ),
       ],
       selected: {boosters},
@@ -101,8 +136,8 @@ class _CharacterToolState extends State<CharacterTool> {
         child: Text(
           tr(
             context,
-            '${c.name} · ${c.cards.length} cartes · ${c.draw} proposées par booster · garder ${c.keepMin} à ${c.keepMax}',
-            '${c.name} · ${c.cards.length} cards · ${c.draw} offered per booster · keep ${c.keepMin} to ${c.keepMax}',
+            '${c.name} · ${c.cards.length} cartes · ${c.draw} par pack · garder ${c.keepMin} à ${c.keepMax}',
+            '${c.name} · ${c.cards.length} cards · ${c.draw} per pack · keep ${c.keepMin} to ${c.keepMax}',
           ),
         ),
       ),
@@ -111,86 +146,6 @@ class _CharacterToolState extends State<CharacterTool> {
       onPressed: start,
       child: Text(
         tr(context, 'Générer mon personnage', 'Generate my character'),
-      ),
-    ),
-  ];
-
-  Widget booster(CreationCategory category) => DeckPanel(
-    highlight: true,
-    child: Column(
-      children: [
-        const DeckIcon(Icons.style_outlined, size: 72),
-        const SizedBox(height: 16),
-        Text(
-          tr(
-            context,
-            '${category.draw} cartes à découvrir',
-            '${category.draw} cards to reveal',
-          ),
-        ),
-        const SizedBox(height: 20),
-        FilledButton(
-          onPressed: () => setState(() => opened = true),
-          child: Text(
-            tr(
-              context,
-              'Ouvrir le booster · ${category.name}',
-              'Open the booster · ${category.name}',
-            ),
-          ),
-        ),
-      ],
-    ),
-  );
-
-  Widget offer(CharacterDraft d, CreationCategory category, int i) => DeckPanel(
-    highlight: selected.contains(i),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          d.offers[d.index][i].name,
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
-        const SizedBox(height: 16),
-        Text(d.offers[d.index][i].description),
-        const SizedBox(height: 20),
-        CheckboxListTile(
-          contentPadding: EdgeInsets.zero,
-          title: Text(tr(context, 'Garder cette carte', 'Keep this card')),
-          value: selected.contains(i),
-          onChanged:
-              !selected.contains(i) && selected.length >= category.keepMax
-              ? null
-              : (v) => setState(
-                  () => v == true ? selected.add(i) : selected.remove(i),
-                ),
-        ),
-      ],
-    ),
-  );
-
-  List<Widget> offers(CharacterDraft d, CreationCategory category) => [
-    ResponsiveGrid(
-      minimumWidth: 220,
-      children: [
-        for (var i = 0; i < d.offers[d.index].length; i++)
-          offer(d, category, i),
-      ],
-    ),
-    const SizedBox(height: 20),
-    FilledButton(
-      onPressed: selected.length < category.keepMin
-          ? null
-          : () => setState(() {
-              d.choose(selected);
-              selected.clear();
-              opened = !boosters;
-            }),
-      child: Text(
-        d.index + 1 == d.categories.length
-            ? tr(context, 'Créer la fiche', 'Create the sheet')
-            : tr(context, 'Valider et continuer', 'Confirm and continue'),
       ),
     ),
   ];
@@ -209,20 +164,37 @@ class _CharacterToolState extends State<CharacterTool> {
       ),
     ),
     const SizedBox(height: 20),
-    if (!opened) booster(category),
-    if (opened) ...offers(d, category),
+    if (!opened)
+      ClosedPack(
+        category: category,
+        onOpen: () => setState(() => opened = true),
+      )
+    else ...[
+      PackReveal(
+        key: ValueKey('${d.packName}-${d.index}'),
+        type: category.name,
+        cards: d.offers[d.index],
+        selected: selected,
+        keepMax: category.keepMax,
+        onToggle: toggle,
+      ),
+      const SizedBox(height: 20),
+      FilledButton(
+        onPressed: selected.length < category.keepMin
+            ? null
+            : () => confirmStep(d),
+        child: Text(
+          d.index + 1 == d.categories.length
+              ? tr(context, 'Créer la fiche', 'Create the sheet')
+              : tr(context, 'Valider et continuer', 'Confirm and continue'),
+        ),
+      ),
+    ],
   ];
 
   List<Widget> summary(CharacterDraft d) => [
     SectionHeading(tr(context, 'Votre personnage', 'Your character')),
-    for (final e in d.choices.entries) ...[
-      Text(e.key, style: Theme.of(context).textTheme.titleMedium),
-      for (final card in e.value)
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Text('${card.name}\n${card.description}'),
-        ),
-    ],
+    CharacterSheetStack(choices: d.choices),
     const SizedBox(height: 20),
     TextField(
       controller: name,
@@ -265,13 +237,13 @@ class _CharacterToolState extends State<CharacterTool> {
         Text(
           tr(
             context,
-            'Composez votre personnage avec les cartes du pack. Les limites de sélection sont définies par son créateur.',
-            'Build your character with the pack cards. Selection limits are set by its creator.',
+            'Composez votre personnage en ouvrant un pack par type de carte. Les limites de sélection sont définies par son créateur.',
+            'Build your character by opening one pack per card type. Selection limits are set by its creator.',
           ),
         ),
         const SizedBox(height: 20),
         if (d == null) ...setup(),
-        if (category != null) ...step(d!, category),
+        if (d != null && category != null) ...step(d, category),
         if (d != null && d.complete) ...summary(d),
         if (d != null) ...[
           const SizedBox(height: 16),

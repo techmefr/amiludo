@@ -1,11 +1,20 @@
+final _cardImage = RegExp(r'^cards/[a-z0-9-]{1,80}$');
+
 class CharacterCard {
-  const CharacterCard({required this.name, this.description = ''});
+  const CharacterCard({required this.name, this.description = '', this.image});
   final String name, description;
-  Map<String, Object?> toJson() => {'name': name, 'description': description};
+  final String? image;
+  Map<String, Object?> toJson() => {
+    'name': name,
+    'description': description,
+    if (image != null) 'image': image,
+  };
   factory CharacterCard.fromJson(Map<String, dynamic> j) {
+    final image = j['image'];
     final c = CharacterCard(
       name: j['name'] as String,
       description: j['description'] as String? ?? '',
+      image: image is String && _cardImage.hasMatch(image) ? image : null,
     );
     if (c.name.trim().isEmpty ||
         c.name.length > 80 ||
