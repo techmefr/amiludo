@@ -39,6 +39,7 @@ class WorkspaceGate extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(24),
               child: EmptyPanel(
+                icon: Icons.error_outline,
                 title: context.l10n.workspaceCouldNotOpenYourLibrary,
                 message: context.l10n.workspaceYourDataHasNotBeen,
                 action: FilledButton(

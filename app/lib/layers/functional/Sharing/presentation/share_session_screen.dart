@@ -80,6 +80,7 @@ class _ShareSessionScreenState extends State<ShareSessionScreen> {
           const SizedBox(height: 24),
           if (bundle.isEmpty)
             EmptyPanel(
+              icon: Icons.share_outlined,
               title: context.l10n.sharingNothingToShare,
               message: context.l10n.sharingPickAtLeastOneGame,
             )

@@ -26,6 +26,7 @@ class MemoriesScreen extends StatelessWidget {
       fallback: '/history',
       child: game == null
           ? EmptyPanel(
+              icon: Icons.search_off,
               title: context.l10n.friendsGameNotFound,
               message: context.l10n.friendsItMayHaveBeenDeleted,
             )

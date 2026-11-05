@@ -43,6 +43,7 @@ class AccountScreen extends StatelessWidget {
           SectionHeading(context.l10n.accountOnlineAccount),
           if (!state.available)
             EmptyPanel(
+              icon: Icons.cloud_off_outlined,
               title: context.l10n.accountLocalMode,
               message: context.l10n.accountThisBuildHasNoServer,
             )

@@ -38,6 +38,7 @@ class _EveningInviteScreenState extends State<EveningInviteScreen> {
             : cubit.evening(snapshot.data!.id) ?? snapshot.data;
         if (evening == null) {
           return EmptyPanel(
+            icon: Icons.search_off,
             title: context.l10n.eveningsNightNotFound,
             message: cubit.online
                 ? context.l10n.eveningsCheckTheCodeWithThe

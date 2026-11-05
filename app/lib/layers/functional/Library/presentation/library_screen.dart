@@ -53,6 +53,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
         ],
         if (games.isEmpty)
           EmptyPanel(
+            icon: Icons.collections_bookmark_outlined,
             title: shelf.isEmpty
                 ? context.l10n.libraryEmptyShelves
                 : context.l10n.libraryNoGameFound,

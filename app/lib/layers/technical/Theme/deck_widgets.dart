@@ -159,9 +159,11 @@ class EmptyPanel extends StatelessWidget {
     required this.title,
     required this.message,
     this.action,
+    this.icon = Icons.table_restaurant_outlined,
   });
   final String title, message;
   final Widget? action;
+  final IconData icon;
   @override
   Widget build(BuildContext context) => DeckPanel(
     child: Center(
@@ -170,7 +172,7 @@ class EmptyPanel extends StatelessWidget {
         child: Column(
           children: [
             DeckIcon(
-              Icons.table_restaurant_outlined,
+              icon,
               size: 48,
               color: Theme.of(context).colorScheme.primary,
             ),

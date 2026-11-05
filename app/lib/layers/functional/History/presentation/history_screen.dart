@@ -95,6 +95,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
         const SizedBox(height: 24),
         if (games.isEmpty)
           EmptyPanel(
+            icon: Icons.history,
             title: context.l10n.historyNoGamesFound,
             message: context.l10n.historyGamesAppearHereWhenCreated,
           ),

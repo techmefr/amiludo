@@ -76,6 +76,7 @@ class _TonightScreenState extends State<TonightScreen> {
           ),
           if (suggestions.isEmpty)
             EmptyPanel(
+              icon: Icons.search_off,
               title: context.l10n.libraryNothingFits,
               message: context.l10n.libraryAddGamesOrRelaxYour,
             ),

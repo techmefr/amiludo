@@ -37,6 +37,7 @@ class FriendsScreen extends StatelessWidget {
         ),
         if (data.friends.isEmpty)
           EmptyPanel(
+            icon: Icons.groups_outlined,
             title: context.l10n.friendsNobodyYet,
             message: context.l10n.friendsAddYourGamePartnersAnd,
           )
