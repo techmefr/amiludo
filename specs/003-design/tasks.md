@@ -21,7 +21,7 @@
 
 ## Lot 3 - Home and first launch
 
-- [ ] T010 [US1] Rebuild the home screen with one primary action and tool tiles
+- [x] T010 [US1] Rebuild the home screen with one primary action and tool tiles
 - [ ] T011 [US1] Empty states on every first-launch screen
 - [ ] T012 Check navigation depth of two taps
 

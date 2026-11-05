@@ -149,35 +149,44 @@ class _Sidebar extends StatelessWidget {
         border: Border(right: BorderSide(color: theme.colorScheme.outline)),
       ),
       padding: const EdgeInsets.fromLTRB(24, 36, 24, 24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const _Brand(),
-          const SizedBox(height: 8),
-          Text(
-            'Toutes vos parties',
-            style: theme.textTheme.labelSmall?.copyWith(
-              fontFamily: 'LilGrotesk',
-              letterSpacing: 1,
+      child: LayoutBuilder(
+        builder: (context, c) => SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: c.maxHeight),
+            child: IntrinsicHeight(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const _Brand(),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Toutes vos parties',
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      fontFamily: 'LilGrotesk',
+                      letterSpacing: 1,
+                    ),
+                  ),
+                  const SizedBox(height: 48),
+                  for (final item in items)
+                    _SidebarTile(
+                      item: item,
+                      selected: navIndex(items, path) == items.indexOf(item),
+                    ),
+                  const Spacer(),
+                  Text(
+                    context.l10n.workspaceDataOnThisDevice,
+                    style: theme.textTheme.bodySmall,
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    context.l10n.workspaceAmiludoAlphaNoAccountNo,
+                    style: theme.textTheme.bodySmall,
+                  ),
+                ],
+              ),
             ),
           ),
-          const SizedBox(height: 48),
-          for (final item in items)
-            _SidebarTile(
-              item: item,
-              selected: navIndex(items, path) == items.indexOf(item),
-            ),
-          const Spacer(),
-          Text(
-            context.l10n.workspaceDataOnThisDevice,
-            style: theme.textTheme.bodySmall,
-          ),
-          const SizedBox(height: 12),
-          Text(
-            context.l10n.workspaceAmiludoAlphaNoAccountNo,
-            style: theme.textTheme.bodySmall,
-          ),
-        ],
+        ),
       ),
     );
   }
