@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 import 'package:amiludo/layers/functional/Random/presentation/teams_finger_pad.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 const teamColors = [
   Color(0xffe4572e),
@@ -60,11 +61,7 @@ class _TeamsToolState extends State<TeamsTool> {
     if (pool.length < 2) {
       notify(
         context,
-        tr(
-          context,
-          'Au moins deux joueurs sont nécessaires.',
-          'At least two players are needed.',
-        ),
+        context.l10n.randomAtLeastTwoPlayersAre,
       );
       return;
     }
@@ -80,18 +77,18 @@ class _TeamsToolState extends State<TeamsTool> {
           ButtonSegment(
             value: TeamSource.list,
             icon: const Icon(Icons.edit_note),
-            label: Text(tr(context, 'Noms', 'Names')),
+            label: Text(context.l10n.randomNames),
           ),
           if (widget.lobbyNames.isNotEmpty)
             ButtonSegment(
               value: TeamSource.lobby,
               icon: const Icon(Icons.wifi_tethering),
-              label: Text(tr(context, 'Salon', 'Lobby')),
+              label: Text(context.l10n.randomLobby),
             ),
           ButtonSegment(
             value: TeamSource.fingers,
             icon: const Icon(Icons.touch_app_outlined),
-            label: Text(tr(context, 'Au doigt', 'Fingers')),
+            label: Text(context.l10n.randomFingers),
           ),
         ],
         selected: {source},
@@ -119,11 +116,7 @@ class _TeamsToolState extends State<TeamsTool> {
     ],
     TeamSource.lobby => [
       Text(
-        tr(
-          context,
-          'Joueurs du salon : ${widget.lobbyNames.join(' · ')}',
-          'Lobby players: ${widget.lobbyNames.join(' · ')}',
-        ),
+        context.l10n.randomLobbyPlayers(widget.lobbyNames.join(' · ')),
       ),
       ..._drawAndResult(),
     ],
@@ -133,11 +126,7 @@ class _TeamsToolState extends State<TeamsTool> {
         minLines: 2,
         maxLines: 6,
         decoration: InputDecoration(
-          labelText: tr(
-            context,
-            'Prénoms, séparés par des virgules',
-            'Names, comma separated',
-          ),
+          labelText: context.l10n.randomNamesCommaSeparated,
         ),
         onChanged: (_) => setState(() => teams = []),
       ),
@@ -151,7 +140,7 @@ class _TeamsToolState extends State<TeamsTool> {
       alignment: Alignment.centerLeft,
       child: FilledButton(
         onPressed: _draw,
-        child: Text(tr(context, 'Former les équipes', 'Make teams')),
+        child: Text(context.l10n.randomMakeTeams),
       ),
     ),
     if (teams.isNotEmpty) ...[
@@ -179,16 +168,16 @@ class _TeamCount extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Row(
     children: [
-      Text(tr(context, 'Équipes', 'Teams')),
+      Text(context.l10n.randomTeams),
       const SizedBox(width: 12),
       IconButton(
-        tooltip: tr(context, 'Une équipe de moins', 'One team less'),
+        tooltip: context.l10n.randomOneTeamLess,
         onPressed: value > 2 ? () => onChanged(value - 1) : null,
         icon: const Icon(Icons.remove),
       ),
       Text('$value', style: Theme.of(context).textTheme.titleLarge),
       IconButton(
-        tooltip: tr(context, 'Une équipe de plus', 'One more team'),
+        tooltip: context.l10n.randomOneMoreTeam,
         onPressed: value < teamColors.length
             ? () => onChanged(value + 1)
             : null,
@@ -223,7 +212,7 @@ class _TeamCard extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             Text(
-              tr(context, 'Équipe ${index + 1}', 'Team ${index + 1}'),
+              context.l10n.randomTeam(index + 1),
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ],

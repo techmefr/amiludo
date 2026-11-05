@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
-import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Game/presentation/cubit/game_cubit.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/pack_components.dart';
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 enum _SheetError { missingQuantity, invalidNumber }
 
@@ -34,14 +34,10 @@ class _ScoreSheetState extends State<ScoreSheet> {
         p = g?.players.where((p) => p.id == widget.playerId).firstOrNull;
     if (g == null || p == null) {
       return FullPage(
-        title: tr(context, 'Décompte', 'Scoring'),
+        title: context.l10n.templatesScoring,
         fallback: '/game',
         child: Text(
-          tr(
-            context,
-            'Créez une partie pour utiliser cette feuille.',
-            'Create a game to use this sheet.',
-          ),
+          context.l10n.gameCreateAGameToUse,
         ),
       );
     }
@@ -55,7 +51,7 @@ class _ScoreSheetState extends State<ScoreSheet> {
       if (total != null) totals[r.name] = total;
     }
     return FullPage(
-      title: '${tr(context, 'Décompte', 'Scoring')} · ${p.name}',
+      title: '${context.l10n.templatesScoring} · ${p.name}',
       fallback: '/game',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +67,7 @@ class _ScoreSheetState extends State<ScoreSheet> {
             FilledButton(
               onPressed: () => _apply(g, p, rules),
               child: Text(
-                tr(context, 'Appliquer ce décompte', 'Apply this scoring'),
+                context.l10n.gameApplyThisScoring,
               ),
             ),
         ],
@@ -88,16 +84,8 @@ class _ScoreSheetState extends State<ScoreSheet> {
   }
 
   String _errorText(_SheetError e) => switch (e) {
-    _SheetError.missingQuantity => tr(
-      context,
-      'Renseignez au moins une quantité.',
-      'Enter at least one quantity.',
-    ),
-    _SheetError.invalidNumber => tr(
-      context,
-      'Saisissez des nombres valides.',
-      'Enter valid numbers.',
-    ),
+    _SheetError.missingQuantity => context.l10n.gameEnterAtLeastOneQuantity,
+    _SheetError.invalidNumber => context.l10n.gameEnterValidNumbers,
   };
 
   Widget _ruleField(
@@ -116,7 +104,7 @@ class _ScoreSheetState extends State<ScoreSheet> {
       decoration: InputDecoration(
         labelText: r.name,
         helperText:
-            '${tr(context, 'Total actuel', 'Current total')} : ${numberText(g.score(p.id, inRound: g.round, category: r.name))} · ${tr(context, 'Calcul', 'Result')} : ${totals.containsKey(r.name) ? numberText(totals[r.name]!) : "—"}',
+            '${context.l10n.gameCurrentTotal} : ${numberText(g.score(p.id, inRound: g.round, category: r.name))} · ${context.l10n.gameResult} : ${totals.containsKey(r.name) ? numberText(totals[r.name]!) : "—"}',
       ),
       onChanged: (_) => setState(() {}),
     ),
@@ -168,25 +156,17 @@ class _SheetIntro extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
-        '${tr(context, 'Manche', 'Round')} $round',
+        '${context.l10n.gameRound} $round',
         style: Theme.of(context).textTheme.headlineSmall,
       ),
       const SizedBox(height: 12),
       Text(
-        tr(
-          context,
-          'Saisissez les quantités finales. Les catégories renseignées remplacent leur total pour cette manche. Les champs laissés vides restent inchangés.',
-          'Enter the final quantities. Filled categories replace their total for this round. Empty fields stay unchanged.',
-        ),
+        context.l10n.gameEnterTheFinalQuantitiesFilled,
       ),
       const SizedBox(height: 24),
       if (free)
         Text(
-          tr(
-            context,
-            'Ce modèle utilise les scores libres. Ajoutez des règles de calcul dans le builder puis démarrez une partie avec ce pack.',
-            'This template uses free scores. Add scoring rules in the builder, then start a game with this pack.',
-          ),
+          context.l10n.gameThisTemplateUsesFreeScores,
         ),
     ],
   );

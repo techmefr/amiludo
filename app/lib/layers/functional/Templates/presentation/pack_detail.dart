@@ -12,6 +12,7 @@ import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates
 import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class PackDetail extends StatelessWidget {
   const PackDetail({super.key, required this.id, this.snapshot = false});
@@ -28,30 +29,22 @@ class PackDetail extends StatelessWidget {
     ].where((t) => t.id == id).firstOrNull;
     if (p == null) {
       return FullPage(
-        title: tr(context, 'Pack introuvable', 'Pack not found'),
+        title: context.l10n.templatesPackNotFound,
         fallback: '/templates',
         child: Text(
-          tr(
-            context,
-            'Ce pack n’est pas installé sur cet appareil.',
-            'This pack is not installed on this device.',
-          ),
+          context.l10n.templatesThisPackIsNotInstalled,
         ),
       );
     }
     return FullPage(
-      title: tr(context, 'Fiche du pack', 'Pack sheet'),
+      title: context.l10n.templatesPackSheet,
       fallback: '/templates',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (snapshot)
             Text(
-              tr(
-                context,
-                'Copie des règles conservée pour cette partie.',
-                'Rules copy kept for this game.',
-              ),
+              context.l10n.templatesRulesCopyKeptForThis,
             ),
           DeckHeading(
             eyebrow: 'PACK / ${p.revision}',
@@ -59,7 +52,7 @@ class PackDetail extends StatelessWidget {
             subtitle: p.description,
           ),
           Text(
-            '${p.author.isEmpty ? tr(context, 'Auteur non renseigné', 'Unknown author') : p.author} · ${p.license}',
+            '${p.author.isEmpty ? context.l10n.templatesUnknownAuthor : p.author} · ${p.license}',
           ),
           if (p.edition.isNotEmpty) Text(p.edition),
           const SizedBox(height: 24),
@@ -67,23 +60,15 @@ class PackDetail extends StatelessWidget {
             Text(p.englishName),
           _PackPlayActions(pack: p, snapshot: snapshot),
           _PackRules(pack: p),
-          SectionHeading(tr(context, 'Partager', 'Share')),
+          SectionHeading(context.l10n.templatesShare),
           Text(
-            tr(
-              context,
-              'Le fichier contient les dés, rôles, décomptes et notes du pack. Il ne contient pas vos parties.',
-              'The file holds the pack dice, roles, scoring and notes. It does not hold your games.',
-            ),
+            context.l10n.templatesTheFileHoldsThePack,
           ),
           const SizedBox(height: 16),
           _PackShareActions(pack: p),
           const SizedBox(height: 12),
           Text(
-            tr(
-              context,
-              'Pour proposer votre création : exportez le JSON, ouvrez GitHub, ajoutez le fichier et proposez une pull request. La publication suit une relecture. Un compte GitHub est nécessaire pour contribuer au catalogue.',
-              'To submit your creation: export the JSON, open GitHub, add the file and open a pull request. Publication follows a review. A GitHub account is needed to contribute to the catalogue.',
-            ),
+            context.l10n.templatesToSubmitYourCreationExport,
           ),
         ],
       ),
@@ -100,31 +85,23 @@ class _PackRules extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      SectionHeading(tr(context, 'Décompte', 'Scoring')),
+      SectionHeading(context.l10n.templatesScoring),
       for (final rule in pack.scoring)
         Text('${rule.name} · ${rule.explanation}'),
       if (pack.scoring.isEmpty) Text(pack.categories.join(' · ')),
-      SectionHeading(tr(context, 'Règles et variantes', 'Rules and variants')),
+      SectionHeading(context.l10n.templatesRulesAndVariants),
       if (pack.rulesUrl.isNotEmpty)
         OutlinedButton.icon(
           onPressed: () => openProjectLink(context, pack.rulesUrl),
           icon: const DeckIcon(Icons.open_in_new),
           label: Text(
-            tr(
-              context,
-              'Ouvrir les règles de référence',
-              'Open the reference rules',
-            ),
+            context.l10n.templatesOpenTheReferenceRules,
           ),
         ),
       const SizedBox(height: 16),
       SelectableText(
         pack.rulesNotes.isEmpty
-            ? tr(
-                context,
-                'Aucune consigne ajoutée. Vous pouvez écrire vos variantes dans le builder.',
-                'No notes yet. You can write your variants in the builder.',
-              )
+            ? context.l10n.templatesNoNotesYetYouCan
             : pack.rulesNotes,
       ),
     ],
@@ -147,7 +124,7 @@ class _PackPlayActions extends StatelessWidget {
             GameSetupRequest.path,
             extra: GameSetupRequest(template: p),
           ),
-          child: Text(tr(context, 'Jouer avec ce pack', 'Play with this pack')),
+          child: Text(context.l10n.templatesPlayWithThisPack),
         ),
         for (final t in toolDefinitions.where(
           (t) => p.modules.contains(t.id) && t.id != 'scores',
@@ -158,22 +135,18 @@ class _PackPlayActions extends StatelessWidget {
             ),
             child: Text(
               t.id == 'character'
-                  ? tr(context, 'Créer un personnage', 'Create a character')
+                  ? context.l10n.templatesCreateACharacter
                   : t.title,
             ),
           ),
         OutlinedButton(
           onPressed: () => context.push('/builder/${p.id}'),
-          child: Text(tr(context, 'Personnaliser', 'Customise')),
+          child: Text(context.l10n.templatesCustomise),
         ),
         TextButton(
           onPressed: () => context.go('/tools'),
           child: Text(
-            tr(
-              context,
-              'Tous les outils en mode libre',
-              'All tools in free mode',
-            ),
+            context.l10n.templatesAllToolsInFreeMode,
           ),
         ),
       ],
@@ -201,7 +174,7 @@ class _PackShareActions extends StatelessWidget {
           ),
           icon: const DeckIcon(Icons.file_download_outlined),
           label: Text(
-            tr(context, 'Exporter le pack JSON', 'Export the pack JSON'),
+            context.l10n.templatesExportThePackJson,
           ),
         ),
         OutlinedButton(
@@ -210,7 +183,7 @@ class _PackShareActions extends StatelessWidget {
             '$projectUrl/upload/main/community/packs',
           ),
           child: Text(
-            tr(context, 'Proposer à la galerie', 'Submit to the gallery'),
+            context.l10n.templatesSubmitToTheGallery,
           ),
         ),
       ],

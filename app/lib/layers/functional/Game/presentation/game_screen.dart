@@ -8,6 +8,7 @@ import 'package:amiludo/layers/functional/Game/presentation/cubit/game_cubit.dar
 import 'package:amiludo/layers/functional/Game/presentation/game_board.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class GameScreen extends StatelessWidget {
   const GameScreen({super.key, required this.timer});
@@ -15,11 +16,11 @@ class GameScreen extends StatelessWidget {
 
   String _subtitle(BuildContext context, GameSession g) {
     final rule = g.cooperative
-        ? tr(context, 'Coopération', 'Cooperative')
+        ? context.l10n.gameCooperative
         : g.lowestWins
-        ? tr(context, 'Le moins de points gagne', 'Lowest score wins')
-        : tr(context, 'Le plus de points gagne', 'Highest score wins');
-    return '${g.players.length} ${tr(context, 'joueurs', 'players')} · ${tr(context, 'Manche', 'Round')} ${g.round} · $rule';
+        ? context.l10n.gameLowestScoreWins
+        : context.l10n.gameHighestScoreWins;
+    return '${g.players.length} ${context.l10n.gamePlayers} · ${context.l10n.gameRound} ${g.round} · $rule';
   }
 
   @override
@@ -32,12 +33,8 @@ class GameScreen extends StatelessWidget {
       children: [
         DeckHeading(
           eyebrow: g.finishedAt == null
-              ? tr(
-                  context,
-                  'Partie en cours / données locales',
-                  'Active game / local data',
-                )
-              : tr(context, 'Partie terminée', 'Completed game'),
+              ? context.l10n.gameActiveGameLocalData
+              : context.l10n.gameCompletedGame,
           title: g.title,
           subtitle: _subtitle(context, g),
           action: g.finishedAt == null
@@ -45,7 +42,7 @@ class GameScreen extends StatelessWidget {
               : OutlinedButton(
                   onPressed: () =>
                       FileTransfer.shareText(g.export(), 'partie-${g.id}.json'),
-                  child: Text(tr(context, 'Exporter', 'Export')),
+                  child: Text(context.l10n.appearanceExport),
                 ),
         ),
         if (g.target > 0) _Objective(game: g),
@@ -78,7 +75,7 @@ class GameScreen extends StatelessWidget {
                   names: g.players.map((p) => p.name).toList(),
                 ),
               ),
-              child: Text(tr(context, 'La revanche', 'Play again')),
+              child: Text(context.l10n.gamePlayAgain),
             ),
           ),
       ],
@@ -90,15 +87,11 @@ class _NoGame extends StatelessWidget {
   const _NoGame();
   @override
   Widget build(BuildContext context) => EmptyPanel(
-    title: tr(context, 'Votre table vous attend', 'Your table awaits'),
-    message: tr(
-      context,
-      'Créez une partie pour compter les points et suivre les tours.',
-      'Create a game to track scores and turns.',
-    ),
+    title: context.l10n.gameYourTableAwaits,
+    message: context.l10n.gameCreateAGameToTrack,
     action: FilledButton(
       onPressed: () => context.push(GameSetupRequest.path),
-      child: Text(tr(context, 'Créer une partie', 'Create game')),
+      child: Text(context.l10n.gameCreateGame),
     ),
   );
 }
@@ -116,7 +109,7 @@ class _Objective extends StatelessWidget {
         highlight: g.objectiveReached,
         padding: 16,
         child: Text(
-          '${g.objectiveReached ? '✓ ' : ''}${tr(context, 'Objectif', 'Target')} : ${numberText(g.target)}${g.cooperative ? ' / ${numberText(team)}' : ''}',
+          '${g.objectiveReached ? '✓ ' : ''}${context.l10n.gameTarget} : ${numberText(g.target)}${g.cooperative ? ' / ${numberText(team)}' : ''}',
         ),
       ),
     );
@@ -131,12 +124,8 @@ class _GameToolbar extends StatelessWidget {
     final controller = context.read<GameCubit>();
     if (await confirm(
       context,
-      tr(context, 'Terminer la partie ?', 'Finish game?'),
-      tr(
-        context,
-        'Les scores seront conservés dans votre historique.',
-        'Scores will be kept in your history.',
-      ),
+      context.l10n.gameFinishGame,
+      context.l10n.gameScoresWillBeKeptIn,
     )) {
       await controller.finish();
       if (context.mounted) context.go('/history');
@@ -154,12 +143,12 @@ class _GameToolbar extends StatelessWidget {
           OutlinedButton.icon(
             onPressed: controller.nextRound,
             icon: const DeckIcon(Icons.skip_next_outlined, size: 18),
-            label: Text(tr(context, 'Manche suivante', 'Next round')),
+            label: Text(context.l10n.gameNextRound),
           ),
           const SizedBox(width: 8),
           MenuAnchor(
             builder: (context, menu, _) => IconButton(
-              tooltip: tr(context, 'Plus d’actions', 'More actions'),
+              tooltip: context.l10n.gameMoreActions,
               onPressed: () => menu.isOpen ? menu.close() : menu.open(),
               icon: const DeckIcon(Icons.more_horiz),
             ),
@@ -170,7 +159,7 @@ class _GameToolbar extends StatelessWidget {
                   size: 18,
                 ),
                 onPressed: controller.reverseTurnOrder,
-                child: Text(tr(context, 'Sens de rotation', 'Turn direction')),
+                child: Text(context.l10n.gameTurnDirection),
               ),
               if (game.pack != null)
                 MenuItemButton(
@@ -181,11 +170,7 @@ class _GameToolbar extends StatelessWidget {
                   onPressed: () =>
                       context.push('/pack/${game.pack!.id}?session=1'),
                   child: Text(
-                    tr(
-                      context,
-                      'Outils et règles du jeu',
-                      'Game tools and rules',
-                    ),
+                    context.l10n.gameGameToolsAndRules,
                   ),
                 ),
               MenuItemButton(
@@ -194,12 +179,12 @@ class _GameToolbar extends StatelessWidget {
                   game.export(),
                   'partie-${game.id}.json',
                 ),
-                child: Text(tr(context, 'Exporter', 'Export')),
+                child: Text(context.l10n.appearanceExport),
               ),
               MenuItemButton(
                 leadingIcon: const DeckIcon(Icons.flag_outlined, size: 18),
                 onPressed: () => _finish(context),
-                child: Text(tr(context, 'Terminer', 'Finish')),
+                child: Text(context.l10n.gameFinish),
               ),
             ],
           ),

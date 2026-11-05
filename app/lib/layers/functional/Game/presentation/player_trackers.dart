@@ -5,6 +5,7 @@ import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Game/presentation/cubit/game_cubit.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/text_prompt.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class PlayerTrackers extends StatelessWidget {
   const PlayerTrackers({
@@ -21,8 +22,8 @@ class PlayerTrackers extends StatelessWidget {
     final controller = context.read<GameCubit>();
     final key = await textPrompt(
       context,
-      tr(context, 'Nom du compteur', 'Counter name'),
-      initial: tr(context, 'Vies', 'Lives'),
+      context.l10n.templatesCounterName,
+      initial: context.l10n.gameLives,
     );
     if (key == null || key.trim().isEmpty || !context.mounted) return;
     final value = await textPrompt(
@@ -33,7 +34,7 @@ class PlayerTrackers extends StatelessWidget {
     final amount = double.tryParse(value?.replaceAll(',', '.') ?? '');
     if (amount == null || !amount.isFinite) {
       if (value != null && context.mounted) {
-        notify(context, tr(context, 'Valeur invalide', 'Invalid value'));
+        notify(context, context.l10n.gameInvalidValue);
       }
       return;
     }
@@ -69,7 +70,7 @@ class PlayerTrackers extends StatelessWidget {
           TextButton.icon(
             onPressed: () => _newCounter(context),
             icon: const DeckIcon(Icons.add, size: 16),
-            label: Text(tr(context, 'Compteur', 'Counter')),
+            label: Text(context.l10n.gameCounter),
           ),
       ],
     );
@@ -95,7 +96,7 @@ class _Counter extends StatelessWidget {
         Expanded(child: Text(name, overflow: TextOverflow.ellipsis)),
         if (active)
           IconButton(
-            tooltip: '${tr(context, 'Retirer 1 à', 'Remove 1 from')} $name',
+            tooltip: '${context.l10n.gameRemove1From} $name',
             visualDensity: VisualDensity.compact,
             onPressed: () => controller.setResource(player.id, name, value - 1),
             icon: const DeckIcon(Icons.remove, size: 18),
@@ -106,7 +107,7 @@ class _Counter extends StatelessWidget {
         ),
         if (active)
           IconButton(
-            tooltip: '${tr(context, 'Ajouter 1 à', 'Add 1 to')} $name',
+            tooltip: '${context.l10n.gameAdd1To} $name',
             visualDensity: VisualDensity.compact,
             onPressed: () => controller.setResource(player.id, name, value + 1),
             icon: const DeckIcon(Icons.add, size: 18),
@@ -131,11 +132,7 @@ class _StatusChip extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = context.read<GameCubit>();
     return Tooltip(
-      message: tr(
-        context,
-        '$status : $stacks jeton(s), touchez pour en ajouter',
-        '$status: $stacks stack(s), tap to add one',
-      ),
+      message: context.l10n.gameStackSTapToAdd(status, stacks),
       child: FilterChip(
         label: Text(stacks > 1 ? '$status ×$stacks' : status),
         selected: stacks > 0,
@@ -147,11 +144,7 @@ class _StatusChip extends StatelessWidget {
             ? () => controller.setStatus(player.id, status, stacks - 1)
             : null,
         deleteIcon: const DeckIcon(Icons.remove, size: 14),
-        deleteButtonTooltipMessage: tr(
-          context,
-          'Retirer un jeton de $status',
-          'Remove one $status stack',
-        ),
+        deleteButtonTooltipMessage: context.l10n.gameRemoveOneStack(status),
       ),
     );
   }

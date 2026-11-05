@@ -10,6 +10,7 @@ import 'package:amiludo/layers/functional/Random/domain/entities/character_draft
 import 'package:amiludo/layers/functional/Random/presentation/character_library.dart';
 import 'package:amiludo/layers/functional/Random/presentation/character_sheet_stack.dart';
 import 'package:amiludo/layers/functional/Random/presentation/pack_opening.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class CharacterTool extends StatefulWidget {
   const CharacterTool({super.key, required this.pack});
@@ -80,12 +81,8 @@ class _CharacterToolState extends State<CharacterTool> {
   Future<void> restart() async {
     final confirmed = await confirm(
       context,
-      tr(context, 'Recommencer la création ?', 'Restart creation?'),
-      tr(
-        context,
-        'Les choix en cours seront abandonnés. Les fiches déjà enregistrées restent conservées.',
-        'Current choices will be discarded. Saved sheets are kept.',
-      ),
+      context.l10n.randomRestartCreation,
+      context.l10n.randomCurrentChoicesWillBeDiscarded,
     );
     if (!confirmed || !mounted) return;
     await cubit.clearDraft();
@@ -117,12 +114,12 @@ class _CharacterToolState extends State<CharacterTool> {
       segments: [
         ButtonSegment(
           value: false,
-          label: Text(tr(context, 'Liste', 'List')),
+          label: Text(context.l10n.randomList),
           icon: const DeckIcon(Icons.list),
         ),
         ButtonSegment(
           value: true,
-          label: Text(tr(context, 'Packs', 'Packs')),
+          label: Text(context.l10n.randomPacks),
           icon: const DeckIcon(Icons.style_outlined),
         ),
       ],
@@ -134,33 +131,37 @@ class _CharacterToolState extends State<CharacterTool> {
       Padding(
         padding: const EdgeInsets.only(bottom: 8),
         child: Text(
-          tr(
-            context,
-            '${c.name} · ${c.cards.length} cartes · ${c.draw} par pack · garder ${c.keepMin} à ${c.keepMax}',
-            '${c.name} · ${c.cards.length} cards · ${c.draw} per pack · keep ${c.keepMin} to ${c.keepMax}',
+          context.l10n.randomCardsPerPackKeepTo(
+            c.name,
+            c.cards.length,
+            c.draw,
+            c.keepMin,
+            c.keepMax,
           ),
         ),
       ),
     const SizedBox(height: 16),
     FilledButton(
       onPressed: start,
-      child: Text(
-        tr(context, 'Générer mon personnage', 'Generate my character'),
-      ),
+      child: Text(context.l10n.randomGenerateMyCharacter),
     ),
   ];
 
   List<Widget> step(CharacterDraft d, CreationCategory category) => [
     Text(
-      '${tr(context, 'ÉTAPE', 'STEP')} ${d.index + 1} / ${d.categories.length} · ${category.name}',
+      '${context.l10n.randomStep} ${d.index + 1} / ${d.categories.length} · ${category.name}',
       style: Theme.of(context).textTheme.titleLarge,
     ),
     const SizedBox(height: 12),
     Text(
-      tr(
-        context,
-        'Gardez ${category.keepMin == category.keepMax ? "${category.keepMax}" : "${category.keepMin} à ${category.keepMax}"} carte(s). ${selected.length} sélectionnée(s).',
-        'Keep ${category.keepMin == category.keepMax ? "${category.keepMax}" : "${category.keepMin} to ${category.keepMax}"} card(s). ${selected.length} selected.',
+      context.l10n.randomKeepCards(
+        category.keepMin == category.keepMax
+            ? "${category.keepMax}"
+            : context.l10n.randomKeepRangeBetween(
+                category.keepMin,
+                category.keepMax,
+              ),
+        selected.length,
       ),
     ),
     const SizedBox(height: 20),
@@ -185,39 +186,30 @@ class _CharacterToolState extends State<CharacterTool> {
             : () => confirmStep(d),
         child: Text(
           d.index + 1 == d.categories.length
-              ? tr(context, 'Créer la fiche', 'Create the sheet')
-              : tr(context, 'Valider et continuer', 'Confirm and continue'),
+              ? context.l10n.randomCreateTheSheet
+              : context.l10n.randomConfirmAndContinue,
         ),
       ),
     ],
   ];
 
   List<Widget> summary(CharacterDraft d) => [
-    SectionHeading(tr(context, 'Votre personnage', 'Your character')),
+    SectionHeading(context.l10n.randomYourCharacter),
     CharacterSheetStack(choices: d.choices),
     const SizedBox(height: 20),
     TextField(
       controller: name,
       maxLength: 80,
-      decoration: InputDecoration(
-        labelText: tr(context, 'Nom du personnage', 'Character name'),
-      ),
+      decoration: InputDecoration(labelText: context.l10n.randomCharacterName),
     ),
-    if (missingName)
-      Text(
-        tr(
-          context,
-          'Donnez un nom au personnage.',
-          'Give the character a name.',
-        ),
-      ),
+    if (missingName) Text(context.l10n.randomGiveTheCharacterAName),
     const SizedBox(height: 16),
     FilledButton(
       onPressed: saved ? null : () => save(d),
       child: Text(
         saved
-            ? tr(context, 'Personnage enregistré', 'Character saved')
-            : tr(context, 'Enregistrer la fiche', 'Save the sheet'),
+            ? context.l10n.randomCharacterSaved
+            : context.l10n.randomSaveTheSheet,
       ),
     ),
   ];
@@ -234,13 +226,7 @@ class _CharacterToolState extends State<CharacterTool> {
           style: Theme.of(context).textTheme.headlineMedium,
         ),
         const SizedBox(height: 12),
-        Text(
-          tr(
-            context,
-            'Composez votre personnage en ouvrant un pack par type de carte. Les limites de sélection sont définies par son créateur.',
-            'Build your character by opening one pack per card type. Selection limits are set by its creator.',
-          ),
-        ),
+        Text(context.l10n.randomBuildYourCharacterByOpening),
         const SizedBox(height: 20),
         if (d == null) ...setup(),
         if (d != null && category != null) ...step(d, category),
@@ -249,7 +235,7 @@ class _CharacterToolState extends State<CharacterTool> {
           const SizedBox(height: 16),
           OutlinedButton(
             onPressed: restart,
-            child: Text(tr(context, 'Recommencer', 'Restart')),
+            child: Text(context.l10n.randomRestart),
           ),
         ],
         const CharacterLibrary(),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 import 'package:amiludo/layers/functional/Random/presentation/random_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class OrderTool extends StatefulWidget {
   const OrderTool({super.key, required this.names});
@@ -33,7 +33,7 @@ class _OrderToolState extends State<OrderTool> {
       Padding(
         padding: const EdgeInsets.only(top: 16),
         child: Text(
-          '${tr(context, 'Participants', 'Participants')} : ${widget.names.join(' · ')}',
+          '${context.l10n.randomParticipants} : ${widget.names.join(' · ')}',
           style: Theme.of(context).textTheme.bodySmall,
         ),
       ),

@@ -4,6 +4,7 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_inputs.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 import 'package:amiludo/layers/functional/Random/presentation/random_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class BagTool extends StatefulWidget {
   const BagTool({super.key});
@@ -22,11 +23,7 @@ class _BagToolState extends State<BagTool> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     options ??= TextEditingController(
-      text: tr(
-        context,
-        'Rouge, Bleu, Vert, Rouge, Bleu',
-        'Red, Blue, Green, Red, Blue',
-      ),
+      text: context.l10n.randomRedBlueGreenRedBlue,
     );
   }
 
@@ -62,16 +59,8 @@ class _BagToolState extends State<BagTool> {
     children: [
       RandomOptionsField(
         controller: options!,
-        label: tr(
-          context,
-          'Options séparées par des virgules',
-          'Comma-separated options',
-        ),
-        helper: tr(
-          context,
-          'Les répétitions représentent plusieurs jetons.',
-          'Repeated entries represent several tokens.',
-        ),
+        label: context.l10n.randomCommaSeparatedOptions,
+        helper: context.l10n.randomRepeatedEntriesRepresentSeveralTokens,
         onChanged: refill,
       ),
       RandomResultSlot(text: result),
@@ -79,7 +68,7 @@ class _BagToolState extends State<BagTool> {
         Padding(
           padding: const EdgeInsets.only(bottom: 20),
           child: Text(
-            '${bag.length} ${tr(context, 'jetons restants', 'tokens remaining')}',
+            '${bag.length} ${context.l10n.randomTokensRemaining}',
           ),
         ),
       Wrap(
@@ -89,7 +78,7 @@ class _BagToolState extends State<BagTool> {
           RandomDrawButton(onPressed: draw),
           OutlinedButton(
             onPressed: refill,
-            child: Text(tr(context, 'Remplir le sac', 'Refill bag')),
+            child: Text(context.l10n.randomRefillBag),
           ),
         ],
       ),

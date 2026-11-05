@@ -7,6 +7,7 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Files/file_transfer.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
 import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class CharacterLibrary extends StatelessWidget {
   const CharacterLibrary({super.key});
@@ -20,11 +21,7 @@ class CharacterLibrary extends StatelessWidget {
         if (context.mounted) {
           notify(
             context,
-            tr(
-              context,
-              'Import impossible : fiche incompatible',
-              'Import failed: incompatible sheet',
-            ),
+            context.l10n.randomImportFailedIncompatibleSheet,
           );
         }
         return;
@@ -36,7 +33,7 @@ class CharacterLibrary extends StatelessWidget {
         if (!context.mounted ||
             !await confirm(
               context,
-              tr(context, 'Remplacer cette fiche ?', 'Replace this sheet?'),
+              context.l10n.randomReplaceThisSheet,
               c.name,
             )) {
           return;
@@ -44,13 +41,13 @@ class CharacterLibrary extends StatelessWidget {
       }
       await ctl.saveCharacter(c);
       if (context.mounted) {
-        notify(context, tr(context, 'Fiche importée', 'Sheet imported'));
+        notify(context, context.l10n.randomSheetImported);
       }
     } catch (e) {
       if (context.mounted) {
         notify(
           context,
-          tr(context, 'Import impossible : $e', 'Import failed: $e'),
+          context.l10n.randomImportFailed(e),
         );
       }
     }
@@ -62,22 +59,18 @@ class CharacterLibrary extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SectionHeading(tr(context, 'Mes personnages', 'My characters')),
+        SectionHeading(context.l10n.randomMyCharacters),
         OutlinedButton.icon(
           onPressed: () => import(context),
           icon: const DeckIcon(Icons.file_open_outlined),
           label: Text(
-            tr(context, 'Importer une fiche JSON', 'Import a JSON sheet'),
+            context.l10n.randomImportAJsonSheet,
           ),
         ),
         const SizedBox(height: 16),
         if (records.isEmpty)
           Text(
-            tr(
-              context,
-              'Vos personnages enregistrés apparaîtront ici, même si leur pack est supprimé.',
-              'Your saved characters will appear here, even if their pack is deleted.',
-            ),
+            context.l10n.randomYourSavedCharactersWillAppear,
           ),
         for (final c in records) _CharacterCard(character: c),
       ],
@@ -94,7 +87,7 @@ class _CharacterCard extends StatelessWidget {
     final controller = context.read<RandomCubit>();
     if (await confirm(
       context,
-      tr(context, 'Supprimer ce personnage ?', 'Delete this character?'),
+      context.l10n.randomDeleteThisCharacter,
       character.name,
     )) {
       await controller.removeCharacter(character.id);
@@ -132,12 +125,12 @@ class _CharacterCard extends StatelessWidget {
               TextButton(
                 onPressed: _export,
                 child: Text(
-                  tr(context, 'Exporter la fiche', 'Export the sheet'),
+                  context.l10n.randomExportTheSheet,
                 ),
               ),
               TextButton(
                 onPressed: () => _remove(context),
-                child: Text(tr(context, 'Supprimer', 'Delete')),
+                child: Text(context.l10n.randomDelete),
               ),
             ],
           ),

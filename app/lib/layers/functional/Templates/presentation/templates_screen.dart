@@ -9,6 +9,7 @@ import 'package:amiludo/layers/technical/Files/file_transfer.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class TemplatesScreen extends StatelessWidget {
   const TemplatesScreen({super.key});
@@ -34,7 +35,7 @@ class TemplatesScreen extends StatelessWidget {
       }
       await templates.addTemplate(template);
       if (context.mounted) {
-        notify(context, tr(context, 'Modèle importé', 'Template imported'));
+        notify(context, context.l10n.templatesTemplateImported);
       }
     } catch (error) {
       if (context.mounted) notify(context, 'Import impossible : $error');
@@ -48,21 +49,13 @@ class TemplatesScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DeckHeading(
-          eyebrow: tr(
-            context,
-            'Vos règles / vos parties',
-            'Your rules / your games',
-          ),
-          title: tr(context, 'Vos compagnons de jeu', 'Your game companions'),
-          subtitle: tr(
-            context,
-            'Vos packs réunissent dés, rôles, décompte et références de règles.',
-            'These templates configure scores, targets and timers.',
-          ),
+          eyebrow: context.l10n.templatesYourRulesYourGames,
+          title: context.l10n.templatesYourGameCompanions,
+          subtitle: context.l10n.templatesTheseTemplatesConfigureScoresTargets,
           action: FilledButton.icon(
             onPressed: () => create(context),
             icon: const DeckIcon(Icons.add),
-            label: Text(tr(context, 'Créer un compagnon', 'Create companion')),
+            label: Text(context.l10n.templatesCreateCompanion),
           ),
         ),
         _TemplatesToolbar(onImport: () => importTemplate(context)),
@@ -102,7 +95,7 @@ class _TemplatesToolbar extends StatelessWidget {
             onPressed: onImport,
             icon: const DeckIcon(Icons.file_open_outlined),
             label: Text(
-              tr(context, 'Importer un modèle JSON', 'Import JSON template'),
+              context.l10n.templatesImportJsonTemplate,
             ),
           ),
         ],
@@ -141,7 +134,7 @@ class _TemplateCard extends StatelessWidget {
               t.categories.join(' / '),
               '${t.seconds}s',
               if (t.target > 0)
-                tr(context, 'Objectif ${t.target}', 'Target ${t.target}'),
+                context.l10n.templatesTarget(t.target),
             ].join(' · '),
             style: theme.textTheme.bodySmall,
           ),
@@ -153,7 +146,7 @@ class _TemplateCard extends StatelessWidget {
                 GameSetupRequest.path,
                 extra: GameSetupRequest(template: t),
               ),
-              child: Text(tr(context, 'Jouer avec ce modèle', 'Use template')),
+              child: Text(context.l10n.templatesUseTemplate),
             ),
           ),
           const SizedBox(height: 8),
@@ -173,7 +166,7 @@ class _TemplateActions extends StatelessWidget {
     final templates = context.read<TemplatesCubit>();
     if (await confirm(
       context,
-      tr(context, 'Supprimer le modèle ?', 'Delete template?'),
+      context.l10n.templatesDeleteTemplate,
       template.name,
     )) {
       await templates.removeTemplate(template.id);
@@ -187,8 +180,8 @@ class _TemplateActions extends StatelessWidget {
       children: [
         IconButton(
           tooltip: custom
-              ? tr(context, 'Modifier', 'Edit')
-              : tr(context, 'Copier dans mon atelier', 'Copy to my workshop'),
+              ? context.l10n.templatesEdit
+              : context.l10n.templatesCopyToMyWorkshop,
           onPressed: () => context.push('/builder/${t.id}'),
           icon: DeckIcon(
             custom ? Icons.edit_outlined : Icons.copy_outlined,
@@ -196,16 +189,12 @@ class _TemplateActions extends StatelessWidget {
           ),
         ),
         IconButton(
-          tooltip: tr(
-            context,
-            'Outils et règles du pack',
-            'Pack tools and rules',
-          ),
+          tooltip: context.l10n.templatesPackToolsAndRules,
           onPressed: () => context.push('/pack/${t.id}'),
           icon: const DeckIcon(Icons.menu_book_outlined, size: 20),
         ),
         IconButton(
-          tooltip: tr(context, 'Partager', 'Share'),
+          tooltip: context.l10n.templatesShare,
           icon: const DeckIcon(Icons.share_outlined, size: 20),
           onPressed: () => FileTransfer.shareText(
             jsonEncode({
@@ -218,12 +207,12 @@ class _TemplateActions extends StatelessWidget {
         ),
         if (custom) ...[
           IconButton(
-            tooltip: tr(context, 'Partager en QR', 'Share by QR'),
+            tooltip: context.l10n.templatesShareByQr,
             icon: const DeckIcon(Icons.qr_code_2, size: 20),
             onPressed: () => context.push('/share?pack=${t.id}'),
           ),
           IconButton(
-            tooltip: tr(context, 'Supprimer', 'Delete'),
+            tooltip: context.l10n.randomDelete,
             icon: const DeckIcon(Icons.delete_outline, size: 20),
             onPressed: () => _remove(context),
           ),

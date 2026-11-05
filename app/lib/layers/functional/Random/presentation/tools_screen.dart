@@ -6,6 +6,7 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/game_art.dart';
 import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class ToolsScreen extends StatefulWidget {
   const ToolsScreen({super.key, this.initialTool});
@@ -40,7 +41,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
           children: [
             Expanded(child: GameArt(tool: t.id, height: 112)),
             IconButton(
-              tooltip: tr(context, 'Favori', 'Favorite'),
+              tooltip: context.l10n.randomFavorite,
               onPressed: () => context.read<RandomCubit>().toggleFavorite(t.id),
               icon: DeckIcon(
                 favorite ? Icons.star : Icons.star_outline,
@@ -57,7 +58,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
         const Spacer(),
         OutlinedButton(
           onPressed: () => open(t.id),
-          child: Text(tr(context, 'Ouvrir ↗', 'Open ↗')),
+          child: Text(context.l10n.workspaceOpen),
         ),
       ],
     ),
@@ -70,21 +71,9 @@ class _ToolsScreenState extends State<ToolsScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DeckHeading(
-          eyebrow: tr(
-            context,
-            'La boîte à outils / à portée de main',
-            'Your toolbox / within reach',
-          ),
-          title: tr(
-            context,
-            'Un outil, et c’est parti',
-            'One tool. Ready to play.',
-          ),
-          subtitle: tr(
-            context,
-            'Vos joueurs sont partagés entre tous les outils. Les tirages utilisent le générateur sécurisé du système.',
-            'Players are shared across tools. Random draws use the system secure generator.',
-          ),
+          eyebrow: context.l10n.randomYourToolboxWithinReach,
+          title: context.l10n.randomOneToolReadyToPlay,
+          subtitle: context.l10n.randomPlayersAreSharedAcrossTools,
         ),
         Wrap(
           spacing: 8,

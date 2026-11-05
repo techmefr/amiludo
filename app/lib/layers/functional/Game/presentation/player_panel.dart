@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Game/presentation/player_trackers.dart
 import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/text_prompt.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class PlayerPanel extends StatelessWidget {
   const PlayerPanel({
@@ -43,7 +44,7 @@ class PlayerPanel extends StatelessWidget {
             ),
           ),
           Text(
-            '${tr(context, 'Manche', 'Round')} ${game.round} : ${numberText(game.score(player.id, inRound: game.round))}',
+            '${context.l10n.gameRound} ${game.round} : ${numberText(game.score(player.id, inRound: game.round))}',
             style: theme.textTheme.bodySmall,
           ),
           const SizedBox(height: 20),
@@ -79,7 +80,7 @@ class _PlayerName extends StatelessWidget {
         Expanded(child: Text(player.name, style: theme.textTheme.titleMedium)),
         if (turn)
           Tooltip(
-            message: tr(context, 'Joueur actif', 'Active player'),
+            message: context.l10n.gameActivePlayer,
             child: DeckIcon(
               Icons.play_arrow,
               size: 20,
@@ -100,19 +101,15 @@ class _ScoreButtons extends StatelessWidget {
     final controller = context.read<GameCubit>();
     final value = await textPrompt(
       context,
-      '${tr(context, 'Points pour', 'Points for')} ${player.name}',
+      '${context.l10n.gamePointsFor} ${player.name}',
       initial: '0',
-      label: tr(
-        context,
-        'Valeur positive ou négative',
-        'Positive or negative value',
-      ),
+      label: context.l10n.gamePositiveOrNegativeValue,
     );
     if (value == null) return;
     final number = double.tryParse(value.replaceAll(',', '.'));
     if (number == null || !number.isFinite || number.abs() > 1000000000) {
       if (context.mounted) {
-        notify(context, tr(context, 'Valeur invalide', 'Invalid value'));
+        notify(context, context.l10n.gameInvalidValue);
       }
       return;
     }
@@ -137,7 +134,7 @@ class _ScoreButtons extends StatelessWidget {
             ),
           ),
         IconButton(
-          tooltip: tr(context, 'Valeur libre', 'Custom value'),
+          tooltip: context.l10n.gameCustomValue,
           onPressed: () => _custom(context),
           icon: const DeckIcon(Icons.edit_outlined),
         ),

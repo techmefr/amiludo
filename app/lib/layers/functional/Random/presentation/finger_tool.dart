@@ -6,6 +6,7 @@ import 'package:amiludo/layers/technical/Feedback/device_feedback.dart';
 
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class FingerTool extends StatefulWidget {
   const FingerTool({
@@ -81,14 +82,10 @@ class _FingerToolState extends State<FingerTool> {
   }
 
   String hint() => winner != null
-      ? tr(
-          context,
-          'Le contact choisi est illuminé.',
-          'The chosen contact is highlighted.',
-        )
+      ? context.l10n.randomTheChosenContactIsHighlighted
       : contacts.isEmpty
-      ? tr(context, 'POSEZ VOS DOIGTS ICI', 'PLACE YOUR FINGERS HERE')
-      : tr(context, 'On choisit…', 'Choosing…');
+      ? context.l10n.randomPlaceYourFingersHere
+      : context.l10n.randomChoosing;
 
   Widget contact(ThemeData theme, MapEntry<int, Offset> entry) => Positioned(
     left: entry.value.dx - 32,
@@ -142,21 +139,13 @@ class _FingerToolState extends State<FingerTool> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          tr(
-            context,
-            'Gardez vos doigts sur l’écran : un contact est choisi après 1,6 seconde. La limite dépend de votre appareil.',
-            'Hold your fingers on the area: one is chosen after 1.6 seconds. Contact limit depends on your screen.',
-          ),
+          context.l10n.randomHoldYourFingersOnThe,
         ),
         const SizedBox(height: 20),
         if (widget.fullscreen) Expanded(child: area(theme)) else area(theme),
         const SizedBox(height: 24),
         Text(
-          tr(
-            context,
-            'Ou tirez un prénom, sans multi-touch.',
-            'Or pick a name without multi-touch.',
-          ),
+          context.l10n.randomOrPickANameWithout,
         ),
         const SizedBox(height: 16),
         FilledButton(
@@ -166,7 +155,7 @@ class _FingerToolState extends State<FingerTool> {
                   () => chosen =
                       widget.names[random.integer(0, widget.names.length - 1)],
                 ),
-          child: Text(tr(context, 'Choisir un joueur', 'Pick a player')),
+          child: Text(context.l10n.randomPickAPlayer),
         ),
         if (chosen != null)
           Padding(
