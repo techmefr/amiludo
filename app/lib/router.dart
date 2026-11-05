@@ -43,7 +43,8 @@ import 'package:amiludo/layers/functional/Workspace/presentation/game_setup.dart
 import 'package:amiludo/layers/functional/Workspace/presentation/home_screen.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/workspace_gate.dart';
 
-Widget _timer(BuildContext context) => const TimerPanel();
+Widget _timer(BuildContext context) =>
+    const SizedBox(width: double.infinity, child: TimerPanel());
 
 Widget _scores(BuildContext context) => const GameScreen(timer: _timer);
 

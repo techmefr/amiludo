@@ -36,7 +36,7 @@ class FullPage extends StatelessWidget {
               child: Align(
                 alignment: Alignment.topCenter,
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 1000),
+                  constraints: const BoxConstraints(maxWidth: 760),
                   child: SizedBox(width: double.infinity, child: child),
                 ),
               ),
