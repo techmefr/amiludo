@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/game_art.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class DiceTool extends StatefulWidget {
   const DiceTool({super.key});
@@ -105,7 +106,7 @@ class _DiceToolState extends State<DiceTool> {
           style: Theme.of(context).textTheme.bodyLarge,
           initialValue: count,
           decoration: InputDecoration(
-            labelText: tr(context, 'Nombre', 'Count'),
+            labelText: context.l10n.randomCount,
           ),
           items: List.generate(
             12,
@@ -124,11 +125,7 @@ class _DiceToolState extends State<DiceTool> {
   Widget symbolsField() => TextField(
     controller: symbols,
     decoration: InputDecoration(
-      labelText: tr(
-        context,
-        'Symboles séparés par des virgules',
-        'Comma-separated symbols',
-      ),
+      labelText: context.l10n.randomCommaSeparatedSymbols,
     ),
     onChanged: (_) => setState(() {
       rolls = [];
@@ -157,13 +154,9 @@ class _DiceToolState extends State<DiceTool> {
   Widget expressionField() => TextField(
     controller: expression,
     decoration: InputDecoration(
-      labelText: tr(
-        context,
-        'Expression : 2d6+3, d20, 4d8-2',
-        'Expression: 2d6+3, d20, 4d8-2',
-      ),
+      labelText: context.l10n.randomExpression2d63D204d8,
       suffixIcon: IconButton(
-        tooltip: tr(context, 'Évaluer', 'Evaluate'),
+        tooltip: context.l10n.randomEvaluate,
         icon: const DeckIcon(Icons.play_arrow),
         onPressed: evaluate,
       ),
@@ -178,14 +171,14 @@ class _DiceToolState extends State<DiceTool> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          tr(context, 'Les dés sont jetés', 'Roll the dice'),
+          context.l10n.randomRollTheDice,
           style: theme.textTheme.headlineMedium,
         ),
         const SizedBox(height: 20),
         dieSettings(),
         SwitchListTile(
           contentPadding: EdgeInsets.zero,
-          title: Text(tr(context, 'Faces à symboles', 'Custom symbols')),
+          title: Text(context.l10n.randomCustomSymbols),
           value: custom,
           onChanged: (v) => setState(() {
             custom = v;
@@ -197,11 +190,7 @@ class _DiceToolState extends State<DiceTool> {
         const SizedBox(height: 24),
         if (rolls.isEmpty)
           Text(
-            tr(
-              context,
-              'Touchez le bouton pour lancer.',
-              'Press the button to roll.',
-            ),
+            context.l10n.randomPressTheButtonToRoll,
           ),
         Wrap(
           spacing: 12,
@@ -220,15 +209,11 @@ class _DiceToolState extends State<DiceTool> {
         FilledButton.icon(
           onPressed: roll,
           icon: const DeckIcon(Icons.casino_outlined),
-          label: Text(tr(context, 'Lancer les dés', 'Roll dice')),
+          label: Text(context.l10n.randomRollDice),
         ),
         const SizedBox(height: 12),
         Text(
-          tr(
-            context,
-            'Touchez un dé pour le conserver au prochain lancer.',
-            'Tap a die to keep it on the next roll.',
-          ),
+          context.l10n.randomTapADieToKeep,
           style: theme.textTheme.bodySmall,
         ),
         const Divider(height: 40),
@@ -236,7 +221,7 @@ class _DiceToolState extends State<DiceTool> {
         if (history.isNotEmpty) ...[
           const SizedBox(height: 20),
           Text(
-            tr(context, 'DERNIERS LANCERS', 'RECENT ROLLS'),
+            context.l10n.randomRecentRolls,
             style: theme.textTheme.labelSmall,
           ),
           for (final h in history.take(8))

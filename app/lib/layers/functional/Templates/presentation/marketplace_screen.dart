@@ -9,6 +9,7 @@ import 'package:amiludo/layers/functional/Templates/domain/entities/game_templat
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/marketplace_cubit.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/marketplace_state.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class MarketplaceScreen extends StatefulWidget {
   const MarketplaceScreen({super.key});
@@ -26,21 +27,13 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
         .where((t) => t.id == p.id)
         .firstOrNull;
     final detail = existing == null
-        ? tr(
-            context,
-            'Le pack sera copié sur cet appareil.',
-            'The pack will be copied to this device.',
-          )
-        : tr(
-            context,
-            'Les modifications locales de ce pack seront remplacées. Exportez-les pour les conserver.',
-            'Local changes to this pack will be replaced. Export them to keep them.',
-          );
+        ? context.l10n.templatesThePackWillBeCopied
+        : context.l10n.templatesLocalChangesToThisPack;
     if (!await confirm(
       context,
       existing == null
-          ? tr(context, 'Installer ce pack ?', 'Install this pack?')
-          : tr(context, 'Remplacer le pack local ?', 'Replace the local pack?'),
+          ? context.l10n.templatesInstallThisPack
+          : context.l10n.templatesReplaceTheLocalPack,
       '${p.name} · ${p.revision}\n${p.author} · ${p.license}\n$detail',
     )) {
       return;
@@ -49,11 +42,7 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
     if (mounted) {
       notify(
         context,
-        tr(
-          context,
-          'Pack installé. Retrouvez-le dans vos modèles.',
-          'Pack installed. Find it in your templates.',
-        ),
+        context.l10n.templatesPackInstalledFindItIn,
       );
     }
   }
@@ -74,7 +63,7 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
     final catalog = context.watch<MarketplaceCubit>().state;
     final shown = _shown(catalog.packs);
     return FullPage(
-      title: tr(context, 'Galerie communautaire', 'Community gallery'),
+      title: context.l10n.templatesCommunityGallery,
       fallback: '/templates',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,11 +72,7 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
           const SizedBox(height: 20),
           TextField(
             decoration: InputDecoration(
-              labelText: tr(
-                context,
-                'Rechercher un jeu, un pack ou un auteur',
-                'Search a game, a pack or an author',
-              ),
+              labelText: context.l10n.templatesSearchAGameAPack,
               prefixIcon: const Center(
                 widthFactor: 1,
                 heightFactor: 1,
@@ -111,11 +96,7 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
           const SizedBox(height: 24),
           if (!catalog.loading && shown.isEmpty)
             Text(
-              tr(
-                context,
-                'Aucun pack pour cette recherche.',
-                'No pack for this search.',
-              ),
+              context.l10n.templatesNoPackForThisSearch,
             ),
           for (final p in shown)
             _PackCard(
@@ -131,25 +112,17 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
 
 String _filterLabel(BuildContext context, PackFilter filter) =>
     switch (filter) {
-      PackFilter.all => tr(context, 'Tous', 'All'),
-      PackFilter.dice => tr(context, 'Dés', 'Dice'),
-      PackFilter.roles => tr(context, 'Rôles', 'Roles'),
-      PackFilter.scores => tr(context, 'Scores', 'Scores'),
-      PackFilter.characters => tr(context, 'Personnages', 'Characters'),
+      PackFilter.all => context.l10n.templatesAll,
+      PackFilter.dice => context.l10n.templatesDice,
+      PackFilter.roles => context.l10n.templatesRoles,
+      PackFilter.scores => context.l10n.templatesScores,
+      PackFilter.characters => context.l10n.templatesCharacters,
     };
 
 String _errorText(BuildContext context, MarketplaceError error) =>
     switch (error) {
-      MarketplaceError.unavailable => tr(
-        context,
-        'Catalogue indisponible.',
-        'Catalogue unavailable.',
-      ),
-      MarketplaceError.refreshFailed => tr(
-        context,
-        'Actualisation impossible. Les packs installés restent disponibles hors connexion.',
-        'Could not refresh. Installed packs stay available offline.',
-      ),
+      MarketplaceError.unavailable => context.l10n.templatesCatalogueUnavailable,
+      MarketplaceError.refreshFailed => context.l10n.templatesCouldNotRefreshInstalledPacks,
     };
 
 class _CatalogHeader extends StatelessWidget {
@@ -160,36 +133,16 @@ class _CatalogHeader extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       DeckHeading(
-        eyebrow: tr(
-          context,
-          'CRÉER / PARTAGER / JOUER',
-          'CREATE / SHARE / PLAY',
-        ),
-        title: tr(
-          context,
-          'Les outils se partagent',
-          'Tools are made to be shared',
-        ),
-        subtitle: tr(
-          context,
-          'Installez un pack, personnalisez-le et jouez hors connexion. Le catalogue démarre avec des exemples originaux ; les contributions sont relues sur le dépôt public.',
-          'Install a pack, customise it and play offline. The catalogue starts with original examples; contributions are reviewed on the public repository.',
-        ),
+        eyebrow: context.l10n.templatesCreateSharePlay,
+        title: context.l10n.templatesToolsAreMadeToBe,
+        subtitle: context.l10n.templatesInstallAPackCustomiseIt,
       ),
       _MarketplaceActions(loading: catalog.loading),
       const SizedBox(height: 16),
       Text(
         catalog.online
-            ? tr(
-                context,
-                'Catalogue public actualisé',
-                'Public catalogue refreshed',
-              )
-            : tr(
-                context,
-                'Catalogue fourni avec l’application. Actualisez pour découvrir les nouvelles contributions.',
-                'Catalogue bundled with the app. Refresh to discover new contributions.',
-              ),
+            ? context.l10n.templatesPublicCatalogueRefreshed
+            : context.l10n.templatesCatalogueBundledWithTheApp,
       ),
       if (catalog.loading) const LinearProgressIndicator(),
       if (catalog.error case final error?)
@@ -214,12 +167,12 @@ class _MarketplaceActions extends StatelessWidget {
           onPressed: loading ? null : context.read<MarketplaceCubit>().refresh,
           icon: const DeckIcon(Icons.refresh),
           label: Text(
-            tr(context, 'Actualiser la galerie', 'Refresh the gallery'),
+            context.l10n.templatesRefreshTheGallery,
           ),
         ),
         OutlinedButton(
           onPressed: () => context.push('/builder/new'),
-          child: Text(tr(context, 'Créer mon pack', 'Create my pack')),
+          child: Text(context.l10n.templatesCreateMyPack),
         ),
         TextButton(
           onPressed: () => openProjectLink(
@@ -227,11 +180,7 @@ class _MarketplaceActions extends StatelessWidget {
             '$projectUrl/blob/main/community/README.md',
           ),
           child: Text(
-            tr(
-              context,
-              'Comment publier mon pack ?',
-              'How to publish my pack?',
-            ),
+            context.l10n.templatesHowToPublishMyPack,
           ),
         ),
       ],
@@ -263,11 +212,7 @@ class _PackCard extends StatelessWidget {
             Text('${p.author} · ${p.revision} · ${p.license}'),
             const SizedBox(height: 12),
             Text(
-              tr(
-                context,
-                '${p.dice.length} types de dés · ${p.roles.length} rôles · ${p.scoring.length} catégories · ${p.creation.length} boosters',
-                '${p.dice.length} dice types · ${p.roles.length} roles · ${p.scoring.length} categories · ${p.creation.length} boosters',
-              ),
+              context.l10n.templatesDiceTypesRolesCategoriesBoosters(p.dice.length, p.roles.length, p.scoring.length, p.creation.length),
             ),
             if (p.rulesNotes.isNotEmpty)
               Padding(
@@ -278,7 +223,7 @@ class _PackCard extends StatelessWidget {
               TextButton(
                 onPressed: () => openProjectLink(context, p.rulesUrl),
                 child: Text(
-                  tr(context, 'Règles de référence', 'Reference rules'),
+                  context.l10n.templatesReferenceRules,
                 ),
               ),
             const SizedBox(height: 16),
@@ -290,18 +235,14 @@ class _PackCard extends StatelessWidget {
                   onPressed: onInstall,
                   child: Text(
                     installed
-                        ? tr(
-                            context,
-                            'Réinstaller / remplacer',
-                            'Reinstall / replace',
-                          )
-                        : tr(context, 'Installer le pack', 'Install the pack'),
+                        ? context.l10n.templatesReinstallReplace
+                        : context.l10n.templatesInstallThePack,
                   ),
                 ),
                 if (installed)
                   OutlinedButton(
                     onPressed: () => context.push('/pack/${p.id}'),
-                    child: Text(tr(context, 'Ouvrir mon pack', 'Open my pack')),
+                    child: Text(context.l10n.templatesOpenMyPack),
                   ),
               ],
             ),

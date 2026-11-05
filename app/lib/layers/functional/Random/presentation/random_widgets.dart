@@ -1,35 +1,15 @@
 import 'package:flutter/material.dart';
 
-import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_inputs.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 String randomInputErrorText(BuildContext context, RandomInputError error) =>
     switch (error) {
-      RandomInputError.invalidBounds => tr(
-        context,
-        'Saisissez deux nombres entiers, le minimum avant le maximum.',
-        'Enter two whole numbers, the minimum before the maximum.',
-      ),
-      RandomInputError.emptyBag => tr(
-        context,
-        'Le sac est vide. Remplissez-le pour recommencer.',
-        'The bag is empty. Refill it to start again.',
-      ),
-      RandomInputError.roleCount => tr(
-        context,
-        'Prévoyez exactement un rôle par joueur.',
-        'Provide exactly one role per player.',
-      ),
-      RandomInputError.wheelSize => tr(
-        context,
-        'Choisissez entre 2 et 50 options.',
-        'Pick between 2 and 50 options.',
-      ),
-      RandomInputError.wheelWeight => tr(
-        context,
-        'Poids : un entier de 1 à 1 000 000.',
-        'Weight: a whole number from 1 to 1,000,000.',
-      ),
+      RandomInputError.invalidBounds => context.l10n.randomEnterTwoWholeNumbersThe,
+      RandomInputError.emptyBag => context.l10n.randomTheBagIsEmptyRefill,
+      RandomInputError.roleCount => context.l10n.randomProvideExactlyOneRolePer,
+      RandomInputError.wheelSize => context.l10n.randomPickBetween2And50,
+      RandomInputError.wheelWeight => context.l10n.randomWeightAWholeNumberFrom,
     };
 
 class RandomResult extends StatelessWidget {
@@ -91,6 +71,6 @@ class RandomDrawButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => FilledButton(
     onPressed: onPressed,
-    child: Text(label ?? tr(context, 'Tirer au sort', 'Draw')),
+    child: Text(label ?? context.l10n.randomDraw),
   );
 }

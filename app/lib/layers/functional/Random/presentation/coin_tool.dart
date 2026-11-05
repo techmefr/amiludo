@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 import 'package:amiludo/layers/functional/Random/presentation/random_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class CoinTool extends StatefulWidget {
   const CoinTool({super.key});
@@ -22,8 +22,8 @@ class _CoinToolState extends State<CoinTool> {
       RandomResultSlot(
         text: switch (heads) {
           null => '',
-          true => tr(context, 'FACE', 'HEADS'),
-          false => tr(context, 'PILE', 'TAILS'),
+          true => context.l10n.randomHeads,
+          false => context.l10n.randomTails,
         },
       ),
       RandomDrawButton(

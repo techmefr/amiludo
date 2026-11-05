@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 import 'package:amiludo/layers/functional/Random/presentation/teams_tool.dart';
 import 'package:amiludo/layers/technical/Feedback/device_feedback.dart';
-import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class TeamsFingerPad extends StatefulWidget {
   const TeamsFingerPad({
@@ -76,18 +76,10 @@ class _TeamsFingerPadState extends State<TeamsFingerPad> {
   }
 
   String _hint() => assigned.isNotEmpty
-      ? tr(
-          context,
-          'Chaque doigt a sa couleur et son numéro d’équipe.',
-          'Each finger shows its team colour and number.',
-        )
+      ? context.l10n.randomEachFingerShowsItsTeam
       : contacts.length < widget.teamCount
-      ? tr(
-          context,
-          'POSEZ CHACUN UN DOIGT (au moins ${widget.teamCount})',
-          'EVERYONE PUT A FINGER DOWN (at least ${widget.teamCount})',
-        )
-      : tr(context, 'On répartit…', 'Splitting…');
+      ? context.l10n.randomEveryonePutAFingerDown(widget.teamCount)
+      : context.l10n.randomSplitting;
 
   Widget _contact(MapEntry<int, Offset> entry) {
     final team = assigned[entry.key];

@@ -6,6 +6,7 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_inputs.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 import 'package:amiludo/layers/functional/Random/presentation/random_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class WheelTool extends StatefulWidget {
   const WheelTool({super.key, required this.names});
@@ -102,11 +103,7 @@ class _WheelToolState extends State<WheelTool>
           ),
           const SizedBox(height: 12),
           Text(
-            tr(
-              context,
-              'Les poids influencent le tirage, pas la taille des secteurs.',
-              'Weights affect the draw, not sector sizes.',
-            ),
+            context.l10n.randomWeightsAffectTheDrawNot,
             textAlign: TextAlign.center,
             style: theme.textTheme.bodySmall,
           ),
@@ -122,16 +119,8 @@ class _WheelToolState extends State<WheelTool>
     children: [
       RandomOptionsField(
         controller: options,
-        label: tr(
-          context,
-          'Options séparées par des virgules',
-          'Comma-separated options',
-        ),
-        helper: tr(
-          context,
-          'Poids facultatif : Camille:2, Alex:1',
-          'Optional weights: Camille:2, Alex:1',
-        ),
+        label: context.l10n.randomCommaSeparatedOptions,
+        helper: context.l10n.randomOptionalWeightsCamille2Alex,
         onChanged: () => setState(() => result = ''),
       ),
       wheel(Theme.of(context)),

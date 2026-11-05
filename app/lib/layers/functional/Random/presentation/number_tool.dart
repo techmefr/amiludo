@@ -4,6 +4,7 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_inputs.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 import 'package:amiludo/layers/functional/Random/presentation/random_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class NumberTool extends StatefulWidget {
   const NumberTool({super.key});
@@ -53,8 +54,8 @@ class _NumberToolState extends State<NumberTool> {
         spacing: 16,
         runSpacing: 16,
         children: [
-          boundField(minimum, tr(context, 'Minimum', 'Minimum')),
-          boundField(maximum, tr(context, 'Maximum', 'Maximum')),
+          boundField(minimum, context.l10n.randomMinimum),
+          boundField(maximum, context.l10n.randomMaximum),
         ],
       ),
       RandomResultSlot(text: result),

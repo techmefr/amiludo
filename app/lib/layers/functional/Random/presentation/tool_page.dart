@@ -15,6 +15,7 @@ import 'package:amiludo/layers/functional/Random/presentation/teams_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/pack_tools.dart';
 import 'package:amiludo/layers/functional/Random/presentation/character_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/character_library.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class ToolPage extends StatefulWidget {
   const ToolPage({
@@ -72,11 +73,7 @@ class _ToolPageState extends State<ToolPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      tr(
-                        context,
-                        'Installez un pack de personnages dans la galerie, ou créez vos catégories dans le builder.',
-                        'Install a character pack from the gallery, or create your categories in the builder.',
-                      ),
+                      context.l10n.randomInstallACharacterPackFrom,
                     ),
                     const CharacterLibrary(),
                   ],
@@ -116,12 +113,12 @@ class _ToolPageState extends State<ToolPage> {
       initialValue: current?.id ?? '',
       isExpanded: true,
       decoration: InputDecoration(
-        labelText: tr(context, 'Configuration de jeu', 'Game setup'),
+        labelText: context.l10n.randomGameSetup,
       ),
       items: [
         DropdownMenuItem(
           value: '',
-          child: Text(tr(context, 'Outil libre', 'Free tool')),
+          child: Text(context.l10n.randomFreeTool),
         ),
         for (final p in packs)
           DropdownMenuItem(value: p.id, child: Text(p.name)),
@@ -138,11 +135,11 @@ class _ToolPageState extends State<ToolPage> {
             current == null ? '/builder/new' : '/builder/${current.id}',
           ),
           icon: const DeckIcon(Icons.build_outlined),
-          label: Text(tr(context, 'Ouvrir le builder', 'Open the builder')),
+          label: Text(context.l10n.randomOpenTheBuilder),
         ),
         TextButton(
           onPressed: () => context.push('/marketplace'),
-          child: Text(tr(context, 'Trouver un pack', 'Find a pack')),
+          child: Text(context.l10n.randomFindAPack),
         ),
       ],
     ),
@@ -160,13 +157,9 @@ class _ToolPageState extends State<ToolPage> {
         ?.title;
     if (title == null) {
       return FullPage(
-        title: tr(context, 'Outil introuvable', 'Tool not found'),
+        title: context.l10n.randomToolNotFound,
         child: Text(
-          tr(
-            context,
-            'Revenez à la boîte à outils.',
-            'Go back to the toolbox.',
-          ),
+          context.l10n.randomGoBackToTheToolbox,
         ),
       );
     }

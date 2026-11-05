@@ -5,6 +5,7 @@ import 'package:amiludo/layers/technical/Theme/game_art.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_inputs.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 import 'package:amiludo/layers/functional/Random/presentation/random_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class RolesTool extends StatefulWidget {
   const RolesTool({super.key, required this.names});
@@ -27,8 +28,8 @@ class _RolesToolState extends State<RolesTool> {
     options ??= TextEditingController(
       text: starterRoles(
         widget.names.length,
-        tr(context, 'Loup', 'Werewolf'),
-        tr(context, 'Villageois', 'Villager'),
+        context.l10n.randomWerewolf,
+        context.l10n.randomVillager,
       ).join(', '),
     );
   }
@@ -56,11 +57,7 @@ class _RolesToolState extends State<RolesTool> {
   void next() => setState(() {
     if (roleIndex + 1 >= roles.length) {
       roles = [];
-      result = tr(
-        context,
-        'Tous les rôles ont été distribués.',
-        'All roles have been assigned.',
-      );
+      result = context.l10n.randomAllRolesHaveBeenAssigned;
     } else {
       revealed = false;
       roleIndex++;
@@ -74,11 +71,7 @@ class _RolesToolState extends State<RolesTool> {
     children: [
       RandomOptionsField(
         controller: options!,
-        label: tr(
-          context,
-          'Un rôle par joueur, séparés par des virgules',
-          'One role per player, comma separated',
-        ),
+        label: context.l10n.randomOneRolePerPlayerComma,
         onChanged: () => setState(() {
           roles = [];
           result = '';
@@ -98,7 +91,7 @@ class _RolesToolState extends State<RolesTool> {
       ],
       RandomDrawButton(
         onPressed: draw,
-        label: tr(context, 'Distribuer les rôles', 'Assign roles'),
+        label: context.l10n.randomAssignRoles,
       ),
     ],
   );
@@ -128,7 +121,7 @@ class DeckRoleCard extends StatelessWidget {
     child: Column(
       children: [
         Text(
-          '${tr(context, 'Passez le téléphone à', 'Pass the device to')} $name',
+          '${context.l10n.randomPassTheDeviceTo} $name',
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 20),
@@ -150,14 +143,14 @@ class DeckRoleCard extends StatelessWidget {
           FilledButton(
             onPressed: onNext,
             child: Text(
-              tr(context, 'Masquer et passer au suivant', 'Hide and pass'),
+              context.l10n.randomHideAndPass,
             ),
           ),
         ] else ...[
           const GameArt(tool: 'roles', height: 140),
           FilledButton(
             onPressed: onReveal,
-            child: Text(tr(context, 'Voir mon rôle', 'Reveal my role')),
+            child: Text(context.l10n.randomRevealMyRole),
           ),
         ],
       ],

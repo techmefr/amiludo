@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Game/presentation/cubit/game_cubit.dar
 import 'package:amiludo/layers/functional/Game/presentation/player_panel.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/text_prompt.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class GameBoard extends StatefulWidget {
   const GameBoard({super.key, required this.game});
@@ -69,14 +70,14 @@ class _PackShortcuts extends StatelessWidget {
         OutlinedButton(
           onPressed: () => context.push('/pack/${game.pack!.id}?session=1'),
           child: Text(
-            tr(context, 'Outils et règles du jeu', 'Game tools and rules'),
+            context.l10n.gameGameToolsAndRules,
           ),
         ),
       if (game.finishedAt == null && game.pack!.scoring.isNotEmpty)
         for (final p in game.players)
           OutlinedButton(
             onPressed: () => context.push('/score/${p.id}'),
-            child: Text('${tr(context, 'Décompte', 'Scoring')} · ${p.name}'),
+            child: Text('${context.l10n.templatesScoring} · ${p.name}'),
           ),
     ],
   );
@@ -95,17 +96,17 @@ class _TurnControls extends StatelessWidget {
         OutlinedButton.icon(
           onPressed: game.cursor > 0 ? controller.undo : null,
           icon: const DeckIcon(Icons.undo, size: 18),
-          label: Text(tr(context, 'Annuler', 'Undo')),
+          label: Text(context.l10n.gameUndo),
         ),
         OutlinedButton.icon(
           onPressed: game.cursor < game.entries.length ? controller.redo : null,
           icon: const DeckIcon(Icons.redo, size: 18),
-          label: Text(tr(context, 'Rétablir', 'Redo')),
+          label: Text(context.l10n.gameRedo),
         ),
         FilledButton.icon(
           onPressed: controller.nextTurn,
           icon: const DeckIcon(Icons.skip_next, size: 18),
-          label: Text(tr(context, 'Au suivant', 'Next player')),
+          label: Text(context.l10n.gameNextPlayer),
         ),
       ],
     );
@@ -119,7 +120,7 @@ class _GameLog extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      SectionHeading(tr(context, 'Le fil de la partie', 'Game log')),
+      SectionHeading(context.l10n.gameGameLog),
       DeckPanel(
         padding: 16,
         child: Column(
@@ -127,11 +128,7 @@ class _GameLog extends StatelessWidget {
           children: [
             if (game.appliedEntries.isEmpty)
               Text(
-                tr(
-                  context,
-                  'Les compteurs sont prêts. À vous de jouer.',
-                  'Ready for your first move.',
-                ),
+                context.l10n.gameReadyForYourFirstMove,
               ),
             for (final e in game.appliedEntries.toList().reversed.take(8))
               Padding(
@@ -155,7 +152,7 @@ class _GameNotes extends StatelessWidget {
     final controller = context.read<GameCubit>();
     final notes = await textPrompt(
       context,
-      tr(context, 'Notes de partie', 'Game notes'),
+      context.l10n.gameGameNotes,
       initial: game.notes,
       multiline: true,
     );
@@ -167,9 +164,9 @@ class _GameNotes extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       SectionHeading(
-        tr(context, 'Notes & objectifs', 'Notes & goals'),
+        context.l10n.gameNotesGoals,
         action: IconButton(
-          tooltip: tr(context, 'Modifier les notes', 'Edit notes'),
+          tooltip: context.l10n.gameEditNotes,
           onPressed: () => _edit(context),
           icon: const DeckIcon(Icons.edit_note),
         ),
@@ -177,11 +174,7 @@ class _GameNotes extends StatelessWidget {
       DeckPanel(
         child: Text(
           game.notes.isEmpty
-              ? tr(
-                  context,
-                  'Votre stratégie, vos objectifs, les petits détails à retenir.',
-                  'Your strategy, objectives and notes.',
-                )
+              ? context.l10n.gameYourStrategyObjectivesAndNotes
               : game.notes,
         ),
       ),

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Random/presentation/card_face.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class ClosedPack extends StatelessWidget {
   const ClosedPack({super.key, required this.category, required this.onOpen});
@@ -26,21 +27,13 @@ class ClosedPack extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          tr(
-            context,
-            '${category.draw} cartes à découvrir',
-            '${category.draw} cards to reveal',
-          ),
+          context.l10n.randomCardsToReveal(category.draw),
         ),
         const SizedBox(height: 20),
         FilledButton(
           onPressed: onOpen,
           child: Text(
-            tr(
-              context,
-              'Ouvrir le pack · ${category.name}',
-              'Open the pack · ${category.name}',
-            ),
+            context.l10n.randomOpenThePack(category.name),
           ),
         ),
       ],
@@ -144,7 +137,7 @@ class _PackRevealState extends State<PackReveal>
             alignment: Alignment.centerRight,
             child: TextButton(
               onPressed: () => controller.value = 1,
-              child: Text(tr(context, 'Tout révéler', 'Reveal all')),
+              child: Text(context.l10n.randomRevealAll),
             ),
           ),
         ResponsiveGrid(

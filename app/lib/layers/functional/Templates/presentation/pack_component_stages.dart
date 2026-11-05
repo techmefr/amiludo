@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/creation_draft.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/pack_drafts.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class _DraftList<T> extends StatelessWidget {
   const _DraftList({
@@ -48,19 +49,15 @@ class DiceStage extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      SectionHeading(tr(context, '01 / Dés du jeu', '01 / Game dice')),
+      SectionHeading(context.l10n.templates01GameDice),
       Text(
-        tr(
-          context,
-          'Définissez le libellé et la valeur de chaque face. Répétez une face pour augmenter sa fréquence. Chaque type peut avoir plusieurs exemplaires.',
-          'Set the label and value of each face. Repeat a face to make it more frequent. Each type can have several copies.',
-        ),
+        context.l10n.templatesSetTheLabelAndValue,
       ),
       const SizedBox(height: 16),
       _DraftList<DieDraft>(
         drafts: dice,
         max: 16,
-        addLabel: tr(context, 'Ajouter un dé', 'Add a die'),
+        addLabel: context.l10n.templatesAddADie,
         create: () => DieDraft(null),
         refresh: refresh,
         item: (d) => _DieEditor(
@@ -88,10 +85,10 @@ class _DieEditor extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Column(
     children: [
-      BuilderField(die.name, tr(context, 'Nom du dé', 'Die name')),
+      BuilderField(die.name, context.l10n.templatesDieName),
       BuilderField(
         die.count,
-        tr(context, 'Nombre d’exemplaires', 'Number of copies'),
+        context.l10n.templatesNumberOfCopies,
       ),
       for (final f in die.faces)
         Padding(
@@ -103,16 +100,16 @@ class _DieEditor extends StatelessWidget {
               Expanded(
                 child: BuilderField(
                   f.label,
-                  tr(context, 'Face / symbole', 'Face / symbol'),
+                  context.l10n.templatesFaceSymbol,
                 ),
               ),
               const SizedBox(width: 8),
               SizedBox(
                 width: 90,
-                child: BuilderField(f.value, tr(context, 'Valeur', 'Value')),
+                child: BuilderField(f.value, context.l10n.templatesValue),
               ),
               IconButton(
-                tooltip: tr(context, 'Retirer la face', 'Remove the face'),
+                tooltip: context.l10n.templatesRemoveTheFace,
                 onPressed: () => refresh(() {
                   die.faces.remove(f);
                   disposeLater(f.dispose);
@@ -126,10 +123,10 @@ class _DieEditor extends StatelessWidget {
         onPressed: die.faces.length >= 100
             ? null
             : () => refresh(() => die.faces.add(FaceDraft(null))),
-        child: Text(tr(context, 'Ajouter une face', 'Add a face')),
+        child: Text(context.l10n.templatesAddAFace),
       ),
       RemoveDraftButton(
-        tr(context, 'Retirer ce dé', 'Remove this die'),
+        context.l10n.templatesRemoveThisDie,
         onRemove,
       ),
     ],
@@ -144,40 +141,32 @@ class RolesStage extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      SectionHeading(tr(context, '02 / Rôles du jeu', '02 / Game roles')),
+      SectionHeading(context.l10n.templates02GameRoles),
       Text(
-        tr(
-          context,
-          'Choisissez le nombre de cartes de chaque rôle. La distribution demandera exactement autant de cartes que de joueurs.',
-          'Pick how many cards each role has. Dealing needs exactly as many cards as players.',
-        ),
+        context.l10n.templatesPickHowManyCardsEach,
       ),
       const SizedBox(height: 16),
       _DraftList<RoleDraft>(
         drafts: roles,
         max: 32,
-        addLabel: tr(context, 'Ajouter un rôle', 'Add a role'),
+        addLabel: context.l10n.templatesAddARole,
         create: () => RoleDraft(null),
         refresh: refresh,
         item: (d) => Column(
           children: [
-            BuilderField(d.name, tr(context, 'Nom du rôle', 'Role name')),
+            BuilderField(d.name, context.l10n.templatesRoleName),
             BuilderField(
               d.count,
-              tr(context, 'Nombre de cartes', 'Number of cards'),
+              context.l10n.templatesNumberOfCards,
             ),
             BuilderField(
               d.description,
-              tr(
-                context,
-                'Pouvoir, objectif ou consigne privée',
-                'Power, goal or private instruction',
-              ),
+              context.l10n.templatesPowerGoalOrPrivateInstruction,
               lines: 3,
               maxLength: 2000,
             ),
             RemoveDraftButton(
-              tr(context, 'Retirer ce rôle', 'Remove this role'),
+              context.l10n.templatesRemoveThisRole,
               () => refresh(() {
                 roles.remove(d);
                 disposeLater(d.dispose);
@@ -203,28 +192,16 @@ class CharactersStage extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       SectionHeading(
-        tr(
-          context,
-          '04 / Personnages et boosters',
-          '04 / Characters and boosters',
-        ),
+        context.l10n.templates04CharactersAndBoosters,
       ),
       Text(
-        tr(
-          context,
-          'Créez vos catégories : races, métiers, histoires, pouvoirs… En mode liste, toutes les cartes sont proposées. En mode booster, seules les cartes tirées sont révélées. Le minimum et le maximum de cartes gardées s’appliquent aux deux modes.',
-          'Create your categories: races, jobs, backstories, powers… In list mode, every card is offered. In booster mode, only drawn cards are revealed. The minimum and maximum of kept cards apply to both modes.',
-        ),
+        context.l10n.templatesCreateYourCategoriesRacesJobs,
       ),
       const SizedBox(height: 16),
       _DraftList<CreationDraft>(
         drafts: creation,
         max: 16,
-        addLabel: tr(
-          context,
-          'Ajouter une catégorie de personnage',
-          'Add a character category',
-        ),
+        addLabel: context.l10n.templatesAddACharacterCategory,
         create: () => CreationDraft(null),
         refresh: refresh,
         item: (d) => _CreationEditor(
@@ -254,23 +231,19 @@ class _CreationEditor extends StatelessWidget {
     children: [
       BuilderField(
         draft.name,
-        tr(context, 'Catégorie de personnage', 'Character category'),
+        context.l10n.templatesCharacterCategory,
       ),
       BuilderField(
         draft.draw,
-        tr(
-          context,
-          'Cartes proposées par booster',
-          'Cards offered per booster',
-        ),
+        context.l10n.templatesCardsOfferedPerBooster,
       ),
       BuilderField(
         draft.keepMin,
-        tr(context, 'Cartes à garder au minimum', 'Minimum cards to keep'),
+        context.l10n.templatesMinimumCardsToKeep,
       ),
       BuilderField(
         draft.keepMax,
-        tr(context, 'Cartes à garder au maximum', 'Maximum cards to keep'),
+        context.l10n.templatesMaximumCardsToKeep,
       ),
       for (final c in draft.cards)
         Padding(
@@ -278,19 +251,15 @@ class _CreationEditor extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 12),
           child: Column(
             children: [
-              BuilderField(c.name, tr(context, 'Nom de la carte', 'Card name')),
+              BuilderField(c.name, context.l10n.templatesCardName),
               BuilderField(
                 c.description,
-                tr(
-                  context,
-                  'Description, effet ou histoire',
-                  'Description, effect or story',
-                ),
+                context.l10n.templatesDescriptionEffectOrStory,
                 lines: 2,
                 maxLength: 2000,
               ),
               RemoveDraftButton(
-                tr(context, 'Retirer la carte', 'Remove the card'),
+                context.l10n.templatesRemoveTheCard,
                 () => refresh(() {
                   draft.cards.remove(c);
                   disposeLater(c.dispose);
@@ -303,14 +272,10 @@ class _CreationEditor extends StatelessWidget {
         onPressed: draft.cards.length >= 100
             ? null
             : () => refresh(() => draft.cards.add(CardDraft(null))),
-        child: Text(tr(context, 'Ajouter une carte', 'Add a card')),
+        child: Text(context.l10n.templatesAddACard),
       ),
       RemoveDraftButton(
-        tr(
-          context,
-          'Retirer cette catégorie de personnage',
-          'Remove this character category',
-        ),
+        context.l10n.templatesRemoveThisCharacterCategory,
         onRemove,
       ),
     ],
@@ -331,34 +296,30 @@ class TrackersStage extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      SectionHeading(tr(context, 'Compteurs de joueur', 'Player counters')),
+      SectionHeading(context.l10n.templatesPlayerCounters),
       Text(
-        tr(
-          context,
-          'Vies, énergie, points de combat… Chaque joueur démarre avec ces valeurs et les ajuste en partie.',
-          'Lives, energy, combat points… Each player starts with these values and adjusts them during the game.',
-        ),
+        context.l10n.templatesLivesEnergyCombatPointsEach,
       ),
       const SizedBox(height: 16),
       _DraftList<ResourceDraft>(
         drafts: resources,
         max: 16,
-        addLabel: tr(context, 'Ajouter un compteur', 'Add a counter'),
+        addLabel: context.l10n.templatesAddACounter,
         create: ResourceDraft.new,
         refresh: refresh,
         item: (d) => Column(
           children: [
             BuilderField(
               d.name,
-              tr(context, 'Nom du compteur', 'Counter name'),
+              context.l10n.templatesCounterName,
               maxLength: 40,
             ),
             BuilderField(
               d.start,
-              tr(context, 'Valeur de départ', 'Starting value'),
+              context.l10n.templatesStartingValue,
             ),
             RemoveDraftButton(
-              tr(context, 'Retirer ce compteur', 'Remove this counter'),
+              context.l10n.templatesRemoveThisCounter,
               () => refresh(() {
                 resources.remove(d);
                 disposeLater(d.dispose);
@@ -367,19 +328,15 @@ class TrackersStage extends StatelessWidget {
           ],
         ),
       ),
-      SectionHeading(tr(context, 'Statuts cumulables', 'Stackable statuses')),
+      SectionHeading(context.l10n.templatesStackableStatuses),
       Text(
-        tr(
-          context,
-          'Poison, bouclier, étourdi… Les joueurs empilent ou retirent des jetons de statut pendant la partie.',
-          'Poison, shield, stunned… Players stack or remove status tokens during the game.',
-        ),
+        context.l10n.templatesPoisonShieldStunnedPlayersStack,
       ),
       const SizedBox(height: 16),
       _DraftList<TextEditingController>(
         drafts: statuses,
         max: 16,
-        addLabel: tr(context, 'Ajouter un statut', 'Add a status'),
+        addLabel: context.l10n.templatesAddAStatus,
         create: TextEditingController.new,
         refresh: refresh,
         item: (c) => Row(
@@ -387,12 +344,12 @@ class TrackersStage extends StatelessWidget {
             Expanded(
               child: BuilderField(
                 c,
-                tr(context, 'Nom du statut', 'Status name'),
+                context.l10n.templatesStatusName,
                 maxLength: 40,
               ),
             ),
             IconButton(
-              tooltip: tr(context, 'Retirer ce statut', 'Remove this status'),
+              tooltip: context.l10n.templatesRemoveThisStatus,
               onPressed: () => refresh(() {
                 statuses.remove(c);
                 disposeLater(c.dispose);
