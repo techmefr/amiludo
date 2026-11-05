@@ -1,13 +1,19 @@
 final _cardImage = RegExp(r'^cards/[a-z0-9-]{1,80}$');
 
 class CharacterCard {
-  const CharacterCard({required this.name, this.description = '', this.image});
+  const CharacterCard({
+    required this.name,
+    this.description = '',
+    this.image,
+    this.appearanceItemId,
+  });
   final String name, description;
-  final String? image;
+  final String? image, appearanceItemId;
   Map<String, Object?> toJson() => {
     'name': name,
     'description': description,
     if (image != null) 'image': image,
+    if (appearanceItemId != null) 'appearanceItemId': appearanceItemId,
   };
   factory CharacterCard.fromJson(Map<String, dynamic> j) {
     final image = j['image'];
@@ -15,6 +21,7 @@ class CharacterCard {
       name: j['name'] as String,
       description: j['description'] as String? ?? '',
       image: image is String && _cardImage.hasMatch(image) ? image : null,
+      appearanceItemId: j['appearanceItemId'] as String?,
     );
     if (c.name.trim().isEmpty ||
         c.name.length > 80 ||
