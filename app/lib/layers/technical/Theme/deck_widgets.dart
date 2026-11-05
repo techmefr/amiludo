@@ -104,11 +104,11 @@ class SectionHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Padding(
     padding: const EdgeInsets.only(top: 28, bottom: 16),
-    child: Row(
+    child: Wrap(
+      alignment: WrapAlignment.spaceBetween,
+      crossAxisAlignment: WrapCrossAlignment.center,
       children: [
-        Expanded(
-          child: Text(text, style: Theme.of(context).textTheme.headlineSmall),
-        ),
+        Text(text, style: Theme.of(context).textTheme.headlineSmall),
         ?action,
       ],
     ),

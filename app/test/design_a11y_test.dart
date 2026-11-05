@@ -33,7 +33,11 @@ void main() {
       for (final route in routes) {
         router.go(route);
         await tester.pumpAndSettle();
-        expect(tester.takeException(), isNull, reason: route);
+        final ex = tester.takeException();
+        if (ex != null) {
+          debugPrint(route);
+        }
+        expect(ex, isNull, reason: route);
       }
       await tester.pumpWidget(const SizedBox());
       await db.close();
