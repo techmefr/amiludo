@@ -13,11 +13,11 @@
 
 ## Lot 2 - Components
 
-- [ ] T005 [P] [US2] Tile, primary and secondary buttons
-- [ ] T006 [P] [US2] Sheet and header
-- [ ] T007 [P] [US1] Empty, loading and error states
-- [ ] T008 [US4] Targets of 44 by 44 and screen reader labels in the component set
-- [ ] T009 Widget tests at three sizes, light and dark
+- [x] T005 [P] [US2] Tile, primary and secondary buttons
+- [x] T006 [P] [US2] Sheet and header
+- [x] T007 [P] [US1] Empty, loading and error states
+- [x] T008 [US4] Targets of 44 by 44 and screen reader labels in the component set
+- [x] T009 Widget tests at three sizes, light and dark
 
 ## Lot 3 - Home and first launch
 
