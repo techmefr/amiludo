@@ -37,11 +37,13 @@ class EveningInvite extends StatelessWidget {
     }
     if (!cubit.online) {
       return EmptyPanel(
+        icon: Icons.cloud_off_outlined,
         title: context.l10n.accountLocalMode,
         message: context.l10n.eveningsWithoutAServerRecordYour,
       );
     }
     return EmptyPanel(
+      icon: Icons.cloud_off_outlined,
       title: context.l10n.eveningsInviteOnline,
       message: context.l10n.eveningsPublishTheNightFriendsSign,
       action: cubit.signedIn

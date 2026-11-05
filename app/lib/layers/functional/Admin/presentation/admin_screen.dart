@@ -20,6 +20,7 @@ class AdminScreen extends StatelessWidget {
           child: Center(child: CircularProgressIndicator()),
         ),
         AdminStatus.failed => EmptyPanel(
+          icon: Icons.error_outline,
           title: context.l10n.adminListUnavailable,
           message: adminErrorText(
             context,

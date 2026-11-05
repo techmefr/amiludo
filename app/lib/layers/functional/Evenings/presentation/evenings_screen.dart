@@ -40,6 +40,7 @@ class EveningsScreen extends StatelessWidget {
         SectionHeading(context.l10n.eveningsUpcoming),
         if (upcoming.isEmpty)
           EmptyPanel(
+            icon: Icons.event_outlined,
             title: context.l10n.eveningsNoNightPlanned,
             message: context.l10n.eveningsPickADateInviteBy,
           ),

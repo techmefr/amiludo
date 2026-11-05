@@ -62,6 +62,7 @@ class EveningDetail extends StatelessWidget {
       ],
       child: evening == null
           ? EmptyPanel(
+              icon: Icons.search_off,
               title: context.l10n.eveningsNightNotFound,
               message: context.l10n.eveningsItWasRemoved,
             )
