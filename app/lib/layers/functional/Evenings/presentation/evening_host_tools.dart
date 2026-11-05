@@ -8,6 +8,7 @@ import 'package:amiludo/layers/functional/Evenings/presentation/evening_texts.da
 import 'package:amiludo/layers/technical/Network/room_link.dart';
 import 'package:amiludo/layers/technical/Qr/invite_card.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 Future<void> runEveningAction(
   BuildContext context,
@@ -36,32 +37,24 @@ class EveningInvite extends StatelessWidget {
     }
     if (!cubit.online) {
       return EmptyPanel(
-        title: tr(context, 'Mode local', 'Local mode'),
-        message: tr(
-          context,
-          'Sans serveur, notez vous-même les réponses de vos amis ci-dessous.',
-          'Without a server, record your friends’ answers yourself below.',
-        ),
+        title: context.l10n.accountLocalMode,
+        message: context.l10n.eveningsWithoutAServerRecordYour,
       );
     }
     return EmptyPanel(
-      title: tr(context, 'Inviter en ligne', 'Invite online'),
-      message: tr(
-        context,
-        'Publiez la soirée : vos amis s’inscrivent avec le lien, le code ou le QR.',
-        'Publish the night: friends sign up with the link, code or QR.',
-      ),
+      title: context.l10n.eveningsInviteOnline,
+      message: context.l10n.eveningsPublishTheNightFriendsSign,
       action: cubit.signedIn
           ? FilledButton.icon(
               onPressed: () =>
                   runEveningAction(context, () => cubit.publish(evening)),
               icon: const Icon(Icons.public),
-              label: Text(tr(context, 'Publier', 'Publish')),
+              label: Text(context.l10n.eveningsPublish),
             )
           : OutlinedButton(
               onPressed: () => context.go('/account'),
               child: Text(
-                tr(context, 'Se connecter pour publier', 'Sign in to publish'),
+                context.l10n.eveningsSignInToPublish,
               ),
             ),
     );
@@ -81,7 +74,7 @@ class FriendAnswers extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SectionHeading(tr(context, 'Réponses de vos amis', 'Friends’ answers')),
+        SectionHeading(context.l10n.eveningsFriendsAnswers),
         for (final friend in friends)
           ListTile(
             leading: CircleAvatar(backgroundColor: Color(friend.color)),
@@ -90,14 +83,10 @@ class FriendAnswers extends StatelessWidget {
                 .rsvpOf('friend:${friend.id}')
                 ?.answer) {
               final answer? => answerLabel(context, answer),
-              null => tr(context, 'Sans réponse', 'No answer'),
+              null => context.l10n.eveningsNoAnswer,
             }),
             trailing: PopupMenuButton<RsvpAnswer>(
-              tooltip: tr(
-                context,
-                'Réponse de ${friend.name}',
-                '${friend.name}’s answer',
-              ),
+              tooltip: context.l10n.eveningsSAnswer(friend.name),
               onSelected: (answer) => runEveningAction(
                 context,
                 () => cubit.answer(

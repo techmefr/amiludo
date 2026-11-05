@@ -10,6 +10,7 @@ import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/History/presentation/cubit/history_cubit.dart';
 import 'package:amiludo/layers/functional/History/presentation/history_game_card.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class HistoryScreen extends StatefulWidget {
   const HistoryScreen({super.key});
@@ -45,7 +46,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
       }
       await controller.saveGame(game);
       if (mounted) {
-        notify(context, tr(context, 'Partie importée', 'Game imported'));
+        notify(context, context.l10n.historyGameImported);
       }
     } catch (error) {
       if (mounted) notify(context, 'Import impossible : $error');
@@ -60,24 +61,20 @@ class _HistoryScreenState extends State<HistoryScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DeckHeading(
-          eyebrow: tr(context, 'Les souvenirs restent', 'Keep the good times'),
-          title: tr(context, 'Les bons moments', 'The good times'),
-          subtitle: tr(
-            context,
-            'Vos parties, vos résultats. Sauvegardés sur cet appareil.',
-            'Your games and results, saved on this device.',
-          ),
+          eyebrow: context.l10n.historyKeepTheGoodTimes,
+          title: context.l10n.historyTheGoodTimes,
+          subtitle: context.l10n.historyYourGamesAndResultsSaved,
           action: Wrap(
             spacing: 12,
             runSpacing: 12,
             children: [
               OutlinedButton(
                 onPressed: importGame,
-                child: Text(tr(context, 'Importer une partie', 'Import game')),
+                child: Text(context.l10n.historyImportGame),
               ),
               OutlinedButton(
                 onPressed: () => context.push('/memories/import'),
-                child: Text(tr(context, 'Ouvrir une galerie', 'Open gallery')),
+                child: Text(context.l10n.historyOpenGallery),
               ),
             ],
           ),
@@ -86,11 +83,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
         const SizedBox(height: 24),
         TextField(
           decoration: InputDecoration(
-            labelText: tr(
-              context,
-              'Chercher un jeu, un joueur, une date',
-              'Search a game, player or date',
-            ),
+            labelText: context.l10n.historySearchAGamePlayerOr,
             prefixIcon: const Center(
               widthFactor: 1,
               heightFactor: 1,
@@ -102,12 +95,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
         const SizedBox(height: 24),
         if (games.isEmpty)
           EmptyPanel(
-            title: tr(context, 'Aucun résultat', 'No games found'),
-            message: tr(
-              context,
-              'Vos parties apparaissent ici dès leur création.',
-              'Games appear here when created.',
-            ),
+            title: context.l10n.historyNoGamesFound,
+            message: context.l10n.historyGamesAppearHereWhenCreated,
           ),
         for (final g in games) HistoryGameCard(game: g),
         const _DataControls(),
@@ -131,15 +120,15 @@ class _HistoryStats extends StatelessWidget {
     final stats = [
       (
         '${completed.length}',
-        tr(context, 'PARTIES TERMINÉES', 'COMPLETED GAMES'),
+        context.l10n.historyCompletedGames,
       ),
       (
         '${workspace.games.where((g) => g.finishedAt == null).length}',
-        tr(context, 'TABLES EN COURS', 'ACTIVE TABLES'),
+        context.l10n.historyActiveTables,
       ),
       (
         '${(duration / 60000).round()}',
-        tr(context, 'MINUTES DE JEU', 'MINUTES PLAYED'),
+        context.l10n.historyMinutesPlayed,
       ),
     ];
     return ResponsiveGrid(
@@ -177,18 +166,14 @@ class _DataControls extends StatelessWidget {
       if (text == null || !context.mounted) return;
       if (!await confirm(
         context,
-        tr(context, 'Restaurer une sauvegarde ?', 'Restore backup?'),
-        tr(
-          context,
-          'La bibliothèque actuelle sera remplacée. Exportez-la avant de continuer si nécessaire.',
-          'Your current library will be replaced. Export it first if needed.',
-        ),
+        context.l10n.historyRestoreBackup,
+        context.l10n.historyYourCurrentLibraryWillBe,
       )) {
         return;
       }
       await controller.importBackup(text);
       if (context.mounted) {
-        notify(context, tr(context, 'Sauvegarde restaurée', 'Backup restored'));
+        notify(context, context.l10n.historyBackupRestored);
       }
     } catch (error) {
       if (context.mounted) notify(context, 'Import impossible : $error');
@@ -199,12 +184,8 @@ class _DataControls extends StatelessWidget {
     final controller = context.read<HistoryCubit>();
     if (await confirm(
       context,
-      tr(context, 'Effacer toutes les données ?', 'Erase all data?'),
-      tr(
-        context,
-        'Parties, modèles, profils et réglages seront supprimés de cet appareil. Cette action ne peut pas être annulée.',
-        'Games, templates, profiles and settings will be removed from this device. This cannot be undone.',
-      ),
+      context.l10n.historyEraseAllData,
+      context.l10n.historyGamesTemplatesProfilesAndSettings,
     )) {
       await controller.erase();
     }
@@ -215,11 +196,7 @@ class _DataControls extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       SectionHeading(
-        tr(
-          context,
-          'Vos données vous appartiennent',
-          'Your data belongs to you',
-        ),
+        context.l10n.historyYourDataBelongsToYou,
       ),
       DeckPanel(
         child: Wrap(
@@ -232,12 +209,12 @@ class _DataControls extends StatelessWidget {
                 'compagnon-sauvegarde.json',
               ),
               child: Text(
-                tr(context, 'Sauvegarder tout', 'Back up everything'),
+                context.l10n.historyBackUpEverything,
               ),
             ),
             OutlinedButton(
               onPressed: () => _restore(context),
-              child: Text(tr(context, 'Restaurer', 'Restore')),
+              child: Text(context.l10n.historyRestore),
             ),
           ],
         ),
@@ -247,7 +224,7 @@ class _DataControls extends StatelessWidget {
         onPressed: () => _erase(context),
         icon: const DeckIcon(Icons.delete_forever_outlined),
         label: Text(
-          tr(context, 'Effacer toutes mes données', 'Erase all my data'),
+          context.l10n.historyEraseAllMyData,
         ),
       ),
     ],

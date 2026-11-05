@@ -11,6 +11,7 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/technical/Transfer/compression.dart';
 import 'package:amiludo/layers/technical/Transfer/fountain.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class ShareSessionScreen extends StatefulWidget {
   const ShareSessionScreen({super.key, this.gameId, this.templateId});
@@ -50,19 +51,15 @@ class _ShareSessionScreenState extends State<ShareSessionScreen> {
   Widget build(BuildContext context) {
     final data = context.watch<SharingCubit>().state;
     return FullPage(
-      title: tr(context, 'Partager une session', 'Share a session'),
+      title: context.l10n.libraryShareASession,
       fallback: '/library',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            tr(
-              context,
-              'Votre ami ouvre « Recevoir par QR » et vise l’écran : jeux, packs, dés et fiches de personnage arrivent chez lui.',
-              'Your friend opens “Receive by QR” and points at the screen: games, packs, dice and character sheets land on their device.',
-            ),
+            context.l10n.sharingYourFriendOpensReceiveBy,
           ),
-          SectionHeading(tr(context, 'Contenu', 'Content')),
+          SectionHeading(context.l10n.sharingContent),
           Wrap(
             spacing: 8,
             runSpacing: 8,
@@ -85,12 +82,8 @@ class _ShareSessionScreenState extends State<ShareSessionScreen> {
           const SizedBox(height: 24),
           if (bundle.isEmpty)
             EmptyPanel(
-              title: tr(context, 'Rien à partager', 'Nothing to share'),
-              message: tr(
-                context,
-                'Choisissez au moins un jeu ou un pack.',
-                'Pick at least one game or pack.',
-              ),
+              title: context.l10n.sharingNothingToShare,
+              message: context.l10n.sharingPickAtLeastOneGame,
             )
           else
             _SharePreview(bundle: bundle, encoder: encoder),
@@ -113,15 +106,11 @@ class _SharePreview extends StatelessWidget {
         AnimatedQr(
           key: ValueKey(encoder.id),
           frame: encoder.frame,
-          label: tr(context, 'QR code animé de la session', 'Session QR code'),
+          label: context.l10n.sharingSessionQrCode,
         ),
         const SizedBox(height: 12),
         Text(
-          tr(
-            context,
-            '${bundle.games.length} jeux · ${bundle.templates.length} packs · ${bundle.characters.length} fiches · ${encoder.count} images',
-            '${bundle.games.length} games · ${bundle.templates.length} packs · ${bundle.characters.length} sheets · ${encoder.count} frames',
-          ),
+          context.l10n.sharingGamesPacksSheetsFrames(bundle.games.length, bundle.templates.length, bundle.characters.length, encoder.count),
         ),
         const SizedBox(height: 16),
         OutlinedButton(
@@ -129,7 +118,7 @@ class _SharePreview extends StatelessWidget {
             jsonEncode(bundle.toJson()),
             'session-amiludo.json',
           ),
-          child: Text(tr(context, 'Envoyer en fichier', 'Send as a file')),
+          child: Text(context.l10n.sharingSendAsAFile),
         ),
       ],
     ),

@@ -9,6 +9,7 @@ import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class FriendForm extends StatefulWidget {
   const FriendForm({super.key, required this.id});
@@ -62,7 +63,7 @@ class _FriendFormState extends State<FriendForm> {
       if (mounted) {
         notify(
           context,
-          tr(context, 'Cet ami existe déjà.', 'This friend already exists.'),
+          context.l10n.friendsThisFriendAlreadyExists,
         );
       }
     } on FormatException catch (error) {
@@ -74,7 +75,7 @@ class _FriendFormState extends State<FriendForm> {
     final cubit = context.read<FriendsCubit>();
     if (await confirm(
       context,
-      tr(context, 'Retirer cet ami ?', 'Remove this friend?'),
+      context.l10n.friendsRemoveThisFriend,
       friend.name,
     )) {
       await cubit.remove(friend.id);
@@ -84,7 +85,7 @@ class _FriendFormState extends State<FriendForm> {
 
   @override
   Widget build(BuildContext context) => FullPage(
-    title: tr(context, 'Profil d’ami', 'Friend profile'),
+    title: context.l10n.friendsFriendProfile,
     fallback: '/friends',
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,37 +94,29 @@ class _FriendFormState extends State<FriendForm> {
           controller: name,
           maxLength: 40,
           decoration: InputDecoration(
-            labelText: tr(context, 'Prénom ou pseudo', 'Name or nickname'),
+            labelText: context.l10n.friendsNameOrNickname,
           ),
         ),
-        SectionHeading(tr(context, 'Goûts', 'Tastes')),
+        SectionHeading(context.l10n.friendsTastes),
         Text(
-          tr(
-            context,
-            'Touchez un genre : aime, puis n’aime pas, puis neutre.',
-            'Tap a genre: likes, then dislikes, then neutral.',
-          ),
+          context.l10n.friendsTapAGenreLikesThen,
         ),
         const SizedBox(height: 12),
         _TasteChips(friend: friend, onCycle: _cycle),
-        SectionHeading(tr(context, 'Durée maximale', 'Longest game')),
+        SectionHeading(context.l10n.friendsLongestGame),
         Slider(
           max: 240,
           divisions: 16,
           value: friend.maxMinutes.clamp(0, 240).toDouble(),
           label: friend.maxMinutes == 0
-              ? tr(context, 'Sans limite', 'No limit')
+              ? context.l10n.friendsNoLimit
               : '${friend.maxMinutes} min',
           onChanged: (v) =>
               setState(() => friend = friend.copyWith(maxMinutes: v.round())),
         ),
-        SectionHeading(tr(context, 'Avis par jeu', 'Per-game opinion')),
+        SectionHeading(context.l10n.friendsPerGameOpinion),
         Text(
-          tr(
-            context,
-            'Touchez un jeu : envie, adore même hors de ses genres, refusé, neutre.',
-            'Tap a game: wants it, loves it despite the genre, refuses it, neutral.',
-          ),
+          context.l10n.friendsTapAGameWantsIt,
         ),
         const SizedBox(height: 12),
         _GameOpinions(
@@ -137,14 +130,14 @@ class _FriendFormState extends State<FriendForm> {
           children: [
             FilledButton(
               onPressed: _save,
-              child: Text(tr(context, 'Enregistrer', 'Save')),
+              child: Text(context.l10n.themeSave),
             ),
             if (context.read<FriendsCubit>().state.friends.any(
               (f) => f.id == friend.id,
             ))
               OutlinedButton(
                 onPressed: _remove,
-                child: Text(tr(context, 'Retirer', 'Remove')),
+                child: Text(context.l10n.eveningsRemove),
               ),
           ],
         ),
@@ -190,10 +183,10 @@ class _TasteChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final state = liked
-        ? tr(context, 'aime', 'likes')
+        ? context.l10n.friendsLikes
         : avoided
-        ? tr(context, 'n’aime pas', 'dislikes')
-        : tr(context, 'neutre', 'neutral');
+        ? context.l10n.friendsDislikes
+        : context.l10n.friendsNeutral;
     final scheme = Theme.of(context).colorScheme;
     return Semantics(
       label: '$label : $state',
@@ -242,9 +235,9 @@ class _GameOpinions extends StatelessWidget {
   };
 
   String _label(BuildContext context, GameOpinion opinion) => switch (opinion) {
-    GameOpinion.wished => tr(context, 'envie', 'wants'),
-    GameOpinion.loved => tr(context, 'adore', 'loves'),
-    GameOpinion.refused => tr(context, 'refusé', 'refused'),
+    GameOpinion.wished => context.l10n.friendsWants,
+    GameOpinion.loved => context.l10n.friendsLoves,
+    GameOpinion.refused => context.l10n.friendsRefused,
     GameOpinion.neutral => '',
   };
 
@@ -253,7 +246,7 @@ class _GameOpinions extends StatelessWidget {
     final shelf = context.read<FriendsCubit>().shelf;
     if (shelf.isEmpty) {
       return Text(
-        tr(context, 'Votre ludothèque est vide.', 'Your shelf is empty.'),
+        context.l10n.friendsYourShelfIsEmpty,
       );
     }
     return Wrap(

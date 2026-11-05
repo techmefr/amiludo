@@ -1340,6 +1340,1044 @@ class AppLocalizationsDe extends AppLocalizations {
       'Diese Vorlage nutzt freie Punkte. Füge im Baukasten Wertungsregeln hinzu und starte dann ein Spiel mit diesem Paket.';
 
   @override
+  String get accountSignIn => 'Anmelden';
+
+  @override
+  String get accountSignUp => 'Registrieren';
+
+  @override
+  String get accountName => 'Name';
+
+  @override
+  String get accountEmail => 'E-Mail';
+
+  @override
+  String get accountPassword => 'Passwort';
+
+  @override
+  String get accountAtLeast8Characters => 'Mindestens 8 Zeichen';
+
+  @override
+  String get accountCreateMyAccount => 'Mein Konto erstellen';
+
+  @override
+  String get accountSignIn2 => 'Anmelden';
+
+  @override
+  String get accountForgotPassword => 'Passwort vergessen';
+
+  @override
+  String get accountNameSaved => 'Name gespeichert';
+
+  @override
+  String get accountAccountCreatedConfirmWithThe =>
+      'Konto erstellt: bestätige es mit der erhaltenen E-Mail.';
+
+  @override
+  String get accountSignedIn => 'Angemeldet';
+
+  @override
+  String get accountSignedOut => 'Abgemeldet';
+
+  @override
+  String get accountResetEmailSent => 'Zurücksetzungs-E-Mail gesendet.';
+
+  @override
+  String get accountSignInLinkSentCheck =>
+      'Anmeldelink gesendet: prüfe deine E-Mails.';
+
+  @override
+  String get accountPasswordChanged => 'Passwort geändert';
+
+  @override
+  String get accountOnlineAccount => 'Online-Konto';
+
+  @override
+  String get accountLocalMode => 'Lokaler Modus';
+
+  @override
+  String get accountThisBuildHasNoServer =>
+      'Dieser Build hat keinen Server: alles bleibt auf dem Gerät. WLAN-Lobbys funktionieren ohne Konto.';
+
+  @override
+  String get accountTheNameFriendsSeeWhen =>
+      'Der Name, den Freunde sehen, wenn du einem Spiel beitrittst.';
+
+  @override
+  String get accountYourName => 'Dein Name';
+
+  @override
+  String get accountInvalidEmail => 'Ungültige E-Mail';
+
+  @override
+  String get accountPasswordAtLeast8Characters =>
+      'Passwort: mindestens 8 Zeichen';
+
+  @override
+  String get accountInvalidName => 'Ungültiger Name';
+
+  @override
+  String get accountInvalidCodeTypeTheDigits =>
+      'Ungültiger Code: gib die Ziffern aus der E-Mail ein.';
+
+  @override
+  String get accountSignInFirst => 'Melde dich zuerst an';
+
+  @override
+  String get accountTheServerRefusedCheckThe =>
+      'Der Server hat abgelehnt: prüfe E-Mail und Passwort.';
+
+  @override
+  String get accountNoServerConfigured => 'Kein Server konfiguriert';
+
+  @override
+  String get accountCouldNotConnect => 'Verbindung nicht möglich';
+
+  @override
+  String get accountEmailMeASignIn => 'Anmeldelink per E-Mail senden';
+
+  @override
+  String get accountOpenTheLinkOnThis =>
+      'Öffne den Link auf diesem Gerät oder gib den Code aus der E-Mail ein.';
+
+  @override
+  String get accountCodeReceived => 'Erhaltener Code';
+
+  @override
+  String get accountConfirmTheCode => 'Code bestätigen';
+
+  @override
+  String get accountAdmin => 'Verwaltung';
+
+  @override
+  String get accountNewPassword => 'Neues Passwort';
+
+  @override
+  String get accountOptionalTheEmailLinkIs =>
+      'Optional: Der Link aus der E-Mail genügt zum Anmelden.';
+
+  @override
+  String get accountChangePassword => 'Passwort ändern';
+
+  @override
+  String get accountManageAccounts => 'Konten verwalten';
+
+  @override
+  String get accountSignOut => 'Abmelden';
+
+  @override
+  String get adminListUnavailable => 'Liste nicht verfügbar';
+
+  @override
+  String get adminAccounts => 'Konten';
+
+  @override
+  String get adminInviteSomeone => 'Jemanden einladen';
+
+  @override
+  String adminAccounts2(Object count) {
+    return '$count Konten';
+  }
+
+  @override
+  String get adminAdminsOnlySignInAgain =>
+      'Nur für Admins: melde dich erneut an, wenn du die Rolle gerade erhalten hast.';
+
+  @override
+  String get adminNotPossibleOnYourOwn =>
+      'Mit deinem eigenen Konto nicht möglich.';
+
+  @override
+  String get adminTheServerRefusedTheOperation =>
+      'Der Server hat den Vorgang abgelehnt.';
+
+  @override
+  String get adminInvitationSent => 'Einladung gesendet';
+
+  @override
+  String get adminAccountUpdated => 'Konto aktualisiert';
+
+  @override
+  String get adminAccountDeleted => 'Konto gelöscht';
+
+  @override
+  String get adminNeverSignedIn => 'Nie angemeldet';
+
+  @override
+  String adminLastSignIn(Object value) {
+    return 'Letzte Anmeldung: $value';
+  }
+
+  @override
+  String get adminTheyGetAnEmailTo =>
+      'Sie erhalten eine E-Mail, um ihr Konto zu aktivieren.';
+
+  @override
+  String get adminNameOptional => 'Name (optional)';
+
+  @override
+  String get adminInvite => 'Einladen';
+
+  @override
+  String adminDelete(Object label) {
+    return '$label löschen?';
+  }
+
+  @override
+  String get adminTheAccountAndItsPublished =>
+      'Das Konto und seine veröffentlichten Abende werden gelöscht. Das lässt sich nicht rückgängig machen.';
+
+  @override
+  String get adminBlocked => 'Gesperrt';
+
+  @override
+  String get adminPending => 'Ausstehend';
+
+  @override
+  String get adminAccountActions => 'Kontoaktionen';
+
+  @override
+  String get adminRemoveAdminRole => 'Admin-Rolle entfernen';
+
+  @override
+  String get adminMakeAdmin => 'Zum Admin machen';
+
+  @override
+  String get adminUnblock => 'Entsperren';
+
+  @override
+  String get adminBlock => 'Sperren';
+
+  @override
+  String get eveningsRemoveThisNight => 'Diesen Abend entfernen?';
+
+  @override
+  String get eveningsSignUpsWillBeLost => 'Die Anmeldungen gehen verloren.';
+
+  @override
+  String get eveningsItLeavesYourList => 'Er verschwindet aus deiner Liste.';
+
+  @override
+  String get eveningsGameNight => 'Spieleabend';
+
+  @override
+  String get eveningsRefresh => 'Aktualisieren';
+
+  @override
+  String get eveningsRemove => 'Entfernen';
+
+  @override
+  String get eveningsNightNotFound => 'Abend nicht gefunden';
+
+  @override
+  String get eveningsItWasRemoved => 'Er wurde entfernt.';
+
+  @override
+  String eveningsOnTheMenu(Object value) {
+    return 'Auf dem Programm: $value';
+  }
+
+  @override
+  String get eveningsYourAnswer => 'Deine Antwort';
+
+  @override
+  String get eveningsSignInToSignUp => 'Melde dich an, um dich anzumelden';
+
+  @override
+  String get eveningsFullYouAreOnThe => 'Voll: du stehst auf der Warteliste.';
+
+  @override
+  String get eveningsTitle => 'Titel';
+
+  @override
+  String get eveningsGamesAtLAS => 'Spiele bei Léa';
+
+  @override
+  String get eveningsPlace => 'Ort';
+
+  @override
+  String get eveningsChange => 'Ändern';
+
+  @override
+  String get eveningsSeatsNoLimit => 'Plätze: unbegrenzt';
+
+  @override
+  String eveningsSeatsYouIncluded(Object seats) {
+    return 'Plätze: $seats (du eingeschlossen)';
+  }
+
+  @override
+  String get eveningsPlannedGames => 'Geplante Spiele';
+
+  @override
+  String get eveningsWithoutAServerRecordYour =>
+      'Ohne Server trägst du die Antworten deiner Freunde unten selbst ein.';
+
+  @override
+  String get eveningsInviteOnline => 'Online einladen';
+
+  @override
+  String get eveningsPublishTheNightFriendsSign =>
+      'Veröffentliche den Abend: Freunde melden sich per Link, Code oder QR an.';
+
+  @override
+  String get eveningsPublish => 'Veröffentlichen';
+
+  @override
+  String get eveningsSignInToPublish => 'Melde dich zum Veröffentlichen an';
+
+  @override
+  String get eveningsFriendsAnswers => 'Antworten der Freunde';
+
+  @override
+  String get eveningsNoAnswer => 'Keine Antwort';
+
+  @override
+  String eveningsSAnswer(Object name) {
+    return 'Antwort von $name';
+  }
+
+  @override
+  String get eveningsInvitation => 'Einladung';
+
+  @override
+  String get eveningsCheckTheCodeWithThe => 'Prüfe den Code mit dem Gastgeber.';
+
+  @override
+  String get eveningsThisBuildHasNoServer =>
+      'Dieser Build hat keinen Server, um Abende zu suchen.';
+
+  @override
+  String get eveningsGoing => 'Kommen';
+
+  @override
+  String get eveningsWaitingList => 'Warteliste';
+
+  @override
+  String get eveningsMaybe => 'Vielleicht';
+
+  @override
+  String get eveningsNotComing => 'Kommen nicht';
+
+  @override
+  String get eveningsHosting => 'Gastgeber';
+
+  @override
+  String get eveningsIMIn => 'Ich bin dabei';
+
+  @override
+  String get eveningsNotThisTime => 'Diesmal nicht';
+
+  @override
+  String eveningsGoing2(Object going) {
+    return '$going kommen';
+  }
+
+  @override
+  String eveningsSeats(Object going, Object seats) {
+    return '$going/$seats Plätze';
+  }
+
+  @override
+  String eveningsWaiting(Object base, Object waiting) {
+    return '$base · $waiting wartend';
+  }
+
+  @override
+  String get eveningsHostOnly => 'Nur Gastgeber';
+
+  @override
+  String get eveningsCouldNotDoItCheck =>
+      'Fehlgeschlagen: prüfe Verbindung und Konto.';
+
+  @override
+  String get eveningsPlanANight => 'Einen Abend planen';
+
+  @override
+  String get eveningsIHaveACode => 'Ich habe einen Code';
+
+  @override
+  String get eveningsUpcoming => 'Anstehend';
+
+  @override
+  String get eveningsNoNightPlanned => 'Kein Abend geplant';
+
+  @override
+  String get eveningsPickADateInviteBy =>
+      'Wähle ein Datum, lade per Link oder QR ein, und alle melden sich an.';
+
+  @override
+  String get eveningsPast => 'Vergangen';
+
+  @override
+  String get friendsThisFriendAlreadyExists =>
+      'Dieser Freund existiert bereits.';
+
+  @override
+  String get friendsRemoveThisFriend => 'Diesen Freund entfernen?';
+
+  @override
+  String get friendsFriendProfile => 'Freundesprofil';
+
+  @override
+  String get friendsNameOrNickname => 'Name oder Spitzname';
+
+  @override
+  String get friendsTastes => 'Vorlieben';
+
+  @override
+  String get friendsTapAGenreLikesThen =>
+      'Tippe auf ein Genre: mag ich, dann mag ich nicht, dann neutral.';
+
+  @override
+  String get friendsLongestGame => 'Längstes Spiel';
+
+  @override
+  String get friendsNoLimit => 'Kein Limit';
+
+  @override
+  String get friendsPerGameOpinion => 'Meinung pro Spiel';
+
+  @override
+  String get friendsTapAGameWantsIt =>
+      'Tippe auf ein Spiel: will es, liebt es trotz Genre, lehnt es ab, neutral.';
+
+  @override
+  String get friendsLikes => 'mag';
+
+  @override
+  String get friendsDislikes => 'mag nicht';
+
+  @override
+  String get friendsNeutral => 'neutral';
+
+  @override
+  String get friendsWants => 'will es';
+
+  @override
+  String get friendsLoves => 'liebt es';
+
+  @override
+  String get friendsRefused => 'abgelehnt';
+
+  @override
+  String get friendsYourShelfIsEmpty => 'Dein Regal ist leer.';
+
+  @override
+  String get friendsAroundTheTable => 'Rund um den Tisch';
+
+  @override
+  String get friendsMyFriends => 'Meine Freunde';
+
+  @override
+  String get friendsTheirTastesAndReviewsTo =>
+      'Ihre Vorlieben und Bewertungen, um das richtige Spiel zu wählen.';
+
+  @override
+  String get friendsAddAFriend => 'Freund hinzufügen';
+
+  @override
+  String get friendsNobodyYet => 'Noch niemand';
+
+  @override
+  String get friendsAddYourGamePartnersAnd =>
+      'Füge deine Mitspieler und ihre Vorlieben hinzu.';
+
+  @override
+  String get friendsLatestReviews => 'Neueste Bewertungen';
+
+  @override
+  String get friendsLikes2 => 'Mag';
+
+  @override
+  String get friendsDislikes2 => 'Mag nicht';
+
+  @override
+  String get friendsGamesUpTo => 'Spiele bis';
+
+  @override
+  String friendsStarsOutOf5(Object stars) {
+    return '$stars von 5 Sternen';
+  }
+
+  @override
+  String get friendsReviewsSaved => 'Bewertungen gespeichert';
+
+  @override
+  String get friendsRateTheGame => 'Bewerte das Spiel';
+
+  @override
+  String get friendsGameNotFound => 'Spiel nicht gefunden';
+
+  @override
+  String get friendsItMayHaveBeenDeleted => 'Er wurde möglicherweise gelöscht.';
+
+  @override
+  String get friendsSaveReviews => 'Bewertungen speichern';
+
+  @override
+  String friendsStarSOf5(Object i) {
+    return '$i von 5 Stern(en)';
+  }
+
+  @override
+  String get friendsAWordOnTheGame => 'Ein Wort zum Spiel';
+
+  @override
+  String get historyTeam => 'Team';
+
+  @override
+  String get historyLeading => 'Führend';
+
+  @override
+  String get historyWinner => 'Gewinner';
+
+  @override
+  String get historyActive => 'Aktiv';
+
+  @override
+  String get historyComplete => 'Abgeschlossen';
+
+  @override
+  String get historyRounds => 'Runden';
+
+  @override
+  String get historyDeleteThisGame => 'Dieses Spiel löschen?';
+
+  @override
+  String get historyThisAlsoRemovesScoresAnd =>
+      'Dadurch werden auch Punkte und Notizen entfernt.';
+
+  @override
+  String get historyResume => 'Fortsetzen';
+
+  @override
+  String get historyDetails => 'Details';
+
+  @override
+  String get historyPlayAgain => 'Nochmal spielen';
+
+  @override
+  String get historyRate => 'Bewerten';
+
+  @override
+  String get historyMemories => 'Erinnerungen';
+
+  @override
+  String get historyDeleteGame => 'Spiel löschen';
+
+  @override
+  String get historyGameImported => 'Spiel importiert';
+
+  @override
+  String get historyKeepTheGoodTimes => 'Bewahre die schönen Momente';
+
+  @override
+  String get historyTheGoodTimes => 'Die schönen Momente';
+
+  @override
+  String get historyYourGamesAndResultsSaved =>
+      'Deine Spiele und Ergebnisse, auf diesem Gerät gespeichert.';
+
+  @override
+  String get historyImportGame => 'Spiel importieren';
+
+  @override
+  String get historyOpenGallery => 'Galerie öffnen';
+
+  @override
+  String get historySearchAGamePlayerOr =>
+      'Suche ein Spiel, einen Spieler oder ein Datum';
+
+  @override
+  String get historyNoGamesFound => 'Keine Spiele gefunden';
+
+  @override
+  String get historyGamesAppearHereWhenCreated =>
+      'Spiele erscheinen hier, sobald sie erstellt werden.';
+
+  @override
+  String get historyCompletedGames => 'ABGESCHLOSSENE SPIELE';
+
+  @override
+  String get historyActiveTables => 'AKTIVE TISCHE';
+
+  @override
+  String get historyMinutesPlayed => 'GESPIELTE MINUTEN';
+
+  @override
+  String get historyRestoreBackup => 'Sicherung wiederherstellen?';
+
+  @override
+  String get historyYourCurrentLibraryWillBe =>
+      'Deine aktuelle Bibliothek wird ersetzt. Exportiere sie vorher, falls nötig.';
+
+  @override
+  String get historyBackupRestored => 'Sicherung wiederhergestellt';
+
+  @override
+  String get historyEraseAllData => 'Alle Daten löschen?';
+
+  @override
+  String get historyGamesTemplatesProfilesAndSettings =>
+      'Spiele, Vorlagen, Profile und Einstellungen werden von diesem Gerät entfernt. Das lässt sich nicht rückgängig machen.';
+
+  @override
+  String get historyYourDataBelongsToYou => 'Deine Daten gehören dir';
+
+  @override
+  String get historyBackUpEverything => 'Alles sichern';
+
+  @override
+  String get historyRestore => 'Wiederherstellen';
+
+  @override
+  String get historyEraseAllMyData => 'Alle meine Daten löschen';
+
+  @override
+  String get libraryGameShelf => 'Spielregal';
+
+  @override
+  String get libraryMyGames => 'Meine Spiele';
+
+  @override
+  String libraryBoxesStoredOnThisDevice(Object count) {
+    return '$count Schachteln auf diesem Gerät gespeichert.';
+  }
+
+  @override
+  String get libraryAddAGame => 'Spiel hinzufügen';
+
+  @override
+  String get libraryEmptyShelves => 'Leere Regale';
+
+  @override
+  String get libraryNoGameFound => 'Kein Spiel gefunden';
+
+  @override
+  String get libraryStoreYourBoxesHereTo =>
+      'Bewahre hier deine Schachteln auf, um Spiele, Pakete und Bewertungen zu finden.';
+
+  @override
+  String get libraryWhatToPlay => 'Was spielen?';
+
+  @override
+  String get libraryReceiveByQr => 'Per QR empfangen';
+
+  @override
+  String get libraryShareASession => 'Eine Sitzung teilen';
+
+  @override
+  String get libraryPacksAndTemplates => 'Pakete und Vorlagen';
+
+  @override
+  String get librarySearchAGame => 'Spiel suchen';
+
+  @override
+  String get libraryNameTheGame => 'Gib dem Spiel einen Namen.';
+
+  @override
+  String get libraryShelfGame => 'Spiel im Regal';
+
+  @override
+  String get libraryGameName => 'Spielname';
+
+  @override
+  String get libraryGenres => 'Genres';
+
+  @override
+  String get libraryBoxColour => 'Schachtelfarbe';
+
+  @override
+  String get libraryLinkedPacks => 'Verknüpfte Pakete';
+
+  @override
+  String get libraryPutOnShelf => 'Ins Regal stellen';
+
+  @override
+  String get libraryPlayers => 'Spieler';
+
+  @override
+  String get libraryLength => 'Dauer';
+
+  @override
+  String get libraryColour => 'Farbe';
+
+  @override
+  String get libraryPlays => 'Partien';
+
+  @override
+  String get libraryRemoveThisGame => 'Dieses Spiel entfernen?';
+
+  @override
+  String get libraryPlay => 'Spielen';
+
+  @override
+  String get libraryRemoveFromShelf => 'Aus dem Regal nehmen';
+
+  @override
+  String get libraryWhatToPlayTonight => 'Was spielen wir heute Abend?';
+
+  @override
+  String get libraryWhoIsHere => 'Wer ist da?';
+
+  @override
+  String get libraryAddFriends => 'Freunde hinzufügen';
+
+  @override
+  String get libraryTimeAvailable => 'Verfügbare Zeit';
+
+  @override
+  String get libraryAllEvening => 'Den ganzen Abend';
+
+  @override
+  String libraryGamesForPlayers(Object count, Object value) {
+    return '$count Spiele für $value Spieler';
+  }
+
+  @override
+  String get libraryNothingFits => 'Nichts passt';
+
+  @override
+  String get libraryAddGamesOrRelaxYour =>
+      'Füge Spiele hinzu oder lockere die Vorlieben deiner Freunde.';
+
+  @override
+  String libraryWantedBy(Object value) {
+    return 'Gewünscht von $value';
+  }
+
+  @override
+  String libraryLovedBy(Object value) {
+    return 'Geliebt von $value';
+  }
+
+  @override
+  String get lobbySkullNight => 'Skull-Abend';
+
+  @override
+  String lobbySeats(Object seats) {
+    return 'Plätze: $seats';
+  }
+
+  @override
+  String get lobbyOpenTheLobby => 'Lobby öffnen';
+
+  @override
+  String get lobbySameWiFi => 'Gleiches WLAN';
+
+  @override
+  String get lobbyAroundTheTableNoServer => 'Rund um den Tisch, ohne Server.';
+
+  @override
+  String get lobbyNotAvailableInTheBrowser => 'Im Browser nicht verfügbar.';
+
+  @override
+  String get lobbyRemote => 'Aus der Ferne';
+
+  @override
+  String get lobbyOverTheInternetWithThe =>
+      'Über das Internet, mit Link oder Code.';
+
+  @override
+  String get lobbyNoServerConfiguredForThis =>
+      'Für diesen Build ist kein Server konfiguriert.';
+
+  @override
+  String get lobbyAcceptRequests => 'Anfragen annehmen';
+
+  @override
+  String lobbyStartWithPlayers(Object count) {
+    return 'Mit $count Spielern starten';
+  }
+
+  @override
+  String get lobbyCloseTheLobby => 'Lobby schließen';
+
+  @override
+  String get lobbyJoin => 'Beitreten';
+
+  @override
+  String get lobbyEnterYourName => 'Gib deinen Namen ein';
+
+  @override
+  String get lobbyCodeOrLink => 'Code oder Link';
+
+  @override
+  String get lobbyScanAQr => 'QR scannen';
+
+  @override
+  String get lobbyCameraUnavailableTypeTheCode =>
+      'Kamera nicht verfügbar: gib den Code ein.';
+
+  @override
+  String get lobbyTheHostClosedTheLobby =>
+      'Der Gastgeber hat die Lobby geschlossen.';
+
+  @override
+  String lobbyHereWeGoTheGame(Object hostName) {
+    return 'Los geht\'s! Das Spiel läuft auf dem Gerät von $hostName.';
+  }
+
+  @override
+  String get lobbyYouAreInWaitFor => 'Du bist dabei. Warte auf den Start.';
+
+  @override
+  String get lobbyTheHostDidNotAccept =>
+      'Der Gastgeber hat deine Anfrage nicht angenommen.';
+
+  @override
+  String lobbyRequestSentTo(Object hostName) {
+    return 'Anfrage an $hostName gesendet…';
+  }
+
+  @override
+  String get lobbyLeave => 'Verlassen';
+
+  @override
+  String lobbyPlayers(Object count, Object seats) {
+    return 'Spieler $count/$seats';
+  }
+
+  @override
+  String get lobbyHost => 'Gastgeber';
+
+  @override
+  String get lobbyRequests => 'Anfragen';
+
+  @override
+  String get lobbyWantsToJoin => 'Möchte beitreten';
+
+  @override
+  String get lobbyNoSeatLeft => 'Keine Plätze mehr';
+
+  @override
+  String lobbyAccept(Object name) {
+    return '$name annehmen';
+  }
+
+  @override
+  String lobbyRefuse(Object name) {
+    return '$name ablehnen';
+  }
+
+  @override
+  String lobbyRemove(Object name) {
+    return '$name entfernen';
+  }
+
+  @override
+  String get lobbyCheckTheCodeAndYour => 'Prüfe den Code und deinen Namen.';
+
+  @override
+  String get lobbyNoOpenGameWithThis =>
+      'Kein offenes Spiel mit diesem Code. Hat der Gastgeber die Lobby geöffnet?';
+
+  @override
+  String get lobbyCannotConnectJoinTheSame =>
+      'Verbindung nicht möglich: tritt dem gleichen WLAN bei oder aktiviere das Internet.';
+
+  @override
+  String get lobbySomethingWentWrongTryAgain =>
+      'Etwas ist schiefgelaufen, versuche es erneut.';
+
+  @override
+  String get memoriesGalleryKey => 'Galerieschlüssel';
+
+  @override
+  String get memoriesLetYourFriendsScanThis =>
+      'Lass deine Freunde diesen Code scannen. Ohne ihn bleibt die Datei unlesbar.';
+
+  @override
+  String get memoriesKeyQrCode => 'QR-Code des Schlüssels';
+
+  @override
+  String get memoriesDone => 'Fertig';
+
+  @override
+  String get memoriesShareEncrypted => 'Verschlüsselt teilen';
+
+  @override
+  String get memoriesOpenAGallery => 'Eine Galerie öffnen';
+
+  @override
+  String get memories1PickTheReceivedFile =>
+      '1. Wähle die erhaltene Datei. 2. Scanne den Schlüssel, den dein Freund zeigt.';
+
+  @override
+  String get memoriesPickTheFile => 'Datei auswählen';
+
+  @override
+  String get memoriesFileReady => 'Datei bereit ✓';
+
+  @override
+  String get memoriesScanTheKey => 'Schlüssel scannen';
+
+  @override
+  String get memoriesCameraUnavailableTypeTheKey =>
+      'Kamera nicht verfügbar. Gib stattdessen den Schlüssel ein.';
+
+  @override
+  String get memoriesDecrypt => 'Entschlüsseln';
+
+  @override
+  String get memoriesTheStory => 'Die Geschichte';
+
+  @override
+  String get memoriesHighlights => 'Höhepunkte';
+
+  @override
+  String get memoriesPrivateGallery => 'Private Galerie';
+
+  @override
+  String get memoriesStorySaved => 'Geschichte gespeichert';
+
+  @override
+  String get memoriesWhatWeLlRememberOf =>
+      'Woran wir uns von diesem Abend erinnern';
+
+  @override
+  String get memoriesSaveTheStory => 'Geschichte speichern';
+
+  @override
+  String get memoriesRemoveThisMoment => 'Diesen Moment entfernen';
+
+  @override
+  String get memoriesAHighlightThenEnter => 'Ein Höhepunkt, dann Eingabe';
+
+  @override
+  String get memoriesPhotoTooLarge8Mb => 'Foto zu groß (maximal 8 MB).';
+
+  @override
+  String get memories60PhotosMaximumPerGame => 'Maximal 60 Fotos pro Spiel.';
+
+  @override
+  String get memoriesPhotosStayOnThisDevice =>
+      'Fotos bleiben auf diesem Gerät. Zum Teilen wird die Galerie verschlüsselt und der Schlüssel am Tisch per QR-Code weitergegeben.';
+
+  @override
+  String get memoriesAddAPhoto => 'Foto hinzufügen';
+
+  @override
+  String get memoriesDeleteThePhoto => 'Foto löschen?';
+
+  @override
+  String get memoriesItWillBeErased => 'Sie wird gelöscht.';
+
+  @override
+  String get memoriesGamePhoto => 'Spielfoto';
+
+  @override
+  String get memoriesDeletePhoto => 'Foto löschen';
+
+  @override
+  String sharingReceivedGamesPacksSheets(
+    Object games,
+    Object templates,
+    Object characters,
+  ) {
+    return 'Empfangen: $games Spiele, $templates Pakete, $characters Blätter';
+  }
+
+  @override
+  String get sharingReceiveASession => 'Eine Sitzung empfangen';
+
+  @override
+  String get sharingPointAtYourFriendS =>
+      'Richte die Kamera auf den animierten QR-Code deines Freundes und halte ihn im Bild, bis 100 % erreicht sind.';
+
+  @override
+  String get sharingCameraUnavailableAskForThe =>
+      'Kamera nicht verfügbar. Frage stattdessen nach der Datei.';
+
+  @override
+  String get sharingReceiveProgress => 'Empfangsfortschritt';
+
+  @override
+  String get sharingWaiting => 'Warten…';
+
+  @override
+  String get sharingOpenAFile => 'Eine Datei öffnen';
+
+  @override
+  String get sharingYourFriendOpensReceiveBy =>
+      'Dein Freund öffnet „Per QR empfangen“ und richtet die Kamera auf den Bildschirm: Spiele, Pakete, Würfel und Charakterblätter landen auf seinem Gerät.';
+
+  @override
+  String get sharingContent => 'Inhalt';
+
+  @override
+  String get sharingNothingToShare => 'Nichts zu teilen';
+
+  @override
+  String get sharingPickAtLeastOneGame =>
+      'Wähle mindestens ein Spiel oder Paket.';
+
+  @override
+  String get sharingSessionQrCode => 'QR-Code der Sitzung';
+
+  @override
+  String sharingGamesPacksSheetsFrames(
+    Object count,
+    Object count2,
+    Object count3,
+    Object count4,
+  ) {
+    return '$count Spiele · $count2 Pakete · $count3 Blätter · $count4 Frames';
+  }
+
+  @override
+  String get sharingSendAsAFile => 'Als Datei senden';
+
+  @override
+  String get timerTimeIsUpPassThe => 'Die Zeit ist um. Gib den Zug weiter.';
+
+  @override
+  String get timerConfigureTime => 'Zeit einstellen';
+
+  @override
+  String get timerApply => 'Anwenden';
+
+  @override
+  String get timerTimeToThink => 'ZEIT ZUM NACHDENKEN';
+
+  @override
+  String get timerQuickTimer => 'Schnell-Timer';
+
+  @override
+  String get timerPlayerBank => 'Zeitkonto pro Spieler';
+
+  @override
+  String get timerTimePerTurn => 'Zeit pro Zug';
+
+  @override
+  String get timerTimeRemaining => 'Verbleibende Zeit';
+
+  @override
+  String get timerPause => 'Pause';
+
+  @override
+  String get timerStart => 'Start';
+
+  @override
+  String get timerTimerSettings => 'Timer-Einstellungen';
+
+  @override
+  String get timerDurationInSeconds => 'Dauer in Sekunden';
+
+  @override
+  String get timerIncrementPerTurnSeconds => 'Zuschlag pro Zug (Sekunden)';
+
+  @override
+  String get timerBankPerPlayer => 'Zeitkonto pro Spieler';
+
+  @override
+  String get timerOtherwiseFixedTimeEachTurn => 'Sonst: feste Zeit pro Zug.';
+
+  @override
+  String get timerTimeToPlay => 'Zeit zum Spielen';
+
+  @override
   String randomKeepCards(String range, int selected) {
     return 'Behalte $range Karte(n). $selected ausgewählt.';
   }

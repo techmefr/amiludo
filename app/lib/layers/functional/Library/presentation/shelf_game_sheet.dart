@@ -8,6 +8,7 @@ import 'package:amiludo/layers/functional/Library/presentation/cubit/library_cub
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 Future<void> showShelfGameSheet(BuildContext context, ShelfGame game) =>
     showModalBottomSheet<void>(
@@ -59,7 +60,7 @@ class _ShelfGameSheet extends StatelessWidget {
             Text(game.name, style: theme.textTheme.headlineMedium),
             const SizedBox(height: 8),
             Text(
-              '${game.minPlayers}-${game.maxPlayers} ${tr(context, 'joueurs', 'players')} · ${game.minutes} min · $plays ${tr(context, 'parties', 'plays')}${stars == null ? '' : ' · ${stars.toStringAsFixed(1)} ★'}',
+              '${game.minPlayers}-${game.maxPlayers} ${context.l10n.gamePlayers} · ${game.minutes} min · $plays ${context.l10n.libraryPlays}${stars == null ? '' : ' · ${stars.toStringAsFixed(1)} ★'}',
               style: theme.textTheme.bodyMedium,
             ),
             const SizedBox(height: 16),
@@ -104,7 +105,7 @@ class _SheetActions extends StatelessWidget {
     final navigator = Navigator.of(context);
     if (await confirm(
       context,
-      tr(context, 'Retirer ce jeu ?', 'Remove this game?'),
+      context.l10n.libraryRemoveThisGame,
       game.name,
     )) {
       await cubit.remove(game.id);
@@ -132,18 +133,18 @@ class _SheetActions extends StatelessWidget {
                 : templates.first,
           ),
         ),
-        child: Text(tr(context, 'Jouer', 'Play')),
+        child: Text(context.l10n.libraryPlay),
       ),
       OutlinedButton(
         onPressed: () => _open(context, '/share?game=${game.id}'),
-        child: Text(tr(context, 'Partager en QR', 'Share by QR')),
+        child: Text(context.l10n.templatesShareByQr),
       ),
       OutlinedButton(
         onPressed: () => _open(context, '/library/edit/${game.id}'),
-        child: Text(tr(context, 'Modifier', 'Edit')),
+        child: Text(context.l10n.templatesEdit),
       ),
       IconButton(
-        tooltip: tr(context, 'Retirer de la ludothèque', 'Remove from shelf'),
+        tooltip: context.l10n.libraryRemoveFromShelf,
         onPressed: () => _remove(context),
         icon: const DeckIcon(Icons.delete_outline),
       ),

@@ -12,6 +12,7 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/technical/Transfer/compression.dart';
 import 'package:amiludo/layers/technical/Transfer/fountain.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class ReceiveSessionScreen extends StatefulWidget {
   const ReceiveSessionScreen({super.key});
@@ -52,11 +53,7 @@ class _ReceiveSessionScreenState extends State<ReceiveSessionScreen> {
       if (!mounted) return;
       notify(
         context,
-        tr(
-          context,
-          'Reçu : ${result.games} jeux, ${result.templates} packs, ${result.characters} fiches',
-          'Received: ${result.games} games, ${result.templates} packs, ${result.characters} sheets',
-        ),
+        context.l10n.sharingReceivedGamesPacksSheets(result.games, result.templates, result.characters),
       );
       context.go('/library');
     } catch (error) {
@@ -67,43 +64,35 @@ class _ReceiveSessionScreenState extends State<ReceiveSessionScreen> {
 
   @override
   Widget build(BuildContext context) => FullPage(
-    title: tr(context, 'Recevoir une session', 'Receive a session'),
+    title: context.l10n.sharingReceiveASession,
     fallback: '/library',
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          tr(
-            context,
-            'Visez le QR code animé de votre ami et gardez l’écran dans le cadre jusqu’à 100 %.',
-            'Point at your friend’s animated QR code and keep it framed until 100%.',
-          ),
+          context.l10n.sharingPointAtYourFriendS,
         ),
         const SizedBox(height: 16),
         QrScannerView(
           onCode: _frame,
-          unavailable: tr(
-            context,
-            'Caméra indisponible. Demandez plutôt le fichier.',
-            'Camera unavailable. Ask for the file instead.',
-          ),
+          unavailable: context.l10n.sharingCameraUnavailableAskForThe,
         ),
         const SizedBox(height: 16),
         Semantics(
-          label: tr(context, 'Progression de la réception', 'Receive progress'),
+          label: context.l10n.sharingReceiveProgress,
           value: '${(decoder.progress * 100).round()} %',
           child: LinearProgressIndicator(value: decoder.progress),
         ),
         const SizedBox(height: 8),
         Text(
           decoder.count == 0
-              ? tr(context, 'En attente du premier code…', 'Waiting…')
+              ? context.l10n.sharingWaiting
               : '${decoder.solved} / ${decoder.count}',
         ),
         const SizedBox(height: 24),
         OutlinedButton(
           onPressed: _file,
-          child: Text(tr(context, 'Ouvrir un fichier reçu', 'Open a file')),
+          child: Text(context.l10n.sharingOpenAFile),
         ),
       ],
     ),

@@ -7,40 +7,25 @@ import 'package:amiludo/layers/functional/Account/presentation/cubit/account_cub
 import 'package:amiludo/layers/functional/Account/presentation/signed_in_panel.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
 
   String _notice(BuildContext context, AccountNotice notice) =>
       switch (notice) {
-        AccountNotice.saved => tr(context, 'Prénom enregistré', 'Name saved'),
-        AccountNotice.checkMail => tr(
-          context,
-          'Compte créé : confirmez via l’e-mail reçu.',
-          'Account created: confirm with the email you received.',
-        ),
-        AccountNotice.signedIn => tr(context, 'Connecté', 'Signed in'),
-        AccountNotice.signedOut => tr(context, 'Déconnecté', 'Signed out'),
-        AccountNotice.resetSent => tr(
-          context,
-          'E-mail de réinitialisation envoyé.',
-          'Reset email sent.',
-        ),
-        AccountNotice.linkSent => tr(
-          context,
-          'Lien de connexion envoyé : regardez vos e-mails.',
-          'Sign-in link sent: check your email.',
-        ),
-        AccountNotice.passwordChanged => tr(
-          context,
-          'Mot de passe modifié',
-          'Password changed',
-        ),
+        AccountNotice.saved => context.l10n.accountNameSaved,
+        AccountNotice.checkMail => context.l10n.accountAccountCreatedConfirmWithThe,
+        AccountNotice.signedIn => context.l10n.accountSignedIn,
+        AccountNotice.signedOut => context.l10n.accountSignedOut,
+        AccountNotice.resetSent => context.l10n.accountResetEmailSent,
+        AccountNotice.linkSent => context.l10n.accountSignInLinkSentCheck,
+        AccountNotice.passwordChanged => context.l10n.accountPasswordChanged,
       };
 
   @override
   Widget build(BuildContext context) => FullPage(
-    title: tr(context, 'Mon profil', 'My profile'),
+    title: context.l10n.workspaceMyProfile,
     fallback: '/',
     child: BlocConsumer<AccountCubit, AccountState>(
       listenWhen: (a, b) => b.notice != null || b.error != null,
@@ -54,15 +39,11 @@ class AccountScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           _Nickname(nickname: state.nickname),
-          SectionHeading(tr(context, 'Compte en ligne', 'Online account')),
+          SectionHeading(context.l10n.accountOnlineAccount),
           if (!state.available)
             EmptyPanel(
-              title: tr(context, 'Mode local', 'Local mode'),
-              message: tr(
-                context,
-                'Cette version n’a pas de serveur : tout reste sur l’appareil. Les salons Wi-Fi marchent sans compte.',
-                'This build has no server: everything stays on the device. Wi-Fi lobbies work without an account.',
-              ),
+              title: context.l10n.accountLocalMode,
+              message: context.l10n.accountThisBuildHasNoServer,
             )
           else if (state.account != null)
             SignedInPanel(account: state.account!, busy: state.busy)
@@ -97,11 +78,7 @@ class _NicknameState extends State<_Nickname> {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
-        tr(
-          context,
-          'Le prénom que voient vos amis quand vous rejoignez une partie.',
-          'The name friends see when you join a game.',
-        ),
+        context.l10n.accountTheNameFriendsSeeWhen,
       ),
       const SizedBox(height: 12),
       TextField(
@@ -109,12 +86,12 @@ class _NicknameState extends State<_Nickname> {
         maxLength: 40,
         autofillHints: const [AutofillHints.givenName],
         decoration: InputDecoration(
-          labelText: tr(context, 'Votre prénom', 'Your name'),
+          labelText: context.l10n.accountYourName,
         ),
       ),
       FilledButton(
         onPressed: () => context.read<AccountCubit>().saveNickname(name.text),
-        child: Text(tr(context, 'Enregistrer', 'Save')),
+        child: Text(context.l10n.themeSave),
       ),
     ],
   );

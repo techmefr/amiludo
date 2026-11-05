@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/History/presentation/cubit/history_cub
 import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
 import 'package:amiludo/layers/technical/Files/file_transfer.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class HistoryGameCard extends StatelessWidget {
   const HistoryGameCard({super.key, required this.game});
@@ -15,8 +16,8 @@ class HistoryGameCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context), g = game;
     final headline = g.cooperative
-        ? '${tr(context, 'Équipe', 'Team')} : ${numberText(g.players.fold<double>(0, (sum, p) => sum + g.score(p.id)))} / ${numberText(g.target)}'
-        : '${g.finishedAt == null ? tr(context, 'En tête', 'Leading') : tr(context, 'Victoire', 'Winner')} : ${g.winners.map((p) => p.name).join(' & ')}';
+        ? '${context.l10n.historyTeam} : ${numberText(g.players.fold<double>(0, (sum, p) => sum + g.score(p.id)))} / ${numberText(g.target)}'
+        : '${g.finishedAt == null ? context.l10n.historyLeading : context.l10n.historyWinner} : ${g.winners.map((p) => p.name).join(' & ')}';
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: DeckPanel(
@@ -32,15 +33,15 @@ class HistoryGameCard extends StatelessWidget {
                 Chip(
                   label: Text(
                     g.finishedAt == null
-                        ? tr(context, 'En cours', 'Active')
-                        : tr(context, 'Terminée', 'Complete'),
+                        ? context.l10n.historyActive
+                        : context.l10n.historyComplete,
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 8),
             Text(
-              '${DateTime.fromMillisecondsSinceEpoch(g.createdAt).toLocal().toString().substring(0, 16)} · ${g.players.length} ${tr(context, 'joueurs', 'players')} · ${g.round} ${tr(context, 'manches', 'rounds')}',
+              '${DateTime.fromMillisecondsSinceEpoch(g.createdAt).toLocal().toString().substring(0, 16)} · ${g.players.length} ${context.l10n.gamePlayers} · ${g.round} ${context.l10n.historyRounds}',
               style: theme.textTheme.bodySmall,
             ),
             const SizedBox(height: 20),
@@ -76,12 +77,8 @@ class _CardActions extends StatelessWidget {
     final controller = context.read<HistoryCubit>();
     if (await confirm(
       context,
-      tr(context, 'Supprimer cette partie ?', 'Delete this game?'),
-      tr(
-        context,
-        'Cette action supprime aussi les scores et les notes.',
-        'This also removes scores and notes.',
-      ),
+      context.l10n.historyDeleteThisGame,
+      context.l10n.historyThisAlsoRemovesScoresAnd,
     )) {
       await controller.deleteGame(game.id);
     }
@@ -101,8 +98,8 @@ class _CardActions extends StatelessWidget {
         onPressed: () => _resume(context),
         child: Text(
           game.finishedAt == null
-              ? tr(context, 'Reprendre', 'Resume')
-              : tr(context, 'Détail', 'Details'),
+              ? context.l10n.historyResume
+              : context.l10n.historyDetails,
         ),
       ),
       OutlinedButton(
@@ -112,15 +109,15 @@ class _CardActions extends StatelessWidget {
             names: game.players.map((p) => p.name).toList(),
           ),
         ),
-        child: Text(tr(context, 'Revanche', 'Play again')),
+        child: Text(context.l10n.historyPlayAgain),
       ),
       OutlinedButton(
         onPressed: () => context.push('/review/${game.id}'),
-        child: Text(tr(context, 'Noter', 'Rate')),
+        child: Text(context.l10n.historyRate),
       ),
       OutlinedButton(
         onPressed: () => context.push('/memories/${game.id}'),
-        child: Text(tr(context, 'Souvenirs', 'Memories')),
+        child: Text(context.l10n.historyMemories),
       ),
       OutlinedButton(
         onPressed: () => FileTransfer.shareText(
@@ -136,7 +133,7 @@ class _CardActions extends StatelessWidget {
         child: const Text('JSON'),
       ),
       IconButton(
-        tooltip: tr(context, 'Supprimer la partie', 'Delete game'),
+        tooltip: context.l10n.historyDeleteGame,
         onPressed: () => _delete(context),
         icon: const DeckIcon(Icons.delete_outline),
       ),

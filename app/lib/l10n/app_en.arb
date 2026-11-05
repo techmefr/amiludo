@@ -473,6 +473,450 @@
   "gameResult": "Result",
   "gameEnterTheFinalQuantitiesFilled": "Enter the final quantities. Filled categories replace their total for this round. Empty fields stay unchanged.",
   "gameThisTemplateUsesFreeScores": "This template uses free scores. Add scoring rules in the builder, then start a game with this pack.",
+  "accountSignIn": "Sign in",
+  "accountSignUp": "Sign up",
+  "accountName": "Name",
+  "accountEmail": "Email",
+  "accountPassword": "Password",
+  "accountAtLeast8Characters": "At least 8 characters",
+  "accountCreateMyAccount": "Create my account",
+  "accountSignIn2": "Sign in",
+  "accountForgotPassword": "Forgot password",
+  "accountNameSaved": "Name saved",
+  "accountAccountCreatedConfirmWithThe": "Account created: confirm with the email you received.",
+  "accountSignedIn": "Signed in",
+  "accountSignedOut": "Signed out",
+  "accountResetEmailSent": "Reset email sent.",
+  "accountSignInLinkSentCheck": "Sign-in link sent: check your email.",
+  "accountPasswordChanged": "Password changed",
+  "accountOnlineAccount": "Online account",
+  "accountLocalMode": "Local mode",
+  "accountThisBuildHasNoServer": "This build has no server: everything stays on the device. Wi-Fi lobbies work without an account.",
+  "accountTheNameFriendsSeeWhen": "The name friends see when you join a game.",
+  "accountYourName": "Your name",
+  "accountInvalidEmail": "Invalid email",
+  "accountPasswordAtLeast8Characters": "Password: at least 8 characters",
+  "accountInvalidName": "Invalid name",
+  "accountInvalidCodeTypeTheDigits": "Invalid code: type the digits from the email.",
+  "accountSignInFirst": "Sign in first",
+  "accountTheServerRefusedCheckThe": "The server refused: check the email and password.",
+  "accountNoServerConfigured": "No server configured",
+  "accountCouldNotConnect": "Could not connect",
+  "accountEmailMeASignIn": "Email me a sign-in link",
+  "accountOpenTheLinkOnThis": "Open the link on this device, or type the code from the email.",
+  "accountCodeReceived": "Code received",
+  "accountConfirmTheCode": "Confirm the code",
+  "accountAdmin": "Admin",
+  "accountNewPassword": "New password",
+  "accountOptionalTheEmailLinkIs": "Optional: the email link is enough to sign in.",
+  "accountChangePassword": "Change password",
+  "accountManageAccounts": "Manage accounts",
+  "accountSignOut": "Sign out",
+  "adminListUnavailable": "List unavailable",
+  "adminAccounts": "Accounts",
+  "adminInviteSomeone": "Invite someone",
+  "adminAccounts2": "{count} accounts",
+  "@adminAccounts2": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "adminAdminsOnlySignInAgain": "Admins only: sign in again if you just got the role.",
+  "adminNotPossibleOnYourOwn": "Not possible on your own account.",
+  "adminTheServerRefusedTheOperation": "The server refused the operation.",
+  "adminInvitationSent": "Invitation sent",
+  "adminAccountUpdated": "Account updated",
+  "adminAccountDeleted": "Account deleted",
+  "adminNeverSignedIn": "Never signed in",
+  "adminLastSignIn": "Last sign-in: {value}",
+  "@adminLastSignIn": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "adminTheyGetAnEmailTo": "They get an email to activate their account.",
+  "adminNameOptional": "Name (optional)",
+  "adminInvite": "Invite",
+  "adminDelete": "Delete {label}?",
+  "@adminDelete": {
+    "placeholders": {
+      "label": {}
+    }
+  },
+  "adminTheAccountAndItsPublished": "The account and its published nights will be deleted. This cannot be undone.",
+  "adminBlocked": "Blocked",
+  "adminPending": "Pending",
+  "adminAccountActions": "Account actions",
+  "adminRemoveAdminRole": "Remove admin role",
+  "adminMakeAdmin": "Make admin",
+  "adminUnblock": "Unblock",
+  "adminBlock": "Block",
+  "eveningsRemoveThisNight": "Remove this night?",
+  "eveningsSignUpsWillBeLost": "Sign-ups will be lost.",
+  "eveningsItLeavesYourList": "It leaves your list.",
+  "eveningsGameNight": "Game night",
+  "eveningsRefresh": "Refresh",
+  "eveningsRemove": "Remove",
+  "eveningsNightNotFound": "Night not found",
+  "eveningsItWasRemoved": "It was removed.",
+  "eveningsOnTheMenu": "On the menu: {value}",
+  "@eveningsOnTheMenu": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "eveningsYourAnswer": "Your answer",
+  "eveningsSignInToSignUp": "Sign in to sign up",
+  "eveningsFullYouAreOnThe": "Full: you are on the waiting list.",
+  "eveningsTitle": "Title",
+  "eveningsGamesAtLAS": "Games at Léa’s",
+  "eveningsPlace": "Place",
+  "eveningsChange": "Change",
+  "eveningsSeatsNoLimit": "Seats: no limit",
+  "eveningsSeatsYouIncluded": "Seats: {seats} (you included)",
+  "@eveningsSeatsYouIncluded": {
+    "placeholders": {
+      "seats": {}
+    }
+  },
+  "eveningsPlannedGames": "Planned games",
+  "eveningsWithoutAServerRecordYour": "Without a server, record your friends’ answers yourself below.",
+  "eveningsInviteOnline": "Invite online",
+  "eveningsPublishTheNightFriendsSign": "Publish the night: friends sign up with the link, code or QR.",
+  "eveningsPublish": "Publish",
+  "eveningsSignInToPublish": "Sign in to publish",
+  "eveningsFriendsAnswers": "Friends’ answers",
+  "eveningsNoAnswer": "No answer",
+  "eveningsSAnswer": "{name}’s answer",
+  "@eveningsSAnswer": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "eveningsInvitation": "Invitation",
+  "eveningsCheckTheCodeWithThe": "Check the code with the host.",
+  "eveningsThisBuildHasNoServer": "This build has no server to look up nights.",
+  "eveningsGoing": "Going",
+  "eveningsWaitingList": "Waiting list",
+  "eveningsMaybe": "Maybe",
+  "eveningsNotComing": "Not coming",
+  "eveningsHosting": "Hosting",
+  "eveningsIMIn": "I’m in",
+  "eveningsNotThisTime": "Not this time",
+  "eveningsGoing2": "{going} going",
+  "@eveningsGoing2": {
+    "placeholders": {
+      "going": {}
+    }
+  },
+  "eveningsSeats": "{going}/{seats} seats",
+  "@eveningsSeats": {
+    "placeholders": {
+      "going": {},
+      "seats": {}
+    }
+  },
+  "eveningsWaiting": "{base} · {waiting} waiting",
+  "@eveningsWaiting": {
+    "placeholders": {
+      "base": {},
+      "waiting": {}
+    }
+  },
+  "eveningsHostOnly": "Host only",
+  "eveningsCouldNotDoItCheck": "Could not do it: check the connection and your account.",
+  "eveningsPlanANight": "Plan a night",
+  "eveningsIHaveACode": "I have a code",
+  "eveningsUpcoming": "Upcoming",
+  "eveningsNoNightPlanned": "No night planned",
+  "eveningsPickADateInviteBy": "Pick a date, invite by link or QR, and everyone signs up.",
+  "eveningsPast": "Past",
+  "friendsThisFriendAlreadyExists": "This friend already exists.",
+  "friendsRemoveThisFriend": "Remove this friend?",
+  "friendsFriendProfile": "Friend profile",
+  "friendsNameOrNickname": "Name or nickname",
+  "friendsTastes": "Tastes",
+  "friendsTapAGenreLikesThen": "Tap a genre: likes, then dislikes, then neutral.",
+  "friendsLongestGame": "Longest game",
+  "friendsNoLimit": "No limit",
+  "friendsPerGameOpinion": "Per-game opinion",
+  "friendsTapAGameWantsIt": "Tap a game: wants it, loves it despite the genre, refuses it, neutral.",
+  "friendsLikes": "likes",
+  "friendsDislikes": "dislikes",
+  "friendsNeutral": "neutral",
+  "friendsWants": "wants",
+  "friendsLoves": "loves",
+  "friendsRefused": "refused",
+  "friendsYourShelfIsEmpty": "Your shelf is empty.",
+  "friendsAroundTheTable": "Around the table",
+  "friendsMyFriends": "My friends",
+  "friendsTheirTastesAndReviewsTo": "Their tastes and reviews, to pick the right game.",
+  "friendsAddAFriend": "Add a friend",
+  "friendsNobodyYet": "Nobody yet",
+  "friendsAddYourGamePartnersAnd": "Add your game partners and what they like.",
+  "friendsLatestReviews": "Latest reviews",
+  "friendsLikes2": "Likes",
+  "friendsDislikes2": "Dislikes",
+  "friendsGamesUpTo": "Games up to",
+  "friendsStarsOutOf5": "{stars} stars out of 5",
+  "@friendsStarsOutOf5": {
+    "placeholders": {
+      "stars": {}
+    }
+  },
+  "friendsReviewsSaved": "Reviews saved",
+  "friendsRateTheGame": "Rate the game",
+  "friendsGameNotFound": "Game not found",
+  "friendsItMayHaveBeenDeleted": "It may have been deleted.",
+  "friendsSaveReviews": "Save reviews",
+  "friendsStarSOf5": "{i} star(s) of 5",
+  "@friendsStarSOf5": {
+    "placeholders": {
+      "i": {}
+    }
+  },
+  "friendsAWordOnTheGame": "A word on the game",
+  "historyTeam": "Team",
+  "historyLeading": "Leading",
+  "historyWinner": "Winner",
+  "historyActive": "Active",
+  "historyComplete": "Complete",
+  "historyRounds": "rounds",
+  "historyDeleteThisGame": "Delete this game?",
+  "historyThisAlsoRemovesScoresAnd": "This also removes scores and notes.",
+  "historyResume": "Resume",
+  "historyDetails": "Details",
+  "historyPlayAgain": "Play again",
+  "historyRate": "Rate",
+  "historyMemories": "Memories",
+  "historyDeleteGame": "Delete game",
+  "historyGameImported": "Game imported",
+  "historyKeepTheGoodTimes": "Keep the good times",
+  "historyTheGoodTimes": "The good times",
+  "historyYourGamesAndResultsSaved": "Your games and results, saved on this device.",
+  "historyImportGame": "Import game",
+  "historyOpenGallery": "Open gallery",
+  "historySearchAGamePlayerOr": "Search a game, player or date",
+  "historyNoGamesFound": "No games found",
+  "historyGamesAppearHereWhenCreated": "Games appear here when created.",
+  "historyCompletedGames": "COMPLETED GAMES",
+  "historyActiveTables": "ACTIVE TABLES",
+  "historyMinutesPlayed": "MINUTES PLAYED",
+  "historyRestoreBackup": "Restore backup?",
+  "historyYourCurrentLibraryWillBe": "Your current library will be replaced. Export it first if needed.",
+  "historyBackupRestored": "Backup restored",
+  "historyEraseAllData": "Erase all data?",
+  "historyGamesTemplatesProfilesAndSettings": "Games, templates, profiles and settings will be removed from this device. This cannot be undone.",
+  "historyYourDataBelongsToYou": "Your data belongs to you",
+  "historyBackUpEverything": "Back up everything",
+  "historyRestore": "Restore",
+  "historyEraseAllMyData": "Erase all my data",
+  "libraryGameShelf": "Game shelf",
+  "libraryMyGames": "My games",
+  "libraryBoxesStoredOnThisDevice": "{count} boxes stored on this device.",
+  "@libraryBoxesStoredOnThisDevice": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "libraryAddAGame": "Add a game",
+  "libraryEmptyShelves": "Empty shelves",
+  "libraryNoGameFound": "No game found",
+  "libraryStoreYourBoxesHereTo": "Store your boxes here to find your games, packs and reviews.",
+  "libraryWhatToPlay": "What to play?",
+  "libraryReceiveByQr": "Receive by QR",
+  "libraryShareASession": "Share a session",
+  "libraryPacksAndTemplates": "Packs and templates",
+  "librarySearchAGame": "Search a game",
+  "libraryNameTheGame": "Name the game.",
+  "libraryShelfGame": "Shelf game",
+  "libraryGameName": "Game name",
+  "libraryGenres": "Genres",
+  "libraryBoxColour": "Box colour",
+  "libraryLinkedPacks": "Linked packs",
+  "libraryPutOnShelf": "Put on shelf",
+  "libraryPlayers": "Players",
+  "libraryLength": "Length",
+  "libraryColour": "Colour",
+  "libraryPlays": "plays",
+  "libraryRemoveThisGame": "Remove this game?",
+  "libraryPlay": "Play",
+  "libraryRemoveFromShelf": "Remove from shelf",
+  "libraryWhatToPlayTonight": "What to play tonight?",
+  "libraryWhoIsHere": "Who is here?",
+  "libraryAddFriends": "Add friends",
+  "libraryTimeAvailable": "Time available",
+  "libraryAllEvening": "All evening",
+  "libraryGamesForPlayers": "{count} games for {value} players",
+  "@libraryGamesForPlayers": {
+    "placeholders": {
+      "count": {},
+      "value": {}
+    }
+  },
+  "libraryNothingFits": "Nothing fits",
+  "libraryAddGamesOrRelaxYour": "Add games or relax your friends’ tastes.",
+  "libraryWantedBy": "Wanted by {value}",
+  "@libraryWantedBy": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "libraryLovedBy": "Loved by {value}",
+  "@libraryLovedBy": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "lobbySkullNight": "Skull night",
+  "lobbySeats": "Seats: {seats}",
+  "@lobbySeats": {
+    "placeholders": {
+      "seats": {}
+    }
+  },
+  "lobbyOpenTheLobby": "Open the lobby",
+  "lobbySameWiFi": "Same Wi-Fi",
+  "lobbyAroundTheTableNoServer": "Around the table, no server.",
+  "lobbyNotAvailableInTheBrowser": "Not available in the browser.",
+  "lobbyRemote": "Remote",
+  "lobbyOverTheInternetWithThe": "Over the Internet, with the link or code.",
+  "lobbyNoServerConfiguredForThis": "No server configured for this build.",
+  "lobbyAcceptRequests": "Accept requests",
+  "lobbyStartWithPlayers": "Start with {count} players",
+  "@lobbyStartWithPlayers": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "lobbyCloseTheLobby": "Close the lobby",
+  "lobbyJoin": "Join",
+  "lobbyEnterYourName": "Enter your name",
+  "lobbyCodeOrLink": "Code or link",
+  "lobbyScanAQr": "Scan a QR",
+  "lobbyCameraUnavailableTypeTheCode": "Camera unavailable: type the code.",
+  "lobbyTheHostClosedTheLobby": "The host closed the lobby.",
+  "lobbyHereWeGoTheGame": "Here we go! The game runs on {hostName}’s device.",
+  "@lobbyHereWeGoTheGame": {
+    "placeholders": {
+      "hostName": {}
+    }
+  },
+  "lobbyYouAreInWaitFor": "You are in. Wait for the start.",
+  "lobbyTheHostDidNotAccept": "The host did not accept your request.",
+  "lobbyRequestSentTo": "Request sent to {hostName}…",
+  "@lobbyRequestSentTo": {
+    "placeholders": {
+      "hostName": {}
+    }
+  },
+  "lobbyLeave": "Leave",
+  "lobbyPlayers": "Players {count}/{seats}",
+  "@lobbyPlayers": {
+    "placeholders": {
+      "count": {},
+      "seats": {}
+    }
+  },
+  "lobbyHost": "Host",
+  "lobbyRequests": "Requests",
+  "lobbyWantsToJoin": "Wants to join",
+  "lobbyNoSeatLeft": "No seat left",
+  "lobbyAccept": "Accept {name}",
+  "@lobbyAccept": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "lobbyRefuse": "Refuse {name}",
+  "@lobbyRefuse": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "lobbyRemove": "Remove {name}",
+  "@lobbyRemove": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "lobbyCheckTheCodeAndYour": "Check the code and your name.",
+  "lobbyNoOpenGameWithThis": "No open game with this code. Has the host opened the lobby?",
+  "lobbyCannotConnectJoinTheSame": "Cannot connect: join the same Wi-Fi or turn on Internet.",
+  "lobbySomethingWentWrongTryAgain": "Something went wrong, try again.",
+  "memoriesGalleryKey": "Gallery key",
+  "memoriesLetYourFriendsScanThis": "Let your friends scan this code. Without it, the file stays unreadable.",
+  "memoriesKeyQrCode": "Key QR code",
+  "memoriesDone": "Done",
+  "memoriesShareEncrypted": "Share encrypted",
+  "memoriesOpenAGallery": "Open a gallery",
+  "memories1PickTheReceivedFile": "1. Pick the received file. 2. Scan the key shown by your friend.",
+  "memoriesPickTheFile": "Pick the file",
+  "memoriesFileReady": "File ready ✓",
+  "memoriesScanTheKey": "Scan the key",
+  "memoriesCameraUnavailableTypeTheKey": "Camera unavailable. Type the key instead.",
+  "memoriesDecrypt": "Decrypt",
+  "memoriesTheStory": "The story",
+  "memoriesHighlights": "Highlights",
+  "memoriesPrivateGallery": "Private gallery",
+  "memoriesStorySaved": "Story saved",
+  "memoriesWhatWeLlRememberOf": "What we’ll remember of this night",
+  "memoriesSaveTheStory": "Save the story",
+  "memoriesRemoveThisMoment": "Remove this moment",
+  "memoriesAHighlightThenEnter": "A highlight, then Enter",
+  "memoriesPhotoTooLarge8Mb": "Photo too large (8 MB maximum).",
+  "memories60PhotosMaximumPerGame": "60 photos maximum per game.",
+  "memoriesPhotosStayOnThisDevice": "Photos stay on this device. To share them, the gallery is encrypted and the key is passed by QR code at the table.",
+  "memoriesAddAPhoto": "Add a photo",
+  "memoriesDeleteThePhoto": "Delete the photo?",
+  "memoriesItWillBeErased": "It will be erased.",
+  "memoriesGamePhoto": "Game photo",
+  "memoriesDeletePhoto": "Delete photo",
+  "sharingReceivedGamesPacksSheets": "Received: {games} games, {templates} packs, {characters} sheets",
+  "@sharingReceivedGamesPacksSheets": {
+    "placeholders": {
+      "games": {},
+      "templates": {},
+      "characters": {}
+    }
+  },
+  "sharingReceiveASession": "Receive a session",
+  "sharingPointAtYourFriendS": "Point at your friend’s animated QR code and keep it framed until 100%.",
+  "sharingCameraUnavailableAskForThe": "Camera unavailable. Ask for the file instead.",
+  "sharingReceiveProgress": "Receive progress",
+  "sharingWaiting": "Waiting…",
+  "sharingOpenAFile": "Open a file",
+  "sharingYourFriendOpensReceiveBy": "Your friend opens “Receive by QR” and points at the screen: games, packs, dice and character sheets land on their device.",
+  "sharingContent": "Content",
+  "sharingNothingToShare": "Nothing to share",
+  "sharingPickAtLeastOneGame": "Pick at least one game or pack.",
+  "sharingSessionQrCode": "Session QR code",
+  "sharingGamesPacksSheetsFrames": "{count} games · {count2} packs · {count3} sheets · {count4} frames",
+  "@sharingGamesPacksSheetsFrames": {
+    "placeholders": {
+      "count": {},
+      "count2": {},
+      "count3": {},
+      "count4": {}
+    }
+  },
+  "sharingSendAsAFile": "Send as a file",
+  "timerTimeIsUpPassThe": "Time is up. Pass the turn.",
+  "timerConfigureTime": "Configure time",
+  "timerApply": "Apply",
+  "timerTimeToThink": "TIME TO THINK",
+  "timerQuickTimer": "Quick timer",
+  "timerPlayerBank": "Player bank",
+  "timerTimePerTurn": "Time per turn",
+  "timerTimeRemaining": "Time remaining",
+  "timerPause": "Pause",
+  "timerStart": "Start",
+  "timerTimerSettings": "Timer settings",
+  "timerDurationInSeconds": "Duration in seconds",
+  "timerIncrementPerTurnSeconds": "Increment per turn (seconds)",
+  "timerBankPerPlayer": "Bank per player",
+  "timerOtherwiseFixedTimeEachTurn": "Otherwise: fixed time each turn.",
+  "timerTimeToPlay": "Time to play",
   "randomKeepCards": "Keep {range} card(s). {selected} selected.",
   "randomKeepRangeBetween": "{min} to {max}",
   "@randomKeepCards": {

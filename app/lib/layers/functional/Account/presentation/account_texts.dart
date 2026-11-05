@@ -1,42 +1,18 @@
 import 'package:flutter/widgets.dart';
 
 import 'package:amiludo/layers/functional/Account/domain/entities/account.dart';
-import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 String accountErrorText(
   BuildContext context,
   AccountError error,
 ) => switch (error) {
-  AccountError.invalidEmail => tr(context, 'E-mail invalide', 'Invalid email'),
-  AccountError.invalidPassword => tr(
-    context,
-    'Mot de passe : 8 caractères minimum',
-    'Password: at least 8 characters',
-  ),
-  AccountError.invalidName => tr(context, 'Prénom invalide', 'Invalid name'),
-  AccountError.invalidCode => tr(
-    context,
-    'Code invalide : recopiez les chiffres de l’e-mail.',
-    'Invalid code: type the digits from the email.',
-  ),
-  AccountError.signInRequired => tr(
-    context,
-    'Connectez-vous d’abord',
-    'Sign in first',
-  ),
-  AccountError.rejected => tr(
-    context,
-    'Le serveur a refusé la demande : vérifiez l’e-mail et le mot de passe.',
-    'The server refused: check the email and password.',
-  ),
-  AccountError.unavailable => tr(
-    context,
-    'Serveur non configuré',
-    'No server configured',
-  ),
-  AccountError.unreachable => tr(
-    context,
-    'Connexion impossible',
-    'Could not connect',
-  ),
+  AccountError.invalidEmail => context.l10n.accountInvalidEmail,
+  AccountError.invalidPassword => context.l10n.accountPasswordAtLeast8Characters,
+  AccountError.invalidName => context.l10n.accountInvalidName,
+  AccountError.invalidCode => context.l10n.accountInvalidCodeTypeTheDigits,
+  AccountError.signInRequired => context.l10n.accountSignInFirst,
+  AccountError.rejected => context.l10n.accountTheServerRefusedCheckThe,
+  AccountError.unavailable => context.l10n.accountNoServerConfigured,
+  AccountError.unreachable => context.l10n.accountCouldNotConnect,
 };

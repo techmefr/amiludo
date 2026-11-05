@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Evenings/domain/entities/evening.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class EveningRsvpLists extends StatelessWidget {
   const EveningRsvpLists({super.key, required this.evening});
@@ -12,18 +13,18 @@ class EveningRsvpLists extends StatelessWidget {
   Widget build(BuildContext context) {
     final groups = [
       (
-        tr(context, 'Inscrits', 'Going'),
+        context.l10n.eveningsGoing,
         Icons.check_circle_outline,
         evening.going,
       ),
       (
-        tr(context, 'Liste d’attente', 'Waiting list'),
+        context.l10n.eveningsWaitingList,
         Icons.hourglass_empty,
         evening.waitlist,
       ),
-      (tr(context, 'Peut-être', 'Maybe'), Icons.help_outline, evening.maybe),
+      (context.l10n.eveningsMaybe, Icons.help_outline, evening.maybe),
       (
-        tr(context, 'Ne viennent pas', 'Not coming'),
+        context.l10n.eveningsNotComing,
         Icons.cancel_outlined,
         evening.declined,
       ),
@@ -31,11 +32,11 @@ class EveningRsvpLists extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SectionHeading(tr(context, 'Inscrits', 'Going')),
+        SectionHeading(context.l10n.eveningsGoing),
         ListTile(
           leading: const Icon(Icons.star),
           title: Text(evening.hostName.isEmpty ? '?' : evening.hostName),
-          subtitle: Text(tr(context, 'Organise', 'Hosting')),
+          subtitle: Text(context.l10n.eveningsHosting),
         ),
         for (final (title, icon, people) in groups)
           if (people.isNotEmpty) ...[

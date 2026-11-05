@@ -1323,6 +1323,1039 @@ class AppLocalizationsEn extends AppLocalizations {
       'This template uses free scores. Add scoring rules in the builder, then start a game with this pack.';
 
   @override
+  String get accountSignIn => 'Sign in';
+
+  @override
+  String get accountSignUp => 'Sign up';
+
+  @override
+  String get accountName => 'Name';
+
+  @override
+  String get accountEmail => 'Email';
+
+  @override
+  String get accountPassword => 'Password';
+
+  @override
+  String get accountAtLeast8Characters => 'At least 8 characters';
+
+  @override
+  String get accountCreateMyAccount => 'Create my account';
+
+  @override
+  String get accountSignIn2 => 'Sign in';
+
+  @override
+  String get accountForgotPassword => 'Forgot password';
+
+  @override
+  String get accountNameSaved => 'Name saved';
+
+  @override
+  String get accountAccountCreatedConfirmWithThe =>
+      'Account created: confirm with the email you received.';
+
+  @override
+  String get accountSignedIn => 'Signed in';
+
+  @override
+  String get accountSignedOut => 'Signed out';
+
+  @override
+  String get accountResetEmailSent => 'Reset email sent.';
+
+  @override
+  String get accountSignInLinkSentCheck =>
+      'Sign-in link sent: check your email.';
+
+  @override
+  String get accountPasswordChanged => 'Password changed';
+
+  @override
+  String get accountOnlineAccount => 'Online account';
+
+  @override
+  String get accountLocalMode => 'Local mode';
+
+  @override
+  String get accountThisBuildHasNoServer =>
+      'This build has no server: everything stays on the device. Wi-Fi lobbies work without an account.';
+
+  @override
+  String get accountTheNameFriendsSeeWhen =>
+      'The name friends see when you join a game.';
+
+  @override
+  String get accountYourName => 'Your name';
+
+  @override
+  String get accountInvalidEmail => 'Invalid email';
+
+  @override
+  String get accountPasswordAtLeast8Characters =>
+      'Password: at least 8 characters';
+
+  @override
+  String get accountInvalidName => 'Invalid name';
+
+  @override
+  String get accountInvalidCodeTypeTheDigits =>
+      'Invalid code: type the digits from the email.';
+
+  @override
+  String get accountSignInFirst => 'Sign in first';
+
+  @override
+  String get accountTheServerRefusedCheckThe =>
+      'The server refused: check the email and password.';
+
+  @override
+  String get accountNoServerConfigured => 'No server configured';
+
+  @override
+  String get accountCouldNotConnect => 'Could not connect';
+
+  @override
+  String get accountEmailMeASignIn => 'Email me a sign-in link';
+
+  @override
+  String get accountOpenTheLinkOnThis =>
+      'Open the link on this device, or type the code from the email.';
+
+  @override
+  String get accountCodeReceived => 'Code received';
+
+  @override
+  String get accountConfirmTheCode => 'Confirm the code';
+
+  @override
+  String get accountAdmin => 'Admin';
+
+  @override
+  String get accountNewPassword => 'New password';
+
+  @override
+  String get accountOptionalTheEmailLinkIs =>
+      'Optional: the email link is enough to sign in.';
+
+  @override
+  String get accountChangePassword => 'Change password';
+
+  @override
+  String get accountManageAccounts => 'Manage accounts';
+
+  @override
+  String get accountSignOut => 'Sign out';
+
+  @override
+  String get adminListUnavailable => 'List unavailable';
+
+  @override
+  String get adminAccounts => 'Accounts';
+
+  @override
+  String get adminInviteSomeone => 'Invite someone';
+
+  @override
+  String adminAccounts2(Object count) {
+    return '$count accounts';
+  }
+
+  @override
+  String get adminAdminsOnlySignInAgain =>
+      'Admins only: sign in again if you just got the role.';
+
+  @override
+  String get adminNotPossibleOnYourOwn => 'Not possible on your own account.';
+
+  @override
+  String get adminTheServerRefusedTheOperation =>
+      'The server refused the operation.';
+
+  @override
+  String get adminInvitationSent => 'Invitation sent';
+
+  @override
+  String get adminAccountUpdated => 'Account updated';
+
+  @override
+  String get adminAccountDeleted => 'Account deleted';
+
+  @override
+  String get adminNeverSignedIn => 'Never signed in';
+
+  @override
+  String adminLastSignIn(Object value) {
+    return 'Last sign-in: $value';
+  }
+
+  @override
+  String get adminTheyGetAnEmailTo =>
+      'They get an email to activate their account.';
+
+  @override
+  String get adminNameOptional => 'Name (optional)';
+
+  @override
+  String get adminInvite => 'Invite';
+
+  @override
+  String adminDelete(Object label) {
+    return 'Delete $label?';
+  }
+
+  @override
+  String get adminTheAccountAndItsPublished =>
+      'The account and its published nights will be deleted. This cannot be undone.';
+
+  @override
+  String get adminBlocked => 'Blocked';
+
+  @override
+  String get adminPending => 'Pending';
+
+  @override
+  String get adminAccountActions => 'Account actions';
+
+  @override
+  String get adminRemoveAdminRole => 'Remove admin role';
+
+  @override
+  String get adminMakeAdmin => 'Make admin';
+
+  @override
+  String get adminUnblock => 'Unblock';
+
+  @override
+  String get adminBlock => 'Block';
+
+  @override
+  String get eveningsRemoveThisNight => 'Remove this night?';
+
+  @override
+  String get eveningsSignUpsWillBeLost => 'Sign-ups will be lost.';
+
+  @override
+  String get eveningsItLeavesYourList => 'It leaves your list.';
+
+  @override
+  String get eveningsGameNight => 'Game night';
+
+  @override
+  String get eveningsRefresh => 'Refresh';
+
+  @override
+  String get eveningsRemove => 'Remove';
+
+  @override
+  String get eveningsNightNotFound => 'Night not found';
+
+  @override
+  String get eveningsItWasRemoved => 'It was removed.';
+
+  @override
+  String eveningsOnTheMenu(Object value) {
+    return 'On the menu: $value';
+  }
+
+  @override
+  String get eveningsYourAnswer => 'Your answer';
+
+  @override
+  String get eveningsSignInToSignUp => 'Sign in to sign up';
+
+  @override
+  String get eveningsFullYouAreOnThe => 'Full: you are on the waiting list.';
+
+  @override
+  String get eveningsTitle => 'Title';
+
+  @override
+  String get eveningsGamesAtLAS => 'Games at Léa’s';
+
+  @override
+  String get eveningsPlace => 'Place';
+
+  @override
+  String get eveningsChange => 'Change';
+
+  @override
+  String get eveningsSeatsNoLimit => 'Seats: no limit';
+
+  @override
+  String eveningsSeatsYouIncluded(Object seats) {
+    return 'Seats: $seats (you included)';
+  }
+
+  @override
+  String get eveningsPlannedGames => 'Planned games';
+
+  @override
+  String get eveningsWithoutAServerRecordYour =>
+      'Without a server, record your friends’ answers yourself below.';
+
+  @override
+  String get eveningsInviteOnline => 'Invite online';
+
+  @override
+  String get eveningsPublishTheNightFriendsSign =>
+      'Publish the night: friends sign up with the link, code or QR.';
+
+  @override
+  String get eveningsPublish => 'Publish';
+
+  @override
+  String get eveningsSignInToPublish => 'Sign in to publish';
+
+  @override
+  String get eveningsFriendsAnswers => 'Friends’ answers';
+
+  @override
+  String get eveningsNoAnswer => 'No answer';
+
+  @override
+  String eveningsSAnswer(Object name) {
+    return '$name’s answer';
+  }
+
+  @override
+  String get eveningsInvitation => 'Invitation';
+
+  @override
+  String get eveningsCheckTheCodeWithThe => 'Check the code with the host.';
+
+  @override
+  String get eveningsThisBuildHasNoServer =>
+      'This build has no server to look up nights.';
+
+  @override
+  String get eveningsGoing => 'Going';
+
+  @override
+  String get eveningsWaitingList => 'Waiting list';
+
+  @override
+  String get eveningsMaybe => 'Maybe';
+
+  @override
+  String get eveningsNotComing => 'Not coming';
+
+  @override
+  String get eveningsHosting => 'Hosting';
+
+  @override
+  String get eveningsIMIn => 'I’m in';
+
+  @override
+  String get eveningsNotThisTime => 'Not this time';
+
+  @override
+  String eveningsGoing2(Object going) {
+    return '$going going';
+  }
+
+  @override
+  String eveningsSeats(Object going, Object seats) {
+    return '$going/$seats seats';
+  }
+
+  @override
+  String eveningsWaiting(Object base, Object waiting) {
+    return '$base · $waiting waiting';
+  }
+
+  @override
+  String get eveningsHostOnly => 'Host only';
+
+  @override
+  String get eveningsCouldNotDoItCheck =>
+      'Could not do it: check the connection and your account.';
+
+  @override
+  String get eveningsPlanANight => 'Plan a night';
+
+  @override
+  String get eveningsIHaveACode => 'I have a code';
+
+  @override
+  String get eveningsUpcoming => 'Upcoming';
+
+  @override
+  String get eveningsNoNightPlanned => 'No night planned';
+
+  @override
+  String get eveningsPickADateInviteBy =>
+      'Pick a date, invite by link or QR, and everyone signs up.';
+
+  @override
+  String get eveningsPast => 'Past';
+
+  @override
+  String get friendsThisFriendAlreadyExists => 'This friend already exists.';
+
+  @override
+  String get friendsRemoveThisFriend => 'Remove this friend?';
+
+  @override
+  String get friendsFriendProfile => 'Friend profile';
+
+  @override
+  String get friendsNameOrNickname => 'Name or nickname';
+
+  @override
+  String get friendsTastes => 'Tastes';
+
+  @override
+  String get friendsTapAGenreLikesThen =>
+      'Tap a genre: likes, then dislikes, then neutral.';
+
+  @override
+  String get friendsLongestGame => 'Longest game';
+
+  @override
+  String get friendsNoLimit => 'No limit';
+
+  @override
+  String get friendsPerGameOpinion => 'Per-game opinion';
+
+  @override
+  String get friendsTapAGameWantsIt =>
+      'Tap a game: wants it, loves it despite the genre, refuses it, neutral.';
+
+  @override
+  String get friendsLikes => 'likes';
+
+  @override
+  String get friendsDislikes => 'dislikes';
+
+  @override
+  String get friendsNeutral => 'neutral';
+
+  @override
+  String get friendsWants => 'wants';
+
+  @override
+  String get friendsLoves => 'loves';
+
+  @override
+  String get friendsRefused => 'refused';
+
+  @override
+  String get friendsYourShelfIsEmpty => 'Your shelf is empty.';
+
+  @override
+  String get friendsAroundTheTable => 'Around the table';
+
+  @override
+  String get friendsMyFriends => 'My friends';
+
+  @override
+  String get friendsTheirTastesAndReviewsTo =>
+      'Their tastes and reviews, to pick the right game.';
+
+  @override
+  String get friendsAddAFriend => 'Add a friend';
+
+  @override
+  String get friendsNobodyYet => 'Nobody yet';
+
+  @override
+  String get friendsAddYourGamePartnersAnd =>
+      'Add your game partners and what they like.';
+
+  @override
+  String get friendsLatestReviews => 'Latest reviews';
+
+  @override
+  String get friendsLikes2 => 'Likes';
+
+  @override
+  String get friendsDislikes2 => 'Dislikes';
+
+  @override
+  String get friendsGamesUpTo => 'Games up to';
+
+  @override
+  String friendsStarsOutOf5(Object stars) {
+    return '$stars stars out of 5';
+  }
+
+  @override
+  String get friendsReviewsSaved => 'Reviews saved';
+
+  @override
+  String get friendsRateTheGame => 'Rate the game';
+
+  @override
+  String get friendsGameNotFound => 'Game not found';
+
+  @override
+  String get friendsItMayHaveBeenDeleted => 'It may have been deleted.';
+
+  @override
+  String get friendsSaveReviews => 'Save reviews';
+
+  @override
+  String friendsStarSOf5(Object i) {
+    return '$i star(s) of 5';
+  }
+
+  @override
+  String get friendsAWordOnTheGame => 'A word on the game';
+
+  @override
+  String get historyTeam => 'Team';
+
+  @override
+  String get historyLeading => 'Leading';
+
+  @override
+  String get historyWinner => 'Winner';
+
+  @override
+  String get historyActive => 'Active';
+
+  @override
+  String get historyComplete => 'Complete';
+
+  @override
+  String get historyRounds => 'rounds';
+
+  @override
+  String get historyDeleteThisGame => 'Delete this game?';
+
+  @override
+  String get historyThisAlsoRemovesScoresAnd =>
+      'This also removes scores and notes.';
+
+  @override
+  String get historyResume => 'Resume';
+
+  @override
+  String get historyDetails => 'Details';
+
+  @override
+  String get historyPlayAgain => 'Play again';
+
+  @override
+  String get historyRate => 'Rate';
+
+  @override
+  String get historyMemories => 'Memories';
+
+  @override
+  String get historyDeleteGame => 'Delete game';
+
+  @override
+  String get historyGameImported => 'Game imported';
+
+  @override
+  String get historyKeepTheGoodTimes => 'Keep the good times';
+
+  @override
+  String get historyTheGoodTimes => 'The good times';
+
+  @override
+  String get historyYourGamesAndResultsSaved =>
+      'Your games and results, saved on this device.';
+
+  @override
+  String get historyImportGame => 'Import game';
+
+  @override
+  String get historyOpenGallery => 'Open gallery';
+
+  @override
+  String get historySearchAGamePlayerOr => 'Search a game, player or date';
+
+  @override
+  String get historyNoGamesFound => 'No games found';
+
+  @override
+  String get historyGamesAppearHereWhenCreated =>
+      'Games appear here when created.';
+
+  @override
+  String get historyCompletedGames => 'COMPLETED GAMES';
+
+  @override
+  String get historyActiveTables => 'ACTIVE TABLES';
+
+  @override
+  String get historyMinutesPlayed => 'MINUTES PLAYED';
+
+  @override
+  String get historyRestoreBackup => 'Restore backup?';
+
+  @override
+  String get historyYourCurrentLibraryWillBe =>
+      'Your current library will be replaced. Export it first if needed.';
+
+  @override
+  String get historyBackupRestored => 'Backup restored';
+
+  @override
+  String get historyEraseAllData => 'Erase all data?';
+
+  @override
+  String get historyGamesTemplatesProfilesAndSettings =>
+      'Games, templates, profiles and settings will be removed from this device. This cannot be undone.';
+
+  @override
+  String get historyYourDataBelongsToYou => 'Your data belongs to you';
+
+  @override
+  String get historyBackUpEverything => 'Back up everything';
+
+  @override
+  String get historyRestore => 'Restore';
+
+  @override
+  String get historyEraseAllMyData => 'Erase all my data';
+
+  @override
+  String get libraryGameShelf => 'Game shelf';
+
+  @override
+  String get libraryMyGames => 'My games';
+
+  @override
+  String libraryBoxesStoredOnThisDevice(Object count) {
+    return '$count boxes stored on this device.';
+  }
+
+  @override
+  String get libraryAddAGame => 'Add a game';
+
+  @override
+  String get libraryEmptyShelves => 'Empty shelves';
+
+  @override
+  String get libraryNoGameFound => 'No game found';
+
+  @override
+  String get libraryStoreYourBoxesHereTo =>
+      'Store your boxes here to find your games, packs and reviews.';
+
+  @override
+  String get libraryWhatToPlay => 'What to play?';
+
+  @override
+  String get libraryReceiveByQr => 'Receive by QR';
+
+  @override
+  String get libraryShareASession => 'Share a session';
+
+  @override
+  String get libraryPacksAndTemplates => 'Packs and templates';
+
+  @override
+  String get librarySearchAGame => 'Search a game';
+
+  @override
+  String get libraryNameTheGame => 'Name the game.';
+
+  @override
+  String get libraryShelfGame => 'Shelf game';
+
+  @override
+  String get libraryGameName => 'Game name';
+
+  @override
+  String get libraryGenres => 'Genres';
+
+  @override
+  String get libraryBoxColour => 'Box colour';
+
+  @override
+  String get libraryLinkedPacks => 'Linked packs';
+
+  @override
+  String get libraryPutOnShelf => 'Put on shelf';
+
+  @override
+  String get libraryPlayers => 'Players';
+
+  @override
+  String get libraryLength => 'Length';
+
+  @override
+  String get libraryColour => 'Colour';
+
+  @override
+  String get libraryPlays => 'plays';
+
+  @override
+  String get libraryRemoveThisGame => 'Remove this game?';
+
+  @override
+  String get libraryPlay => 'Play';
+
+  @override
+  String get libraryRemoveFromShelf => 'Remove from shelf';
+
+  @override
+  String get libraryWhatToPlayTonight => 'What to play tonight?';
+
+  @override
+  String get libraryWhoIsHere => 'Who is here?';
+
+  @override
+  String get libraryAddFriends => 'Add friends';
+
+  @override
+  String get libraryTimeAvailable => 'Time available';
+
+  @override
+  String get libraryAllEvening => 'All evening';
+
+  @override
+  String libraryGamesForPlayers(Object count, Object value) {
+    return '$count games for $value players';
+  }
+
+  @override
+  String get libraryNothingFits => 'Nothing fits';
+
+  @override
+  String get libraryAddGamesOrRelaxYour =>
+      'Add games or relax your friends’ tastes.';
+
+  @override
+  String libraryWantedBy(Object value) {
+    return 'Wanted by $value';
+  }
+
+  @override
+  String libraryLovedBy(Object value) {
+    return 'Loved by $value';
+  }
+
+  @override
+  String get lobbySkullNight => 'Skull night';
+
+  @override
+  String lobbySeats(Object seats) {
+    return 'Seats: $seats';
+  }
+
+  @override
+  String get lobbyOpenTheLobby => 'Open the lobby';
+
+  @override
+  String get lobbySameWiFi => 'Same Wi-Fi';
+
+  @override
+  String get lobbyAroundTheTableNoServer => 'Around the table, no server.';
+
+  @override
+  String get lobbyNotAvailableInTheBrowser => 'Not available in the browser.';
+
+  @override
+  String get lobbyRemote => 'Remote';
+
+  @override
+  String get lobbyOverTheInternetWithThe =>
+      'Over the Internet, with the link or code.';
+
+  @override
+  String get lobbyNoServerConfiguredForThis =>
+      'No server configured for this build.';
+
+  @override
+  String get lobbyAcceptRequests => 'Accept requests';
+
+  @override
+  String lobbyStartWithPlayers(Object count) {
+    return 'Start with $count players';
+  }
+
+  @override
+  String get lobbyCloseTheLobby => 'Close the lobby';
+
+  @override
+  String get lobbyJoin => 'Join';
+
+  @override
+  String get lobbyEnterYourName => 'Enter your name';
+
+  @override
+  String get lobbyCodeOrLink => 'Code or link';
+
+  @override
+  String get lobbyScanAQr => 'Scan a QR';
+
+  @override
+  String get lobbyCameraUnavailableTypeTheCode =>
+      'Camera unavailable: type the code.';
+
+  @override
+  String get lobbyTheHostClosedTheLobby => 'The host closed the lobby.';
+
+  @override
+  String lobbyHereWeGoTheGame(Object hostName) {
+    return 'Here we go! The game runs on $hostName’s device.';
+  }
+
+  @override
+  String get lobbyYouAreInWaitFor => 'You are in. Wait for the start.';
+
+  @override
+  String get lobbyTheHostDidNotAccept =>
+      'The host did not accept your request.';
+
+  @override
+  String lobbyRequestSentTo(Object hostName) {
+    return 'Request sent to $hostName…';
+  }
+
+  @override
+  String get lobbyLeave => 'Leave';
+
+  @override
+  String lobbyPlayers(Object count, Object seats) {
+    return 'Players $count/$seats';
+  }
+
+  @override
+  String get lobbyHost => 'Host';
+
+  @override
+  String get lobbyRequests => 'Requests';
+
+  @override
+  String get lobbyWantsToJoin => 'Wants to join';
+
+  @override
+  String get lobbyNoSeatLeft => 'No seat left';
+
+  @override
+  String lobbyAccept(Object name) {
+    return 'Accept $name';
+  }
+
+  @override
+  String lobbyRefuse(Object name) {
+    return 'Refuse $name';
+  }
+
+  @override
+  String lobbyRemove(Object name) {
+    return 'Remove $name';
+  }
+
+  @override
+  String get lobbyCheckTheCodeAndYour => 'Check the code and your name.';
+
+  @override
+  String get lobbyNoOpenGameWithThis =>
+      'No open game with this code. Has the host opened the lobby?';
+
+  @override
+  String get lobbyCannotConnectJoinTheSame =>
+      'Cannot connect: join the same Wi-Fi or turn on Internet.';
+
+  @override
+  String get lobbySomethingWentWrongTryAgain =>
+      'Something went wrong, try again.';
+
+  @override
+  String get memoriesGalleryKey => 'Gallery key';
+
+  @override
+  String get memoriesLetYourFriendsScanThis =>
+      'Let your friends scan this code. Without it, the file stays unreadable.';
+
+  @override
+  String get memoriesKeyQrCode => 'Key QR code';
+
+  @override
+  String get memoriesDone => 'Done';
+
+  @override
+  String get memoriesShareEncrypted => 'Share encrypted';
+
+  @override
+  String get memoriesOpenAGallery => 'Open a gallery';
+
+  @override
+  String get memories1PickTheReceivedFile =>
+      '1. Pick the received file. 2. Scan the key shown by your friend.';
+
+  @override
+  String get memoriesPickTheFile => 'Pick the file';
+
+  @override
+  String get memoriesFileReady => 'File ready ✓';
+
+  @override
+  String get memoriesScanTheKey => 'Scan the key';
+
+  @override
+  String get memoriesCameraUnavailableTypeTheKey =>
+      'Camera unavailable. Type the key instead.';
+
+  @override
+  String get memoriesDecrypt => 'Decrypt';
+
+  @override
+  String get memoriesTheStory => 'The story';
+
+  @override
+  String get memoriesHighlights => 'Highlights';
+
+  @override
+  String get memoriesPrivateGallery => 'Private gallery';
+
+  @override
+  String get memoriesStorySaved => 'Story saved';
+
+  @override
+  String get memoriesWhatWeLlRememberOf => 'What we’ll remember of this night';
+
+  @override
+  String get memoriesSaveTheStory => 'Save the story';
+
+  @override
+  String get memoriesRemoveThisMoment => 'Remove this moment';
+
+  @override
+  String get memoriesAHighlightThenEnter => 'A highlight, then Enter';
+
+  @override
+  String get memoriesPhotoTooLarge8Mb => 'Photo too large (8 MB maximum).';
+
+  @override
+  String get memories60PhotosMaximumPerGame => '60 photos maximum per game.';
+
+  @override
+  String get memoriesPhotosStayOnThisDevice =>
+      'Photos stay on this device. To share them, the gallery is encrypted and the key is passed by QR code at the table.';
+
+  @override
+  String get memoriesAddAPhoto => 'Add a photo';
+
+  @override
+  String get memoriesDeleteThePhoto => 'Delete the photo?';
+
+  @override
+  String get memoriesItWillBeErased => 'It will be erased.';
+
+  @override
+  String get memoriesGamePhoto => 'Game photo';
+
+  @override
+  String get memoriesDeletePhoto => 'Delete photo';
+
+  @override
+  String sharingReceivedGamesPacksSheets(
+    Object games,
+    Object templates,
+    Object characters,
+  ) {
+    return 'Received: $games games, $templates packs, $characters sheets';
+  }
+
+  @override
+  String get sharingReceiveASession => 'Receive a session';
+
+  @override
+  String get sharingPointAtYourFriendS =>
+      'Point at your friend’s animated QR code and keep it framed until 100%.';
+
+  @override
+  String get sharingCameraUnavailableAskForThe =>
+      'Camera unavailable. Ask for the file instead.';
+
+  @override
+  String get sharingReceiveProgress => 'Receive progress';
+
+  @override
+  String get sharingWaiting => 'Waiting…';
+
+  @override
+  String get sharingOpenAFile => 'Open a file';
+
+  @override
+  String get sharingYourFriendOpensReceiveBy =>
+      'Your friend opens “Receive by QR” and points at the screen: games, packs, dice and character sheets land on their device.';
+
+  @override
+  String get sharingContent => 'Content';
+
+  @override
+  String get sharingNothingToShare => 'Nothing to share';
+
+  @override
+  String get sharingPickAtLeastOneGame => 'Pick at least one game or pack.';
+
+  @override
+  String get sharingSessionQrCode => 'Session QR code';
+
+  @override
+  String sharingGamesPacksSheetsFrames(
+    Object count,
+    Object count2,
+    Object count3,
+    Object count4,
+  ) {
+    return '$count games · $count2 packs · $count3 sheets · $count4 frames';
+  }
+
+  @override
+  String get sharingSendAsAFile => 'Send as a file';
+
+  @override
+  String get timerTimeIsUpPassThe => 'Time is up. Pass the turn.';
+
+  @override
+  String get timerConfigureTime => 'Configure time';
+
+  @override
+  String get timerApply => 'Apply';
+
+  @override
+  String get timerTimeToThink => 'TIME TO THINK';
+
+  @override
+  String get timerQuickTimer => 'Quick timer';
+
+  @override
+  String get timerPlayerBank => 'Player bank';
+
+  @override
+  String get timerTimePerTurn => 'Time per turn';
+
+  @override
+  String get timerTimeRemaining => 'Time remaining';
+
+  @override
+  String get timerPause => 'Pause';
+
+  @override
+  String get timerStart => 'Start';
+
+  @override
+  String get timerTimerSettings => 'Timer settings';
+
+  @override
+  String get timerDurationInSeconds => 'Duration in seconds';
+
+  @override
+  String get timerIncrementPerTurnSeconds => 'Increment per turn (seconds)';
+
+  @override
+  String get timerBankPerPlayer => 'Bank per player';
+
+  @override
+  String get timerOtherwiseFixedTimeEachTurn =>
+      'Otherwise: fixed time each turn.';
+
+  @override
+  String get timerTimeToPlay => 'Time to play';
+
+  @override
   String randomKeepCards(String range, int selected) {
     return 'Keep $range card(s). $selected selected.';
   }

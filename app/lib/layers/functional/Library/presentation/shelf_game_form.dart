@@ -8,6 +8,7 @@ import 'package:amiludo/layers/functional/Library/presentation/cubit/library_cub
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class ShelfGameForm extends StatefulWidget {
   const ShelfGameForm({super.key, required this.id});
@@ -54,7 +55,7 @@ class _ShelfGameFormState extends State<ShelfGameForm> {
   Future<void> _save() async {
     final value = name.text.trim();
     if (value.isEmpty) {
-      notify(context, tr(context, 'Donnez un nom au jeu.', 'Name the game.'));
+      notify(context, context.l10n.libraryNameTheGame);
       return;
     }
     await context.read<LibraryCubit>().save(game.copyWith(name: value));
@@ -68,7 +69,7 @@ class _ShelfGameFormState extends State<ShelfGameForm> {
       ...context.watch<LibraryCubit>().templates,
     ];
     return FullPage(
-      title: tr(context, 'Jeu de la ludothèque', 'Shelf game'),
+      title: context.l10n.libraryShelfGame,
       fallback: '/library',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,11 +78,11 @@ class _ShelfGameFormState extends State<ShelfGameForm> {
             controller: name,
             maxLength: 80,
             decoration: InputDecoration(
-              labelText: tr(context, 'Nom du jeu', 'Game name'),
+              labelText: context.l10n.libraryGameName,
             ),
           ),
           _ShelfNumbers(game: game, onChanged: (g) => setState(() => game = g)),
-          SectionHeading(tr(context, 'Genres', 'Genres')),
+          SectionHeading(context.l10n.libraryGenres),
           _ChoiceChips(
             values: gameGenres,
             label: (g) =>
@@ -89,12 +90,12 @@ class _ShelfGameFormState extends State<ShelfGameForm> {
             selected: game.genres,
             onToggle: (v, on) => _toggle(game.genres, v, on, true),
           ),
-          SectionHeading(tr(context, 'Couleur de la boîte', 'Box colour')),
+          SectionHeading(context.l10n.libraryBoxColour),
           _ColorPicker(
             value: game.color,
             onChanged: (c) => setState(() => game = game.copyWith(color: c)),
           ),
-          SectionHeading(tr(context, 'Packs liés', 'Linked packs')),
+          SectionHeading(context.l10n.libraryLinkedPacks),
           _ChoiceChips(
             values: templates.map((t) => t.id).toList(),
             label: (id) => templates.firstWhere((t) => t.id == id).name,
@@ -104,7 +105,7 @@ class _ShelfGameFormState extends State<ShelfGameForm> {
           const SizedBox(height: 32),
           FilledButton(
             onPressed: _save,
-            child: Text(tr(context, 'Ranger sur l’étagère', 'Put on shelf')),
+            child: Text(context.l10n.libraryPutOnShelf),
           ),
         ],
       ),
@@ -125,7 +126,7 @@ class _ShelfNumbers extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '${tr(context, 'Joueurs', 'Players')} : ${game.minPlayers} - ${game.maxPlayers}',
+          '${context.l10n.libraryPlayers} : ${game.minPlayers} - ${game.maxPlayers}',
           style: theme.textTheme.titleMedium,
         ),
         RangeSlider(
@@ -145,7 +146,7 @@ class _ShelfNumbers extends StatelessWidget {
           ),
         ),
         Text(
-          '${tr(context, 'Durée', 'Length')} : ${game.minutes} min',
+          '${context.l10n.libraryLength} : ${game.minutes} min',
           style: theme.textTheme.titleMedium,
         ),
         Slider(
@@ -203,7 +204,7 @@ class _ColorPicker extends StatelessWidget {
         Semantics(
           selected: c == value,
           child: Tooltip(
-            message: '${tr(context, 'Couleur', 'Colour')} ${i + 1}',
+            message: '${context.l10n.libraryColour} ${i + 1}',
             child: InkWell(
               onTap: () => onChanged(c),
               customBorder: const CircleBorder(),

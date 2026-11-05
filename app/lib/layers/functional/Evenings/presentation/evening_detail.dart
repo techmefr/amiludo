@@ -9,6 +9,7 @@ import 'package:amiludo/layers/functional/Evenings/presentation/evening_rsvp_lis
 import 'package:amiludo/layers/functional/Evenings/presentation/evening_texts.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class EveningDetail extends StatelessWidget {
   const EveningDetail({super.key, required this.id});
@@ -18,18 +19,10 @@ class EveningDetail extends StatelessWidget {
   Future<void> _remove(BuildContext context, Evening evening) async {
     final ok = await confirm(
       context,
-      tr(context, 'Retirer la soirée ?', 'Remove this night?'),
+      context.l10n.eveningsRemoveThisNight,
       evening.mine
-          ? tr(
-              context,
-              'Les inscriptions seront perdues.',
-              'Sign-ups will be lost.',
-            )
-          : tr(
-              context,
-              'Elle disparaît de votre liste.',
-              'It leaves your list.',
-            ),
+          ? context.l10n.eveningsSignUpsWillBeLost
+          : context.l10n.eveningsItLeavesYourList,
     );
     if (!ok || !context.mounted) return;
     await runEveningAction(
@@ -44,33 +37,33 @@ class EveningDetail extends StatelessWidget {
     final cubit = context.watch<EveningsCubit>();
     final evening = cubit.evening(id);
     return FullPage(
-      title: evening?.title ?? tr(context, 'Soirée', 'Game night'),
+      title: evening?.title ?? context.l10n.eveningsGameNight,
       fallback: '/evenings',
       actions: [
         if (evening != null && evening.published)
           IconButton(
-            tooltip: tr(context, 'Actualiser', 'Refresh'),
+            tooltip: context.l10n.eveningsRefresh,
             onPressed: () =>
                 runEveningAction(context, () => cubit.fetch(evening.code)),
             icon: const Icon(Icons.refresh),
           ),
         if (evening != null && evening.mine)
           IconButton(
-            tooltip: tr(context, 'Modifier', 'Edit'),
+            tooltip: context.l10n.templatesEdit,
             onPressed: () => context.go('/evenings/edit/${evening.id}'),
             icon: const Icon(Icons.edit_outlined),
           ),
         if (evening != null)
           IconButton(
-            tooltip: tr(context, 'Retirer', 'Remove'),
+            tooltip: context.l10n.eveningsRemove,
             onPressed: () => _remove(context, evening),
             icon: const Icon(Icons.delete_outline),
           ),
       ],
       child: evening == null
           ? EmptyPanel(
-              title: tr(context, 'Soirée introuvable', 'Night not found'),
-              message: tr(context, 'Elle a été retirée.', 'It was removed.'),
+              title: context.l10n.eveningsNightNotFound,
+              message: context.l10n.eveningsItWasRemoved,
             )
           : EveningBody(evening: evening),
     );
@@ -99,11 +92,7 @@ class EveningBody extends StatelessWidget {
             Text(seatsLine(context, evening)),
             if (evening.gameNames.isNotEmpty)
               Text(
-                tr(
-                  context,
-                  'Au programme : ${evening.gameNames.join(', ')}',
-                  'On the menu: ${evening.gameNames.join(', ')}',
-                ),
+                context.l10n.eveningsOnTheMenu(evening.gameNames.join(', ')),
               ),
           ],
         ),
@@ -132,12 +121,12 @@ class _MyAnswer extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SectionHeading(tr(context, 'Votre réponse', 'Your answer')),
+        SectionHeading(context.l10n.eveningsYourAnswer),
         if (evening.published && !cubit.signedIn)
           OutlinedButton(
             onPressed: () => context.go('/account'),
             child: Text(
-              tr(context, 'Se connecter pour s’inscrire', 'Sign in to sign up'),
+              context.l10n.eveningsSignInToSignUp,
             ),
           )
         else
@@ -163,11 +152,7 @@ class _MyAnswer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 8),
             child: Text(
-              tr(
-                context,
-                'Complet : vous êtes sur liste d’attente.',
-                'Full: you are on the waiting list.',
-              ),
+              context.l10n.eveningsFullYouAreOnThe,
             ),
           ),
       ],

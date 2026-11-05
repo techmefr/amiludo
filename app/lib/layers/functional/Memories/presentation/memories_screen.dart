@@ -8,6 +8,7 @@ import 'package:amiludo/layers/functional/Memories/presentation/gallery_export.d
 import 'package:amiludo/layers/functional/Memories/presentation/photo_grid.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class MemoriesScreen extends StatelessWidget {
   const MemoriesScreen({super.key, required this.sessionId});
@@ -21,16 +22,12 @@ class MemoriesScreen extends StatelessWidget {
     final game = cubit.session(sessionId);
     final memory = data.memoryOf(sessionId);
     return FullPage(
-      title: tr(context, 'Souvenirs', 'Memories'),
+      title: context.l10n.historyMemories,
       fallback: '/history',
       child: game == null
           ? EmptyPanel(
-              title: tr(context, 'Partie introuvable', 'Game not found'),
-              message: tr(
-                context,
-                'Elle a peut-être été supprimée.',
-                'It may have been deleted.',
-              ),
+              title: context.l10n.friendsGameNotFound,
+              message: context.l10n.friendsItMayHaveBeenDeleted,
             )
           : Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,12 +40,12 @@ class MemoriesScreen extends StatelessWidget {
                 Text(
                   '${DateTime.fromMillisecondsSinceEpoch(game.createdAt).toLocal().toString().substring(0, 16)} · ${game.players.map((p) => p.name).join(', ')}',
                 ),
-                SectionHeading(tr(context, 'Le récit', 'The story')),
+                SectionHeading(context.l10n.memoriesTheStory),
                 _NoteField(memory: memory),
-                SectionHeading(tr(context, 'Moments forts', 'Highlights')),
+                SectionHeading(context.l10n.memoriesHighlights),
                 _Highlights(memory: memory),
                 SectionHeading(
-                  tr(context, 'Galerie privée', 'Private gallery'),
+                  context.l10n.memoriesPrivateGallery,
                   action: GalleryExportButton(sessionId: sessionId),
                 ),
                 PhotoGrid(memory: memory),
@@ -84,7 +81,7 @@ class _NoteFieldState extends State<_NoteField> {
           .copyWith(note: controller.text.trim()),
     );
     if (mounted) {
-      notify(context, tr(context, 'Récit enregistré', 'Story saved'));
+      notify(context, context.l10n.memoriesStorySaved);
     }
   }
 
@@ -98,16 +95,12 @@ class _NoteFieldState extends State<_NoteField> {
         maxLines: 10,
         maxLength: 4000,
         decoration: InputDecoration(
-          labelText: tr(
-            context,
-            'Ce qu’on retiendra de cette soirée',
-            'What we’ll remember of this night',
-          ),
+          labelText: context.l10n.memoriesWhatWeLlRememberOf,
         ),
       ),
       OutlinedButton(
         onPressed: _save,
-        child: Text(tr(context, 'Enregistrer le récit', 'Save the story')),
+        child: Text(context.l10n.memoriesSaveTheStory),
       ),
     ],
   );
@@ -159,7 +152,7 @@ class _Highlights extends StatelessWidget {
           leading: const DeckIcon(Icons.star_outline, size: 20),
           title: Text(h.text),
           trailing: IconButton(
-            tooltip: tr(context, 'Retirer ce moment', 'Remove this moment'),
+            tooltip: context.l10n.memoriesRemoveThisMoment,
             onPressed: () => _remove(context, h),
             icon: const DeckIcon(Icons.close, size: 18),
           ),
@@ -167,11 +160,7 @@ class _Highlights extends StatelessWidget {
       TextField(
         maxLength: 280,
         decoration: InputDecoration(
-          labelText: tr(
-            context,
-            'Un moment fort, puis Entrée',
-            'A highlight, then Enter',
-          ),
+          labelText: context.l10n.memoriesAHighlightThenEnter,
         ),
         onSubmitted: (v) => _add(context, v),
       ),

@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Library/presentation/bookshelf.dart';
 import 'package:amiludo/layers/functional/Library/presentation/cubit/library_cubit.dart';
 import 'package:amiludo/layers/functional/Library/presentation/shelf_game_sheet.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class LibraryScreen extends StatefulWidget {
   const LibraryScreen({super.key});
@@ -32,16 +33,12 @@ class _LibraryScreenState extends State<LibraryScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DeckHeading(
-          eyebrow: tr(context, 'Ludothèque', 'Game shelf'),
-          title: tr(context, 'Mes jeux', 'My games'),
-          subtitle: tr(
-            context,
-            '${shelf.length} boîtes rangées sur cet appareil.',
-            '${shelf.length} boxes stored on this device.',
-          ),
+          eyebrow: context.l10n.libraryGameShelf,
+          title: context.l10n.libraryMyGames,
+          subtitle: context.l10n.libraryBoxesStoredOnThisDevice(shelf.length),
           action: FilledButton(
             onPressed: () => context.push('/library/edit/new'),
-            child: Text(tr(context, 'Ajouter un jeu', 'Add a game')),
+            child: Text(context.l10n.libraryAddAGame),
           ),
         ),
         const _LibraryActions(),
@@ -57,13 +54,9 @@ class _LibraryScreenState extends State<LibraryScreen> {
         if (games.isEmpty)
           EmptyPanel(
             title: shelf.isEmpty
-                ? tr(context, 'Étagères vides', 'Empty shelves')
-                : tr(context, 'Aucun jeu trouvé', 'No game found'),
-            message: tr(
-              context,
-              'Rangez vos boîtes ici pour retrouver vos jeux, vos packs et vos avis.',
-              'Store your boxes here to find your games, packs and reviews.',
-            ),
+                ? context.l10n.libraryEmptyShelves
+                : context.l10n.libraryNoGameFound,
+            message: context.l10n.libraryStoreYourBoxesHereTo,
           )
         else
           Bookshelf(
@@ -85,19 +78,19 @@ class _LibraryActions extends StatelessWidget {
     children: [
       OutlinedButton(
         onPressed: () => context.push('/library/tonight'),
-        child: Text(tr(context, 'On joue à quoi ce soir ?', 'What to play?')),
+        child: Text(context.l10n.libraryWhatToPlay),
       ),
       OutlinedButton(
         onPressed: () => context.push('/share/receive'),
-        child: Text(tr(context, 'Recevoir par QR', 'Receive by QR')),
+        child: Text(context.l10n.libraryReceiveByQr),
       ),
       OutlinedButton(
         onPressed: () => context.push('/share'),
-        child: Text(tr(context, 'Partager une session', 'Share a session')),
+        child: Text(context.l10n.libraryShareASession),
       ),
       TextButton(
         onPressed: () => context.go('/templates'),
-        child: Text(tr(context, 'Packs et modèles', 'Packs and templates')),
+        child: Text(context.l10n.libraryPacksAndTemplates),
       ),
     ],
   );
@@ -120,7 +113,7 @@ class _LibraryFilters extends StatelessWidget {
     children: [
       TextField(
         decoration: InputDecoration(
-          labelText: tr(context, 'Chercher un jeu', 'Search a game'),
+          labelText: context.l10n.librarySearchAGame,
           prefixIcon: const Center(
             widthFactor: 1,
             heightFactor: 1,

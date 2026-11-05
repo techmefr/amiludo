@@ -10,6 +10,7 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
 import 'package:amiludo/layers/functional/Timer/presentation/cubit/timer_cubit.dart';
 import 'package:amiludo/layers/functional/Timer/domain/entities/game_clock.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class TimerPanel extends StatefulWidget {
   const TimerPanel({super.key});
@@ -37,11 +38,7 @@ class _TimerPanelState extends State<TimerPanel> {
         );
         notify(
           context,
-          tr(
-            context,
-            'Temps écoulé. À vous de passer la main.',
-            'Time is up. Pass the turn.',
-          ),
+          context.l10n.timerTimeIsUpPassThe,
         );
       }
       if (ws.clock.remainingAt(controller.time.now) > 0) alerted = false;
@@ -70,7 +67,7 @@ class _TimerPanelState extends State<TimerPanel> {
         context: context,
         builder: (dialog) => StatefulBuilder(
           builder: (context, set) => AlertDialog(
-            title: Text(tr(context, 'Régler le temps', 'Configure time')),
+            title: Text(context.l10n.timerConfigureTime),
             content: SizedBox(
               width: 400,
               child: Form(
@@ -86,7 +83,7 @@ class _TimerPanelState extends State<TimerPanel> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(dialog, false),
-                child: Text(tr(context, 'Annuler', 'Cancel')),
+                child: Text(context.l10n.themeCancel),
               ),
               FilledButton(
                 onPressed: () {
@@ -94,7 +91,7 @@ class _TimerPanelState extends State<TimerPanel> {
                     Navigator.pop(dialog, true);
                   }
                 },
-                child: Text(tr(context, 'Appliquer', 'Apply')),
+                child: Text(context.l10n.timerApply),
               ),
             ],
           ),
@@ -124,7 +121,7 @@ class _TimerPanelState extends State<TimerPanel> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            tr(context, 'UN TEMPS POUR RÉFLÉCHIR', 'TIME TO THINK'),
+            context.l10n.timerTimeToThink,
             style: const TextStyle(
               fontFamily: 'IBMPlexMono',
               fontSize: 10,
@@ -134,7 +131,7 @@ class _TimerPanelState extends State<TimerPanel> {
           const SizedBox(height: 16),
           Text(
             ws.current == null
-                ? tr(context, 'Minuteur libre', 'Quick timer')
+                ? context.l10n.timerQuickTimer
                 : ws.current!.players[ws.current!.activeIndex].name,
             style: theme.textTheme.titleLarge,
           ),
@@ -149,7 +146,7 @@ class _TimerPanelState extends State<TimerPanel> {
           ),
           const SizedBox(height: 16),
           Text(
-            '${ws.bankMode ? tr(context, 'Réserve par joueur', 'Player bank') : tr(context, 'Temps par tour', 'Time per turn')} · +${ws.clock.incrementMs ~/ 1000}s',
+            '${ws.bankMode ? context.l10n.timerPlayerBank : context.l10n.timerTimePerTurn} · +${ws.clock.incrementMs ~/ 1000}s',
             style: theme.textTheme.bodySmall,
           ),
           if (ws.bankMode && ws.current != null) ...[
@@ -186,7 +183,7 @@ class _ClockReadout extends StatelessWidget {
     final theme = Theme.of(context);
     return Semantics(
       liveRegion: remaining < 10000,
-      label: tr(context, 'Temps restant', 'Time remaining'),
+      label: context.l10n.timerTimeRemaining,
       child: Text(
         clockText(remaining),
         style: TextStyle(
@@ -219,17 +216,17 @@ class _TimerControls extends StatelessWidget {
         icon: DeckIcon(running ? Icons.pause : Icons.play_arrow),
         label: Text(
           running
-              ? tr(context, 'Pause', 'Pause')
-              : tr(context, 'Démarrer', 'Start'),
+              ? context.l10n.timerPause
+              : context.l10n.timerStart,
         ),
       ),
       IconButton(
-        tooltip: tr(context, 'Réinitialiser', 'Reset'),
+        tooltip: context.l10n.appearanceReset,
         onPressed: onReset,
         icon: const DeckIcon(Icons.restart_alt),
       ),
       IconButton(
-        tooltip: tr(context, 'Réglages du minuteur', 'Timer settings'),
+        tooltip: context.l10n.timerTimerSettings,
         onPressed: onConfigure,
         icon: const DeckIcon(Icons.tune),
       ),
@@ -255,7 +252,7 @@ class _TimerSettingsFields extends StatelessWidget {
         controller: seconds,
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
-          labelText: tr(context, 'Durée en secondes', 'Duration in seconds'),
+          labelText: context.l10n.timerDurationInSeconds,
         ),
         validator: (v) {
           final n = int.tryParse(v ?? '');
@@ -267,11 +264,7 @@ class _TimerSettingsFields extends StatelessWidget {
         controller: increment,
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
-          labelText: tr(
-            context,
-            'Incrément par tour (secondes)',
-            'Increment per turn (seconds)',
-          ),
+          labelText: context.l10n.timerIncrementPerTurnSeconds,
         ),
         validator: (v) {
           final n = int.tryParse(v ?? '');
@@ -280,13 +273,9 @@ class _TimerSettingsFields extends StatelessWidget {
       ),
       SwitchListTile(
         contentPadding: EdgeInsets.zero,
-        title: Text(tr(context, 'Réserve par joueur', 'Bank per player')),
+        title: Text(context.l10n.timerBankPerPlayer),
         subtitle: Text(
-          tr(
-            context,
-            'Sinon : durée fixe à chaque tour.',
-            'Otherwise: fixed time each turn.',
-          ),
+          context.l10n.timerOtherwiseFixedTimeEachTurn,
         ),
         value: bank,
         onChanged: onBankChanged,

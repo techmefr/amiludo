@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:amiludo/layers/functional/Account/domain/entities/account.dart';
 import 'package:amiludo/layers/functional/Account/presentation/cubit/account_cubit.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class SignedInPanel extends StatefulWidget {
   const SignedInPanel({super.key, required this.account, required this.busy});
@@ -40,7 +41,7 @@ class _SignedInPanelState extends State<SignedInPanel> {
           title: Text(widget.account.name),
           subtitle: Text(widget.account.email),
           trailing: widget.account.admin
-              ? Chip(label: Text(tr(context, 'Admin', 'Admin')))
+              ? Chip(label: Text(context.l10n.accountAdmin))
               : null,
         ),
         TextField(
@@ -48,12 +49,8 @@ class _SignedInPanelState extends State<SignedInPanel> {
           obscureText: true,
           autofillHints: const [AutofillHints.newPassword],
           decoration: InputDecoration(
-            labelText: tr(context, 'Nouveau mot de passe', 'New password'),
-            helperText: tr(
-              context,
-              'Facultatif : le lien par e-mail suffit pour se connecter.',
-              'Optional: the email link is enough to sign in.',
-            ),
+            labelText: context.l10n.accountNewPassword,
+            helperText: context.l10n.accountOptionalTheEmailLinkIs,
           ),
           onSubmitted: (_) => _change(),
         ),
@@ -65,7 +62,7 @@ class _SignedInPanelState extends State<SignedInPanel> {
             FilledButton.tonal(
               onPressed: widget.busy ? null : _change,
               child: Text(
-                tr(context, 'Changer le mot de passe', 'Change password'),
+                context.l10n.accountChangePassword,
               ),
             ),
             if (widget.account.admin)
@@ -73,14 +70,14 @@ class _SignedInPanelState extends State<SignedInPanel> {
                 onPressed: () => context.push('/admin'),
                 icon: const Icon(Icons.manage_accounts_outlined),
                 label: Text(
-                  tr(context, 'Gérer les comptes', 'Manage accounts'),
+                  context.l10n.accountManageAccounts,
                 ),
               ),
             TextButton(
               onPressed: widget.busy
                   ? null
                   : context.read<AccountCubit>().signOut,
-              child: Text(tr(context, 'Se déconnecter', 'Sign out')),
+              child: Text(context.l10n.accountSignOut),
             ),
           ],
         ),

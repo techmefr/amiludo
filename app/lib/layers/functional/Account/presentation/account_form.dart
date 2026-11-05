@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:amiludo/layers/functional/Account/presentation/cubit/account_cubit.dart';
 import 'package:amiludo/layers/functional/Account/presentation/sign_in_link_panel.dart';
-import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class AccountForm extends StatefulWidget {
   const AccountForm({super.key, required this.busy, required this.nickname});
@@ -47,11 +47,11 @@ class _AccountFormState extends State<AccountForm> {
           segments: [
             ButtonSegment(
               value: false,
-              label: Text(tr(context, 'Connexion', 'Sign in')),
+              label: Text(context.l10n.accountSignIn),
             ),
             ButtonSegment(
               value: true,
-              label: Text(tr(context, 'Inscription', 'Sign up')),
+              label: Text(context.l10n.accountSignUp),
             ),
           ],
           selected: {creating},
@@ -64,7 +64,7 @@ class _AccountFormState extends State<AccountForm> {
             maxLength: 40,
             autofillHints: const [AutofillHints.givenName],
             decoration: InputDecoration(
-              labelText: tr(context, 'Prénom', 'Name'),
+              labelText: context.l10n.accountName,
             ),
           ),
         TextField(
@@ -72,7 +72,7 @@ class _AccountFormState extends State<AccountForm> {
           keyboardType: TextInputType.emailAddress,
           autofillHints: const [AutofillHints.email],
           decoration: InputDecoration(
-            labelText: tr(context, 'E-mail', 'Email'),
+            labelText: context.l10n.accountEmail,
           ),
         ),
         TextField(
@@ -82,9 +82,9 @@ class _AccountFormState extends State<AccountForm> {
             creating ? AutofillHints.newPassword : AutofillHints.password,
           ],
           decoration: InputDecoration(
-            labelText: tr(context, 'Mot de passe', 'Password'),
+            labelText: context.l10n.accountPassword,
             helperText: creating
-                ? tr(context, '8 caractères minimum', 'At least 8 characters')
+                ? context.l10n.accountAtLeast8Characters
                 : null,
           ),
           onSubmitted: (_) => _submit(),
@@ -94,8 +94,8 @@ class _AccountFormState extends State<AccountForm> {
           onPressed: widget.busy ? null : _submit,
           child: Text(
             creating
-                ? tr(context, 'Créer mon compte', 'Create my account')
-                : tr(context, 'Se connecter', 'Sign in'),
+                ? context.l10n.accountCreateMyAccount
+                : context.l10n.accountSignIn2,
           ),
         ),
         if (!creating)
@@ -103,7 +103,7 @@ class _AccountFormState extends State<AccountForm> {
             onPressed: widget.busy
                 ? null
                 : () => context.read<AccountCubit>().resetPassword(email.text),
-            child: Text(tr(context, 'Mot de passe oublié', 'Forgot password')),
+            child: Text(context.l10n.accountForgotPassword),
           ),
         if (!creating)
           SignInLinkPanel(busy: widget.busy, email: () => email.text),

@@ -5,6 +5,7 @@ import 'package:amiludo/layers/functional/Admin/domain/entities/managed_user.dar
 import 'package:amiludo/layers/functional/Admin/presentation/admin_texts.dart';
 import 'package:amiludo/layers/functional/Admin/presentation/cubit/admin_cubit.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 enum _UserAction { admin, block, remove }
 
@@ -24,22 +25,18 @@ class ManagedUserTile extends StatelessWidget {
       case _UserAction.remove:
         final sure = await confirm(
           context,
-          tr(context, 'Supprimer ${user.label} ?', 'Delete ${user.label}?'),
-          tr(
-            context,
-            'Le compte et ses soirées publiées seront supprimés. C’est définitif.',
-            'The account and its published nights will be deleted. This cannot be undone.',
-          ),
+          context.l10n.adminDelete(user.label),
+          context.l10n.adminTheAccountAndItsPublished,
         );
         if (sure) await cubit.remove(user);
     }
   }
 
   List<Widget> _chips(BuildContext context) => [
-    if (user.admin) Chip(label: Text(tr(context, 'Admin', 'Admin'))),
-    if (user.blocked) Chip(label: Text(tr(context, 'Bloqué', 'Blocked'))),
+    if (user.admin) Chip(label: Text(context.l10n.accountAdmin)),
+    if (user.blocked) Chip(label: Text(context.l10n.adminBlocked)),
     if (!user.confirmed)
-      Chip(label: Text(tr(context, 'En attente', 'Pending'))),
+      Chip(label: Text(context.l10n.adminPending)),
   ];
 
   @override
@@ -57,28 +54,28 @@ class ManagedUserTile extends StatelessWidget {
       ),
       trailing: PopupMenuButton<_UserAction>(
         enabled: !busy,
-        tooltip: tr(context, 'Actions sur le compte', 'Account actions'),
+        tooltip: context.l10n.adminAccountActions,
         onSelected: (action) => _run(context, action),
         itemBuilder: (context) => [
           PopupMenuItem(
             value: _UserAction.admin,
             child: Text(
               user.admin
-                  ? tr(context, 'Retirer le rôle admin', 'Remove admin role')
-                  : tr(context, 'Rendre admin', 'Make admin'),
+                  ? context.l10n.adminRemoveAdminRole
+                  : context.l10n.adminMakeAdmin,
             ),
           ),
           PopupMenuItem(
             value: _UserAction.block,
             child: Text(
               user.blocked
-                  ? tr(context, 'Débloquer', 'Unblock')
-                  : tr(context, 'Bloquer', 'Block'),
+                  ? context.l10n.adminUnblock
+                  : context.l10n.adminBlock,
             ),
           ),
           PopupMenuItem(
             value: _UserAction.remove,
-            child: Text(tr(context, 'Supprimer', 'Delete')),
+            child: Text(context.l10n.randomDelete),
           ),
         ],
       ),

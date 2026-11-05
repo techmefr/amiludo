@@ -10,6 +10,7 @@ import 'package:amiludo/layers/technical/Network/room_link.dart';
 import 'package:amiludo/layers/technical/Qr/qr_scanner_view.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class JoinScreen extends StatelessWidget {
   const JoinScreen({super.key, this.initial});
@@ -18,7 +19,7 @@ class JoinScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => FullPage(
-    title: tr(context, 'Rejoindre', 'Join'),
+    title: context.l10n.lobbyJoin,
     fallback: '/',
     child: BlocBuilder<LobbyCubit, LobbyState>(
       builder: (context, state) {
@@ -65,7 +66,7 @@ class _JoinFormState extends State<_JoinForm> {
       return;
     }
     if (name.text.trim().isEmpty) {
-      notify(context, tr(context, 'Indiquez votre prénom', 'Enter your name'));
+      notify(context, context.l10n.lobbyEnterYourName);
       return;
     }
     context.read<LobbyCubit>().join(input, name: name.text);
@@ -81,14 +82,14 @@ class _JoinFormState extends State<_JoinForm> {
           controller: name,
           maxLength: 40,
           decoration: InputDecoration(
-            labelText: tr(context, 'Votre prénom', 'Your name'),
+            labelText: context.l10n.accountYourName,
           ),
         ),
         TextField(
           controller: code,
           textCapitalization: TextCapitalization.characters,
           decoration: InputDecoration(
-            labelText: tr(context, 'Code ou lien', 'Code or link'),
+            labelText: context.l10n.lobbyCodeOrLink,
             hintText: 'ABC 123',
           ),
           onSubmitted: (_) => _submit(),
@@ -113,12 +114,12 @@ class _JoinFormState extends State<_JoinForm> {
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
                   : const Icon(Icons.login),
-              label: Text(tr(context, 'Rejoindre', 'Join')),
+              label: Text(context.l10n.lobbyJoin),
             ),
             OutlinedButton.icon(
               onPressed: () => setState(() => scanning = !scanning),
               icon: const Icon(Icons.qr_code_scanner),
-              label: Text(tr(context, 'Scanner un QR', 'Scan a QR')),
+              label: Text(context.l10n.lobbyScanAQr),
             ),
           ],
         ),
@@ -126,11 +127,7 @@ class _JoinFormState extends State<_JoinForm> {
           const SizedBox(height: 16),
           QrScannerView(
             onCode: _submit,
-            unavailable: tr(
-              context,
-              'Caméra indisponible : tapez le code.',
-              'Camera unavailable: type the code.',
-            ),
+            unavailable: context.l10n.lobbyCameraUnavailableTypeTheCode,
           ),
         ],
       ],
@@ -146,33 +143,13 @@ class _GuestView extends StatelessWidget {
   String _status(BuildContext context) {
     final lobby = session.lobby;
     if (session.ended) {
-      return tr(
-        context,
-        'L’hôte a fermé le salon.',
-        'The host closed the lobby.',
-      );
+      return context.l10n.lobbyTheHostClosedTheLobby;
     }
     return switch (session.myStatus) {
-      SeatStatus.accepted when lobby.started => tr(
-        context,
-        'C’est parti ! La partie se joue chez ${lobby.hostName}.',
-        'Here we go! The game runs on ${lobby.hostName}’s device.',
-      ),
-      SeatStatus.accepted => tr(
-        context,
-        'Vous êtes dans la partie. Attendez le lancement.',
-        'You are in. Wait for the start.',
-      ),
-      SeatStatus.refused => tr(
-        context,
-        'L’hôte n’a pas accepté votre demande.',
-        'The host did not accept your request.',
-      ),
-      _ => tr(
-        context,
-        'Demande envoyée à ${lobby.hostName}…',
-        'Request sent to ${lobby.hostName}…',
-      ),
+      SeatStatus.accepted when lobby.started => context.l10n.lobbyHereWeGoTheGame(lobby.hostName),
+      SeatStatus.accepted => context.l10n.lobbyYouAreInWaitFor,
+      SeatStatus.refused => context.l10n.lobbyTheHostDidNotAccept,
+      _ => context.l10n.lobbyRequestSentTo(lobby.hostName),
     };
   }
 
@@ -197,7 +174,7 @@ class _GuestView extends StatelessWidget {
       const SizedBox(height: 24),
       OutlinedButton(
         onPressed: context.read<LobbyCubit>().leave,
-        child: Text(tr(context, 'Quitter', 'Leave')),
+        child: Text(context.l10n.lobbyLeave),
       ),
     ],
   );
