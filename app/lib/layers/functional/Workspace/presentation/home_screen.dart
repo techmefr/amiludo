@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:amiludo/layers/functional/Workspace/presentation/home_hero.dart';
+import 'package:amiludo/layers/functional/Workspace/presentation/home_tiles.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
-import 'package:amiludo/layers/technical/Theme/game_art.dart';
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/cubit/workspace_cubit.dart';
-import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -24,7 +24,9 @@ class HomeScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const _HomeHeading(),
-        const _HeroPanel(),
+        const HomeHero(),
+        SectionHeading(context.l10n.workspacePlayTogetherStayInThe),
+        const HomeWaysToPlay(),
         if (current != null && current.finishedAt == null) ...[
           SectionHeading(
             context.l10n.workspaceYourGameContinues,
@@ -42,11 +44,9 @@ class HomeScreen extends StatelessWidget {
             child: Text(context.l10n.workspaceViewAll),
           ),
         ),
-        ResponsiveGrid(
-          minimumWidth: MediaQuery.sizeOf(context).width < 760 ? 150 : 280,
-          children: toolDefinitions
+        HomeFavoriteTools(
+          tools: toolDefinitions
               .where((t) => ws.favorites.contains(t.id))
-              .map((t) => _ToolCard(tool: t))
               .toList(),
         ),
         SectionHeading(
@@ -75,95 +75,6 @@ class _HomeHeading extends StatelessWidget {
       eyebrow: context.l10n.workspacePlayTogetherStayInThe,
       title: context.l10n.workspaceWhatAreWePlayingToday,
       subtitle: context.l10n.workspaceTheRightToolsGoodCompany,
-      action: OutlinedButton.icon(
-        onPressed: () => context.push(GameSetupRequest.path),
-        icon: const DeckIcon(Icons.add, size: 18),
-        label: Text(context.l10n.workspaceNewGame),
-      ),
-    );
-  }
-}
-
-class _HeroPanel extends StatelessWidget {
-  const _HeroPanel();
-  @override
-  Widget build(BuildContext context) {
-    return DeckPanel(
-      color: Theme.of(context).colorScheme.surfaceContainerHighest,
-      child: LayoutBuilder(
-        builder: (context, c) => Row(
-          children: [
-            Expanded(child: _HeroText(compact: c.maxWidth <= 650)),
-            if (c.maxWidth > 650)
-              const SizedBox(width: 320, child: GameArt(height: 260)),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _HeroText extends StatelessWidget {
-  const _HeroText({required this.compact});
-  final bool compact;
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        if (compact) const GameArt(height: 180),
-        Text(
-          context.l10n.workspaceGoodToolsGreatCompany.toUpperCase(),
-          style: theme.textTheme.labelMedium?.copyWith(
-            fontWeight: FontWeight.w700,
-            letterSpacing: 1.2,
-            color: theme.colorScheme.primary,
-          ),
-        ),
-        const SizedBox(height: 12),
-        Text(
-          context.l10n.workspaceYourFriendsYourTableLet,
-          style: theme.textTheme.headlineMedium,
-        ),
-        const SizedBox(height: 16),
-        Text(context.l10n.workspaceScoresChanceAndTimingKeep),
-        const SizedBox(height: 24),
-        const _HeroActions(),
-      ],
-    );
-  }
-}
-
-class _HeroActions extends StatelessWidget {
-  const _HeroActions();
-  @override
-  Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 12,
-      runSpacing: 12,
-      children: [
-        FilledButton.icon(
-          onPressed: () => context.go('/tools'),
-          icon: const DeckIcon(Icons.arrow_outward, size: 18),
-          label: Text(context.l10n.workspaceFreeMode),
-        ),
-        OutlinedButton.icon(
-          onPressed: () => context.go('/templates'),
-          icon: const DeckIcon(Icons.dashboard_outlined, size: 18),
-          label: Text(context.l10n.workspaceMyGameCompanions),
-        ),
-        OutlinedButton.icon(
-          onPressed: () => context.go('/lobby'),
-          icon: const DeckIcon(Icons.wifi_tethering, size: 18),
-          label: Text(context.l10n.workspaceOpenALobby),
-        ),
-        OutlinedButton.icon(
-          onPressed: () => context.go('/join'),
-          icon: const DeckIcon(Icons.login, size: 18),
-          label: Text(context.l10n.workspaceJoinAGame),
-        ),
-      ],
     );
   }
 }
@@ -185,41 +96,13 @@ class _CurrentGamePanel extends StatelessWidget {
             children: [
               Text(game.title, style: Theme.of(context).textTheme.titleLarge),
               Text(
-                '${game.players.length} joueurs · Manche ${game.round} · ${game.players[game.activeIndex].name}',
+                '${game.players.length} ${context.l10n.gamePlayers} · ${context.l10n.gameRound} ${game.round} · ${game.players[game.activeIndex].name}',
               ),
             ],
           ),
           FilledButton(
             onPressed: () => context.go('/game'),
             child: Text(context.l10n.workspaceResumeGame),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _ToolCard extends StatelessWidget {
-  const _ToolCard({required this.tool});
-  final ToolDefinition tool;
-  @override
-  Widget build(BuildContext context) {
-    return DeckPanel(
-      padding: 20,
-      color: toolSurface(context, tool.id),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          GameArt(tool: tool.id, height: 112),
-          const SizedBox(height: 20),
-          Text(tool.title, style: Theme.of(context).textTheme.titleMedium),
-          const SizedBox(height: 8),
-          Text(tool.subtitle),
-          const SizedBox(height: 16),
-          const Spacer(),
-          OutlinedButton(
-            onPressed: () => context.push('/tools/${tool.id}'),
-            child: Text(context.l10n.workspaceOpen),
           ),
         ],
       ),
