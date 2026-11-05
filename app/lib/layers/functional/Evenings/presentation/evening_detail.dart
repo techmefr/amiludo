@@ -125,9 +125,7 @@ class _MyAnswer extends StatelessWidget {
         if (evening.published && !cubit.signedIn)
           OutlinedButton(
             onPressed: () => context.go('/account'),
-            child: Text(
-              context.l10n.eveningsSignInToSignUp,
-            ),
+            child: Text(context.l10n.eveningsSignInToSignUp),
           )
         else
           SegmentedButton<RsvpAnswer>(
@@ -151,9 +149,7 @@ class _MyAnswer extends StatelessWidget {
         if (waiting)
           Padding(
             padding: const EdgeInsets.only(top: 8),
-            child: Text(
-              context.l10n.eveningsFullYouAreOnThe,
-            ),
+            child: Text(context.l10n.eveningsFullYouAreOnThe),
           ),
       ],
     );

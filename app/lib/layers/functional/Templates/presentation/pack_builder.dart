@@ -208,18 +208,13 @@ class _PackBuilderState extends State<PackBuilder> {
     try {
       await context.read<TemplatesCubit>().addTemplate(compile());
       if (mounted) {
-        notify(
-          context,
-          context.l10n.templatesPackSavedOnThisDevice,
-        );
+        notify(context, context.l10n.templatesPackSavedOnThisDevice);
         _leave();
       }
     } on FormatException catch (e) {
       setState(() => error = e.message);
     } on TypeError {
-      setState(
-        () => error = context.l10n.templatesCheckTheNumbersAndFields,
-      );
+      setState(() => error = context.l10n.templatesCheckTheNumbersAndFields);
     }
   }
 
@@ -235,15 +230,11 @@ class _PackBuilderState extends State<PackBuilder> {
   void _next() {
     if (stage == 0 &&
         (name.text.trim().isEmpty || englishName.text.trim().isEmpty)) {
-      setState(
-        () => error = context.l10n.templatesFillInTheGameName,
-      );
+      setState(() => error = context.l10n.templatesFillInTheGameName);
       return;
     }
     if (stage == 1 && modes.isEmpty) {
-      setState(
-        () => error = context.l10n.templatesPickAtLeastOneTool,
-      );
+      setState(() => error = context.l10n.templatesPickAtLeastOneTool);
       return;
     }
     setState(() {
@@ -254,11 +245,7 @@ class _PackBuilderState extends State<PackBuilder> {
 
   Widget _gameStage() => Column(
     children: [
-      BuilderField(
-        name,
-        context.l10n.templatesGameOrPackName,
-        maxLength: 80,
-      ),
+      BuilderField(name, context.l10n.templatesGameOrPackName, maxLength: 80),
       BuilderField(
         englishName,
         context.l10n.templatesEnglishGameName,
@@ -275,10 +262,7 @@ class _PackBuilderState extends State<PackBuilder> {
         context.l10n.templatesEditionOrVariant,
         maxLength: 120,
       ),
-      BuilderField(
-        language,
-        context.l10n.templatesPackLanguageFrEn,
-      ),
+      BuilderField(language, context.l10n.templatesPackLanguageFrEn),
     ],
   );
 

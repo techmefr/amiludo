@@ -99,9 +99,7 @@ class _EveningFormState extends State<EveningForm> {
           TextField(
             controller: place,
             maxLength: 120,
-            decoration: InputDecoration(
-              labelText: context.l10n.eveningsPlace,
-            ),
+            decoration: InputDecoration(labelText: context.l10n.eveningsPlace),
           ),
           ListTile(
             contentPadding: EdgeInsets.zero,
@@ -133,10 +131,7 @@ class _EveningFormState extends State<EveningForm> {
                   setState(() => evening = evening.copyWith(gameNames: names)),
             ),
           const SizedBox(height: 32),
-          FilledButton(
-            onPressed: _save,
-            child: Text(context.l10n.themeSave),
-          ),
+          FilledButton(onPressed: _save, child: Text(context.l10n.themeSave)),
         ],
       ),
     );

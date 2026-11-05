@@ -5,7 +5,8 @@ import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 String randomInputErrorText(BuildContext context, RandomInputError error) =>
     switch (error) {
-      RandomInputError.invalidBounds => context.l10n.randomEnterTwoWholeNumbersThe,
+      RandomInputError.invalidBounds =>
+        context.l10n.randomEnterTwoWholeNumbersThe,
       RandomInputError.emptyBag => context.l10n.randomTheBagIsEmptyRefill,
       RandomInputError.roleCount => context.l10n.randomProvideExactlyOneRolePer,
       RandomInputError.wheelSize => context.l10n.randomPickBetween2And50,

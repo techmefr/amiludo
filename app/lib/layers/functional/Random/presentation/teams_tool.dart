@@ -59,10 +59,7 @@ class _TeamsToolState extends State<TeamsTool> {
   void _draw() {
     final pool = players;
     if (pool.length < 2) {
-      notify(
-        context,
-        context.l10n.randomAtLeastTwoPlayersAre,
-      );
+      notify(context, context.l10n.randomAtLeastTwoPlayersAre);
       return;
     }
     setState(() => teams = random.teams(pool, min(teamCount, pool.length)));
@@ -115,9 +112,7 @@ class _TeamsToolState extends State<TeamsTool> {
       TeamsFingerPad(teamCount: teamCount, haptics: widget.haptics),
     ],
     TeamSource.lobby => [
-      Text(
-        context.l10n.randomLobbyPlayers(widget.lobbyNames.join(' · ')),
-      ),
+      Text(context.l10n.randomLobbyPlayers(widget.lobbyNames.join(' · '))),
       ..._drawAndResult(),
     ],
     TeamSource.list => [

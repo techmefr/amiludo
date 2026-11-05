@@ -53,9 +53,7 @@ class EveningInvite extends StatelessWidget {
             )
           : OutlinedButton(
               onPressed: () => context.go('/account'),
-              child: Text(
-                context.l10n.eveningsSignInToPublish,
-              ),
+              child: Text(context.l10n.eveningsSignInToPublish),
             ),
     );
   }

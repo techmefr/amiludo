@@ -40,10 +40,7 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
     }
     await templates.addTemplate(p);
     if (mounted) {
-      notify(
-        context,
-        context.l10n.templatesPackInstalledFindItIn,
-      );
+      notify(context, context.l10n.templatesPackInstalledFindItIn);
     }
   }
 
@@ -95,9 +92,7 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
           ),
           const SizedBox(height: 24),
           if (!catalog.loading && shown.isEmpty)
-            Text(
-              context.l10n.templatesNoPackForThisSearch,
-            ),
+            Text(context.l10n.templatesNoPackForThisSearch),
           for (final p in shown)
             _PackCard(
               pack: p,
@@ -121,8 +116,10 @@ String _filterLabel(BuildContext context, PackFilter filter) =>
 
 String _errorText(BuildContext context, MarketplaceError error) =>
     switch (error) {
-      MarketplaceError.unavailable => context.l10n.templatesCatalogueUnavailable,
-      MarketplaceError.refreshFailed => context.l10n.templatesCouldNotRefreshInstalledPacks,
+      MarketplaceError.unavailable =>
+        context.l10n.templatesCatalogueUnavailable,
+      MarketplaceError.refreshFailed =>
+        context.l10n.templatesCouldNotRefreshInstalledPacks,
     };
 
 class _CatalogHeader extends StatelessWidget {
@@ -166,9 +163,7 @@ class _MarketplaceActions extends StatelessWidget {
         FilledButton.icon(
           onPressed: loading ? null : context.read<MarketplaceCubit>().refresh,
           icon: const DeckIcon(Icons.refresh),
-          label: Text(
-            context.l10n.templatesRefreshTheGallery,
-          ),
+          label: Text(context.l10n.templatesRefreshTheGallery),
         ),
         OutlinedButton(
           onPressed: () => context.push('/builder/new'),
@@ -179,9 +174,7 @@ class _MarketplaceActions extends StatelessWidget {
             context,
             '$projectUrl/blob/main/community/README.md',
           ),
-          child: Text(
-            context.l10n.templatesHowToPublishMyPack,
-          ),
+          child: Text(context.l10n.templatesHowToPublishMyPack),
         ),
       ],
     );
@@ -212,7 +205,12 @@ class _PackCard extends StatelessWidget {
             Text('${p.author} · ${p.revision} · ${p.license}'),
             const SizedBox(height: 12),
             Text(
-              context.l10n.templatesDiceTypesRolesCategoriesBoosters(p.dice.length, p.roles.length, p.scoring.length, p.creation.length),
+              context.l10n.templatesDiceTypesRolesCategoriesBoosters(
+                p.dice.length,
+                p.roles.length,
+                p.scoring.length,
+                p.creation.length,
+              ),
             ),
             if (p.rulesNotes.isNotEmpty)
               Padding(
@@ -222,9 +220,7 @@ class _PackCard extends StatelessWidget {
             if (p.rulesUrl.isNotEmpty)
               TextButton(
                 onPressed: () => openProjectLink(context, p.rulesUrl),
-                child: Text(
-                  context.l10n.templatesReferenceRules,
-                ),
+                child: Text(context.l10n.templatesReferenceRules),
               ),
             const SizedBox(height: 16),
             Wrap(

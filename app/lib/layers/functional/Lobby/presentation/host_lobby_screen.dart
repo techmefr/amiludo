@@ -72,9 +72,7 @@ class _LobbyFormState extends State<_LobbyForm> {
         TextField(
           controller: name,
           maxLength: 40,
-          decoration: InputDecoration(
-            labelText: context.l10n.accountYourName,
-          ),
+          decoration: InputDecoration(labelText: context.l10n.accountYourName),
         ),
         TextField(
           controller: title,

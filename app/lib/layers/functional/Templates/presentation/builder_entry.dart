@@ -21,9 +21,7 @@ class BuilderEntry extends StatelessWidget {
       return FullPage(
         title: context.l10n.templatesPackNotFound,
         fallback: '/templates',
-        child: Text(
-          context.l10n.templatesThisPackIsNoLonger,
-        ),
+        child: Text(context.l10n.templatesThisPackIsNoLonger),
       );
     }
     final builtin = GameTemplate.builtIn.any((t) => t.id == id);

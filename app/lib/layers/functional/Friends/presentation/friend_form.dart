@@ -61,10 +61,7 @@ class _FriendFormState extends State<FriendForm> {
       if (mounted) context.go('/friends');
     } on FriendError {
       if (mounted) {
-        notify(
-          context,
-          context.l10n.friendsThisFriendAlreadyExists,
-        );
+        notify(context, context.l10n.friendsThisFriendAlreadyExists);
       }
     } on FormatException catch (error) {
       if (mounted) notify(context, error.message);
@@ -98,9 +95,7 @@ class _FriendFormState extends State<FriendForm> {
           ),
         ),
         SectionHeading(context.l10n.friendsTastes),
-        Text(
-          context.l10n.friendsTapAGenreLikesThen,
-        ),
+        Text(context.l10n.friendsTapAGenreLikesThen),
         const SizedBox(height: 12),
         _TasteChips(friend: friend, onCycle: _cycle),
         SectionHeading(context.l10n.friendsLongestGame),
@@ -115,9 +110,7 @@ class _FriendFormState extends State<FriendForm> {
               setState(() => friend = friend.copyWith(maxMinutes: v.round())),
         ),
         SectionHeading(context.l10n.friendsPerGameOpinion),
-        Text(
-          context.l10n.friendsTapAGameWantsIt,
-        ),
+        Text(context.l10n.friendsTapAGameWantsIt),
         const SizedBox(height: 12),
         _GameOpinions(
           friend: friend,
@@ -128,10 +121,7 @@ class _FriendFormState extends State<FriendForm> {
           spacing: 12,
           runSpacing: 12,
           children: [
-            FilledButton(
-              onPressed: _save,
-              child: Text(context.l10n.themeSave),
-            ),
+            FilledButton(onPressed: _save, child: Text(context.l10n.themeSave)),
             if (context.read<FriendsCubit>().state.friends.any(
               (f) => f.id == friend.id,
             ))
@@ -245,9 +235,7 @@ class _GameOpinions extends StatelessWidget {
   Widget build(BuildContext context) {
     final shelf = context.read<FriendsCubit>().shelf;
     if (shelf.isEmpty) {
-      return Text(
-        context.l10n.friendsYourShelfIsEmpty,
-      );
+      return Text(context.l10n.friendsYourShelfIsEmpty);
     }
     return Wrap(
       spacing: 8,

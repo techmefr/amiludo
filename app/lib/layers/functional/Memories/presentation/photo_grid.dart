@@ -36,9 +36,7 @@ class PhotoGrid extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(
-        context.l10n.memoriesPhotosStayOnThisDevice,
-      ),
+      Text(context.l10n.memoriesPhotosStayOnThisDevice),
       const SizedBox(height: 16),
       ResponsiveGrid(
         minimumWidth: 140,

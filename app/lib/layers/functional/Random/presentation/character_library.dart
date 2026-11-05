@@ -19,10 +19,7 @@ class CharacterLibrary extends StatelessWidget {
       final j = jsonDecode(text) as Map<String, dynamic>;
       if (j['format'] != 'table-companion-character' || j['version'] != 1) {
         if (context.mounted) {
-          notify(
-            context,
-            context.l10n.randomImportFailedIncompatibleSheet,
-          );
+          notify(context, context.l10n.randomImportFailedIncompatibleSheet);
         }
         return;
       }
@@ -45,10 +42,7 @@ class CharacterLibrary extends StatelessWidget {
       }
     } catch (e) {
       if (context.mounted) {
-        notify(
-          context,
-          context.l10n.randomImportFailed(e),
-        );
+        notify(context, context.l10n.randomImportFailed(e));
       }
     }
   }
@@ -63,15 +57,11 @@ class CharacterLibrary extends StatelessWidget {
         OutlinedButton.icon(
           onPressed: () => import(context),
           icon: const DeckIcon(Icons.file_open_outlined),
-          label: Text(
-            context.l10n.randomImportAJsonSheet,
-          ),
+          label: Text(context.l10n.randomImportAJsonSheet),
         ),
         const SizedBox(height: 16),
         if (records.isEmpty)
-          Text(
-            context.l10n.randomYourSavedCharactersWillAppear,
-          ),
+          Text(context.l10n.randomYourSavedCharactersWillAppear),
         for (final c in records) _CharacterCard(character: c),
       ],
     );
@@ -124,9 +114,7 @@ class _CharacterCard extends StatelessWidget {
             children: [
               TextButton(
                 onPressed: _export,
-                child: Text(
-                  context.l10n.randomExportTheSheet,
-                ),
+                child: Text(context.l10n.randomExportTheSheet),
               ),
               TextButton(
                 onPressed: () => _remove(context),

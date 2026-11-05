@@ -89,10 +89,7 @@ class _RolesToolState extends State<RolesTool> {
         ),
         const SizedBox(height: 20),
       ],
-      RandomDrawButton(
-        onPressed: draw,
-        label: context.l10n.randomAssignRoles,
-      ),
+      RandomDrawButton(onPressed: draw, label: context.l10n.randomAssignRoles),
     ],
   );
 }
@@ -142,9 +139,7 @@ class DeckRoleCard extends StatelessWidget {
           const SizedBox(height: 20),
           FilledButton(
             onPressed: onNext,
-            child: Text(
-              context.l10n.randomHideAndPass,
-            ),
+            child: Text(context.l10n.randomHideAndPass),
           ),
         ] else ...[
           const GameArt(tool: 'roles', height: 140),

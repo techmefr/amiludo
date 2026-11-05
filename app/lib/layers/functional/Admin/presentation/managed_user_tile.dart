@@ -35,8 +35,7 @@ class ManagedUserTile extends StatelessWidget {
   List<Widget> _chips(BuildContext context) => [
     if (user.admin) Chip(label: Text(context.l10n.accountAdmin)),
     if (user.blocked) Chip(label: Text(context.l10n.adminBlocked)),
-    if (!user.confirmed)
-      Chip(label: Text(context.l10n.adminPending)),
+    if (!user.confirmed) Chip(label: Text(context.l10n.adminPending)),
   ];
 
   @override

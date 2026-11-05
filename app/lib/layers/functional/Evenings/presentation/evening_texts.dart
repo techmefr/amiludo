@@ -22,9 +22,7 @@ String seatsLine(BuildContext context, Evening evening) {
   final base = evening.seats <= 0
       ? context.l10n.eveningsGoing2(going)
       : context.l10n.eveningsSeats(going, evening.seats);
-  return waiting == 0
-      ? base
-      : context.l10n.eveningsWaiting(base, waiting);
+  return waiting == 0 ? base : context.l10n.eveningsWaiting(base, waiting);
 }
 
 String eveningErrorText(BuildContext context, Object error) => switch (error) {

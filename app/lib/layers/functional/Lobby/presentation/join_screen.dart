@@ -81,9 +81,7 @@ class _JoinFormState extends State<_JoinForm> {
         TextField(
           controller: name,
           maxLength: 40,
-          decoration: InputDecoration(
-            labelText: context.l10n.accountYourName,
-          ),
+          decoration: InputDecoration(labelText: context.l10n.accountYourName),
         ),
         TextField(
           controller: code,
@@ -146,7 +144,8 @@ class _GuestView extends StatelessWidget {
       return context.l10n.lobbyTheHostClosedTheLobby;
     }
     return switch (session.myStatus) {
-      SeatStatus.accepted when lobby.started => context.l10n.lobbyHereWeGoTheGame(lobby.hostName),
+      SeatStatus.accepted when lobby.started =>
+        context.l10n.lobbyHereWeGoTheGame(lobby.hostName),
       SeatStatus.accepted => context.l10n.lobbyYouAreInWaitFor,
       SeatStatus.refused => context.l10n.lobbyTheHostDidNotAccept,
       _ => context.l10n.lobbyRequestSentTo(lobby.hostName),

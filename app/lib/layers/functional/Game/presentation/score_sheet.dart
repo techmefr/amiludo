@@ -36,9 +36,7 @@ class _ScoreSheetState extends State<ScoreSheet> {
       return FullPage(
         title: context.l10n.templatesScoring,
         fallback: '/game',
-        child: Text(
-          context.l10n.gameCreateAGameToUse,
-        ),
+        child: Text(context.l10n.gameCreateAGameToUse),
       );
     }
     final rules = g.pack?.scoring ?? <ScoreRule>[];
@@ -66,9 +64,7 @@ class _ScoreSheetState extends State<ScoreSheet> {
           if (ready)
             FilledButton(
               onPressed: () => _apply(g, p, rules),
-              child: Text(
-                context.l10n.gameApplyThisScoring,
-              ),
+              child: Text(context.l10n.gameApplyThisScoring),
             ),
         ],
       ),
@@ -160,14 +156,9 @@ class _SheetIntro extends StatelessWidget {
         style: Theme.of(context).textTheme.headlineSmall,
       ),
       const SizedBox(height: 12),
-      Text(
-        context.l10n.gameEnterTheFinalQuantitiesFilled,
-      ),
+      Text(context.l10n.gameEnterTheFinalQuantitiesFilled),
       const SizedBox(height: 24),
-      if (free)
-        Text(
-          context.l10n.gameThisTemplateUsesFreeScores,
-        ),
+      if (free) Text(context.l10n.gameThisTemplateUsesFreeScores),
     ],
   );
 }

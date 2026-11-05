@@ -138,15 +138,11 @@ class _FingerToolState extends State<FingerTool> {
       mainAxisSize: widget.fullscreen ? MainAxisSize.max : MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          context.l10n.randomHoldYourFingersOnThe,
-        ),
+        Text(context.l10n.randomHoldYourFingersOnThe),
         const SizedBox(height: 20),
         if (widget.fullscreen) Expanded(child: area(theme)) else area(theme),
         const SizedBox(height: 24),
-        Text(
-          context.l10n.randomOrPickANameWithout,
-        ),
+        Text(context.l10n.randomOrPickANameWithout),
         const SizedBox(height: 16),
         FilledButton(
           onPressed: widget.names.isEmpty

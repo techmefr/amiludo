@@ -72,9 +72,7 @@ class _ToolPageState extends State<ToolPage> {
               ? Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      context.l10n.randomInstallACharacterPackFrom,
-                    ),
+                    Text(context.l10n.randomInstallACharacterPackFrom),
                     const CharacterLibrary(),
                   ],
                 )
@@ -112,14 +110,9 @@ class _ToolPageState extends State<ToolPage> {
       key: ValueKey(current?.id ?? ''),
       initialValue: current?.id ?? '',
       isExpanded: true,
-      decoration: InputDecoration(
-        labelText: context.l10n.randomGameSetup,
-      ),
+      decoration: InputDecoration(labelText: context.l10n.randomGameSetup),
       items: [
-        DropdownMenuItem(
-          value: '',
-          child: Text(context.l10n.randomFreeTool),
-        ),
+        DropdownMenuItem(value: '', child: Text(context.l10n.randomFreeTool)),
         for (final p in packs)
           DropdownMenuItem(value: p.id, child: Text(p.name)),
       ],
@@ -158,9 +151,7 @@ class _ToolPageState extends State<ToolPage> {
     if (title == null) {
       return FullPage(
         title: context.l10n.randomToolNotFound,
-        child: Text(
-          context.l10n.randomGoBackToTheToolbox,
-        ),
+        child: Text(context.l10n.randomGoBackToTheToolbox),
       );
     }
     final packs = packsFor(ws);

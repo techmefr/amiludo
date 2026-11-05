@@ -14,14 +14,12 @@ String adminErrorText(BuildContext context, AdminError error) =>
       AdminError.unreachable => context.l10n.accountCouldNotConnect,
     };
 
-String adminNoticeText(
-  BuildContext context,
-  AdminNotice notice,
-) => switch (notice) {
-  AdminNotice.invited => context.l10n.adminInvitationSent,
-  AdminNotice.updated => context.l10n.adminAccountUpdated,
-  AdminNotice.removed => context.l10n.adminAccountDeleted,
-};
+String adminNoticeText(BuildContext context, AdminNotice notice) =>
+    switch (notice) {
+      AdminNotice.invited => context.l10n.adminInvitationSent,
+      AdminNotice.updated => context.l10n.adminAccountUpdated,
+      AdminNotice.removed => context.l10n.adminAccountDeleted,
+    };
 
 String lastSeenText(BuildContext context, ManagedUser user) {
   final texts = MaterialLocalizations.of(context);

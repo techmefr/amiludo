@@ -69,9 +69,7 @@ class _PackShortcuts extends StatelessWidget {
       if (game.finishedAt != null)
         OutlinedButton(
           onPressed: () => context.push('/pack/${game.pack!.id}?session=1'),
-          child: Text(
-            context.l10n.gameGameToolsAndRules,
-          ),
+          child: Text(context.l10n.gameGameToolsAndRules),
         ),
       if (game.finishedAt == null && game.pack!.scoring.isNotEmpty)
         for (final p in game.players)
@@ -127,9 +125,7 @@ class _GameLog extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (game.appliedEntries.isEmpty)
-              Text(
-                context.l10n.gameReadyForYourFirstMove,
-              ),
+              Text(context.l10n.gameReadyForYourFirstMove),
             for (final e in game.appliedEntries.toList().reversed.take(8))
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 6),
