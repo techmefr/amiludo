@@ -20,9 +20,9 @@
 
 ## Lot 3 - Appearance step and recap
 
-- [ ] T009 [US1] Base appearance screens with live preview
+- [x] T009 [US1] Base appearance screens with live preview
 - [ ] T010 [US3] Recap with eight cards and computed traits
-- [ ] T011 Localizations in seven languages
+- [x] T011 Localizations in seven languages
 - [ ] T012 Widget tests at three sizes and with reduced motion
 
 ## Lot 4 - Demonstration assembly

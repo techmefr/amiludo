@@ -4417,6 +4417,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{min} to {max}'**
   String randomKeepRangeBetween(int min, int max);
+
+  /// No description provided for @randomPreviousStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous booster'**
+  String get randomPreviousStep;
 }
 
 class _AppLocalizationsDelegate
