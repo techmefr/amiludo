@@ -79,7 +79,7 @@ class CustomDieForm extends StatefulWidget {
 
 class _CustomDieFormState extends State<CustomDieForm> {
   final faces = TextEditingController();
-  int color = faceColors.first;
+  int color = facePalette.first;
 
   @override
   void dispose() {
@@ -106,7 +106,7 @@ class _CustomDieFormState extends State<CustomDieForm> {
         Wrap(
           spacing: Space.sm,
           children: [
-            for (final c in faceColors)
+            for (final c in facePalette)
               IconButton(
                 constraints: const BoxConstraints.tightFor(
                   width: Targets.minimum,

@@ -5,7 +5,7 @@ const diceTrayBrickType = 'dice-tray';
 const standardSides = [4, 6, 8, 10, 12, 20];
 const maxTrayDice = 12;
 const maxCustomFaces = 12;
-const faceColors = [
+const facePalette = [
   0xFF3D7BD9,
   0xFFD9573D,
   0xFF3DA66B,
