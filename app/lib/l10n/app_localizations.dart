@@ -4645,6 +4645,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Copied'**
   String get randomCopied;
+
+  /// No description provided for @toolQuestTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Quest generator'**
+  String get toolQuestTitle;
+
+  /// No description provided for @toolQuestSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A hook, a place, an obstacle and a reward.'**
+  String get toolQuestSubtitle;
+
+  /// No description provided for @toolTreasureTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Treasure generator'**
+  String get toolTreasureTitle;
+
+  /// No description provided for @toolTreasureSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What is inside the chest, and one odd curiosity.'**
+  String get toolTreasureSubtitle;
+
+  /// No description provided for @toolVillainTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Villain generator'**
+  String get toolVillainTitle;
+
+  /// No description provided for @toolVillainSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Motive, methods, weakness and lair.'**
+  String get toolVillainSubtitle;
+
+  /// No description provided for @toolTownTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Town generator'**
+  String get toolTownTitle;
+
+  /// No description provided for @toolTownSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A name, a trade, a landmark and some trouble.'**
+  String get toolTownSubtitle;
 }
 
 class _AppLocalizationsDelegate

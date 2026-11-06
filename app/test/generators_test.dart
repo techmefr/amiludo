@@ -15,7 +15,15 @@ GeneratorEngine engine(String language, int seed) => GeneratorEngine(
 
 void main() {
   for (final language in ['en', 'fr']) {
-    for (final id in ['npc', 'tavern', 'encounter']) {
+    for (final id in [
+      'npc',
+      'tavern',
+      'encounter',
+      'quest',
+      'treasure',
+      'villain',
+      'town',
+    ]) {
       test('$id generator fills every section in $language', () {
         for (var seed = 0; seed < 25; seed++) {
           final sheet = engine(language, seed).generate(id);

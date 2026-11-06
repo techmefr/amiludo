@@ -2502,4 +2502,31 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get randomCopied => 'Gekopieerd';
+
+  @override
+  String get toolQuestTitle => 'Questgenerator';
+
+  @override
+  String get toolQuestSubtitle =>
+      'Een haak, een plek, een obstakel en een beloning.';
+
+  @override
+  String get toolTreasureTitle => 'Schatgenerator';
+
+  @override
+  String get toolTreasureSubtitle =>
+      'Wat er in de kist zit en een vreemde curiositeit.';
+
+  @override
+  String get toolVillainTitle => 'Schurkengenerator';
+
+  @override
+  String get toolVillainSubtitle => 'Motief, methodes, zwakte en schuilplaats.';
+
+  @override
+  String get toolTownTitle => 'Plaatsgenerator';
+
+  @override
+  String get toolTownSubtitle =>
+      'Een naam, een ambacht, een herkenningspunt en wat ellende.';
 }

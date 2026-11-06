@@ -2502,4 +2502,30 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get randomCopied => 'Copiado';
+
+  @override
+  String get toolQuestTitle => 'Gerador de missões';
+
+  @override
+  String get toolQuestSubtitle =>
+      'Um gancho, um local, um obstáculo e uma recompensa.';
+
+  @override
+  String get toolTreasureTitle => 'Gerador de tesouros';
+
+  @override
+  String get toolTreasureSubtitle =>
+      'O que está no baú e uma curiosidade estranha.';
+
+  @override
+  String get toolVillainTitle => 'Gerador de vilões';
+
+  @override
+  String get toolVillainSubtitle => 'Motivo, métodos, fraqueza e covil.';
+
+  @override
+  String get toolTownTitle => 'Gerador de vilas';
+
+  @override
+  String get toolTownSubtitle => 'Um nome, um ofício, um marco e um problema.';
 }

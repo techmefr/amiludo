@@ -752,5 +752,13 @@
   "toolCategoryTime": "Tempo",
   "toolCategoryStory": "Racconto",
   "randomCopy": "Copia",
-  "randomCopied": "Copiato"
+  "randomCopied": "Copiato",
+  "toolQuestTitle": "Generatore di missioni",
+  "toolQuestSubtitle": "Un gancio, un luogo, un ostacolo e una ricompensa.",
+  "toolTreasureTitle": "Generatore di tesori",
+  "toolTreasureSubtitle": "Cosa c'è nel forziere e una strana curiosità.",
+  "toolVillainTitle": "Generatore di cattivi",
+  "toolVillainSubtitle": "Movente, metodi, debolezza e covo.",
+  "toolTownTitle": "Generatore di città",
+  "toolTownSubtitle": "Un nome, un mestiere, un punto di riferimento e un guaio."
 }

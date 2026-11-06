@@ -10,34 +10,432 @@
     "place": "Décor",
     "core": "La rencontre",
     "complications": "Complications",
-    "twist": "Rebondissement"
+    "twist": "Rebondissement",
+    "giver": "Commanditaire",
+    "goal": "Objectif",
+    "location": "Où",
+    "obstacle": "Obstacle",
+    "reward": "Récompense",
+    "stakes": "Enjeu",
+    "loot": "À l'intérieur",
+    "curio": "Curiosité",
+    "motive": "Motivation",
+    "method": "Méthodes",
+    "weakness": "Faiblesse",
+    "lair": "Repaire",
+    "size": "Taille",
+    "trade": "Connue pour",
+    "landmark": "Repère",
+    "problem": "Ennui",
+    "custom": "Coutume locale"
   },
   "npc": {
-    "firstNames": ["Maren", "Toben", "Isolde", "Garrick", "Selwyn", "Brisa", "Odon", "Véra", "Hobb", "Linette", "Corwin", "Tamsin", "Rurik", "Odalys", "Pell", "Anselme", "Crécerelle", "Dorian"],
-    "lastNames": ["Basfrêne", "Eaunoire", "Cuivrechaudron", "Brumelande", "Beautemps", "Grisemont", "Ferbougie", "Pied-d'Alouette", "Rivemousse", "Chardonvent", "Sous-la-Colline", "Landespectre"],
-    "peoples": ["humain", "demi-elfe", "nain", "halfelin", "gnome", "demi-orc", "tieffelin", "elfe"],
-    "jobs": ["marin", "boulanger", "forgeron", "herboriste", "coursier", "percepteur", "gardien de cimetière", "musicien de rue", "garde à la retraite", "scribe", "passeur", "diseuse de bonne aventure"],
-    "ages": ["jeune", "dans la trentaine", "d'âge mûr", "âgé", "très âgé"],
-    "builds": ["petit et trapu", "grand et maigre", "large d'épaules", "menu et vif", "rond et joyeux", "nerveux"],
-    "hair": ["des cheveux gris courts et ondulés", "une longue tresse", "le crâne rasé", "des boucles rousses indomptables", "des cheveux noirs plaqués en arrière", "de fins cheveux blancs"],
-    "eyes": ["des yeux verts", "des yeux bleu pâle", "un œil marron et un œil gris", "des yeux ambre sombre", "des yeux noisette fatigués"],
-    "marks": ["une cicatrice au menton", "les doigts tachés d'encre", "un bout d'oreille manquant", "une dent en argent", "un tatouage effacé d'oiseau", "une boiterie permanente", "une odeur de fumée de bois"],
-    "traits": ["pense rarement à demain", "cherche toujours la faille", "est farouchement loyal envers ses amis", "parle aux animaux comme à des gens", "est un joueur compulsif", "n'oublie jamais un service", "se méfie de tout uniforme", "rit aux pires moments", "tient des registres minutieux", "collectionne les petits objets brillants"],
-    "secrets": ["doit une grosse somme à des gens dangereux", "est en secret l'héritier d'une maison ruinée", "a volé quelque chose au temple", "ne sait plus lire et le cache", "espionne pour une ville rivale", "a vu dans la cave quelque chose d'inexplicable"],
-    "hooks": ["cherche quelqu'un pour porter une lettre scellée avant l'aube", "a perdu une bague qui appartient à un autre", "dirige un petit réseau de contrebande", "connaît le chemin d'une mine abandonnée", "est suivi par un inconnu en cape grise", "offre de l'argent pour retrouver un frère disparu"]
+    "firstNames": [
+      "Maren",
+      "Toben",
+      "Isolde",
+      "Garrick",
+      "Selwyn",
+      "Brisa",
+      "Odon",
+      "Véra",
+      "Hobb",
+      "Linette",
+      "Corwin",
+      "Tamsin",
+      "Rurik",
+      "Odalys",
+      "Pell",
+      "Anselme",
+      "Crécerelle",
+      "Dorian"
+    ],
+    "lastNames": [
+      "Basfrêne",
+      "Eaunoire",
+      "Cuivrechaudron",
+      "Brumelande",
+      "Beautemps",
+      "Grisemont",
+      "Ferbougie",
+      "Pied-d'Alouette",
+      "Rivemousse",
+      "Chardonvent",
+      "Sous-la-Colline",
+      "Landespectre"
+    ],
+    "peoples": [
+      "humain",
+      "demi-elfe",
+      "nain",
+      "halfelin",
+      "gnome",
+      "demi-orc",
+      "tieffelin",
+      "elfe"
+    ],
+    "jobs": [
+      "marin",
+      "boulanger",
+      "forgeron",
+      "herboriste",
+      "coursier",
+      "percepteur",
+      "gardien de cimetière",
+      "musicien de rue",
+      "garde à la retraite",
+      "scribe",
+      "passeur",
+      "diseuse de bonne aventure"
+    ],
+    "ages": [
+      "jeune",
+      "dans la trentaine",
+      "d'âge mûr",
+      "âgé",
+      "très âgé"
+    ],
+    "builds": [
+      "petit et trapu",
+      "grand et maigre",
+      "large d'épaules",
+      "menu et vif",
+      "rond et joyeux",
+      "nerveux"
+    ],
+    "hair": [
+      "des cheveux gris courts et ondulés",
+      "une longue tresse",
+      "le crâne rasé",
+      "des boucles rousses indomptables",
+      "des cheveux noirs plaqués en arrière",
+      "de fins cheveux blancs"
+    ],
+    "eyes": [
+      "des yeux verts",
+      "des yeux bleu pâle",
+      "un œil marron et un œil gris",
+      "des yeux ambre sombre",
+      "des yeux noisette fatigués"
+    ],
+    "marks": [
+      "une cicatrice au menton",
+      "les doigts tachés d'encre",
+      "un bout d'oreille manquant",
+      "une dent en argent",
+      "un tatouage effacé d'oiseau",
+      "une boiterie permanente",
+      "une odeur de fumée de bois"
+    ],
+    "traits": [
+      "pense rarement à demain",
+      "cherche toujours la faille",
+      "est farouchement loyal envers ses amis",
+      "parle aux animaux comme à des gens",
+      "est un joueur compulsif",
+      "n'oublie jamais un service",
+      "se méfie de tout uniforme",
+      "rit aux pires moments",
+      "tient des registres minutieux",
+      "collectionne les petits objets brillants"
+    ],
+    "secrets": [
+      "doit une grosse somme à des gens dangereux",
+      "est en secret l'héritier d'une maison ruinée",
+      "a volé quelque chose au temple",
+      "ne sait plus lire et le cache",
+      "espionne pour une ville rivale",
+      "a vu dans la cave quelque chose d'inexplicable"
+    ],
+    "hooks": [
+      "cherche quelqu'un pour porter une lettre scellée avant l'aube",
+      "a perdu une bague qui appartient à un autre",
+      "dirige un petit réseau de contrebande",
+      "connaît le chemin d'une mine abandonnée",
+      "est suivi par un inconnu en cape grise",
+      "offre de l'argent pour retrouver un frère disparu"
+    ]
   },
   "tavern": {
-    "adjectives": ["Doré", "Endormi", "Tordu", "Joyeux", "Rouillé", "Silencieux", "Errant", "Rieur", "Brisé", "Chanceux"],
-    "nouns": ["Oie", "Ancre", "Lanterne", "Tonneau", "Vouivre", "Chaudron", "Couronne", "Corbeau", "Harpe", "Sabot"],
-    "dishes": ["ragoût de lentilles aux saucisses fumées", "faisan rôti aux châtaignes", "truite de rivière au beurre", "tourte aux oignons", "carottes au miel", "morue salée et pain noir", "raviolis aux champignons", "fromage fondu sur pommes de terre"],
-    "drinks": ["bière ambrée brune", "hydromel épicé", "cidre vif", "vin rouge d'origine douteuse", "lait chaud aux herbes", "bière d'orge servie tiède"],
-    "rumours": ["On a vu des lumières la nuit au vieux moulin.", "Le maire a engagé des étrangers sans dire pourquoi.", "Une caravane de marchands a disparu sur la route du nord.", "L'eau du puits a un drôle de goût depuis une semaine.", "Un barde jure avoir vu un dragon dormir dans les collines.", "Quelqu'un achète toutes les lanternes de la ville.", "La cave de l'aubergiste est plus profonde que le bâtiment."],
-    "staff": ["un patron bourru qui n'oublie aucun visage", "une cuisinière joyeuse au caractère explosif", "un garçon de cave discret qui écoute tout", "un barde de passage qui doit trois nuits", "un aventurier retraité qui fait durer un verre toute la soirée", "un coursier nerveux qui attend quelqu'un en retard"]
+    "adjectives": [
+      "Doré",
+      "Endormi",
+      "Tordu",
+      "Joyeux",
+      "Rouillé",
+      "Silencieux",
+      "Errant",
+      "Rieur",
+      "Brisé",
+      "Chanceux"
+    ],
+    "nouns": [
+      "Oie",
+      "Ancre",
+      "Lanterne",
+      "Tonneau",
+      "Vouivre",
+      "Chaudron",
+      "Couronne",
+      "Corbeau",
+      "Harpe",
+      "Sabot"
+    ],
+    "dishes": [
+      "ragoût de lentilles aux saucisses fumées",
+      "faisan rôti aux châtaignes",
+      "truite de rivière au beurre",
+      "tourte aux oignons",
+      "carottes au miel",
+      "morue salée et pain noir",
+      "raviolis aux champignons",
+      "fromage fondu sur pommes de terre"
+    ],
+    "drinks": [
+      "bière ambrée brune",
+      "hydromel épicé",
+      "cidre vif",
+      "vin rouge d'origine douteuse",
+      "lait chaud aux herbes",
+      "bière d'orge servie tiède"
+    ],
+    "rumours": [
+      "On a vu des lumières la nuit au vieux moulin.",
+      "Le maire a engagé des étrangers sans dire pourquoi.",
+      "Une caravane de marchands a disparu sur la route du nord.",
+      "L'eau du puits a un drôle de goût depuis une semaine.",
+      "Un barde jure avoir vu un dragon dormir dans les collines.",
+      "Quelqu'un achète toutes les lanternes de la ville.",
+      "La cave de l'aubergiste est plus profonde que le bâtiment."
+    ],
+    "staff": [
+      "un patron bourru qui n'oublie aucun visage",
+      "une cuisinière joyeuse au caractère explosif",
+      "un garçon de cave discret qui écoute tout",
+      "un barde de passage qui doit trois nuits",
+      "un aventurier retraité qui fait durer un verre toute la soirée",
+      "un coursier nerveux qui attend quelqu'un en retard"
+    ]
   },
   "encounter": {
-    "places": ["une étroite route forestière", "une tour de guet en ruine", "une place de marché bondée", "un gué inondé", "un col de montagne dans le brouillard", "la place calme d'un village", "un sanctuaire au bord du chemin"],
-    "cores": ["une silhouette en haillons barre la route et exige un péage", "un chariot est embourbé et son propriétaire panique", "deux groupes rivaux se disputent le même campement", "un animal blessé est gardé par un enfant", "une patrouille fouille les voyageurs", "un marchand perdu propose un marché étrange", "un vieux pèlerin demande une escorte"],
-    "complications": ["Payer trop vite désigne le groupe comme une cible.", "Un compagnon veut la violence quoi que décide le chef.", "Le mauvais temps approche.", "Quelqu'un observe de loin et prend des notes.", "Un objet de valeur change de mains dans la confusion.", "Des renforts arrivent, mais réclament une faveur."],
-    "twists": ["Le péage sert à recueillir des informations sur chaque voyageur.", "Tous les acteurs travaillent pour le même employeur caché.", "La victime est celle qui a tout déclenché.", "Le danger est un leurre pour couvrir un vol ailleurs.", "L'inconnu est exactement qui il dit être, et c'est le problème."]
+    "places": [
+      "une étroite route forestière",
+      "une tour de guet en ruine",
+      "une place de marché bondée",
+      "un gué inondé",
+      "un col de montagne dans le brouillard",
+      "la place calme d'un village",
+      "un sanctuaire au bord du chemin"
+    ],
+    "cores": [
+      "une silhouette en haillons barre la route et exige un péage",
+      "un chariot est embourbé et son propriétaire panique",
+      "deux groupes rivaux se disputent le même campement",
+      "un animal blessé est gardé par un enfant",
+      "une patrouille fouille les voyageurs",
+      "un marchand perdu propose un marché étrange",
+      "un vieux pèlerin demande une escorte"
+    ],
+    "complications": [
+      "Payer trop vite désigne le groupe comme une cible.",
+      "Un compagnon veut la violence quoi que décide le chef.",
+      "Le mauvais temps approche.",
+      "Quelqu'un observe de loin et prend des notes.",
+      "Un objet de valeur change de mains dans la confusion.",
+      "Des renforts arrivent, mais réclament une faveur."
+    ],
+    "twists": [
+      "Le péage sert à recueillir des informations sur chaque voyageur.",
+      "Tous les acteurs travaillent pour le même employeur caché.",
+      "La victime est celle qui a tout déclenché.",
+      "Le danger est un leurre pour couvrir un vol ailleurs.",
+      "L'inconnu est exactement qui il dit être, et c'est le problème."
+    ]
+  },
+  "quest": {
+    "givers": [
+      "un aubergiste inquiet",
+      "un capitaine à la retraite",
+      "un érudit nerveux",
+      "l'ancien du village",
+      "un riche marchand qui cache quelque chose",
+      "un enfant avec une carte"
+    ],
+    "goals": [
+      "récupérer une relique volée",
+      "escorter une caravane à travers le marais",
+      "retrouver un apprenti disparu",
+      "porter un avertissement à une ville lointaine",
+      "nettoyer une cave hantée",
+      "rapporter une herbe rare avant les premières gelées"
+    ],
+    "locations": [
+      "la chapelle engloutie",
+      "un phare abandonné",
+      "le creux sous le vieux chêne",
+      "un fort frontalier délabré",
+      "les tunnels bas de la ville",
+      "une vallée cachée derrière la cascade"
+    ],
+    "obstacles": [
+      "un groupe rival veut le même prix",
+      "le guide n'est pas digne de confiance",
+      "le chemin est coupé par une crue",
+      "une superstition locale interdit d'entrer",
+      "la cible n'est pas ce qu'on a décrit"
+    ],
+    "rewards": [
+      "une bourse de vieil argent",
+      "une faveur d'une famille puissante",
+      "une carte qui ne correspond pas au pays",
+      "une lettre scellée de sauf-conduit",
+      "une petite machine étrange qui fonctionne parfaitement"
+    ],
+    "stakes": [
+      "une seule nuit pour agir",
+      "tout un village va souffrir",
+      "la réputation de quelqu'un est en jeu",
+      "une vieille amitié peut se briser",
+      "rien, jusqu'à ce qu'il soit trop tard"
+    ]
+  },
+  "treasure": {
+    "containers": [
+      "un coffre de voyage verrouillé",
+      "un livre creux",
+      "une sacoche de cuir",
+      "une jarre d'argile scellée à la cire",
+      "un coffre-fort rouillé",
+      "un tiroir caché"
+    ],
+    "loot": [
+      "une bourse de quarante pièces d'argent",
+      "une chevalière d'une maison disparue",
+      "trois fioles de liquide coloré",
+      "une boussole d'argent qui indique le mensonge le plus proche",
+      "un paquet de lettres noué d'un fil rouge",
+      "une belle dague à la garde fendue",
+      "une carte dessinée sur une aile de chauve-souris",
+      "un joyau tiède au toucher"
+    ],
+    "curios": [
+      "une fleur pressée qui ne se fane jamais",
+      "un petit oiseau de laiton qui chante parfois",
+      "un jeu de cartes auquel il manque une carte",
+      "une clé qui n'ouvre aucune serrure connue",
+      "un miroir qui montre la pièce il y a une minute"
+    ]
+  },
+  "villain": {
+    "firstNames": [
+      "Vessa",
+      "Orrin",
+      "Maldra",
+      "Gaspard",
+      "Thessaly",
+      "Rook",
+      "Elowen",
+      "Dravik"
+    ],
+    "epithets": [
+      "le Patient",
+      "de la Couronne Creuse",
+      "la Dette Silencieuse",
+      "Main-de-Cendre",
+      "le Couteau Doux",
+      "aux Sept Portes"
+    ],
+    "motives": [
+      "veut restaurer un nom de famille perdu",
+      "croit que seule la peur protège les gens",
+      "court pour guérir un proche mourant",
+      "cherche vengeance contre un conseil qui l'a trahi",
+      "est certain d'être le héros de cette histoire"
+    ],
+    "methods": [
+      "rachète des dettes et les réclame",
+      "engage d'autres personnes et ne paraît jamais",
+      "répand des rumeurs jusqu'à dresser les villes les unes contre les autres",
+      "contrôle l'approvisionnement de ce dont tous ont besoin",
+      "offre une aide généreuse aux conditions cachées"
+    ],
+    "weaknesses": [
+      "ne supporte pas d'être moqué en public",
+      "garde une lettre qu'il ne peut détruire",
+      "fait une confiance totale à un seul conseiller",
+      "a peur d'un lieu où il a vécu",
+      "tient toujours parole, quoi qu'il en coûte"
+    ],
+    "lairs": [
+      "un manoir aux ailes verrouillées",
+      "une péniche-marché flottante",
+      "une chapelle transformée en comptoir",
+      "des tunnels sous un théâtre",
+      "une tour qu'on ne voit jamais en plein jour"
+    ]
+  },
+  "town": {
+    "starts": [
+      "Frêne",
+      "Ruisseau",
+      "Froid",
+      "Dune",
+      "Orme",
+      "Marais",
+      "Gris",
+      "Haut",
+      "Fer",
+      "Alouette",
+      "Moulin",
+      "Pierre"
+    ],
+    "ends": [
+      "gué",
+      "mont",
+      "havre",
+      "mare",
+      "val",
+      "creux",
+      "pont",
+      "porte",
+      "champ",
+      "croix"
+    ],
+    "sizes": [
+      "un hameau d'une douzaine de maisons",
+      "un village tranquille",
+      "un bourg de marché animé",
+      "une ville fortifiée",
+      "un port fluvial"
+    ],
+    "trades": [
+      "son fromage et ses chèvres têtues",
+      "des tissus teints de couleurs impossibles",
+      "de belles cloches fondues par une seule famille",
+      "le sel des marais salants",
+      "l'élevage de lévriers",
+      "une maçonnerie qui ne se fissure jamais"
+    ],
+    "landmarks": [
+      "une tour d'horloge penchée",
+      "un pont dont personne ne se rappelle la construction",
+      "une statue au visage différent chaque printemps",
+      "un vieux puits entouré d'offrandes",
+      "une croix de marché marquée par un ancien incendie"
+    ],
+    "problems": [
+      "une querelle entre deux boulangers a divisé la ville",
+      "la rivière coule à l'envers la nuit",
+      "on ne voit jamais le maire de jour",
+      "les voyageurs qui restent trop longtemps oublient pourquoi ils sont venus",
+      "quelque chose dévore la récolte de l'intérieur"
+    ],
+    "customs": [
+      "chacun laisse une lampe allumée à la fenêtre",
+      "on offre du pain aux étrangers avant de demander leur nom",
+      "personne ne parle pendant la première neige",
+      "les dettes se règlent par une chanson",
+      "on ne se marie qu'au crépuscule"
+    ]
   }
 }

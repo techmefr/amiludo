@@ -2505,4 +2505,31 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get randomCopied => 'Kopiert';
+
+  @override
+  String get toolQuestTitle => 'Quest-Generator';
+
+  @override
+  String get toolQuestSubtitle =>
+      'Ein Aufhänger, ein Ort, ein Hindernis und eine Belohnung.';
+
+  @override
+  String get toolTreasureTitle => 'Schatz-Generator';
+
+  @override
+  String get toolTreasureSubtitle =>
+      'Was in der Truhe liegt, und eine seltsame Kuriosität.';
+
+  @override
+  String get toolVillainTitle => 'Schurken-Generator';
+
+  @override
+  String get toolVillainSubtitle => 'Motiv, Methoden, Schwäche und Versteck.';
+
+  @override
+  String get toolTownTitle => 'Orts-Generator';
+
+  @override
+  String get toolTownSubtitle =>
+      'Ein Name, ein Gewerbe, ein Wahrzeichen und ein Ärgernis.';
 }

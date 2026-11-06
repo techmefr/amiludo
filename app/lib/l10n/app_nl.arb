@@ -752,5 +752,13 @@
   "toolCategoryTime": "Tijd",
   "toolCategoryStory": "Verhaal",
   "randomCopy": "Kopiëren",
-  "randomCopied": "Gekopieerd"
+  "randomCopied": "Gekopieerd",
+  "toolQuestTitle": "Questgenerator",
+  "toolQuestSubtitle": "Een haak, een plek, een obstakel en een beloning.",
+  "toolTreasureTitle": "Schatgenerator",
+  "toolTreasureSubtitle": "Wat er in de kist zit en een vreemde curiositeit.",
+  "toolVillainTitle": "Schurkengenerator",
+  "toolVillainSubtitle": "Motief, methodes, zwakte en schuilplaats.",
+  "toolTownTitle": "Plaatsgenerator",
+  "toolTownSubtitle": "Een naam, een ambacht, een herkenningspunt en wat ellende."
 }

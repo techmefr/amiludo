@@ -2482,4 +2482,30 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get randomCopied => 'Copied';
+
+  @override
+  String get toolQuestTitle => 'Quest generator';
+
+  @override
+  String get toolQuestSubtitle => 'A hook, a place, an obstacle and a reward.';
+
+  @override
+  String get toolTreasureTitle => 'Treasure generator';
+
+  @override
+  String get toolTreasureSubtitle =>
+      'What is inside the chest, and one odd curiosity.';
+
+  @override
+  String get toolVillainTitle => 'Villain generator';
+
+  @override
+  String get toolVillainSubtitle => 'Motive, methods, weakness and lair.';
+
+  @override
+  String get toolTownTitle => 'Town generator';
+
+  @override
+  String get toolTownSubtitle =>
+      'A name, a trade, a landmark and some trouble.';
 }

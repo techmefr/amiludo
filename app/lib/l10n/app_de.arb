@@ -752,5 +752,13 @@
   "toolCategoryTime": "Zeit",
   "toolCategoryStory": "Geschichte",
   "randomCopy": "Kopieren",
-  "randomCopied": "Kopiert"
+  "randomCopied": "Kopiert",
+  "toolQuestTitle": "Quest-Generator",
+  "toolQuestSubtitle": "Ein Aufhänger, ein Ort, ein Hindernis und eine Belohnung.",
+  "toolTreasureTitle": "Schatz-Generator",
+  "toolTreasureSubtitle": "Was in der Truhe liegt, und eine seltsame Kuriosität.",
+  "toolVillainTitle": "Schurken-Generator",
+  "toolVillainSubtitle": "Motiv, Methoden, Schwäche und Versteck.",
+  "toolTownTitle": "Orts-Generator",
+  "toolTownSubtitle": "Ein Name, ein Gewerbe, ein Wahrzeichen und ein Ärgernis."
 }

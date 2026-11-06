@@ -21,6 +21,10 @@ extension ToolTexts on BuildContext {
       'npc' => l.toolNpcTitle,
       'tavern' => l.toolTavernTitle,
       'encounter' => l.toolEncounterTitle,
+      'quest' => l.toolQuestTitle,
+      'treasure' => l.toolTreasureTitle,
+      'villain' => l.toolVillainTitle,
+      'town' => l.toolTownTitle,
       _ => id,
     };
   }
@@ -43,6 +47,10 @@ extension ToolTexts on BuildContext {
       'npc' => l.toolNpcSubtitle,
       'tavern' => l.toolTavernSubtitle,
       'encounter' => l.toolEncounterSubtitle,
+      'quest' => l.toolQuestSubtitle,
+      'treasure' => l.toolTreasureSubtitle,
+      'villain' => l.toolVillainSubtitle,
+      'town' => l.toolTownSubtitle,
       _ => '',
     };
   }

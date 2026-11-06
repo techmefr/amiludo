@@ -976,5 +976,13 @@
   "toolCategoryTime": "Time",
   "toolCategoryStory": "Story",
   "randomCopy": "Copy",
-  "randomCopied": "Copied"
+  "randomCopied": "Copied",
+  "toolQuestTitle": "Quest generator",
+  "toolQuestSubtitle": "A hook, a place, an obstacle and a reward.",
+  "toolTreasureTitle": "Treasure generator",
+  "toolTreasureSubtitle": "What is inside the chest, and one odd curiosity.",
+  "toolVillainTitle": "Villain generator",
+  "toolVillainSubtitle": "Motive, methods, weakness and lair.",
+  "toolTownTitle": "Town generator",
+  "toolTownSubtitle": "A name, a trade, a landmark and some trouble."
 }

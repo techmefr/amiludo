@@ -21,4 +21,8 @@ const toolDefinitions = [
   ToolDefinition('npc', 'story'),
   ToolDefinition('tavern', 'story'),
   ToolDefinition('encounter', 'story'),
+  ToolDefinition('quest', 'story'),
+  ToolDefinition('treasure', 'story'),
+  ToolDefinition('villain', 'story'),
+  ToolDefinition('town', 'story'),
 ];

@@ -752,5 +752,13 @@
   "toolCategoryTime": "Temps",
   "toolCategoryStory": "Récit",
   "randomCopy": "Copier",
-  "randomCopied": "Copié"
+  "randomCopied": "Copié",
+  "toolQuestTitle": "Générateur de quête",
+  "toolQuestSubtitle": "Une accroche, un lieu, un obstacle et une récompense.",
+  "toolTreasureTitle": "Générateur de trésor",
+  "toolTreasureSubtitle": "Ce que contient le coffre, et une curiosité étrange.",
+  "toolVillainTitle": "Générateur de méchant",
+  "toolVillainSubtitle": "Motivation, méthodes, faiblesse et repaire.",
+  "toolTownTitle": "Générateur de ville",
+  "toolTownSubtitle": "Un nom, un métier, un repère et un ennui."
 }

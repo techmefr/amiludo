@@ -752,5 +752,13 @@
   "toolCategoryTime": "Tiempo",
   "toolCategoryStory": "Historia",
   "randomCopy": "Copiar",
-  "randomCopied": "Copiado"
+  "randomCopied": "Copiado",
+  "toolQuestTitle": "Generador de misiones",
+  "toolQuestSubtitle": "Un gancho, un lugar, un obstáculo y una recompensa.",
+  "toolTreasureTitle": "Generador de tesoros",
+  "toolTreasureSubtitle": "Qué hay en el cofre y una curiosidad extraña.",
+  "toolVillainTitle": "Generador de villanos",
+  "toolVillainSubtitle": "Motivo, métodos, debilidad y guarida.",
+  "toolTownTitle": "Generador de pueblos",
+  "toolTownSubtitle": "Un nombre, un oficio, un lugar emblemático y un problema."
 }

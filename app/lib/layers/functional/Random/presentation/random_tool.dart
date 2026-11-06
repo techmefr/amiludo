@@ -20,7 +20,13 @@ class RandomTool extends StatelessWidget {
     'bag' => const BagTool(),
     'roles' => RolesTool(names: names),
     'wheel' => WheelTool(names: names),
-    'npc' || 'tavern' || 'encounter' => GeneratorTool(id: id),
+    'npc' ||
+    'tavern' ||
+    'encounter' ||
+    'quest' ||
+    'treasure' ||
+    'villain' ||
+    'town' => GeneratorTool(id: id),
     _ => const SizedBox.shrink(),
   };
 }
