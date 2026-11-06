@@ -40,8 +40,8 @@ const counterEntries = [
 ];
 
 final brickEntries = [
-  ...counterEntries,
   for (final t in toolDefinitions) BrickEntry(t.id, t.category),
+  ...counterEntries,
 ];
 
 List<BrickEntry> filterBricks(

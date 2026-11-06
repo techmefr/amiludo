@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/brick_ids.da
 import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/counter_view.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/brick_catalog.dart';
+import 'package:amiludo/layers/functional/Random/presentation/brick_tile.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Templates/domain/use_cases/add_template_use_case.dart';
 import 'package:amiludo/layers/functional/Templates/domain/use_cases/remove_template_use_case.dart';
@@ -119,7 +120,7 @@ void _screenTests(Size size) {
     await _boot(tester, size);
     await tester.enterText(find.byType(TextField), 'Cagnotte');
     await tester.pumpAndSettle();
-    expect(find.text('Cagnotte'), findsOneWidget);
+    expect(find.byType(BrickTile), findsOneWidget);
     expect(find.text('Qui commence ?'), findsNothing);
     await tester.enterText(find.byType(TextField), 'zzzz');
     await tester.pumpAndSettle();
@@ -138,8 +139,9 @@ void _screenTests(Size size) {
     expect(find.text('Cagnotte'), findsNothing);
     await tester.tap(find.text('Compteurs'));
     await tester.pumpAndSettle();
-    expect(find.text('Cagnotte'), findsOneWidget);
+    expect(find.byType(BrickTile), findsNWidgets(4));
     expect(find.text('Qui commence ?'), findsNothing);
+    await tester.ensureVisible(find.byTooltip('Favori').first);
     await tester.tap(find.byTooltip('Favori').first);
     await tester.pumpAndSettle();
     final favorites = getIt<ReadWorkspaceUseCase>()().favorites;
@@ -154,6 +156,7 @@ void _screenTests(Size size) {
     await _boot(tester, size);
     await tester.enterText(find.byType(TextField), 'Cagnotte');
     await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Ouvrir ↗'));
     await tester.tap(find.text('Ouvrir ↗'));
     await tester.pumpAndSettle();
     expect(find.byType(CounterView), findsOneWidget);
@@ -172,6 +175,7 @@ void _screenTests(Size size) {
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField), 'Cagnotte');
     await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Ajouter à un compagnon'));
     await tester.tap(find.text('Ajouter à un compagnon'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Ma partie'));
