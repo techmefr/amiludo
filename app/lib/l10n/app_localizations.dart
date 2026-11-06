@@ -4735,6 +4735,138 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Skips a turn'**
   String get counterSkipsTurn;
+
+  /// No description provided for @toolMagicItemTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Magic item generator'**
+  String get toolMagicItemTitle;
+
+  /// No description provided for @toolMagicItemSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A relic with a power, a quirk and an origin.'**
+  String get toolMagicItemSubtitle;
+
+  /// No description provided for @toolWeatherTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Weather generator'**
+  String get toolWeatherTitle;
+
+  /// No description provided for @toolWeatherSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sky, temperature, wind, effects and omens.'**
+  String get toolWeatherSubtitle;
+
+  /// No description provided for @toolPlaceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Place name generator'**
+  String get toolPlaceTitle;
+
+  /// No description provided for @toolPlaceSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A name, a kind of place and a striking feature.'**
+  String get toolPlaceSubtitle;
+
+  /// No description provided for @toolDilemmaTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Moral dilemma generator'**
+  String get toolDilemmaTitle;
+
+  /// No description provided for @toolDilemmaSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A tough situation, two choices and the price to pay.'**
+  String get toolDilemmaSubtitle;
+
+  /// No description provided for @toolRumourTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tavern rumour generator'**
+  String get toolRumourTitle;
+
+  /// No description provided for @toolRumourSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Who said it, what they said and how true it is.'**
+  String get toolRumourSubtitle;
+
+  /// No description provided for @toolTraitTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'NPC trait generator'**
+  String get toolTraitTitle;
+
+  /// No description provided for @toolTraitSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A personality trait, how it shows and a hidden flaw.'**
+  String get toolTraitSubtitle;
+
+  /// No description provided for @toolTwistTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Plot twist generator'**
+  String get toolTwistTitle;
+
+  /// No description provided for @toolTwistSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A twist, an early clue and its consequence.'**
+  String get toolTwistSubtitle;
+
+  /// No description provided for @templatesShareCompanion.
+  ///
+  /// In en, this message translates to:
+  /// **'Share companion file (bricks and settings only)'**
+  String get templatesShareCompanion;
+
+  /// No description provided for @templatesImportCompanion.
+  ///
+  /// In en, this message translates to:
+  /// **'Import companion file'**
+  String get templatesImportCompanion;
+
+  /// No description provided for @templatesCompanionImported.
+  ///
+  /// In en, this message translates to:
+  /// **'Companion imported'**
+  String get templatesCompanionImported;
+
+  /// No description provided for @companionErrorNotJson.
+  ///
+  /// In en, this message translates to:
+  /// **'This file is not valid JSON.'**
+  String get companionErrorNotJson;
+
+  /// No description provided for @companionErrorFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'This is not an Amiludo companion file.'**
+  String get companionErrorFormat;
+
+  /// No description provided for @companionErrorVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'This companion file version is not supported.'**
+  String get companionErrorVersion;
+
+  /// No description provided for @companionErrorInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'The companion file content is invalid.'**
+  String get companionErrorInvalid;
+
+  /// No description provided for @companionErrorReserved.
+  ///
+  /// In en, this message translates to:
+  /// **'This identifier is reserved for a built-in template.'**
+  String get companionErrorReserved;
 }
 
 class _AppLocalizationsDelegate

@@ -26,7 +26,14 @@ class RandomTool extends StatelessWidget {
     'quest' ||
     'treasure' ||
     'villain' ||
-    'town' => GeneratorTool(id: id),
+    'town' ||
+    'magicitem' ||
+    'weather' ||
+    'place' ||
+    'dilemma' ||
+    'rumour' ||
+    'trait' ||
+    'twist' => GeneratorTool(id: id),
     _ => const SizedBox.shrink(),
   };
 }

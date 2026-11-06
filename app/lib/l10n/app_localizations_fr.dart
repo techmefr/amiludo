@@ -2553,4 +2553,92 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get counterSkipsTurn => 'Passe son tour';
+
+  @override
+  String get toolMagicItemTitle =>
+      'Générateur d\'objet magique';
+
+  @override
+  String get toolMagicItemSubtitle =>
+      'Une relique avec un pouvoir, une particularité et une origine.';
+
+  @override
+  String get toolWeatherTitle =>
+      'Générateur de météo';
+
+  @override
+  String get toolWeatherSubtitle =>
+      'Ciel, température, vent, effets et présages.';
+
+  @override
+  String get toolPlaceTitle =>
+      'Générateur de nom de lieu';
+
+  @override
+  String get toolPlaceSubtitle =>
+      'Un nom, un type de lieu et un détail marquant.';
+
+  @override
+  String get toolDilemmaTitle =>
+      'Générateur de dilemme moral';
+
+  @override
+  String get toolDilemmaSubtitle =>
+      'Une situation difficile, deux choix et le prix à payer.';
+
+  @override
+  String get toolRumourTitle =>
+      'Générateur de rumeur de taverne';
+
+  @override
+  String get toolRumourSubtitle =>
+      'Qui l\'a dit, ce qui se dit et ce qu\'il y a de vrai.';
+
+  @override
+  String get toolTraitTitle =>
+      'Générateur de trait de PNJ';
+
+  @override
+  String get toolTraitSubtitle =>
+      'Un trait de caractère, comment il se voit et un défaut caché.';
+
+  @override
+  String get toolTwistTitle =>
+      'Générateur de rebondissement';
+
+  @override
+  String get toolTwistSubtitle =>
+      'Un rebondissement, un indice discret et sa conséquence.';
+
+  @override
+  String get templatesShareCompanion =>
+      'Partager le fichier compagnon (briques et réglages seulement)';
+
+  @override
+  String get templatesImportCompanion =>
+      'Importer un fichier compagnon';
+
+  @override
+  String get templatesCompanionImported =>
+      'Compagnon importé';
+
+  @override
+  String get companionErrorNotJson =>
+      'Ce fichier n\'est pas un JSON valide.';
+
+  @override
+  String get companionErrorFormat =>
+      'Ce n\'est pas un fichier compagnon Amiludo.';
+
+  @override
+  String get companionErrorVersion =>
+      'Cette version de fichier compagnon n\'est pas prise en charge.';
+
+  @override
+  String get companionErrorInvalid =>
+      'Le contenu du fichier compagnon est invalide.';
+
+  @override
+  String get companionErrorReserved =>
+      'Cet identifiant est réservé à un modèle intégré.';
 }

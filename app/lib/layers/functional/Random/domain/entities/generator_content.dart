@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:amiludo/layers/functional/Random/domain/entities/generator_recipes.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 
 class GeneratedSection {
@@ -124,6 +125,17 @@ class GeneratorEngine {
     ],
   );
 
+  GeneratedSheet fromRecipe(GeneratorRecipe r) => GeneratedSheet(
+    r.titleKeys.map((k) => _pick(r.group, k)).join(r.separator),
+    [
+      for (final s in r.sections)
+        GeneratedSection(
+          tables.label(s.label),
+          _pickMany(r.group, s.key, s.count),
+        ),
+    ],
+  );
+
   GeneratedSheet generate(String id) => switch (id) {
     'npc' => npc(),
     'tavern' => tavern(),
@@ -132,6 +144,9 @@ class GeneratorEngine {
     'treasure' => treasure(),
     'villain' => villain(),
     'town' => town(),
+    _ when generatorRecipes.containsKey(id) => fromRecipe(
+      generatorRecipes[id]!,
+    ),
     _ => throw ArgumentError.value(id, 'id', 'Unknown generator'),
   };
 }

@@ -27,7 +27,25 @@
     "trade": "Connue pour",
     "landmark": "Repère",
     "problem": "Ennui",
-    "custom": "Coutume locale"
+    "custom": "Coutume locale",
+    "power": "Pouvoir",
+    "quirk": "Particularité",
+    "origin": "Origine",
+    "temperature": "Température",
+    "wind": "Vent",
+    "effect": "En jeu",
+    "omen": "Présage",
+    "placeKind": "Type de lieu",
+    "feature": "Détail marquant",
+    "choiceA": "Choix A",
+    "choiceB": "Choix B",
+    "cost": "Le prix à payer",
+    "claim": "La rumeur",
+    "truth": "Part de vérité",
+    "shows": "Comment ça se voit",
+    "flaw": "Défaut caché",
+    "clue": "Indice discret",
+    "consequence": "Conséquence"
   },
   "npc": {
     "firstNames": [
@@ -436,6 +454,287 @@
       "personne ne parle pendant la première neige",
       "les dettes se règlent par une chanson",
       "on ne se marie qu'au crépuscule"
+    ]
+  },
+  "magicitem": {
+    "kinds": [
+      "Dague",
+      "Anneau",
+      "Lanterne",
+      "Cape",
+      "Amulette",
+      "Bâton",
+      "Bottes",
+      "Grimoire",
+      "Calice",
+      "Boussole"
+    ],
+    "epithets": [
+      "des murmures",
+      "de cendre",
+      "de la dernière aube",
+      "du temps emprunté",
+      "du roi noyé",
+      "du tonnerre muet",
+      "des noms oubliés",
+      "de la lune creuse"
+    ],
+    "powers": [
+      "Brille quand un mensonge est dit à proximité",
+      "Permet de franchir une porte qui n'existe pas",
+      "Garde un sort en réserve",
+      "Change l'eau en vin, ou en poison, selon l'humeur",
+      "Désigne toujours le danger le plus proche",
+      "Double le prochain soin reçu",
+      "Rend chaque pas silencieux",
+      "Rappelle la dernière chose oubliée par son porteur"
+    ],
+    "quirks": [
+      "Fredonne une vieille berceuse la nuit",
+      "Est toujours tiède",
+      "Refuse d'être vendu",
+      "Chuchote un mauvais nom",
+      "S'alourdit à chaque mensonge",
+      "Laisse du givre sur ce qu'il touche",
+      "Attire les corbeaux",
+      "Sent la pluie"
+    ],
+    "origins": [
+      "Forgé par un forgeron qui ne dormait jamais",
+      "Repêché d'une épave",
+      "Cadeau d'une sorcière mourante",
+      "Volé dans un tombeau royal",
+      "Gagné aux dés contre un inconnu",
+      "Poussé, non fabriqué, dans un verger maudit",
+      "Abandonné par une caravane disparue",
+      "Rêvé par un dieu endormi"
+    ]
+  },
+  "weather": {
+    "conditions": [
+      "Ciel dégagé et lumineux",
+      "Brouillard épais",
+      "Pluie battante",
+      "Grêle soudaine",
+      "Chaleur écrasante",
+      "Gel mordant",
+      "Tempête hurlante",
+      "Bruine et nuages bas"
+    ],
+    "temperatures": [
+      "Glaciale",
+      "Froide",
+      "Fraîche",
+      "Douce",
+      "Chaude",
+      "Étouffante"
+    ],
+    "winds": [
+      "Calme plat",
+      "Légère brise",
+      "Vent régulier",
+      "Fortes rafales",
+      "Vent qui change de direction chaque minute"
+    ],
+    "effects": [
+      "La visibilité est réduite de moitié",
+      "Les trajets durent deux fois plus longtemps",
+      "Aucun feu ne tient",
+      "Les traces sont effacées",
+      "Les sons portent très loin",
+      "Tout le monde est fatigué le soir",
+      "Les attaques à distance sont désavantagées",
+      "Les animaux refusent d'avancer"
+    ],
+    "omens": [
+      "Les oiseaux volent bas et en silence",
+      "Le ciel prend une teinte verte",
+      "Un arc-en-ciel apparaît à minuit",
+      "Les ombres semblent trop longues",
+      "Des cloches sonnent au loin sans personne",
+      "Les fleurs se ferment trop tôt"
+    ]
+  },
+  "place": {
+    "starts": [
+      "Corbeau",
+      "Pierre",
+      "Argent",
+      "Mousse",
+      "Épine",
+      "Brume",
+      "Ambre",
+      "Loup",
+      "Fer",
+      "Cendre"
+    ],
+    "ends": [
+      "haven",
+      "gué",
+      "creux",
+      "guet",
+      "portée",
+      "croisée",
+      "chute",
+      "tertre",
+      "porte",
+      "prairie"
+    ],
+    "kinds": [
+      "Tour de guet en ruine",
+      "Vallée cachée",
+      "Mine abandonnée",
+      "Sanctuaire au bord du chemin",
+      "Marché flottant",
+      "Bibliothèque engloutie",
+      "Ancien champ de bataille",
+      "Port tranquille"
+    ],
+    "features": [
+      "Un puits qui ne se remplit jamais",
+      "Des statues tournées du mauvais côté",
+      "Un arbre qui porte des lanternes",
+      "Une porte au milieu d'un champ",
+      "Une eau qui coule vers le haut",
+      "Des murs couverts de prières",
+      "Une cloche que personne n'ose sonner",
+      "Des traces qui s'arrêtent en plein air"
+    ]
+  },
+  "dilemma": {
+    "situations": [
+      "Un pont, deux groupes en détresse",
+      "Un remède volé et un enfant mourant",
+      "Un secret qui pourrait finir une guerre",
+      "Une offre tentante d'un ennemi",
+      "Un ami demande un mensonge",
+      "Un sauvetage qui coûte la mission",
+      "Un souverain qui mérite d'être renversé",
+      "Un innocent au mauvais endroit"
+    ],
+    "optionsA": [
+      "Sauver le plus grand nombre",
+      "Tenir sa parole",
+      "Dire la vérité",
+      "Faire preuve de pitié",
+      "Protéger les siens",
+      "Agir tout de suite, à découvert",
+      "Suivre la loi",
+      "Prendre la récompense"
+    ],
+    "optionsB": [
+      "Sauver celui qu'on aime",
+      "Rompre la promesse",
+      "Mentir pour protéger quelqu'un",
+      "Punir sans attendre",
+      "Protéger l'inconnu",
+      "Attendre, rester caché",
+      "Faire ce qui est juste",
+      "Refuser et partir"
+    ],
+    "costs": [
+      "Un ami perd confiance en vous",
+      "Un innocent est blessé",
+      "Le groupe se divise",
+      "Une ressource est perdue pour de bon",
+      "Un ennemi apprend votre plan",
+      "Votre réputation est ternie",
+      "Le temps est écoulé",
+      "Vous portez seul la culpabilité"
+    ]
+  },
+  "rumour": {
+    "sources": [
+      "Entendue d'un marin ivre",
+      "Chuchotée par un cuisinier nerveux",
+      "Imprimée sur un tract froissé",
+      "Racontée par un barde de passage",
+      "Colportée par un enfant",
+      "Marmonnée par un inconnu encapuchonné",
+      "Griffonnée sur le mur de la taverne",
+      "Répétée par trois personnes différentes"
+    ],
+    "claims": [
+      "Le vieux moulin tourne la nuit sans personne dedans",
+      "Le duc n'a pas été vu depuis des semaines",
+      "Un dragon dort sous la place du marché",
+      "De l'or a été trouvé dans la rivière en amont",
+      "Le prêtre du temple parle d'une autre voix",
+      "Les navires qui quittent le port reviennent vides",
+      "Un étranger achète toutes les cartes de la ville",
+      "L'eau du puits s'est mise à briller"
+    ],
+    "truths": [
+      "Entièrement fausse",
+      "Surtout fausse",
+      "À moitié vraie",
+      "Surtout vraie",
+      "Tout à fait vraie, et pire",
+      "Vraie, mais à propos de quelqu'un d'autre"
+    ]
+  },
+  "trait": {
+    "traits": [
+      "Farouchement loyal",
+      "Discrètement curieux",
+      "Vantard",
+      "Cruellement honnête",
+      "Toujours affamé",
+      "Méfiant envers tout le monde",
+      "Joyeux sans fin",
+      "Sombre mais bon",
+      "Obsédé par l'ordre",
+      "Téméraire",
+      "Cupide",
+      "Doux"
+    ],
+    "shows": [
+      "Ne croise jamais le regard",
+      "Se parle à voix basse",
+      "Collectionne les petits objets",
+      "Fredonne sans cesse",
+      "Tapote des doigts quand il est nerveux",
+      "Rit au mauvais moment",
+      "Se tient trop près",
+      "Vérifie toujours les sorties"
+    ],
+    "flaws": [
+      "Incapable de garder un secret",
+      "A peur de l'eau profonde",
+      "Garde rancune pendant des années",
+      "Ne peut refuser un pari",
+      "Croit tous les présages",
+      "Fait confiance trop vite",
+      "Cache une dette",
+      "Déteste avoir tort"
+    ]
+  },
+  "twist": {
+    "twists": [
+      "L'allié était l'ennemi depuis le début",
+      "Le trésor est maudit",
+      "La carte était dessinée à l'envers",
+      "Les renforts arrivent, et c'est pire",
+      "La victime est la coupable",
+      "Le méchant cherche à sauver la même chose",
+      "Le temps s'écoulait différemment depuis le début",
+      "La personne sauvée refuse de partir"
+    ],
+    "clues": [
+      "Un détail qui ne collait pas",
+      "Un nom prononcé trop vite",
+      "Un objet au mauvais endroit",
+      "Un sourire aimable arrivé trop tard",
+      "Une rumeur écartée trop vite",
+      "Une serrure déjà ouverte"
+    ],
+    "consequences": [
+      "La confiance du groupe se brise",
+      "Un nouvel objectif, plus étrange, apparaît",
+      "La fin est repoussée d'une journée",
+      "Quelqu'un doit changer de camp",
+      "Le trésor est perdu, mais mieux est trouvé",
+      "Tout ce qui a été fait doit être refait"
     ]
   }
 }

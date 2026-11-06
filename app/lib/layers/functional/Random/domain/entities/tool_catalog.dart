@@ -25,4 +25,11 @@ const toolDefinitions = [
   ToolDefinition('treasure', 'story'),
   ToolDefinition('villain', 'story'),
   ToolDefinition('town', 'story'),
+  ToolDefinition('magicitem', 'story'),
+  ToolDefinition('weather', 'story'),
+  ToolDefinition('place', 'story'),
+  ToolDefinition('dilemma', 'story'),
+  ToolDefinition('rumour', 'story'),
+  ToolDefinition('trait', 'story'),
+  ToolDefinition('twist', 'story'),
 ];

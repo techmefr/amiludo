@@ -20,5 +20,12 @@ IconData toolIcon(String id) => switch (id) {
   'treasure' => Icons.inventory_2_outlined,
   'villain' => Icons.masks_outlined,
   'town' => Icons.location_city_outlined,
+  'magicitem' => Icons.auto_fix_high_outlined,
+  'weather' => Icons.thunderstorm_outlined,
+  'place' => Icons.signpost_outlined,
+  'dilemma' => Icons.balance_outlined,
+  'rumour' => Icons.hearing_outlined,
+  'trait' => Icons.psychology_alt_outlined,
+  'twist' => Icons.shuffle,
   _ => Icons.extension_outlined,
 };

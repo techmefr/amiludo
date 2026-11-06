@@ -2554,4 +2554,92 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get counterSkipsTurn => 'Setzt aus';
+
+  @override
+  String get toolMagicItemTitle =>
+      'Zaubergegenstand-Generator';
+
+  @override
+  String get toolMagicItemSubtitle =>
+      'Ein Relikt mit Kraft, Eigenheit und Herkunft.';
+
+  @override
+  String get toolWeatherTitle =>
+      'Wetter-Generator';
+
+  @override
+  String get toolWeatherSubtitle =>
+      'Himmel, Temperatur, Wind, Auswirkungen und Vorzeichen.';
+
+  @override
+  String get toolPlaceTitle =>
+      'Ortsnamen-Generator';
+
+  @override
+  String get toolPlaceSubtitle =>
+      'Ein Name, eine Art von Ort und ein auffälliges Merkmal.';
+
+  @override
+  String get toolDilemmaTitle =>
+      'Dilemma-Generator';
+
+  @override
+  String get toolDilemmaSubtitle =>
+      'Eine schwierige Lage, zwei Optionen und ihr Preis.';
+
+  @override
+  String get toolRumourTitle =>
+      'Tavernengerücht-Generator';
+
+  @override
+  String get toolRumourSubtitle =>
+      'Wer es sagte, was gesagt wird und wie wahr es ist.';
+
+  @override
+  String get toolTraitTitle =>
+      'NSC-Eigenschaften-Generator';
+
+  @override
+  String get toolTraitSubtitle =>
+      'Ein Charakterzug, wie er sich zeigt und ein verborgener Makel.';
+
+  @override
+  String get toolTwistTitle =>
+      'Wendungs-Generator';
+
+  @override
+  String get toolTwistSubtitle =>
+      'Eine Wendung, ein früher Hinweis und ihre Folge.';
+
+  @override
+  String get templatesShareCompanion =>
+      'Companion-Datei teilen (nur Bausteine und Einstellungen)';
+
+  @override
+  String get templatesImportCompanion =>
+      'Companion-Datei importieren';
+
+  @override
+  String get templatesCompanionImported =>
+      'Companion importiert';
+
+  @override
+  String get companionErrorNotJson =>
+      'Diese Datei ist kein gültiges JSON.';
+
+  @override
+  String get companionErrorFormat =>
+      'Das ist keine Amiludo-Companion-Datei.';
+
+  @override
+  String get companionErrorVersion =>
+      'Diese Version der Companion-Datei wird nicht unterstützt.';
+
+  @override
+  String get companionErrorInvalid =>
+      'Der Inhalt der Companion-Datei ist ungültig.';
+
+  @override
+  String get companionErrorReserved =>
+      'Diese Kennung ist für eine integrierte Vorlage reserviert.';
 }
