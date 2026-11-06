@@ -1,10 +1,18 @@
 class AppearanceLayer {
-  const AppearanceLayer({required this.order, required this.src});
+  const AppearanceLayer({required this.order, required this.src, this.tint});
   final int order;
   final String src;
-  Map<String, Object?> toJson() => {'order': order, 'src': src};
-  factory AppearanceLayer.fromJson(Map<String, dynamic> j) =>
-      AppearanceLayer(order: j['order'] as int, src: j['src'] as String);
+  final String? tint;
+  Map<String, Object?> toJson() => {
+    'order': order,
+    'src': src,
+    if (tint != null) 'tint': tint,
+  };
+  factory AppearanceLayer.fromJson(Map<String, dynamic> j) => AppearanceLayer(
+    order: j['order'] as int,
+    src: j['src'] as String,
+    tint: j['tint'] as String?,
+  );
 }
 
 class AppearanceVariant {
