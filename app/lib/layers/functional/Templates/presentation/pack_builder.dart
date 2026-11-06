@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/bricks_stage.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/pack_components.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/creation_draft.dart';
@@ -20,6 +22,7 @@ enum BuilderStage {
   roles,
   points,
   trackers,
+  bricks,
   characters,
   timer,
   rules,
@@ -56,6 +59,7 @@ class _PackBuilderState extends State<PackBuilder> {
     if (modes.contains('roles')) BuilderStage.roles,
     if (modes.contains('scores')) BuilderStage.points,
     if (trackers) BuilderStage.trackers,
+    BuilderStage.bricks,
     if (modes.contains('character')) BuilderStage.characters,
     if (modes.contains('timer')) BuilderStage.timer,
     if (modes.contains('rules')) BuilderStage.rules,
@@ -64,6 +68,7 @@ class _PackBuilderState extends State<PackBuilder> {
   final creation = <CreationDraft>[];
   final dice = <DieDraft>[], roles = <RoleDraft>[], rules = <RuleDraft>[];
   final resources = <ResourceDraft>[];
+  final bricks = <Brick>[];
   final statuses = <TextEditingController>[];
   bool low = false, coop = false, saved = false;
   String? error;
@@ -99,6 +104,7 @@ class _PackBuilderState extends State<PackBuilder> {
       text: t.englishName.isEmpty ? t.name : t.englishName,
     );
     modes.addAll(t.modules);
+    bricks.addAll(t.bricks);
     description = TextEditingController(text: t.description);
     author = TextEditingController(text: t.author);
     license = TextEditingController(text: t.license);
@@ -185,6 +191,7 @@ class _PackBuilderState extends State<PackBuilder> {
         resources: trackers
             ? Map.fromEntries(resources.map((d) => d.value()))
             : const {},
+        bricks: List.of(bricks),
         statuses: trackers
             ? statuses.map((c) => c.text.trim()).toList()
             : const [],
@@ -290,6 +297,7 @@ class _PackBuilderState extends State<PackBuilder> {
       statuses: statuses,
       refresh: setState,
     ),
+    BuilderStage.bricks => BricksStage(bricks: bricks, refresh: setState),
     BuilderStage.characters => CharactersStage(
       creation: creation,
       refresh: setState,
@@ -315,6 +323,7 @@ class _PackBuilderState extends State<PackBuilder> {
     BuilderStage.roles => context.l10n.templatesRoles,
     BuilderStage.points => context.l10n.templatesPoints,
     BuilderStage.trackers => context.l10n.templatesCounters2,
+    BuilderStage.bricks => context.l10n.templatesBricks,
     BuilderStage.characters => context.l10n.templatesCharacters,
     BuilderStage.timer => context.l10n.templatesTime,
     BuilderStage.rules => context.l10n.templatesRules,
