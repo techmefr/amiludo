@@ -21,7 +21,12 @@ List<Widget> traySprite({
     ..setEntry(3, 2, 0.003)
     ..rotateX(body.flipX * 1.2)
     ..rotateY(body.flipY * 1.2)
-    ..scale((1 + lift * 0.35) * (1 - round * 0.25));
+    ..scaleByDouble(
+      (1 + lift * 0.35) * (1 - round * 0.25),
+      (1 + lift * 0.35) * (1 - round * 0.25),
+      1,
+      1,
+    );
   return [
     Positioned(
       left: body.x - size / 2 + body.z * 0.25,

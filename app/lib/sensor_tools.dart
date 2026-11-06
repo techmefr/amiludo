@@ -24,11 +24,6 @@ Widget _sensed(Widget Function(SensorSensitivity level) build) =>
       ),
     );
 
-ShakeSource _shakes(SensorSensitivity level) =>
-    getIt.isRegistered<ShakeSource>()
-    ? getIt<ShakeSource>(param1: level)
-    : const NoShakeSource();
-
 TurnSensor _turns(SensorSensitivity level) =>
     getIt.isRegistered<TurnSensor>()
     ? getIt<TurnSensor>(param1: level)

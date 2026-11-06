@@ -85,10 +85,11 @@ void main() {
   test('a stronger throw hits harder', () {
     double peak(double power) {
       var best = 0.0;
-      final p = rig(1)
-        ..onImpact = (hit) => best = best < hit.speed ? hit.speed : best
-        ..launch(SeededRandom(5), const {}, power: power);
-      p.settle(const {});
+      final p = rig(1);
+      p.onImpact = (hit) => best = best < hit.speed ? hit.speed : best;
+      p
+        ..launch(SeededRandom(5), const {}, power: power)
+        ..settle(const {});
       return best;
     }
 
