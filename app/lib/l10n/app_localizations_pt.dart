@@ -141,6 +141,21 @@ class AppLocalizationsPt extends AppLocalizations {
       'Manter o ecrã ligado durante os jogos';
 
   @override
+  String get appearanceMotionSensors => 'Sensores de movimento';
+
+  @override
+  String get appearanceSensorsOff => 'Desligados';
+
+  @override
+  String get appearanceSensorsLow => 'Baixa';
+
+  @override
+  String get appearanceSensorsMedium => 'Média';
+
+  @override
+  String get appearanceSensorsHigh => 'Alta';
+
+  @override
   String get appearanceProfileName => 'Nome do perfil';
 
   @override

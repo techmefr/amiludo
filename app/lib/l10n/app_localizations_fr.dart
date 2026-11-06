@@ -141,6 +141,21 @@ class AppLocalizationsFr extends AppLocalizations {
       'Garder l’écran allumé pendant une partie';
 
   @override
+  String get appearanceMotionSensors => 'Capteurs de mouvement';
+
+  @override
+  String get appearanceSensorsOff => 'Désactivés';
+
+  @override
+  String get appearanceSensorsLow => 'Faible';
+
+  @override
+  String get appearanceSensorsMedium => 'Moyenne';
+
+  @override
+  String get appearanceSensorsHigh => 'Élevée';
+
+  @override
   String get appearanceProfileName => 'Nom du profil';
 
   @override

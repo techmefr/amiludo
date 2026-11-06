@@ -141,6 +141,21 @@ class AppLocalizationsNl extends AppLocalizations {
       'Scherm aan houden tijdens spellen';
 
   @override
+  String get appearanceMotionSensors => 'Bewegingssensoren';
+
+  @override
+  String get appearanceSensorsOff => 'Uit';
+
+  @override
+  String get appearanceSensorsLow => 'Laag';
+
+  @override
+  String get appearanceSensorsMedium => 'Gemiddeld';
+
+  @override
+  String get appearanceSensorsHigh => 'Hoog';
+
+  @override
   String get appearanceProfileName => 'Profielnaam';
 
   @override
