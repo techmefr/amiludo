@@ -6,7 +6,6 @@ import 'package:amiludo/layers/functional/Campaign/domain/entities/campaign_prog
 import 'package:amiludo/layers/functional/Campaign/presentation/mission_art.dart';
 import 'package:amiludo/layers/functional/Campaign/presentation/mission_texts.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
-import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 

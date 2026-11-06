@@ -8,7 +8,6 @@ import 'package:amiludo/layers/functional/Campaign/presentation/mission_choice.d
 import 'package:amiludo/layers/functional/Campaign/presentation/mission_reward.dart';
 import 'package:amiludo/layers/functional/Campaign/presentation/mission_texts.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
-import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
