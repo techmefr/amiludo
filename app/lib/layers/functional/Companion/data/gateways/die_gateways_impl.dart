@@ -4,7 +4,7 @@ import 'dart:typed_data';
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_library.dart';
 import 'package:amiludo/layers/functional/Companion/domain/gateways/die_gateways.dart';
 import 'package:amiludo/layers/technical/Storage/stored_document.dart';
-import 'package:amiludo/layers/technical/Storage/store_database.dart';
+import 'package:amiludo/layers/technical/Storage/store_database.dart' show StoreDatabase;
 
 class DieLibraryGatewayImpl extends StoredDocument<DieLibrary>
     implements DieLibraryGateway {
