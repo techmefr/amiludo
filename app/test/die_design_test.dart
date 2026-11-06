@@ -8,6 +8,7 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/die_bundle.d
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_face_ops.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_library.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_controls.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/pack_components.dart';
 
 Uint8List png(int w, int h) {
@@ -51,6 +52,13 @@ void main() {
         expect(back.numeric, isTrue);
       });
     }
+
+    test('the tray custom die accepts 2 to 100 faces', () {
+      final text = [for (var i = 0; i < 150; i++) '$i'].join(',');
+      expect(parseFaces(text), hasLength(100));
+      expect(parseFaces('a,b'), hasLength(2));
+      expect(DiceSpec.custom(parseFaces(text), 1).sides, 100);
+    });
 
     test('1 and 101 faces are rejected', () {
       for (final n in [1, 101]) {
