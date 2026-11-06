@@ -953,5 +953,7 @@
   "chroniclesSaved": "Personagem guardada",
   "chroniclesCopied": "Copiado",
   "chroniclesLoadFailed": "Não foi possível ler os dados de Chronicles.",
-  "chroniclesClose": "Fechar"
+  "chroniclesClose": "Fechar",
+  "chroniclesSwipeHint": "Deslize para a direita para ficar, para a esquerda para passar, toque para ver detalhes.",
+  "chroniclesTearHint": "Arraste para o lado para mudar de edição, longe para rasgar."
 }

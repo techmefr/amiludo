@@ -3125,4 +3125,12 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get chroniclesClose => 'Sluiten';
+
+  @override
+  String get chroniclesSwipeHint =>
+      'Veeg naar rechts om te houden, naar links om over te slaan, tik voor details.';
+
+  @override
+  String get chroniclesTearHint =>
+      'Sleep opzij om van editie te wisselen, ver om open te scheuren.';
 }

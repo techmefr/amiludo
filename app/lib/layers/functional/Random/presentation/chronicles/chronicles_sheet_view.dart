@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Random/domain/chronicles/chronicles_ex
 import 'package:amiludo/layers/functional/Random/domain/chronicles/chronicles_run.dart';
 import 'package:amiludo/layers/functional/Random/domain/chronicles/chronicles_sheet.dart';
 import 'package:amiludo/layers/functional/Random/presentation/chronicles/chronicles_mapping.dart';
+import 'package:amiludo/layers/functional/Random/presentation/chronicles/portrait_painter.dart';
 import 'package:amiludo/layers/functional/Random/presentation/character_sheet_stack.dart';
 import 'package:amiludo/layers/functional/Random/presentation/cubit/chronicles_cubit.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
@@ -82,6 +83,7 @@ class _ChroniclesSheetViewState extends State<ChroniclesSheetView> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SectionHeading(context.l10n.chroniclesSheet),
+        ChroniclesPortrait(look: s.portrait),
         Text(s.name, style: theme.textTheme.headlineMedium),
         Text(s.epithet, style: theme.textTheme.titleMedium),
         Text('${context.l10n.chroniclesRarity} : ${s.rarity.name}'),

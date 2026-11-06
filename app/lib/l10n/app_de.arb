@@ -953,5 +953,7 @@
   "chroniclesSaved": "Figur gespeichert",
   "chroniclesCopied": "Kopiert",
   "chroniclesLoadFailed": "Die Chronicles-Daten konnten nicht gelesen werden.",
-  "chroniclesClose": "Schließen"
+  "chroniclesClose": "Schließen",
+  "chroniclesSwipeHint": "Nach rechts wischen zum Behalten, nach links zum Weitergehen, tippen für Details.",
+  "chroniclesTearHint": "Seitlich ziehen für eine andere Edition, weit ziehen zum Aufreißen."
 }

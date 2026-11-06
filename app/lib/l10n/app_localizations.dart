@@ -5821,6 +5821,18 @@ abstract class AppLocalizations {
   /// **'Close'**
   String get chroniclesClose;
 
+  /// No description provided for @chroniclesSwipeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Swipe right to keep, left to pass, tap for details.'**
+  String get chroniclesSwipeHint;
+
+  /// No description provided for @chroniclesTearHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag sideways to change edition, drag far to tear.'**
+  String get chroniclesTearHint;
+
 }
 
 class _AppLocalizationsDelegate
