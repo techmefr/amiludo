@@ -1,11 +1,11 @@
-## Problème et comportement obtenu
+## Problem and resulting behavior
 
-Décrire le besoin et l’effet de la modification.
+Describe the need and the effect of the change.
 
-## Vérifications
+## Verification
 
-Indiquer les tests, appareils et navigateurs utilisés. Ajouter une capture si l’interface change.
+List the tests, devices and browsers used. Add a screenshot if the interface changes.
 
-## Données et limites
+## Data and limitations
 
-Préciser les migrations éventuelles, licences de nouveaux contenus et limites restantes.
+Note any migrations, licenses for new content and remaining limitations.

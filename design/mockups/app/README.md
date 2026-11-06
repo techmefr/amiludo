@@ -1,13 +1,13 @@
-# Application Flutter — captures de validation
+# Flutter app — validation screenshots
 
-Ces images montrent la vraie application compilée, avec des joueurs et parties créés pour les essais. Les captures HTML précédentes restent dans les autres dossiers.
+These images show the real compiled app, with players and games created for testing. The earlier HTML screenshots remain in the other folders.
 
-- 00 : accueil public, sans données fictives préchargées.
-- 01 et 02 : scores et fonctionnement hors connexion.
-- 03 : résultat enregistré et export CSV.
-- 04 : personnalisation dans Flutter.
-- 05 à 09 : interface mobile et palette Night City.
-- 10 : partie reprise et modifiée sans réseau sur le domaine public.
-- 11 : modèle créé par l’utilisateur, catégories et objectif appliqués.
+- 00: public home, with no preloaded fictional data.
+- 01 and 02: scores and offline operation.
+- 03: saved result and CSV export.
+- 04: customization in Flutter.
+- 05 to 09: mobile interface and Night City palette.
+- 10: game resumed and edited offline on the public domain.
+- 11: user-created template, with categories and objective applied.
 
-Tests exécutés : 20 tests Flutter, un test du paquet hors connexion, puis parcours navigateur pour SQLite, annulation/rétablissement, CSV, modèles, thèmes et navigation mobile. Aucune validation sur téléphone physique ou compilation iOS n’est revendiquée.
+Tests run: 20 Flutter tests, one offline package test, then browser walkthroughs for SQLite, undo/redo, CSV, templates, themes and mobile navigation. No validation on a physical phone or iOS build is claimed.
