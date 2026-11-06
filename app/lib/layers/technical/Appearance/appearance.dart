@@ -85,7 +85,7 @@ class Appearance {
     'haptics': haptics,
     'keepAwake': keepAwake,
     'language': language,
-    'sensors': sensors,
+    if (sensors != 'medium') 'sensors': sensors,
   };
   factory Appearance.fromJson(Map<String, dynamic> j) {
     const oldFonts = {
