@@ -1,0 +1,2753 @@
+{
+ "caracteristiques": [
+  {
+   "id": "for",
+   "nom": "Force"
+  },
+  {
+   "id": "agi",
+   "nom": "Agilité"
+  },
+  {
+   "id": "int",
+   "nom": "Intelligence"
+  },
+  {
+   "id": "cha",
+   "nom": "Charisme"
+  },
+  {
+   "id": "vol",
+   "nom": "Volonté"
+  },
+  {
+   "id": "per",
+   "nom": "Perception"
+  }
+ ],
+ "raretes": [
+  {
+   "id": "c",
+   "nom": "Commune",
+   "poids": 45,
+   "score": 1
+  },
+  {
+   "id": "u",
+   "nom": "Peu commune",
+   "poids": 27,
+   "score": 2
+  },
+  {
+   "id": "r",
+   "nom": "Rare",
+   "poids": 15,
+   "score": 3
+  },
+  {
+   "id": "e",
+   "nom": "Épique",
+   "poids": 8,
+   "score": 4
+  },
+  {
+   "id": "l",
+   "nom": "Légendaire",
+   "poids": 4,
+   "score": 5
+  },
+  {
+   "id": "m",
+   "nom": "Mythique",
+   "poids": 1,
+   "score": 6
+  }
+ ],
+ "etapes": [
+  {
+   "id": 1,
+   "nom": "Informations générales",
+   "types": [
+    {
+     "type": "nom",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "surnom",
+     "min": 0,
+     "max": 1
+    },
+    {
+     "type": "age",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "naissance",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "genre",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "espece",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "origine",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "langue",
+     "min": 1,
+     "max": 3
+    },
+    {
+     "type": "metier",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "statut",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "groupe",
+     "min": 1,
+     "max": 2
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "nom": "Apparence physique",
+   "types": [
+    {
+     "type": "peau",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "yeux",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "cheveux",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "silhouette",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "taille",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "style",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "signe",
+     "min": 0,
+     "max": 3
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "nom": "Personnalité et aptitudes",
+   "types": [
+    {
+     "type": "qualite",
+     "min": 2,
+     "max": 5
+    },
+    {
+     "type": "defaut",
+     "min": 2,
+     "max": 5
+    },
+    {
+     "type": "aime",
+     "min": 1,
+     "max": 3
+    },
+    {
+     "type": "deteste",
+     "min": 1,
+     "max": 3
+    },
+    {
+     "type": "talent",
+     "min": 1,
+     "max": 2
+    },
+    {
+     "type": "habitude",
+     "min": 1,
+     "max": 2
+    },
+    {
+     "type": "motivation",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "but",
+     "min": 1,
+     "max": 1
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "nom": "Passé",
+   "types": [
+    {
+     "type": "famille",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "enfance",
+     "min": 1,
+     "max": 2
+    },
+    {
+     "type": "experience",
+     "min": 1,
+     "max": 3
+    },
+    {
+     "type": "evolution",
+     "min": 1,
+     "max": 1
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "nom": "Présent",
+   "types": [
+    {
+     "type": "situation",
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "action",
+     "min": 1,
+     "max": 3
+    },
+    {
+     "type": "quete",
+     "min": 1,
+     "max": 1
+    }
+   ]
+  }
+ ],
+ "editions": [
+  {
+   "id": "fer",
+   "nom": "Fer",
+   "stats": [
+    "for",
+    "vol"
+   ]
+  },
+  {
+   "id": "vent",
+   "nom": "Vent",
+   "stats": [
+    "agi",
+    "per"
+   ]
+  },
+  {
+   "id": "esprit",
+   "nom": "Esprit",
+   "stats": [
+    "int",
+    "cha"
+   ]
+  }
+ ],
+ "univers": [
+  {
+   "id": "fantasy",
+   "nom": "Fantasy médiévale",
+   "epithete": "Voyageur des royaumes"
+  },
+  {
+   "id": "scifi",
+   "nom": "Science-fiction",
+   "epithete": "Nomade des étoiles"
+  },
+  {
+   "id": "cyberpunk",
+   "nom": "Cyberpunk",
+   "epithete": "Fantôme du réseau"
+  },
+  {
+   "id": "gothique",
+   "nom": "Horreur gothique",
+   "epithete": "Veilleur des ténèbres"
+  }
+ ],
+ "libellesCourts": {
+  "nom": "Nom",
+  "surnom": "Surnom",
+  "age": "Âge",
+  "naissance": "Naissance",
+  "genre": "Genre",
+  "espece": "Espèce",
+  "origine": "Origine",
+  "langue": "Langue",
+  "metier": "Métier",
+  "statut": "Statut",
+  "groupe": "Groupe",
+  "peau": "Peau",
+  "yeux": "Yeux",
+  "cheveux": "Cheveux",
+  "silhouette": "Silhouette",
+  "taille": "Taille",
+  "style": "Style",
+  "signe": "Signe",
+  "qualite": "Qualité",
+  "defaut": "Défaut",
+  "aime": "Aime",
+  "deteste": "Déteste",
+  "talent": "Talent",
+  "habitude": "Habitude",
+  "motivation": "Motivation",
+  "but": "But",
+  "famille": "Famille",
+  "enfance": "Enfance",
+  "experience": "Expérience",
+  "evolution": "Évolution",
+  "situation": "Situation",
+  "action": "Action",
+  "quete": "Quête"
+ },
+ "cartes": [
+  {
+   "id": "fan-1-nom-1",
+   "univers": "*",
+   "etape": 1,
+   "type": "nom",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Aldric",
+   "texte": "Nom : Aldric.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-nom-2",
+   "univers": "*",
+   "etape": 1,
+   "type": "nom",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Mirelle",
+   "texte": "Nom : Mirelle.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-nom-3",
+   "univers": "*",
+   "etape": 1,
+   "type": "nom",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Tobias",
+   "texte": "Nom : Tobias.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-nom-4",
+   "univers": "*",
+   "etape": 1,
+   "type": "nom",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Sélène",
+   "texte": "Nom : Sélène.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-nom-5",
+   "univers": "*",
+   "etape": 1,
+   "type": "nom",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Garrick",
+   "texte": "Nom : Garrick.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-surnom-1",
+   "univers": "*",
+   "etape": 1,
+   "type": "surnom",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "la Flèche",
+   "texte": "Surnom : la Flèche.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-surnom-2",
+   "univers": "*",
+   "etape": 1,
+   "type": "surnom",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Pied-Léger",
+   "texte": "Surnom : Pied-Léger.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-surnom-3",
+   "univers": "*",
+   "etape": 1,
+   "type": "surnom",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "le Borgne",
+   "texte": "Surnom : le Borgne.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-surnom-4",
+   "univers": "*",
+   "etape": 1,
+   "type": "surnom",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Coeur-de-Pierre",
+   "texte": "Surnom : Coeur-de-Pierre.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-age-1",
+   "univers": "*",
+   "etape": 1,
+   "type": "age",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Jeune adulte",
+   "texte": "Âge : Jeune adulte.",
+   "modificateurs": {
+    "vol": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-age-2",
+   "univers": "*",
+   "etape": 1,
+   "type": "age",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Trentenaire",
+   "texte": "Âge : Trentenaire.",
+   "modificateurs": {
+    "per": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-age-3",
+   "univers": "*",
+   "etape": 1,
+   "type": "age",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Quadragénaire",
+   "texte": "Âge : Quadragénaire.",
+   "modificateurs": {
+    "for": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-age-4",
+   "univers": "*",
+   "etape": 1,
+   "type": "age",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Ancien",
+   "texte": "Âge : Ancien.",
+   "modificateurs": {
+    "agi": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-age-5",
+   "univers": "*",
+   "etape": 1,
+   "type": "age",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Vénérable",
+   "texte": "Âge : Vénérable.",
+   "modificateurs": {
+    "int": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-naissance-1",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "naissance",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Au printemps",
+   "texte": "Naissance : Au printemps.",
+   "modificateurs": {
+    "cha": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-naissance-2",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "naissance",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Pendant l'orage",
+   "texte": "Naissance : Pendant l'orage.",
+   "modificateurs": {
+    "vol": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-naissance-3",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "naissance",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Sous une éclipse",
+   "texte": "Naissance : Sous une éclipse.",
+   "modificateurs": {
+    "per": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-naissance-4",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "naissance",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Un jour ordinaire",
+   "texte": "Naissance : Un jour ordinaire.",
+   "modificateurs": {
+    "for": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-genre-1",
+   "univers": "*",
+   "etape": 1,
+   "type": "genre",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Femme",
+   "texte": "Genre : Femme.",
+   "modificateurs": {
+    "agi": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-genre-2",
+   "univers": "*",
+   "etape": 1,
+   "type": "genre",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Homme",
+   "texte": "Genre : Homme.",
+   "modificateurs": {
+    "int": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-genre-3",
+   "univers": "*",
+   "etape": 1,
+   "type": "genre",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Non-binaire",
+   "texte": "Genre : Non-binaire.",
+   "modificateurs": {
+    "cha": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-genre-4",
+   "univers": "*",
+   "etape": 1,
+   "type": "genre",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Fluide",
+   "texte": "Genre : Fluide.",
+   "modificateurs": {
+    "vol": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-espece-1",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "espece",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Humain",
+   "texte": "Espèce : Humain.",
+   "modificateurs": {
+    "per": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-espece-2",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "espece",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Nain",
+   "texte": "Espèce : Nain.",
+   "modificateurs": {
+    "for": 1
+   },
+   "tags": [
+    "nain"
+   ],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-espece-3",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "espece",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Elfe",
+   "texte": "Espèce : Elfe.",
+   "modificateurs": {
+    "agi": 1
+   },
+   "tags": [
+    "elfe"
+   ],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-espece-4",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "espece",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Demi-orque",
+   "texte": "Espèce : Demi-orque.",
+   "modificateurs": {
+    "int": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-espece-5",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "espece",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Halfelin",
+   "texte": "Espèce : Halfelin.",
+   "modificateurs": {
+    "cha": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-origine-1",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "origine",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Village de montagne",
+   "texte": "Origine : Village de montagne.",
+   "modificateurs": {
+    "vol": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-origine-2",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "origine",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Port marchand",
+   "texte": "Origine : Port marchand.",
+   "modificateurs": {
+    "per": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-origine-3",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "origine",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Capitale",
+   "texte": "Origine : Capitale.",
+   "modificateurs": {
+    "for": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-origine-4",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "origine",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Forêt profonde",
+   "texte": "Origine : Forêt profonde.",
+   "modificateurs": {
+    "agi": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-origine-5",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "origine",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Plaine nomade",
+   "texte": "Origine : Plaine nomade.",
+   "modificateurs": {
+    "int": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-langue-1",
+   "univers": "*",
+   "etape": 1,
+   "type": "langue",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Commun",
+   "texte": "Langue : Commun.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-langue-2",
+   "univers": "*",
+   "etape": 1,
+   "type": "langue",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Nain",
+   "texte": "Langue : Nain.",
+   "modificateurs": {},
+   "tags": [
+    "nain"
+   ],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-langue-3",
+   "univers": "*",
+   "etape": 1,
+   "type": "langue",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Elfique",
+   "texte": "Langue : Elfique.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-langue-4",
+   "univers": "*",
+   "etape": 1,
+   "type": "langue",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Argot des voleurs",
+   "texte": "Langue : Argot des voleurs.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-langue-5",
+   "univers": "*",
+   "etape": 1,
+   "type": "langue",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Langue ancienne",
+   "texte": "Langue : Langue ancienne.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-metier-1",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "metier",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Mage",
+   "texte": "Métier : Mage.",
+   "modificateurs": {
+    "int": 1
+   },
+   "tags": [
+    "magie"
+   ],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-metier-2",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "metier",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Forgeron",
+   "texte": "Métier : Forgeron.",
+   "modificateurs": {
+    "cha": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-metier-3",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "metier",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Voleur",
+   "texte": "Métier : Voleur.",
+   "modificateurs": {
+    "vol": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-metier-4",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "metier",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Guérisseur",
+   "texte": "Métier : Guérisseur.",
+   "modificateurs": {
+    "per": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-metier-5",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "metier",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Chasseur",
+   "texte": "Métier : Chasseur.",
+   "modificateurs": {
+    "for": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-metier-6",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "metier",
+   "libelle": null,
+   "rarete": "e",
+   "nom": "Barde",
+   "texte": "Métier : Barde.",
+   "modificateurs": {
+    "agi": 3
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": "Barde des terres brisées"
+  },
+  {
+   "id": "fan-1-statut-1",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "statut",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Roturier",
+   "texte": "Statut : Roturier.",
+   "modificateurs": {
+    "int": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-statut-2",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "statut",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Noble déchu",
+   "texte": "Statut : Noble déchu.",
+   "modificateurs": {
+    "cha": 1
+   },
+   "tags": [
+    "noble"
+   ],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-statut-3",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "statut",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Hors-la-loi",
+   "texte": "Statut : Hors-la-loi.",
+   "modificateurs": {
+    "vol": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-statut-4",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "statut",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Pèlerin",
+   "texte": "Statut : Pèlerin.",
+   "modificateurs": {
+    "per": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-groupe-1",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "groupe",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Guilde des marchands",
+   "texte": "Groupe : Guilde des marchands.",
+   "modificateurs": {
+    "for": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-groupe-2",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "groupe",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Ordre du Phare",
+   "texte": "Groupe : Ordre du Phare.",
+   "modificateurs": {
+    "agi": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-groupe-3",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "groupe",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Compagnie libre",
+   "texte": "Groupe : Compagnie libre.",
+   "modificateurs": {
+    "int": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-1-groupe-4",
+   "univers": "fantasy",
+   "etape": 1,
+   "type": "groupe",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Cercle des herboristes",
+   "texte": "Groupe : Cercle des herboristes.",
+   "modificateurs": {
+    "cha": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-2-peau-1",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "peau",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Pâle",
+   "texte": "Peau : Pâle.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": {
+    "peau": "#f0d5c0"
+   },
+   "epithete": null
+  },
+  {
+   "id": "fan-2-peau-2",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "peau",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Mate",
+   "texte": "Peau : Mate.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": {
+    "peau": "#d9a679"
+   },
+   "epithete": null
+  },
+  {
+   "id": "fan-2-peau-3",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "peau",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Brune",
+   "texte": "Peau : Brune.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": {
+    "peau": "#9c6b45"
+   },
+   "epithete": null
+  },
+  {
+   "id": "fan-2-peau-4",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "peau",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Cuivrée",
+   "texte": "Peau : Cuivrée.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": {
+    "peau": "#b87333"
+   },
+   "epithete": null
+  },
+  {
+   "id": "fan-2-yeux-1",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "yeux",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Verts",
+   "texte": "Yeux : Verts.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": {
+    "yeux": "#3a8f5a"
+   },
+   "epithete": null
+  },
+  {
+   "id": "fan-2-yeux-2",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "yeux",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Bruns",
+   "texte": "Yeux : Bruns.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": {
+    "yeux": "#5a3a22"
+   },
+   "epithete": null
+  },
+  {
+   "id": "fan-2-yeux-3",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "yeux",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Gris",
+   "texte": "Yeux : Gris.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": {
+    "yeux": "#8a949c"
+   },
+   "epithete": null
+  },
+  {
+   "id": "fan-2-yeux-4",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "yeux",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Dorés",
+   "texte": "Yeux : Dorés.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": {
+    "yeux": "#c9a227"
+   },
+   "epithete": null
+  },
+  {
+   "id": "fan-2-cheveux-1",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "cheveux",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Noirs",
+   "texte": "Cheveux : Noirs.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": {
+    "cheveux": "#1e1b18"
+   },
+   "epithete": null
+  },
+  {
+   "id": "fan-2-cheveux-2",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "cheveux",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Roux",
+   "texte": "Cheveux : Roux.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": {
+    "cheveux": "#a5471d"
+   },
+   "epithete": null
+  },
+  {
+   "id": "fan-2-cheveux-3",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "cheveux",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Blancs",
+   "texte": "Cheveux : Blancs.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": {
+    "cheveux": "#e8e6e1"
+   },
+   "epithete": null
+  },
+  {
+   "id": "fan-2-cheveux-4",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "cheveux",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Châtains",
+   "texte": "Cheveux : Châtains.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": {
+    "cheveux": "#6b4a2f"
+   },
+   "epithete": null
+  },
+  {
+   "id": "fan-2-silhouette-1",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "silhouette",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Mince",
+   "texte": "Silhouette : Mince.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": {
+    "carrure": "mince"
+   },
+   "epithete": null
+  },
+  {
+   "id": "fan-2-silhouette-2",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "silhouette",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Robuste",
+   "texte": "Silhouette : Robuste.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": {
+    "carrure": "robuste"
+   },
+   "epithete": null
+  },
+  {
+   "id": "fan-2-silhouette-3",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "silhouette",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Athlétique",
+   "texte": "Silhouette : Athlétique.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": {
+    "carrure": "athlétique"
+   },
+   "epithete": null
+  },
+  {
+   "id": "fan-2-silhouette-4",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "silhouette",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Trapue",
+   "texte": "Silhouette : Trapue.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": {
+    "carrure": "trapue"
+   },
+   "epithete": null
+  },
+  {
+   "id": "fan-2-taille-1",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "taille",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Petite",
+   "texte": "Taille : Petite.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-2-taille-2",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "taille",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Moyenne",
+   "texte": "Taille : Moyenne.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-2-taille-3",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "taille",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Très grande",
+   "texte": "Taille : Très grande.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [
+    "nain"
+   ],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-2-taille-4",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "taille",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Haute",
+   "texte": "Taille : Haute.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-2-style-1",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "style",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Sobre",
+   "texte": "Style : Sobre.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-2-style-2",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "style",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Voyageur",
+   "texte": "Style : Voyageur.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-2-style-3",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "style",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Élégant",
+   "texte": "Style : Élégant.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-2-style-4",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "style",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Dépenaillé",
+   "texte": "Style : Dépenaillé.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [
+    "noble"
+   ],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-2-signe-1",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "signe",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Cicatrice au menton",
+   "texte": "Signe : Cicatrice au menton.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-2-signe-2",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "signe",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Tatouage runique",
+   "texte": "Signe : Tatouage runique.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-2-signe-3",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "signe",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Boucle d'oreille",
+   "texte": "Signe : Boucle d'oreille.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-2-signe-4",
+   "univers": "fantasy",
+   "etape": 2,
+   "type": "signe",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Main tachée d'encre",
+   "texte": "Signe : Main tachée d'encre.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-qualite-1",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "qualite",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Courageux",
+   "texte": "Qualité : Courageux.",
+   "modificateurs": {
+    "int": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-qualite-2",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "qualite",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Loyal",
+   "texte": "Qualité : Loyal.",
+   "modificateurs": {
+    "cha": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-qualite-3",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "qualite",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Curieux",
+   "texte": "Qualité : Curieux.",
+   "modificateurs": {
+    "vol": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-qualite-4",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "qualite",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Patient",
+   "texte": "Qualité : Patient.",
+   "modificateurs": {
+    "per": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-qualite-5",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "qualite",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Généreux",
+   "texte": "Qualité : Généreux.",
+   "modificateurs": {
+    "for": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-qualite-6",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "qualite",
+   "libelle": null,
+   "rarete": "e",
+   "nom": "Rusé",
+   "texte": "Qualité : Rusé.",
+   "modificateurs": {
+    "agi": 3
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-defaut-1",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "defaut",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Têtu",
+   "texte": "Défaut : Têtu.",
+   "modificateurs": {
+    "int": -1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-defaut-2",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "defaut",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Impulsif",
+   "texte": "Défaut : Impulsif.",
+   "modificateurs": {
+    "cha": -1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-defaut-3",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "defaut",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Avare",
+   "texte": "Défaut : Avare.",
+   "modificateurs": {
+    "vol": -1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-defaut-4",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "defaut",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Peur de la magie",
+   "texte": "Défaut : Peur de la magie.",
+   "modificateurs": {
+    "per": -1
+   },
+   "tags": [],
+   "conflits": [
+    "magie"
+   ],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-defaut-5",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "defaut",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Rancunier",
+   "texte": "Défaut : Rancunier.",
+   "modificateurs": {
+    "for": -1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-defaut-6",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "defaut",
+   "libelle": null,
+   "rarete": "e",
+   "nom": "Orgueilleux",
+   "texte": "Défaut : Orgueilleux.",
+   "modificateurs": {
+    "agi": -1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-aime-1",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "aime",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Les feux de camp",
+   "texte": "Aime : Les feux de camp.",
+   "modificateurs": {
+    "int": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-aime-2",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "aime",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Les cartes",
+   "texte": "Aime : Les cartes.",
+   "modificateurs": {
+    "cha": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-aime-3",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "aime",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Le vin chaud",
+   "texte": "Aime : Le vin chaud.",
+   "modificateurs": {
+    "vol": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-aime-4",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "aime",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Les chats",
+   "texte": "Aime : Les chats.",
+   "modificateurs": {
+    "per": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-deteste-1",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "deteste",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Les menteurs",
+   "texte": "Déteste : Les menteurs.",
+   "modificateurs": {
+    "for": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-deteste-2",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "deteste",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "La pluie",
+   "texte": "Déteste : La pluie.",
+   "modificateurs": {
+    "agi": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-deteste-3",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "deteste",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Les bateaux",
+   "texte": "Déteste : Les bateaux.",
+   "modificateurs": {
+    "int": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-deteste-4",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "deteste",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Le bruit",
+   "texte": "Déteste : Le bruit.",
+   "modificateurs": {
+    "cha": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-talent-1",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "talent",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Escalade",
+   "texte": "Talent : Escalade.",
+   "modificateurs": {
+    "vol": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-talent-2",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "talent",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Premiers soins",
+   "texte": "Talent : Premiers soins.",
+   "modificateurs": {
+    "per": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-talent-3",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "talent",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Marchandage",
+   "texte": "Talent : Marchandage.",
+   "modificateurs": {
+    "for": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-talent-4",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "talent",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Tir à l'arc",
+   "texte": "Talent : Tir à l'arc.",
+   "modificateurs": {
+    "agi": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-talent-5",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "talent",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Chant",
+   "texte": "Talent : Chant.",
+   "modificateurs": {
+    "int": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-habitude-1",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "habitude",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Siffle en marchant",
+   "texte": "Habitude : Siffle en marchant.",
+   "modificateurs": {
+    "cha": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-habitude-2",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "habitude",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Compte ses pièces",
+   "texte": "Habitude : Compte ses pièces.",
+   "modificateurs": {
+    "vol": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-habitude-3",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "habitude",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Parle aux animaux",
+   "texte": "Habitude : Parle aux animaux.",
+   "modificateurs": {
+    "per": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-habitude-4",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "habitude",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Dessine des cartes",
+   "texte": "Habitude : Dessine des cartes.",
+   "modificateurs": {
+    "for": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-motivation-1",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "motivation",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Venger les siens",
+   "texte": "Motivation : Venger les siens.",
+   "modificateurs": {
+    "agi": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-motivation-2",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "motivation",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Trouver sa place",
+   "texte": "Motivation : Trouver sa place.",
+   "modificateurs": {
+    "int": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-motivation-3",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "motivation",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Gagner la gloire",
+   "texte": "Motivation : Gagner la gloire.",
+   "modificateurs": {
+    "cha": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-motivation-4",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "motivation",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Protéger un secret",
+   "texte": "Motivation : Protéger un secret.",
+   "modificateurs": {
+    "vol": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-but-1",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "but",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Retrouver un frère",
+   "texte": "But : Retrouver un frère.",
+   "modificateurs": {
+    "per": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-but-2",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "but",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Bâtir une maison",
+   "texte": "But : Bâtir une maison.",
+   "modificateurs": {
+    "for": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-but-3",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "but",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Ouvrir une auberge",
+   "texte": "But : Ouvrir une auberge.",
+   "modificateurs": {
+    "agi": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-3-but-4",
+   "univers": "fantasy",
+   "etape": 3,
+   "type": "but",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Percer un mystère",
+   "texte": "But : Percer un mystère.",
+   "modificateurs": {
+    "int": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-famille-1",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "famille",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Famille nombreuse",
+   "texte": "Famille : Famille nombreuse.",
+   "modificateurs": {
+    "cha": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-famille-2",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "famille",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Orphelin",
+   "texte": "Famille : Orphelin.",
+   "modificateurs": {
+    "vol": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-famille-3",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "famille",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Lignée de marchands",
+   "texte": "Famille : Lignée de marchands.",
+   "modificateurs": {
+    "per": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-famille-4",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "famille",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Fils de soldat",
+   "texte": "Famille : Fils de soldat.",
+   "modificateurs": {
+    "for": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-enfance-1",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "enfance",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Enfance sur les routes",
+   "texte": "Enfance : Enfance sur les routes.",
+   "modificateurs": {
+    "agi": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-enfance-2",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "enfance",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Apprenti d'un maître",
+   "texte": "Enfance : Apprenti d'un maître.",
+   "modificateurs": {
+    "int": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-enfance-3",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "enfance",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Enfant des rues",
+   "texte": "Enfance : Enfant des rues.",
+   "modificateurs": {
+    "cha": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-enfance-4",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "enfance",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Études au monastère",
+   "texte": "Enfance : Études au monastère.",
+   "modificateurs": {
+    "vol": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-experience-1",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "experience",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Siège d'une forteresse",
+   "texte": "Expérience : Siège d'une forteresse.",
+   "modificateurs": {
+    "per": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-experience-2",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "experience",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Traversée des marais",
+   "texte": "Expérience : Traversée des marais.",
+   "modificateurs": {
+    "for": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-experience-3",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "experience",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Exil volontaire",
+   "texte": "Expérience : Exil volontaire.",
+   "modificateurs": {
+    "agi": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-experience-4",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "experience",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Duel perdu",
+   "texte": "Expérience : Duel perdu.",
+   "modificateurs": {
+    "int": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-experience-5",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "experience",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Service d'un seigneur",
+   "texte": "Expérience : Service d'un seigneur.",
+   "modificateurs": {
+    "cha": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-evolution-1",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "evolution",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Trahison pardonnée",
+   "texte": "Évolution : Trahison pardonnée.",
+   "modificateurs": {
+    "vol": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-evolution-2",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "evolution",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Perte d'un mentor",
+   "texte": "Évolution : Perte d'un mentor.",
+   "modificateurs": {
+    "per": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-evolution-3",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "evolution",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Rencontre décisive",
+   "texte": "Évolution : Rencontre décisive.",
+   "modificateurs": {
+    "for": 1
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-4-evolution-4",
+   "univers": "fantasy",
+   "etape": 4,
+   "type": "evolution",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Serment prononcé",
+   "texte": "Évolution : Serment prononcé.",
+   "modificateurs": {
+    "agi": 2
+   },
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-5-situation-1",
+   "univers": "fantasy",
+   "etape": 5,
+   "type": "situation",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "En fuite",
+   "texte": "Situation : En fuite.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-5-situation-2",
+   "univers": "fantasy",
+   "etape": 5,
+   "type": "situation",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "En mission",
+   "texte": "Situation : En mission.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-5-situation-3",
+   "univers": "fantasy",
+   "etape": 5,
+   "type": "situation",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "En quête d'emploi",
+   "texte": "Situation : En quête d'emploi.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-5-situation-4",
+   "univers": "fantasy",
+   "etape": 5,
+   "type": "situation",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Blessé et recueilli",
+   "texte": "Situation : Blessé et recueilli.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-5-action-1",
+   "univers": "fantasy",
+   "etape": 5,
+   "type": "action",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Cherche une piste",
+   "texte": "Action : Cherche une piste.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-5-action-2",
+   "univers": "fantasy",
+   "etape": 5,
+   "type": "action",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Négocie un passage",
+   "texte": "Action : Négocie un passage.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-5-action-3",
+   "univers": "fantasy",
+   "etape": 5,
+   "type": "action",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Soigne un allié",
+   "texte": "Action : Soigne un allié.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-5-action-4",
+   "univers": "fantasy",
+   "etape": 5,
+   "type": "action",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Prépare une embuscade",
+   "texte": "Action : Prépare une embuscade.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-5-quete-1",
+   "univers": "fantasy",
+   "etape": 5,
+   "type": "quete",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Retrouver une relique",
+   "texte": "Quête : Retrouver une relique.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-5-quete-2",
+   "univers": "fantasy",
+   "etape": 5,
+   "type": "quete",
+   "libelle": null,
+   "rarete": "c",
+   "nom": "Escorter un convoi",
+   "texte": "Quête : Escorter un convoi.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-5-quete-3",
+   "univers": "fantasy",
+   "etape": 5,
+   "type": "quete",
+   "libelle": null,
+   "rarete": "u",
+   "nom": "Sauver un village",
+   "texte": "Quête : Sauver un village.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  },
+  {
+   "id": "fan-5-quete-4",
+   "univers": "fantasy",
+   "etape": 5,
+   "type": "quete",
+   "libelle": null,
+   "rarete": "r",
+   "nom": "Déjouer un complot",
+   "texte": "Quête : Déjouer un complot.",
+   "modificateurs": {},
+   "tags": [],
+   "conflits": [],
+   "apparence": null,
+   "epithete": null
+  }
+ ]
+}

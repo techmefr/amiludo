@@ -2862,4 +2862,97 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get toolCounterPotSubtitle =>
       'De gemeenschappelijke pot waar iedereen voor speelt.';
+
+  @override
+  String get chroniclesTitle => 'Chronicles';
+
+  @override
+  String get chroniclesSubtitle => 'Maak een personage in vijf stappen met boosters.';
+
+  @override
+  String get chroniclesChooseUniverse => 'Kies een universum';
+
+  @override
+  String get chroniclesResume => 'Mijn personage hervatten';
+
+  @override
+  String get chroniclesRestart => 'Opnieuw beginnen';
+
+  @override
+  String get chroniclesStep => 'Stap';
+
+  @override
+  String get chroniclesChooseEdition => 'Kies een booster-editie';
+
+  @override
+  String get chroniclesTearBooster => 'Booster openscheuren';
+
+  @override
+  String get chroniclesKeep => 'Houden';
+
+  @override
+  String get chroniclesPass => 'Overslaan';
+
+  @override
+  String get chroniclesFlip => 'Kaart omdraaien';
+
+  @override
+  String get chroniclesRefusedQuota => 'Geen plek meer voor dit type kaart.';
+
+  @override
+  String get chroniclesRefusedConflict => 'Deze kaart botst met een bewaarde kaart.';
+
+  @override
+  String get chroniclesRecap => 'Overzicht van de booster';
+
+  @override
+  String get chroniclesNoneKept => 'Geen kaart bewaard uit deze booster.';
+
+  @override
+  String get chroniclesDestiny => 'Laat het lot aanvullen';
+
+  @override
+  String get chroniclesChosenByDestiny => 'Door het lot gekozen';
+
+  @override
+  String get chroniclesContinue => 'Doorgaan';
+
+  @override
+  String get chroniclesStillMissing => 'Nog nodig';
+
+  @override
+  String get chroniclesSheet => 'Personagekaart';
+
+  @override
+  String get chroniclesAbilities => 'Eigenschappen';
+
+  @override
+  String get chroniclesRarity => 'Zeldzaamheid';
+
+  @override
+  String get chroniclesCards => 'Bewaarde kaarten';
+
+  @override
+  String get chroniclesCopyText => 'Kopiëren als tekst';
+
+  @override
+  String get chroniclesCopyJson => 'Kopiëren als JSON';
+
+  @override
+  String get chroniclesShare => 'Delen';
+
+  @override
+  String get chroniclesSaveToLibrary => 'Opslaan bij mijn personages';
+
+  @override
+  String get chroniclesSaved => 'Personage opgeslagen';
+
+  @override
+  String get chroniclesCopied => 'Gekopieerd';
+
+  @override
+  String get chroniclesLoadFailed => 'De Chronicles-gegevens konden niet worden gelezen.';
+
+  @override
+  String get chroniclesClose => 'Sluiten';
 }

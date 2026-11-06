@@ -2858,4 +2858,97 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get toolCounterPotSubtitle => 'El bote común por el que todos juegan.';
+
+  @override
+  String get chroniclesTitle => 'Chronicles';
+
+  @override
+  String get chroniclesSubtitle => 'Crea un personaje en cinco pasos abriendo sobres.';
+
+  @override
+  String get chroniclesChooseUniverse => 'Elige un universo';
+
+  @override
+  String get chroniclesResume => 'Continuar mi personaje';
+
+  @override
+  String get chroniclesRestart => 'Empezar de nuevo';
+
+  @override
+  String get chroniclesStep => 'Paso';
+
+  @override
+  String get chroniclesChooseEdition => 'Elige una edición de sobre';
+
+  @override
+  String get chroniclesTearBooster => 'Rasgar el sobre';
+
+  @override
+  String get chroniclesKeep => 'Quedarse';
+
+  @override
+  String get chroniclesPass => 'Pasar';
+
+  @override
+  String get chroniclesFlip => 'Dar la vuelta a la carta';
+
+  @override
+  String get chroniclesRefusedQuota => 'Ya no queda sitio para este tipo de carta.';
+
+  @override
+  String get chroniclesRefusedConflict => 'Esta carta entra en conflicto con una que guardaste.';
+
+  @override
+  String get chroniclesRecap => 'Resumen del sobre';
+
+  @override
+  String get chroniclesNoneKept => 'Ninguna carta guardada de este sobre.';
+
+  @override
+  String get chroniclesDestiny => 'Dejar que el destino complete';
+
+  @override
+  String get chroniclesChosenByDestiny => 'Elegida por el destino';
+
+  @override
+  String get chroniclesContinue => 'Continuar';
+
+  @override
+  String get chroniclesStillMissing => 'Todavía falta';
+
+  @override
+  String get chroniclesSheet => 'Hoja de personaje';
+
+  @override
+  String get chroniclesAbilities => 'Características';
+
+  @override
+  String get chroniclesRarity => 'Rareza';
+
+  @override
+  String get chroniclesCards => 'Cartas guardadas';
+
+  @override
+  String get chroniclesCopyText => 'Copiar como texto';
+
+  @override
+  String get chroniclesCopyJson => 'Copiar como JSON';
+
+  @override
+  String get chroniclesShare => 'Compartir';
+
+  @override
+  String get chroniclesSaveToLibrary => 'Guardar en mis personajes';
+
+  @override
+  String get chroniclesSaved => 'Personaje guardado';
+
+  @override
+  String get chroniclesCopied => 'Copiado';
+
+  @override
+  String get chroniclesLoadFailed => 'No se pudieron leer los datos de Chronicles.';
+
+  @override
+  String get chroniclesClose => 'Cerrar';
 }

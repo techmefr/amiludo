@@ -2866,4 +2866,97 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get toolCounterPotSubtitle =>
       'Der gemeinsame Pot, um den alle spielen.';
+
+  @override
+  String get chroniclesTitle => 'Chronicles';
+
+  @override
+  String get chroniclesSubtitle => 'Erstelle eine Figur in fünf Schritten mit Boostern.';
+
+  @override
+  String get chroniclesChooseUniverse => 'Wähle ein Universum';
+
+  @override
+  String get chroniclesResume => 'Meine Figur fortsetzen';
+
+  @override
+  String get chroniclesRestart => 'Neu beginnen';
+
+  @override
+  String get chroniclesStep => 'Schritt';
+
+  @override
+  String get chroniclesChooseEdition => 'Wähle eine Booster-Edition';
+
+  @override
+  String get chroniclesTearBooster => 'Booster aufreißen';
+
+  @override
+  String get chroniclesKeep => 'Behalten';
+
+  @override
+  String get chroniclesPass => 'Weiter';
+
+  @override
+  String get chroniclesFlip => 'Karte umdrehen';
+
+  @override
+  String get chroniclesRefusedQuota => 'Für diesen Kartentyp ist kein Platz mehr.';
+
+  @override
+  String get chroniclesRefusedConflict => 'Diese Karte widerspricht einer behaltenen Karte.';
+
+  @override
+  String get chroniclesRecap => 'Booster-Übersicht';
+
+  @override
+  String get chroniclesNoneKept => 'Keine Karte aus diesem Booster behalten.';
+
+  @override
+  String get chroniclesDestiny => 'Das Schicksal vervollständigen lassen';
+
+  @override
+  String get chroniclesChosenByDestiny => 'Vom Schicksal gewählt';
+
+  @override
+  String get chroniclesContinue => 'Weiter';
+
+  @override
+  String get chroniclesStillMissing => 'Es fehlt noch';
+
+  @override
+  String get chroniclesSheet => 'Charakterbogen';
+
+  @override
+  String get chroniclesAbilities => 'Eigenschaften';
+
+  @override
+  String get chroniclesRarity => 'Seltenheit';
+
+  @override
+  String get chroniclesCards => 'Behaltene Karten';
+
+  @override
+  String get chroniclesCopyText => 'Als Text kopieren';
+
+  @override
+  String get chroniclesCopyJson => 'Als JSON kopieren';
+
+  @override
+  String get chroniclesShare => 'Teilen';
+
+  @override
+  String get chroniclesSaveToLibrary => 'In meinen Figuren speichern';
+
+  @override
+  String get chroniclesSaved => 'Figur gespeichert';
+
+  @override
+  String get chroniclesCopied => 'Kopiert';
+
+  @override
+  String get chroniclesLoadFailed => 'Die Chronicles-Daten konnten nicht gelesen werden.';
+
+  @override
+  String get chroniclesClose => 'Schließen';
 }

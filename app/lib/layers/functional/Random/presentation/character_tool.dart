@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
@@ -245,6 +246,13 @@ class _CharacterToolState extends State<CharacterTool> {
         ),
         const SizedBox(height: 12),
         Text(context.l10n.randomBuildYourCharacterByOpening),
+        const SizedBox(height: 12),
+        OutlinedButton.icon(
+          key: const ValueKey('open-chronicles'),
+          onPressed: () => context.push('/chronicles'),
+          icon: const DeckIcon(Icons.auto_stories_outlined),
+          label: Text(context.l10n.chroniclesTitle),
+        ),
         const SizedBox(height: 20),
         if (d == null) ...setup(),
         if (d != null && category != null) ...step(d, category),
