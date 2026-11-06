@@ -2617,4 +2617,90 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get heroesMakeActive => 'Activar';
+  String get toolMagicItemTitle =>
+      'Generador de objetos mágicos';
+
+  @override
+  String get toolMagicItemSubtitle =>
+      'Una reliquia con un poder, una rareza y un origen.';
+
+  @override
+  String get toolWeatherTitle =>
+      'Generador de clima';
+
+  @override
+  String get toolWeatherSubtitle =>
+      'Cielo, temperatura, viento, efectos y presagios.';
+
+  @override
+  String get toolPlaceTitle =>
+      'Generador de nombres de lugar';
+
+  @override
+  String get toolPlaceSubtitle =>
+      'Un nombre, un tipo de lugar y un detalle llamativo.';
+
+  @override
+  String get toolDilemmaTitle =>
+      'Generador de dilemas morales';
+
+  @override
+  String get toolDilemmaSubtitle =>
+      'Una situación difícil, dos opciones y el precio a pagar.';
+
+  @override
+  String get toolRumourTitle =>
+      'Generador de rumores de taberna';
+
+  @override
+  String get toolRumourSubtitle =>
+      'Quién lo dijo, qué se dice y cuánto hay de cierto.';
+
+  @override
+  String get toolTraitTitle =>
+      'Generador de rasgos de PNJ';
+
+  @override
+  String get toolTraitSubtitle =>
+      'Un rasgo de carácter, cómo se nota y un defecto oculto.';
+
+  @override
+  String get toolTwistTitle =>
+      'Generador de giros de trama';
+
+  @override
+  String get toolTwistSubtitle =>
+      'Un giro, una pista temprana y su consecuencia.';
+
+  @override
+  String get templatesShareCompanion =>
+      'Compartir archivo de compañero (solo bloques y ajustes)';
+
+  @override
+  String get templatesImportCompanion =>
+      'Importar archivo de compañero';
+
+  @override
+  String get templatesCompanionImported =>
+      'Compañero importado';
+
+  @override
+  String get companionErrorNotJson =>
+      'Este archivo no es un JSON válido.';
+
+  @override
+  String get companionErrorFormat =>
+      'Este no es un archivo de compañero de Amiludo.';
+
+  @override
+  String get companionErrorVersion =>
+      'Esta versión del archivo de compañero no es compatible.';
+
+  @override
+  String get companionErrorInvalid =>
+      'El contenido del archivo de compañero no es válido.';
+
+  @override
+  String get companionErrorReserved =>
+      'Este identificador está reservado a una plantilla integrada.';
 }

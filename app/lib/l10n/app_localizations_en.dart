@@ -2598,4 +2598,90 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get heroesMakeActive => 'Make active';
+  String get toolMagicItemTitle =>
+      'Magic item generator';
+
+  @override
+  String get toolMagicItemSubtitle =>
+      'A relic with a power, a quirk and an origin.';
+
+  @override
+  String get toolWeatherTitle =>
+      'Weather generator';
+
+  @override
+  String get toolWeatherSubtitle =>
+      'Sky, temperature, wind, effects and omens.';
+
+  @override
+  String get toolPlaceTitle =>
+      'Place name generator';
+
+  @override
+  String get toolPlaceSubtitle =>
+      'A name, a kind of place and a striking feature.';
+
+  @override
+  String get toolDilemmaTitle =>
+      'Moral dilemma generator';
+
+  @override
+  String get toolDilemmaSubtitle =>
+      'A tough situation, two choices and the price to pay.';
+
+  @override
+  String get toolRumourTitle =>
+      'Tavern rumour generator';
+
+  @override
+  String get toolRumourSubtitle =>
+      'Who said it, what they said and how true it is.';
+
+  @override
+  String get toolTraitTitle =>
+      'NPC trait generator';
+
+  @override
+  String get toolTraitSubtitle =>
+      'A personality trait, how it shows and a hidden flaw.';
+
+  @override
+  String get toolTwistTitle =>
+      'Plot twist generator';
+
+  @override
+  String get toolTwistSubtitle =>
+      'A twist, an early clue and its consequence.';
+
+  @override
+  String get templatesShareCompanion =>
+      'Share companion file (bricks and settings only)';
+
+  @override
+  String get templatesImportCompanion =>
+      'Import companion file';
+
+  @override
+  String get templatesCompanionImported =>
+      'Companion imported';
+
+  @override
+  String get companionErrorNotJson =>
+      'This file is not valid JSON.';
+
+  @override
+  String get companionErrorFormat =>
+      'This is not an Amiludo companion file.';
+
+  @override
+  String get companionErrorVersion =>
+      'This companion file version is not supported.';
+
+  @override
+  String get companionErrorInvalid =>
+      'The companion file content is invalid.';
+
+  @override
+  String get companionErrorReserved =>
+      'This identifier is reserved for a built-in template.';
 }

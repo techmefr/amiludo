@@ -27,6 +27,13 @@ extension ToolTexts on BuildContext {
       'treasure' => l.toolTreasureTitle,
       'villain' => l.toolVillainTitle,
       'town' => l.toolTownTitle,
+      'magicitem' => l.toolMagicItemTitle,
+      'weather' => l.toolWeatherTitle,
+      'place' => l.toolPlaceTitle,
+      'dilemma' => l.toolDilemmaTitle,
+      'rumour' => l.toolRumourTitle,
+      'trait' => l.toolTraitTitle,
+      'twist' => l.toolTwistTitle,
       _ => id,
     };
   }
@@ -55,6 +62,13 @@ extension ToolTexts on BuildContext {
       'treasure' => l.toolTreasureSubtitle,
       'villain' => l.toolVillainSubtitle,
       'town' => l.toolTownSubtitle,
+      'magicitem' => l.toolMagicItemSubtitle,
+      'weather' => l.toolWeatherSubtitle,
+      'place' => l.toolPlaceSubtitle,
+      'dilemma' => l.toolDilemmaSubtitle,
+      'rumour' => l.toolRumourSubtitle,
+      'trait' => l.toolTraitSubtitle,
+      'twist' => l.toolTwistSubtitle,
       _ => '',
     };
   }

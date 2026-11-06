@@ -1,30 +1,30 @@
-# Maquettes interactives
+# Interactive mockups
 
-Nom volontairement provisoire : « compagnon ». Prototype web autonome, destiné à valider l’expérience avant son portage Flutter. Il ne remplace pas l’application de production.
+Deliberately provisional name: "compagnon". Standalone web prototype, meant to validate the experience before the Flutter port. It does not replace the production app.
 
-## Essayer
+## Try it
 
-Ouvrir https://techmefr.github.io/amiludo/ ou lancer `python3 -m http.server 4173 --directory prototype` à la racine du dépôt, puis ouvrir http://localhost:4173.
+Open https://techmefr.github.io/amiludo/ or run `python3 -m http.server 4173 --directory prototype` at the repository root, then open http://localhost:4173.
 
-## Écrans
+## Screens
 
-Accueil, partie en cours, outils, bibliothèque de modèles, historique, apparence. Les modèles spécifiques sont explicitement des aperçus. Le catalogue de 141 fonctions est accessible depuis les outils et peut être filtré. Sur mobile, bibliothèque et historique restent accessibles par les liens de l’accueil ; les accès fréquents figurent dans la barre du bas.
+Home, game in progress, tools, template library, history, appearance. Template-specific screens are explicitly previews. The catalog of 141 features is reachable from the tools and can be filtered. On mobile, library and history remain reachable through the home links; frequent destinations are in the bottom bar.
 
-## Votre style
+## Your style
 
-Univers : Cyberdeck (par défaut), Orbital 77, Carnet. Palettes : Acid Circuit, Night City, Amber Terminal, Plasma, Lichen, Lavande, Terre cuite, Marée, Miel, Rosée. Polices : Chakra Petch, Rajdhani, IBM Plex Mono, DM Sans, Manrope, Nunito Sans, Space Grotesk. Modes clair, sombre et système ; formes biseautées, nettes, douces ou rondes ; densité et lecture agrandie ; animations désactivables. Les profils sont locaux à chaque navigateur : pas de compte ou de synchronisation. Export JSON versionné et import validé.
+Universes: Cyberdeck (default), Orbital 77, Carnet. Palettes: Acid Circuit, Night City, Amber Terminal, Plasma, Lichen, Lavender, Terracotta, Tide, Honey, Dew. Fonts: Chakra Petch, Rajdhani, IBM Plex Mono, DM Sans, Manrope, Nunito Sans, Space Grotesk. Light, dark and system modes; beveled, sharp, soft or round shapes; density and enlarged reading; animations can be disabled. Profiles are local to each browser: no account or sync. Versioned JSON export and validated import.
 
-Les polices sont chargées depuis Google Fonts et nécessitent une connexion au premier chargement ; une police système prend le relais. Prévoir l’auto-hébergement des polices dans l’application. Le prototype n’inclut pas de service worker et ne promet pas un chargement hors connexion.
+Fonts are loaded from Google Fonts and need a connection on first load; a system font takes over. Plan to self-host the fonts in the app. The prototype includes no service worker and does not promise offline loading.
 
 ## Interactions
 
-Scores de 2 à 8 joueurs, annulation, manches, passage de tour, minuteur de premier plan, lancer de dés, pile ou face, sélection de joueur, équipes, ordre et roue. Les valeurs initiales et deux entrées d’historique sont des exemples signalés. Le tirage multi-touch dépend de l’appareil. La roue montre un résultat textuel : ses secteurs décoratifs ne représentent pas les options.
+Scores for 2 to 8 players, undo, rounds, turn passing, foreground timer, dice rolls, coin flip, player picker, teams, order and wheel. The initial values and two history entries are flagged examples. Multi-touch picking depends on the device. The wheel shows a text result: its decorative sectors do not represent the options.
 
-Le minuteur n’est pas une alarme système ; il s’arrête au départ de la page et n’est pas restauré après fermeture. L’historique et les scores sont locaux ; un effacement des données du navigateur les supprime. L’annulation des scores concerne la session courante.
+The timer is not a system alarm; it stops when the page is left and is not restored after closing. History and scores are local; clearing browser data deletes them. Score undo applies to the current session.
 
-## Vérifications
+## Verification
 
-Navigation des six écrans, conservation des thèmes après rechargement, profil enregistré, ajout/annulation de points, passage de tour, minuteur, dés, équipes et recherche du catalogue testés dans Chromium. Affichage vérifié à 1440 px et 390 px, sans débordement horizontal sur les quatre écrans principaux mobiles. Captures dans design/mockups. Les appareils iOS/Android physiques et les lecteurs d’écran restent à vérifier.
+Navigation of the six screens, theme persistence after reload, saved profile, adding/undoing points, turn passing, timer, dice, teams and catalog search were tested in Chromium. Display checked at 1440 px and 390 px, with no horizontal overflow on the four main mobile screens. Screenshots in design/mockups. Physical iOS/Android devices and screen readers remain to be checked.
 
-Validation complémentaire : application des profils, export de thème, import valide et rejet des fichiers invalides. Le lien public et ses 141 entrées ont été vérifiés sans erreur JavaScript. Bibliothèque accessible dans la navigation mobile.
-Les titres utilisent Chakra Petch dans Cyberdeck et Rajdhani dans Orbital. La police choisie personnalise les textes et commandes compatibles ; Carnet emploie cette police pour ses titres également. Les exports de thème sont désormais en version 2 avec lecture des anciens exports version 1. Les anciens profils sans univers sont interprétés en Carnet. Captures de la nouvelle direction : design/mockups/cyber.
+Additional validation: applying profiles, theme export, valid import and rejection of invalid files. The public link and its 141 entries were checked with no JavaScript errors. Library reachable in mobile navigation.
+Headings use Chakra Petch in Cyberdeck and Rajdhani in Orbital. The chosen font customizes compatible texts and controls; Carnet also uses this font for its headings. Theme exports are now version 2, with support for reading old version 1 exports. Old profiles without a universe are interpreted as Carnet. Screenshots of the new direction: design/mockups/cyber.

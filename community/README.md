@@ -1,23 +1,23 @@
-# Galerie communautaire
+# Community gallery
 
-Chaque pack JSON peut regrouper dés, rôles, catégories de points, consignes et lien de règles. Les packs installés restent utilisables hors connexion. Les notes sont incluses ; les livrets distants restent chez leur éditeur.
+Each JSON pack can bundle dice, roles, score categories, instructions and a rules link. Installed packs remain usable offline. Notes are included; remote rulebooks stay with their publisher.
 
-## Publier un pack
+## Publish a pack
 
-1. Créer et tester le pack dans le builder de l’application.
-2. Renseigner auteur, version, édition/variante et licence. Utiliser uniquement des textes et contenus que vous pouvez partager.
-3. Exporter le JSON depuis « Outils et règles du pack ».
-4. Ajouter le fichier dans `community/packs/` avec un nom unique et ouvrir une pull request. Le bouton de proposition ouvre ce dossier dans GitHub ; l’application ne publie rien automatiquement.
-5. Décrire le jeu, les calculs vérifiés et les limites. Après relecture et fusion, le catalogue est reconstruit et publié ; les utilisateurs peuvent l’actualiser dans la galerie.
+1. Create and test the pack in the application builder.
+2. Fill in author, version, edition/variant and license. Only use text and content you are allowed to share.
+3. Export the JSON from "Pack tools and rules".
+4. Add the file to `community/packs/` with a unique name and open a pull request. The suggestion button opens this folder on GitHub; the application does not publish anything automatically.
+5. Describe the game, the calculations you verified and the limits. After review and merge, the catalog is rebuilt and published; users can refresh it in the gallery.
 
-Les trois packs initiaux sont des exemples originaux du projet, pas des créations présentées comme ayant été déposées par d’autres utilisateurs. La galerie ne propose ni achats, ni comptes dédiés, ni évaluations pour le moment. Un compte GitHub est nécessaire pour proposer un ajout ; aucun compte n’est requis pour installer les packs publics.
+The three initial packs are original examples from the project, not creations presented as submitted by other users. The gallery currently offers no purchases, dedicated accounts or ratings. A GitHub account is required to propose an addition; no account is required to install public packs.
 
-## Format et vérification
+## Format and verification
 
-Le format reste `table-companion-template`, version 1. Les anciens modèles sans dés, rôles ou calculs restent lisibles. Un pack possède une version propre (`revision`). Les parties conservent une copie de leur pack pour qu’une modification ultérieure n’en change pas les règles.
+The format remains `table-companion-template`, version 1. Older templates without dice, roles or calculations remain readable. A pack has its own version (`revision`). Games keep a copy of their pack so that a later change does not alter their rules.
 
-Les calculs déclaratifs acceptent : quantité × facteur, lots complets, progression triangulaire, seuil et barème pour quantités entières. Aucun code fourni par un pack n’est exécuté. Une feuille remplace le total d’une catégorie pour une manche, en conservant un journal annulable. Elle ne vérifie pas les coups ou toutes les conditions d’un jeu commercial.
+Declarative calculations support: quantity × factor, complete lots, triangular progression, and threshold and scale for whole quantities. No code supplied by a pack is executed. A sheet replaces a category total for a round, keeping an undoable log. It does not verify moves or all the conditions of a commercial game.
 
-Depuis la racine : `python3 scripts/build_catalog.py`, puis les tests Flutter. Le catalogue généré est embarqué et publié sur le site. Les tests valident chaque pack avec le même lecteur que l’application. Ne modifier aucun fichier généré à la main.
+From the root: `python3 scripts/build_catalog.py`, then the Flutter tests. The generated catalog is embedded and published on the site. The tests validate each pack with the same reader as the application. Do not edit any generated file by hand.
 
-Les packs peuvent aussi inclure `creation` : catégories de cartes de personnage, nombre proposé par booster, minimum et maximum conservés. Les fiches générées appartiennent à la bibliothèque locale, pas au catalogue public.
+Packs can also include `creation`: character card categories, suggested number per booster, and the minimum and maximum kept. Generated sheets belong to the local library, not to the public catalog.

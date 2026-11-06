@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Files/file_transfer.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/companion_file_actions.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
@@ -90,6 +91,11 @@ class _TemplatesToolbar extends StatelessWidget {
             onPressed: () => context.push('/marketplace'),
             icon: const DeckIcon(Icons.storefront_outlined),
             label: const Text('Galerie communautaire'),
+          ),
+          OutlinedButton.icon(
+            onPressed: () => importCompanionFile(context),
+            icon: const DeckIcon(Icons.download_outlined),
+            label: Text(context.l10n.templatesImportCompanion),
           ),
           OutlinedButton.icon(
             onPressed: onImport,
@@ -201,6 +207,11 @@ class _TemplateActions extends StatelessWidget {
             }),
             'modele-${t.id}.json',
           ),
+        ),
+        IconButton(
+          tooltip: context.l10n.templatesShareCompanion,
+          icon: const DeckIcon(Icons.ios_share, size: 20),
+          onPressed: () => shareCompanionFile(t),
         ),
         if (custom) ...[
           IconButton(

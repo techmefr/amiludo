@@ -1,61 +1,61 @@
 # amiLudo — Flutter app (alpha)
 
-Application Android, iOS et web. Flutter 3.47.9 / Dart 3.13.7. Code en couches fonctionnelles et techniques. Les maquettes HTML restent dans ../prototype.
+Android, iOS and web app. Flutter 3.47.9 / Dart 3.13.7. Code organized in functional and technical layers. The HTML mockups remain in ../prototype.
 
-## Lancer
+## Run
 
 ```sh
 flutter pub get
 flutter run -d chrome
 ```
 
-Pour les navigateurs, les composants SQLite et le worker Drift sont inclus dans web/. Les polices sont embarquées avec leurs licences OFL ; aucun chargement de police externe au démarrage.
+For browsers, the SQLite components and the Drift worker are included in web/. Fonts are bundled with their OFL licenses; no external font is loaded at startup.
 
-## Vérifier
+## Verify
 
 ```sh
 flutter analyze
 flutter test
 ```
 
-Après une modification des tables Drift : `dart run build_runner build`. Les sources générées sont versionnées pour que le projet se lance directement.
+After changing the Drift tables: `dart run build_runner build`. The generated sources are versioned so the project runs out of the box.
 
-## Construire
+## Build
 
-À la racine du dépôt : `bash scripts/build_web.sh`. APP_BASE_PATH permet de changer le chemin public ; la valeur par défaut est /amiludo/app/. Le script produit un cache hors connexion à partir des fichiers compilés. Une première ouverture connectée et la fin du téléchargement sont nécessaires avant une utilisation sans réseau. Le navigateur peut effacer ses données : exporter une sauvegarde reste utile.
+At the repository root: `bash scripts/build_web.sh`. APP_BASE_PATH changes the public path; the default is /amiludo/app/. The script produces an offline cache from the compiled files. A first connected visit and a completed download are required before offline use. The browser may clear its data: exporting a backup remains useful.
 
-Android : `flutter build apk --debug` pour une installation de test, avec Android SDK et JDK 17. Le workflow GitHub produit cet APK en artefact. Il ne s’agit pas d’une version signée pour les boutiques. Le projet iOS nécessite macOS, Xcode et une identité de signature pour distribuer une application native ; il n’est pas compilé sur Linux.
+Android: `flutter build apk --debug` for a test install, with the Android SDK and JDK 17. The GitHub workflow produces this APK as an artifact. It is not a signed store release. The iOS project requires macOS, Xcode and a signing identity to distribute a native app; it is not built on Linux.
 
-## Périmètre réel
+## Actual scope
 
-- Parties locales de 1 à 32 participants ; noms réutilisables et revanche.
-- Scores décimaux et négatifs, manches, catégories, journal, annulation et rétablissement, classements et égalités, objectifs individuels et coopératifs, ressources et notes.
-- Minuteur libre, temps par tour, réserves par joueur, incrément et pause ; réglages conservés par table.
-- Dés polyédriques multiples, verrouillage, expressions et symboles ; tirage sécurisé, équipes, ordre, roue pondérée, pièce, nombres, sac sans remise et rôles secrets.
-- Six modèles intégrés réellement utilisés et éditeur de modèles JSON.
-- Historique réel, import/export de parties et modèles, CSV, sauvegarde complète, restauration et suppression confirmée.
-- Univers Playroom / Cyberdeck / Orbital / Carnet, onze palettes, sept polices locales, formes, densité, lecture agrandie, animations, profils de style et import/export.
-- Interface française et principaux contrôles en anglais. La traduction exhaustive et les tests de lecteurs d’écran restent à compléter.
+- Local games with 1 to 32 participants; reusable names and rematch.
+- Decimal and negative scores, rounds, categories, log, undo and redo, rankings and ties, individual and cooperative objectives, resources and notes.
+- Free timer, per-turn time, per-player reserves, increment and pause; settings kept per table.
+- Multiple polyhedral dice, locking, expressions and symbols; secure draw, teams, order, weighted wheel, coin, numbers, draw-without-replacement bag and secret roles.
+- Six built-in templates actually in use and a JSON template editor.
+- Real history, import/export of games and templates, CSV, full backup, restore and confirmed deletion.
+- Playroom / Cyberdeck / Orbital / Carnet universes, eleven palettes, seven local fonts, shapes, density, enlarged reading, animations, style profiles and import/export.
+- French interface and main controls in English. Exhaustive translation and screen reader testing remain to be completed.
 
-- Ludothèque, amis, suggestions de jeux, souvenirs et partage de session en QR code animé.
-- Salons à rejoindre par code, lien ou QR (même Wi‑Fi ou à distance), comptes facultatifs et soirées avec inscriptions.
+- Game library, friends, game suggestions, memories and session sharing via animated QR code.
+- Lobbies to join by code, link or QR (same Wi‑Fi or remote), optional accounts and game nights with sign-ups.
 
-Les tournois, les cadences avancées, les formules arbitraires et les intégrations ne sont pas implémentés. Le catalogue global distingue ces fonctionnalités planifiées.
+Tournaments, advanced time controls, arbitrary formulas and integrations are not implemented. The global catalog marks these features as planned.
 
-## Fonctions en ligne
+## Online features
 
-Elles sont facultatives : passer `--dart-define=SUPABASE_URL=…`, `--dart-define=SUPABASE_PUBLISHABLE_KEY=…` et `--dart-define=AMILUDO_LINK_BASE=…`. `scripts/build_web.sh` les lit depuis l’environnement. Sans ces valeurs, l’app reste locale.
+They are optional: pass `--dart-define=SUPABASE_URL=…`, `--dart-define=SUPABASE_PUBLISHABLE_KEY=…` and `--dart-define=AMILUDO_LINK_BASE=…`. `scripts/build_web.sh` reads them from the environment. Without these values, the app stays local.
 
-Le salon Wi‑Fi demande les permissions réseau sur Android, et `NSLocalNetworkUsageDescription` sur iOS.
+The Wi‑Fi lobby requests network permissions on Android, and `NSLocalNetworkUsageDescription` on iOS.
 
-## Données et limites
+## Data and limitations
 
-Drift/SQLite enregistre un document de bibliothèque versionné dans une transaction ; les écritures sont sérialisées et les erreurs de sauvegarde sont visibles. Une sauvegarde incompatible est rejetée avant remplacement. Les changements de score peuvent être annulés après rechargement. Les outils aléatoires gardent leur résultat pendant leur ouverture ; leurs configurations ne constituent pas encore une bibliothèque de préréglages.
+Drift/SQLite stores a versioned library document in a transaction; writes are serialized and save errors are visible. An incompatible backup is rejected before replacement. Score changes can be undone after a reload. Random tools keep their result while open; their configurations are not yet a preset library.
 
-Les horloges utilisent une horloge monotone pendant l’exécution et un délai persistant pour la reprise. L’application ne promet pas d’alarme sonore lorsque le système suspend ou ferme le navigateur. Le maintien de l’écran allumé dépend des autorisations de la plateforme. La sélection par doigts dépend du matériel. Une roue pondérée affiche des secteurs égaux ; les poids modifient le tirage et sont explicitement indiqués dans son formulaire.
+Clocks use a monotonic clock at runtime and a persisted delay for resumption. The app does not promise an audible alarm when the system suspends or closes the browser. Keeping the screen on depends on platform permissions. Finger-based selection depends on the hardware. A weighted wheel displays equal sectors; the weights change the draw and are explicitly stated in its form.
 
-Une police de secours pour les symboles est également embarquée, et la roue respecte la réduction des animations.
+A fallback font for symbols is also bundled, and the wheel respects reduced motion.
 
-Packs et builders : voir [PACKS.md](../docs/PACKS.md). Les calculs déclaratifs limités et la génération de personnages par listes/boosters sont disponibles dans l’alpha 0.2.0.
+Packs and builders: see [PACKS.md](../docs/PACKS.md). Limited declarative calculations and character generation via lists/boosters are available in alpha 0.2.0.
 
-L’alpha 0.3.0 ajoute Playroom, une palette Confettis, des illustrations originales et des titres plus chaleureux. L’alpha 0.4.0 ajoute la ludothèque, les amis, les salons et les soirées.
+Alpha 0.3.0 adds Playroom, a Confetti palette, original illustrations and warmer titles. Alpha 0.4.0 adds the game library, friends, lobbies and game nights.

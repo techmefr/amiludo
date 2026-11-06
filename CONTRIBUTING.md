@@ -1,12 +1,12 @@
-# Contribuer
+# Contributing
 
-Le compagnon est une application Flutter en alpha publique, sous licence MIT. Les retours sur appareils réels, corrections, traductions, améliorations d’accessibilité et modèles de jeux sont bienvenus.
+The companion is a Flutter application in public alpha, under the MIT license. Feedback from real devices, fixes, translations, accessibility improvements and game templates are welcome.
 
-Commencer par le [guide de test](TESTING.md). Pour une évolution importante, ouvrir une proposition expliquant le jeu, le problème et le comportement souhaité ; consulter le [catalogue](docs/FEATURES.md) pour éviter les doublons. Les petites corrections peuvent être proposées directement par pull request.
+Start with the [testing guide](TESTING.md). For a significant change, open a proposal explaining the game, the problem and the desired behavior; check the [catalog](docs/FEATURES.md) to avoid duplicates. Small fixes can be proposed directly by pull request.
 
-## Développement
+## Development
 
-Installer Flutter **3.47.9** (Dart **3.13.7**), puis :
+Install Flutter **3.47.9** (Dart **3.13.7**), then:
 
 ```sh
 cd app
@@ -18,18 +18,18 @@ cd ..
 python3 -m unittest discover -s scripts -p 'test_*.py'
 ```
 
-La compilation web complète utilise `bash scripts/build_web.sh`. Android nécessite le SDK Android et JDK 17 ; iOS nécessite macOS et Xcode. Les versions des dépendances sont verrouillées.
+The full web build uses `bash scripts/build_web.sh`. Android requires the Android SDK and JDK 17; iOS requires macOS and Xcode. Dependency versions are locked.
 
-Le code est dans `app/lib/layers/functional` et `app/lib/layers/technical`, les tests dans `app/test`, les maquettes dans `prototype` et les outils de publication dans `scripts`.
+The code is in `app/lib/layers/functional` and `app/lib/layers/technical`, the tests in `app/test`, the mockups in `prototype` and the publishing tools in `scripts`.
 
-## Proposer une modification
+## Propose a change
 
-1. Créer un fork et une branche dédiée.
-2. Garder une modification ciblée et expliquer son effet pour les joueurs.
-3. Vérifier l’analyse et les tests ; couvrir les règles de scores, temps, imports ou stockage affectées. Pour une interface, joindre une capture et indiquer les appareils testés.
-4. Mettre à jour le catalogue si une fonction devient réellement utilisable. Signaler les limites restantes et les changements de format de données.
-5. Ouvrir une pull request vers `main`.
+1. Create a fork and a dedicated branch.
+2. Keep the change focused and explain its effect for players.
+3. Check the analysis and the tests; cover any affected score, time, import or storage rules. For an interface change, attach a screenshot and list the devices tested.
+4. Update the catalog if a feature becomes genuinely usable. Flag the remaining limits and any data format changes.
+5. Open a pull request against `main`.
 
-Conserver le fonctionnement local sans compte, l’accessibilité et les sauvegardes portables. Ne pas commettre de secrets ou de données personnelles. Les modèles, images, polices et autres contributions doivent avoir une origine et une licence compatibles. Ne pas inclure de livrets de règles, illustrations ou marques de tiers sans autorisation ; conserver les crédits et licences requis.
+Keep local operation without an account, accessibility and portable backups. Do not commit secrets or personal data. Templates, images, fonts and other contributions must have a compatible origin and license. Do not include third-party rulebooks, illustrations or trademarks without permission; keep the required credits and licenses.
 
-Les échanges doivent rester respectueux et porter sur les usages et les modifications proposées. Pour une vulnérabilité, suivre [SECURITY.md](SECURITY.md).
+Discussions must stay respectful and focus on usage and the proposed changes. For a vulnerability, follow [SECURITY.md](SECURITY.md).

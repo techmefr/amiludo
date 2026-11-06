@@ -27,7 +27,25 @@
     "trade": "Known for",
     "landmark": "Landmark",
     "problem": "Trouble",
-    "custom": "Local custom"
+    "custom": "Local custom",
+    "power": "Power",
+    "quirk": "Quirk",
+    "origin": "Origin",
+    "temperature": "Temperature",
+    "wind": "Wind",
+    "effect": "In play",
+    "omen": "Omen",
+    "placeKind": "Kind of place",
+    "feature": "Feature",
+    "choiceA": "Choice A",
+    "choiceB": "Choice B",
+    "cost": "The cost",
+    "claim": "The rumour",
+    "truth": "How true",
+    "shows": "How it shows",
+    "flaw": "Hidden flaw",
+    "clue": "Early clue",
+    "consequence": "Consequence"
   },
   "npc": {
     "firstNames": [
@@ -436,6 +454,287 @@
       "no one speaks during the first snowfall",
       "debts are settled with a song",
       "weddings happen only at dusk"
+    ]
+  },
+  "magicitem": {
+    "kinds": [
+      "Dagger",
+      "Ring",
+      "Lantern",
+      "Cloak",
+      "Amulet",
+      "Staff",
+      "Boots",
+      "Book",
+      "Goblet",
+      "Compass"
+    ],
+    "epithets": [
+      "of Whispers",
+      "of Ash",
+      "of the Last Dawn",
+      "of Borrowed Time",
+      "of the Drowned King",
+      "of Quiet Thunder",
+      "of Forgotten Names",
+      "of the Hollow Moon"
+    ],
+    "powers": [
+      "Glows when a lie is spoken nearby",
+      "Lets its bearer walk through one door that is not there",
+      "Stores one spell for later",
+      "Turns water into wine, or poison, by the bearer's mood",
+      "Always points toward the nearest danger",
+      "Doubles the next heal received",
+      "Silences every footstep",
+      "Recalls the last thing the bearer forgot"
+    ],
+    "quirks": [
+      "Hums an old lullaby at night",
+      "Is always slightly warm",
+      "Refuses to be sold",
+      "Whispers the wrong name",
+      "Grows heavier with every lie",
+      "Leaves frost on whatever it touches",
+      "Attracts crows",
+      "Smells of rain"
+    ],
+    "origins": [
+      "Forged by a smith who never slept",
+      "Pulled from a shipwreck",
+      "Gift of a dying witch",
+      "Stolen from a royal tomb",
+      "Won in a game of chance against a stranger",
+      "Grown, not made, in a cursed orchard",
+      "Left behind by a vanished caravan",
+      "Dreamt by a sleeping god"
+    ]
+  },
+  "weather": {
+    "conditions": [
+      "Clear and bright",
+      "Thick fog",
+      "Heavy rain",
+      "Sudden hailstorm",
+      "Scorching heat",
+      "Biting frost",
+      "Howling gale",
+      "Drizzle and low cloud"
+    ],
+    "temperatures": [
+      "Freezing",
+      "Cold",
+      "Cool",
+      "Mild",
+      "Warm",
+      "Sweltering"
+    ],
+    "winds": [
+      "Dead calm",
+      "Light breeze",
+      "Steady wind",
+      "Strong gusts",
+      "Wind that changes direction every minute"
+    ],
+    "effects": [
+      "Visibility is halved",
+      "Travel takes twice as long",
+      "Fires will not stay lit",
+      "Tracks are washed away",
+      "Sounds carry far",
+      "Everyone is tired by evening",
+      "Ranged attacks are at a disadvantage",
+      "Animals refuse to move"
+    ],
+    "omens": [
+      "Birds fly low and silent",
+      "The sky takes on a green tint",
+      "A rainbow appears at midnight",
+      "The shadows seem too long",
+      "Distant bells ring with no one near",
+      "Flowers close early"
+    ]
+  },
+  "place": {
+    "starts": [
+      "Raven",
+      "Stone",
+      "Silver",
+      "Moss",
+      "Thorn",
+      "Gloom",
+      "Amber",
+      "Wolf",
+      "Mist",
+      "Iron"
+    ],
+    "ends": [
+      "haven",
+      "ford",
+      "hollow",
+      "watch",
+      "reach",
+      "crossing",
+      "fall",
+      "barrow",
+      "gate",
+      "meadow"
+    ],
+    "kinds": [
+      "Ruined watchtower",
+      "Hidden valley",
+      "Abandoned mine",
+      "Roadside shrine",
+      "Floating market",
+      "Sunken library",
+      "Old battlefield",
+      "Quiet harbour"
+    ],
+    "features": [
+      "A well that never fills",
+      "Statues that face the wrong way",
+      "A tree that bears lanterns",
+      "A door in the middle of a field",
+      "Water that flows uphill",
+      "Walls covered in prayers",
+      "A bell no one dares ring",
+      "Tracks that end in mid-air"
+    ]
+  },
+  "dilemma": {
+    "situations": [
+      "A bridge, two groups in need",
+      "A stolen cure and a dying child",
+      "A secret that could end a war",
+      "A tempting offer from an enemy",
+      "A friend asks for a lie",
+      "A rescue that costs the mission",
+      "A ruler who deserves to be removed",
+      "An innocent in the wrong place"
+    ],
+    "optionsA": [
+      "Save the many",
+      "Keep your word",
+      "Tell the truth",
+      "Show mercy",
+      "Protect your own",
+      "Act now, openly",
+      "Follow the law",
+      "Take the reward"
+    ],
+    "optionsB": [
+      "Save the one you love",
+      "Break the promise",
+      "Lie to protect someone",
+      "Punish without delay",
+      "Protect the stranger",
+      "Wait and stay hidden",
+      "Do what is right",
+      "Refuse and walk away"
+    ],
+    "costs": [
+      "A friend loses their trust in you",
+      "Someone innocent is hurt",
+      "The group is split",
+      "A resource is lost for good",
+      "An enemy learns your plan",
+      "Your reputation is stained",
+      "Time runs out",
+      "You carry the guilt alone"
+    ]
+  },
+  "rumour": {
+    "sources": [
+      "Overheard from a drunk sailor",
+      "Whispered by a nervous cook",
+      "Printed on a crumpled flyer",
+      "Told by a travelling bard",
+      "Passed along by a child",
+      "Muttered by a hooded stranger",
+      "Scrawled on the tavern wall",
+      "Repeated by three different people"
+    ],
+    "claims": [
+      "The old mill grinds at night with no one inside",
+      "The duke has not been seen in weeks",
+      "A dragon sleeps beneath the market square",
+      "Gold was found in the river upstream",
+      "The temple priest speaks with a different voice",
+      "Ships that leave the harbour come back empty",
+      "A stranger is buying every map in town",
+      "The well water has started to glow"
+    ],
+    "truths": [
+      "Entirely false",
+      "Mostly false",
+      "Half true",
+      "Mostly true",
+      "Completely true, and worse",
+      "True, but about someone else"
+    ]
+  },
+  "trait": {
+    "traits": [
+      "Fiercely loyal",
+      "Quietly curious",
+      "Boastful",
+      "Painfully honest",
+      "Always hungry",
+      "Suspicious of everyone",
+      "Endlessly cheerful",
+      "Gloomy but kind",
+      "Obsessed with order",
+      "Reckless",
+      "Greedy",
+      "Gentle"
+    ],
+    "shows": [
+      "Never meets your eyes",
+      "Talks to themselves in low tones",
+      "Collects small objects",
+      "Hums constantly",
+      "Taps fingers when nervous",
+      "Laughs at the wrong moment",
+      "Stands too close",
+      "Always checks the exits"
+    ],
+    "flaws": [
+      "Cannot keep a secret",
+      "Afraid of deep water",
+      "Holds grudges for years",
+      "Cannot refuse a bet",
+      "Believes every omen",
+      "Trusts too quickly",
+      "Hides a debt",
+      "Hates being wrong"
+    ]
+  },
+  "twist": {
+    "twists": [
+      "The ally was the enemy all along",
+      "The prize is cursed",
+      "The map was drawn backwards",
+      "Help arrives, and it is worse",
+      "The victim is the culprit",
+      "The villain is trying to save the same thing",
+      "Time was moving differently the whole while",
+      "The rescued person refuses to leave"
+    ],
+    "clues": [
+      "A detail that did not fit",
+      "A name spoken too quickly",
+      "An object in the wrong place",
+      "A friendly smile that came too late",
+      "A rumour dismissed too fast",
+      "A lock already opened"
+    ],
+    "consequences": [
+      "Trust in the group shatters",
+      "A new, stranger goal appears",
+      "The ending is delayed by a day",
+      "Someone must change sides",
+      "The prize is lost, but something better is found",
+      "Everything done so far must be redone"
     ]
   }
 }
