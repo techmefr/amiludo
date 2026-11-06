@@ -67,7 +67,7 @@ class GameTemplate {
     'creation': creation.map((v) => v.toJson()).toList(),
     'resources': resources,
     'statuses': statuses,
-    'bricks': bricks.map((v) => v.toJson()).toList(),
+    if (bricks.isNotEmpty) 'bricks': bricks.map((v) => v.toJson()).toList(),
   };
   static const knownModules = [
     'scores',
