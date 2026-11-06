@@ -136,6 +136,8 @@ FilledButtonThemeData deckFilledButtonTheme(DeckStyle style, TextStyle text) =>
         minimumSize: const Size(48, 48),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         shape: style.border(Colors.transparent),
+        elevation: style.glow == null ? null : 8,
+        shadowColor: style.glow,
         textStyle: text,
       ),
     );
@@ -150,7 +152,7 @@ OutlinedButtonThemeData deckOutlinedButtonTheme(
     minimumSize: const Size(48, 48),
     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
     foregroundColor: ink,
-    side: BorderSide(color: border),
+    side: BorderSide(color: border, width: style.borderWidth),
     shape: style.border(border),
     textStyle: text,
   ),
