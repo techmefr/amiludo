@@ -35,6 +35,10 @@ extension ToolTexts on BuildContext {
       'rumour' => l.toolRumourTitle,
       'trait' => l.toolTraitTitle,
       'twist' => l.toolTwistTitle,
+      'counter-life' => l.brickLife,
+      'counter-points' => l.brickPoints,
+      'counter-chips' => l.brickChips,
+      'counter-pot' => l.brickPot,
       _ => id,
     };
   }
@@ -71,6 +75,10 @@ extension ToolTexts on BuildContext {
       'rumour' => l.toolRumourSubtitle,
       'trait' => l.toolTraitSubtitle,
       'twist' => l.toolTwistSubtitle,
+      'counter-life' => l.toolCounterLifeSubtitle,
+      'counter-points' => l.toolCounterPointsSubtitle,
+      'counter-chips' => l.toolCounterChipsSubtitle,
+      'counter-pot' => l.toolCounterPotSubtitle,
       _ => '',
     };
   }
@@ -82,6 +90,8 @@ extension ToolTexts on BuildContext {
       'match' => l.toolCategoryMatch,
       'time' => l.toolCategoryTime,
       'story' => l.toolCategoryStory,
+      'favorites' => l.toolCategoryFavorites,
+      'counters' => l.toolCategoryCounters,
       _ => l.toolCategoryAll,
     };
   }

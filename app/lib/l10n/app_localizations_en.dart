@@ -2748,4 +2748,95 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get companionErrorReserved =>
       'This identifier is reserved for a built-in template.';
+
+  @override
+  String get brickLibrarySearch => 'Search a brick';
+
+  @override
+  String get brickLibraryNone => 'No brick for this search.';
+
+  @override
+  String get toolCategoryFavorites => 'Favorites';
+
+  @override
+  String get toolCategoryCounters => 'Counters';
+
+  @override
+  String get brickAddToCompanion => 'Add to a companion';
+
+  @override
+  String get brickChooseCompanion => 'Choose a companion';
+
+  @override
+  String get brickNoCompanion => 'Create a companion in Templates first.';
+
+  @override
+  String get brickAdded => 'Brick added to the companion.';
+
+  @override
+  String get brickSettings => 'Brick settings';
+
+  @override
+  String get brickSettingName => 'Name';
+
+  @override
+  String get brickSettingMinimum => 'Minimum';
+
+  @override
+  String get brickSettingMaximum => 'Maximum';
+
+  @override
+  String get brickSettingStart => 'Start value';
+
+  @override
+  String get brickSettingStep => 'Step';
+
+  @override
+  String get brickSettingColor => 'Color';
+
+  @override
+  String get brickSettingDisplay => 'Display';
+
+  @override
+  String get brickDisplayNumber => 'Number';
+
+  @override
+  String get brickDisplayBar => 'Bar';
+
+  @override
+  String get brickDisplayHearts => 'Hearts';
+
+  @override
+  String get brickDisplayPips => 'Pips';
+
+  @override
+  String get brickSettingsApply => 'Apply';
+
+  @override
+  String get brickColorBlue => 'Blue';
+
+  @override
+  String get brickColorRed => 'Red';
+
+  @override
+  String get brickColorGold => 'Gold';
+
+  @override
+  String get brickColorGreen => 'Green';
+
+  @override
+  String get brickColorViolet => 'Violet';
+
+  @override
+  String get toolCounterLifeSubtitle => 'Lives or health, with a bar.';
+
+  @override
+  String get toolCounterPointsSubtitle =>
+      'Points to add up, round after round.';
+
+  @override
+  String get toolCounterChipsSubtitle => 'A stack of chips to bet and win.';
+
+  @override
+  String get toolCounterPotSubtitle => 'The shared pot everyone plays for.';
 }

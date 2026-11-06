@@ -5130,6 +5130,186 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This identifier is reserved for a built-in template.'**
   String get companionErrorReserved;
+
+  /// No description provided for @brickLibrarySearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search a brick'**
+  String get brickLibrarySearch;
+
+  /// No description provided for @brickLibraryNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No brick for this search.'**
+  String get brickLibraryNone;
+
+  /// No description provided for @toolCategoryFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
+  String get toolCategoryFavorites;
+
+  /// No description provided for @toolCategoryCounters.
+  ///
+  /// In en, this message translates to:
+  /// **'Counters'**
+  String get toolCategoryCounters;
+
+  /// No description provided for @brickAddToCompanion.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to a companion'**
+  String get brickAddToCompanion;
+
+  /// No description provided for @brickChooseCompanion.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a companion'**
+  String get brickChooseCompanion;
+
+  /// No description provided for @brickNoCompanion.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a companion in Templates first.'**
+  String get brickNoCompanion;
+
+  /// No description provided for @brickAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Brick added to the companion.'**
+  String get brickAdded;
+
+  /// No description provided for @brickSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Brick settings'**
+  String get brickSettings;
+
+  /// No description provided for @brickSettingName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get brickSettingName;
+
+  /// No description provided for @brickSettingMinimum.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum'**
+  String get brickSettingMinimum;
+
+  /// No description provided for @brickSettingMaximum.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum'**
+  String get brickSettingMaximum;
+
+  /// No description provided for @brickSettingStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start value'**
+  String get brickSettingStart;
+
+  /// No description provided for @brickSettingStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Step'**
+  String get brickSettingStep;
+
+  /// No description provided for @brickSettingColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Color'**
+  String get brickSettingColor;
+
+  /// No description provided for @brickSettingDisplay.
+  ///
+  /// In en, this message translates to:
+  /// **'Display'**
+  String get brickSettingDisplay;
+
+  /// No description provided for @brickDisplayNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Number'**
+  String get brickDisplayNumber;
+
+  /// No description provided for @brickDisplayBar.
+  ///
+  /// In en, this message translates to:
+  /// **'Bar'**
+  String get brickDisplayBar;
+
+  /// No description provided for @brickDisplayHearts.
+  ///
+  /// In en, this message translates to:
+  /// **'Hearts'**
+  String get brickDisplayHearts;
+
+  /// No description provided for @brickDisplayPips.
+  ///
+  /// In en, this message translates to:
+  /// **'Pips'**
+  String get brickDisplayPips;
+
+  /// No description provided for @brickSettingsApply.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply'**
+  String get brickSettingsApply;
+
+  /// No description provided for @brickColorBlue.
+  ///
+  /// In en, this message translates to:
+  /// **'Blue'**
+  String get brickColorBlue;
+
+  /// No description provided for @brickColorRed.
+  ///
+  /// In en, this message translates to:
+  /// **'Red'**
+  String get brickColorRed;
+
+  /// No description provided for @brickColorGold.
+  ///
+  /// In en, this message translates to:
+  /// **'Gold'**
+  String get brickColorGold;
+
+  /// No description provided for @brickColorGreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Green'**
+  String get brickColorGreen;
+
+  /// No description provided for @brickColorViolet.
+  ///
+  /// In en, this message translates to:
+  /// **'Violet'**
+  String get brickColorViolet;
+
+  /// No description provided for @toolCounterLifeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Lives or health, with a bar.'**
+  String get toolCounterLifeSubtitle;
+
+  /// No description provided for @toolCounterPointsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Points to add up, round after round.'**
+  String get toolCounterPointsSubtitle;
+
+  /// No description provided for @toolCounterChipsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A stack of chips to bet and win.'**
+  String get toolCounterChipsSubtitle;
+
+  /// No description provided for @toolCounterPotSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The shared pot everyone plays for.'**
+  String get toolCounterPotSubtitle;
 }
 
 class _AppLocalizationsDelegate
