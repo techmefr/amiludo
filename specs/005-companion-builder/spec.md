@@ -141,6 +141,7 @@ A companion can hold the content of a game: cards, custom dice, character or her
 - **FR-004**: A life counter MUST be a counter preset, not a separate brick.
 - **FR-005**: Players, teams and heroes MUST be able to own bricks, with an active hero per team.
 - **FR-005b**: A hero MUST hold a card, a point counter and powers, and each power MUST have its own charge rule (points threshold, amount per turn, marked event, or manual) and a state (charging, ready, used).
+- **FR-005c**: A deck brick MUST support an ordered stack that is revealed card by card, adding a card at a chosen position, and forbidding reordering when the game says so.
 - **FR-006**: The hourglass MUST reverse on a physical turn when a sensor exists and offer a button otherwise.
 - **FR-007**: The dice tray MUST use a physics simulation, support the common dice kinds, custom faces and keeping dice aside.
 - **FR-008**: Shake detection MUST have a non-sensor fallback and a sensitivity setting.
@@ -172,7 +173,8 @@ A companion can hold the content of a game: cards, custom dice, character or her
 ## Assumptions
 
 - Rules of specific games (Dice Throne, Toy Battle, tag team) are given by the player as settings; the app only provides bricks.
-- In tag team each character has a card with powers, a point counter and its own way of charging powers; the example is modeled from this description.
+- Tag Team (Scorpion Masqué) is a two-player auto battler with deckbuilding: each player picks two of twelve fighters, each fighter has a board and ten combat cards, decks start with two cards and are revealed in order, new cards are added between rounds without reordering, and the goal is to knock out the opponent. Life is tracked with markers, powers with purple cubes, plus special markers and tokens. The example is modeled from this and from the published rules once the player supplies them.
+- Powers in tag team charge in the way each fighter defines; the exact cube rules are taken from the rulebook, not guessed.
 - The Toy Battle example waits for the player to describe its rules.
 - The shake sensor is available on phones and absent on web and desktop.
 - The video-game look is a style option and is specified separately.
