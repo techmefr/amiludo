@@ -163,12 +163,16 @@ class _ToolPageState extends State<ToolPage> {
     if (widget.id == 'picker') {
       return FullPage(
         title: title,
+        immersive: true,
         scroll: false,
-        child: Padding(padding: const EdgeInsets.all(16), child: child),
+        child: child,
       );
     }
     return FullPage(
       title: title,
+      immersive: true,
+      maxWidth: double.infinity,
+      fillHeight: true,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [if (choose) ...packChooser(current, packs), child],

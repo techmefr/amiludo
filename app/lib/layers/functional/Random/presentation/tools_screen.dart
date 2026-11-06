@@ -52,9 +52,12 @@ class _ToolsScreenState extends State<ToolsScreen> {
           ],
         ),
         const SizedBox(height: 20),
-        Text(
-          context.toolTitle(t.id),
-          style: Theme.of(context).textTheme.titleMedium,
+        InkWell(
+          onTap: () => open(t.id),
+          child: Text(
+            context.toolTitle(t.id),
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
         ),
         const SizedBox(height: 8),
         Text(context.toolSubtitle(t.id)),

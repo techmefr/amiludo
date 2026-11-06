@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Workspace/presentation/cubit/workspace
 import 'package:amiludo/layers/functional/Workspace/presentation/workspace_gate.dart';
 import 'package:amiludo/layers/technical/About/app_info.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 typedef NavItem = (String route, IconData icon, String label);
@@ -204,18 +205,18 @@ class _SidebarTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: ListTile(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(2)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(Radii.md),
+        ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 12),
         selected: selected,
-        selectedColor: theme.brightness == Brightness.dark
-            ? theme.colorScheme.primary
-            : theme.colorScheme.onSurface,
+        selectedColor: theme.colorScheme.primary,
         selectedTileColor: theme.colorScheme.surfaceContainerHighest,
         leading: DeckIcon(icon, size: 20),
         title: Text(
           label,
           style: theme.textTheme.labelLarge?.copyWith(
-            fontWeight: FontWeight.w500,
+            fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
           ),
         ),
         onTap: () => context.go(route),
@@ -306,21 +307,23 @@ class _HeaderActions extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        IconButton(
-          tooltip: context.l10n.workspaceAboutAndFeedback,
-          onPressed: () => showProjectInfo(context),
-          icon: const DeckIcon(Icons.info_outline, size: 20),
-        ),
+        if (desktop)
+          IconButton(
+            tooltip: context.l10n.workspaceAboutAndFeedback,
+            onPressed: () => showProjectInfo(context),
+            icon: const DeckIcon(Icons.info_outline, size: 20),
+          ),
         IconButton(
           tooltip: context.l10n.workspaceMyProfile,
           onPressed: () => context.go('/account'),
           icon: const DeckIcon(Icons.account_circle_outlined, size: 20),
         ),
-        IconButton(
-          tooltip: context.l10n.workspaceHistory,
-          onPressed: () => context.go('/history'),
-          icon: const DeckIcon(Icons.history, size: 20),
-        ),
+        if (desktop)
+          IconButton(
+            tooltip: context.l10n.workspaceHistory,
+            onPressed: () => context.go('/history'),
+            icon: const DeckIcon(Icons.history, size: 20),
+          ),
         if (!desktop)
           IconButton(
             tooltip: context.l10n.workspaceStyle,

@@ -36,7 +36,6 @@ import 'package:amiludo/layers/functional/Templates/presentation/pack_builder.da
 import 'package:amiludo/layers/functional/Templates/presentation/pack_detail.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/templates_screen.dart';
 import 'package:amiludo/layers/functional/Timer/presentation/timer_panel.dart';
-import 'package:amiludo/layers/functional/Timer/presentation/timer_screen.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/app_shell.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/game_setup.dart';
@@ -76,6 +75,7 @@ final router = GoRouter(
         embeddedTools: const {'scores': _scores, 'timer': _timer},
       ),
     ),
+    GoRoute(path: '/timer', redirect: (context, state) => '/tools/timer'),
     _page('/builder/new', (state) => const PackBuilder()),
     _page(
       '/builder/:id',
@@ -176,7 +176,6 @@ final router = GoRouter(
       ('/evenings', (state) => const EveningsScreen()),
       ('/history', (state) => const HistoryScreen()),
       ('/appearance', (state) => const AppearanceScreen()),
-      ('/timer', (state) => const TimerScreen()),
     ])
       GoRoute(
         path: path,
