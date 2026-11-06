@@ -10,6 +10,7 @@ const toolDefinitions = [
   ToolDefinition('dice', 'chance'),
   ToolDefinition('scores', 'match'),
   ToolDefinition('timer', 'time'),
+  ToolDefinition('hourglass', 'time'),
   ToolDefinition('teams', 'chance'),
   ToolDefinition('wheel', 'chance'),
   ToolDefinition('coin', 'chance'),

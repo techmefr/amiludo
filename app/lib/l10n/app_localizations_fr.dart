@@ -2555,6 +2555,30 @@ class AppLocalizationsFr extends AppLocalizations {
   String get counterSkipsTurn => 'Passe son tour';
 
   @override
+  String get toolHourglassTitle => 'Sablier';
+
+  @override
+  String get toolHourglassSubtitle =>
+      'Du sable pour mesurer un tour, puis on retourne.';
+
+  @override
+  String get hourglassTurn => 'Retourner';
+
+  @override
+  String get hourglassStart => 'Démarrer';
+
+  @override
+  String get hourglassPause => 'Pause';
+
+  @override
+  String get hourglassDone => 'Temps écoulé';
+
+  @override
+  String hourglassSeconds(int count) {
+    return '$count s';
+  }
+
+  @override
   String get toolMagicItemTitle =>
       'Générateur d\'objet magique';
 

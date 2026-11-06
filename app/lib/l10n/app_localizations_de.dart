@@ -2556,6 +2556,30 @@ class AppLocalizationsDe extends AppLocalizations {
   String get counterSkipsTurn => 'Setzt aus';
 
   @override
+  String get toolHourglassTitle => 'Sanduhr';
+
+  @override
+  String get toolHourglassSubtitle =>
+      'Sand misst eine Runde, dann wird gedreht.';
+
+  @override
+  String get hourglassTurn => 'Umdrehen';
+
+  @override
+  String get hourglassStart => 'Start';
+
+  @override
+  String get hourglassPause => 'Pause';
+
+  @override
+  String get hourglassDone => 'Zeit ist um';
+
+  @override
+  String hourglassSeconds(int count) {
+    return '$count s';
+  }
+
+  @override
   String get toolMagicItemTitle =>
       'Zaubergegenstand-Generator';
 
