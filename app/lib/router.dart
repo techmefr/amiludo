@@ -18,6 +18,7 @@ import 'package:amiludo/layers/functional/Friends/presentation/friend_form.dart'
 import 'package:amiludo/layers/functional/Friends/presentation/friends_screen.dart';
 import 'package:amiludo/layers/functional/Friends/presentation/review_screen.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/heroes_tool.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_page.dart';
 import 'package:amiludo/layers/functional/Game/presentation/game_screen.dart';
 import 'package:amiludo/layers/functional/Game/presentation/score_sheet.dart';
 import 'package:amiludo/layers/functional/History/presentation/history_screen.dart';
@@ -53,6 +54,8 @@ Widget _heroes(BuildContext context) => const HeroesTool();
 
 Widget _scores(BuildContext context) => const GameScreen(timer: _timer);
 
+Widget _diceTray(BuildContext context) => const DiceTrayPage();
+
 class _AdminPage extends StatelessWidget {
   const _AdminPage();
 
@@ -81,6 +84,7 @@ final router = GoRouter(
         embeddedTools: const {
           'scores': _scores,
           'timer': _timer,
+          'dice-tray': _diceTray,
           'hourglass': _hourglass,
           'heroes': _heroes,
         },

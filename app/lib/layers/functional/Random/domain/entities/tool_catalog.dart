@@ -8,6 +8,7 @@ const toolCategories = ['all', 'chance', 'match', 'time', 'story'];
 const toolDefinitions = [
   ToolDefinition('picker', 'chance'),
   ToolDefinition('dice', 'chance'),
+  ToolDefinition('dice-tray', 'chance'),
   ToolDefinition('scores', 'match'),
   ToolDefinition('timer', 'time'),
   ToolDefinition('hourglass', 'time'),

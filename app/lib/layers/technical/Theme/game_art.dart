@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 Color toolColor(String id) => switch (id) {
   'dice' => const Color(0xff8A65D8),
+  'dice-tray' => const Color(0xff8A65D8),
   'picker' => const Color(0xffED8D70),
   'scores' => const Color(0xff59BBAA),
   'timer' || 'hourglass' => const Color(0xffE0AE42),
@@ -182,7 +183,7 @@ class _GameArtPainter extends CustomPainter {
       die(canvas, 96, 126, 100, -.2, cream);
       pawn(canvas, 251, 154, coral);
       token(canvas, 163, 189, yellow);
-    } else if (tool == 'dice') {
+    } else if (tool == 'dice' || tool == 'dice-tray') {
       die(canvas, 115, 115, 103, -.23, cream);
       die(canvas, 211, 123, 86, .26, purple);
     } else if (tool == 'picker' || tool == 'teams') {
