@@ -763,5 +763,9 @@
   "toolTownSubtitle": "Ein Name, ein Gewerbe, ein Wahrzeichen und ein Ärgernis.",
   "randomModeFirst": "Wer beginnt",
   "randomModeRank": "Alle ordnen",
-  "randomRankingDone": "Alle sind sortiert. Finger heben, um neu zu starten."
+  "randomRankingDone": "Alle sind sortiert. Finger heben, um neu zu starten.",
+  "counterIncrease": "Erhöhen",
+  "counterDecrease": "Verringern",
+  "counterEliminated": "Ausgeschieden",
+  "counterSkipsTurn": "Setzt aus"
 }

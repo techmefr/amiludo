@@ -2538,4 +2538,16 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get randomRankingDone =>
       'Todos ordenados. Levante os dedos para recomeçar.';
+
+  @override
+  String get counterIncrease => 'Aumentar';
+
+  @override
+  String get counterDecrease => 'Diminuir';
+
+  @override
+  String get counterEliminated => 'Eliminado';
+
+  @override
+  String get counterSkipsTurn => 'Perde a vez';
 }

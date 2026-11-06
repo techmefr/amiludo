@@ -4711,6 +4711,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Everyone is ranked. Lift your fingers to start again.'**
   String get randomRankingDone;
+
+  /// No description provided for @counterIncrease.
+  ///
+  /// In en, this message translates to:
+  /// **'Increase'**
+  String get counterIncrease;
+
+  /// No description provided for @counterDecrease.
+  ///
+  /// In en, this message translates to:
+  /// **'Decrease'**
+  String get counterDecrease;
+
+  /// No description provided for @counterEliminated.
+  ///
+  /// In en, this message translates to:
+  /// **'Eliminated'**
+  String get counterEliminated;
+
+  /// No description provided for @counterSkipsTurn.
+  ///
+  /// In en, this message translates to:
+  /// **'Skips a turn'**
+  String get counterSkipsTurn;
 }
 
 class _AppLocalizationsDelegate

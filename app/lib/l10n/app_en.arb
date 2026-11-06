@@ -987,5 +987,9 @@
   "toolTownSubtitle": "A name, a trade, a landmark and some trouble.",
   "randomModeFirst": "Who goes first",
   "randomModeRank": "Rank everyone",
-  "randomRankingDone": "Everyone is ranked. Lift your fingers to start again."
+  "randomRankingDone": "Everyone is ranked. Lift your fingers to start again.",
+  "counterIncrease": "Increase",
+  "counterDecrease": "Decrease",
+  "counterEliminated": "Eliminated",
+  "counterSkipsTurn": "Skips a turn"
 }
