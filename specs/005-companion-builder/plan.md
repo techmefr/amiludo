@@ -6,6 +6,10 @@
 
 A companion is data: a list of bricks, each with a type, settings and an owner. A brick registry maps a type to a widget and a settings schema. Existing tools (scores, timer, dice, generators, finger picker) are re-exposed as bricks without changing their behavior.
 
+## Existing system to extend
+
+The app already has game templates (`GameTemplate` in `Templates/domain/entities/game_template.dart`) with modules, dice, roles, scoring rules, creation categories, statuses, resources, a target and a timer, a pack builder in stages, a marketplace and sessions that run from them. A companion is that template, not a second concept. Bricks are added to it as a `bricks` list next to the existing fields, so every current template keeps working unchanged, and the builder gains a brick step instead of a new builder. The `Companion` and `Brick` entities already merged are the shape of that list.
+
 ## Layers
 
 - **technical/Bricks**: brick registry, settings schema, full-screen frame, shake and turn sensors behind an interface with a button fallback.
