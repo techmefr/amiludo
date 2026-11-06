@@ -115,7 +115,11 @@ class _ChroniclesRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) => BlocProvider(
     create: (_) => ChroniclesCubit(getIt(), getIt())..load(),
-    child: ChroniclesPage(onSave: context.read<RandomCubit>().saveCharacter),
+    child: ChroniclesPage(
+      onSave: context.read<RandomCubit>().saveCharacter,
+      sound: context.read<RandomCubit>().state.appearance.sound,
+      haptics: context.read<RandomCubit>().state.appearance.haptics,
+    ),
   );
 }
 

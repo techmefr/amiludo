@@ -3121,4 +3121,12 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get chroniclesClose => 'Cerrar';
+
+  @override
+  String get chroniclesSwipeHint =>
+      'Desliza a la derecha para quedarte la carta, a la izquierda para pasar, toca para ver detalles.';
+
+  @override
+  String get chroniclesTearHint =>
+      'Arrastra de lado para cambiar de edición, lejos para rasgar.';
 }

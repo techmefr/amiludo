@@ -1202,5 +1202,7 @@
   "chroniclesSaved": "Character saved",
   "chroniclesCopied": "Copied",
   "chroniclesLoadFailed": "The chronicles data could not be read.",
-  "chroniclesClose": "Close"
+  "chroniclesClose": "Close",
+  "chroniclesSwipeHint": "Swipe right to keep, left to pass, tap for details.",
+  "chroniclesTearHint": "Drag sideways to change edition, drag far to tear."
 }

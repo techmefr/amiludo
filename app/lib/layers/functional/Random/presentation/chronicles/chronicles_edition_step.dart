@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:amiludo/layers/functional/Random/domain/chronicles/chronicles_data.dart';
 import 'package:amiludo/layers/functional/Random/domain/chronicles/chronicles_run.dart';
+import 'package:amiludo/layers/functional/Random/presentation/chronicles/booster_table.dart';
 import 'package:amiludo/layers/functional/Random/presentation/chronicles/chronicles_header.dart';
 import 'package:amiludo/layers/functional/Random/presentation/cubit/chronicles_cubit.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
@@ -34,6 +35,10 @@ class _ChroniclesEditionStepState extends State<ChroniclesEditionStep> {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<ChroniclesCubit>();
+    final current = widget.data.editions.firstWhere(
+      (e) => e.id == edition,
+      orElse: () => widget.data.editions.first,
+    );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -41,6 +46,19 @@ class _ChroniclesEditionStepState extends State<ChroniclesEditionStep> {
         Text(
           context.l10n.chroniclesChooseEdition,
           style: Theme.of(context).textTheme.titleMedium,
+        ),
+        const SizedBox(height: Space.md),
+        BoosterTable(
+          title: current.name,
+          subtitle: statNames(current),
+          onTear: () => cubit.openBooster(current.id),
+          onStep: (d) => setState(() {
+            final n = widget.data.editions.length;
+            edition = widget
+                .data
+                .editions[(widget.data.editions.indexOf(current) + d + n) % n]
+                .id;
+          }),
         ),
         const SizedBox(height: Space.md),
         ResponsiveGrid(
