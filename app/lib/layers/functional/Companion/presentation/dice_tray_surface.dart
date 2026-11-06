@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/die_face_view.dart';
 import 'package:amiludo/layers/technical/Physics/seeded_random.dart';
 import 'package:amiludo/layers/technical/Physics/tray_physics.dart';
 import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
@@ -41,16 +42,10 @@ class DieFace extends StatelessWidget {
             width: kept ? 3 : 1,
           ),
         ),
-        child: FittedBox(
-          child: Padding(
-            padding: const EdgeInsets.all(Space.sm),
-            child: Text(
-              spec.faceLabel(value),
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                color: ink,
-              ),
-            ),
-          ),
+        child: DieFaceView(
+          face: spec.faceContent(value),
+          body: background,
+          size: size,
         ),
       ),
     );

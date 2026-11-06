@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:amiludo/dependencies.dart';
+import 'package:amiludo/dice_studio.dart';
 import 'package:amiludo/layers/functional/Appearance/presentation/cubit/appearance_cubit.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/turn_sensor.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_page.dart';
@@ -32,8 +33,9 @@ TurnSensor _turns(SensorSensitivity level) =>
     ? getIt<TurnSensor>(param1: level)
     : const NoTurnSensor();
 
-Widget diceTrayWithSensors(BuildContext context) =>
-    _sensed((level) => DiceTrayPage(shakeSource: _shakes(level)));
+Widget diceTrayWithSensors(BuildContext context) => DieStudioHost(
+  child: _sensed((level) => DiceTrayPage(shakeSource: _shakes(level))),
+);
 
 Widget hourglassWithSensors(BuildContext context) =>
     _sensed((level) => HourglassTool(sensor: _turns(level)));

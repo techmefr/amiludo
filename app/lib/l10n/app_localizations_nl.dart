@@ -3125,4 +3125,157 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get chroniclesClose => 'Sluiten';
+
+  @override
+  String get diceMyDice => 'Mijn dobbelstenen';
+
+  @override
+  String get diceLibraryTitle => 'Mijn dobbelstenen';
+
+  @override
+  String get diceLibraryEmpty => 'Nog geen dobbelstenen. Maak de eerste.';
+
+  @override
+  String get diceNew => 'Nieuwe dobbelsteen';
+
+  @override
+  String get diceEdit => 'Dobbelsteen bewerken';
+
+  @override
+  String get diceDuplicate => 'Dobbelsteen dupliceren';
+
+  @override
+  String get diceDelete => 'Dobbelsteen verwijderen';
+
+  @override
+  String get diceExport => 'Dobbelsteen exporteren';
+
+  @override
+  String get diceExportSelection => 'Gekozen dobbelstenen exporteren';
+
+  @override
+  String get diceImport => 'Dobbelstenen importeren';
+
+  @override
+  String get diceImported => 'Dobbelstenen geïmporteerd.';
+
+  @override
+  String get diceImportFailed => 'Dit dobbelsteenbestand is ongeldig.';
+
+  @override
+  String get diceImportClashTitle => 'Dobbelstenen al in je bibliotheek';
+
+  @override
+  String diceImportClashBody(Object count) {
+    return '${count} dobbelstenen bestaan al. Vervangen of beide houden?';
+  }
+
+  @override
+  String get diceImportReplace => 'Vervangen';
+
+  @override
+  String get diceImportKeepBoth => 'Beide houden';
+
+  @override
+  String diceCopyName(Object name) {
+    return '${name} (kopie)';
+  }
+
+  @override
+  String diceSelectDie(Object name) {
+    return '${name} selecteren';
+  }
+
+  @override
+  String diceFaceTotal(Object count) {
+    return '${count} zijden';
+  }
+
+  @override
+  String get diceManage => 'Mijn dobbelstenen beheren';
+
+  @override
+  String get diceEditorTitle => 'Dobbelsteen ontwerpen';
+
+  @override
+  String get diceName => 'Naam';
+
+  @override
+  String get diceFaceCount => 'Aantal zijden (2 tot 100)';
+
+  @override
+  String get diceBodyColor => 'Kleur van de dobbelsteen';
+
+  @override
+  String get diceFaces => 'Zijden';
+
+  @override
+  String diceFaceEdit(Object n) {
+    return 'Zijde ${n} bewerken';
+  }
+
+  @override
+  String get diceFaceText => 'Tekst of getal';
+
+  @override
+  String get diceFaceIcon => 'Pictogram';
+
+  @override
+  String get diceFaceImage => 'Afbeelding';
+
+  @override
+  String get diceIconSearch => 'Pictogrammen zoeken';
+
+  @override
+  String get diceImageImport => 'Afbeelding importeren';
+
+  @override
+  String get diceImageDraw => 'Tekenen';
+
+  @override
+  String get diceDrawUndo => 'Streek ongedaan maken';
+
+  @override
+  String get diceDrawClear => 'Alles wissen';
+
+  @override
+  String get diceDrawWidth => 'Lijndikte';
+
+  @override
+  String get diceDrawColor => 'Lijnkleur';
+
+  @override
+  String get diceDrawUse => 'Deze tekening gebruiken';
+
+  @override
+  String get diceBulk => 'Meerdere zijden vullen';
+
+  @override
+  String get diceBulkFrom => 'Vanaf zijde';
+
+  @override
+  String get diceBulkTo => 'Tot zijde';
+
+  @override
+  String get diceBulkStart => 'Eerste getal';
+
+  @override
+  String get diceBulkNumber => 'Bereik nummeren';
+
+  @override
+  String diceBulkCopy(Object n) {
+    return 'Zijde ${n} naar het bereik kopiëren';
+  }
+
+  @override
+  String get diceFaceMoveEarlier => 'Zijde naar voren';
+
+  @override
+  String get diceFaceMoveLater => 'Zijde naar achteren';
+
+  @override
+  String get diceFaceDuplicate => 'Zijde dupliceren';
+
+  @override
+  String get diceFaceRemove => 'Zijde verwijderen';
 }

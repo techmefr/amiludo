@@ -46,6 +46,9 @@ import 'package:amiludo/layers/functional/Lobby/domain/use_cases/start_lobby_gam
 import 'package:amiludo/layers/functional/Lobby/domain/use_cases/toggle_lobby_open_use_case.dart';
 import 'package:amiludo/layers/functional/Lobby/domain/use_cases/watch_lobby_use_case.dart';
 import 'package:amiludo/layers/functional/Companion/data/accelerometer_turn_sensor.dart';
+import 'package:amiludo/layers/functional/Companion/data/gateways/die_gateways_impl.dart';
+import 'package:amiludo/layers/functional/Companion/domain/gateways/die_gateways.dart';
+import 'package:amiludo/layers/functional/Companion/domain/use_cases/die_use_cases.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/turn_sensor.dart';
 import 'package:amiludo/layers/technical/Motion/shake_source.dart';
 import 'package:amiludo/layers/technical/Sensors/accelerometer_feed.dart';
@@ -173,6 +176,15 @@ void configureDependencies(StoreDatabase database) {
     ..registerLazySingleton<ChroniclesRunGateway>(
       () => getIt<ChroniclesRunGatewayImpl>(),
     )
+    ..registerLazySingleton<DieLibraryGatewayImpl>(
+      () => DieLibraryGatewayImpl(getIt()),
+    )
+    ..registerLazySingleton<DieLibraryGateway>(
+      () => getIt<DieLibraryGatewayImpl>(),
+    )
+    ..registerLazySingleton<DieImageGateway>(
+      () => DieImageGatewayImpl(getIt()),
+    )
     ..registerLazySingleton<ChroniclesCatalogGateway>(
       ChroniclesCatalogGatewayImpl.new,
     )
@@ -184,6 +196,7 @@ void configureDependencies(StoreDatabase database) {
         getIt<EveningsGatewayImpl>(),
         getIt<CharacterDraftGatewayImpl>(),
         getIt<ChroniclesRunGatewayImpl>(),
+        getIt<DieLibraryGatewayImpl>(),
       ],
     )
     ..registerLazySingleton<EveningsGatewayImpl>(
@@ -201,6 +214,7 @@ void configureDependencies(StoreDatabase database) {
   _registerCollections();
   _registerGatherings();
   _registerCampaign();
+  _registerDice();
 }
 
 void _registerSensors() {
@@ -328,4 +342,15 @@ void _registerCampaign() {
     ..registerFactory(() => WatchCampaignUseCase(getIt()))
     ..registerFactory(() => CompleteMissionUseCase(getIt()))
     ..registerFactory(() => ResetCampaignUseCase(getIt()));
+}
+
+void _registerDice() {
+  getIt
+    ..registerFactory(() => SaveDieUseCase(getIt(), getIt()))
+    ..registerFactory(() => RemoveDieUseCase(getIt(), getIt()))
+    ..registerFactory(() => DuplicateDieUseCase(getIt(), getIt()))
+    ..registerFactory(() => ReadDieImageUseCase(getIt()))
+    ..registerFactory(() => ExportDiceUseCase(getIt(), getIt()))
+    ..registerFactory(() => PreviewDiceImportUseCase(getIt()))
+    ..registerFactory(() => ImportDiceUseCase(getIt(), getIt()));
 }
