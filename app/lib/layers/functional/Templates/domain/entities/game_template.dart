@@ -1,3 +1,4 @@
+import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/pack_components.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
 
@@ -26,6 +27,7 @@ class GameTemplate {
     this.creation = const [],
     this.resources = const {},
     this.statuses = const [],
+    this.bricks = const [],
   });
   final String id, name, description, author, license;
   final String revision, rulesUrl, rulesNotes, edition, language;
@@ -36,6 +38,7 @@ class GameTemplate {
   final List<ScoreRule> scoring;
   final List<CreationCategory> creation;
   final List<String> categories, statuses;
+  final List<Brick> bricks;
   final Map<String, double> resources;
   final double target;
   final bool lowestWins, cooperative;
@@ -64,6 +67,7 @@ class GameTemplate {
     'creation': creation.map((v) => v.toJson()).toList(),
     'resources': resources,
     'statuses': statuses,
+    'bricks': bricks.map((v) => v.toJson()).toList(),
   };
   static const knownModules = [
     'scores',
@@ -126,6 +130,7 @@ class GameTemplate {
         (k, v) => MapEntry(k as String, (v as num).toDouble()),
       ),
       statuses: List<String>.from(j['statuses'] as List? ?? const []),
+      bricks: _parse(j['bricks'], Brick.fromJson),
     );
     if (!result._validText || !result._validRules || !result._validParts) {
       throw const FormatException('Modèle invalide');
@@ -180,7 +185,8 @@ class GameTemplate {
       resources.values.every((v) => v.isFinite) &&
       statuses.length <= 16 &&
       statuses.toSet().length == statuses.length &&
-      statuses.every((s) => s.trim().isNotEmpty && s.length <= 40);
+      statuses.every((s) => s.trim().isNotEmpty && s.length <= 40) &&
+      bricks.length <= 64;
 
   static const builtIn = [
     GameTemplate(
