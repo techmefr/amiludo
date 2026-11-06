@@ -3,6 +3,8 @@ import 'package:hugeicons/hugeicons.dart';
 
 final _icons = <IconData, List<List<dynamic>>>{
   Icons.add: HugeIcons.strokeRoundedAdd01,
+  Icons.account_circle_outlined: HugeIcons.strokeRoundedUserCircle,
+  Icons.event_outlined: HugeIcons.strokeRoundedCalendar03,
   Icons.add_chart_outlined: HugeIcons.strokeRoundedAbacus,
   Icons.arrow_drop_down: HugeIcons.strokeRoundedArrowDown01,
   Icons.arrow_outward: HugeIcons.strokeRoundedArrowUpRight01,

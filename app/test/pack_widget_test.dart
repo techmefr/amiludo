@@ -31,7 +31,7 @@ void _fingerToolTests() {
     await tester.pumpAndSettle();
     expect(find.byType(Dialog), findsNothing);
     expect(find.byType(FingerTool), findsOneWidget);
-    expect(find.byType(BackButton), findsOneWidget);
+    expect(find.byType(BackButtonIcon), findsOneWidget);
     final area = find
         .ancestor(
           of: find.text('POSEZ VOS DOIGTS ICI'),
@@ -39,7 +39,7 @@ void _fingerToolTests() {
         )
         .first;
     expect(tester.getSize(area).height, greaterThan(350));
-    await tester.tap(find.byType(BackButton));
+    await tester.tap(find.byType(BackButtonIcon));
     await tester.pumpAndSettle();
     expect(find.byType(FingerTool), findsNothing);
     await tester.pumpWidget(const SizedBox());
