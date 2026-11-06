@@ -774,5 +774,20 @@
   "hourglassStart": "Démarrer",
   "hourglassPause": "Pause",
   "hourglassDone": "Temps écoulé",
-  "hourglassSeconds": "{count} s"
+  "hourglassSeconds": "{count} s",
+  "toolHeroesTitle": "Héros et pouvoirs",
+  "toolHeroesSubtitle": "Des héros avec compteurs et pouvoirs qui se chargent.",
+  "heroesEmpty": "Aucun héros. Ajoutez-en un pour commencer.",
+  "heroesAddHero": "Ajouter un héros",
+  "heroesHeroName": "Nom du héros",
+  "heroesAddPower": "Ajouter un pouvoir",
+  "heroesPowerName": "Nom du pouvoir",
+  "heroesUse": "Utiliser",
+  "heroesCharging": "En charge",
+  "heroesReady": "Prêt",
+  "heroesUsed": "Utilisé",
+  "heroesCharge": "Ajouter une charge",
+  "heroesRecharge": "Recharger",
+  "heroesActive": "Héros actif",
+  "heroesMakeActive": "Rendre actif"
 }

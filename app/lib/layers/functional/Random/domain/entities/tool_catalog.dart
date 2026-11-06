@@ -18,6 +18,7 @@ const toolDefinitions = [
   ToolDefinition('number', 'chance'),
   ToolDefinition('bag', 'chance'),
   ToolDefinition('roles', 'match'),
+  ToolDefinition('heroes', 'match'),
   ToolDefinition('character', 'story'),
   ToolDefinition('npc', 'story'),
   ToolDefinition('tavern', 'story'),

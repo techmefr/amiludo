@@ -2575,4 +2575,49 @@ class AppLocalizationsNl extends AppLocalizations {
   String hourglassSeconds(int count) {
     return '$count s';
   }
+
+  @override
+  String get toolHeroesTitle => 'Helden en krachten';
+
+  @override
+  String get toolHeroesSubtitle => 'Helden met tellers en krachten die opladen.';
+
+  @override
+  String get heroesEmpty => 'Nog geen held. Voeg er een toe.';
+
+  @override
+  String get heroesAddHero => 'Held toevoegen';
+
+  @override
+  String get heroesHeroName => 'Naam van de held';
+
+  @override
+  String get heroesAddPower => 'Kracht toevoegen';
+
+  @override
+  String get heroesPowerName => 'Naam van de kracht';
+
+  @override
+  String get heroesUse => 'Gebruiken';
+
+  @override
+  String get heroesCharging => 'Laadt op';
+
+  @override
+  String get heroesReady => 'Klaar';
+
+  @override
+  String get heroesUsed => 'Gebruikt';
+
+  @override
+  String get heroesCharge => 'Lading toevoegen';
+
+  @override
+  String get heroesRecharge => 'Opnieuw laden';
+
+  @override
+  String get heroesActive => 'Actieve held';
+
+  @override
+  String get heroesMakeActive => 'Actief maken';
 }

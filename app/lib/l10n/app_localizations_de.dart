@@ -2578,4 +2578,49 @@ class AppLocalizationsDe extends AppLocalizations {
   String hourglassSeconds(int count) {
     return '$count s';
   }
+
+  @override
+  String get toolHeroesTitle => 'Helden und Kräfte';
+
+  @override
+  String get toolHeroesSubtitle => 'Helden mit Zählern und Kräften, die sich aufladen.';
+
+  @override
+  String get heroesEmpty => 'Noch kein Held. Füge einen hinzu.';
+
+  @override
+  String get heroesAddHero => 'Held hinzufügen';
+
+  @override
+  String get heroesHeroName => 'Name des Helden';
+
+  @override
+  String get heroesAddPower => 'Kraft hinzufügen';
+
+  @override
+  String get heroesPowerName => 'Name der Kraft';
+
+  @override
+  String get heroesUse => 'Einsetzen';
+
+  @override
+  String get heroesCharging => 'Lädt auf';
+
+  @override
+  String get heroesReady => 'Bereit';
+
+  @override
+  String get heroesUsed => 'Eingesetzt';
+
+  @override
+  String get heroesCharge => 'Ladung hinzufügen';
+
+  @override
+  String get heroesRecharge => 'Neu aufladen';
+
+  @override
+  String get heroesActive => 'Aktiver Held';
+
+  @override
+  String get heroesMakeActive => 'Aktiv setzen';
 }

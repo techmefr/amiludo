@@ -17,6 +17,7 @@ import 'package:amiludo/layers/functional/Appearance/presentation/appearance_scr
 import 'package:amiludo/layers/functional/Friends/presentation/friend_form.dart';
 import 'package:amiludo/layers/functional/Friends/presentation/friends_screen.dart';
 import 'package:amiludo/layers/functional/Friends/presentation/review_screen.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/heroes_tool.dart';
 import 'package:amiludo/layers/functional/Game/presentation/game_screen.dart';
 import 'package:amiludo/layers/functional/Game/presentation/score_sheet.dart';
 import 'package:amiludo/layers/functional/History/presentation/history_screen.dart';
@@ -47,6 +48,8 @@ Widget _timer(BuildContext context) =>
     const SizedBox(width: double.infinity, child: TimerPanel());
 
 Widget _hourglass(BuildContext context) => const HourglassTool();
+
+Widget _heroes(BuildContext context) => const HeroesTool();
 
 Widget _scores(BuildContext context) => const GameScreen(timer: _timer);
 
@@ -79,6 +82,7 @@ final router = GoRouter(
           'scores': _scores,
           'timer': _timer,
           'hourglass': _hourglass,
+          'heroes': _heroes,
         },
       ),
     ),

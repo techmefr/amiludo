@@ -774,5 +774,20 @@
   "hourglassStart": "Start",
   "hourglassPause": "Pauze",
   "hourglassDone": "Tijd is om",
-  "hourglassSeconds": "{count} s"
+  "hourglassSeconds": "{count} s",
+  "toolHeroesTitle": "Helden en krachten",
+  "toolHeroesSubtitle": "Helden met tellers en krachten die opladen.",
+  "heroesEmpty": "Nog geen held. Voeg er een toe.",
+  "heroesAddHero": "Held toevoegen",
+  "heroesHeroName": "Naam van de held",
+  "heroesAddPower": "Kracht toevoegen",
+  "heroesPowerName": "Naam van de kracht",
+  "heroesUse": "Gebruiken",
+  "heroesCharging": "Laadt op",
+  "heroesReady": "Klaar",
+  "heroesUsed": "Gebruikt",
+  "heroesCharge": "Lading toevoegen",
+  "heroesRecharge": "Opnieuw laden",
+  "heroesActive": "Actieve held",
+  "heroesMakeActive": "Actief maken"
 }

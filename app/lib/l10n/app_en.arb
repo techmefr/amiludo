@@ -1003,5 +1003,20 @@
     "placeholders": {
       "count": {"type": "int"}
     }
-  }
+  },
+  "toolHeroesTitle": "Heroes and powers",
+  "toolHeroesSubtitle": "Heroes with counters and powers that charge up.",
+  "heroesEmpty": "No hero yet. Add one to start.",
+  "heroesAddHero": "Add a hero",
+  "heroesHeroName": "Hero name",
+  "heroesAddPower": "Add a power",
+  "heroesPowerName": "Power name",
+  "heroesUse": "Use",
+  "heroesCharging": "Charging",
+  "heroesReady": "Ready",
+  "heroesUsed": "Used",
+  "heroesCharge": "Add a charge",
+  "heroesRecharge": "Recharge",
+  "heroesActive": "Active hero",
+  "heroesMakeActive": "Make active"
 }
