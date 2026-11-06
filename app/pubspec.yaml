@@ -54,6 +54,7 @@ flutter:
     - assets/cards/
     - assets/community/
     - assets/fonts/
+    - assets/generators/
   fonts:
     - family: LilGrotesk
       fonts:

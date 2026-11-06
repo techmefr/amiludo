@@ -1,0 +1,43 @@
+{
+  "labels": {
+    "description": "Description",
+    "traits": "Personnalité",
+    "secret": "Secret",
+    "hook": "Accroche",
+    "menu": "Menu",
+    "rumours": "Rumeurs",
+    "staff": "Qui est là",
+    "place": "Décor",
+    "core": "La rencontre",
+    "complications": "Complications",
+    "twist": "Rebondissement"
+  },
+  "npc": {
+    "firstNames": ["Maren", "Toben", "Isolde", "Garrick", "Selwyn", "Brisa", "Odon", "Véra", "Hobb", "Linette", "Corwin", "Tamsin", "Rurik", "Odalys", "Pell", "Anselme", "Crécerelle", "Dorian"],
+    "lastNames": ["Basfrêne", "Eaunoire", "Cuivrechaudron", "Brumelande", "Beautemps", "Grisemont", "Ferbougie", "Pied-d'Alouette", "Rivemousse", "Chardonvent", "Sous-la-Colline", "Landespectre"],
+    "peoples": ["humain", "demi-elfe", "nain", "halfelin", "gnome", "demi-orc", "tieffelin", "elfe"],
+    "jobs": ["marin", "boulanger", "forgeron", "herboriste", "coursier", "percepteur", "gardien de cimetière", "musicien de rue", "garde à la retraite", "scribe", "passeur", "diseuse de bonne aventure"],
+    "ages": ["jeune", "dans la trentaine", "d'âge mûr", "âgé", "très âgé"],
+    "builds": ["petit et trapu", "grand et maigre", "large d'épaules", "menu et vif", "rond et joyeux", "nerveux"],
+    "hair": ["des cheveux gris courts et ondulés", "une longue tresse", "le crâne rasé", "des boucles rousses indomptables", "des cheveux noirs plaqués en arrière", "de fins cheveux blancs"],
+    "eyes": ["des yeux verts", "des yeux bleu pâle", "un œil marron et un œil gris", "des yeux ambre sombre", "des yeux noisette fatigués"],
+    "marks": ["une cicatrice au menton", "les doigts tachés d'encre", "un bout d'oreille manquant", "une dent en argent", "un tatouage effacé d'oiseau", "une boiterie permanente", "une odeur de fumée de bois"],
+    "traits": ["pense rarement à demain", "cherche toujours la faille", "est farouchement loyal envers ses amis", "parle aux animaux comme à des gens", "est un joueur compulsif", "n'oublie jamais un service", "se méfie de tout uniforme", "rit aux pires moments", "tient des registres minutieux", "collectionne les petits objets brillants"],
+    "secrets": ["doit une grosse somme à des gens dangereux", "est en secret l'héritier d'une maison ruinée", "a volé quelque chose au temple", "ne sait plus lire et le cache", "espionne pour une ville rivale", "a vu dans la cave quelque chose d'inexplicable"],
+    "hooks": ["cherche quelqu'un pour porter une lettre scellée avant l'aube", "a perdu une bague qui appartient à un autre", "dirige un petit réseau de contrebande", "connaît le chemin d'une mine abandonnée", "est suivi par un inconnu en cape grise", "offre de l'argent pour retrouver un frère disparu"]
+  },
+  "tavern": {
+    "adjectives": ["Doré", "Endormi", "Tordu", "Joyeux", "Rouillé", "Silencieux", "Errant", "Rieur", "Brisé", "Chanceux"],
+    "nouns": ["Oie", "Ancre", "Lanterne", "Tonneau", "Vouivre", "Chaudron", "Couronne", "Corbeau", "Harpe", "Sabot"],
+    "dishes": ["ragoût de lentilles aux saucisses fumées", "faisan rôti aux châtaignes", "truite de rivière au beurre", "tourte aux oignons", "carottes au miel", "morue salée et pain noir", "raviolis aux champignons", "fromage fondu sur pommes de terre"],
+    "drinks": ["bière ambrée brune", "hydromel épicé", "cidre vif", "vin rouge d'origine douteuse", "lait chaud aux herbes", "bière d'orge servie tiède"],
+    "rumours": ["On a vu des lumières la nuit au vieux moulin.", "Le maire a engagé des étrangers sans dire pourquoi.", "Une caravane de marchands a disparu sur la route du nord.", "L'eau du puits a un drôle de goût depuis une semaine.", "Un barde jure avoir vu un dragon dormir dans les collines.", "Quelqu'un achète toutes les lanternes de la ville.", "La cave de l'aubergiste est plus profonde que le bâtiment."],
+    "staff": ["un patron bourru qui n'oublie aucun visage", "une cuisinière joyeuse au caractère explosif", "un garçon de cave discret qui écoute tout", "un barde de passage qui doit trois nuits", "un aventurier retraité qui fait durer un verre toute la soirée", "un coursier nerveux qui attend quelqu'un en retard"]
+  },
+  "encounter": {
+    "places": ["une étroite route forestière", "une tour de guet en ruine", "une place de marché bondée", "un gué inondé", "un col de montagne dans le brouillard", "la place calme d'un village", "un sanctuaire au bord du chemin"],
+    "cores": ["une silhouette en haillons barre la route et exige un péage", "un chariot est embourbé et son propriétaire panique", "deux groupes rivaux se disputent le même campement", "un animal blessé est gardé par un enfant", "une patrouille fouille les voyageurs", "un marchand perdu propose un marché étrange", "un vieux pèlerin demande une escorte"],
+    "complications": ["Payer trop vite désigne le groupe comme une cible.", "Un compagnon veut la violence quoi que décide le chef.", "Le mauvais temps approche.", "Quelqu'un observe de loin et prend des notes.", "Un objet de valeur change de mains dans la confusion.", "Des renforts arrivent, mais réclament une faveur."],
+    "twists": ["Le péage sert à recueillir des informations sur chaque voyageur.", "Tous les acteurs travaillent pour le même employeur caché.", "La victime est celle qui a tout déclenché.", "Le danger est un leurre pour couvrir un vol ailleurs.", "L'inconnu est exactement qui il dit être, et c'est le problème."]
+  }
+}

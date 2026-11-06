@@ -1,0 +1,43 @@
+{
+  "labels": {
+    "description": "Description",
+    "traits": "Personality",
+    "secret": "Secret",
+    "hook": "Plot hook",
+    "menu": "Menu",
+    "rumours": "Rumours",
+    "staff": "Who is here",
+    "place": "Setting",
+    "core": "The encounter",
+    "complications": "Complications",
+    "twist": "Twist"
+  },
+  "npc": {
+    "firstNames": ["Maren", "Toben", "Isolde", "Garrick", "Selwyn", "Brisa", "Odo", "Veyra", "Hobb", "Linnet", "Corwin", "Tamsin", "Ruric", "Odalys", "Pell", "Anselm", "Kestrel", "Dorrin"],
+    "lastNames": ["Ashgrove", "Blackwater", "Copperkettle", "Dunmere", "Fairweather", "Greyhallow", "Ironwick", "Larkspur", "Mossbank", "Thistledown", "Underhill", "Wraithmoor"],
+    "peoples": ["human", "half-elf", "dwarf", "halfling", "gnome", "half-orc", "tiefling", "elf"],
+    "jobs": ["sailor", "baker", "blacksmith", "herbalist", "courier", "tax collector", "grave keeper", "street musician", "retired guard", "scribe", "ferryman", "fortune teller"],
+    "ages": ["young", "in their thirties", "middle-aged", "old", "very old"],
+    "builds": ["short and stocky", "tall and lean", "broad-shouldered", "slight and quick", "round and cheerful", "wiry"],
+    "hair": ["short wavy grey hair", "a long braid", "a shaved head", "unruly red curls", "slicked-back black hair", "thin white hair"],
+    "eyes": ["green eyes", "pale blue eyes", "one brown and one grey eye", "dark amber eyes", "tired hazel eyes"],
+    "marks": ["a scar across the chin", "ink-stained fingers", "a missing ear tip", "a silver tooth", "a faded tattoo of a bird", "a permanent limp", "a smell of woodsmoke"],
+    "traits": ["rarely thinks ahead", "always looks for a loophole", "is fiercely loyal to friends", "talks to animals as if they were people", "is a compulsive gambler", "never forgets a favour", "mistrusts anyone in uniform", "laughs at the worst moments", "keeps meticulous records", "collects small shiny objects"],
+    "secrets": ["owes a large debt to dangerous people", "is secretly the heir of a ruined house", "has stolen something from the temple", "can no longer read and hides it", "is spying for a rival town", "has seen something in the cellar they cannot explain"],
+    "hooks": ["needs someone to deliver a sealed letter before dawn", "has lost a ring that belongs to someone else", "heads a small smuggling circle", "knows the way to an abandoned mine", "is being followed by a stranger in a grey cloak", "offers coin to find a missing sibling"]
+  },
+  "tavern": {
+    "adjectives": ["Gilded", "Sleeping", "Crooked", "Merry", "Rusty", "Silent", "Wandering", "Laughing", "Broken", "Lucky"],
+    "nouns": ["Goose", "Anchor", "Lantern", "Barrel", "Wyvern", "Kettle", "Crown", "Raven", "Harp", "Boot"],
+    "dishes": ["lentil stew with smoked sausage", "roast pheasant with chestnuts", "river trout in butter", "onion pie", "honeyed carrots", "salted cod and black bread", "mushroom dumplings", "cheese melted over potatoes"],
+    "drinks": ["dark amber ale", "spiced mead", "sharp apple cider", "red wine of doubtful origin", "hot milk with herbs", "barley beer served warm"],
+    "rumours": ["Lights have been seen at night in the old mill.", "The mayor has hired outsiders and will not say why.", "A merchant caravan went missing on the north road.", "The well water has tasted strange for a week.", "A bard claims to have seen a dragon sleeping in the hills.", "Someone is buying every lantern in town.", "The innkeeper's cellar is deeper than the building."],
+    "staff": ["a gruff owner who never forgets a face", "a cheerful cook with a hidden temper", "a quiet cellar hand who listens to everything", "a travelling bard who owes for three nights", "a retired adventurer nursing one drink all evening", "a nervous courier waiting for someone who is late"]
+  },
+  "encounter": {
+    "places": ["a narrow forest road", "a ruined watchtower", "a crowded market square", "a flooded crossing", "a mountain pass in fog", "a quiet village green", "a roadside shrine"],
+    "cores": ["a ragged figure blocks the way, demanding a toll", "a wagon is stuck and its owner is panicking", "two rival groups argue over the same campsite", "a wounded animal is guarded by a child", "a patrol is searching travellers for something", "a lost merchant offers a strange bargain", "an old pilgrim asks for an escort"],
+    "complications": ["Paying too easily marks the party as a target.", "One companion is eager for violence whatever the leader decides.", "Bad weather is closing in.", "Someone nearby is watching and taking notes.", "A valuable item changes hands during the confusion.", "Help arrives, but it demands a favour."],
+    "twists": ["The toll is a clever way of gathering information from every traveller.", "Everyone involved works for the same hidden employer.", "The victim is the one who started it.", "The danger is a decoy to cover a theft elsewhere.", "The stranger is exactly who they say, and that is the problem."]
+  }
+}

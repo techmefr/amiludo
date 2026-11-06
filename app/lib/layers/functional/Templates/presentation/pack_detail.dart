@@ -1,3 +1,5 @@
+import 'package:amiludo/layers/technical/Locale/tool_texts.dart';
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -125,7 +127,7 @@ class _PackPlayActions extends StatelessWidget {
             child: Text(
               t.id == 'character'
                   ? context.l10n.templatesCreateACharacter
-                  : t.title,
+                  : context.toolTitle(t.id),
             ),
           ),
         OutlinedButton(

@@ -1,3 +1,4 @@
+import 'package:amiludo/layers/technical/Locale/tool_texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -16,7 +17,7 @@ class ToolsScreen extends StatefulWidget {
 }
 
 class _ToolsScreenState extends State<ToolsScreen> {
-  String category = 'Tous';
+  String category = 'all';
   @override
   void initState() {
     super.initState();
@@ -51,9 +52,12 @@ class _ToolsScreenState extends State<ToolsScreen> {
           ],
         ),
         const SizedBox(height: 20),
-        Text(t.title, style: Theme.of(context).textTheme.titleMedium),
+        Text(
+          context.toolTitle(t.id),
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         const SizedBox(height: 8),
-        Text(t.subtitle),
+        Text(context.toolSubtitle(t.id)),
         const SizedBox(height: 16),
         const Spacer(),
         OutlinedButton(
@@ -78,10 +82,10 @@ class _ToolsScreenState extends State<ToolsScreen> {
         Wrap(
           spacing: 8,
           runSpacing: 8,
-          children: ['Tous', 'Hasard', 'Partie', 'Temps']
+          children: toolCategories
               .map(
                 (c) => ChoiceChip(
-                  label: Text(c),
+                  label: Text(context.toolCategoryLabel(c)),
                   selected: category == c,
                   onSelected: (_) => setState(() => category = c),
                 ),
@@ -92,7 +96,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
         ResponsiveGrid(
           minimumWidth: 210,
           children: toolDefinitions
-              .where((t) => category == 'Tous' || t.category == category)
+              .where((t) => category == 'all' || t.category == category)
               .map((t) => toolCard(t, ws.favorites.contains(t.id)))
               .toList(),
         ),

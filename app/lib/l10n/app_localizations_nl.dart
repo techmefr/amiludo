@@ -2385,4 +2385,121 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get randomPreviousStep => 'Vorige booster';
+
+  @override
+  String get toolPickerTitle => 'Wie begint?';
+
+  @override
+  String get toolPickerSubtitle =>
+      'Een vinger of een naam. Het toeval beslist.';
+
+  @override
+  String get toolDiceTitle => 'Dobbelstenen gooien';
+
+  @override
+  String get toolDiceSubtitle =>
+      'Meerdere dobbelstenen, vergrendelen en uitdrukkingen.';
+
+  @override
+  String get toolScoresTitle => 'Punten tellen';
+
+  @override
+  String get toolScoresSubtitle => 'Scores, rondes en categorieën.';
+
+  @override
+  String get toolTimerTitle => 'Het tempo bewaken';
+
+  @override
+  String get toolTimerSubtitle => 'Tijd per beurt of reserve per speler.';
+
+  @override
+  String get toolTeamsTitle => 'Teams maken';
+
+  @override
+  String get toolTeamsSubtitle => 'Van 2 tot veel willekeurige teams.';
+
+  @override
+  String get toolWheelTitle => 'Het rad draaien';
+
+  @override
+  String get toolWheelSubtitle => 'Eigen opties en kansen.';
+
+  @override
+  String get toolCoinTitle => 'Kruis of munt';
+
+  @override
+  String get toolCoinSubtitle => 'Een beslissing in een oogwenk.';
+
+  @override
+  String get toolOrderTitle => 'Speelvolgorde';
+
+  @override
+  String get toolOrderSubtitle => 'Iedereen is aan de beurt.';
+
+  @override
+  String get toolNumberTitle => 'Willekeurig getal';
+
+  @override
+  String get toolNumberSubtitle => 'Een bereik, een resultaat.';
+
+  @override
+  String get toolBagTitle => 'Zak met fiches';
+
+  @override
+  String get toolBagSubtitle => 'Trekken zonder terugleggen, dan opnieuw.';
+
+  @override
+  String get toolRolesTitle => 'Geheime rollen';
+
+  @override
+  String get toolRolesSubtitle => 'Eén telefoon, rollen om te ontdekken.';
+
+  @override
+  String get toolCharacterTitle => 'Personage maken';
+
+  @override
+  String get toolCharacterSubtitle =>
+      'Lijsten en boosters: je kaarten vormen een blad.';
+
+  @override
+  String get toolNpcTitle => 'NPC-generator';
+
+  @override
+  String get toolNpcSubtitle =>
+      'Een complete NPC met één tik: uiterlijk, persoonlijkheid, geheim.';
+
+  @override
+  String get toolTavernTitle => 'Herbergsgenerator';
+
+  @override
+  String get toolTavernSubtitle =>
+      'Een hele herberg in een paar tikken: menu, geruchten, personeel.';
+
+  @override
+  String get toolEncounterTitle => 'Willekeurige ontmoeting';
+
+  @override
+  String get toolEncounterSubtitle =>
+      'Een ontmoeting met complicaties en een wending.';
+
+  @override
+  String get toolCategoryAll => 'Alle';
+
+  @override
+  String get toolCategoryChance => 'Toeval';
+
+  @override
+  String get toolCategoryMatch => 'Spel';
+
+  @override
+  String get toolCategoryTime => 'Tijd';
+
+  @override
+  String get toolCategoryStory => 'Verhaal';
+
+  @override
+  String get randomCopy => 'Kopiëren';
+
+  @override
+  String get randomCopied => 'Gekopieerd';
 }

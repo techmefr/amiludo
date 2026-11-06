@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Random/presentation/bag_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/coin_tool.dart';
+import 'package:amiludo/layers/functional/Random/presentation/generator_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/number_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/order_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/roles_tool.dart';
@@ -19,6 +20,7 @@ class RandomTool extends StatelessWidget {
     'bag' => const BagTool(),
     'roles' => RolesTool(names: names),
     'wheel' => WheelTool(names: names),
+    'npc' || 'tavern' || 'encounter' => GeneratorTool(id: id),
     _ => const SizedBox.shrink(),
   };
 }

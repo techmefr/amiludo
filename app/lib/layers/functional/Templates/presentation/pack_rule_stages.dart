@@ -1,3 +1,4 @@
+import 'package:amiludo/layers/technical/Locale/tool_texts.dart';
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.dart';
@@ -26,8 +27,8 @@ class ModesStage extends StatelessWidget {
       for (final t in toolDefinitions)
         CheckboxListTile(
           contentPadding: EdgeInsets.zero,
-          title: Text(t.title),
-          subtitle: Text(t.subtitle),
+          title: Text(context.toolTitle(t.id)),
+          subtitle: Text(context.toolSubtitle(t.id)),
           value: modes.contains(t.id),
           onChanged: (v) => onTool(t.id, v == true),
         ),

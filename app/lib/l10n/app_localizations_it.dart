@@ -2386,4 +2386,119 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get randomPreviousStep => 'Bustina precedente';
+
+  @override
+  String get toolPickerTitle => 'Chi comincia?';
+
+  @override
+  String get toolPickerSubtitle => 'Un dito o un nome. Decide il caso.';
+
+  @override
+  String get toolDiceTitle => 'Tira i dadi';
+
+  @override
+  String get toolDiceSubtitle => 'Più dadi, blocco ed espressioni.';
+
+  @override
+  String get toolScoresTitle => 'Conta i punti';
+
+  @override
+  String get toolScoresSubtitle => 'Punteggi, round e categorie.';
+
+  @override
+  String get toolTimerTitle => 'Tenere il ritmo';
+
+  @override
+  String get toolTimerSubtitle => 'Tempo per turno o riserva per giocatore.';
+
+  @override
+  String get toolTeamsTitle => 'Fare le squadre';
+
+  @override
+  String get toolTeamsSubtitle => 'Da 2 a più squadre casuali.';
+
+  @override
+  String get toolWheelTitle => 'Gira la ruota';
+
+  @override
+  String get toolWheelSubtitle => 'Opzioni personalizzate e probabilità.';
+
+  @override
+  String get toolCoinTitle => 'Testa o croce';
+
+  @override
+  String get toolCoinSubtitle => 'Una decisione in un istante.';
+
+  @override
+  String get toolOrderTitle => 'Ordine di gioco';
+
+  @override
+  String get toolOrderSubtitle => 'A ciascuno il suo turno.';
+
+  @override
+  String get toolNumberTitle => 'Numero casuale';
+
+  @override
+  String get toolNumberSubtitle => 'Un intervallo, un risultato.';
+
+  @override
+  String get toolBagTitle => 'Sacchetto di gettoni';
+
+  @override
+  String get toolBagSubtitle => 'Pesca senza reinserimento, poi ricomincia.';
+
+  @override
+  String get toolRolesTitle => 'Ruoli segreti';
+
+  @override
+  String get toolRolesSubtitle => 'Un telefono, ruoli da scoprire.';
+
+  @override
+  String get toolCharacterTitle => 'Crea un personaggio';
+
+  @override
+  String get toolCharacterSubtitle =>
+      'Liste e bustine: le tue carte formano una scheda.';
+
+  @override
+  String get toolNpcTitle => 'Generatore di PNG';
+
+  @override
+  String get toolNpcSubtitle =>
+      'Un PNG completo con un tocco: aspetto, personalità, segreto.';
+
+  @override
+  String get toolTavernTitle => 'Generatore di taverne';
+
+  @override
+  String get toolTavernSubtitle =>
+      'Una taverna intera in pochi tocchi: menù, voci, personale.';
+
+  @override
+  String get toolEncounterTitle => 'Incontro casuale';
+
+  @override
+  String get toolEncounterSubtitle =>
+      'Un incontro con complicazioni e un colpo di scena.';
+
+  @override
+  String get toolCategoryAll => 'Tutti';
+
+  @override
+  String get toolCategoryChance => 'Caso';
+
+  @override
+  String get toolCategoryMatch => 'Partita';
+
+  @override
+  String get toolCategoryTime => 'Tempo';
+
+  @override
+  String get toolCategoryStory => 'Racconto';
+
+  @override
+  String get randomCopy => 'Copia';
+
+  @override
+  String get randomCopied => 'Copiato';
 }

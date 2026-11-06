@@ -13,5 +13,8 @@ IconData toolIcon(String id) => switch (id) {
   'number' => Icons.numbers,
   'bag' => Icons.shopping_bag_outlined,
   'roles' => Icons.visibility_off_outlined,
+  'npc' => Icons.person_search_outlined,
+  'tavern' => Icons.local_bar_outlined,
+  'encounter' => Icons.explore_outlined,
   _ => Icons.extension_outlined,
 };
