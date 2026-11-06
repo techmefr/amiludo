@@ -13,6 +13,7 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/counter.dart
 import 'package:amiludo/layers/functional/Companion/presentation/counter_tool.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
 import 'package:amiludo/dice_studio.dart';
+import 'package:amiludo/map_tool.dart';
 import 'package:amiludo/sensor_tools.dart';
 import 'package:amiludo/layers/functional/Account/presentation/account_screen.dart';
 import 'package:amiludo/layers/functional/Admin/presentation/admin_screen.dart';
@@ -138,6 +139,7 @@ final router = GoRouter(
           'timer': _timer,
           'dice-tray': diceTrayWithSensors,
           'hourglass': hourglassWithSensors,
+          'map': mapWithStorage,
           'heroes': _heroes,
           'counter-life': _counterLife,
           'counter-points': _counterPoints,

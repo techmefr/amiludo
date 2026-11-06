@@ -5851,6 +5851,114 @@ abstract class AppLocalizations {
   /// **'Use a die from My dice'**
   String get diceUseFromLibrary;
 
+  /// No description provided for @toolMapTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Map'**
+  String get toolMapTitle;
+
+  /// No description provided for @toolMapSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pins, tokens and sketches on a board of your choice.'**
+  String get toolMapSubtitle;
+
+  /// No description provided for @mapToolMove.
+  ///
+  /// In en, this message translates to:
+  /// **'Move and zoom'**
+  String get mapToolMove;
+
+  /// No description provided for @mapToolPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Pin'**
+  String get mapToolPin;
+
+  /// No description provided for @mapToolToken.
+  ///
+  /// In en, this message translates to:
+  /// **'Token'**
+  String get mapToolToken;
+
+  /// No description provided for @mapToolLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Line'**
+  String get mapToolLine;
+
+  /// No description provided for @mapToolZone.
+  ///
+  /// In en, this message translates to:
+  /// **'Zone'**
+  String get mapToolZone;
+
+  /// No description provided for @mapToolErase.
+  ///
+  /// In en, this message translates to:
+  /// **'Erase'**
+  String get mapToolErase;
+
+  /// No description provided for @mapUndo.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo'**
+  String get mapUndo;
+
+  /// No description provided for @mapBackground.
+  ///
+  /// In en, this message translates to:
+  /// **'Background'**
+  String get mapBackground;
+
+  /// No description provided for @mapBackgroundBlank.
+  ///
+  /// In en, this message translates to:
+  /// **'Blank'**
+  String get mapBackgroundBlank;
+
+  /// No description provided for @mapBackgroundGrid.
+  ///
+  /// In en, this message translates to:
+  /// **'Square grid'**
+  String get mapBackgroundGrid;
+
+  /// No description provided for @mapBackgroundHex.
+  ///
+  /// In en, this message translates to:
+  /// **'Hex grid'**
+  String get mapBackgroundHex;
+
+  /// No description provided for @mapBackgroundImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Import an image'**
+  String get mapBackgroundImage;
+
+  /// No description provided for @mapIcon.
+  ///
+  /// In en, this message translates to:
+  /// **'Icon'**
+  String get mapIcon;
+
+  /// No description provided for @mapColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Color'**
+  String get mapColor;
+
+  /// No description provided for @mapMarkerLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Label'**
+  String get mapMarkerLabel;
+
+  /// No description provided for @mapMarkerDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get mapMarkerDelete;
+
   /// No description provided for @diceMyDice.
   ///
   /// In en, this message translates to:

@@ -162,7 +162,7 @@ class _ToolPageState extends State<ToolPage> {
         : packs.where((p) => p.id == selected).firstOrNull;
     final choose = ['dice', 'roles', 'character'].contains(widget.id);
     final child = toolFor(ws, current, names);
-    if (widget.id == 'picker') {
+    if (widget.id == 'picker' || widget.id == 'map') {
       return FullPage(
         title: title,
         immersive: true,

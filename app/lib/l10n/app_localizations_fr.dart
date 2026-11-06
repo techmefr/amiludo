@@ -3303,4 +3303,58 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get diceUseFromLibrary => 'Utiliser un dé de Mes dés';
+
+  @override
+  String get toolMapTitle => 'Carte';
+
+  @override
+  String get toolMapSubtitle => 'Repères, pions et tracés sur le plateau de votre choix.';
+
+  @override
+  String get mapToolMove => 'Déplacer et zoomer';
+
+  @override
+  String get mapToolPin => 'Repère';
+
+  @override
+  String get mapToolToken => 'Pion';
+
+  @override
+  String get mapToolLine => 'Trait';
+
+  @override
+  String get mapToolZone => 'Zone';
+
+  @override
+  String get mapToolErase => 'Effacer';
+
+  @override
+  String get mapUndo => 'Annuler';
+
+  @override
+  String get mapBackground => 'Fond';
+
+  @override
+  String get mapBackgroundBlank => 'Vierge';
+
+  @override
+  String get mapBackgroundGrid => 'Grille carrée';
+
+  @override
+  String get mapBackgroundHex => 'Grille hexagonale';
+
+  @override
+  String get mapBackgroundImage => 'Importer une image';
+
+  @override
+  String get mapIcon => 'Icône';
+
+  @override
+  String get mapColor => 'Couleur';
+
+  @override
+  String get mapMarkerLabel => 'Nom';
+
+  @override
+  String get mapMarkerDelete => 'Supprimer';
 }

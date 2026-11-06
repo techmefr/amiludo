@@ -3301,4 +3301,58 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get diceUseFromLibrary => 'Dobbelsteen uit Mijn dobbelstenen gebruiken';
+
+  @override
+  String get toolMapTitle => 'Kaart';
+
+  @override
+  String get toolMapSubtitle => 'Spelden, pionnen en schetsen op een bord naar keuze.';
+
+  @override
+  String get mapToolMove => 'Verplaatsen en zoomen';
+
+  @override
+  String get mapToolPin => 'Speld';
+
+  @override
+  String get mapToolToken => 'Pion';
+
+  @override
+  String get mapToolLine => 'Lijn';
+
+  @override
+  String get mapToolZone => 'Zone';
+
+  @override
+  String get mapToolErase => 'Wissen';
+
+  @override
+  String get mapUndo => 'Ongedaan maken';
+
+  @override
+  String get mapBackground => 'Achtergrond';
+
+  @override
+  String get mapBackgroundBlank => 'Leeg';
+
+  @override
+  String get mapBackgroundGrid => 'Vierkant raster';
+
+  @override
+  String get mapBackgroundHex => 'Hexraster';
+
+  @override
+  String get mapBackgroundImage => 'Afbeelding importeren';
+
+  @override
+  String get mapIcon => 'Pictogram';
+
+  @override
+  String get mapColor => 'Kleur';
+
+  @override
+  String get mapMarkerLabel => 'Label';
+
+  @override
+  String get mapMarkerDelete => 'Verwijderen';
 }

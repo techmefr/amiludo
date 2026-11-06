@@ -3297,4 +3297,58 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get diceUseFromLibrary => 'Usar un dado de Mis dados';
+
+  @override
+  String get toolMapTitle => 'Mapa';
+
+  @override
+  String get toolMapSubtitle => 'Marcadores, fichas y trazos en el tablero que elijas.';
+
+  @override
+  String get mapToolMove => 'Mover y ampliar';
+
+  @override
+  String get mapToolPin => 'Marcador';
+
+  @override
+  String get mapToolToken => 'Ficha';
+
+  @override
+  String get mapToolLine => 'Línea';
+
+  @override
+  String get mapToolZone => 'Zona';
+
+  @override
+  String get mapToolErase => 'Borrar';
+
+  @override
+  String get mapUndo => 'Deshacer';
+
+  @override
+  String get mapBackground => 'Fondo';
+
+  @override
+  String get mapBackgroundBlank => 'En blanco';
+
+  @override
+  String get mapBackgroundGrid => 'Cuadrícula';
+
+  @override
+  String get mapBackgroundHex => 'Cuadrícula hexagonal';
+
+  @override
+  String get mapBackgroundImage => 'Importar una imagen';
+
+  @override
+  String get mapIcon => 'Icono';
+
+  @override
+  String get mapColor => 'Color';
+
+  @override
+  String get mapMarkerLabel => 'Etiqueta';
+
+  @override
+  String get mapMarkerDelete => 'Eliminar';
 }

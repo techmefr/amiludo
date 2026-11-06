@@ -49,3 +49,25 @@ Future<Uint8List> downscaleToPng(Uint8List bytes) async {
   codec.dispose();
   return _encode(recorder.endRecording());
 }
+
+const mapImageMaxSide = 1600;
+
+Future<Uint8List> fitToPng(Uint8List bytes, {int maxSide = mapImageMaxSide}) async {
+  final probe = await ui.instantiateImageCodec(bytes);
+  final first = (await probe.getNextFrame()).image;
+  final (width, height) = (first.width, first.height);
+  first.dispose();
+  probe.dispose();
+  final wide = width >= height;
+  final scaled = (wide ? width : height) > maxSide;
+  final codec = await ui.instantiateImageCodec(
+    bytes,
+    targetWidth: scaled && wide ? maxSide : null,
+    targetHeight: scaled && !wide ? maxSide : null,
+  );
+  final image = (await codec.getNextFrame()).image;
+  final data = await image.toByteData(format: ui.ImageByteFormat.png);
+  image.dispose();
+  codec.dispose();
+  return data!.buffer.asUint8List();
+}
