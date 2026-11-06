@@ -178,7 +178,7 @@ void _screenTests(Size size) {
     await tester.ensureVisible(find.text('Ajouter à un compagnon'));
     await tester.tap(find.text('Ajouter à un compagnon'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Ma partie'));
+    await tester.tap(find.widgetWithText(ListTile, 'Ma partie'));
     await tester.pumpAndSettle();
     expect(find.text('Brique ajoutée au compagnon.'), findsOneWidget);
     final saved = getIt<ReadWorkspaceUseCase>()().templates.single;
