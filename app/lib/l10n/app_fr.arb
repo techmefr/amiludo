@@ -767,5 +767,12 @@
   "counterIncrease": "Augmenter",
   "counterDecrease": "Diminuer",
   "counterEliminated": "Éliminé",
-  "counterSkipsTurn": "Passe son tour"
+  "counterSkipsTurn": "Passe son tour",
+  "toolHourglassTitle": "Sablier",
+  "toolHourglassSubtitle": "Du sable pour mesurer un tour, puis on retourne.",
+  "hourglassTurn": "Retourner",
+  "hourglassStart": "Démarrer",
+  "hourglassPause": "Pause",
+  "hourglassDone": "Temps écoulé",
+  "hourglassSeconds": "{count} s"
 }

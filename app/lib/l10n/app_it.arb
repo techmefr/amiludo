@@ -767,5 +767,12 @@
   "counterIncrease": "Aumenta",
   "counterDecrease": "Diminuisci",
   "counterEliminated": "Eliminato",
-  "counterSkipsTurn": "Salta il turno"
+  "counterSkipsTurn": "Salta il turno",
+  "toolHourglassTitle": "Clessidra",
+  "toolHourglassSubtitle": "Sabbia che misura un turno, poi si gira.",
+  "hourglassTurn": "Gira",
+  "hourglassStart": "Avvia",
+  "hourglassPause": "Pausa",
+  "hourglassDone": "Tempo scaduto",
+  "hourglassSeconds": "{count} s"
 }

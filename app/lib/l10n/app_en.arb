@@ -991,5 +991,17 @@
   "counterIncrease": "Increase",
   "counterDecrease": "Decrease",
   "counterEliminated": "Eliminated",
-  "counterSkipsTurn": "Skips a turn"
+  "counterSkipsTurn": "Skips a turn",
+  "toolHourglassTitle": "Hourglass",
+  "toolHourglassSubtitle": "Sand that measures a turn, then flips.",
+  "hourglassTurn": "Turn",
+  "hourglassStart": "Start",
+  "hourglassPause": "Pause",
+  "hourglassDone": "Time is up",
+  "hourglassSeconds": "{count} s",
+  "@hourglassSeconds": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  }
 }
