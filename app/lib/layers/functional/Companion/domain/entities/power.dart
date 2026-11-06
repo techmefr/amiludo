@@ -24,13 +24,12 @@ class PowerSettings {
 }
 
 class PowerState {
-  PowerState(this.settings, {int charges = 0, bool used = false})
-    : charges = charges.clamp(0, _target(settings)),
-      _used = used;
+  PowerState(this.settings, {int charges = 0})
+    : charges = charges.clamp(0, _target(settings));
 
   final PowerSettings settings;
   int charges;
-  bool _used;
+  bool _used = false;
 
   static int _target(PowerSettings s) => s.threshold < 1 ? 1 : s.threshold;
 
