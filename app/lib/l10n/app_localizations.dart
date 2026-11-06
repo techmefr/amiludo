@@ -4693,6 +4693,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'A name, a trade, a landmark and some trouble.'**
   String get toolTownSubtitle;
+
+  /// No description provided for @randomModeFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Who goes first'**
+  String get randomModeFirst;
+
+  /// No description provided for @randomModeRank.
+  ///
+  /// In en, this message translates to:
+  /// **'Rank everyone'**
+  String get randomModeRank;
+
+  /// No description provided for @randomRankingDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Everyone is ranked. Lift your fingers to start again.'**
+  String get randomRankingDone;
 }
 
 class _AppLocalizationsDelegate

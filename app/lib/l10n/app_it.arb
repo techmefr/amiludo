@@ -760,5 +760,8 @@
   "toolVillainTitle": "Generatore di cattivi",
   "toolVillainSubtitle": "Movente, metodi, debolezza e covo.",
   "toolTownTitle": "Generatore di città",
-  "toolTownSubtitle": "Un nome, un mestiere, un punto di riferimento e un guaio."
+  "toolTownSubtitle": "Un nome, un mestiere, un punto di riferimento e un guaio.",
+  "randomModeFirst": "Chi comincia",
+  "randomModeRank": "Ordina tutti",
+  "randomRankingDone": "Tutti classificati. Alza le dita per ricominciare."
 }

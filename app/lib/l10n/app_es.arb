@@ -760,5 +760,8 @@
   "toolVillainTitle": "Generador de villanos",
   "toolVillainSubtitle": "Motivo, métodos, debilidad y guarida.",
   "toolTownTitle": "Generador de pueblos",
-  "toolTownSubtitle": "Un nombre, un oficio, un lugar emblemático y un problema."
+  "toolTownSubtitle": "Un nombre, un oficio, un lugar emblemático y un problema.",
+  "randomModeFirst": "Quién empieza",
+  "randomModeRank": "Ordenar a todos",
+  "randomRankingDone": "Todos ordenados. Levanta los dedos para empezar de nuevo."
 }

@@ -2508,4 +2508,14 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get toolTownSubtitle =>
       'A name, a trade, a landmark and some trouble.';
+
+  @override
+  String get randomModeFirst => 'Who goes first';
+
+  @override
+  String get randomModeRank => 'Rank everyone';
+
+  @override
+  String get randomRankingDone =>
+      'Everyone is ranked. Lift your fingers to start again.';
 }

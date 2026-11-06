@@ -6,6 +6,8 @@ import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.da
 import 'package:amiludo/layers/functional/Random/presentation/teams_tool.dart';
 import 'package:amiludo/layers/technical/Feedback/device_feedback.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/finger_ring.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class TeamsFingerPad extends StatefulWidget {
   const TeamsFingerPad({
@@ -83,27 +85,12 @@ class _TeamsFingerPadState extends State<TeamsFingerPad> {
 
   Widget _contact(MapEntry<int, Offset> entry) {
     final team = assigned[entry.key];
-    final theme = Theme.of(context);
     return Positioned(
-      left: entry.value.dx - 36,
-      top: entry.value.dy - 36,
-      child: Container(
-        width: 72,
-        height: 72,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: team == null ? theme.colorScheme.surface : teamColors[team],
-          border: Border.all(color: theme.colorScheme.primary, width: 3),
-        ),
-        child: team == null
-            ? null
-            : Text(
-                '${team + 1}',
-                style: theme.textTheme.headlineSmall?.copyWith(
-                  color: Colors.white,
-                ),
-              ),
+      left: entry.value.dx - 44,
+      top: entry.value.dy - 44,
+      child: FingerRing(
+        color: team == null ? fingerIdleColor : teamColors[team],
+        label: team == null ? null : '${team + 1}',
       ),
     );
   }
@@ -117,20 +104,30 @@ class _TeamsFingerPadState extends State<TeamsFingerPad> {
     child: Container(
       height: 360,
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surfaceContainerHighest,
-        border: Border.all(color: Theme.of(context).colorScheme.outline),
+        color: fingerPadColor,
+        borderRadius: BorderRadius.circular(Radii.pill),
       ),
-      child: Stack(
-        clipBehavior: Clip.hardEdge,
-        children: [
-          Center(
-            child: Semantics(
-              liveRegion: true,
-              child: Text(_hint(), textAlign: TextAlign.center),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(Radii.pill),
+        child: Stack(
+          children: [
+            Center(
+              child: Semantics(
+                liveRegion: true,
+                child: Padding(
+                  padding: const EdgeInsets.all(Space.xl),
+                  child: Text(
+                    _hint(),
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleMedium
+                        ?.copyWith(color: fingerHintColor),
+                  ),
+                ),
+              ),
             ),
-          ),
-          for (final entry in contacts.entries) _contact(entry),
-        ],
+            for (final entry in contacts.entries) _contact(entry),
+          ],
+        ),
       ),
     ),
   );

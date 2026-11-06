@@ -760,5 +760,8 @@
   "toolVillainTitle": "Schurkengenerator",
   "toolVillainSubtitle": "Motief, methodes, zwakte en schuilplaats.",
   "toolTownTitle": "Plaatsgenerator",
-  "toolTownSubtitle": "Een naam, een ambacht, een herkenningspunt en wat ellende."
+  "toolTownSubtitle": "Een naam, een ambacht, een herkenningspunt en wat ellende.",
+  "randomModeFirst": "Wie begint",
+  "randomModeRank": "Iedereen rangschikken",
+  "randomRankingDone": "Iedereen staat in volgorde. Til je vingers op om opnieuw te beginnen."
 }

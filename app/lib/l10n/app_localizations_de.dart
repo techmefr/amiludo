@@ -2532,4 +2532,14 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get toolTownSubtitle =>
       'Ein Name, ein Gewerbe, ein Wahrzeichen und ein Ärgernis.';
+
+  @override
+  String get randomModeFirst => 'Wer beginnt';
+
+  @override
+  String get randomModeRank => 'Alle ordnen';
+
+  @override
+  String get randomRankingDone =>
+      'Alle sind sortiert. Finger heben, um neu zu starten.';
 }

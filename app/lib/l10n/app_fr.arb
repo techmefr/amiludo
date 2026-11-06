@@ -760,5 +760,8 @@
   "toolVillainTitle": "Générateur de méchant",
   "toolVillainSubtitle": "Motivation, méthodes, faiblesse et repaire.",
   "toolTownTitle": "Générateur de ville",
-  "toolTownSubtitle": "Un nom, un métier, un repère et un ennui."
+  "toolTownSubtitle": "Un nom, un métier, un repère et un ennui.",
+  "randomModeFirst": "Qui commence",
+  "randomModeRank": "Classer tout le monde",
+  "randomRankingDone": "Tout le monde est classé. Levez les doigts pour recommencer."
 }

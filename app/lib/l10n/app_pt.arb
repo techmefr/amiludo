@@ -760,5 +760,8 @@
   "toolVillainTitle": "Gerador de vilões",
   "toolVillainSubtitle": "Motivo, métodos, fraqueza e covil.",
   "toolTownTitle": "Gerador de vilas",
-  "toolTownSubtitle": "Um nome, um ofício, um marco e um problema."
+  "toolTownSubtitle": "Um nome, um ofício, um marco e um problema.",
+  "randomModeFirst": "Quem começa",
+  "randomModeRank": "Ordenar todos",
+  "randomRankingDone": "Todos ordenados. Levante os dedos para recomeçar."
 }

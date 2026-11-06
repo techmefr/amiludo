@@ -2529,4 +2529,14 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get toolTownSubtitle =>
       'Een naam, een ambacht, een herkenningspunt en wat ellende.';
+
+  @override
+  String get randomModeFirst => 'Wie begint';
+
+  @override
+  String get randomModeRank => 'Iedereen rangschikken';
+
+  @override
+  String get randomRankingDone =>
+      'Iedereen staat in volgorde. Til je vingers op om opnieuw te beginnen.';
 }

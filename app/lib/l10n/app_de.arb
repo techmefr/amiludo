@@ -760,5 +760,8 @@
   "toolVillainTitle": "Schurken-Generator",
   "toolVillainSubtitle": "Motiv, Methoden, Schwäche und Versteck.",
   "toolTownTitle": "Orts-Generator",
-  "toolTownSubtitle": "Ein Name, ein Gewerbe, ein Wahrzeichen und ein Ärgernis."
+  "toolTownSubtitle": "Ein Name, ein Gewerbe, ein Wahrzeichen und ein Ärgernis.",
+  "randomModeFirst": "Wer beginnt",
+  "randomModeRank": "Alle ordnen",
+  "randomRankingDone": "Alle sind sortiert. Finger heben, um neu zu starten."
 }

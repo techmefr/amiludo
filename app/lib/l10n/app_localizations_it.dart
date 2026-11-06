@@ -2528,4 +2528,14 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get toolTownSubtitle =>
       'Un nome, un mestiere, un punto di riferimento e un guaio.';
+
+  @override
+  String get randomModeFirst => 'Chi comincia';
+
+  @override
+  String get randomModeRank => 'Ordina tutti';
+
+  @override
+  String get randomRankingDone =>
+      'Tutti classificati. Alza le dita per ricominciare.';
 }

@@ -984,5 +984,8 @@
   "toolVillainTitle": "Villain generator",
   "toolVillainSubtitle": "Motive, methods, weakness and lair.",
   "toolTownTitle": "Town generator",
-  "toolTownSubtitle": "A name, a trade, a landmark and some trouble."
+  "toolTownSubtitle": "A name, a trade, a landmark and some trouble.",
+  "randomModeFirst": "Who goes first",
+  "randomModeRank": "Rank everyone",
+  "randomRankingDone": "Everyone is ranked. Lift your fingers to start again."
 }
