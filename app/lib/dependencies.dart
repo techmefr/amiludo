@@ -49,6 +49,8 @@ import 'package:amiludo/layers/functional/Companion/data/accelerometer_turn_sens
 import 'package:amiludo/layers/functional/Companion/domain/entities/turn_sensor.dart';
 import 'package:amiludo/layers/technical/Motion/shake_source.dart';
 import 'package:amiludo/layers/technical/Sensors/accelerometer_feed.dart';
+import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
+import 'package:amiludo/layers/technical/Sound/sound_output.dart';
 import 'package:amiludo/layers/technical/Sensors/accelerometer_shake_source.dart';
 import 'package:amiludo/layers/technical/Sensors/accelerometer_turns.dart';
 import 'package:amiludo/layers/technical/Sensors/sensor_sensitivity.dart';
@@ -208,6 +210,10 @@ void _registerSensors() {
     ..registerLazySingleton<AccelerometerFeed>(PlatformAccelerometerFeed.new)
     ..registerFactoryParam<ShakeSource, SensorSensitivity, void>(
       (level, _) => AccelerometerShakeSource(getIt(), level),
+    )
+    ..registerLazySingleton<SoundOutput>(AudioplayersSoundOutput.new)
+    ..registerFactoryParam<TrayMotion, SensorSensitivity, void>(
+      (level, _) => AccelerometerTrayMotion(getIt(), level),
     )
     ..registerFactoryParam<TurnSensor, SensorSensitivity, void>(
       (level, _) => AccelerometerTurnSensor(AccelerometerTurns(getIt(), level)),

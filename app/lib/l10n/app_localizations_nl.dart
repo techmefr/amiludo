@@ -2617,6 +2617,18 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get diceTrayCustomColor => 'Kleur van de zijden';
+
+  @override
+  String get diceTraySurface => 'Ondergrond';
+
+  @override
+  String get diceTrayWood => 'Hout';
+
+  @override
+  String get diceTrayFelt => 'Vilt';
+
+  @override
+  String get diceTrayGlass => 'Glas';
   String get toolHourglassTitle => 'Zandloper';
 
   @override

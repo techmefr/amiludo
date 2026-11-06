@@ -4957,6 +4957,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Face color'**
   String get diceTrayCustomColor;
+
+  /// No description provided for @diceTraySurface.
+  ///
+  /// In en, this message translates to:
+  /// **'Surface'**
+  String get diceTraySurface;
+
+  /// No description provided for @diceTrayWood.
+  ///
+  /// In en, this message translates to:
+  /// **'Wood'**
+  String get diceTrayWood;
+
+  /// No description provided for @diceTrayFelt.
+  ///
+  /// In en, this message translates to:
+  /// **'Felt'**
+  String get diceTrayFelt;
+
+  /// No description provided for @diceTrayGlass.
+  ///
+  /// In en, this message translates to:
+  /// **'Glass'**
+  String get diceTrayGlass;
   /// No description provided for @toolHourglassTitle.
   ///
   /// In en, this message translates to:

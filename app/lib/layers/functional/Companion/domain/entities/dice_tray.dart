@@ -52,6 +52,7 @@ class DiceSpec {
 class DiceTraySettings {
   const DiceTraySettings({
     this.dice = const [DiceSpec(sides: 6), DiceSpec(sides: 6)],
+    this.surface = 'wood',
   });
 
   factory DiceTraySettings.fromJson(Map<String, dynamic> j) {
@@ -59,15 +60,21 @@ class DiceTraySettings {
       for (final d in j['dice'] as List? ?? const [])
         DiceSpec.fromJson(Map<String, dynamic>.from(d as Map)),
     ].where((d) => d.sides >= 2).take(maxTrayDice).toList();
+    final surface = '${j['surface'] ?? 'wood'}';
     return parsed.isEmpty
-        ? const DiceTraySettings()
-        : DiceTraySettings(dice: parsed);
+        ? DiceTraySettings(surface: surface)
+        : DiceTraySettings(dice: parsed, surface: surface);
   }
 
   final List<DiceSpec> dice;
+  final String surface;
+
+  DiceTraySettings withSurface(String next) =>
+      DiceTraySettings(dice: dice, surface: next);
 
   Map<String, dynamic> toJson() => {
     'dice': dice.map((d) => d.toJson()).toList(),
+    'surface': surface,
   };
 
   Brick toBrick(String id) =>
@@ -120,6 +127,20 @@ class DiceTraySession {
       values: next,
       kept: kept,
       history: [TrayRoll(next, totalOf(next)), ...history].take(20).toList(),
+    );
+  }
+
+  DiceTraySession withOutcome(List<int> outcome) {
+    if (!thrown || outcome.length != values.length) return this;
+    final next = [
+      for (var i = 0; i < outcome.length; i++)
+        kept.contains(i) ? values[i] : outcome[i],
+    ];
+    return DiceTraySession(
+      settings: settings,
+      values: next,
+      kept: kept,
+      history: [TrayRoll(next, totalOf(next)), ...history.skip(1)],
     );
   }
 
