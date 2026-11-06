@@ -2538,4 +2538,16 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get randomRankingDone =>
       'Tutti classificati. Alza le dita per ricominciare.';
+
+  @override
+  String get counterIncrease => 'Aumenta';
+
+  @override
+  String get counterDecrease => 'Diminuisci';
+
+  @override
+  String get counterEliminated => 'Eliminato';
+
+  @override
+  String get counterSkipsTurn => 'Salta il turno';
 }

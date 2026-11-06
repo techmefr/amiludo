@@ -2539,4 +2539,16 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get randomRankingDone =>
       'Iedereen staat in volgorde. Til je vingers op om opnieuw te beginnen.';
+
+  @override
+  String get counterIncrease => 'Verhogen';
+
+  @override
+  String get counterDecrease => 'Verlagen';
+
+  @override
+  String get counterEliminated => 'Uitgeschakeld';
+
+  @override
+  String get counterSkipsTurn => 'Slaat een beurt over';
 }

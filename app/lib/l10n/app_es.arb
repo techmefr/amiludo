@@ -763,5 +763,9 @@
   "toolTownSubtitle": "Un nombre, un oficio, un lugar emblemático y un problema.",
   "randomModeFirst": "Quién empieza",
   "randomModeRank": "Ordenar a todos",
-  "randomRankingDone": "Todos ordenados. Levanta los dedos para empezar de nuevo."
+  "randomRankingDone": "Todos ordenados. Levanta los dedos para empezar de nuevo.",
+  "counterIncrease": "Aumentar",
+  "counterDecrease": "Disminuir",
+  "counterEliminated": "Eliminado",
+  "counterSkipsTurn": "Pierde el turno"
 }
