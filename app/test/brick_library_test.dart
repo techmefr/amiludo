@@ -184,6 +184,9 @@ void _screenTests(Size size) {
         matching: find.text('Ma partie'),
       ),
     );
+    await tester.runAsync(
+      () => Future<void>.delayed(const Duration(milliseconds: 300)),
+    );
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
     expect(find.text('Brique ajoutée au compagnon.'), findsOneWidget);
