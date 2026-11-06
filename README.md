@@ -1,97 +1,96 @@
 <p align="center">
-  <img src="design/logo/amiludo-app-icon.svg" width="112" alt="Logo amiLudo : une boîte de jeu violette qui s’ouvre">
+  <img src="design/logo/amiludo-app-icon.svg" width="112" alt="amiLudo logo: a purple game box opening">
 </p>
 
 <h1 align="center">amiLudo</h1>
 
 <p align="center">
-  <strong>Tous les outils. Autour de la table.</strong><br>
-  Le compagnon open source des soirées jeux de société : scores, dés, chronos, équipes,<br>
-  ludothèque, amis, salons à rejoindre par QR code et soirées avec inscriptions.
+  <strong>Every tool. Around the table.</strong><br>
+  The open source companion for board game nights: scores, dice, timers, teams,<br>
+  game shelf, friends, lobbies you join by QR code and evenings with sign-ups.
 </p>
 
 <p align="center">
-  <a href="https://techmefr.github.io/amiludo/app/"><img alt="Ouvrir l’application" src="https://img.shields.io/badge/ouvrir-l’application-6f4fd0?style=for-the-badge"></a>
-  <a href="https://github.com/techmefr/amiludo/releases"><img alt="APK Android" src="https://img.shields.io/badge/Android-APK%20de%20test-3ddc84?style=for-the-badge&logo=android&logoColor=white"></a>
+  <a href="https://techmefr.github.io/amiludo/app/"><img alt="Open the app" src="https://img.shields.io/badge/open-the%20app-6f4fd0?style=for-the-badge"></a>
+  <a href="https://github.com/techmefr/amiludo/releases"><img alt="Android APK" src="https://img.shields.io/badge/Android-test%20APK-3ddc84?style=for-the-badge&logo=android&logoColor=white"></a>
 </p>
 
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-0.4.0--alpha-orange?style=flat-square">
   <img alt="Flutter" src="https://img.shields.io/badge/Flutter-3.47-02569B?style=flat-square&logo=flutter">
-  <img alt="Plateformes" src="https://img.shields.io/badge/Android%20·%20iOS%20·%20Web-un%20seul%20code-8250df?style=flat-square">
+  <img alt="Platforms" src="https://img.shields.io/badge/Android%20·%20iOS%20·%20Web-one%20codebase-8250df?style=flat-square">
   <img alt="Tests" src="https://img.shields.io/badge/tests-115-1a7f37?style=flat-square">
-  <img alt="Sans pub" src="https://img.shields.io/badge/publicité-aucune-1a7f37?style=flat-square">
-  <a href="LICENSE"><img alt="Licence MIT" src="https://img.shields.io/badge/licence-MIT-blue?style=flat-square"></a>
+  <img alt="No ads" src="https://img.shields.io/badge/ads-none-1a7f37?style=flat-square">
+  <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square"></a>
 </p>
 
 <p align="center">
-  <a href="#-ce-quon-peut-faire">Fonctions</a> ·
-  <a href="#-jouer-ensemble">Jouer ensemble</a> ·
-  <a href="#-démarrer">Démarrer</a> ·
+  <a href="#-what-you-can-do">Features</a> ·
+  <a href="#-playing-together">Playing together</a> ·
+  <a href="#-getting-started">Getting started</a> ·
   <a href="#-architecture">Architecture</a> ·
-  <a href="#-documents">Documents</a> ·
-  <a href="README.en.md">English</a>
+  <a href="#-documents">Documents</a>
 </p>
 
 <p align="center">
-  <img src="design/screenshots/home-desktop.png" width="820" alt="Accueil d’amiLudo sur ordinateur : « On joue à quoi, aujourd’hui ? », boutons Mode libre, Ouvrir un salon et Rejoindre une partie, et outils de la table">
+  <img src="design/screenshots/home-desktop.png" width="820" alt="amiLudo home on desktop: what are we playing today, Free mode, Open a lobby and Join a game buttons, and the table tools">
 </p>
 
 ---
 
-## 🎲 Pourquoi amiLudo
+## 🎲 Why amiLudo
 
-Une soirée jeux, c’est souvent un téléphone pour les dés, un papier pour les scores, un autre téléphone pour le chrono et un débat sur « qui commence ». amiLudo réunit tout ça dans une seule app pensée pour être posée **au milieu de la table** : grandes commandes, gestes simples, et des thèmes qui se règlent pour chaque joueur.
+A game night is often one phone for the dice, a sheet of paper for the scores, another phone for the timer and a debate about who starts. amiLudo gathers all of it in a single app designed to sit **in the middle of the table**: large controls, simple gestures, and themes each player can set for themselves.
 
-- **Hors connexion d’abord** : tout ce qui sert pendant la partie marche sans réseau, avec les données gardées sur l’appareil.
-- **Sans compte obligatoire, sans publicité**. Le compte ne sert qu’aux soirées en ligne.
-- **Un seul code Flutter** pour Android, iOS et le web.
+- **Offline first**: everything you need during a game works without a network, with data kept on the device.
+- **No account required, no ads**. An account is only needed for online evenings.
+- **One Flutter codebase** for Android, iOS and the web.
 
-## ✨ Ce qu’on peut faire
+## ✨ What you can do
 
 | | |
 |---|---|
-| 🧮 **Scores** | Manches, catégories, scores négatifs ou décimaux, objectifs coopératifs, ressources et statuts, annuler et rétablir, classement, égalités, revanche |
-| 🎲 **Hasard** | Dés multiples verrouillables, expressions (`2d6+1`), qui commence (au doigt ou par nom), ordre du tour, pièce, roue pondérée, sac de jetons, rôles secrets |
-| 👥 **Équipes** | À partir des noms saisis, des joueurs du salon ou des **doigts posés sur l’écran** |
-| ⏱️ **Temps** | Chrono libre, temps par tour, réserve par joueur avec incrément, réglages gardés par table |
-| 📚 **Ludothèque** | Vos jeux rangés sur des étagères, avec genres, nombre de joueurs, durée et packs liés |
-| ❤️ **Amis** | Genres aimés ou évités, temps disponible, jeux refusés ou adorés malgré le genre |
-| 🤔 **On joue à quoi ce soir ?** | Suggestions selon les amis présents, leurs envies et le temps dont vous disposez |
-| 📸 **Souvenirs** | Notes, moments forts et photos, et une galerie privée échangée en fichier chiffré |
-| 🧩 **Packs de jeu** | Dés, rôles, règles de décompte, personnages par listes ou boosters, et une galerie communautaire installable |
-| 🎨 **Apparence** | Quatre univers (Playroom, Cyberdeck, Orbital, Carnet), onze palettes, sept polices, mode sombre, animations, sons et vibrations désactivables |
-| 💾 **Données** | SQLite local, historique, export CSV et JSON, sauvegarde et restauration complètes |
+| 🧮 **Scores** | Rounds, categories, negative or decimal scores, cooperative goals, resources and statuses, undo and redo, ranking, ties, rematch |
+| 🎲 **Chance** | Multiple lockable dice, expressions (`2d6+1`), who starts (by finger or by name), turn order, coin, weighted wheel, token bag, secret roles |
+| 👥 **Teams** | From typed names, lobby players or **fingers placed on the screen** |
+| ⏱️ **Time** | Free timer, time per turn, per-player reserve with increment, settings kept per table |
+| 📚 **Game shelf** | Your games on shelves, with genres, player count, duration and linked packs |
+| ❤️ **Friends** | Liked or avoided genres, available time, refused games or loved ones despite the genre |
+| 🤔 **What do we play tonight?** | Suggestions based on the friends present, their wishes and the time you have |
+| 📸 **Memories** | Notes, highlights and photos, plus a private gallery exchanged as an encrypted file |
+| 🧩 **Game packs** | Dice, roles, scoring rules, characters by lists or boosters, and an installable community gallery |
+| 🎨 **Appearance** | Four universes (Playroom, Cyberdeck, Orbital, Notebook), eleven palettes, seven fonts, dark mode, animations, sounds and vibrations you can turn off |
+| 💾 **Data** | Local SQLite, history, CSV and JSON export, full backup and restore |
 
 <p align="center">
-  <img src="design/screenshots/home-mobile.png" width="200" alt="Accueil sur téléphone">
-  <img src="design/screenshots/dice-mobile.png" width="200" alt="Lancer de dés sur téléphone">
-  <img src="design/screenshots/teams-mobile.png" width="200" alt="Formation d’équipes par noms ou au doigt">
-  <img src="design/screenshots/lobby-mobile.png" width="200" alt="Ouverture d’un salon : même Wi-Fi ou à distance">
+  <img src="design/screenshots/home-mobile.png" width="200" alt="Home on a phone">
+  <img src="design/screenshots/dice-mobile.png" width="200" alt="Dice roll on a phone">
+  <img src="design/screenshots/teams-mobile.png" width="200" alt="Forming teams by names or by finger">
+  <img src="design/screenshots/lobby-mobile.png" width="200" alt="Opening a lobby: same Wi-Fi or remote">
 </p>
 
-## 📡 Jouer ensemble
+## 📡 Playing together
 
-**Salons de partie.** L’hôte ouvre un salon et le partage par **QR code, code court ou lien**. Les autres rejoignent :
+**Game lobbies.** The host opens a lobby and shares it by **QR code, short code or link**. Others join:
 
-- **sur le même Wi‑Fi**, sans serveur : l’app trouve le salon toute seule ;
-- **à distance**, par Internet, avec le lien ou le code.
+- **on the same Wi-Fi**, with no server: the app finds the lobby by itself;
+- **remotely**, over the Internet, with the link or the code.
 
-L’hôte accepte ou refuse chaque demande, ferme le salon, puis lance la partie avec les joueurs acceptés.
+The host accepts or declines each request, closes the lobby, then starts the game with the accepted players.
 
-**Soirées.** Date, lieu, nombre de places et jeux prévus. Chaque invité répond *oui*, *peut-être* ou *non*. Les places partent dans l’ordre des réponses, puis on passe en liste d’attente. L’invitation se partage par lien, code ou QR. Sans serveur, l’hôte peut aussi noter lui-même les réponses de ses amis.
+**Evenings.** Date, place, number of seats and planned games. Each guest answers *yes*, *maybe* or *no*. Seats go in order of answers, then people move to a waiting list. The invitation is shared by link, code or QR. Without a server, the host can also record the answers of their friends themselves.
 
-**Partage hors ligne.** Une session complète (packs, dés, fiches, joueurs) passe d’un téléphone à l’autre en **QR code animé**. Le codage fontaine permet de commencer le scan en cours de route et de rater des images.
+**Offline sharing.** A full session (packs, dice, sheets, players) moves from one phone to another as an **animated QR code**. Fountain coding lets you start scanning midway and miss frames.
 
 <p align="center">
-  <img src="design/screenshots/evenings-desktop.png" width="820" alt="Écran des soirées sur ordinateur">
+  <img src="design/screenshots/evenings-desktop.png" width="820" alt="Evenings screen on desktop">
 </p>
 
-## 🚀 Démarrer
+## 🚀 Getting started
 
-**Jouer tout de suite** : [ouvrir l’application web](https://techmefr.github.io/amiludo/app/). Ouvrez-la une première fois avec une connexion pour qu’elle se mette en cache, après quoi elle fonctionne hors ligne. Sur iPhone et iPad, utilisez la version web. Sur Android, un [APK de test](https://github.com/techmefr/amiludo/releases) est disponible.
+**Play right away**: [open the web app](https://techmefr.github.io/amiludo/app/). Open it once with a connection so it caches itself, after which it works offline. On iPhone and iPad, use the web version. On Android, a [test APK](https://github.com/techmefr/amiludo/releases) is available.
 
-**Développer** : Flutter **3.47.9** et Dart **3.13.7**. Les dépendances sont verrouillées dans `app/pubspec.lock`.
+**Develop**: Flutter **3.47.9** and Dart **3.13.7**. Dependencies are locked in `app/pubspec.lock`.
 
 ```sh
 cd app
@@ -101,63 +100,63 @@ flutter test
 flutter run -d chrome
 ```
 
-**Compiler le web** : depuis la racine, lancez `bash scripts/build_web.sh`. Le chemin public se règle avec `APP_BASE_PATH`.
+**Build the web app**: from the root, run `bash scripts/build_web.sh`. The public path is set with `APP_BASE_PATH`.
 
-**Fonctions en ligne (facultatives)** : les salons à distance, les comptes et les soirées en ligne utilisent [Supabase](https://supabase.com). Il suffit de fournir le projet au build :
+**Online features (optional)**: remote lobbies, accounts and online evenings use [Supabase](https://supabase.com). Just provide the project at build time:
 
 ```sh
 SUPABASE_URL=https://xxxx.supabase.co \
 SUPABASE_PUBLISHABLE_KEY=sb_publishable_xxx \
-AMILUDO_LINK_BASE=https://votre-site/app/# \
+AMILUDO_LINK_BASE=https://your-site/app/# \
 bash scripts/build_web.sh
 ```
 
-Le schéma de la base se trouve dans [`server/supabase/migrations`](server/supabase/migrations). Sans ces variables, l’app reste entièrement locale. Le salon Wi‑Fi marche dans tous les cas, sauf dans un navigateur.
+The database schema is in [`server/supabase/migrations`](server/supabase/migrations). Without these variables, the app stays entirely local. The Wi-Fi lobby works in every case, except in a browser.
 
-**Intégration continue** : à chaque push sur `main`, GitHub Actions analyse le code, lance les tests, publie la version web sur GitHub Pages et construit un APK Android de test. Les variables du projet Supabase sont lues depuis les *variables* du dépôt.
+**Continuous integration**: on every push to `main`, GitHub Actions analyzes the code, runs the tests, publishes the web version to GitHub Pages and builds a test Android APK. The Supabase project variables are read from the repository *variables*.
 
 ## 🏗️ Architecture
 
-Le code suit l’architecture **OSDD** en couches indépendantes :
+The code follows the **OSDD** architecture, in independent layers:
 
 ```
 app/lib/
 ├── layers/
 │   ├── functional/   Account · Appearance · Evenings · Friends · Game · History · Library
 │   │                 Lobby · Memories · Random · Sharing · Templates · Timer · Workspace
-│   │     └── <Feature>/domain (entities, gateways, use_cases) → data → presentation (cubit, écrans)
+│   │     └── <Feature>/domain (entities, gateways, use_cases) → data → presentation (cubit, screens)
 │   └── technical/    About · Appearance · Feedback · Files · Network · Qr · Storage · Theme · Transfer
 ├── dependencies.dart  injection (get_it)
 ├── router.dart        navigation (go_router)
 └── main.dart
 ```
 
-- L’état passe par `flutter_bloc` (Cubit), puis par les cas d’usage, puis par des gateways sous contrat.
-- Une feature ne voit que le `domain` d’une autre, et `technical/` n’importe jamais `functional/`.
-- Les données sont stockées avec Drift et SQLite, en natif sur mobile et en Wasm sur le web.
-- Le réseau passe par WebSocket et une découverte UDP sur le Wi‑Fi local, ou par Supabase Realtime à distance.
+- State flows through `flutter_bloc` (Cubit), then use cases, then gateways behind contracts.
+- A feature only sees another feature's `domain`, and `technical/` never imports `functional/`.
+- Data is stored with Drift and SQLite, native on mobile and Wasm on the web.
+- The network uses WebSocket and UDP discovery on the local Wi-Fi, or Supabase Realtime remotely.
 
-Le détail est dans [docs/TECHNOLOGY.md](docs/TECHNOLOGY.md).
+Details are in [docs/TECHNOLOGY.md](docs/TECHNOLOGY.md).
 
-## 📍 Où en est le projet
+## 📍 Where the project stands
 
-**Alpha publique 0.4.0.** Le catalogue compte **170 fonctions : 113 sont livrées, 57 sont prévues ou incomplètes**. Les tests sur vrais téléphones restent à faire : découverte Wi‑Fi, caméra, veille, lecteurs d’écran. La traduction anglaise est partielle. Le point complet est dans [docs/APP-STATUS.md](docs/APP-STATUS.md), et la suite dans [la feuille de route](docs/ROADMAP.md).
+**Public alpha 0.4.0.** The catalogue lists **170 features: 113 are shipped, 57 are planned or incomplete**. Tests on real phones remain to be done: Wi-Fi discovery, camera, sleep, screen readers. The English translation is partial. The full status is in [docs/APP-STATUS.md](docs/APP-STATUS.md), and what comes next is in [the roadmap](docs/ROADMAP.md).
 
-## 🤝 Contribuer
+## 🤝 Contributing
 
-Les retours de joueurs sont aussi précieux que le code. Le [guide de test](TESTING.md) explique quoi essayer, et le [guide de contribution](CONTRIBUTING.md) comment proposer un pack ou une correction. Les [issues](https://github.com/techmefr/amiludo/issues) sont ouvertes en français comme en anglais. Une faille ? Voir [SECURITY.md](SECURITY.md).
+Feedback from players is as valuable as code. The [testing guide](TESTING.md) explains what to try, and the [contribution guide](CONTRIBUTING.md) explains how to propose a pack or a fix. [Issues](https://github.com/techmefr/amiludo/issues) are open in French and in English. Found a vulnerability? See [SECURITY.md](SECURITY.md).
 
 ## 📄 Documents
 
-- [Catalogue fonctionnel et statut](docs/FEATURES.md)
-- [État réel de l’application](docs/APP-STATUS.md)
-- [Feuille de route](docs/ROADMAP.md)
-- [Choix techniques](docs/TECHNOLOGY.md)
-- [Packs et builders](docs/PACKS.md)
-- [Catalogue cible élargi](docs/VISION-COMPLETE.md)
-- [Présentation pour les joueurs (PDF)](docs/presentation/Amiludo-presentation-joueurs.pdf)
-- [Guide de l’application Flutter](app/README.md)
+- [Feature catalogue and status](docs/FEATURES.md)
+- [Actual state of the app](docs/APP-STATUS.md)
+- [Roadmap](docs/ROADMAP.md)
+- [Technical choices](docs/TECHNOLOGY.md)
+- [Packs and builders](docs/PACKS.md)
+- [Extended target catalogue](docs/VISION-COMPLETE.md)
+- [Presentation for players (PDF)](docs/presentation/Amiludo-presentation-joueurs.pdf)
+- [Flutter app guide](app/README.md)
 
-## Licence
+## License
 
-Le code et les concepts originaux sont sous [licence MIT](LICENSE). Les polices embarquées gardent leurs licences OFL, et leurs mentions sont aussi visibles dans l’écran « À propos ». Le logo s’appelle « La boîte » ([design/logo](design/logo)).
+The code and original concepts are under the [MIT license](LICENSE). Bundled fonts keep their OFL licenses, and their notices are also shown in the "About" screen. The logo is called "The box" ([design/logo](design/logo)).
