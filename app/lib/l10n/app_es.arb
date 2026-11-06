@@ -767,5 +767,19 @@
   "counterIncrease": "Aumentar",
   "counterDecrease": "Disminuir",
   "counterEliminated": "Eliminado",
-  "counterSkipsTurn": "Pierde el turno"
+  "counterSkipsTurn": "Pierde el turno",
+  "toolDiceTrayTitle": "Bandeja de dados",
+  "toolDiceTraySubtitle": "Agita para lanzar, aparta dados y mira el total.",
+  "diceTrayThrow": "Lanzar",
+  "diceTrayShakeHint": "Agita el móvil o pulsa Lanzar.",
+  "diceTrayTotal": "Total",
+  "diceTrayHistory": "Historial",
+  "diceTrayKeepHint": "Toca un dado para apartarlo.",
+  "diceTrayKept": "Apartado",
+  "diceTrayAddDie": "Añadir un dado",
+  "diceTrayRemoveDie": "Quitar este dado",
+  "diceTrayCustomFaces": "Caras personalizadas, separadas por comas",
+  "diceTrayCustomDie": "Dado personalizado",
+  "diceTrayEmpty": "Añade un dado para empezar.",
+  "diceTrayCustomColor": "Color de las caras"
 }

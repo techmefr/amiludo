@@ -2530,4 +2530,46 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get counterSkipsTurn => 'Skips a turn';
+
+  @override
+  String get toolDiceTrayTitle => 'Dice tray';
+
+  @override
+  String get toolDiceTraySubtitle => 'Shake to throw, keep dice aside, see the total.';
+
+  @override
+  String get diceTrayThrow => 'Throw';
+
+  @override
+  String get diceTrayShakeHint => 'Shake your phone or press Throw.';
+
+  @override
+  String get diceTrayTotal => 'Total';
+
+  @override
+  String get diceTrayHistory => 'History';
+
+  @override
+  String get diceTrayKeepHint => 'Tap a die to keep it aside.';
+
+  @override
+  String get diceTrayKept => 'Kept aside';
+
+  @override
+  String get diceTrayAddDie => 'Add a die';
+
+  @override
+  String get diceTrayRemoveDie => 'Remove this die';
+
+  @override
+  String get diceTrayCustomFaces => 'Custom faces, comma-separated';
+
+  @override
+  String get diceTrayCustomDie => 'Custom die';
+
+  @override
+  String get diceTrayEmpty => 'Add a die to start.';
+
+  @override
+  String get diceTrayCustomColor => 'Face color';
 }

@@ -767,5 +767,19 @@
   "counterIncrease": "Erhöhen",
   "counterDecrease": "Verringern",
   "counterEliminated": "Ausgeschieden",
-  "counterSkipsTurn": "Setzt aus"
+  "counterSkipsTurn": "Setzt aus",
+  "toolDiceTrayTitle": "Würfelbrett",
+  "toolDiceTraySubtitle": "Schütteln zum Werfen, Würfel beiseitelegen, Summe sehen.",
+  "diceTrayThrow": "Werfen",
+  "diceTrayShakeHint": "Schüttle dein Handy oder tippe auf Werfen.",
+  "diceTrayTotal": "Gesamt",
+  "diceTrayHistory": "Verlauf",
+  "diceTrayKeepHint": "Tippe auf einen Würfel, um ihn beiseitezulegen.",
+  "diceTrayKept": "Beiseitegelegt",
+  "diceTrayAddDie": "Würfel hinzufügen",
+  "diceTrayRemoveDie": "Diesen Würfel entfernen",
+  "diceTrayCustomFaces": "Eigene Seiten, durch Kommas getrennt",
+  "diceTrayCustomDie": "Eigener Würfel",
+  "diceTrayEmpty": "Füge einen Würfel hinzu, um zu beginnen.",
+  "diceTrayCustomColor": "Farbe der Seiten"
 }

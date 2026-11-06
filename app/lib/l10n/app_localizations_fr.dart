@@ -2553,4 +2553,46 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get counterSkipsTurn => 'Passe son tour';
+
+  @override
+  String get toolDiceTrayTitle => 'Plateau de dés';
+
+  @override
+  String get toolDiceTraySubtitle => 'Secouez pour lancer, gardez des dés de côté, voyez le total.';
+
+  @override
+  String get diceTrayThrow => 'Lancer';
+
+  @override
+  String get diceTrayShakeHint => 'Secouez le téléphone ou appuyez sur Lancer.';
+
+  @override
+  String get diceTrayTotal => 'Total';
+
+  @override
+  String get diceTrayHistory => 'Historique';
+
+  @override
+  String get diceTrayKeepHint => 'Touchez un dé pour le garder de côté.';
+
+  @override
+  String get diceTrayKept => 'Gardé de côté';
+
+  @override
+  String get diceTrayAddDie => 'Ajouter un dé';
+
+  @override
+  String get diceTrayRemoveDie => 'Retirer ce dé';
+
+  @override
+  String get diceTrayCustomFaces => 'Faces personnalisées, séparées par des virgules';
+
+  @override
+  String get diceTrayCustomDie => 'Dé personnalisé';
+
+  @override
+  String get diceTrayEmpty => 'Ajoutez un dé pour commencer.';
+
+  @override
+  String get diceTrayCustomColor => 'Couleur des faces';
 }

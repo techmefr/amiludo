@@ -2554,4 +2554,46 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get counterSkipsTurn => 'Setzt aus';
+
+  @override
+  String get toolDiceTrayTitle => 'Würfelbrett';
+
+  @override
+  String get toolDiceTraySubtitle => 'Schütteln zum Werfen, Würfel beiseitelegen, Summe sehen.';
+
+  @override
+  String get diceTrayThrow => 'Werfen';
+
+  @override
+  String get diceTrayShakeHint => 'Schüttle dein Handy oder tippe auf Werfen.';
+
+  @override
+  String get diceTrayTotal => 'Gesamt';
+
+  @override
+  String get diceTrayHistory => 'Verlauf';
+
+  @override
+  String get diceTrayKeepHint => 'Tippe auf einen Würfel, um ihn beiseitezulegen.';
+
+  @override
+  String get diceTrayKept => 'Beiseitegelegt';
+
+  @override
+  String get diceTrayAddDie => 'Würfel hinzufügen';
+
+  @override
+  String get diceTrayRemoveDie => 'Diesen Würfel entfernen';
+
+  @override
+  String get diceTrayCustomFaces => 'Eigene Seiten, durch Kommas getrennt';
+
+  @override
+  String get diceTrayCustomDie => 'Eigener Würfel';
+
+  @override
+  String get diceTrayEmpty => 'Füge einen Würfel hinzu, um zu beginnen.';
+
+  @override
+  String get diceTrayCustomColor => 'Farbe der Seiten';
 }

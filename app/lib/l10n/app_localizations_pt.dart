@@ -2550,4 +2550,46 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get counterSkipsTurn => 'Perde a vez';
+
+  @override
+  String get toolDiceTrayTitle => 'Bandeja de dados';
+
+  @override
+  String get toolDiceTraySubtitle => 'Sacuda para lançar, guarde dados de lado e veja o total.';
+
+  @override
+  String get diceTrayThrow => 'Lançar';
+
+  @override
+  String get diceTrayShakeHint => 'Sacuda o telemóvel ou toque em Lançar.';
+
+  @override
+  String get diceTrayTotal => 'Total';
+
+  @override
+  String get diceTrayHistory => 'Histórico';
+
+  @override
+  String get diceTrayKeepHint => 'Toque num dado para o guardar de lado.';
+
+  @override
+  String get diceTrayKept => 'Guardado de lado';
+
+  @override
+  String get diceTrayAddDie => 'Adicionar um dado';
+
+  @override
+  String get diceTrayRemoveDie => 'Remover este dado';
+
+  @override
+  String get diceTrayCustomFaces => 'Faces personalizadas, separadas por vírgulas';
+
+  @override
+  String get diceTrayCustomDie => 'Dado personalizado';
+
+  @override
+  String get diceTrayEmpty => 'Adicione um dado para começar.';
+
+  @override
+  String get diceTrayCustomColor => 'Cor das faces';
 }

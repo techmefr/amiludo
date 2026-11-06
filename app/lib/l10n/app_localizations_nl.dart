@@ -2551,4 +2551,46 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get counterSkipsTurn => 'Slaat een beurt over';
+
+  @override
+  String get toolDiceTrayTitle => 'Dobbelbak';
+
+  @override
+  String get toolDiceTraySubtitle => 'Schud om te gooien, leg dobbelstenen opzij, zie het totaal.';
+
+  @override
+  String get diceTrayThrow => 'Gooien';
+
+  @override
+  String get diceTrayShakeHint => 'Schud je telefoon of tik op Gooien.';
+
+  @override
+  String get diceTrayTotal => 'Totaal';
+
+  @override
+  String get diceTrayHistory => 'Geschiedenis';
+
+  @override
+  String get diceTrayKeepHint => 'Tik op een dobbelsteen om hem opzij te leggen.';
+
+  @override
+  String get diceTrayKept => 'Opzijgelegd';
+
+  @override
+  String get diceTrayAddDie => 'Dobbelsteen toevoegen';
+
+  @override
+  String get diceTrayRemoveDie => 'Deze dobbelsteen verwijderen';
+
+  @override
+  String get diceTrayCustomFaces => 'Eigen zijden, gescheiden door komma’s';
+
+  @override
+  String get diceTrayCustomDie => 'Eigen dobbelsteen';
+
+  @override
+  String get diceTrayEmpty => 'Voeg een dobbelsteen toe om te beginnen.';
+
+  @override
+  String get diceTrayCustomColor => 'Kleur van de zijden';
 }

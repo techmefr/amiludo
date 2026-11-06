@@ -17,6 +17,7 @@ import 'package:amiludo/layers/functional/Appearance/presentation/appearance_scr
 import 'package:amiludo/layers/functional/Friends/presentation/friend_form.dart';
 import 'package:amiludo/layers/functional/Friends/presentation/friends_screen.dart';
 import 'package:amiludo/layers/functional/Friends/presentation/review_screen.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_page.dart';
 import 'package:amiludo/layers/functional/Game/presentation/game_screen.dart';
 import 'package:amiludo/layers/functional/Game/presentation/score_sheet.dart';
 import 'package:amiludo/layers/functional/History/presentation/history_screen.dart';
@@ -47,6 +48,8 @@ Widget _timer(BuildContext context) =>
 
 Widget _scores(BuildContext context) => const GameScreen(timer: _timer);
 
+Widget _diceTray(BuildContext context) => const DiceTrayPage();
+
 class _AdminPage extends StatelessWidget {
   const _AdminPage();
 
@@ -72,7 +75,11 @@ final router = GoRouter(
         id: state.pathParameters['id']!,
         packId: state.uri.queryParameters['pack'],
         snapshot: state.uri.queryParameters['session'] == '1',
-        embeddedTools: const {'scores': _scores, 'timer': _timer},
+        embeddedTools: const {
+          'scores': _scores,
+          'timer': _timer,
+          'dice-tray': _diceTray,
+        },
       ),
     ),
     GoRoute(path: '/timer', redirect: (context, state) => '/tools/timer'),

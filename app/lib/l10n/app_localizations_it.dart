@@ -2550,4 +2550,46 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get counterSkipsTurn => 'Salta il turno';
+
+  @override
+  String get toolDiceTrayTitle => 'Vassoio dei dadi';
+
+  @override
+  String get toolDiceTraySubtitle => 'Scuoti per lanciare, tieni da parte i dadi, vedi il totale.';
+
+  @override
+  String get diceTrayThrow => 'Lancia';
+
+  @override
+  String get diceTrayShakeHint => 'Scuoti il telefono o premi Lancia.';
+
+  @override
+  String get diceTrayTotal => 'Totale';
+
+  @override
+  String get diceTrayHistory => 'Cronologia';
+
+  @override
+  String get diceTrayKeepHint => 'Tocca un dado per tenerlo da parte.';
+
+  @override
+  String get diceTrayKept => 'Tenuto da parte';
+
+  @override
+  String get diceTrayAddDie => 'Aggiungi un dado';
+
+  @override
+  String get diceTrayRemoveDie => 'Rimuovi questo dado';
+
+  @override
+  String get diceTrayCustomFaces => 'Facce personalizzate, separate da virgole';
+
+  @override
+  String get diceTrayCustomDie => 'Dado personalizzato';
+
+  @override
+  String get diceTrayEmpty => 'Aggiungi un dado per iniziare.';
+
+  @override
+  String get diceTrayCustomColor => 'Colore delle facce';
 }

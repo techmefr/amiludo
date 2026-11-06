@@ -4735,6 +4735,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Skips a turn'**
   String get counterSkipsTurn;
+
+  /// No description provided for @toolDiceTrayTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Dice tray'**
+  String get toolDiceTrayTitle;
+
+  /// No description provided for @toolDiceTraySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Shake to throw, keep dice aside, see the total.'**
+  String get toolDiceTraySubtitle;
+
+  /// No description provided for @diceTrayThrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Throw'**
+  String get diceTrayThrow;
+
+  /// No description provided for @diceTrayShakeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Shake your phone or press Throw.'**
+  String get diceTrayShakeHint;
+
+  /// No description provided for @diceTrayTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get diceTrayTotal;
+
+  /// No description provided for @diceTrayHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get diceTrayHistory;
+
+  /// No description provided for @diceTrayKeepHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a die to keep it aside.'**
+  String get diceTrayKeepHint;
+
+  /// No description provided for @diceTrayKept.
+  ///
+  /// In en, this message translates to:
+  /// **'Kept aside'**
+  String get diceTrayKept;
+
+  /// No description provided for @diceTrayAddDie.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a die'**
+  String get diceTrayAddDie;
+
+  /// No description provided for @diceTrayRemoveDie.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove this die'**
+  String get diceTrayRemoveDie;
+
+  /// No description provided for @diceTrayCustomFaces.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom faces, comma-separated'**
+  String get diceTrayCustomFaces;
+
+  /// No description provided for @diceTrayCustomDie.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom die'**
+  String get diceTrayCustomDie;
+
+  /// No description provided for @diceTrayEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a die to start.'**
+  String get diceTrayEmpty;
+
+  /// No description provided for @diceTrayCustomColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Face color'**
+  String get diceTrayCustomColor;
 }
 
 class _AppLocalizationsDelegate

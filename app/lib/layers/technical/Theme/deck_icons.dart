@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 IconData toolIcon(String id) => switch (id) {
   'character' => Icons.badge_outlined,
   'dice' => Icons.casino_outlined,
+  'dice-tray' => Icons.casino_outlined,
   'picker' => Icons.touch_app_outlined,
   'scores' => Icons.add_chart_outlined,
   'timer' => Icons.timer_outlined,
