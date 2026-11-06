@@ -141,6 +141,21 @@ class AppLocalizationsDe extends AppLocalizations {
       'Bildschirm während der Spiele anlassen';
 
   @override
+  String get appearanceMotionSensors => 'Bewegungssensoren';
+
+  @override
+  String get appearanceSensorsOff => 'Aus';
+
+  @override
+  String get appearanceSensorsLow => 'Niedrig';
+
+  @override
+  String get appearanceSensorsMedium => 'Mittel';
+
+  @override
+  String get appearanceSensorsHigh => 'Hoch';
+
+  @override
   String get appearanceProfileName => 'Profilname';
 
   @override

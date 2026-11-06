@@ -140,6 +140,21 @@ class AppLocalizationsIt extends AppLocalizations {
       'Mantieni lo schermo acceso durante le partite';
 
   @override
+  String get appearanceMotionSensors => 'Sensori di movimento';
+
+  @override
+  String get appearanceSensorsOff => 'Disattivati';
+
+  @override
+  String get appearanceSensorsLow => 'Bassa';
+
+  @override
+  String get appearanceSensorsMedium => 'Media';
+
+  @override
+  String get appearanceSensorsHigh => 'Alta';
+
+  @override
   String get appearanceProfileName => 'Nome del profilo';
 
   @override
