@@ -2367,4 +2367,155 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get randomPreviousStep => 'Previous booster';
+
+  @override
+  String get toolPickerTitle => 'Who starts?';
+
+  @override
+  String get toolPickerSubtitle => 'A finger or a name. Chance decides.';
+
+  @override
+  String get toolDiceTitle => 'Roll the dice';
+
+  @override
+  String get toolDiceSubtitle => 'Multiple dice, locking and expressions.';
+
+  @override
+  String get toolScoresTitle => 'Keep score';
+
+  @override
+  String get toolScoresSubtitle => 'Scores, rounds and categories.';
+
+  @override
+  String get toolTimerTitle => 'Keep the tempo';
+
+  @override
+  String get toolTimerSubtitle => 'Time per turn or a reserve per player.';
+
+  @override
+  String get toolTeamsTitle => 'Make teams';
+
+  @override
+  String get toolTeamsSubtitle => 'From 2 to many random teams.';
+
+  @override
+  String get toolWheelTitle => 'Spin the wheel';
+
+  @override
+  String get toolWheelSubtitle => 'Custom options and probabilities.';
+
+  @override
+  String get toolCoinTitle => 'Heads or tails';
+
+  @override
+  String get toolCoinSubtitle => 'A decision in an instant.';
+
+  @override
+  String get toolOrderTitle => 'Turn order';
+
+  @override
+  String get toolOrderSubtitle => 'Everyone gets their turn.';
+
+  @override
+  String get toolNumberTitle => 'Random number';
+
+  @override
+  String get toolNumberSubtitle => 'A range, a result.';
+
+  @override
+  String get toolBagTitle => 'Token bag';
+
+  @override
+  String get toolBagSubtitle => 'Draw without replacement, then start again.';
+
+  @override
+  String get toolRolesTitle => 'Secret roles';
+
+  @override
+  String get toolRolesSubtitle => 'One phone, roles to discover.';
+
+  @override
+  String get toolCharacterTitle => 'Create a character';
+
+  @override
+  String get toolCharacterSubtitle =>
+      'Lists and boosters: your cards make a sheet.';
+
+  @override
+  String get toolNpcTitle => 'NPC generator';
+
+  @override
+  String get toolNpcSubtitle =>
+      'A full NPC in one tap: look, personality, secret.';
+
+  @override
+  String get toolTavernTitle => 'Tavern generator';
+
+  @override
+  String get toolTavernSubtitle =>
+      'A whole tavern in a few taps: menu, rumours, staff.';
+
+  @override
+  String get toolEncounterTitle => 'Random encounter';
+
+  @override
+  String get toolEncounterSubtitle =>
+      'An encounter with complications and a twist.';
+
+  @override
+  String get toolCategoryAll => 'All';
+
+  @override
+  String get toolCategoryChance => 'Chance';
+
+  @override
+  String get toolCategoryMatch => 'Game';
+
+  @override
+  String get toolCategoryTime => 'Time';
+
+  @override
+  String get toolCategoryStory => 'Story';
+
+  @override
+  String get randomCopy => 'Copy';
+
+  @override
+  String get randomCopied => 'Copied';
+
+  @override
+  String get toolQuestTitle => 'Quest generator';
+
+  @override
+  String get toolQuestSubtitle => 'A hook, a place, an obstacle and a reward.';
+
+  @override
+  String get toolTreasureTitle => 'Treasure generator';
+
+  @override
+  String get toolTreasureSubtitle =>
+      'What is inside the chest, and one odd curiosity.';
+
+  @override
+  String get toolVillainTitle => 'Villain generator';
+
+  @override
+  String get toolVillainSubtitle => 'Motive, methods, weakness and lair.';
+
+  @override
+  String get toolTownTitle => 'Town generator';
+
+  @override
+  String get toolTownSubtitle =>
+      'A name, a trade, a landmark and some trouble.';
+
+  @override
+  String get randomModeFirst => 'Who goes first';
+
+  @override
+  String get randomModeRank => 'Rank everyone';
+
+  @override
+  String get randomRankingDone =>
+      'Everyone is ranked. Lift your fingers to start again.';
 }

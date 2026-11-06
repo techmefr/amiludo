@@ -2387,4 +2387,155 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get randomPreviousStep => 'Pacote anterior';
+
+  @override
+  String get toolPickerTitle => 'Quem começa?';
+
+  @override
+  String get toolPickerSubtitle => 'Um dedo ou um nome. O acaso decide.';
+
+  @override
+  String get toolDiceTitle => 'Lançar os dados';
+
+  @override
+  String get toolDiceSubtitle => 'Vários dados, bloqueio e expressões.';
+
+  @override
+  String get toolScoresTitle => 'Contar pontos';
+
+  @override
+  String get toolScoresSubtitle => 'Pontuações, rondas e categorias.';
+
+  @override
+  String get toolTimerTitle => 'Manter o ritmo';
+
+  @override
+  String get toolTimerSubtitle => 'Tempo por turno ou reserva por jogador.';
+
+  @override
+  String get toolTeamsTitle => 'Formar equipas';
+
+  @override
+  String get toolTeamsSubtitle => 'De 2 a várias equipas aleatórias.';
+
+  @override
+  String get toolWheelTitle => 'Girar a roleta';
+
+  @override
+  String get toolWheelSubtitle => 'Opções personalizadas e probabilidades.';
+
+  @override
+  String get toolCoinTitle => 'Cara ou coroa';
+
+  @override
+  String get toolCoinSubtitle => 'Uma decisão num instante.';
+
+  @override
+  String get toolOrderTitle => 'Ordem de jogo';
+
+  @override
+  String get toolOrderSubtitle => 'A cada um a sua vez.';
+
+  @override
+  String get toolNumberTitle => 'Número aleatório';
+
+  @override
+  String get toolNumberSubtitle => 'Um intervalo, um resultado.';
+
+  @override
+  String get toolBagTitle => 'Saco de fichas';
+
+  @override
+  String get toolBagSubtitle => 'Tirar sem reposição e recomeçar.';
+
+  @override
+  String get toolRolesTitle => 'Papéis secretos';
+
+  @override
+  String get toolRolesSubtitle => 'Um telemóvel, papéis a descobrir.';
+
+  @override
+  String get toolCharacterTitle => 'Criar uma personagem';
+
+  @override
+  String get toolCharacterSubtitle =>
+      'Listas e pacotes: as suas cartas formam uma ficha.';
+
+  @override
+  String get toolNpcTitle => 'Gerador de PNJ';
+
+  @override
+  String get toolNpcSubtitle =>
+      'Um PNJ completo com um toque: aspeto, personalidade, segredo.';
+
+  @override
+  String get toolTavernTitle => 'Gerador de tabernas';
+
+  @override
+  String get toolTavernSubtitle =>
+      'Uma taberna inteira em poucos toques: menu, rumores, pessoal.';
+
+  @override
+  String get toolEncounterTitle => 'Encontro aleatório';
+
+  @override
+  String get toolEncounterSubtitle =>
+      'Um encontro com complicações e uma reviravolta.';
+
+  @override
+  String get toolCategoryAll => 'Todos';
+
+  @override
+  String get toolCategoryChance => 'Acaso';
+
+  @override
+  String get toolCategoryMatch => 'Partida';
+
+  @override
+  String get toolCategoryTime => 'Tempo';
+
+  @override
+  String get toolCategoryStory => 'Narrativa';
+
+  @override
+  String get randomCopy => 'Copiar';
+
+  @override
+  String get randomCopied => 'Copiado';
+
+  @override
+  String get toolQuestTitle => 'Gerador de missões';
+
+  @override
+  String get toolQuestSubtitle =>
+      'Um gancho, um local, um obstáculo e uma recompensa.';
+
+  @override
+  String get toolTreasureTitle => 'Gerador de tesouros';
+
+  @override
+  String get toolTreasureSubtitle =>
+      'O que está no baú e uma curiosidade estranha.';
+
+  @override
+  String get toolVillainTitle => 'Gerador de vilões';
+
+  @override
+  String get toolVillainSubtitle => 'Motivo, métodos, fraqueza e covil.';
+
+  @override
+  String get toolTownTitle => 'Gerador de vilas';
+
+  @override
+  String get toolTownSubtitle => 'Um nome, um ofício, um marco e um problema.';
+
+  @override
+  String get randomModeFirst => 'Quem começa';
+
+  @override
+  String get randomModeRank => 'Ordenar todos';
+
+  @override
+  String get randomRankingDone =>
+      'Todos ordenados. Levante os dedos para recomeçar.';
 }

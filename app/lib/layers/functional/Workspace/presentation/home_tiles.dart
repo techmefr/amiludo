@@ -1,3 +1,4 @@
+import 'package:amiludo/layers/technical/Locale/tool_texts.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -50,8 +51,8 @@ class HomeFavoriteTools extends StatelessWidget {
       for (final tool in tools)
         DeckTile(
           icon: toolIcon(tool.id),
-          title: tool.title,
-          subtitle: tool.subtitle,
+          title: context.toolTitle(tool.id),
+          subtitle: context.toolSubtitle(tool.id),
           onTap: () => context.push('/tools/${tool.id}'),
         ),
     ],

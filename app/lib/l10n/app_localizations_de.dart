@@ -2389,4 +2389,157 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get randomPreviousStep => 'Vorheriges Booster';
+
+  @override
+  String get toolPickerTitle => 'Wer fängt an?';
+
+  @override
+  String get toolPickerSubtitle =>
+      'Ein Finger oder ein Name. Der Zufall entscheidet.';
+
+  @override
+  String get toolDiceTitle => 'Würfeln';
+
+  @override
+  String get toolDiceSubtitle => 'Mehrere Würfel, Sperren und Ausdrücke.';
+
+  @override
+  String get toolScoresTitle => 'Punkte zählen';
+
+  @override
+  String get toolScoresSubtitle => 'Punkte, Runden und Kategorien.';
+
+  @override
+  String get toolTimerTitle => 'Das Tempo halten';
+
+  @override
+  String get toolTimerSubtitle => 'Zeit pro Zug oder Reserve pro Spieler.';
+
+  @override
+  String get toolTeamsTitle => 'Teams bilden';
+
+  @override
+  String get toolTeamsSubtitle => 'Von 2 bis zu vielen zufälligen Teams.';
+
+  @override
+  String get toolWheelTitle => 'Rad drehen';
+
+  @override
+  String get toolWheelSubtitle => 'Eigene Optionen und Wahrscheinlichkeiten.';
+
+  @override
+  String get toolCoinTitle => 'Kopf oder Zahl';
+
+  @override
+  String get toolCoinSubtitle => 'Eine Entscheidung im Nu.';
+
+  @override
+  String get toolOrderTitle => 'Reihenfolge';
+
+  @override
+  String get toolOrderSubtitle => 'Jeder kommt dran.';
+
+  @override
+  String get toolNumberTitle => 'Zufallszahl';
+
+  @override
+  String get toolNumberSubtitle => 'Ein Bereich, ein Ergebnis.';
+
+  @override
+  String get toolBagTitle => 'Beutel mit Chips';
+
+  @override
+  String get toolBagSubtitle => 'Ohne Zurücklegen ziehen, dann neu beginnen.';
+
+  @override
+  String get toolRolesTitle => 'Geheime Rollen';
+
+  @override
+  String get toolRolesSubtitle => 'Ein Handy, Rollen zu entdecken.';
+
+  @override
+  String get toolCharacterTitle => 'Figur erstellen';
+
+  @override
+  String get toolCharacterSubtitle =>
+      'Listen und Booster: Deine Karten ergeben ein Blatt.';
+
+  @override
+  String get toolNpcTitle => 'NSC-Generator';
+
+  @override
+  String get toolNpcSubtitle =>
+      'Ein kompletter NSC mit einem Tipp: Aussehen, Persönlichkeit, Geheimnis.';
+
+  @override
+  String get toolTavernTitle => 'Taverne-Generator';
+
+  @override
+  String get toolTavernSubtitle =>
+      'Eine ganze Taverne in wenigen Tipps: Speisekarte, Gerüchte, Personal.';
+
+  @override
+  String get toolEncounterTitle => 'Zufallsbegegnung';
+
+  @override
+  String get toolEncounterSubtitle =>
+      'Eine Begegnung mit Komplikationen und einer Wendung.';
+
+  @override
+  String get toolCategoryAll => 'Alle';
+
+  @override
+  String get toolCategoryChance => 'Zufall';
+
+  @override
+  String get toolCategoryMatch => 'Spiel';
+
+  @override
+  String get toolCategoryTime => 'Zeit';
+
+  @override
+  String get toolCategoryStory => 'Geschichte';
+
+  @override
+  String get randomCopy => 'Kopieren';
+
+  @override
+  String get randomCopied => 'Kopiert';
+
+  @override
+  String get toolQuestTitle => 'Quest-Generator';
+
+  @override
+  String get toolQuestSubtitle =>
+      'Ein Aufhänger, ein Ort, ein Hindernis und eine Belohnung.';
+
+  @override
+  String get toolTreasureTitle => 'Schatz-Generator';
+
+  @override
+  String get toolTreasureSubtitle =>
+      'Was in der Truhe liegt, und eine seltsame Kuriosität.';
+
+  @override
+  String get toolVillainTitle => 'Schurken-Generator';
+
+  @override
+  String get toolVillainSubtitle => 'Motiv, Methoden, Schwäche und Versteck.';
+
+  @override
+  String get toolTownTitle => 'Orts-Generator';
+
+  @override
+  String get toolTownSubtitle =>
+      'Ein Name, ein Gewerbe, ein Wahrzeichen und ein Ärgernis.';
+
+  @override
+  String get randomModeFirst => 'Wer beginnt';
+
+  @override
+  String get randomModeRank => 'Alle ordnen';
+
+  @override
+  String get randomRankingDone =>
+      'Alle sind sortiert. Finger heben, um neu zu starten.';
 }

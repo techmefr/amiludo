@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:amiludo/layers/technical/Locale/tool_texts.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -144,10 +145,9 @@ class _ToolPageState extends State<ToolPage> {
     final ws = context.watch<RandomCubit>().state,
         names =
             ws.current?.players.map((p) => p.name).toList() ?? ws.playerNames;
-    final title = toolDefinitions
-        .where((t) => t.id == widget.id)
-        .firstOrNull
-        ?.title;
+    final title = toolDefinitions.any((t) => t.id == widget.id)
+        ? context.toolTitle(widget.id)
+        : null;
     if (title == null) {
       return FullPage(
         title: context.l10n.randomToolNotFound,

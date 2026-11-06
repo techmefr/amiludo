@@ -4423,6 +4423,294 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Previous booster'**
   String get randomPreviousStep;
+
+  /// No description provided for @toolPickerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Who starts?'**
+  String get toolPickerTitle;
+
+  /// No description provided for @toolPickerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A finger or a name. Chance decides.'**
+  String get toolPickerSubtitle;
+
+  /// No description provided for @toolDiceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Roll the dice'**
+  String get toolDiceTitle;
+
+  /// No description provided for @toolDiceSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Multiple dice, locking and expressions.'**
+  String get toolDiceSubtitle;
+
+  /// No description provided for @toolScoresTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep score'**
+  String get toolScoresTitle;
+
+  /// No description provided for @toolScoresSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Scores, rounds and categories.'**
+  String get toolScoresSubtitle;
+
+  /// No description provided for @toolTimerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep the tempo'**
+  String get toolTimerTitle;
+
+  /// No description provided for @toolTimerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Time per turn or a reserve per player.'**
+  String get toolTimerSubtitle;
+
+  /// No description provided for @toolTeamsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Make teams'**
+  String get toolTeamsTitle;
+
+  /// No description provided for @toolTeamsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'From 2 to many random teams.'**
+  String get toolTeamsSubtitle;
+
+  /// No description provided for @toolWheelTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Spin the wheel'**
+  String get toolWheelTitle;
+
+  /// No description provided for @toolWheelSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom options and probabilities.'**
+  String get toolWheelSubtitle;
+
+  /// No description provided for @toolCoinTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Heads or tails'**
+  String get toolCoinTitle;
+
+  /// No description provided for @toolCoinSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A decision in an instant.'**
+  String get toolCoinSubtitle;
+
+  /// No description provided for @toolOrderTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn order'**
+  String get toolOrderTitle;
+
+  /// No description provided for @toolOrderSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Everyone gets their turn.'**
+  String get toolOrderSubtitle;
+
+  /// No description provided for @toolNumberTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Random number'**
+  String get toolNumberTitle;
+
+  /// No description provided for @toolNumberSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A range, a result.'**
+  String get toolNumberSubtitle;
+
+  /// No description provided for @toolBagTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Token bag'**
+  String get toolBagTitle;
+
+  /// No description provided for @toolBagSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw without replacement, then start again.'**
+  String get toolBagSubtitle;
+
+  /// No description provided for @toolRolesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Secret roles'**
+  String get toolRolesTitle;
+
+  /// No description provided for @toolRolesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'One phone, roles to discover.'**
+  String get toolRolesSubtitle;
+
+  /// No description provided for @toolCharacterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a character'**
+  String get toolCharacterTitle;
+
+  /// No description provided for @toolCharacterSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Lists and boosters: your cards make a sheet.'**
+  String get toolCharacterSubtitle;
+
+  /// No description provided for @toolNpcTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'NPC generator'**
+  String get toolNpcTitle;
+
+  /// No description provided for @toolNpcSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A full NPC in one tap: look, personality, secret.'**
+  String get toolNpcSubtitle;
+
+  /// No description provided for @toolTavernTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tavern generator'**
+  String get toolTavernTitle;
+
+  /// No description provided for @toolTavernSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A whole tavern in a few taps: menu, rumours, staff.'**
+  String get toolTavernSubtitle;
+
+  /// No description provided for @toolEncounterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Random encounter'**
+  String get toolEncounterTitle;
+
+  /// No description provided for @toolEncounterSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'An encounter with complications and a twist.'**
+  String get toolEncounterSubtitle;
+
+  /// No description provided for @toolCategoryAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get toolCategoryAll;
+
+  /// No description provided for @toolCategoryChance.
+  ///
+  /// In en, this message translates to:
+  /// **'Chance'**
+  String get toolCategoryChance;
+
+  /// No description provided for @toolCategoryMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Game'**
+  String get toolCategoryMatch;
+
+  /// No description provided for @toolCategoryTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get toolCategoryTime;
+
+  /// No description provided for @toolCategoryStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Story'**
+  String get toolCategoryStory;
+
+  /// No description provided for @randomCopy.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy'**
+  String get randomCopy;
+
+  /// No description provided for @randomCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied'**
+  String get randomCopied;
+
+  /// No description provided for @toolQuestTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Quest generator'**
+  String get toolQuestTitle;
+
+  /// No description provided for @toolQuestSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A hook, a place, an obstacle and a reward.'**
+  String get toolQuestSubtitle;
+
+  /// No description provided for @toolTreasureTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Treasure generator'**
+  String get toolTreasureTitle;
+
+  /// No description provided for @toolTreasureSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What is inside the chest, and one odd curiosity.'**
+  String get toolTreasureSubtitle;
+
+  /// No description provided for @toolVillainTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Villain generator'**
+  String get toolVillainTitle;
+
+  /// No description provided for @toolVillainSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Motive, methods, weakness and lair.'**
+  String get toolVillainSubtitle;
+
+  /// No description provided for @toolTownTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Town generator'**
+  String get toolTownTitle;
+
+  /// No description provided for @toolTownSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A name, a trade, a landmark and some trouble.'**
+  String get toolTownSubtitle;
+
+  /// No description provided for @randomModeFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Who goes first'**
+  String get randomModeFirst;
+
+  /// No description provided for @randomModeRank.
+  ///
+  /// In en, this message translates to:
+  /// **'Rank everyone'**
+  String get randomModeRank;
+
+  /// No description provided for @randomRankingDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Everyone is ranked. Lift your fingers to start again.'**
+  String get randomRankingDone;
 }
 
 class _AppLocalizationsDelegate
