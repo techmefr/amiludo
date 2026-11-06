@@ -59,6 +59,23 @@ Players are grouped in teams. A team can hold several heroes of which one is act
 
 ---
 
+### User Story 3b - Heroes with powers that charge (Priority: P2)
+
+A hero has a card with its name, picture and powers, its own point counter, and its own way of charging each power. A power shows whether it is charging, ready or used. Charging can come from the hero's points reaching a threshold, from a fixed amount each turn, from an event the player marks, or by hand.
+
+**Why this priority**: it is how tag team style games work and it generalizes to abilities in any game.
+
+**Independent Test**: a hero with one power that needs ten points; reaching ten points makes it ready, using it spends the points and starts charging again.
+
+**Acceptance Scenarios**:
+
+1. **Given** a power charged by points, **When** the hero's counter reaches the threshold, **Then** the power becomes ready.
+2. **Given** a power charged by turns, **When** the round advances, **Then** its charge grows by the configured amount.
+3. **Given** a ready power, **When** used, **Then** it spends its cost and returns to charging, or to used if single-use.
+4. **Given** two heroes with different ways of charging, **When** played, **Then** each follows its own rule.
+
+---
+
 ### User Story 4 - Time that feels physical (Priority: P2)
 
 An hourglass brick flows sand with a chosen duration. Turning the phone reverses the flow and keeps the elapsed time. Without a motion sensor a button does the same. A per-player clock and a round counter are also available.
@@ -123,6 +140,7 @@ A companion can hold the content of a game: cards, custom dice, character or her
 - **FR-003**: The counter brick MUST support name, icon, start value, minimum, maximum, step, color, display and outcome at a bound.
 - **FR-004**: A life counter MUST be a counter preset, not a separate brick.
 - **FR-005**: Players, teams and heroes MUST be able to own bricks, with an active hero per team.
+- **FR-005b**: A hero MUST hold a card, a point counter and powers, and each power MUST have its own charge rule (points threshold, amount per turn, marked event, or manual) and a state (charging, ready, used).
 - **FR-006**: The hourglass MUST reverse on a physical turn when a sensor exists and offer a button otherwise.
 - **FR-007**: The dice tray MUST use a physics simulation, support the common dice kinds, custom faces and keeping dice aside.
 - **FR-008**: Shake detection MUST have a non-sensor fallback and a sensitivity setting.
@@ -139,7 +157,8 @@ A companion can hold the content of a game: cards, custom dice, character or her
 - **Companion**: name, version, bricks, players, teams, content.
 - **Brick**: type, settings, owner, layout position.
 - **Counter settings**: name, icon, start, bounds, step, display, outcome.
-- **Hero**: name, counters, statuses, team, active flag.
+- **Hero**: name, card, counters, statuses, powers, team, active flag.
+- **Power**: name, text, cost, charge rule, charge level, state.
 - **Dice set**: kinds, count, look, custom faces.
 - **Companion file**: versioned export holding everything above.
 
@@ -153,6 +172,7 @@ A companion can hold the content of a game: cards, custom dice, character or her
 ## Assumptions
 
 - Rules of specific games (Dice Throne, Toy Battle, tag team) are given by the player as settings; the app only provides bricks.
-- Toy Battle and tag team examples wait for the player to describe the rules to model.
+- In tag team each character has a card with powers, a point counter and its own way of charging powers; the example is modeled from this description.
+- The Toy Battle example waits for the player to describe its rules.
 - The shake sensor is available on phones and absent on web and desktop.
 - The video-game look is a style option and is specified separately.
