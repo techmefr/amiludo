@@ -8,7 +8,7 @@ import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 
 class DataControls extends StatelessWidget {
-  const DataControls();
+  const DataControls({super.key});
 
   Future<void> _restore(BuildContext context) async {
     final controller = context.read<HistoryCubit>();
