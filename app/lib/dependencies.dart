@@ -126,6 +126,8 @@ import 'package:amiludo/layers/functional/Timer/domain/use_cases/configure_clock
 import 'package:amiludo/layers/functional/Timer/domain/use_cases/next_turn_use_case.dart';
 import 'package:amiludo/layers/functional/Timer/domain/use_cases/set_clock_use_case.dart';
 import 'package:amiludo/layers/functional/Timer/domain/use_cases/toggle_clock_use_case.dart';
+import 'package:amiludo/layers/functional/Workspace/data/gateways/data_wipe_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Workspace/domain/gateways/data_wipe_gateway.dart';
 import 'package:amiludo/layers/functional/Workspace/data/gateways/workspace_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/gateways/workspace_gateway.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/erase_workspace_use_case.dart';
@@ -150,6 +152,9 @@ void configureDependencies(StoreDatabase database) {
     ..registerLazySingleton<DocumentStore>(() => DocumentStore(getIt()))
     ..registerLazySingleton<WorkspaceGateway>(
       () => WorkspaceGatewayImpl(getIt()),
+    )
+    ..registerLazySingleton<DataWipeGateway>(
+      () => DataWipeGatewayImpl(getIt()),
     )
     ..registerLazySingleton<FriendsGatewayImpl>(
       () => FriendsGatewayImpl(getIt()),
@@ -244,7 +249,7 @@ void _registerTable() {
     ..registerFactory(() => RetrySaveUseCase(getIt()))
     ..registerFactory(() => ImportBackupUseCase(getIt(), getIt()))
     ..registerFactory(() => ExportBackupUseCase(getIt(), getIt()))
-    ..registerFactory(() => EraseWorkspaceUseCase(getIt(), getIt()))
+    ..registerFactory(() => EraseWorkspaceUseCase(getIt(), getIt(), getIt()))
     ..registerFactory(() => StartGameUseCase(getIt(), getIt()))
     ..registerFactory(() => SaveGameUseCase(getIt()))
     ..registerFactory(() => AddScoreUseCase(getIt()))

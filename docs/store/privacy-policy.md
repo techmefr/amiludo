@@ -12,7 +12,7 @@ amiLudo is local first. Your games, friends, notes and photos are stored on your
 ## Data stored on your device
 
 - Games, scores, logs, packs, game shelves, friend profiles, evenings you host, memories and photos, and appearance settings. They are kept in a local database. They are not sent anywhere by the app unless you share them.
-- You can export all of it as JSON or CSV and delete it by clearing the app data or uninstalling.
+- You can export all of it as JSON or CSV and delete it from the app with "Erase all my data" (it asks for confirmation, then removes everything stored on the device), by clearing the app data or by uninstalling.
 
 ## Camera
 
