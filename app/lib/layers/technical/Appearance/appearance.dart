@@ -29,6 +29,7 @@ class Appearance {
     'ocean',
     'honey',
     'rose',
+    'gold',
   ];
   static const fonts = [
     'LilGrotesk',
@@ -106,7 +107,7 @@ class Appearance {
       keepAwake: j['keepAwake'] as bool? ?? true,
       language: j['language'] as String? ?? 'fr',
     );
-    if (!['play', 'cyber', 'orbital', 'paper'].contains(a.skin) ||
+    if (!['play', 'cyber', 'orbital', 'paper', 'game'].contains(a.skin) ||
         !palettes.contains(a.palette) ||
         !['dark', 'light', 'system'].contains(a.mode) ||
         !fonts.contains(a.font) ||
