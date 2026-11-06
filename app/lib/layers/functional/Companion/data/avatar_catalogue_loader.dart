@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 
-import 'package:amiludo/layers/functional/Companion/domain/entities/avatar_catalogue.dart';
+import 'package:amiludo/layers/functional/Companion/data/avatar_catalogue.dart';
 
 Future<AvatarCatalogue> loadAvatarCatalogue([AssetBundle? bundle]) async {
   final source = bundle ?? rootBundle;

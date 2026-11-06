@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:amiludo/layers/functional/Companion/domain/entities/avatar_catalogue.dart';
+import 'package:amiludo/layers/functional/Companion/data/avatar_catalogue.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/avatar_look.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/avatar_color_row.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/avatar_piece_grid.dart';

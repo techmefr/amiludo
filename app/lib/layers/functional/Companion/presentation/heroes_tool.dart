@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/data/avatar_catalogue_loader.dart';
-import 'package:amiludo/layers/functional/Companion/domain/entities/avatar_catalogue.dart';
+import 'package:amiludo/layers/functional/Companion/data/avatar_catalogue.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/avatar_look.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/counter.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/hero.dart';

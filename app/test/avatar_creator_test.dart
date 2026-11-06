@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:amiludo/l10n/app_localizations.dart';
 
-import 'package:amiludo/layers/functional/Companion/domain/entities/avatar_catalogue.dart';
+import 'package:amiludo/layers/functional/Companion/data/avatar_catalogue.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/avatar_look.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/hero.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/avatar_color_row.dart';
