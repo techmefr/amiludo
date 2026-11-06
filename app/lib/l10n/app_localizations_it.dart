@@ -2745,4 +2745,174 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get companionErrorReserved =>
       'Questo identificatore è riservato a un modello integrato.';
+
+  @override
+  String get campaignTitle => 'Iniziazione al gioco di ruolo';
+
+  @override
+  String get campaignHomeTile => 'Impara il gioco di ruolo';
+
+  @override
+  String campaignSubtitle(String universe) {
+    return 'Una breve storia a ${universe}, una missione alla volta.';
+  }
+
+  @override
+  String campaignProgress(int done, int total) {
+    return '${done} missioni su ${total}';
+  }
+
+  @override
+  String campaignMinutes(int count) {
+    return '${count} min';
+  }
+
+  @override
+  String get campaignLocked => 'Completa la missione precedente per sbloccare questa.';
+
+  @override
+  String get campaignStart => 'Inizia';
+
+  @override
+  String get campaignReplay => 'Gioca ancora';
+
+  @override
+  String get campaignConcept => 'Cosa impari';
+
+  @override
+  String get campaignYourTurn => 'Tocca a te';
+
+  @override
+  String get campaignComplete => 'Completa la missione';
+
+  @override
+  String get campaignCompleted => 'Missione completata';
+
+  @override
+  String get campaignBadgeEarned => 'Distintivo ottenuto';
+
+  @override
+  String get campaignBadges => 'I tuoi distintivi';
+
+  @override
+  String get campaignNoBadges => 'Completa una missione per ottenere il tuo primo distintivo.';
+
+  @override
+  String get campaignNext => 'Prossima missione';
+
+  @override
+  String get campaignToList => 'Tutte le missioni';
+
+  @override
+  String get campaignReset => 'Ricomincia la campagna';
+
+  @override
+  String get campaignChoose => 'Scegli la tua strada';
+
+  @override
+  String campaignFinale(String universe) {
+    return 'La lanterna brilla di nuovo su ${universe}. Sei pronto per la tua prima partita di ruolo.';
+  }
+
+  @override
+  String get campaignM1Title => 'Il portone che si incastra';
+
+  @override
+  String get campaignM1Story => 'Scende la notte. Il vecchio portone della torre delle lanterne è bloccato. In un gioco di ruolo, quando l\'esito è incerto, si tirano i dadi.';
+
+  @override
+  String get campaignM1Lesson => 'Una prova: tira un dado e confronta il risultato con un obiettivo.';
+
+  @override
+  String get campaignM1Task => 'Tira i dadi qui sotto. Un 4 o più apre il portone. Altrimenti riprova.';
+
+  @override
+  String get campaignM1Badge => 'Apriporte';
+
+  @override
+  String get campaignM2Title => 'Una lanterna fragile';
+
+  @override
+  String get campaignM2Story => 'Dentro, la lanterna trema e ogni colpo ne incrina il vetro. Anche il tuo eroe ha dei punti ferita, e il gioco li tiene.';
+
+  @override
+  String get campaignM2Lesson => 'I punti ferita calano quando ti ferisci e salgono quando guarisci.';
+
+  @override
+  String get campaignM2Task => 'Usa i cuori qui sotto: perdine due per i colpi, poi recuperane uno riposando.';
+
+  @override
+  String get campaignM2Badge => 'Custode dei cuori';
+
+  @override
+  String get campaignM3Title => 'Chi sei?';
+
+  @override
+  String get campaignM3Story => 'Una voce ti chiede il nome. Ogni eroe ha un nome, dei punti di forza e qualche potere, tutto scritto su una scheda del personaggio.';
+
+  @override
+  String get campaignM3Lesson => 'Una scheda del personaggio raccoglie tutto ciò che rende unico il tuo eroe.';
+
+  @override
+  String get campaignM3Task => 'Aggiungi un eroe con un nome, poi dagli un potere.';
+
+  @override
+  String get campaignM3Badge => 'Eroe con un nome';
+
+  @override
+  String get campaignM4Title => 'L\'ombra nel corridoio';
+
+  @override
+  String get campaignM4Story => 'Un\'ombra blocca le scale. Un combattimento è solo una serie di tiri, e ogni colpo toglie un po\' di vita al nemico.';
+
+  @override
+  String get campaignM4Lesson => 'In un combattimento si tira a turno e si riducono i punti ferita.';
+
+  @override
+  String get campaignM4Task => 'Tira i dadi: un totale di 7 o più ferisce l\'ombra. Colpiscila tre volte.';
+
+  @override
+  String get campaignM4Badge => 'Cacciatore di ombre';
+
+  @override
+  String get campaignM5Title => 'Due scalinate';
+
+  @override
+  String get campaignM5Story => 'La scala si divide in due: una sale nel freddo, l\'altra scende in cantina. Nessuno ti dice quale sia giusta. Stanotte decidi tu.';
+
+  @override
+  String get campaignM5Lesson => 'In un gioco di ruolo le tue scelte cambiano la storia.';
+
+  @override
+  String get campaignM5Task => 'Pesca un dilemma per ispirarti, poi scegli la tua strada.';
+
+  @override
+  String get campaignM5Badge => 'Chi sceglie la via';
+
+  @override
+  String get campaignM5ChoiceA => 'Salire la scala fredda';
+
+  @override
+  String get campaignM5ChoiceB => 'Scendere in cantina';
+
+  @override
+  String get campaignM5OutcomeA => 'Il freddo acuisce i tuoi sensi e arrivi in cima senza un rumore.';
+
+  @override
+  String get campaignM5OutcomeB => 'Nel buio, le tue mani trovano una chiave dimenticata.';
+
+  @override
+  String get campaignM6Title => 'La lanterna si riaccende';
+
+  @override
+  String get campaignM6Story => 'In cima, la lanterna attende. Descrivi ad alta voce come la riaccendi prima che la sabbia finisca: raccontare la scena è il cuore del gioco.';
+
+  @override
+  String get campaignM6Lesson => 'Una scena si racconta insieme, ad alta voce, con un po\' di fantasia.';
+
+  @override
+  String get campaignM6Task => 'Avvia la clessidra e racconta la tua scena finale.';
+
+  @override
+  String get campaignM6Badge => 'Portatore di fiamma';
 }

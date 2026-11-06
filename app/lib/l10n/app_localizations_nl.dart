@@ -2746,4 +2746,174 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get companionErrorReserved =>
       'Deze id is gereserveerd voor een ingebouwd sjabloon.';
+
+  @override
+  String get campaignTitle => 'Introductie in rollenspellen';
+
+  @override
+  String get campaignHomeTile => 'Rollenspel leren';
+
+  @override
+  String campaignSubtitle(String universe) {
+    return 'Een kort verhaal in ${universe}, missie na missie.';
+  }
+
+  @override
+  String campaignProgress(int done, int total) {
+    return '${done} van ${total} missies';
+  }
+
+  @override
+  String campaignMinutes(int count) {
+    return '${count} min';
+  }
+
+  @override
+  String get campaignLocked => 'Rond de vorige missie af om deze te ontgrendelen.';
+
+  @override
+  String get campaignStart => 'Starten';
+
+  @override
+  String get campaignReplay => 'Opnieuw spelen';
+
+  @override
+  String get campaignConcept => 'Wat je leert';
+
+  @override
+  String get campaignYourTurn => 'Jouw beurt';
+
+  @override
+  String get campaignComplete => 'Missie afronden';
+
+  @override
+  String get campaignCompleted => 'Missie voltooid';
+
+  @override
+  String get campaignBadgeEarned => 'Badge verdiend';
+
+  @override
+  String get campaignBadges => 'Je badges';
+
+  @override
+  String get campaignNoBadges => 'Rond een missie af om je eerste badge te verdienen.';
+
+  @override
+  String get campaignNext => 'Volgende missie';
+
+  @override
+  String get campaignToList => 'Alle missies';
+
+  @override
+  String get campaignReset => 'Campagne opnieuw starten';
+
+  @override
+  String get campaignChoose => 'Kies je weg';
+
+  @override
+  String campaignFinale(String universe) {
+    return 'De lantaarn schijnt weer boven ${universe}. Je bent klaar voor je eerste rollenspel.';
+  }
+
+  @override
+  String get campaignM1Title => 'De klemmende poort';
+
+  @override
+  String get campaignM1Story => 'De nacht valt. De oude poort van de lantaarntoren klemt. In een rollenspel gooi je de dobbelstenen als de uitkomst onzeker is.';
+
+  @override
+  String get campaignM1Lesson => 'Een proef: gooi een dobbelsteen en vergelijk het resultaat met een doel.';
+
+  @override
+  String get campaignM1Task => 'Gooi de dobbelstenen hieronder. Een 4 of meer opent de poort. Anders probeer je opnieuw.';
+
+  @override
+  String get campaignM1Badge => 'Poortopener';
+
+  @override
+  String get campaignM2Title => 'Een breekbare lantaarn';
+
+  @override
+  String get campaignM2Story => 'Binnen trilt de lantaarn en elke schok doet het glas barsten. Ook je held heeft levenspunten, en het spel houdt ze bij.';
+
+  @override
+  String get campaignM2Lesson => 'Levenspunten dalen bij verwondingen en stijgen bij genezing.';
+
+  @override
+  String get campaignM2Task => 'Gebruik de hartjes hieronder: verlies er twee door de schokken en win er één terug door te rusten.';
+
+  @override
+  String get campaignM2Badge => 'Hartenbewaker';
+
+  @override
+  String get campaignM3Title => 'Wie ben jij?';
+
+  @override
+  String get campaignM3Story => 'Een stem vraagt naar je naam. Elke held heeft een naam, sterke punten en een paar krachten, alles op een karakterblad.';
+
+  @override
+  String get campaignM3Lesson => 'Een karakterblad verzamelt alles wat je held uniek maakt.';
+
+  @override
+  String get campaignM3Task => 'Voeg een held met een naam toe en geef hem een kracht.';
+
+  @override
+  String get campaignM3Badge => 'Held met een naam';
+
+  @override
+  String get campaignM4Title => 'De schaduw in de gang';
+
+  @override
+  String get campaignM4Story => 'Een schaduw versperrt de trap. Een gevecht is slechts een reeks worpen, elke treffer kost de vijand wat leven.';
+
+  @override
+  String get campaignM4Lesson => 'In een gevecht gooi je om de beurt en verlaag je levenspunten.';
+
+  @override
+  String get campaignM4Task => 'Gooi de dobbelstenen: een totaal van 7 of meer verwondt de schaduw. Raak drie keer.';
+
+  @override
+  String get campaignM4Badge => 'Schaduwjager';
+
+  @override
+  String get campaignM5Title => 'Twee trappen';
+
+  @override
+  String get campaignM5Story => 'De trap splitst in tweeën: de ene klimt de kou in, de andere duikt de kelder in. Niemand zegt welke goed is. Vanavond beslis jij.';
+
+  @override
+  String get campaignM5Lesson => 'In een rollenspel veranderen je keuzes het verhaal.';
+
+  @override
+  String get campaignM5Task => 'Trek een dilemma als inspiratie en kies dan je weg.';
+
+  @override
+  String get campaignM5Badge => 'Padkiezer';
+
+  @override
+  String get campaignM5ChoiceA => 'De koude trap op';
+
+  @override
+  String get campaignM5ChoiceB => 'Naar de kelder afdalen';
+
+  @override
+  String get campaignM5OutcomeA => 'De kou scherpt je zintuigen en je bereikt de top zonder geluid.';
+
+  @override
+  String get campaignM5OutcomeB => 'In het donker vinden je handen een vergeten sleutel.';
+
+  @override
+  String get campaignM6Title => 'De lantaarn gaat weer aan';
+
+  @override
+  String get campaignM6Story => 'Bovenaan wacht de lantaarn. Beschrijf hardop hoe je hem weer aansteekt voor het zand op is: de scène vertellen is het hart van het spel.';
+
+  @override
+  String get campaignM6Lesson => 'Een scène vertel je samen, hardop, met een beetje verbeelding.';
+
+  @override
+  String get campaignM6Task => 'Start de zandloper en vertel je slotscène.';
+
+  @override
+  String get campaignM6Badge => 'Vlamdrager';
 }

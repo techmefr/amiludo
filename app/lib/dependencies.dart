@@ -1,5 +1,11 @@
 import 'package:get_it/get_it.dart';
 
+import 'package:amiludo/layers/functional/Campaign/data/gateways/campaign_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Campaign/domain/gateways/campaign_gateway.dart';
+import 'package:amiludo/layers/functional/Campaign/domain/use_cases/complete_mission_use_case.dart';
+import 'package:amiludo/layers/functional/Campaign/domain/use_cases/read_campaign_use_case.dart';
+import 'package:amiludo/layers/functional/Campaign/domain/use_cases/reset_campaign_use_case.dart';
+import 'package:amiludo/layers/functional/Campaign/domain/use_cases/watch_campaign_use_case.dart';
 import 'package:amiludo/layers/functional/Account/data/gateways/account_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Account/domain/gateways/account_gateway.dart';
 import 'package:amiludo/layers/functional/Account/domain/use_cases/change_password_use_case.dart';
@@ -139,6 +145,10 @@ void configureDependencies(StoreDatabase database) {
       () => MemoriesGatewayImpl(getIt()),
     )
     ..registerLazySingleton<MemoriesGateway>(() => getIt<MemoriesGatewayImpl>())
+    ..registerLazySingleton<CampaignGatewayImpl>(
+      () => CampaignGatewayImpl(getIt()),
+    )
+    ..registerLazySingleton<CampaignGateway>(() => getIt<CampaignGatewayImpl>())
     ..registerLazySingleton<CharacterDraftGatewayImpl>(
       () => CharacterDraftGatewayImpl(getIt()),
     )
@@ -150,6 +160,7 @@ void configureDependencies(StoreDatabase database) {
         getIt<FriendsGatewayImpl>(),
         getIt<LibraryGatewayImpl>(),
         getIt<MemoriesGatewayImpl>(),
+        getIt<CampaignGatewayImpl>(),
         getIt<EveningsGatewayImpl>(),
         getIt<CharacterDraftGatewayImpl>(),
       ],
@@ -167,6 +178,7 @@ void configureDependencies(StoreDatabase database) {
   _registerTable();
   _registerCollections();
   _registerGatherings();
+  _registerCampaign();
 }
 
 void _registerTable() {
@@ -272,4 +284,12 @@ void _registerAdmin() {
     ..registerFactory(() => SetUserAdminUseCase(getIt(), getIt()))
     ..registerFactory(() => SetUserBlockedUseCase(getIt(), getIt()))
     ..registerFactory(() => RemoveUserUseCase(getIt(), getIt()));
+}
+
+void _registerCampaign() {
+  getIt
+    ..registerFactory(() => ReadCampaignUseCase(getIt()))
+    ..registerFactory(() => WatchCampaignUseCase(getIt()))
+    ..registerFactory(() => CompleteMissionUseCase(getIt()))
+    ..registerFactory(() => ResetCampaignUseCase(getIt()));
 }

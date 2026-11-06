@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:amiludo/campaign_actions.dart';
 import 'package:amiludo/dependencies.dart';
+import 'package:amiludo/layers/functional/Campaign/domain/entities/campaign_catalog.dart';
+import 'package:amiludo/layers/functional/Campaign/presentation/campaign_screen.dart';
+import 'package:amiludo/layers/functional/Campaign/presentation/cubit/campaign_cubit.dart';
+import 'package:amiludo/layers/functional/Campaign/presentation/mission_screen.dart';
 import 'package:amiludo/layers/functional/Account/presentation/account_screen.dart';
 import 'package:amiludo/layers/functional/Admin/presentation/admin_screen.dart';
 import 'package:amiludo/layers/functional/Admin/presentation/cubit/admin_cubit.dart';
@@ -67,6 +72,11 @@ class _AdminPage extends StatelessWidget {
   );
 }
 
+Widget _campaign(Widget child) => BlocProvider(
+  create: (_) => CampaignCubit(getIt(), getIt(), getIt(), getIt()),
+  child: child,
+);
+
 GoRoute _page(String path, Widget Function(GoRouterState state) page) =>
     GoRoute(
       path: path,
@@ -114,6 +124,17 @@ final router = GoRouter(
       '/score/:player',
       (state) => ScoreSheet(playerId: state.pathParameters['player']!),
     ),
+    _page('/campaign', (state) => _campaign(const CampaignScreen())),
+    _page('/campaign/:id', (state) {
+      final mission = campaignMissions
+          .where((m) => m.id == state.pathParameters['id'])
+          .firstOrNull;
+      return _campaign(
+        mission == null
+            ? const CampaignScreen()
+            : MissionScreen(mission: mission, actions: campaignActions),
+      );
+    }),
     _page('/library/tonight', (state) => const TonightScreen()),
     _page(
       '/library/edit/:id',

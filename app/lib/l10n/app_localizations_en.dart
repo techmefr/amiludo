@@ -2724,4 +2724,174 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get companionErrorReserved =>
       'This identifier is reserved for a built-in template.';
+
+  @override
+  String get campaignTitle => 'Role-playing initiation';
+
+  @override
+  String get campaignHomeTile => 'Learn role-playing';
+
+  @override
+  String campaignSubtitle(String universe) {
+    return 'A short story in ${universe}, one mission at a time.';
+  }
+
+  @override
+  String campaignProgress(int done, int total) {
+    return '${done} of ${total} missions';
+  }
+
+  @override
+  String campaignMinutes(int count) {
+    return '${count} min';
+  }
+
+  @override
+  String get campaignLocked => 'Finish the previous mission to unlock this one.';
+
+  @override
+  String get campaignStart => 'Start';
+
+  @override
+  String get campaignReplay => 'Play again';
+
+  @override
+  String get campaignConcept => 'What you learn';
+
+  @override
+  String get campaignYourTurn => 'Your turn';
+
+  @override
+  String get campaignComplete => 'Complete the mission';
+
+  @override
+  String get campaignCompleted => 'Mission complete';
+
+  @override
+  String get campaignBadgeEarned => 'Badge earned';
+
+  @override
+  String get campaignBadges => 'Your badges';
+
+  @override
+  String get campaignNoBadges => 'Complete a mission to earn your first badge.';
+
+  @override
+  String get campaignNext => 'Next mission';
+
+  @override
+  String get campaignToList => 'All missions';
+
+  @override
+  String get campaignReset => 'Restart the campaign';
+
+  @override
+  String get campaignChoose => 'Choose your way';
+
+  @override
+  String campaignFinale(String universe) {
+    return 'The lantern shines again over ${universe}. You are ready to play your first role-playing game.';
+  }
+
+  @override
+  String get campaignM1Title => 'The door that sticks';
+
+  @override
+  String get campaignM1Story => 'Night falls. The old gate of the lantern tower is stuck. In a role-playing game, when the outcome is uncertain, you roll the dice.';
+
+  @override
+  String get campaignM1Lesson => 'A check: roll a die and compare the result to a target.';
+
+  @override
+  String get campaignM1Task => 'Throw the dice below. A 4 or more opens the gate. Otherwise, try again.';
+
+  @override
+  String get campaignM1Badge => 'Gate opener';
+
+  @override
+  String get campaignM2Title => 'A fragile lantern';
+
+  @override
+  String get campaignM2Story => 'Inside, the lantern shakes and every shock cracks its glass. Your hero has life points too, and the game keeps track of them.';
+
+  @override
+  String get campaignM2Lesson => 'Life points go down when you are hurt and up when you heal.';
+
+  @override
+  String get campaignM2Task => 'Use the hearts below: lose two for the shocks, then win one back by resting.';
+
+  @override
+  String get campaignM2Badge => 'Keeper of hearts';
+
+  @override
+  String get campaignM3Title => 'Who are you?';
+
+  @override
+  String get campaignM3Story => 'A voice asks your name. Every hero has a name, strengths and a few powers, all written on a character sheet.';
+
+  @override
+  String get campaignM3Lesson => 'A character sheet gathers everything that makes your hero unique.';
+
+  @override
+  String get campaignM3Task => 'Add a hero with a name, then give it a power.';
+
+  @override
+  String get campaignM3Badge => 'Hero with a name';
+
+  @override
+  String get campaignM4Title => 'The shadow in the hall';
+
+  @override
+  String get campaignM4Story => 'A shadow blocks the stairs. A fight is just a series of rolls, each hit costing the enemy a little life.';
+
+  @override
+  String get campaignM4Lesson => 'In a fight, you take turns rolling and lowering life points.';
+
+  @override
+  String get campaignM4Task => 'Throw the dice: a total of 7 or more hurts the shadow. Land three hits.';
+
+  @override
+  String get campaignM4Badge => 'Shadow chaser';
+
+  @override
+  String get campaignM5Title => 'Two stairways';
+
+  @override
+  String get campaignM5Story => 'The stairs split in two: one climbs into the cold, the other dives into the cellar. Nobody tells you which is right. Tonight, you decide.';
+
+  @override
+  String get campaignM5Lesson => 'In a role-playing game, your choices change the story.';
+
+  @override
+  String get campaignM5Task => 'Draw a dilemma for inspiration, then choose your way.';
+
+  @override
+  String get campaignM5Badge => 'Path chooser';
+
+  @override
+  String get campaignM5ChoiceA => 'Climb the cold stairs';
+
+  @override
+  String get campaignM5ChoiceB => 'Go down to the cellar';
+
+  @override
+  String get campaignM5OutcomeA => 'The cold sharpens your senses and you reach the top without a sound.';
+
+  @override
+  String get campaignM5OutcomeB => 'In the dark, your hands find a forgotten key.';
+
+  @override
+  String get campaignM6Title => 'The lantern relights';
+
+  @override
+  String get campaignM6Story => 'At the top, the lantern waits. Describe out loud how you relight it before the sand runs out: telling the scene is the heart of the game.';
+
+  @override
+  String get campaignM6Lesson => 'A scene is told together, out loud, with a bit of imagination.';
+
+  @override
+  String get campaignM6Task => 'Start the hourglass and narrate your final scene.';
+
+  @override
+  String get campaignM6Badge => 'Flame bearer';
 }
