@@ -2746,4 +2746,96 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get companionErrorReserved =>
       'Deze id is gereserveerd voor een ingebouwd sjabloon.';
+
+  @override
+  String get brickLibrarySearch => 'Blok zoeken';
+
+  @override
+  String get brickLibraryNone => 'Geen blok voor deze zoekopdracht.';
+
+  @override
+  String get toolCategoryFavorites => 'Favorieten';
+
+  @override
+  String get toolCategoryCounters => 'Tellers';
+
+  @override
+  String get brickAddToCompanion => 'Aan een metgezel toevoegen';
+
+  @override
+  String get brickChooseCompanion => 'Kies een metgezel';
+
+  @override
+  String get brickNoCompanion => 'Maak eerst een metgezel in Sjablonen.';
+
+  @override
+  String get brickAdded => 'Blok aan de metgezel toegevoegd.';
+
+  @override
+  String get brickSettings => 'Blokinstellingen';
+
+  @override
+  String get brickSettingName => 'Naam';
+
+  @override
+  String get brickSettingMinimum => 'Minimum';
+
+  @override
+  String get brickSettingMaximum => 'Maximum';
+
+  @override
+  String get brickSettingStart => 'Beginwaarde';
+
+  @override
+  String get brickSettingStep => 'Stap';
+
+  @override
+  String get brickSettingColor => 'Kleur';
+
+  @override
+  String get brickSettingDisplay => 'Weergave';
+
+  @override
+  String get brickDisplayNumber => 'Getal';
+
+  @override
+  String get brickDisplayBar => 'Balk';
+
+  @override
+  String get brickDisplayHearts => 'Harten';
+
+  @override
+  String get brickDisplayPips => 'Stippen';
+
+  @override
+  String get brickSettingsApply => 'Toepassen';
+
+  @override
+  String get brickColorBlue => 'Blauw';
+
+  @override
+  String get brickColorRed => 'Rood';
+
+  @override
+  String get brickColorGold => 'Goud';
+
+  @override
+  String get brickColorGreen => 'Groen';
+
+  @override
+  String get brickColorViolet => 'Paars';
+
+  @override
+  String get toolCounterLifeSubtitle => 'Levens of gezondheid, met balk.';
+
+  @override
+  String get toolCounterPointsSubtitle => 'Punten optellen, ronde na ronde.';
+
+  @override
+  String get toolCounterChipsSubtitle =>
+      'Een stapel fiches om in te zetten en te winnen.';
+
+  @override
+  String get toolCounterPotSubtitle =>
+      'De gemeenschappelijke pot waar iedereen voor speelt.';
 }

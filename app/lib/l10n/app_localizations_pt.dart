@@ -2745,4 +2745,96 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get companionErrorReserved =>
       'Este identificador está reservado a um modelo integrado.';
+
+  @override
+  String get brickLibrarySearch => 'Procurar um bloco';
+
+  @override
+  String get brickLibraryNone => 'Nenhum bloco para esta pesquisa.';
+
+  @override
+  String get toolCategoryFavorites => 'Favoritos';
+
+  @override
+  String get toolCategoryCounters => 'Contadores';
+
+  @override
+  String get brickAddToCompanion => 'Adicionar a um companheiro';
+
+  @override
+  String get brickChooseCompanion => 'Escolher um companheiro';
+
+  @override
+  String get brickNoCompanion => 'Crie primeiro um companheiro em Modelos.';
+
+  @override
+  String get brickAdded => 'Bloco adicionado ao companheiro.';
+
+  @override
+  String get brickSettings => 'Definições do bloco';
+
+  @override
+  String get brickSettingName => 'Nome';
+
+  @override
+  String get brickSettingMinimum => 'Mínimo';
+
+  @override
+  String get brickSettingMaximum => 'Máximo';
+
+  @override
+  String get brickSettingStart => 'Valor inicial';
+
+  @override
+  String get brickSettingStep => 'Passo';
+
+  @override
+  String get brickSettingColor => 'Cor';
+
+  @override
+  String get brickSettingDisplay => 'Visualização';
+
+  @override
+  String get brickDisplayNumber => 'Número';
+
+  @override
+  String get brickDisplayBar => 'Barra';
+
+  @override
+  String get brickDisplayHearts => 'Corações';
+
+  @override
+  String get brickDisplayPips => 'Pontos';
+
+  @override
+  String get brickSettingsApply => 'Aplicar';
+
+  @override
+  String get brickColorBlue => 'Azul';
+
+  @override
+  String get brickColorRed => 'Vermelho';
+
+  @override
+  String get brickColorGold => 'Dourado';
+
+  @override
+  String get brickColorGreen => 'Verde';
+
+  @override
+  String get brickColorViolet => 'Violeta';
+
+  @override
+  String get toolCounterLifeSubtitle => 'Vidas ou saúde, com barra.';
+
+  @override
+  String get toolCounterPointsSubtitle =>
+      'Pontos para somar, ronda após ronda.';
+
+  @override
+  String get toolCounterChipsSubtitle =>
+      'Uma pilha de fichas para apostar e ganhar.';
+
+  @override
+  String get toolCounterPotSubtitle => 'O pote comum pelo qual todos jogam.';
 }

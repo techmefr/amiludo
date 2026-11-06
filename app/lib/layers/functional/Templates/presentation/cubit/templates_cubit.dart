@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:amiludo/layers/functional/Companion/domain/entities/brick_ids.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Templates/domain/use_cases/add_template_use_case.dart';
 import 'package:amiludo/layers/functional/Templates/domain/use_cases/remove_template_use_case.dart';
@@ -24,6 +26,19 @@ class TemplatesCubit extends Cubit<Workspace> {
   late final StreamSubscription<Workspace> _subscription;
 
   Future<void> addTemplate(GameTemplate template) => _addTemplate(template);
+
+  Future<void> addBrick(String templateId, Brick brick) async {
+    final template = state.templates
+        .where((t) => t.id == templateId)
+        .firstOrNull;
+    if (template == null || template.bricks.length >= 64) return;
+    await _addTemplate(
+      template.withBricks([
+        ...template.bricks,
+        template.bricks.withFreeId(brick),
+      ]),
+    );
+  }
 
   Future<void> removeTemplate(String id) => _removeTemplate(id);
 

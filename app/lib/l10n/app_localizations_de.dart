@@ -2749,4 +2749,97 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get companionErrorReserved =>
       'Diese Kennung ist für eine integrierte Vorlage reserviert.';
+
+  @override
+  String get brickLibrarySearch => 'Baustein suchen';
+
+  @override
+  String get brickLibraryNone => 'Kein Baustein für diese Suche.';
+
+  @override
+  String get toolCategoryFavorites => 'Favoriten';
+
+  @override
+  String get toolCategoryCounters => 'Zähler';
+
+  @override
+  String get brickAddToCompanion => 'Zu einem Begleiter hinzufügen';
+
+  @override
+  String get brickChooseCompanion => 'Begleiter wählen';
+
+  @override
+  String get brickNoCompanion =>
+      'Erstelle zuerst einen Begleiter unter Vorlagen.';
+
+  @override
+  String get brickAdded => 'Baustein zum Begleiter hinzugefügt.';
+
+  @override
+  String get brickSettings => 'Baustein-Einstellungen';
+
+  @override
+  String get brickSettingName => 'Name';
+
+  @override
+  String get brickSettingMinimum => 'Minimum';
+
+  @override
+  String get brickSettingMaximum => 'Maximum';
+
+  @override
+  String get brickSettingStart => 'Startwert';
+
+  @override
+  String get brickSettingStep => 'Schritt';
+
+  @override
+  String get brickSettingColor => 'Farbe';
+
+  @override
+  String get brickSettingDisplay => 'Anzeige';
+
+  @override
+  String get brickDisplayNumber => 'Zahl';
+
+  @override
+  String get brickDisplayBar => 'Balken';
+
+  @override
+  String get brickDisplayHearts => 'Herzen';
+
+  @override
+  String get brickDisplayPips => 'Punkte';
+
+  @override
+  String get brickSettingsApply => 'Übernehmen';
+
+  @override
+  String get brickColorBlue => 'Blau';
+
+  @override
+  String get brickColorRed => 'Rot';
+
+  @override
+  String get brickColorGold => 'Gold';
+
+  @override
+  String get brickColorGreen => 'Grün';
+
+  @override
+  String get brickColorViolet => 'Violett';
+
+  @override
+  String get toolCounterLifeSubtitle => 'Leben oder Gesundheit mit Balken.';
+
+  @override
+  String get toolCounterPointsSubtitle => 'Punkte, Runde für Runde sammeln.';
+
+  @override
+  String get toolCounterChipsSubtitle =>
+      'Ein Chipstapel zum Setzen und Gewinnen.';
+
+  @override
+  String get toolCounterPotSubtitle =>
+      'Der gemeinsame Pot, um den alle spielen.';
 }

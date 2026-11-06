@@ -1,23 +1,28 @@
-import 'package:amiludo/layers/technical/Locale/tool_texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
-import 'package:amiludo/layers/technical/Theme/game_art.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/brick_catalog.dart';
+import 'package:amiludo/layers/functional/Random/presentation/add_brick_sheet.dart';
+import 'package:amiludo/layers/functional/Random/presentation/brick_tile.dart';
 import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit.dart';
-import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Locale/tool_texts.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class ToolsScreen extends StatefulWidget {
-  const ToolsScreen({super.key, this.initialTool});
+  const ToolsScreen({super.key, this.initialTool, this.addBrick});
   final String? initialTool;
+  final Future<void> Function(String templateId, Brick brick)? addBrick;
   @override
   State<ToolsScreen> createState() => _ToolsScreenState();
 }
 
 class _ToolsScreenState extends State<ToolsScreen> {
-  String category = 'all';
+  String category = 'all', query = '';
+
   @override
   void initState() {
     super.initState();
@@ -28,52 +33,28 @@ class _ToolsScreenState extends State<ToolsScreen> {
     }
   }
 
-  Future<void> open(String id) async {
-    context.push('/tools/$id');
-  }
+  void open(String id) => context.push('/tools/$id');
 
-  Widget toolCard(ToolDefinition t, bool favorite) => DeckPanel(
-    padding: 20,
-    color: toolSurface(context, t.id),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            Expanded(child: GameArt(tool: t.id, height: 112)),
-            IconButton(
-              tooltip: context.l10n.randomFavorite,
-              onPressed: () => context.read<RandomCubit>().toggleFavorite(t.id),
-              icon: DeckIcon(
-                favorite ? Icons.star : Icons.star_outline,
-                size: 20,
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 20),
-        InkWell(
-          onTap: () => open(t.id),
-          child: Text(
-            context.toolTitle(t.id),
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Text(context.toolSubtitle(t.id)),
-        const SizedBox(height: 16),
-        const Spacer(),
-        OutlinedButton(
-          onPressed: () => open(t.id),
-          child: Text(context.l10n.workspaceOpen),
-        ),
-      ],
-    ),
-  );
+  Future<void> add(BrickEntry entry) async {
+    final templates = context.read<RandomCubit>().state.templates;
+    final messenger = ScaffoldMessenger.of(context);
+    final added = context.l10n.brickAdded;
+    final id = await chooseCompanion(context, templates);
+    if (id == null) return;
+    await widget.addBrick!(id, entry.toBrick());
+    messenger.showSnackBar(SnackBar(content: Text(added)));
+  }
 
   @override
   Widget build(BuildContext context) {
-    final ws = context.watch<RandomCubit>().state;
+    final favorites = context.watch<RandomCubit>().state.favorites;
+    final shown = filterBricks(
+      brickEntries,
+      category: category,
+      favorites: favorites.toSet(),
+      query: query,
+      title: context.toolTitle,
+    );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -82,27 +63,46 @@ class _ToolsScreenState extends State<ToolsScreen> {
           title: context.l10n.randomOneToolReadyToPlay,
           subtitle: context.l10n.randomPlayersAreSharedAcrossTools,
         ),
+        TextField(
+          onChanged: (v) => setState(() => query = v),
+          textInputAction: TextInputAction.search,
+          decoration: InputDecoration(
+            hintText: context.l10n.brickLibrarySearch,
+            prefixIcon: const DeckIcon(Icons.search),
+          ),
+        ),
+        const SizedBox(height: Space.lg),
         Wrap(
-          spacing: 8,
-          runSpacing: 8,
-          children: toolCategories
-              .map(
-                (c) => ChoiceChip(
-                  label: Text(context.toolCategoryLabel(c)),
-                  selected: category == c,
-                  onSelected: (_) => setState(() => category = c),
+          spacing: Space.sm,
+          runSpacing: Space.sm,
+          children: [
+            for (final c in brickCategories)
+              ChoiceChip(
+                label: Text(context.toolCategoryLabel(c)),
+                selected: category == c,
+                onSelected: (_) => setState(() => category = c),
+              ),
+          ],
+        ),
+        const SizedBox(height: Space.xl),
+        if (shown.isEmpty)
+          Text(context.l10n.brickLibraryNone)
+        else
+          ResponsiveGrid(
+            minimumWidth: 210,
+            children: [
+              for (final e in shown)
+                BrickTile(
+                  key: ValueKey(e.id),
+                  entry: e,
+                  favorite: favorites.contains(e.id),
+                  onFavorite: () =>
+                      context.read<RandomCubit>().toggleFavorite(e.id),
+                  onOpen: () => open(e.id),
+                  onAdd: widget.addBrick == null ? null : () => add(e),
                 ),
-              )
-              .toList(),
-        ),
-        const SizedBox(height: 24),
-        ResponsiveGrid(
-          minimumWidth: 210,
-          children: toolDefinitions
-              .where((t) => category == 'all' || t.category == category)
-              .map((t) => toolCard(t, ws.favorites.contains(t.id)))
-              .toList(),
-        ),
+            ],
+          ),
       ],
     );
   }
