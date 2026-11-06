@@ -2619,6 +2619,18 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get diceTrayCustomColor => 'Couleur des faces';
+
+  @override
+  String get diceTraySurface => 'Surface';
+
+  @override
+  String get diceTrayWood => 'Bois';
+
+  @override
+  String get diceTrayFelt => 'Feutre';
+
+  @override
+  String get diceTrayGlass => 'Verre';
   String get toolHourglassTitle => 'Sablier';
 
   @override

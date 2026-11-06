@@ -8,6 +8,8 @@ import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_page.
 import 'package:amiludo/layers/functional/Companion/presentation/hourglass_tool.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 import 'package:amiludo/layers/technical/Motion/shake_source.dart';
+import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
+import 'package:amiludo/layers/technical/Sound/sound_output.dart';
 import 'package:amiludo/layers/technical/Sensors/sensor_sensitivity.dart';
 
 SensorSensitivity _level(Workspace state) =>
@@ -22,18 +24,33 @@ Widget _sensed(Widget Function(SensorSensitivity level) build) =>
       ),
     );
 
-ShakeSource _shakes(SensorSensitivity level) =>
-    getIt.isRegistered<ShakeSource>()
-    ? getIt<ShakeSource>(param1: level)
-    : const NoShakeSource();
-
 TurnSensor _turns(SensorSensitivity level) =>
     getIt.isRegistered<TurnSensor>()
     ? getIt<TurnSensor>(param1: level)
     : const NoTurnSensor();
 
-Widget diceTrayWithSensors(BuildContext context) =>
-    _sensed((level) => DiceTrayPage(shakeSource: _shakes(level)));
+TrayMotion _motion(SensorSensitivity level) =>
+    getIt.isRegistered<TrayMotion>()
+    ? getIt<TrayMotion>(param1: level)
+    : const NoTrayMotion();
+
+SoundOutput _sounds(bool enabled) =>
+    enabled && getIt.isRegistered<SoundOutput>()
+    ? getIt<SoundOutput>()
+    : const SilentSoundOutput();
+
+Widget diceTrayWithSensors(BuildContext context) {
+  final appearance = context.read<AppearanceCubit>().state.appearance;
+  return _sensed(
+    (level) => DiceTrayPage(
+      shakeSource: const NoShakeSource(),
+      motion: _motion(level),
+      soundOutput: _sounds(appearance.sound),
+      sound: appearance.sound,
+      haptics: appearance.haptics,
+    ),
+  );
+}
 
 Widget hourglassWithSensors(BuildContext context) =>
     _sensed((level) => HourglassTool(sensor: _turns(level)));
