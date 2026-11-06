@@ -8,6 +8,10 @@ import 'package:amiludo/layers/functional/Campaign/domain/entities/campaign_cata
 import 'package:amiludo/layers/functional/Campaign/presentation/campaign_screen.dart';
 import 'package:amiludo/layers/functional/Campaign/presentation/cubit/campaign_cubit.dart';
 import 'package:amiludo/layers/functional/Campaign/presentation/mission_screen.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/counter.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/counter_tool.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
 import 'package:amiludo/sensor_tools.dart';
 import 'package:amiludo/layers/functional/Account/presentation/account_screen.dart';
 import 'package:amiludo/layers/functional/Admin/presentation/admin_screen.dart';
@@ -56,6 +60,30 @@ Widget _heroes(BuildContext context) => const HeroesTool();
 
 Widget _scores(BuildContext context) => const GameScreen(timer: _timer);
 
+Widget _counterLife(BuildContext context) =>
+    CounterTool(settings: lifePreset, name: context.l10n.brickLife);
+
+Widget _counterPoints(BuildContext context) =>
+    CounterTool(settings: pointsPreset, name: context.l10n.brickPoints);
+
+Widget _counterChips(BuildContext context) =>
+    CounterTool(settings: chipsPreset, name: context.l10n.brickChips);
+
+Widget _counterPot(BuildContext context) =>
+    CounterTool(settings: potPreset, name: context.l10n.brickPot);
+
+class _ToolsPage extends StatelessWidget {
+  const _ToolsPage({this.initialTool});
+  final String? initialTool;
+
+  @override
+  Widget build(BuildContext context) => ToolsScreen(
+    key: ValueKey(initialTool),
+    initialTool: initialTool,
+    addBrick: context.read<TemplatesCubit>().addBrick,
+  );
+}
+
 class _AdminPage extends StatelessWidget {
   const _AdminPage();
 
@@ -92,6 +120,10 @@ final router = GoRouter(
           'dice-tray': diceTrayWithSensors,
           'hourglass': hourglassWithSensors,
           'heroes': _heroes,
+          'counter-life': _counterLife,
+          'counter-points': _counterPoints,
+          'counter-chips': _counterChips,
+          'counter-pot': _counterPot,
         },
       ),
     ),
@@ -196,10 +228,8 @@ final router = GoRouter(
       ('/game', (state) => const GameScreen(timer: _timer)),
       (
         '/tools',
-        (state) => ToolsScreen(
-          key: ValueKey(state.uri.queryParameters['tool']),
-          initialTool: state.uri.queryParameters['tool'],
-        ),
+        (state) =>
+            _ToolsPage(initialTool: state.uri.queryParameters['tool']),
       ),
       ('/templates', (state) => const TemplatesScreen()),
       ('/library', (state) => const LibraryScreen()),

@@ -145,7 +145,9 @@ class _ToolPageState extends State<ToolPage> {
     final ws = context.watch<RandomCubit>().state,
         names =
             ws.current?.players.map((p) => p.name).toList() ?? ws.playerNames;
-    final title = toolDefinitions.any((t) => t.id == widget.id)
+    final title =
+        toolDefinitions.any((t) => t.id == widget.id) ||
+            widget.embeddedTools.containsKey(widget.id)
         ? context.toolTitle(widget.id)
         : null;
     if (title == null) {

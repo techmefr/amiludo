@@ -2771,6 +2771,98 @@ class AppLocalizationsIt extends AppLocalizations {
       'Questo identificatore è riservato a un modello integrato.';
 
   @override
+  String get brickLibrarySearch => 'Cerca un blocco';
+
+  @override
+  String get brickLibraryNone => 'Nessun blocco per questa ricerca.';
+
+  @override
+  String get toolCategoryFavorites => 'Preferiti';
+
+  @override
+  String get toolCategoryCounters => 'Contatori';
+
+  @override
+  String get brickAddToCompanion => 'Aggiungi a un compagno';
+
+  @override
+  String get brickChooseCompanion => 'Scegli un compagno';
+
+  @override
+  String get brickNoCompanion => 'Crea prima un compagno in Modelli.';
+
+  @override
+  String get brickAdded => 'Blocco aggiunto al compagno.';
+
+  @override
+  String get brickSettings => 'Impostazioni del blocco';
+
+  @override
+  String get brickSettingName => 'Nome';
+
+  @override
+  String get brickSettingMinimum => 'Minimo';
+
+  @override
+  String get brickSettingMaximum => 'Massimo';
+
+  @override
+  String get brickSettingStart => 'Valore iniziale';
+
+  @override
+  String get brickSettingStep => 'Passo';
+
+  @override
+  String get brickSettingColor => 'Colore';
+
+  @override
+  String get brickSettingDisplay => 'Visualizzazione';
+
+  @override
+  String get brickDisplayNumber => 'Numero';
+
+  @override
+  String get brickDisplayBar => 'Barra';
+
+  @override
+  String get brickDisplayHearts => 'Cuori';
+
+  @override
+  String get brickDisplayPips => 'Punti';
+
+  @override
+  String get brickSettingsApply => 'Applica';
+
+  @override
+  String get brickColorBlue => 'Blu';
+
+  @override
+  String get brickColorRed => 'Rosso';
+
+  @override
+  String get brickColorGold => 'Oro';
+
+  @override
+  String get brickColorGreen => 'Verde';
+
+  @override
+  String get brickColorViolet => 'Viola';
+
+  @override
+  String get toolCounterLifeSubtitle => 'Vite o salute, con barra.';
+
+  @override
+  String get toolCounterPointsSubtitle => 'Punti da sommare, turno dopo turno.';
+
+  @override
+  String get toolCounterChipsSubtitle =>
+      'Una pila di fiche da puntare e vincere.';
+
+  @override
+  String get toolCounterPotSubtitle =>
+      'Il piatto comune per cui tutti giocano.';
+
+  @override
   String get campaignTitle => 'Iniziazione al gioco di ruolo';
 
   @override

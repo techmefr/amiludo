@@ -2769,6 +2769,97 @@ class AppLocalizationsEs extends AppLocalizations {
       'Este identificador está reservado a una plantilla integrada.';
 
   @override
+  String get brickLibrarySearch => 'Buscar un bloque';
+
+  @override
+  String get brickLibraryNone => 'Ningún bloque para esta búsqueda.';
+
+  @override
+  String get toolCategoryFavorites => 'Favoritos';
+
+  @override
+  String get toolCategoryCounters => 'Contadores';
+
+  @override
+  String get brickAddToCompanion => 'Añadir a un compañero';
+
+  @override
+  String get brickChooseCompanion => 'Elegir un compañero';
+
+  @override
+  String get brickNoCompanion => 'Crea primero un compañero en Plantillas.';
+
+  @override
+  String get brickAdded => 'Bloque añadido al compañero.';
+
+  @override
+  String get brickSettings => 'Ajustes del bloque';
+
+  @override
+  String get brickSettingName => 'Nombre';
+
+  @override
+  String get brickSettingMinimum => 'Mínimo';
+
+  @override
+  String get brickSettingMaximum => 'Máximo';
+
+  @override
+  String get brickSettingStart => 'Valor inicial';
+
+  @override
+  String get brickSettingStep => 'Paso';
+
+  @override
+  String get brickSettingColor => 'Color';
+
+  @override
+  String get brickSettingDisplay => 'Visualización';
+
+  @override
+  String get brickDisplayNumber => 'Número';
+
+  @override
+  String get brickDisplayBar => 'Barra';
+
+  @override
+  String get brickDisplayHearts => 'Corazones';
+
+  @override
+  String get brickDisplayPips => 'Puntos';
+
+  @override
+  String get brickSettingsApply => 'Aplicar';
+
+  @override
+  String get brickColorBlue => 'Azul';
+
+  @override
+  String get brickColorRed => 'Rojo';
+
+  @override
+  String get brickColorGold => 'Dorado';
+
+  @override
+  String get brickColorGreen => 'Verde';
+
+  @override
+  String get brickColorViolet => 'Violeta';
+
+  @override
+  String get toolCounterLifeSubtitle => 'Vidas o salud, con barra.';
+
+  @override
+  String get toolCounterPointsSubtitle => 'Puntos que sumar, ronda tras ronda.';
+
+  @override
+  String get toolCounterChipsSubtitle =>
+      'Una pila de fichas para apostar y ganar.';
+
+  @override
+  String get toolCounterPotSubtitle => 'El bote común por el que todos juegan.';
+
+  @override
   String get campaignTitle => 'Iniciación al juego de rol';
 
   @override

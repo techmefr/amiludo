@@ -2774,6 +2774,98 @@ class AppLocalizationsFr extends AppLocalizations {
       'Cet identifiant est réservé à un modèle intégré.';
 
   @override
+  String get brickLibrarySearch => 'Rechercher une brique';
+
+  @override
+  String get brickLibraryNone => 'Aucune brique pour cette recherche.';
+
+  @override
+  String get toolCategoryFavorites => 'Favoris';
+
+  @override
+  String get toolCategoryCounters => 'Compteurs';
+
+  @override
+  String get brickAddToCompanion => 'Ajouter à un compagnon';
+
+  @override
+  String get brickChooseCompanion => 'Choisir un compagnon';
+
+  @override
+  String get brickNoCompanion => 'Créez d\'abord un compagnon dans Modèles.';
+
+  @override
+  String get brickAdded => 'Brique ajoutée au compagnon.';
+
+  @override
+  String get brickSettings => 'Réglages de la brique';
+
+  @override
+  String get brickSettingName => 'Nom';
+
+  @override
+  String get brickSettingMinimum => 'Minimum';
+
+  @override
+  String get brickSettingMaximum => 'Maximum';
+
+  @override
+  String get brickSettingStart => 'Valeur de départ';
+
+  @override
+  String get brickSettingStep => 'Pas';
+
+  @override
+  String get brickSettingColor => 'Couleur';
+
+  @override
+  String get brickSettingDisplay => 'Affichage';
+
+  @override
+  String get brickDisplayNumber => 'Nombre';
+
+  @override
+  String get brickDisplayBar => 'Barre';
+
+  @override
+  String get brickDisplayHearts => 'Cœurs';
+
+  @override
+  String get brickDisplayPips => 'Pastilles';
+
+  @override
+  String get brickSettingsApply => 'Appliquer';
+
+  @override
+  String get brickColorBlue => 'Bleu';
+
+  @override
+  String get brickColorRed => 'Rouge';
+
+  @override
+  String get brickColorGold => 'Or';
+
+  @override
+  String get brickColorGreen => 'Vert';
+
+  @override
+  String get brickColorViolet => 'Violet';
+
+  @override
+  String get toolCounterLifeSubtitle => 'Vies ou santé, avec une barre.';
+
+  @override
+  String get toolCounterPointsSubtitle =>
+      'Des points à cumuler, manche après manche.';
+
+  @override
+  String get toolCounterChipsSubtitle =>
+      'Une pile de jetons à miser et gagner.';
+
+  @override
+  String get toolCounterPotSubtitle => 'La cagnotte commune que tous visent.';
+
+  @override
   String get campaignTitle => 'Initiation au jeu de rôle';
 
   @override

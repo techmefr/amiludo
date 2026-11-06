@@ -188,6 +188,33 @@ class GameTemplate {
       statuses.every((s) => s.trim().isNotEmpty && s.length <= 40) &&
       bricks.length <= 64;
 
+  GameTemplate withBricks(List<Brick> next) => GameTemplate(
+    id: id,
+    name: name,
+    description: description,
+    categories: categories,
+    target: target,
+    lowestWins: lowestWins,
+    cooperative: cooperative,
+    seconds: seconds,
+    author: author,
+    license: license,
+    revision: revision,
+    rulesUrl: rulesUrl,
+    rulesNotes: rulesNotes,
+    edition: edition,
+    language: language,
+    englishName: englishName,
+    modules: modules,
+    dice: dice,
+    roles: roles,
+    scoring: scoring,
+    creation: creation,
+    resources: resources,
+    statuses: statuses,
+    bricks: next,
+  );
+
   static const builtIn = [
     GameTemplate(
       id: 'free',
