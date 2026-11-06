@@ -38,6 +38,9 @@ import 'package:amiludo/layers/functional/Memories/presentation/gallery_import_s
 import 'package:amiludo/layers/functional/Memories/presentation/memories_screen.dart';
 import 'package:amiludo/layers/functional/Sharing/presentation/receive_session_screen.dart';
 import 'package:amiludo/layers/functional/Sharing/presentation/share_session_screen.dart';
+import 'package:amiludo/layers/functional/Random/presentation/chronicles/chronicles_view.dart';
+import 'package:amiludo/layers/functional/Random/presentation/cubit/chronicles_cubit.dart';
+import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit.dart';
 import 'package:amiludo/layers/functional/Random/presentation/tool_page.dart';
 import 'package:amiludo/layers/functional/Random/presentation/tools_screen.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/builder_entry.dart';
@@ -106,8 +109,19 @@ GoRoute _page(String path, Widget Function(GoRouterState state) page) =>
       builder: (context, state) => WorkspaceGate(child: page(state)),
     );
 
+class _ChroniclesRoute extends StatelessWidget {
+  const _ChroniclesRoute();
+
+  @override
+  Widget build(BuildContext context) => BlocProvider(
+    create: (_) => ChroniclesCubit(getIt(), getIt())..load(),
+    child: ChroniclesPage(onSave: context.read<RandomCubit>().saveCharacter),
+  );
+}
+
 final router = GoRouter(
   routes: [
+    _page('/chronicles', (state) => const _ChroniclesRoute()),
     _page(
       '/tools/:id',
       (state) => ToolPage(

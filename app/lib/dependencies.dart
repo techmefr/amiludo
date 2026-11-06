@@ -84,6 +84,10 @@ import 'package:amiludo/layers/functional/Library/domain/use_cases/save_shelf_ga
 import 'package:amiludo/layers/functional/Library/domain/use_cases/suggest_games_use_case.dart';
 import 'package:amiludo/layers/functional/Library/domain/use_cases/watch_shelf_use_case.dart';
 import 'package:amiludo/layers/functional/Memories/data/gateways/memories_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Random/data/chronicles/chronicles_catalog_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Random/data/chronicles/chronicles_run_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Random/domain/chronicles/chronicles_gateways.dart';
+import 'package:amiludo/layers/functional/Random/domain/chronicles/chronicles_use_cases.dart';
 import 'package:amiludo/layers/functional/Random/data/gateways/character_draft_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Random/domain/gateways/character_draft_gateway.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/clear_character_draft_use_case.dart';
@@ -163,6 +167,15 @@ void configureDependencies(StoreDatabase database) {
     ..registerLazySingleton<CharacterDraftGateway>(
       () => getIt<CharacterDraftGatewayImpl>(),
     )
+    ..registerLazySingleton<ChroniclesRunGatewayImpl>(
+      () => ChroniclesRunGatewayImpl(getIt()),
+    )
+    ..registerLazySingleton<ChroniclesRunGateway>(
+      () => getIt<ChroniclesRunGatewayImpl>(),
+    )
+    ..registerLazySingleton<ChroniclesCatalogGateway>(
+      ChroniclesCatalogGatewayImpl.new,
+    )
     ..registerLazySingleton<List<BackupSection>>(
       () => [
         getIt<FriendsGatewayImpl>(),
@@ -170,6 +183,7 @@ void configureDependencies(StoreDatabase database) {
         getIt<MemoriesGatewayImpl>(),
         getIt<EveningsGatewayImpl>(),
         getIt<CharacterDraftGatewayImpl>(),
+        getIt<ChroniclesRunGatewayImpl>(),
       ],
     )
     ..registerLazySingleton<EveningsGatewayImpl>(
@@ -243,6 +257,8 @@ void _registerCollections() {
     ..registerFactory(() => ReadCharacterDraftUseCase(getIt()))
     ..registerFactory(() => SaveCharacterDraftUseCase(getIt()))
     ..registerFactory(() => ClearCharacterDraftUseCase(getIt()))
+    ..registerFactory(() => LoadChroniclesUseCase(getIt(), getIt()))
+    ..registerFactory(() => SaveChroniclesRunUseCase(getIt()))
     ..registerFactory(() => SaveShelfGameUseCase(getIt()))
     ..registerFactory(() => RemoveShelfGameUseCase(getIt(), getIt()))
     ..registerFactory(() => SuggestGamesUseCase(getIt(), getIt()))

@@ -5635,6 +5635,192 @@ abstract class AppLocalizations {
   /// **'Flame bearer'**
   String get campaignM6Badge;
 
+  /// No description provided for @chroniclesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Chronicles'**
+  String get chroniclesTitle;
+
+  /// No description provided for @chroniclesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Build a character in five steps by opening boosters.'**
+  String get chroniclesSubtitle;
+
+  /// No description provided for @chroniclesChooseUniverse.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a universe'**
+  String get chroniclesChooseUniverse;
+
+  /// No description provided for @chroniclesResume.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume my character'**
+  String get chroniclesResume;
+
+  /// No description provided for @chroniclesRestart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start over'**
+  String get chroniclesRestart;
+
+  /// No description provided for @chroniclesStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Step'**
+  String get chroniclesStep;
+
+  /// No description provided for @chroniclesChooseEdition.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a booster edition'**
+  String get chroniclesChooseEdition;
+
+  /// No description provided for @chroniclesTearBooster.
+  ///
+  /// In en, this message translates to:
+  /// **'Tear the booster'**
+  String get chroniclesTearBooster;
+
+  /// No description provided for @chroniclesKeep.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep'**
+  String get chroniclesKeep;
+
+  /// No description provided for @chroniclesPass.
+  ///
+  /// In en, this message translates to:
+  /// **'Pass'**
+  String get chroniclesPass;
+
+  /// No description provided for @chroniclesFlip.
+  ///
+  /// In en, this message translates to:
+  /// **'Flip the card'**
+  String get chroniclesFlip;
+
+  /// No description provided for @chroniclesRefusedQuota.
+  ///
+  /// In en, this message translates to:
+  /// **'No room left for this type of card.'**
+  String get chroniclesRefusedQuota;
+
+  /// No description provided for @chroniclesRefusedConflict.
+  ///
+  /// In en, this message translates to:
+  /// **'This card conflicts with a card you kept.'**
+  String get chroniclesRefusedConflict;
+
+  /// No description provided for @chroniclesRecap.
+  ///
+  /// In en, this message translates to:
+  /// **'Booster recap'**
+  String get chroniclesRecap;
+
+  /// No description provided for @chroniclesNoneKept.
+  ///
+  /// In en, this message translates to:
+  /// **'No card kept from this booster.'**
+  String get chroniclesNoneKept;
+
+  /// No description provided for @chroniclesDestiny.
+  ///
+  /// In en, this message translates to:
+  /// **'Let destiny complete'**
+  String get chroniclesDestiny;
+
+  /// No description provided for @chroniclesChosenByDestiny.
+  ///
+  /// In en, this message translates to:
+  /// **'Chosen by destiny'**
+  String get chroniclesChosenByDestiny;
+
+  /// No description provided for @chroniclesContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get chroniclesContinue;
+
+  /// No description provided for @chroniclesStillMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'Still missing'**
+  String get chroniclesStillMissing;
+
+  /// No description provided for @chroniclesSheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Character sheet'**
+  String get chroniclesSheet;
+
+  /// No description provided for @chroniclesAbilities.
+  ///
+  /// In en, this message translates to:
+  /// **'Abilities'**
+  String get chroniclesAbilities;
+
+  /// No description provided for @chroniclesRarity.
+  ///
+  /// In en, this message translates to:
+  /// **'Rarity'**
+  String get chroniclesRarity;
+
+  /// No description provided for @chroniclesCards.
+  ///
+  /// In en, this message translates to:
+  /// **'Kept cards'**
+  String get chroniclesCards;
+
+  /// No description provided for @chroniclesCopyText.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy as text'**
+  String get chroniclesCopyText;
+
+  /// No description provided for @chroniclesCopyJson.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy as JSON'**
+  String get chroniclesCopyJson;
+
+  /// No description provided for @chroniclesShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get chroniclesShare;
+
+  /// No description provided for @chroniclesSaveToLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'Save to my characters'**
+  String get chroniclesSaveToLibrary;
+
+  /// No description provided for @chroniclesSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Character saved'**
+  String get chroniclesSaved;
+
+  /// No description provided for @chroniclesCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied'**
+  String get chroniclesCopied;
+
+  /// No description provided for @chroniclesLoadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The chronicles data could not be read.'**
+  String get chroniclesLoadFailed;
+
+  /// No description provided for @chroniclesClose.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get chroniclesClose;
+
 }
 
 class _AppLocalizationsDelegate

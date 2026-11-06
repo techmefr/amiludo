@@ -3009,4 +3009,97 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get campaignM6Badge => 'Flame bearer';
+
+  @override
+  String get chroniclesTitle => 'Chronicles';
+
+  @override
+  String get chroniclesSubtitle => 'Build a character in five steps by opening boosters.';
+
+  @override
+  String get chroniclesChooseUniverse => 'Choose a universe';
+
+  @override
+  String get chroniclesResume => 'Resume my character';
+
+  @override
+  String get chroniclesRestart => 'Start over';
+
+  @override
+  String get chroniclesStep => 'Step';
+
+  @override
+  String get chroniclesChooseEdition => 'Choose a booster edition';
+
+  @override
+  String get chroniclesTearBooster => 'Tear the booster';
+
+  @override
+  String get chroniclesKeep => 'Keep';
+
+  @override
+  String get chroniclesPass => 'Pass';
+
+  @override
+  String get chroniclesFlip => 'Flip the card';
+
+  @override
+  String get chroniclesRefusedQuota => 'No room left for this type of card.';
+
+  @override
+  String get chroniclesRefusedConflict => 'This card conflicts with a card you kept.';
+
+  @override
+  String get chroniclesRecap => 'Booster recap';
+
+  @override
+  String get chroniclesNoneKept => 'No card kept from this booster.';
+
+  @override
+  String get chroniclesDestiny => 'Let destiny complete';
+
+  @override
+  String get chroniclesChosenByDestiny => 'Chosen by destiny';
+
+  @override
+  String get chroniclesContinue => 'Continue';
+
+  @override
+  String get chroniclesStillMissing => 'Still missing';
+
+  @override
+  String get chroniclesSheet => 'Character sheet';
+
+  @override
+  String get chroniclesAbilities => 'Abilities';
+
+  @override
+  String get chroniclesRarity => 'Rarity';
+
+  @override
+  String get chroniclesCards => 'Kept cards';
+
+  @override
+  String get chroniclesCopyText => 'Copy as text';
+
+  @override
+  String get chroniclesCopyJson => 'Copy as JSON';
+
+  @override
+  String get chroniclesShare => 'Share';
+
+  @override
+  String get chroniclesSaveToLibrary => 'Save to my characters';
+
+  @override
+  String get chroniclesSaved => 'Character saved';
+
+  @override
+  String get chroniclesCopied => 'Copied';
+
+  @override
+  String get chroniclesLoadFailed => 'The chronicles data could not be read.';
+
+  @override
+  String get chroniclesClose => 'Close';
 }

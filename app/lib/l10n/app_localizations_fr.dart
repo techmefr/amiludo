@@ -3034,4 +3034,97 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get campaignM6Badge => 'Porteur de flamme';
+
+  @override
+  String get chroniclesTitle => 'Chronicles';
+
+  @override
+  String get chroniclesSubtitle => 'Créez un personnage en cinq étapes en ouvrant des boosters.';
+
+  @override
+  String get chroniclesChooseUniverse => 'Choisissez un univers';
+
+  @override
+  String get chroniclesResume => 'Reprendre mon personnage';
+
+  @override
+  String get chroniclesRestart => 'Recommencer';
+
+  @override
+  String get chroniclesStep => 'Étape';
+
+  @override
+  String get chroniclesChooseEdition => 'Choisissez une édition de booster';
+
+  @override
+  String get chroniclesTearBooster => 'Déchirer le booster';
+
+  @override
+  String get chroniclesKeep => 'Garder';
+
+  @override
+  String get chroniclesPass => 'Passer';
+
+  @override
+  String get chroniclesFlip => 'Retourner la carte';
+
+  @override
+  String get chroniclesRefusedQuota => 'Plus de place pour ce type de carte.';
+
+  @override
+  String get chroniclesRefusedConflict => 'Cette carte est en conflit avec une carte gardée.';
+
+  @override
+  String get chroniclesRecap => 'Bilan du booster';
+
+  @override
+  String get chroniclesNoneKept => 'Aucune carte gardée dans ce booster.';
+
+  @override
+  String get chroniclesDestiny => 'Laisser le destin compléter';
+
+  @override
+  String get chroniclesChosenByDestiny => 'Choisi par le destin';
+
+  @override
+  String get chroniclesContinue => 'Continuer';
+
+  @override
+  String get chroniclesStillMissing => 'Il manque encore';
+
+  @override
+  String get chroniclesSheet => 'Fiche de personnage';
+
+  @override
+  String get chroniclesAbilities => 'Caractéristiques';
+
+  @override
+  String get chroniclesRarity => 'Rareté';
+
+  @override
+  String get chroniclesCards => 'Cartes gardées';
+
+  @override
+  String get chroniclesCopyText => 'Copier en texte';
+
+  @override
+  String get chroniclesCopyJson => 'Copier en JSON';
+
+  @override
+  String get chroniclesShare => 'Partager';
+
+  @override
+  String get chroniclesSaveToLibrary => 'Enregistrer dans mes personnages';
+
+  @override
+  String get chroniclesSaved => 'Personnage enregistré';
+
+  @override
+  String get chroniclesCopied => 'Copié';
+
+  @override
+  String get chroniclesLoadFailed => 'Les données Chronicles sont illisibles.';
+
+  @override
+  String get chroniclesClose => 'Fermer';
 }

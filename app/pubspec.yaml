@@ -53,6 +53,7 @@ flutter:
   assets:
     - assets/brand/
     - assets/cards/
+    - assets/chronicles/
     - assets/community/
     - assets/fonts/
     - assets/generators/

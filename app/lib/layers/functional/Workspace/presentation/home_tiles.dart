@@ -28,6 +28,11 @@ class HomeWaysToPlay extends StatelessWidget {
         onTap: () => context.go('/templates'),
       ),
       DeckTile(
+        icon: Icons.auto_stories_outlined,
+        title: context.l10n.chroniclesTitle,
+        onTap: () => context.push('/chronicles'),
+      ),
+      DeckTile(
         icon: Icons.wifi_tethering,
         title: context.l10n.workspaceOpenALobby,
         onTap: () => context.go('/lobby'),

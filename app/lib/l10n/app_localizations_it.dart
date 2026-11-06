@@ -3031,4 +3031,97 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get campaignM6Badge => 'Portatore di fiamma';
+
+  @override
+  String get chroniclesTitle => 'Chronicles';
+
+  @override
+  String get chroniclesSubtitle => 'Crea un personaggio in cinque passi aprendo bustine.';
+
+  @override
+  String get chroniclesChooseUniverse => 'Scegli un universo';
+
+  @override
+  String get chroniclesResume => 'Riprendi il mio personaggio';
+
+  @override
+  String get chroniclesRestart => 'Ricomincia';
+
+  @override
+  String get chroniclesStep => 'Passo';
+
+  @override
+  String get chroniclesChooseEdition => 'Scegli un\'edizione di bustina';
+
+  @override
+  String get chroniclesTearBooster => 'Strappa la bustina';
+
+  @override
+  String get chroniclesKeep => 'Tieni';
+
+  @override
+  String get chroniclesPass => 'Passa';
+
+  @override
+  String get chroniclesFlip => 'Gira la carta';
+
+  @override
+  String get chroniclesRefusedQuota => 'Non c\'è più posto per questo tipo di carta.';
+
+  @override
+  String get chroniclesRefusedConflict => 'Questa carta è in conflitto con una carta tenuta.';
+
+  @override
+  String get chroniclesRecap => 'Riepilogo della bustina';
+
+  @override
+  String get chroniclesNoneKept => 'Nessuna carta tenuta da questa bustina.';
+
+  @override
+  String get chroniclesDestiny => 'Lascia che il destino completi';
+
+  @override
+  String get chroniclesChosenByDestiny => 'Scelta dal destino';
+
+  @override
+  String get chroniclesContinue => 'Continua';
+
+  @override
+  String get chroniclesStillMissing => 'Mancano ancora';
+
+  @override
+  String get chroniclesSheet => 'Scheda del personaggio';
+
+  @override
+  String get chroniclesAbilities => 'Caratteristiche';
+
+  @override
+  String get chroniclesRarity => 'Rarità';
+
+  @override
+  String get chroniclesCards => 'Carte tenute';
+
+  @override
+  String get chroniclesCopyText => 'Copia come testo';
+
+  @override
+  String get chroniclesCopyJson => 'Copia come JSON';
+
+  @override
+  String get chroniclesShare => 'Condividi';
+
+  @override
+  String get chroniclesSaveToLibrary => 'Salva nei miei personaggi';
+
+  @override
+  String get chroniclesSaved => 'Personaggio salvato';
+
+  @override
+  String get chroniclesCopied => 'Copiato';
+
+  @override
+  String get chroniclesLoadFailed => 'Impossibile leggere i dati di Chronicles.';
+
+  @override
+  String get chroniclesClose => 'Chiudi';
 }
