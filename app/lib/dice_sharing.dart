@@ -1,11 +1,12 @@
-import package:flutter/widgets.dart;
+import 'package:flutter/widgets.dart';
 
-import package:amiludo/dependencies.dart;
-import package:amiludo/layers/functional/Companion/domain/entities/die_library.dart;
-import package:amiludo/layers/functional/Companion/domain/use_cases/die_share_use_cases.dart;
-import package:amiludo/layers/functional/Companion/presentation/die_library_actions.dart;
+import 'package:amiludo/dependencies.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/die_library.dart';
+import 'package:amiludo/layers/functional/Companion/domain/use_cases/die_share_use_cases.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/die_library_actions.dart';
 
-Future<String> embedDice(String json) async => getIt.isRegistered<EmbedDiceUseCase>()
+Future<String> embedDice(String json) async =>
+    getIt.isRegistered<EmbedDiceUseCase>()
     ? getIt<EmbedDiceUseCase>()(json)
     : json;
 
