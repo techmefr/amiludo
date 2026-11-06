@@ -83,8 +83,8 @@ class _CounterViewState extends State<CounterView> {
                       style: theme.textTheme.labelLarge?.copyWith(color: ink),
                     ),
                   ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                Wrap(
+                  alignment: WrapAlignment.center,
                   children: [
                     TextButton(
                       onPressed: counter.canUndo
