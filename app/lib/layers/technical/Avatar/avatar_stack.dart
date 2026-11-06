@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AvatarLayerSpec {
-  const AvatarLayerSpec({required this.order, required this.asset});
+  const AvatarLayerSpec({required this.order, required this.asset, this.tint});
   final int order;
   final String asset;
+  final Color? tint;
 }
 
 List<AvatarLayerSpec> orderedLayers(
@@ -41,6 +42,8 @@ class AvatarStack extends StatelessWidget {
               Image.asset(
                 'assets/${l.asset}.png',
                 fit: BoxFit.contain,
+                color: l.tint,
+                colorBlendMode: BlendMode.modulate,
                 excludeFromSemantics: true,
                 errorBuilder: (_, _, _) => const SizedBox.shrink(),
               ),
