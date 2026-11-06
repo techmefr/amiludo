@@ -1,50 +1,50 @@
-# Feuille de route
+# Roadmap
 
-Aucune échéance promise ; chaque étape dépend de critères de sortie.
+No deadlines promised; each stage depends on exit criteria.
 
-## 0 — Fondations (réalisées, identité provisoire)
+## 0 — Foundations (done, provisional identity)
 
-Nom de travail, catalogue, choix techniques et logo « La boîte » retenu (design/logo). Le dépôt contient maintenant une application Flutter alpha et les maquettes initiales.
+Working name, catalog, technical choices and the chosen "The box" logo (design/logo). The repository now contains a Flutter alpha app and the initial mockups.
 
-## 1 — Tranche verticale (réalisée et testée)
+## 1 — Vertical slice (done and tested)
 
-Créer une partie à trois joueurs, ajouter des points, annuler, fermer et retrouver la partie. Éprouver les migrations de données et l’accessibilité avant d’élargir.
+Create a three-player game, add points, undo, close and resume the game. Prove out data migrations and accessibility before broadening.
 
-## 2 — MVP hors ligne (alpha en validation)
+## 2 — Offline MVP (alpha in validation)
 
-Fonctions marquées MVP dans le catalogue. Tester sur Android, iPhone et navigateur, dont sélection tactile, veille, reprise des horloges et perte du stockage web. Une partie complète doit fonctionner en mode avion après installation ou premier chargement web mis en cache.
+Features marked MVP in the catalog. Test on Android, iPhone and browser, including touch selection, sleep, clock resume and web storage loss. A complete game must work in airplane mode after installation or a first cached web load.
 
-## 3 — V1 personnalisable
+## 3 — Customizable V1
 
-Modèles de jeux, scores par catégories, outils avancés et historique enrichi. Importer un modèle communautaire validé et jouer sans réseau. L’éditeur commence par un format déclaratif limité.
+Game templates, category scores, advanced tools and richer history. Import a validated community template and play without a network. The editor starts with a limited declarative format.
 
-## 4 — V2 partagée (en cours)
+## 4 — Shared V2 (in progress)
 
-Réalisé en 0.4.0 :
-- salons à rejoindre par code, lien ou QR, sur le même Wi‑Fi ou à distance (Supabase) ;
-- comptes facultatifs ;
-- soirées avec inscriptions et liste d’attente.
+Done in 0.4.0:
+- rooms joined by code, link or QR, on the same Wi-Fi or remotely (Supabase);
+- optional accounts;
+- evenings with sign-ups and a waiting list.
 
-Prochaines étapes :
-- secret d’hôte dans le lien, canaux Realtime privés et découverte Wi‑Fi sans code en clair ;
-- SMTP pour les e-mails de compte ;
-- App Links et Universal Links à la place du schéma `amiludo://` ;
-- APK release signé ;
-- partage de l’état de partie entre appareils (autorité de l’hôte, ordre des actions, reprise).
+Next steps:
+- host secret in the link, private Realtime channels and Wi-Fi discovery without a plain-text code;
+- SMTP for account emails;
+- App Links and Universal Links instead of the `amiludo://` scheme;
+- signed release APK;
+- sharing game state across devices (host authority, action ordering, resume).
 
-Les parties locales restent disponibles sans service distant.
+Local games remain available without a remote service.
 
-## Qualité du code
+## Code quality
 
-- Découper le document `Workspace` en stockages par fonctionnalité ; chaque cubit n’expose alors que son propre état.
-- Supprimer le cycle Game ↔ Timer.
-- Découper `random_tool.dart` par outil.
-- Sortir les textes et erreurs restants vers l’i18n.
+- Split the `Workspace` document into per-feature storage; each cubit then exposes only its own state.
+- Remove the Game ↔ Timer cycle.
+- Split `random_tool.dart` by tool.
+- Move the remaining texts and errors to i18n.
 
-## 5 — Tournois et intégrations
+## 5 — Tournaments and integrations
 
-Extensions indépendantes, selon les usages observés et les contributions. La priorité reste un compagnon local, accessible et personnalisable.
+Independent extensions, based on observed usage and contributions. The priority remains a local, accessible and customizable companion.
 
-## Personnages et cartes
+## Characters and cards
 
-Les générateurs par listes/boosters sont disponibles. Prochaines étapes : fiches libres (caractéristiques, inventaire, progression), paquets de cartes génériques (pioche, main, défausse), plateaux/jetons et suivi de campagne. Les mains privées multi-appareils dépendent des futures salles partagées.
+List/booster generators are available. Next steps: free sheets (attributes, inventory, progression), generic card decks (draw, hand, discard), boards/tokens and campaign tracking. Private multi-device hands depend on the future shared rooms.

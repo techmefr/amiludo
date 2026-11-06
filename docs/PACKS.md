@@ -1,30 +1,30 @@
-# Packs, builders et galerie
+# Packs, builders and gallery
 
-L’alpha 0.2.0 permet de construire un pack par jeu depuis Modèles → Créer un compagnon. Tous les outils s’ouvrent sur une page avec retour ; la sélection au doigt possède une surface tactile qui occupe l’espace disponible. Les confirmations courtes restent des dialogues.
+Alpha 0.2.0 lets you build one pack per game from Templates → Create a companion. Every tool opens on its own page with a back button; finger selection has a touch surface that fills the available space. Short confirmations remain dialogs.
 
-## Contenu d’un pack
+## Pack contents
 
-- Dés : plusieurs types, nombre d’exemplaires, libellé et valeur de chaque face. Les faces répétées modifient les probabilités ; les lancers permettent de conserver des dés.
-- Rôles : nom, effectif et consigne privée. La distribution exige une carte par participant ; les cartes sont révélées une par une, puis masquées. Quitter l’application masque la carte révélée.
-- Scores : catégories, multiplication, lots complets, progression triangulaire, seuils et barèmes personnalisés. Les quantités calculées remplacent le total d’une catégorie dans la manche ; elles ne le doublent pas. Le journal reste annulable.
-- Personnages : catégories libres (races, métiers, histoires, pouvoirs…), cartes et descriptions, taille du booster, minimum et maximum de cartes à garder. Exemple : proposer quatre races et en garder une ou deux. Le mode liste propose toutes les cartes ; le mode booster tire sans doublon. Les choix forment une fiche locale, exportable et importable.
-- Règles : lien HTTPS, édition et notes personnelles incluses dans le pack. Le livret distant reste un lien ; l’application ne le récupère ni ne l’analyse automatiquement.
-- Auteur, langue, licence et version du pack.
+- Dice: several types, number of copies, label and value of each face. Repeated faces change the probabilities; rolls let you keep dice.
+- Roles: name, headcount and private instruction. Dealing requires one card per participant; cards are revealed one at a time, then hidden. Leaving the app hides the revealed card.
+- Scores: categories, multiplication, complete sets, triangular progression, thresholds and custom scales. Computed quantities replace a category's total in the round; they do not double it. The log can be undone.
+- Characters: free categories (races, professions, backgrounds, powers...), cards and descriptions, booster size, minimum and maximum number of cards to keep. Example: offer four races and keep one or two. List mode offers all the cards; booster mode draws without duplicates. The choices form a local sheet that can be exported and imported.
+- Rules: HTTPS link, editing and personal notes included in the pack. The remote rulebook stays a link; the app neither fetches nor analyzes it automatically.
+- Pack author, language, license and version.
 
-Une partie conserve une copie de son pack. Modifier un pack de la bibliothèque ne recalcule pas les parties existantes. Les fiches de personnages restent conservées après suppression du pack d’origine ; elles sont incluses dans la sauvegarde globale.
+A game keeps a copy of its pack. Editing a pack in the library does not recompute existing games. Character sheets are kept after the original pack is deleted; they are included in the global backup.
 
-## Galerie communautaire
+## Community gallery
 
-Le catalogue initial contient trois exemples originaux clairement identifiés. On peut rechercher, filtrer, installer et réinstaller un pack. L’installation copie les données dans la bibliothèque ; une réinstallation demande confirmation avant remplacement. Actualiser charge le catalogue public ; le catalogue embarqué reste consultable sans connexion. Les packs installés restent utilisables hors connexion.
+The initial catalog contains three original examples, clearly identified. You can search, filter, install and reinstall a pack. Installing copies the data into the library; reinstalling asks for confirmation before replacing. Refreshing loads the public catalog; the bundled catalog remains available offline. Installed packs remain usable offline.
 
-Pour partager : exporter le pack puis proposer son fichier dans le dépôt public. Voir [community/README.md](../community/README.md). La publication suit une pull request et une relecture, sans envoi automatique depuis l’application. Il n’y a pas encore de comptes dédiés, notes, achats ou publication instantanée.
+To share: export the pack, then submit its file to the public repository. See [community/README.md](../community/README.md). Publication goes through a pull request and a review, with no automatic upload from the app. There are no dedicated accounts, ratings, purchases or instant publishing yet.
 
-## Limites actuelles
+## Current limits
 
-Les calculs sont des opérations déclaratives limitées, pas un arbitre universel de toutes les règles d’un jeu. Les fiches générées contiennent les choix et descriptions ; les caractéristiques numériques, inventaires, combats et progressions libres restent à construire. Les cartes de booster ne constituent pas encore un moteur générique de pioche/main/défausse. Les mains privées sur plusieurs appareils nécessiteront les salles partagées.
+Calculations are limited declarative operations, not a universal referee for every rule of a game. Generated sheets contain the choices and descriptions; numeric attributes, inventories, combat and free progression have yet to be built. Booster cards are not yet a generic draw/hand/discard engine. Private hands across several devices will require shared rooms.
 
-Les essais de multitouch sur appareils physiques restent nécessaires. Les créations en cours et tirages d’outils ne sont pas restaurés ; enregistrer une fiche ou un pack pour le conserver.
+Multitouch tests on physical devices are still needed. Creations in progress and tool draws are not restored; save a sheet or a pack to keep it.
 
-Le mode libre ouvre les outils sans pack. Un compagnon par jeu rassemble les modules configurés dans un tableau de bord. Les icônes de l’interface utilisent Hugeicons Free, sous licence MIT ; elles sont incluses dans la compilation et ne demandent aucun chargement externe.
+Free mode opens the tools without a pack. A per-game companion gathers the configured modules in a dashboard. The interface icons use Hugeicons Free, under the MIT license; they are bundled in the build and require no external loading.
 
-Le builder se parcourt par étapes : nom local et anglais, sélection des modes, réglage des seuls modes choisis, résumé. Les métadonnées de publication restent repliées. Les outils non sélectionnés ne sont pas imposés au compagnon du jeu.
+The builder is walked through in steps: local and English name, mode selection, settings for the selected modes only, summary. Publication metadata stays collapsed. Unselected tools are not imposed on the game's companion.

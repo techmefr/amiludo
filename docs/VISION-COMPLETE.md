@@ -1,211 +1,211 @@
-# Vision — un maximum d’outils, simplement
+# Vision — as many tools as possible, kept simple
 
-Document de discussion du 2 novembre 2026. Ce catalogue décrit la cible ; les statuts précis de l’alpha sont dans APP-STATUS.md.
+Discussion document of November 2, 2026. This catalog describes the target; the precise alpha statuses are in APP-STATUS.md.
 
-## Parcours simple
+## Simple flow
 
-Nom dans sa langue et nom anglais → choix des modes → réglage des seuls modes choisis → aperçu, test et sauvegarde. Les options avancées restent repliées. Mode libre pour un outil immédiat, compagnon par jeu pour une configuration réutilisable.
+Name in its language and English name → choice of modes → settings for the selected modes only → preview, test and save. Advanced options stay collapsed. Free mode for an immediate tool, per-game companion for a reusable setup.
 
-## Préparer la table
+## Setting up the table
 
-Socle existant à enrichir ; toutes les capacités ci-dessous ne sont pas encore livrées.
+Existing foundation to be enriched; not all the capabilities below are delivered yet.
 
-- Joueurs, équipes, invités et groupes réutilisables.
-- Premier joueur par doigt, liste, ordre manuel ou tirage.
-- Placement autour de la table, rôles et répartition des places.
-- Réglages de la partie, variantes, extensions et revanche.
-- Aide de mise en place, matériel et étapes à cocher.
+- Reusable players, teams, guests and groups.
+- First player by finger, list, manual order or draw.
+- Seating around the table, roles and seat assignment.
+- Game settings, variants, expansions and rematch.
+- Setup help, equipment and checklist steps.
 
-## Hasard, dés et tirages
+## Chance, dice and draws
 
-Socle existant à enrichir ; toutes les capacités ci-dessous ne sont pas encore livrées.
+Existing foundation to be enriched; not all the capabilities below are delivered yet.
 
-- Dés classiques ou à symboles ; faces et valeurs personnalisées.
-- Plusieurs types de dés, verrouillage, total et historique.
-- Expressions, succès, avantage, désavantage et relances.
-- Roue pondérée, pile ou face, nombres et listes.
-- Sacs sans remise, tables de butin, événements et rencontres.
+- Classic or symbol dice; custom faces and values.
+- Several dice types, locking, total and history.
+- Expressions, successes, advantage, disadvantage and rerolls.
+- Weighted wheel, coin flip, numbers and lists.
+- Draw-without-replacement bags, loot tables, events and encounters.
 
-## Points et ressources
+## Points and resources
 
-Socle existant à enrichir ; toutes les capacités ci-dessous ne sont pas encore livrées.
+Existing foundation to be enriched; not all the capabilities below are delivered yet.
 
-- Manches, catégories, classement, égalités et objectif commun.
-- Barèmes, lots, multiplicateurs, bonus, malus et seuils.
-- Vie, énergie, argent, menace, expérience et ressources.
-- Pistes de progression, jauges, limites et transferts.
-- Journal annulable, récapitulatif, fin de partie et export.
+- Rounds, categories, ranking, ties and shared goal.
+- Scales, sets, multipliers, bonuses, penalties and thresholds.
+- Health, energy, money, threat, experience and resources.
+- Progress tracks, gauges, limits and transfers.
+- Undoable log, recap, end of game and export.
 
-## Temps, tours et phases
+## Time, turns and phases
 
-Socle existant à enrichir ; toutes les capacités ci-dessous ne sont pas encore livrées.
+Existing foundation to be enriched; not all the capabilities below are delivered yet.
 
-- Chronomètre, compte à rebours et sablier.
-- Temps par joueur, équipe, action ou phase.
-- Horloges simultanées, incréments et cadences avancées.
-- Ordre du tour, initiative, sens de jeu et joueur actif.
-- Alertes, pause, prolongation et rappels de phase.
+- Stopwatch, countdown and hourglass.
+- Time per player, team, action or phase.
+- Simultaneous clocks, increments and advanced time controls.
+- Turn order, initiative, direction of play and active player.
+- Alerts, pause, extension and phase reminders.
 
-## Cartes et paquets
+## Cards and decks
 
-Famille prévue, à construire.
+Planned family, to be built.
 
-- Builder de cartes : nom, texte, image, recto/verso et copies.
-- Mélanger, piocher, révéler, défausser et remettre en jeu.
-- Main privée, piles publiques, réserve, recherche et tri.
-- Draft, échanges, marché de cartes et pioche conditionnelle.
-- Paquet standard ou personnalisé ; export pour impression.
+- Card builder: name, text, image, front/back and copies.
+- Shuffle, draw, reveal, discard and return to play.
+- Private hand, public piles, reserve, search and sort.
+- Draft, trades, card market and conditional draw.
+- Standard or custom deck; export for printing.
 
-## Rôles et informations privées
+## Roles and private information
 
-Socle existant à enrichir ; toutes les capacités ci-dessous ne sont pas encore livrées.
+Existing foundation to be enriched; not all the capabilities below are delivered yet.
 
-- Builder de rôles, effectifs, équipes et consignes.
-- Distribution secrète et révélation individuelle.
-- Objectifs privés, indices, votes et alliances.
-- Ordre de nuit, phases cachées et aide à l’animateur.
-- Séparation des informations publiques et privées.
+- Role builder, headcounts, teams and instructions.
+- Secret dealing and individual reveal.
+- Private goals, clues, votes and alliances.
+- Night order, hidden phases and moderator help.
+- Separation of public and private information.
 
-## Personnages et fiches
+## Characters and sheets
 
-Socle existant à enrichir ; toutes les capacités ci-dessous ne sont pas encore livrées.
+Existing foundation to be enriched; not all the capabilities below are delivered yet.
 
-- Création par listes ou boosters, avec choix limités.
-- Races/origines, métiers, histoires, pouvoirs et contraintes.
-- Fiches libres : caractéristiques, compétences et portraits.
-- Inventaire, équipement, poids, monnaie et objets consommables.
-- Niveaux, expérience, blessures, progression et sauvegardes.
+- Creation by lists or boosters, with limited choices.
+- Races/origins, professions, backgrounds, powers and constraints.
+- Free sheets: attributes, skills and portraits.
+- Inventory, equipment, weight, currency and consumable items.
+- Levels, experience, injuries, progression and saves.
 
-## Pouvoirs, états et capacités
+## Powers, states and abilities
 
-Famille prévue, à construire.
+Planned family, to be built.
 
-- Sorts, talents, attaques, compétences et cartes de pouvoir.
-- Coûts, charges, usages limités et récupération.
-- Effets temporaires, durée, empilement et expiration.
-- Bonus d’équipement, conditions et modificateurs.
-- Rappels contextuels, interactions et aides de résolution.
+- Spells, talents, attacks, skills and power cards.
+- Costs, charges, limited uses and recovery.
+- Temporary effects, duration, stacking and expiration.
+- Equipment bonuses, conditions and modifiers.
+- Contextual reminders, interactions and resolution aids.
 
-## Combat et aide au meneur
+## Combat and game master aids
 
-Famille prévue, à construire.
+Planned family, to be built.
 
-- Initiative, tours, groupes d’ennemis et vagues.
-- Vie, défense, dégâts, soins et conditions.
-- Fiches de créatures, PNJ, rencontres et tables de difficulté.
-- Secrets du meneur, notes publiques, indices et révélations.
-- Journal de combat et résumé de séance.
+- Initiative, turns, enemy groups and waves.
+- Health, defense, damage, healing and conditions.
+- Creature sheets, NPCs, encounters and difficulty tables.
+- Game master secrets, public notes, clues and reveals.
+- Combat log and session summary.
 
-## Campagnes et scénarios
+## Campaigns and scenarios
 
-Famille prévue, à construire.
+Planned family, to be built.
 
-- Sessions liées, chapitres, embranchements et objectifs.
-- Quêtes, événements, succès, récompenses et conséquences.
-- Progression des personnages, survivants, factions ou colonies.
-- Journal partagé, chronologie, notes et pièces jointes.
-- Sauvegardes de campagne, variantes et reprise entre séances.
+- Linked sessions, chapters, branches and objectives.
+- Quests, events, achievements, rewards and consequences.
+- Progression of characters, survivors, factions or colonies.
+- Shared journal, timeline, notes and attachments.
+- Campaign saves, variants and resuming between sessions.
 
-## Plateaux, pistes et figurines
+## Boards, tracks and miniatures
 
-Famille prévue, à construire.
+Planned family, to be built.
 
-- Plateaux, grilles carrées ou hexagonales et zones.
-- Pions, jetons, marqueurs, obstacles et objectifs.
-- Distances, déplacements, portée et gabarits.
-- Brouillard de guerre, zones révélées et couches d’information.
-- Pistes de manche, danger, terrain et état des figurines.
+- Boards, square or hexagonal grids and zones.
+- Pawns, tokens, markers, obstacles and objectives.
+- Distances, movement, range and templates.
+- Fog of war, revealed areas and information layers.
+- Round tracks, danger, terrain and miniature status.
 
-## Coopération, énigmes et ambiance
+## Cooperation, puzzles and atmosphere
 
-Famille prévue, à construire.
+Planned family, to be built.
 
-- Objectifs communs, menace, vagues et conditions de défaite.
-- Indices, codes, enveloppes virtuelles et révélations.
-- Minuteries de scénario et événements déclenchés.
-- Bandes-son, ambiances et effets facultatifs.
-- Aides de lecture et rappels ; spoilers masqués.
+- Shared goals, threat, waves and defeat conditions.
+- Clues, codes, virtual envelopes and reveals.
+- Scenario timers and triggered events.
+- Soundtracks, ambiences and optional effects.
+- Reading aids and reminders; hidden spoilers.
 
-## Bibliothèque et souvenirs
+## Library and memories
 
-Socle existant à enrichir ; toutes les capacités ci-dessous ne sont pas encore livrées.
+Existing foundation to be enriched; not all the capabilities below are delivered yet.
 
-- Compagnons classés par jeu, langue, édition et variante.
-- Collection, envies de jouer, prêts et rangement.
-- Historique des parties, participants, scores et lieux.
-- Statistiques, courbes, records, défis et succès personnels.
-- Recherche, filtres, favoris et sélection d’un jeu pour le groupe.
+- Companions sorted by game, language, edition and variant.
+- Collection, play wishlist, loans and storage.
+- Game history, participants, scores and places.
+- Statistics, curves, records, challenges and personal achievements.
+- Search, filters, favorites and picking a game for the group.
 
-## Soirées, clubs et tournois
+## Evenings, clubs and tournaments
 
-Famille prévue, à construire.
+Planned family, to be built.
 
-- Planning, inscriptions, groupes et rotation des tables.
-- Matchs libres, championnat, poules et élimination directe.
-- Appariements suisses, classements et départages.
-- Équipes, disponibilités, arbitrage et saisie des résultats.
-- Écran public, mode kiosque et récapitulatif de soirée.
+- Schedule, sign-ups, groups and table rotation.
+- Casual matches, league, pools and knockout.
+- Swiss pairings, rankings and tiebreakers.
+- Teams, availability, refereeing and result entry.
+- Public display, kiosk mode and evening recap.
 
-## Partage et galerie
+## Sharing and gallery
 
-Socle existant à enrichir ; toutes les capacités ci-dessous ne sont pas encore livrées.
+Existing foundation to be enriched; not all the capabilities below are delivered yet.
 
-- Packs de jeux, modèles de dés, rôles, fiches et variantes.
-- Recherche, aperçu, installation et copie personnalisable.
-- Auteur, version, langue, licence et provenance des règles.
-- Révisions, signalement, favoris et retours de communauté.
-- Salle par code/QR, plusieurs appareils et droits par joueur.
+- Game packs, dice templates, roles, sheets and variants.
+- Search, preview, installation and customizable copy.
+- Author, version, language, license and provenance of the rules.
+- Revisions, reporting, favorites and community feedback.
+- Room by code/QR, several devices and per-player permissions.
 
-## Confort, accessibilité et données
+## Comfort, accessibility and data
 
-Socle existant à enrichir ; toutes les capacités ci-dessous ne sont pas encore livrées.
+Existing foundation to be enriched; not all the capabilities below are delivered yet.
 
-- Web, mobile, tablette, grand écran et outils hors connexion.
-- Thèmes, palettes, polices, contraste et grandes commandes.
-- Lecteurs d’écran, usages daltoniens et orientation de la table.
-- Sons, vibrations et animations réglables ; mode discret.
-- Sauvegardes, restauration, JSON, CSV, PDF et portabilité.
+- Web, mobile, tablet, large screen and offline tools.
+- Themes, palettes, fonts, contrast and large controls.
+- Screen readers, color-blind support and table orientation.
+- Adjustable sounds, vibrations and animations; quiet mode.
+- Backups, restore, JSON, CSV, PDF and portability.
 
-## Règles et aides de jeu
+## Rules and game aids
 
-Socle existant à enrichir ; toutes les capacités ci-dessous ne sont pas encore livrées.
+Existing foundation to be enriched; not all the capabilities below are delivered yet.
 
-- Nom local et anglais, édition, extensions et variantes.
-- Liens vers les règles, errata et références de l’éditeur.
-- Fiches de rappel, glossaire et résumés rédigés par les joueurs.
-- Documents personnels autorisés, recherche et annotations.
-- Mise en place guidée et rappels adaptés à la phase de jeu.
+- Local and English name, edition, expansions and variants.
+- Links to the rules, errata and publisher references.
+- Reminder sheets, glossary and summaries written by players.
+- Allowed personal documents, search and annotations.
+- Guided setup and reminders adapted to the game phase.
 
-## Banque, enchères et échanges
+## Bank, auctions and trades
 
-Famille prévue, à construire.
+Planned family, to be built.
 
-- Banque commune et portefeuilles des joueurs.
-- Transactions, dettes, prêts et piste de dépenses.
-- Enchères ouvertes ou cachées, mises et révélation simultanée.
-- Votes, choix secrets, engagements et négociations chronométrées.
-- Échanges d’objets, ressources ou cartes avec confirmation.
+- Shared bank and player wallets.
+- Transactions, debts, loans and spending track.
+- Open or hidden auctions, bids and simultaneous reveal.
+- Votes, secret choices, commitments and timed negotiations.
+- Trades of items, resources or cards with confirmation.
 
-## Calculs et petits accessoires
+## Calculations and small accessories
 
-Famille prévue, à construire.
+Planned family, to be built.
 
-- Probabilités de dés, distributions et comparaisons de résultats.
-- Grilles à cocher : loto, bingo, roll-and-write et objectifs.
-- Sélection de lettres, mots, thèmes et sujets de discussion.
-- Listes de tâches, compteurs de matériel et tirages combinés.
-- Règles graduées, convertisseurs et aides de calcul personnalisées.
+- Dice probabilities, distributions and result comparisons.
+- Checkable grids: lotto, bingo, roll-and-write and objectives.
+- Selection of letters, words, themes and discussion topics.
+- To-do lists, equipment counters and combined draws.
+- Graduated rulers, converters and custom calculation aids.
 
-## Atelier de compagnons
+## Companion workshop
 
-Socle existant à enrichir ; toutes les capacités ci-dessous ne sont pas encore livrées.
+Existing foundation to be enriched; not all the capabilities below are delivered yet.
 
-- Assistant : nom, modes, réglages, aperçu et sauvegarde.
-- Builders de dés, cartes, rôles, fiches, tables et scénarios.
-- Champs obligatoires, limites, dépendances et variantes.
-- Ordre des outils, raccourcis, thème et icônes Hugeicons.
-- Test local, duplication, partage, version et installation.
+- Wizard: name, modes, settings, preview and save.
+- Builders for dice, cards, roles, sheets, tables and scenarios.
+- Required fields, limits, dependencies and variants.
+- Tool order, shortcuts, theme and Hugeicons icons.
+- Local test, duplication, sharing, version and installation.
 
-## Retours attendus
+## Feedback wanted
 
-Quels jeux, quels trois outils prioritaires, quels manques et quelles étapes trop compliquées ? Le périmètre sera ajusté à partir des parties réelles.
+Which games, which three priority tools, what is missing and which steps are too complicated? The scope will be adjusted based on real games.

@@ -1,240 +1,240 @@
-# Catalogue fonctionnel d’amiLudo
+# amiLudo feature catalog
 
-Statut : **[x] = implémenté dans l’alpha Flutter**, avec validation des parcours et limites décrites dans APP-STATUS.md ; **[ ] = prévu ou incomplet**. Les tests sur appareils physiques restent distincts. MVP = première version ; V1 = enrichissement individuel ; V2 = services partagés et extensions. Les priorités au sein des blocs restent ajustables.
+Status: **[x] = implemented in the Flutter alpha**, with flows validated and limits described in APP-STATUS.md; **[ ] = planned or incomplete**. Tests on physical devices remain separate. MVP = first version; V1 = individual enrichment; V2 = shared services and extensions. Priorities within blocks remain adjustable.
 
-Le produit combine un accès immédiat aux outils et un mode partie qui partage joueurs, temps et scores.
+The product combines immediate access to tools with a game mode that shares players, time and scores.
 
-## Accès et expérience — MVP
+## Access and experience — MVP
 
-- [x] F001 — Outils rapides sans créer de partie
-- [x] F002 — Mode partie combinant les outils utiles
-- [x] F003 — Accueil personnalisable et favoris
-- [x] F004 — Reprise automatique de la dernière partie
-- [x] F005 — Fonctionnement hors connexion du cœur
-- [x] F006 — Aucun compte obligatoire
-- [x] F007 — Aucune publicité
-- [ ] F008 — Français et anglais
-- [x] F009 — Mode clair et sombre
-- [ ] F010 — Téléphone et tablette, portrait et paysage
-- [x] F011 — Grandes commandes utilisables autour de la table
-- [x] F012 — Couleurs accompagnées de noms ou symboles
-- [ ] F013 — Taille du texte et lecteurs d’écran
-- [x] F014 — Animations, sons et vibrations désactivables
-- [x] F015 — Maintien de l’écran allumé pendant une partie
+- [x] F001 — Quick tools without creating a game
+- [x] F002 — Game mode combining the useful tools
+- [x] F003 — Customizable home and favorites
+- [x] F004 — Automatic resume of the last game
+- [x] F005 — Offline operation of the core
+- [x] F006 — No mandatory account
+- [x] F007 — No ads
+- [ ] F008 — French and English
+- [x] F009 — Light and dark mode
+- [ ] F010 — Phone and tablet, portrait and landscape
+- [x] F011 — Large controls usable around the table
+- [x] F012 — Colors accompanied by names or symbols
+- [ ] F013 — Text size and screen readers
+- [x] F014 — Animations, sounds and vibrations can be disabled
+- [x] F015 — Screen kept on during a game
 
-## Joueurs et préparation — MVP
+## Players and setup — MVP
 
-- [ ] F016 — Profils locaux avec pseudo, couleur et avatar
-- [x] F017 — Joueurs invités sans profil permanent
-- [ ] F018 — Groupes de joueurs réutilisables
-- [ ] F019 — Équipes manuelles ou aléatoires
-- [ ] F020 — Nombre et taille des équipes paramétrables
-- [x] F021 — Tirage du premier joueur par liste
-- [x] F022 — Sélection par doigts avec compte à rebours
-- [x] F023 — Ordre de passage aléatoire ou manuel
-- [x] F024 — Relancer une partie avec les mêmes joueurs
-- [ ] F025 — Configuration rapide du jeu, des manches et outils
+- [ ] F016 — Local profiles with nickname, color and avatar
+- [x] F017 — Guest players without a permanent profile
+- [ ] F018 — Reusable player groups
+- [ ] F019 — Manual or random teams
+- [ ] F020 — Configurable number and size of teams
+- [x] F021 — First player draw by list
+- [x] F022 — Finger selection with countdown
+- [x] F023 — Random or manual turn order
+- [x] F024 — Restart a game with the same players
+- [ ] F025 — Quick setup of the game, rounds and tools
 
-## Hasard et dés — MVP
+## Chance and dice — MVP
 
-- [x] F026 — Dés d4, d6, d8, d10, d12, d20 et d100
-- [x] F027 — Plusieurs dés et total automatique
-- [x] F028 — Verrouiller certains dés et relancer les autres
-- [x] F029 — Historique des résultats de la session
-- [x] F030 — Pile ou face
-- [x] F031 — Tirage d’un nom, nombre ou élément de liste
-- [x] F032 — Tirage avec ou sans remise
-- [x] F033 — Roue à options personnalisées
-- [ ] F034 — Enregistrer des jeux de dés et listes
-- [x] F035 — Aléatoire fourni par une source sécurisée du système
+- [x] F026 — d4, d6, d8, d10, d12, d20 and d100 dice
+- [x] F027 — Several dice and automatic total
+- [x] F028 — Lock some dice and reroll the others
+- [x] F029 — Session results history
+- [x] F030 — Coin flip
+- [x] F031 — Draw a name, number or list item
+- [x] F032 — Draw with or without replacement
+- [x] F033 — Wheel with custom options
+- [ ] F034 — Save dice sets and lists
+- [x] F035 — Randomness provided by a secure system source
 
-## Scores et ressources — MVP
+## Scores and resources — MVP
 
-- [x] F036 — Scores par joueur ou équipe
-- [x] F037 — Ajout et retrait rapides, valeur libre
-- [x] F038 — Scores négatifs et décimaux configurables
-- [x] F039 — Scores par manche et total cumulé
-- [x] F040 — Classement au plus haut ou au plus bas score
-- [x] F041 — Gestion des égalités et ex æquo
-- [x] F042 — Objectif de points ou nombre de manches
-- [x] F043 — Annuler et rétablir une modification
-- [x] F044 — Journal des modifications de score
-- [x] F045 — Compteurs de vies, monnaie et ressources indépendants
-- [x] F046 — Bonus et malus identifiés
-- [x] F047 — Résumé final et revanche
+- [x] F036 — Scores per player or team
+- [x] F037 — Quick add and subtract, free value
+- [x] F038 — Configurable negative and decimal scores
+- [x] F039 — Scores per round and cumulative total
+- [x] F040 — Ranking by highest or lowest score
+- [x] F041 — Tie and ex aequo handling
+- [x] F042 — Points goal or number of rounds
+- [x] F043 — Undo and redo a change
+- [x] F044 — Score change log
+- [x] F045 — Independent life, currency and resource counters
+- [x] F046 — Labeled bonuses and penalties
+- [x] F047 — Final summary and rematch
 
-## Temps et tours — MVP
+## Time and turns — MVP
 
-- [ ] F048 — Chronomètre de partie
-- [x] F049 — Compte à rebours commun
-- [x] F050 — Temps fixe par tour
-- [x] F051 — Réserve de temps par joueur, de 2 à plusieurs joueurs
-- [x] F052 — Pause et reprise globales
-- [x] F053 — Joueur actif et bouton de passage de tour
-- [ ] F054 — Avertissement de temps faible configurable
-- [x] F055 — Son et vibration à expiration
-- [ ] F056 — Temps différent par joueur
-- [ ] F057 — Incrément Fischer et délai simple
-- [ ] F058 — Compteur de tours et de manches
-- [ ] F059 — Sens de rotation et premier joueur tournant
+- [ ] F048 — Game stopwatch
+- [x] F049 — Shared countdown
+- [x] F050 — Fixed time per turn
+- [x] F051 — Time bank per player, from 2 to many players
+- [x] F052 — Global pause and resume
+- [x] F053 — Active player and pass-turn button
+- [ ] F054 — Configurable low-time warning
+- [x] F055 — Sound and vibration on expiry
+- [ ] F056 — Different time per player
+- [ ] F057 — Fischer increment and simple delay
+- [ ] F058 — Turn and round counter
+- [ ] F059 — Direction of rotation and rotating first player
 
-## Fiabilité et données — MVP
+## Reliability and data — MVP
 
-- [x] F060 — Sauvegarde locale après chaque action significative
-- [x] F061 — Récupération après fermeture de l’application
-- [x] F062 — Historique local des parties terminées
-- [x] F063 — Export et import JSON des parties
-- [x] F064 — Export CSV des scores
-- [x] F065 — Suppression individuelle et effacement complet
-- [x] F066 — Confirmation avant remise à zéro destructive
-- [ ] F067 — Migration versionnée des données locales
+- [x] F060 — Local save after every significant action
+- [x] F061 — Recovery after the app is closed
+- [x] F062 — Local history of finished games
+- [x] F063 — JSON export and import of games
+- [x] F064 — CSV export of scores
+- [x] F065 — Individual deletion and full erasure
+- [x] F066 — Confirmation before destructive reset
+- [ ] F067 — Versioned migration of local data
 
-## Personnalisation avancée — V1
+## Advanced customization — V1
 
-- [x] F068 — Dés à symboles et faces personnalisées
-- [ ] F069 — Expressions de dés, modificateurs et succès
-- [ ] F070 — Avantage, désavantage et relances conditionnelles
-- [ ] F071 — Sacs de jetons avec contenu et remise configurables
-- [ ] F072 — Paquets de cartes virtuels personnalisés
-- [ ] F073 — Tirages pondérés avec probabilités visibles
-- [ ] F074 — Sélection de plusieurs gagnants et classement aléatoire
-- [ ] F075 — Contraintes de composition des équipes
-- [x] F076 — Rôles secrets avec révélation individuelle
-- [ ] F077 — Minuteurs simultanés et temps par équipe
-- [ ] F078 — Cadences Bronstein, sablier et byo-yomi
-- [ ] F079 — Cadences à plusieurs phases
-- [x] F080 — Décompte de score par catégories
-- [x] F081 — Formules de score déclaratives sans code exécuté
-- [x] F082 — Objectifs coopératifs et résultats victoire/défaite
-- [x] F083 — Notes, objectifs et compteurs propres à la partie
+- [x] F068 — Symbol dice and custom faces
+- [ ] F069 — Dice expressions, modifiers and successes
+- [ ] F070 — Advantage, disadvantage and conditional rerolls
+- [ ] F071 — Token bags with configurable contents and replacement
+- [ ] F072 — Custom virtual card decks
+- [ ] F073 — Weighted draws with visible probabilities
+- [ ] F074 — Selecting several winners and random ranking
+- [ ] F075 — Team composition constraints
+- [x] F076 — Secret roles with individual reveal
+- [ ] F077 — Simultaneous timers and time per team
+- [ ] F078 — Bronstein, hourglass and byo-yomi time controls
+- [ ] F079 — Multi-phase time controls
+- [x] F080 — Score tallying by category
+- [x] F081 — Declarative score formulas with no code executed
+- [x] F082 — Cooperative goals and win/lose results
+- [x] F083 — Game-specific notes, goals and counters
 
-## Modèles et communauté — V1
+## Templates and community — V1
 
-- [x] F084 — Préréglages complets par jeu
-- [x] F085 — Éditeur de feuille de score
-- [x] F086 — Éditeur de configuration de partie
-- [x] F087 — Import et export de modèles JSON versionnés
-- [x] F088 — Bibliothèque embarquée utilisable hors ligne
-- [x] F089 — Catalogue communautaire avec recherche et filtres
-- [x] F090 — Contributions de modèles par pull request
-- [x] F091 — Validation automatique des modèles
-- [x] F092 — Métadonnées auteur, version, langue et licence
-- [ ] F093 — Favoris et variantes personnelles
-- [x] F094 — Instructions courtes originales et liens vers les règles officielles
-- [ ] F095 — Gestion des versions et compatibilité des modèles
+- [x] F084 — Complete presets per game
+- [x] F085 — Score sheet editor
+- [x] F086 — Game setup editor
+- [x] F087 — Import and export of versioned JSON templates
+- [x] F088 — Bundled library usable offline
+- [x] F089 — Community catalog with search and filters
+- [x] F090 — Template contributions by pull request
+- [x] F091 — Automatic template validation
+- [x] F092 — Author, version, language and license metadata
+- [ ] F093 — Favorites and personal variants
+- [x] F094 — Short original instructions and links to the official rules
+- [ ] F095 — Template version and compatibility management
 
-## Historique et soirées — V1
+## History and evenings — V1
 
-- [x] F096 — Recherche de parties par jeu, joueur et date
-- [ ] F097 — Statistiques de victoires, scores et durées
-- [ ] F098 — Évolution des scores et comparaison des manches
-- [ ] F099 — Séries de parties et classement de soirée
-- [x] F100 — Résultats par équipe et coopération
-- [ ] F101 — Partage du résumé sous forme d’image
-- [x] F102 — Sauvegarde et restauration d’une bibliothèque complète
-- [ ] F103 — Accessibilité du mode table et affichage orienté par joueur
+- [x] F096 — Game search by game, player and date
+- [ ] F097 — Statistics on wins, scores and durations
+- [ ] F098 — Score evolution and round comparison
+- [ ] F099 — Game series and evening ranking
+- [x] F100 — Team and cooperation results
+- [ ] F101 — Sharing the summary as an image
+- [x] F102 — Backup and restore of a complete library
+- [ ] F103 — Table mode accessibility and per-player oriented display
 
-## Parties partagées — V2
+## Shared games — V2
 
-- [ ] F104 — Rejoindre une salle par QR code ou code court
-- [ ] F105 — Pseudonyme invité sans compte personnel
-- [ ] F106 — Saisie des scores depuis plusieurs appareils
-- [ ] F107 — Écran commun de scores et temps
-- [ ] F108 — Hôte et droits de modification explicites
-- [ ] F109 — Journal partagé et gestion des actions concurrentes
-- [ ] F110 — Reconnexion et rattrapage des événements
-- [ ] F111 — Transfert du rôle d’hôte
-- [ ] F112 — Rôles et informations privés par joueur
-- [ ] F113 — Synchronisation facultative de la bibliothèque personnelle
-- [ ] F114 — Serveur auto-hébergeable et documentation de déploiement
-- [ ] F115 — Export et suppression des données distantes
+- [ ] F104 — Join a room by QR code or short code
+- [ ] F105 — Guest nickname without a personal account
+- [ ] F106 — Score entry from several devices
+- [ ] F107 — Shared screen for scores and time
+- [ ] F108 — Explicit host and edit permissions
+- [ ] F109 — Shared log and handling of concurrent actions
+- [ ] F110 — Reconnection and event catch-up
+- [ ] F111 — Host role transfer
+- [ ] F112 — Private roles and information per player
+- [ ] F113 — Optional synchronization of the personal library
+- [ ] F114 — Self-hostable server and deployment documentation
+- [ ] F115 — Export and deletion of remote data
 
-## Tournois et extensions — V2
+## Tournaments and extensions — V2
 
-- [ ] F116 — Tournois toutes rondes et élimination directe
-- [ ] F117 — Appariements suisses avec règles explicites
-- [ ] F118 — Rotation des tables et équipes
-- [ ] F119 — Classement avec départages configurables
-- [ ] F120 — Mode kiosque ou grand écran
-- [ ] F121 — Raccourcis système et widgets selon plateforme
-- [ ] F122 — Import de collection via services externes si autorisé
-- [ ] F123 — API de modèles stable et outils de contribution
+- [ ] F116 — Round-robin and knockout tournaments
+- [ ] F117 — Swiss pairings with explicit rules
+- [ ] F118 — Table and team rotation
+- [ ] F119 — Ranking with configurable tiebreakers
+- [ ] F120 — Kiosk or large-screen mode
+- [ ] F121 — System shortcuts and widgets depending on platform
+- [ ] F122 — Collection import via external services if allowed
+- [ ] F123 — Stable template API and contribution tools
 
-## Contraintes de conception
+## Design constraints
 
-- Le nombre de doigts simultanés dépend de l’écran, du navigateur et des gestes système : proposer systématiquement le tirage par liste.
-- Une minuterie doit utiliser des horodatages et une horloge monotone pendant son exécution ; les rappels en arrière-plan ont des limites selon plateforme. Tester verrouillage, veille et reprise.
-- Sur le web, le fonctionnement hors connexion nécessite un cache applicatif explicite. Le stockage du navigateur peut être effacé : proposer une sauvegarde exportable.
-- Le tirage aléatoire ne sert pas à des jeux d’argent. L’animation présente le résultat sans modifier les probabilités.
-- Les modèles n’embarquent pas d’illustrations ou de règles tierces sans autorisation. Les formules sont des données validées, jamais du code arbitraire.
-- Les scores et les temps restent lisibles sans dépendre uniquement de la couleur.
+- The number of simultaneous fingers depends on the screen, the browser and system gestures: always offer the draw by list.
+- A timer must use timestamps and a monotonic clock while running; background reminders have limits depending on the platform. Test locking, sleep and resume.
+- On the web, offline operation requires an explicit app cache. Browser storage can be erased: offer an exportable backup.
+- The random draw is not for gambling. The animation presents the result without changing the probabilities.
+- Templates do not embed third-party illustrations or rules without permission. Formulas are validated data, never arbitrary code.
+- Scores and times stay readable without relying on color alone.
 
-## Personnalisation et profils de style — MVP
+## Customization and style profiles — MVP
 
-- [x] F124 — Mode clair, sombre et automatique selon le système
-- [x] F125 — Onze palettes coordonnées pour les fonds, textes et accents
-- [x] F126 — Choix de sept familles typographiques lisibles
-- [x] F127 — Aperçu du thème en temps réel
-- [x] F128 — Application du style sur tous les écrans
-- [x] F129 — Quatre styles de formes : biseauté, net, doux et très arrondi
-- [x] F130 — Densité confortable ou compacte
-- [x] F131 — Texte de lecture agrandi
-- [x] F132 — Réduction des animations respectant aussi le système
-- [x] F133 — Enregistrement de plusieurs profils de style sur un appareil
-- [x] F134 — Changement de profil en un geste
-- [x] F135 — Nom personnalisé pour chaque profil
-- [x] F136 — Suppression individuelle des profils
-- [x] F137 — Export du thème au format JSON
-- [x] F138 — Import de thème avec validation du format
-- [x] F139 — Réinitialisation du style par défaut
-- [x] F140 — Conservation du style après fermeture et rechargement
+- [x] F124 — Light, dark and automatic mode following the system
+- [x] F125 — Eleven coordinated palettes for backgrounds, texts and accents
+- [x] F126 — Choice of seven readable font families
+- [x] F127 — Real-time theme preview
+- [x] F128 — Style applied on all screens
+- [x] F129 — Four shape styles: beveled, sharp, soft and very rounded
+- [x] F130 — Comfortable or compact density
+- [x] F131 — Enlarged reading text
+- [x] F132 — Reduced animations that also respect the system
+- [x] F133 — Saving several style profiles on a device
+- [x] F134 — Switching profile in one gesture
+- [x] F135 — Custom name for each profile
+- [x] F136 — Individual deletion of profiles
+- [x] F137 — Theme export in JSON format
+- [x] F138 — Theme import with format validation
+- [x] F139 — Reset to the default style
+- [x] F140 — Style kept after closing and reloading
 
-- [x] F141 — Quatre univers visuels : Playroom, Cyberdeck, Orbital 77 et Carnet
+- [x] F141 — Four visual universes: Playroom, Cyberdeck, Orbital 77 and Notebook
 
-## Personnages et cartes — V1
+## Characters and cards — V1
 
-- [x] F142 — Builder de catégories et cartes de création de personnage
-- [x] F143 — Génération par listes ou boosters avec minimum et maximum à conserver
-- [x] F144 — Fiches issues des choix, sauvegarde, import et export JSON
-- [ ] F145 — Fiches libres avec caractéristiques, compétences, inventaire et progression
-- [ ] F146 — Builder de paquets de cartes génériques : recto/verso, pioche, main et défausse
-- [ ] F147 — Plateaux, pistes et jetons personnalisables
-- [ ] F148 — Campagnes, scénarios et progression entre les séances
+- [x] F142 — Builder of categories and character creation cards
+- [x] F143 — Generation by lists or boosters with minimum and maximum to keep
+- [x] F144 — Sheets from the choices, save, JSON import and export
+- [ ] F145 — Free sheets with attributes, skills, inventory and progression
+- [ ] F146 — Generic card deck builder: front/back, draw, hand and discard
+- [ ] F147 — Customizable boards, tracks and tokens
+- [ ] F148 — Campaigns, scenarios and progression between sessions
 
-## Ludothèque, amis et souvenirs — V1
+## Game library, friends and memories — V1
 
-Tout reste sur l’appareil, sans compte ni serveur. Les échanges passent par QR code ou par fichier chiffré.
+Everything stays on the device, with no account or server. Exchanges go through QR code or an encrypted file.
 
-- [x] F149 — Ludothèque en étagères : chaque jeu possédé est une boîte avec genres, joueurs, durée et packs liés
-- [x] F150 — Fiche d’un jeu de la ludothèque : packs, parties jouées, note moyenne, jouer et partager
-- [x] F151 — Profils d’amis : prénom, couleur, genres aimés ou évités, durée maximale et jeux refusés
-- [x] F152 — Avis et notes de 1 à 5 étoiles par joueur à la fin d’une partie
-- [x] F153 — « On joue à quoi ce soir ? » : suggestions de la ludothèque selon les amis présents
-- [x] F154 — Souvenirs de partie : note, moments forts et photos
-- [x] F155 — Galerie privée exportée en fichier chiffré, clé transmise par QR code à la table
-- [x] F156 — Fusion des galeries reçues sans doublons
-- [x] F157 — Session partagée (packs, dés, fiches de personnage, joueurs, jeu) en QR code animé à 10 images par seconde
-- [x] F158 — Réception par scan avec codage fontaine : on peut commencer en cours de route et rater des images
-- [x] F159 — Ressources de départ et statuts définis par le pack, appliqués à chaque joueur
-- [x] F160 — Réglage rapide des ressources et des statuts cumulables pendant la partie
-- [x] F161 — Avis par jeu sur chaque ami (envie, adore malgré le genre, refusé) et temps disponible pour les suggestions
+- [x] F149 — Game library on shelves: each owned game is a box with genres, players, duration and linked packs
+- [x] F150 — Game library game sheet: packs, games played, average rating, play and share
+- [x] F151 — Friend profiles: first name, color, liked or avoided genres, maximum duration and refused games
+- [x] F152 — Reviews and 1 to 5 star ratings per player at the end of a game
+- [x] F153 — "What are we playing tonight?": library suggestions based on the friends present
+- [x] F154 — Game memories: rating, highlights and photos
+- [x] F155 — Private gallery exported as an encrypted file, key passed by QR code at the table
+- [x] F156 — Merging received galleries without duplicates
+- [x] F157 — Shared session (packs, dice, character sheets, players, game) in an animated QR code at 10 frames per second
+- [x] F158 — Reception by scan with fountain coding: you can start midway and miss frames
+- [x] F159 — Starting resources and statuses defined by the pack, applied to each player
+- [x] F160 — Quick adjustment of resources and stackable statuses during the game
+- [x] F161 — Per-game opinion on each friend (wants to, loves despite the genre, refused) and available time for suggestions
 
-## Rejoindre, comptes et soirées — V1
+## Joining, accounts and evenings — V1
 
-Le salon Wi-Fi marche sans serveur. Le jeu à distance, les comptes et les inscriptions en ligne demandent un projet Supabase fourni au build (`SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`) ; sans lui, l’app reste en mode local.
+The Wi-Fi room works without a server. Remote play, accounts and online sign-ups require a Supabase project provided at build time (`SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`); without it, the app stays in local mode.
 
-- [x] F162 — Salon de partie ouvert par l’hôte : code court, QR code et lien partageable
-- [x] F163 — Rejoindre par code, lien ou scan, sur le même Wi-Fi (découverte automatique) ou à distance
-- [x] F164 — L’hôte accepte ou refuse chaque demande, ferme le salon et lance la partie avec les joueurs acceptés
-- [x] F165 — Prénom local et compte en ligne facultatif : inscription, connexion, mot de passe oublié
-- [x] F166 — Soirées : date, lieu, places, jeux prévus
-- [x] F167 — Inscriptions oui / peut-être / non, premier arrivé premier servi, liste d’attente
-- [x] F168 — Invitation à une soirée par lien, code ou QR ; réponses enregistrées sur le serveur
-- [x] F169 — Sans serveur, l’hôte note lui-même les réponses de ses amis
-- [x] F170 — Équipes à partir des noms saisis, des joueurs du salon ou des doigts posés sur l’écran
+- [x] F162 — Game room opened by the host: short code, QR code and shareable link
+- [x] F163 — Join by code, link or scan, on the same Wi-Fi (automatic discovery) or remotely
+- [x] F164 — The host accepts or refuses each request, closes the room and starts the game with the accepted players
+- [x] F165 — Local first name and optional online account: sign-up, sign-in, forgotten password
+- [x] F166 — Evenings: date, place, seats, planned games
+- [x] F167 — Yes / maybe / no sign-ups, first come first served, waiting list
+- [x] F168 — Invitation to an evening by link, code or QR; answers saved on the server
+- [x] F169 — Without a server, the host records their friends' answers themselves
+- [x] F170 — Teams from the entered names, the room players or the fingers placed on the screen
 
-**Total : 170 fonctionnalités planifiées.**
+**Total: 170 planned features.**
 
-La personnalisation est portée dans Flutter. Les cases cochées décrivent une alpha locale ; elles ne valent pas une certification Android/iOS ou une validation complète d’accessibilité.
+Customization is handled in Flutter. The checked boxes describe a local alpha; they are not an Android/iOS certification or a full accessibility validation.
 
-**Bilan alpha : 113 fonctions cochées ; 57 prévues ou incomplètes.**
+**Alpha summary: 113 features checked; 57 planned or incomplete.**

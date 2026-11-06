@@ -1,10 +1,10 @@
-# Crédits et licences
+# Credits and licenses
 
-Le code du projet est sous licence MIT.
+The project code is under the MIT license.
 
-- Icônes : Hugeicons Free / Stroke Rounded, paquet Flutter `hugeicons` 4.4.0, sous licence MIT. Source : https://github.com/hugeicons/hugeicons ; licence distribuée avec le paquet. Aucune ressource Pro n’est incluse.
-- Polices : licences OFL conservées dans `app/assets/fonts/`.
-- Composants Flutter et dépendances : notices accessibles depuis À propos → Afficher les licences.
-- Packs initiaux : exemples originaux du projet, sous licence MIT, avec auteur et version dans chaque fichier.
+- Icons: Hugeicons Free / Stroke Rounded, Flutter package `hugeicons` 4.4.0, under the MIT license. Source: https://github.com/hugeicons/hugeicons; license distributed with the package. No Pro assets are included.
+- Fonts: OFL licenses kept in `app/assets/fonts/`.
+- Flutter components and dependencies: notices available from About → Show licenses.
+- Initial packs: original examples from the project, under the MIT license, with author and version in each file.
 
-Les marques et jeux cités appartiennent à leurs titulaires. Le projet n’est pas présenté comme une application officielle de ces éditeurs.
+Cited brands and games belong to their owners. The project is not presented as an official app of those publishers.
