@@ -53,6 +53,9 @@ flutter:
 
   assets:
     - assets/brand/
+    - assets/avatar/pieces/
+    - assets/avatar/items.json
+    - assets/avatar/palettes.json
     - assets/cards/
     - assets/chronicles/
     - assets/community/

@@ -3300,4 +3300,64 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get diceUseFromLibrary => 'Usar um dado de Meus dados';
+
+  @override
+  String get avatarCreatorTitle => 'Aparência';
+
+  @override
+  String get avatarEdit => 'Editar aparência';
+
+  @override
+  String get avatarSave => 'Guardar';
+
+  @override
+  String get avatarNone => 'Nenhum';
+
+  @override
+  String get avatarColor => 'Cor';
+
+  @override
+  String get avatarSlotBase => 'Corpo';
+
+  @override
+  String get avatarSlotHead => 'Cabeça';
+
+  @override
+  String get avatarSlotEyes => 'Olhos';
+
+  @override
+  String get avatarSlotEyebrows => 'Sobrancelhas';
+
+  @override
+  String get avatarSlotNose => 'Nariz';
+
+  @override
+  String get avatarSlotMouth => 'Boca';
+
+  @override
+  String get avatarSlotHair => 'Cabelo';
+
+  @override
+  String get avatarSlotBeard => 'Barba';
+
+  @override
+  String get avatarSlotMarks => 'Marcas';
+
+  @override
+  String get avatarSlotOutfit => 'Roupa';
+
+  @override
+  String get avatarSlotShoes => 'Calçado';
+
+  @override
+  String get avatarSlotAccessory => 'Acessórios';
+
+  @override
+  String get avatarSlotImplant => 'Implantes';
+
+  @override
+  String get avatarSlotEquipment => 'Equipamento';
+
+  @override
+  String get avatarSlotWeapon => 'Armas e ferramentas';
 }

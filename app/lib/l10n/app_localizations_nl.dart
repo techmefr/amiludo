@@ -3301,4 +3301,64 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get diceUseFromLibrary => 'Dobbelsteen uit Mijn dobbelstenen gebruiken';
+
+  @override
+  String get avatarCreatorTitle => 'Uiterlijk';
+
+  @override
+  String get avatarEdit => 'Uiterlijk aanpassen';
+
+  @override
+  String get avatarSave => 'Opslaan';
+
+  @override
+  String get avatarNone => 'Geen';
+
+  @override
+  String get avatarColor => 'Kleur';
+
+  @override
+  String get avatarSlotBase => 'Lichaam';
+
+  @override
+  String get avatarSlotHead => 'Hoofd';
+
+  @override
+  String get avatarSlotEyes => 'Ogen';
+
+  @override
+  String get avatarSlotEyebrows => 'Wenkbrauwen';
+
+  @override
+  String get avatarSlotNose => 'Neus';
+
+  @override
+  String get avatarSlotMouth => 'Mond';
+
+  @override
+  String get avatarSlotHair => 'Haar';
+
+  @override
+  String get avatarSlotBeard => 'Baard';
+
+  @override
+  String get avatarSlotMarks => 'Tekens';
+
+  @override
+  String get avatarSlotOutfit => 'Kleding';
+
+  @override
+  String get avatarSlotShoes => 'Schoenen';
+
+  @override
+  String get avatarSlotAccessory => 'Accessoires';
+
+  @override
+  String get avatarSlotImplant => 'Implantaten';
+
+  @override
+  String get avatarSlotEquipment => 'Uitrusting';
+
+  @override
+  String get avatarSlotWeapon => 'Wapens en gereedschap';
 }

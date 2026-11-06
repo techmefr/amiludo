@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/functional/Companion/data/avatar_catalogue_loader.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/avatar_catalogue.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/avatar_look.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/counter.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/hero.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/power.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/team.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/avatar_creator_screen.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/hero_avatar.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/hero_view.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class HeroesTool extends StatefulWidget {
-  const HeroesTool({super.key, this.team});
+  const HeroesTool({super.key, this.team, this.catalogue});
   final TeamState? team;
+  final AvatarCatalogue? catalogue;
 
   @override
   State<HeroesTool> createState() => _HeroesToolState();
@@ -18,6 +24,28 @@ class HeroesTool extends StatefulWidget {
 
 class _HeroesToolState extends State<HeroesTool> {
   late final TeamState team = widget.team ?? TeamState(const TeamSettings());
+  AvatarCatalogue? catalogue;
+
+  @override
+  void initState() {
+    super.initState();
+    catalogue = widget.catalogue;
+    if (catalogue == null) {
+      loadAvatarCatalogue().then((c) {
+        if (mounted) setState(() => catalogue = c);
+      }).ignore();
+    }
+  }
+
+  Future<void> editAvatar(HeroState hero, AvatarCatalogue loaded) async {
+    final look = await Navigator.of(context).push<AvatarLook>(
+      MaterialPageRoute(
+        builder: (_) =>
+            AvatarCreatorScreen(initial: hero.avatar, catalogue: loaded),
+      ),
+    );
+    if (look != null) setState(() => hero.avatar = look);
+  }
 
   Future<String?> ask(String label) => showDialog<String>(
     context: context,
@@ -95,6 +123,12 @@ class _HeroesToolState extends State<HeroesTool> {
             key: ValueKey(active),
             state: active,
             onAddPower: () => addPower(active),
+            avatar: catalogue == null || active.avatar.isEmpty
+                ? null
+                : HeroAvatar(look: active.avatar, catalogue: catalogue!),
+            onEditAvatar: catalogue == null
+                ? null
+                : () => editAvatar(active, catalogue!),
           ),
       ],
     );

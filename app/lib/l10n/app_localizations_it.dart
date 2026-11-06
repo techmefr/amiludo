@@ -3300,4 +3300,64 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get diceUseFromLibrary => 'Usa un dado da I miei dadi';
+
+  @override
+  String get avatarCreatorTitle => 'Aspetto';
+
+  @override
+  String get avatarEdit => 'Modifica aspetto';
+
+  @override
+  String get avatarSave => 'Salva';
+
+  @override
+  String get avatarNone => 'Nessuno';
+
+  @override
+  String get avatarColor => 'Colore';
+
+  @override
+  String get avatarSlotBase => 'Corpo';
+
+  @override
+  String get avatarSlotHead => 'Testa';
+
+  @override
+  String get avatarSlotEyes => 'Occhi';
+
+  @override
+  String get avatarSlotEyebrows => 'Sopracciglia';
+
+  @override
+  String get avatarSlotNose => 'Naso';
+
+  @override
+  String get avatarSlotMouth => 'Bocca';
+
+  @override
+  String get avatarSlotHair => 'Capelli';
+
+  @override
+  String get avatarSlotBeard => 'Barba';
+
+  @override
+  String get avatarSlotMarks => 'Segni';
+
+  @override
+  String get avatarSlotOutfit => 'Abito';
+
+  @override
+  String get avatarSlotShoes => 'Scarpe';
+
+  @override
+  String get avatarSlotAccessory => 'Accessori';
+
+  @override
+  String get avatarSlotImplant => 'Impianti';
+
+  @override
+  String get avatarSlotEquipment => 'Equipaggiamento';
+
+  @override
+  String get avatarSlotWeapon => 'Armi e attrezzi';
 }
