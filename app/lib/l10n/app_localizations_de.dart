@@ -3131,6 +3131,14 @@ class AppLocalizationsDe extends AppLocalizations {
   String get chroniclesClose => 'Schließen';
 
   @override
+  String get chroniclesSwipeHint =>
+      'Nach rechts wischen zum Behalten, nach links zum Weitergehen, tippen für Details.';
+
+  @override
+  String get chroniclesTearHint =>
+      'Seitlich ziehen für eine andere Edition, weit ziehen zum Aufreißen.';
+
+  @override
   String get diceMyDice => 'Meine Würfel';
 
   @override

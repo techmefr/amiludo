@@ -21,11 +21,11 @@
 
 ## Lot 2 - Cards and gestures
 
-- [ ] T013 [US4] Card face painter with procedural sigil, rarity border, holographic band from Rare
-- [ ] T014 [US4] Flip with perspective, detail panel (bottom sheet on phones)
-- [ ] T015 [US4] Swipe to keep or pass with stamps and elastic return (keep threshold 28 percent of the table width, tap under 12 px opens the detail)
-- [ ] T016 [US4] Tear gesture (85 percent of 40 percent of the table width) and edition carousel (more than 40 px)
-- [ ] T017 [US4] Touch lessons: table wins the gesture arena, 450 ms ignore after opening the detail, no parallax while dragging, table about 54 percent of the height on phones
-- [ ] T018 [US4] Particles, halo and flash only when animations are not reduced
-- [ ] T019 [US3] Procedural portrait from the appearance data of the kept cards
+- [x] T013 [US4] Card face painter with procedural sigil, rarity border, holographic band from Rare
+- [x] T014 [US4] Flip with perspective, detail panel (bottom sheet on phones)
+- [x] T015 [US4] Swipe to keep or pass with stamps and elastic return (keep threshold 28 percent of the table width, tap under 12 px opens the detail)
+- [x] T016 [US4] Tear gesture (85 percent of 40 percent of the table width) and edition carousel (more than 40 px)
+- [x] T017 [US4] Touch lessons: table wins the gesture arena, 450 ms ignore after opening the detail, no parallax while dragging, table about 54 percent of the height on phones
+- [x] T018 [US4] Particles, halo and flash only when animations are not reduced
+- [x] T019 [US3] Procedural portrait from the appearance data of the kept cards
 - [ ] T020 Replace the sample content with the full file and run the 223-card check

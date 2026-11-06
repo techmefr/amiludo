@@ -3104,6 +3104,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get chroniclesClose => 'Close';
 
   @override
+  String get chroniclesSwipeHint =>
+      'Swipe right to keep, left to pass, tap for details.';
+
+  @override
+  String get chroniclesTearHint =>
+      'Drag sideways to change edition, drag far to tear.';
+
+  @override
   String get diceMyDice => 'My dice';
 
   @override

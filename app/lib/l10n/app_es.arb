@@ -954,6 +954,8 @@
   "chroniclesCopied": "Copiado",
   "chroniclesLoadFailed": "No se pudieron leer los datos de Chronicles.",
   "chroniclesClose": "Cerrar",
+  "chroniclesSwipeHint": "Desliza a la derecha para quedarte la carta, a la izquierda para pasar, toca para ver detalles.",
+  "chroniclesTearHint": "Arrastra de lado para cambiar de edición, lejos para rasgar.",
   "diceMyDice": "Mis dados",
   "diceLibraryTitle": "Mis dados",
   "diceLibraryEmpty": "Aún no hay dados. Crea el primero.",

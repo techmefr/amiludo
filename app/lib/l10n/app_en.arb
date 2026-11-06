@@ -1203,6 +1203,8 @@
   "chroniclesCopied": "Copied",
   "chroniclesLoadFailed": "The chronicles data could not be read.",
   "chroniclesClose": "Close",
+  "chroniclesSwipeHint": "Swipe right to keep, left to pass, tap for details.",
+  "chroniclesTearHint": "Drag sideways to change edition, drag far to tear.",
   "diceMyDice": "My dice",
   "diceLibraryTitle": "My dice",
   "diceLibraryEmpty": "No dice yet. Create your first one.",

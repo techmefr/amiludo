@@ -954,6 +954,8 @@
   "chroniclesCopied": "Copié",
   "chroniclesLoadFailed": "Les données Chronicles sont illisibles.",
   "chroniclesClose": "Fermer",
+  "chroniclesSwipeHint": "Glissez à droite pour garder, à gauche pour passer, touchez pour les détails.",
+  "chroniclesTearHint": "Glissez sur le côté pour changer d'édition, loin pour déchirer.",
   "diceMyDice": "Mes dés",
   "diceLibraryTitle": "Mes dés",
   "diceLibraryEmpty": "Aucun dé pour l’instant. Créez le premier.",

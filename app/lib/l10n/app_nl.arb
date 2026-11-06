@@ -954,6 +954,8 @@
   "chroniclesCopied": "Gekopieerd",
   "chroniclesLoadFailed": "De Chronicles-gegevens konden niet worden gelezen.",
   "chroniclesClose": "Sluiten",
+  "chroniclesSwipeHint": "Veeg naar rechts om te houden, naar links om over te slaan, tik voor details.",
+  "chroniclesTearHint": "Sleep opzij om van editie te wisselen, ver om open te scheuren.",
   "diceMyDice": "Mijn dobbelstenen",
   "diceLibraryTitle": "Mijn dobbelstenen",
   "diceLibraryEmpty": "Nog geen dobbelstenen. Maak de eerste.",

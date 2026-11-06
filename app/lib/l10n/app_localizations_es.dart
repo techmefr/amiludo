@@ -3123,6 +3123,14 @@ class AppLocalizationsEs extends AppLocalizations {
   String get chroniclesClose => 'Cerrar';
 
   @override
+  String get chroniclesSwipeHint =>
+      'Desliza a la derecha para quedarte la carta, a la izquierda para pasar, toca para ver detalles.';
+
+  @override
+  String get chroniclesTearHint =>
+      'Arrastra de lado para cambiar de edición, lejos para rasgar.';
+
+  @override
   String get diceMyDice => 'Mis dados';
 
   @override
