@@ -37,6 +37,11 @@ class HomeWaysToPlay extends StatelessWidget {
         title: context.l10n.workspaceJoinAGame,
         onTap: () => context.go('/join'),
       ),
+      DeckTile(
+        icon: Icons.auto_stories_outlined,
+        title: context.l10n.campaignHomeTile,
+        onTap: () => context.go('/campaign'),
+      ),
     ],
   );
 }

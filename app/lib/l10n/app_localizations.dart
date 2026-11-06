@@ -5310,6 +5310,331 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The shared pot everyone plays for.'**
   String get toolCounterPotSubtitle;
+
+  /// No description provided for @campaignTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Role-playing initiation'**
+  String get campaignTitle;
+
+  /// No description provided for @campaignHomeTile.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn role-playing'**
+  String get campaignHomeTile;
+
+  /// No description provided for @campaignSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A short story in {universe}, one mission at a time.'**
+  String campaignSubtitle(String universe);
+
+  /// No description provided for @campaignProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} of {total} missions'**
+  String campaignProgress(int done, int total);
+
+  /// No description provided for @campaignMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} min'**
+  String campaignMinutes(int count);
+
+  /// No description provided for @campaignLocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish the previous mission to unlock this one.'**
+  String get campaignLocked;
+
+  /// No description provided for @campaignStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get campaignStart;
+
+  /// No description provided for @campaignReplay.
+  ///
+  /// In en, this message translates to:
+  /// **'Play again'**
+  String get campaignReplay;
+
+  /// No description provided for @campaignConcept.
+  ///
+  /// In en, this message translates to:
+  /// **'What you learn'**
+  String get campaignConcept;
+
+  /// No description provided for @campaignYourTurn.
+  ///
+  /// In en, this message translates to:
+  /// **'Your turn'**
+  String get campaignYourTurn;
+
+  /// No description provided for @campaignComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete the mission'**
+  String get campaignComplete;
+
+  /// No description provided for @campaignCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Mission complete'**
+  String get campaignCompleted;
+
+  /// No description provided for @campaignBadgeEarned.
+  ///
+  /// In en, this message translates to:
+  /// **'Badge earned'**
+  String get campaignBadgeEarned;
+
+  /// No description provided for @campaignBadges.
+  ///
+  /// In en, this message translates to:
+  /// **'Your badges'**
+  String get campaignBadges;
+
+  /// No description provided for @campaignNoBadges.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete a mission to earn your first badge.'**
+  String get campaignNoBadges;
+
+  /// No description provided for @campaignNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next mission'**
+  String get campaignNext;
+
+  /// No description provided for @campaignToList.
+  ///
+  /// In en, this message translates to:
+  /// **'All missions'**
+  String get campaignToList;
+
+  /// No description provided for @campaignReset.
+  ///
+  /// In en, this message translates to:
+  /// **'Restart the campaign'**
+  String get campaignReset;
+
+  /// No description provided for @campaignChoose.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your way'**
+  String get campaignChoose;
+
+  /// No description provided for @campaignFinale.
+  ///
+  /// In en, this message translates to:
+  /// **'The lantern shines again over {universe}. You are ready to play your first role-playing game.'**
+  String campaignFinale(String universe);
+
+  /// No description provided for @campaignM1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'The door that sticks'**
+  String get campaignM1Title;
+
+  /// No description provided for @campaignM1Story.
+  ///
+  /// In en, this message translates to:
+  /// **'Night falls. The old gate of the lantern tower is stuck. In a role-playing game, when the outcome is uncertain, you roll the dice.'**
+  String get campaignM1Story;
+
+  /// No description provided for @campaignM1Lesson.
+  ///
+  /// In en, this message translates to:
+  /// **'A check: roll a die and compare the result to a target.'**
+  String get campaignM1Lesson;
+
+  /// No description provided for @campaignM1Task.
+  ///
+  /// In en, this message translates to:
+  /// **'Throw the dice below. A 4 or more opens the gate. Otherwise, try again.'**
+  String get campaignM1Task;
+
+  /// No description provided for @campaignM1Badge.
+  ///
+  /// In en, this message translates to:
+  /// **'Gate opener'**
+  String get campaignM1Badge;
+
+  /// No description provided for @campaignM2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'A fragile lantern'**
+  String get campaignM2Title;
+
+  /// No description provided for @campaignM2Story.
+  ///
+  /// In en, this message translates to:
+  /// **'Inside, the lantern shakes and every shock cracks its glass. Your hero has life points too, and the game keeps track of them.'**
+  String get campaignM2Story;
+
+  /// No description provided for @campaignM2Lesson.
+  ///
+  /// In en, this message translates to:
+  /// **'Life points go down when you are hurt and up when you heal.'**
+  String get campaignM2Lesson;
+
+  /// No description provided for @campaignM2Task.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the hearts below: lose two for the shocks, then win one back by resting.'**
+  String get campaignM2Task;
+
+  /// No description provided for @campaignM2Badge.
+  ///
+  /// In en, this message translates to:
+  /// **'Keeper of hearts'**
+  String get campaignM2Badge;
+
+  /// No description provided for @campaignM3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Who are you?'**
+  String get campaignM3Title;
+
+  /// No description provided for @campaignM3Story.
+  ///
+  /// In en, this message translates to:
+  /// **'A voice asks your name. Every hero has a name, strengths and a few powers, all written on a character sheet.'**
+  String get campaignM3Story;
+
+  /// No description provided for @campaignM3Lesson.
+  ///
+  /// In en, this message translates to:
+  /// **'A character sheet gathers everything that makes your hero unique.'**
+  String get campaignM3Lesson;
+
+  /// No description provided for @campaignM3Task.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a hero with a name, then give it a power.'**
+  String get campaignM3Task;
+
+  /// No description provided for @campaignM3Badge.
+  ///
+  /// In en, this message translates to:
+  /// **'Hero with a name'**
+  String get campaignM3Badge;
+
+  /// No description provided for @campaignM4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'The shadow in the hall'**
+  String get campaignM4Title;
+
+  /// No description provided for @campaignM4Story.
+  ///
+  /// In en, this message translates to:
+  /// **'A shadow blocks the stairs. A fight is just a series of rolls, each hit costing the enemy a little life.'**
+  String get campaignM4Story;
+
+  /// No description provided for @campaignM4Lesson.
+  ///
+  /// In en, this message translates to:
+  /// **'In a fight, you take turns rolling and lowering life points.'**
+  String get campaignM4Lesson;
+
+  /// No description provided for @campaignM4Task.
+  ///
+  /// In en, this message translates to:
+  /// **'Throw the dice: a total of 7 or more hurts the shadow. Land three hits.'**
+  String get campaignM4Task;
+
+  /// No description provided for @campaignM4Badge.
+  ///
+  /// In en, this message translates to:
+  /// **'Shadow chaser'**
+  String get campaignM4Badge;
+
+  /// No description provided for @campaignM5Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Two stairways'**
+  String get campaignM5Title;
+
+  /// No description provided for @campaignM5Story.
+  ///
+  /// In en, this message translates to:
+  /// **'The stairs split in two: one climbs into the cold, the other dives into the cellar. Nobody tells you which is right. Tonight, you decide.'**
+  String get campaignM5Story;
+
+  /// No description provided for @campaignM5Lesson.
+  ///
+  /// In en, this message translates to:
+  /// **'In a role-playing game, your choices change the story.'**
+  String get campaignM5Lesson;
+
+  /// No description provided for @campaignM5Task.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw a dilemma for inspiration, then choose your way.'**
+  String get campaignM5Task;
+
+  /// No description provided for @campaignM5Badge.
+  ///
+  /// In en, this message translates to:
+  /// **'Path chooser'**
+  String get campaignM5Badge;
+
+  /// No description provided for @campaignM5ChoiceA.
+  ///
+  /// In en, this message translates to:
+  /// **'Climb the cold stairs'**
+  String get campaignM5ChoiceA;
+
+  /// No description provided for @campaignM5ChoiceB.
+  ///
+  /// In en, this message translates to:
+  /// **'Go down to the cellar'**
+  String get campaignM5ChoiceB;
+
+  /// No description provided for @campaignM5OutcomeA.
+  ///
+  /// In en, this message translates to:
+  /// **'The cold sharpens your senses and you reach the top without a sound.'**
+  String get campaignM5OutcomeA;
+
+  /// No description provided for @campaignM5OutcomeB.
+  ///
+  /// In en, this message translates to:
+  /// **'In the dark, your hands find a forgotten key.'**
+  String get campaignM5OutcomeB;
+
+  /// No description provided for @campaignM6Title.
+  ///
+  /// In en, this message translates to:
+  /// **'The lantern relights'**
+  String get campaignM6Title;
+
+  /// No description provided for @campaignM6Story.
+  ///
+  /// In en, this message translates to:
+  /// **'At the top, the lantern waits. Describe out loud how you relight it before the sand runs out: telling the scene is the heart of the game.'**
+  String get campaignM6Story;
+
+  /// No description provided for @campaignM6Lesson.
+  ///
+  /// In en, this message translates to:
+  /// **'A scene is told together, out loud, with a bit of imagination.'**
+  String get campaignM6Lesson;
+
+  /// No description provided for @campaignM6Task.
+  ///
+  /// In en, this message translates to:
+  /// **'Start the hourglass and narrate your final scene.'**
+  String get campaignM6Task;
+
+  /// No description provided for @campaignM6Badge.
+  ///
+  /// In en, this message translates to:
+  /// **'Flame bearer'**
+  String get campaignM6Badge;
+
 }
 
 class _AppLocalizationsDelegate

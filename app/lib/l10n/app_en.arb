@@ -1097,5 +1097,79 @@
   "toolCounterLifeSubtitle": "Lives or health, with a bar.",
   "toolCounterPointsSubtitle": "Points to add up, round after round.",
   "toolCounterChipsSubtitle": "A stack of chips to bet and win.",
-  "toolCounterPotSubtitle": "The shared pot everyone plays for."
+  "toolCounterPotSubtitle": "The shared pot everyone plays for.",
+  "campaignTitle": "Role-playing initiation",
+  "campaignHomeTile": "Learn role-playing",
+  "campaignSubtitle": "A short story in {universe}, one mission at a time.",
+  "@campaignSubtitle": {
+    "placeholders": {
+      "universe": {"type": "String"}
+    }
+  },
+  "campaignProgress": "{done} of {total} missions",
+  "@campaignProgress": {
+    "placeholders": {
+      "done": {"type": "int"}, "total": {"type": "int"}
+    }
+  },
+  "campaignMinutes": "{count} min",
+  "@campaignMinutes": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "campaignLocked": "Finish the previous mission to unlock this one.",
+  "campaignStart": "Start",
+  "campaignReplay": "Play again",
+  "campaignConcept": "What you learn",
+  "campaignYourTurn": "Your turn",
+  "campaignComplete": "Complete the mission",
+  "campaignCompleted": "Mission complete",
+  "campaignBadgeEarned": "Badge earned",
+  "campaignBadges": "Your badges",
+  "campaignNoBadges": "Complete a mission to earn your first badge.",
+  "campaignNext": "Next mission",
+  "campaignToList": "All missions",
+  "campaignReset": "Restart the campaign",
+  "campaignChoose": "Choose your way",
+  "campaignFinale": "The lantern shines again over {universe}. You are ready to play your first role-playing game.",
+  "@campaignFinale": {
+    "placeholders": {
+      "universe": {"type": "String"}
+    }
+  },
+  "campaignM1Title": "The door that sticks",
+  "campaignM1Story": "Night falls. The old gate of the lantern tower is stuck. In a role-playing game, when the outcome is uncertain, you roll the dice.",
+  "campaignM1Lesson": "A check: roll a die and compare the result to a target.",
+  "campaignM1Task": "Throw the dice below. A 4 or more opens the gate. Otherwise, try again.",
+  "campaignM1Badge": "Gate opener",
+  "campaignM2Title": "A fragile lantern",
+  "campaignM2Story": "Inside, the lantern shakes and every shock cracks its glass. Your hero has life points too, and the game keeps track of them.",
+  "campaignM2Lesson": "Life points go down when you are hurt and up when you heal.",
+  "campaignM2Task": "Use the hearts below: lose two for the shocks, then win one back by resting.",
+  "campaignM2Badge": "Keeper of hearts",
+  "campaignM3Title": "Who are you?",
+  "campaignM3Story": "A voice asks your name. Every hero has a name, strengths and a few powers, all written on a character sheet.",
+  "campaignM3Lesson": "A character sheet gathers everything that makes your hero unique.",
+  "campaignM3Task": "Add a hero with a name, then give it a power.",
+  "campaignM3Badge": "Hero with a name",
+  "campaignM4Title": "The shadow in the hall",
+  "campaignM4Story": "A shadow blocks the stairs. A fight is just a series of rolls, each hit costing the enemy a little life.",
+  "campaignM4Lesson": "In a fight, you take turns rolling and lowering life points.",
+  "campaignM4Task": "Throw the dice: a total of 7 or more hurts the shadow. Land three hits.",
+  "campaignM4Badge": "Shadow chaser",
+  "campaignM5Title": "Two stairways",
+  "campaignM5Story": "The stairs split in two: one climbs into the cold, the other dives into the cellar. Nobody tells you which is right. Tonight, you decide.",
+  "campaignM5Lesson": "In a role-playing game, your choices change the story.",
+  "campaignM5Task": "Draw a dilemma for inspiration, then choose your way.",
+  "campaignM5Badge": "Path chooser",
+  "campaignM5ChoiceA": "Climb the cold stairs",
+  "campaignM5ChoiceB": "Go down to the cellar",
+  "campaignM5OutcomeA": "The cold sharpens your senses and you reach the top without a sound.",
+  "campaignM5OutcomeB": "In the dark, your hands find a forgotten key.",
+  "campaignM6Title": "The lantern relights",
+  "campaignM6Story": "At the top, the lantern waits. Describe out loud how you relight it before the sand runs out: telling the scene is the heart of the game.",
+  "campaignM6Lesson": "A scene is told together, out loud, with a bit of imagination.",
+  "campaignM6Task": "Start the hourglass and narrate your final scene.",
+  "campaignM6Badge": "Flame bearer"
 }
