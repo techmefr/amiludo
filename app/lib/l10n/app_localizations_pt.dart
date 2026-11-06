@@ -177,6 +177,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String get appearanceChooseThisWorld => 'Escolher este mundo ↗';
 
   @override
+  String get appearanceSkinGameName => 'HUD de missão';
+
+  @override
+  String get appearanceSkinGameDesc => 'Escuro e dourado, molduras grossas, ar de interface de jogo.';
+
+  @override
+  String get appearanceHudPreview => 'Pré-visualização da barra de progresso';
+
+  @override
   String get workspaceHome => 'Início';
 
   @override

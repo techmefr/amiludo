@@ -426,6 +426,24 @@ abstract class AppLocalizations {
   /// **'Choose this world ↗'**
   String get appearanceChooseThisWorld;
 
+  /// No description provided for @appearanceSkinGameName.
+  ///
+  /// In en, this message translates to:
+  /// **'Quest HUD'**
+  String get appearanceSkinGameName;
+
+  /// No description provided for @appearanceSkinGameDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark and gold, framed panels, a game-HUD feel.'**
+  String get appearanceSkinGameDesc;
+
+  /// No description provided for @appearanceHudPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress bar preview'**
+  String get appearanceHudPreview;
+
   /// No description provided for @workspaceHome.
   ///
   /// In en, this message translates to:
