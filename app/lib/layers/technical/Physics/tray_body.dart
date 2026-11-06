@@ -30,9 +30,13 @@ class TrayBody {
 
   int get face => (phase.floor() + offset) % sides + 1;
 
-  double get flipX => sin(phase * pi) * min(1.0, tumble / 5) * (1 - roundness);
+  double get spinX => sin(phase * pi) * min(1.0, tumble / 5);
 
-  double get flipY => cos(phase * pi) * min(1.0, tumble / 5) * (1 - roundness);
+  double get spinY => cos(phase * pi) * min(1.0, tumble / 5);
+
+  double get flipX => spinX * (1 - roundness);
+
+  double get flipY => spinY * (1 - roundness);
 
   void sleep() {
     vx = 0;
