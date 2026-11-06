@@ -7,7 +7,7 @@ Color toolColor(String id) => switch (id) {
   'dice-tray' => const Color(0xff8A65D8),
   'picker' => const Color(0xffED8D70),
   'scores' => const Color(0xff59BBAA),
-  'timer' => const Color(0xffE0AE42),
+  'timer' || 'hourglass' => const Color(0xffE0AE42),
   'teams' => const Color(0xff668FCB),
   'wheel' => const Color(0xffCB78A8),
   'roles' => const Color(0xff8A65D8),
@@ -191,7 +191,7 @@ class _GameArtPainter extends CustomPainter {
       pawn(canvas, 165, 99, purple);
       pawn(canvas, 228, 132, mint);
       disk(canvas, const Offset(163, 36), 6, yellow);
-    } else if (tool == 'timer') {
+    } else if (tool == 'timer' || tool == 'hourglass') {
       _timer(canvas);
     } else if (tool == 'wheel') {
       _wheel(canvas);

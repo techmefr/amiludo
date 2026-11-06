@@ -2592,4 +2592,26 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get diceTrayCustomColor => 'Cor das faces';
+  String get toolHourglassTitle => 'Ampulheta';
+
+  @override
+  String get toolHourglassSubtitle =>
+      'Areia que mede uma vez e depois se vira.';
+
+  @override
+  String get hourglassTurn => 'Virar';
+
+  @override
+  String get hourglassStart => 'Iniciar';
+
+  @override
+  String get hourglassPause => 'Pausa';
+
+  @override
+  String get hourglassDone => 'Tempo esgotado';
+
+  @override
+  String hourglassSeconds(int count) {
+    return '$count s';
+  }
 }

@@ -2590,4 +2590,26 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get diceTrayCustomColor => 'Color de las caras';
+  String get toolHourglassTitle => 'Reloj de arena';
+
+  @override
+  String get toolHourglassSubtitle =>
+      'Arena que mide un turno y se da la vuelta.';
+
+  @override
+  String get hourglassTurn => 'Girar';
+
+  @override
+  String get hourglassStart => 'Iniciar';
+
+  @override
+  String get hourglassPause => 'Pausa';
+
+  @override
+  String get hourglassDone => 'Se acabó el tiempo';
+
+  @override
+  String hourglassSeconds(int count) {
+    return '$count s';
+  }
 }

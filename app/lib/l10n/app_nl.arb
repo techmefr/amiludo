@@ -781,5 +781,12 @@
   "diceTrayCustomFaces": "Eigen zijden, gescheiden door komma’s",
   "diceTrayCustomDie": "Eigen dobbelsteen",
   "diceTrayEmpty": "Voeg een dobbelsteen toe om te beginnen.",
-  "diceTrayCustomColor": "Kleur van de zijden"
+  "diceTrayCustomColor": "Kleur van de zijden",
+  "toolHourglassTitle": "Zandloper",
+  "toolHourglassSubtitle": "Zand meet een beurt, daarna draai je om.",
+  "hourglassTurn": "Omdraaien",
+  "hourglassStart": "Start",
+  "hourglassPause": "Pauze",
+  "hourglassDone": "Tijd is om",
+  "hourglassSeconds": "{count} s"
 }

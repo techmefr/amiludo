@@ -781,5 +781,12 @@
   "diceTrayCustomFaces": "Faces personnalisées, séparées par des virgules",
   "diceTrayCustomDie": "Dé personnalisé",
   "diceTrayEmpty": "Ajoutez un dé pour commencer.",
-  "diceTrayCustomColor": "Couleur des faces"
+  "diceTrayCustomColor": "Couleur des faces",
+  "toolHourglassTitle": "Sablier",
+  "toolHourglassSubtitle": "Du sable pour mesurer un tour, puis on retourne.",
+  "hourglassTurn": "Retourner",
+  "hourglassStart": "Démarrer",
+  "hourglassPause": "Pause",
+  "hourglassDone": "Temps écoulé",
+  "hourglassSeconds": "{count} s"
 }

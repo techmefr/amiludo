@@ -37,6 +37,7 @@ import 'package:amiludo/layers/functional/Templates/presentation/pack_builder.da
 import 'package:amiludo/layers/functional/Templates/presentation/pack_detail.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/templates_screen.dart';
 import 'package:amiludo/layers/functional/Timer/presentation/timer_panel.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/hourglass_tool.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/app_shell.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/game_setup.dart';
@@ -45,6 +46,8 @@ import 'package:amiludo/layers/functional/Workspace/presentation/workspace_gate.
 
 Widget _timer(BuildContext context) =>
     const SizedBox(width: double.infinity, child: TimerPanel());
+
+Widget _hourglass(BuildContext context) => const HourglassTool();
 
 Widget _scores(BuildContext context) => const GameScreen(timer: _timer);
 
@@ -79,6 +82,7 @@ final router = GoRouter(
           'scores': _scores,
           'timer': _timer,
           'dice-tray': _diceTray,
+          'hourglass': _hourglass,
         },
       ),
     ),

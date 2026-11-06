@@ -4819,6 +4819,47 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Face color'**
   String get diceTrayCustomColor;
+  /// No description provided for @toolHourglassTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hourglass'**
+  String get toolHourglassTitle;
+
+  /// No description provided for @toolHourglassSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sand that measures a turn, then flips.'**
+  String get toolHourglassSubtitle;
+
+  /// No description provided for @hourglassTurn.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn'**
+  String get hourglassTurn;
+
+  /// No description provided for @hourglassStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get hourglassStart;
+
+  /// No description provided for @hourglassPause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause'**
+  String get hourglassPause;
+
+  /// No description provided for @hourglassDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Time is up'**
+  String get hourglassDone;
+
+  /// No description provided for @hourglassSeconds.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} s'**
+  String hourglassSeconds(int count);
 }
 
 class _AppLocalizationsDelegate

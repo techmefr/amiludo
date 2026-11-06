@@ -781,5 +781,12 @@
   "diceTrayCustomFaces": "Faces personalizadas, separadas por vírgulas",
   "diceTrayCustomDie": "Dado personalizado",
   "diceTrayEmpty": "Adicione um dado para começar.",
-  "diceTrayCustomColor": "Cor das faces"
+  "diceTrayCustomColor": "Cor das faces",
+  "toolHourglassTitle": "Ampulheta",
+  "toolHourglassSubtitle": "Areia que mede uma vez e depois se vira.",
+  "hourglassTurn": "Virar",
+  "hourglassStart": "Iniciar",
+  "hourglassPause": "Pausa",
+  "hourglassDone": "Tempo esgotado",
+  "hourglassSeconds": "{count} s"
 }

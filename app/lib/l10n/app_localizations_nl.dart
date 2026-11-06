@@ -2593,4 +2593,26 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get diceTrayCustomColor => 'Kleur van de zijden';
+  String get toolHourglassTitle => 'Zandloper';
+
+  @override
+  String get toolHourglassSubtitle =>
+      'Zand meet een beurt, daarna draai je om.';
+
+  @override
+  String get hourglassTurn => 'Omdraaien';
+
+  @override
+  String get hourglassStart => 'Start';
+
+  @override
+  String get hourglassPause => 'Pauze';
+
+  @override
+  String get hourglassDone => 'Tijd is om';
+
+  @override
+  String hourglassSeconds(int count) {
+    return '$count s';
+  }
 }

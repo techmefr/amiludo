@@ -781,5 +781,12 @@
   "diceTrayCustomFaces": "Caras personalizadas, separadas por comas",
   "diceTrayCustomDie": "Dado personalizado",
   "diceTrayEmpty": "Añade un dado para empezar.",
-  "diceTrayCustomColor": "Color de las caras"
+  "diceTrayCustomColor": "Color de las caras",
+  "toolHourglassTitle": "Reloj de arena",
+  "toolHourglassSubtitle": "Arena que mide un turno y se da la vuelta.",
+  "hourglassTurn": "Girar",
+  "hourglassStart": "Iniciar",
+  "hourglassPause": "Pausa",
+  "hourglassDone": "Se acabó el tiempo",
+  "hourglassSeconds": "{count} s"
 }

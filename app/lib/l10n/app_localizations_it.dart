@@ -2592,4 +2592,26 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get diceTrayCustomColor => 'Colore delle facce';
+  String get toolHourglassTitle => 'Clessidra';
+
+  @override
+  String get toolHourglassSubtitle =>
+      'Sabbia che misura un turno, poi si gira.';
+
+  @override
+  String get hourglassTurn => 'Gira';
+
+  @override
+  String get hourglassStart => 'Avvia';
+
+  @override
+  String get hourglassPause => 'Pausa';
+
+  @override
+  String get hourglassDone => 'Tempo scaduto';
+
+  @override
+  String hourglassSeconds(int count) {
+    return '$count s';
+  }
 }

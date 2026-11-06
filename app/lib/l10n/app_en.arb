@@ -1005,5 +1005,17 @@
   "diceTrayCustomFaces": "Custom faces, comma-separated",
   "diceTrayCustomDie": "Custom die",
   "diceTrayEmpty": "Add a die to start.",
-  "diceTrayCustomColor": "Face color"
+  "diceTrayCustomColor": "Face color",
+  "toolHourglassTitle": "Hourglass",
+  "toolHourglassSubtitle": "Sand that measures a turn, then flips.",
+  "hourglassTurn": "Turn",
+  "hourglassStart": "Start",
+  "hourglassPause": "Pause",
+  "hourglassDone": "Time is up",
+  "hourglassSeconds": "{count} s",
+  "@hourglassSeconds": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  }
 }

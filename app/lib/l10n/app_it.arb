@@ -781,5 +781,12 @@
   "diceTrayCustomFaces": "Facce personalizzate, separate da virgole",
   "diceTrayCustomDie": "Dado personalizzato",
   "diceTrayEmpty": "Aggiungi un dado per iniziare.",
-  "diceTrayCustomColor": "Colore delle facce"
+  "diceTrayCustomColor": "Colore delle facce",
+  "toolHourglassTitle": "Clessidra",
+  "toolHourglassSubtitle": "Sabbia che misura un turno, poi si gira.",
+  "hourglassTurn": "Gira",
+  "hourglassStart": "Avvia",
+  "hourglassPause": "Pausa",
+  "hourglassDone": "Tempo scaduto",
+  "hourglassSeconds": "{count} s"
 }
