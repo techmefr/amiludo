@@ -73,7 +73,7 @@ class _AdminPage extends StatelessWidget {
 }
 
 Widget _campaign(Widget child) => BlocProvider(
-  create: (_) => CampaignCubit(getIt(), getIt(), getIt(), getIt()),
+  create: (_) => CampaignCubit(getIt(), getIt(), getIt(), getIt(), getIt()),
   child: child,
 );
 

@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:amiludo/layers/functional/Campaign/data/gateways/campaign_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Campaign/domain/gateways/campaign_gateway.dart';
 import 'package:amiludo/layers/functional/Campaign/domain/use_cases/complete_mission_use_case.dart';
+import 'package:amiludo/layers/functional/Campaign/domain/use_cases/load_campaign_use_case.dart';
 import 'package:amiludo/layers/functional/Campaign/domain/use_cases/read_campaign_use_case.dart';
 import 'package:amiludo/layers/functional/Campaign/domain/use_cases/reset_campaign_use_case.dart';
 import 'package:amiludo/layers/functional/Campaign/domain/use_cases/watch_campaign_use_case.dart';
@@ -160,7 +161,6 @@ void configureDependencies(StoreDatabase database) {
         getIt<FriendsGatewayImpl>(),
         getIt<LibraryGatewayImpl>(),
         getIt<MemoriesGatewayImpl>(),
-        getIt<CampaignGatewayImpl>(),
         getIt<EveningsGatewayImpl>(),
         getIt<CharacterDraftGatewayImpl>(),
       ],
@@ -288,6 +288,7 @@ void _registerAdmin() {
 
 void _registerCampaign() {
   getIt
+    ..registerFactory(() => LoadCampaignUseCase(getIt()))
     ..registerFactory(() => ReadCampaignUseCase(getIt()))
     ..registerFactory(() => WatchCampaignUseCase(getIt()))
     ..registerFactory(() => CompleteMissionUseCase(getIt()))

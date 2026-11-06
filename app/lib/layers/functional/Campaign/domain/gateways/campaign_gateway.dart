@@ -3,5 +3,6 @@ import 'package:amiludo/layers/functional/Campaign/domain/entities/campaign_prog
 abstract class CampaignGateway {
   CampaignProgress get current;
   Stream<CampaignProgress> get changes;
+  Future<void> load();
   Future<void> save(CampaignProgress progress);
 }
