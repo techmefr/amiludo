@@ -17,7 +17,9 @@ class MapMarkerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final fill = Color(marker.color);
-    final onFill = fill.computeLuminance() > 0.5 ? Colors.black : Colors.white;
+    final onFill = fill.computeLuminance() > 0.5
+        ? const Color(0xFF000000)
+        : const Color(0xFFFFFFFF);
     final scheme = Theme.of(context).colorScheme;
     final pin = marker.kind == MapMarkerKind.pin;
     return Positioned(

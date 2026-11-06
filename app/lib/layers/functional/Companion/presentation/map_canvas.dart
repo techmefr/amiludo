@@ -35,7 +35,9 @@ class _MapCanvasState extends State<MapCanvas> {
   _Gesture gesture = _Gesture.none;
   MapMarker? dragged;
   MapBoard? before;
-  bool moved = false;
+  bool moved = false, fresh = false;
+  int pointers = 0;
+  Offset down = Offset.zero;
   double startScale = 1;
   Offset anchor = Offset.zero, grab = Offset.zero;
 
@@ -51,7 +53,8 @@ class _MapCanvasState extends State<MapCanvas> {
 
   void start(ScaleStartDetails d) {
     final v = view();
-    final focal = d.localFocalPoint;
+    final focal = fresh && d.pointerCount == 1 ? down : d.localFocalPoint;
+    fresh = false;
     startScale = c.scale;
     anchor = (focal - v.offset) / v.unit;
     moved = false;
@@ -120,6 +123,13 @@ class _MapCanvasState extends State<MapCanvas> {
     }
   }
 
+  void pointerDown(PointerDownEvent e) {
+    pointers++;
+    if (pointers != 1) return;
+    down = e.localPosition;
+    fresh = true;
+  }
+
   void wheel(PointerSignalEvent e) {
     if (e is! PointerScrollEvent) return;
     final v = view();
@@ -136,6 +146,9 @@ class _MapCanvasState extends State<MapCanvas> {
         size = box.biggest;
         return Listener(
           onPointerSignal: wheel,
+          onPointerDown: pointerDown,
+          onPointerUp: (_) => pointers = max(0, pointers - 1),
+          onPointerCancel: (_) => pointers = max(0, pointers - 1),
           child: GestureDetector(
             behavior: HitTestBehavior.opaque,
             dragStartBehavior: DragStartBehavior.down,
