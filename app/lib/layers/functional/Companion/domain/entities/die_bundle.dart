@@ -27,7 +27,10 @@ class DieBundle {
     if (text.length > maxBundleChars) {
       throw const FormatException('Fichier trop volumineux');
     }
-    final raw = jsonDecode(text);
+    return DieBundle.fromJson(jsonDecode(text));
+  }
+
+  factory DieBundle.fromJson(Object? raw) {
     if (raw is! Map ||
         raw['format'] != dieBundleFormat ||
         raw['version'] != 1 ||
@@ -63,9 +66,11 @@ class DieBundle {
   final List<DieDesign> designs;
   final Map<String, Uint8List> images;
 
-  String encode() {
+  String encode() => jsonEncode(toJson());
+
+  Map<String, Object?> toJson() {
     final used = {for (final d in designs) ...d.imageIds};
-    return jsonEncode({
+    return {
       'format': dieBundleFormat,
       'version': 1,
       'designs': designs.map((d) => d.toJson()).toList(),
@@ -73,15 +78,19 @@ class DieBundle {
         for (final id in used)
           if (images[id] != null) id: base64Encode(images[id]!),
       },
-    });
+    };
   }
 
-  DieBundle remapped(String Function() newId) {
+  DieBundle remapped(String Function() newId) => remappedWithIds(newId).bundle;
+
+  ({DieBundle bundle, Map<String, String> images}) remappedWithIds(
+    String Function() newId,
+  ) {
     final ids = {
       for (final d in designs)
         for (final id in d.imageIds) id: newId(),
     };
-    return DieBundle(
+    final bundle = DieBundle(
       [
         for (final d in designs)
           d.copyWith(
@@ -95,5 +104,6 @@ class DieBundle {
       ],
       {for (final e in ids.entries) e.value: images[e.key]!},
     );
+    return (bundle: bundle, images: ids);
   }
 }

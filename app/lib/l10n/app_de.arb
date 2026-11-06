@@ -795,6 +795,10 @@
   "diceTrayCustomDie": "Eigener Würfel",
   "diceTrayEmpty": "Füge einen Würfel hinzu, um zu beginnen.",
   "diceTrayCustomColor": "Farbe der Seiten",
+  "diceTraySurface": "Unterlage",
+  "diceTrayWood": "Holz",
+  "diceTrayFelt": "Filz",
+  "diceTrayGlass": "Glas",
   "toolHourglassTitle": "Sanduhr",
   "toolHourglassSubtitle": "Sand misst eine Runde, dann wird gedreht.",
   "hourglassTurn": "Umdrehen",
@@ -1002,5 +1006,6 @@
   "diceFaceMoveEarlier": "Seite nach vorn",
   "diceFaceMoveLater": "Seite nach hinten",
   "diceFaceDuplicate": "Seite duplizieren",
-  "diceFaceRemove": "Seite entfernen"
+  "diceFaceRemove": "Seite entfernen",
+  "diceUseFromLibrary": "Würfel aus Meine Würfel verwenden"
 }

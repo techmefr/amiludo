@@ -1019,6 +1019,10 @@
   "diceTrayCustomDie": "Custom die",
   "diceTrayEmpty": "Add a die to start.",
   "diceTrayCustomColor": "Face color",
+  "diceTraySurface": "Surface",
+  "diceTrayWood": "Wood",
+  "diceTrayFelt": "Felt",
+  "diceTrayGlass": "Glass",
   "toolHourglassTitle": "Hourglass",
   "toolHourglassSubtitle": "Sand that measures a turn, then flips.",
   "hourglassTurn": "Turn",
@@ -1257,5 +1261,6 @@
   "diceFaceMoveEarlier": "Move face earlier",
   "diceFaceMoveLater": "Move face later",
   "diceFaceDuplicate": "Duplicate face",
-  "diceFaceRemove": "Remove face"
+  "diceFaceRemove": "Remove face",
+  "diceUseFromLibrary": "Use a die from My dice"
 }

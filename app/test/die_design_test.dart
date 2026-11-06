@@ -8,6 +8,7 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/die_bundle.d
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_face_ops.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_library.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/die_refs.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_controls.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/pack_components.dart';
 
@@ -154,6 +155,46 @@ void main() {
       );
       final missing = decoded()..['images'] = <String, dynamic>{};
       expect(() => DieBundle.decode(jsonEncode(missing)), throwsFormatException);
+    });
+  });
+
+  group('live links and embedded references', () {
+    test('a tray die follows the library and falls back to its snapshot', () {
+      final old = DieDesign.standard('a', 'Old', 6);
+      final settings = DiceTraySettings(dice: [DiceSpec.fromDesign(old)]);
+      final live = settings.resolved(
+        DieLibrary([old.copyWith(name: 'New', color: 0xFF000000)]),
+      );
+      expect(live.dice.single.name, 'New');
+      expect(live.dice.single.color, 0xFF000000);
+      expect(settings.resolved(const DieLibrary()).dice.single.name, 'Old');
+    });
+
+    test('references are collected and rewritten', () {
+      final json = {
+        'bricks': [
+          {
+            'settings': {
+              'dice': [
+                {'design': withImage('a', 'i1').toJson()},
+              ],
+            },
+          },
+        ],
+        'dice': [
+          {'design': 'b'},
+        ],
+      };
+      expect(collectDesignIds(json), {'a'});
+      final other = {
+        'x': {'design': 'b'},
+        ...json,
+      }..remove('dice');
+      expect(collectDesignIds(other), {'a', 'b'});
+      final out = rewriteDesignRefs(other, {'a': 'x', 'b': 'y'}, {'i1': 'j1'});
+      expect(collectDesignIds(out), {'x', 'y'});
+      expect(jsonEncode(out), contains('j1'));
+      expect(jsonEncode(out), isNot(contains('i1')));
     });
   });
 

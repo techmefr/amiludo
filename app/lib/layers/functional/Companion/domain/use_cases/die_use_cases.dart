@@ -100,18 +100,29 @@ class PreviewDiceImportUseCase {
   }
 }
 
+typedef DieIdMap = ({Map<String, String> designs, Map<String, String> images});
+
 class ImportDiceUseCase {
   ImportDiceUseCase(this._library, this._images);
   final DieLibraryGateway _library;
   final DieImageGateway _images;
 
-  Future<void> call(DieBundle bundle, ClashPolicy policy) async {
-    final fresh = bundle.remapped(dieId);
-    for (final e in fresh.images.entries) {
+  Future<DieIdMap> call(DieBundle bundle, ClashPolicy policy) async {
+    final fresh = bundle.remappedWithIds(dieId);
+    final designs = <String, String>{};
+    var next = _library.current;
+    for (final d in fresh.bundle.designs) {
+      var design = d;
+      if (next.has(d.id) && policy == ClashPolicy.keepBoth) {
+        design = d.copyWith(id: dieId());
+        designs[d.id] = design.id;
+      }
+      next = next.upsert(design);
+    }
+    for (final e in fresh.bundle.images.entries) {
       await _images.write(e.key, e.value);
     }
-    await _library.save(
-      _library.current.merge(fresh.designs, policy, dieId),
-    );
+    await _library.save(next);
+    return (designs: designs, images: fresh.images);
   }
 }

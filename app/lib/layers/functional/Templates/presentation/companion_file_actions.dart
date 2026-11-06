@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:amiludo/dice_sharing.dart';
 import 'package:amiludo/l10n/app_localizations.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/companion_file.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
@@ -18,9 +19,9 @@ String companionProblemText(AppLocalizations l, CompanionFileProblem p) =>
     CompanionFileProblem.reserved => l.companionErrorReserved,
   };
 
-Future<void> shareCompanionFile(GameTemplate template) =>
+Future<void> shareCompanionFile(GameTemplate template) async =>
     FileTransfer.shareText(
-      CompanionFile.encode(template),
+      await embedDice(CompanionFile.encode(template)),
       'companion-${template.id}.json',
     );
 
@@ -31,7 +32,9 @@ Future<void> importCompanionFile(BuildContext context) async {
   try {
     final text = await FileTransfer.openJson();
     if (text == null) return;
-    await templates.addTemplate(CompanionFile.decode(text));
+    if (!context.mounted) return;
+    final accepted = await acceptDice(context, text);
+    await templates.addTemplate(CompanionFile.decode(accepted));
     message = l.templatesCompanionImported;
   } on CompanionFileException catch (error) {
     message = companionProblemText(l, error.problem);

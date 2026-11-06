@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/pack_components.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 
@@ -70,6 +71,7 @@ class DieDraft {
   DieDraft(GameDie? d)
     : name = TextEditingController(text: d?.name ?? 'Dé classique'),
       count = TextEditingController(text: '${d?.count ?? 1}'),
+      design = d?.design,
       faces =
           (d?.faces ??
                   List.generate(
@@ -80,11 +82,32 @@ class DieDraft {
               .toList();
   final TextEditingController name, count;
   final List<FaceDraft> faces;
+  String? design;
   GameDie value() => GameDie.fromJson({
     'name': name.text.trim(),
     'count': int.parse(count.text),
     'faces': faces.map((f) => f.build().toJson()).toList(),
+    if (design != null) 'design': design,
   });
+
+  void useDesign(DieDesign d) {
+    design = d.id;
+    name.text = d.name;
+    for (final f in faces) {
+      disposeLater(f.dispose);
+    }
+    faces
+      ..clear()
+      ..addAll([
+        for (var i = 0; i < d.faces.length; i++)
+          FaceDraft(
+            DieFace(
+              d.faces[i].label.isEmpty ? d.faces[i].kind.name : d.faces[i].label,
+              (int.tryParse(d.faces[i].value) ?? i + 1).toDouble(),
+            ),
+          ),
+      ]);
+  }
   void dispose() {
     name.dispose();
     count.dispose();

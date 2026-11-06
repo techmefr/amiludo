@@ -795,6 +795,10 @@
   "diceTrayCustomDie": "Dé personnalisé",
   "diceTrayEmpty": "Ajoutez un dé pour commencer.",
   "diceTrayCustomColor": "Couleur des faces",
+  "diceTraySurface": "Surface",
+  "diceTrayWood": "Bois",
+  "diceTrayFelt": "Feutre",
+  "diceTrayGlass": "Verre",
   "toolHourglassTitle": "Sablier",
   "toolHourglassSubtitle": "Du sable pour mesurer un tour, puis on retourne.",
   "hourglassTurn": "Retourner",
@@ -1002,5 +1006,6 @@
   "diceFaceMoveEarlier": "Avancer la face",
   "diceFaceMoveLater": "Reculer la face",
   "diceFaceDuplicate": "Dupliquer la face",
-  "diceFaceRemove": "Retirer la face"
+  "diceFaceRemove": "Retirer la face",
+  "diceUseFromLibrary": "Utiliser un dé de Mes dés"
 }

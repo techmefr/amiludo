@@ -2596,6 +2596,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get diceTrayCustomColor => 'Face color';
+
+  @override
+  String get diceTraySurface => 'Surface';
+
+  @override
+  String get diceTrayWood => 'Wood';
+
+  @override
+  String get diceTrayFelt => 'Felt';
+
+  @override
+  String get diceTrayGlass => 'Glass';
   String get toolHourglassTitle => 'Hourglass';
 
   @override
@@ -3263,4 +3275,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get diceFaceRemove => 'Remove face';
+
+  @override
+  String get diceUseFromLibrary => 'Use a die from My dice';
 }

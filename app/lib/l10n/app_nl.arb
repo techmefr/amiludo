@@ -795,6 +795,10 @@
   "diceTrayCustomDie": "Eigen dobbelsteen",
   "diceTrayEmpty": "Voeg een dobbelsteen toe om te beginnen.",
   "diceTrayCustomColor": "Kleur van de zijden",
+  "diceTraySurface": "Ondergrond",
+  "diceTrayWood": "Hout",
+  "diceTrayFelt": "Vilt",
+  "diceTrayGlass": "Glas",
   "toolHourglassTitle": "Zandloper",
   "toolHourglassSubtitle": "Zand meet een beurt, daarna draai je om.",
   "hourglassTurn": "Omdraaien",
@@ -1002,5 +1006,6 @@
   "diceFaceMoveEarlier": "Zijde naar voren",
   "diceFaceMoveLater": "Zijde naar achteren",
   "diceFaceDuplicate": "Zijde dupliceren",
-  "diceFaceRemove": "Zijde verwijderen"
+  "diceFaceRemove": "Zijde verwijderen",
+  "diceUseFromLibrary": "Dobbelsteen uit Mijn dobbelstenen gebruiken"
 }

@@ -795,6 +795,10 @@
   "diceTrayCustomDie": "Dado personalizado",
   "diceTrayEmpty": "Añade un dado para empezar.",
   "diceTrayCustomColor": "Color de las caras",
+  "diceTraySurface": "Superficie",
+  "diceTrayWood": "Madera",
+  "diceTrayFelt": "Fieltro",
+  "diceTrayGlass": "Vidrio",
   "toolHourglassTitle": "Reloj de arena",
   "toolHourglassSubtitle": "Arena que mide un turno y se da la vuelta.",
   "hourglassTurn": "Girar",
@@ -1002,5 +1006,6 @@
   "diceFaceMoveEarlier": "Mover la cara antes",
   "diceFaceMoveLater": "Mover la cara después",
   "diceFaceDuplicate": "Duplicar la cara",
-  "diceFaceRemove": "Quitar la cara"
+  "diceFaceRemove": "Quitar la cara",
+  "diceUseFromLibrary": "Usar un dado de Mis dados"
 }

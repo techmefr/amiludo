@@ -795,6 +795,10 @@
   "diceTrayCustomDie": "Dado personalizzato",
   "diceTrayEmpty": "Aggiungi un dado per iniziare.",
   "diceTrayCustomColor": "Colore delle facce",
+  "diceTraySurface": "Superficie",
+  "diceTrayWood": "Legno",
+  "diceTrayFelt": "Feltro",
+  "diceTrayGlass": "Vetro",
   "toolHourglassTitle": "Clessidra",
   "toolHourglassSubtitle": "Sabbia che misura un turno, poi si gira.",
   "hourglassTurn": "Gira",
@@ -1002,5 +1006,6 @@
   "diceFaceMoveEarlier": "Sposta la faccia prima",
   "diceFaceMoveLater": "Sposta la faccia dopo",
   "diceFaceDuplicate": "Duplica la faccia",
-  "diceFaceRemove": "Rimuovi la faccia"
+  "diceFaceRemove": "Rimuovi la faccia",
+  "diceUseFromLibrary": "Usa un dado da I miei dadi"
 }

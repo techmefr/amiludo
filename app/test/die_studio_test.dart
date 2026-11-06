@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/die_bundle.d
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_library.dart';
 import 'package:amiludo/layers/functional/Companion/domain/gateways/die_gateways.dart';
+import 'package:amiludo/layers/functional/Companion/domain/use_cases/die_share_use_cases.dart';
 import 'package:amiludo/layers/functional/Companion/domain/use_cases/die_use_cases.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/die_editor_screen.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/die_face_view.dart';
@@ -134,6 +136,57 @@ void main() {
       ]);
       final bundle = DieBundle.decode(await s.cubit.export(['a', 'b']));
       expect(bundle.designs.map((d) => d.sides), [2, 100]);
+    });
+  });
+
+  group('embedding in shared files', () {
+    test('a file carries its dice and import merges them', () async {
+      final art = DieDesign(
+        id: 'a',
+        name: 'Art',
+        faces: const [
+          DieFaceContent(kind: DieFaceKind.image, value: 'i1'),
+          DieFaceContent(value: '2'),
+        ],
+      );
+      final source = studio();
+      await source.cubit.save(art, images: {'i1': tinyPng()});
+      final embed = EmbedDiceUseCase(
+        ExportDiceUseCase(source.library, source.images),
+        source.library,
+      );
+      final file = jsonEncode({
+        'bricks': [
+          {
+            'settings': {
+              'dice': [
+                {'design': art.toJson()},
+              ],
+            },
+          },
+        ],
+      });
+      final embedded = await embed(file);
+      expect(jsonDecode(embedded)['dice'], isNotNull);
+      expect(await embed('{"x":1}'), '{"x":1}');
+
+      final target = studio([DieDesign.standard('a', 'Other', 6)]);
+      final read = ReadEmbeddedDiceUseCase(target.library)(embedded)!;
+      expect(read.clashes, {'a'});
+      final text = await AcceptEmbeddedDiceUseCase(
+        ImportDiceUseCase(target.library, target.images),
+      )(embedded, read.bundle, ClashPolicy.keepBoth);
+      expect(target.library.current.designs, hasLength(2));
+      final newId = target.library.current.designs.last.id;
+      expect(newId, isNot('a'));
+      expect(jsonDecode(text).containsKey('dice'), isFalse);
+      expect(text, contains(newId));
+      expect(target.images.store, hasLength(1));
+    });
+
+    test('a file without dice is left alone', () {
+      final target = studio();
+      expect(ReadEmbeddedDiceUseCase(target.library)('{"a":1}'), isNull);
     });
   });
 

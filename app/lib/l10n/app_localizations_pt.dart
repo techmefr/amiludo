@@ -2616,6 +2616,18 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get diceTrayCustomColor => 'Cor das faces';
+
+  @override
+  String get diceTraySurface => 'Superfície';
+
+  @override
+  String get diceTrayWood => 'Madeira';
+
+  @override
+  String get diceTrayFelt => 'Feltro';
+
+  @override
+  String get diceTrayGlass => 'Vidro';
   String get toolHourglassTitle => 'Ampulheta';
 
   @override
@@ -3285,4 +3297,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get diceFaceRemove => 'Remover a face';
+
+  @override
+  String get diceUseFromLibrary => 'Usar um dado de Meus dados';
 }

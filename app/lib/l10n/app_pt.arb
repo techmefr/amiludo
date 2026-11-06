@@ -795,6 +795,10 @@
   "diceTrayCustomDie": "Dado personalizado",
   "diceTrayEmpty": "Adicione um dado para começar.",
   "diceTrayCustomColor": "Cor das faces",
+  "diceTraySurface": "Superfície",
+  "diceTrayWood": "Madeira",
+  "diceTrayFelt": "Feltro",
+  "diceTrayGlass": "Vidro",
   "toolHourglassTitle": "Ampulheta",
   "toolHourglassSubtitle": "Areia que mede uma vez e depois se vira.",
   "hourglassTurn": "Virar",
@@ -1002,5 +1006,6 @@
   "diceFaceMoveEarlier": "Mover a face para antes",
   "diceFaceMoveLater": "Mover a face para depois",
   "diceFaceDuplicate": "Duplicar a face",
-  "diceFaceRemove": "Remover a face"
+  "diceFaceRemove": "Remover a face",
+  "diceUseFromLibrary": "Usar um dado de Meus dados"
 }

@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+
+import 'package:amiludo/dice_sharing.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -23,7 +25,9 @@ class TemplatesScreen extends StatelessWidget {
     try {
       final text = await FileTransfer.openJson();
       if (text == null) return;
-      final data = Map<String, dynamic>.from(jsonDecode(text) as Map);
+      if (!context.mounted) return;
+      final accepted = await acceptDice(context, text);
+      final data = Map<String, dynamic>.from(jsonDecode(accepted) as Map);
       if (data['format'] != 'table-companion-template' ||
           data['version'] != 1) {
         throw const FormatException('Format de modèle incompatible');
@@ -199,12 +203,14 @@ class _TemplateActions extends StatelessWidget {
         IconButton(
           tooltip: context.l10n.templatesShare,
           icon: const DeckIcon(Icons.share_outlined, size: 20),
-          onPressed: () => FileTransfer.shareText(
-            jsonEncode({
-              'format': 'table-companion-template',
-              'version': 1,
-              'template': t.toJson(),
-            }),
+          onPressed: () async => FileTransfer.shareText(
+            await embedDice(
+              jsonEncode({
+                'format': 'table-companion-template',
+                'version': 1,
+                'template': t.toJson(),
+              }),
+            ),
             'modele-${t.id}.json',
           ),
         ),
