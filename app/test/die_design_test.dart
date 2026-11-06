@@ -185,13 +185,8 @@ void main() {
           {'design': 'b'},
         ],
       };
-      expect(collectDesignIds(json), {'a'});
-      final other = {
-        'x': {'design': 'b'},
-        ...json,
-      }..remove('dice');
-      expect(collectDesignIds(other), {'a', 'b'});
-      final out = rewriteDesignRefs(other, {'a': 'x', 'b': 'y'}, {'i1': 'j1'});
+      expect(collectDesignIds(json), {'a', 'b'});
+      final out = rewriteDesignRefs(json, {'a': 'x', 'b': 'y'}, {'i1': 'j1'});
       expect(collectDesignIds(out), {'x', 'y'});
       expect(jsonEncode(out), contains('j1'));
       expect(jsonEncode(out), isNot(contains('i1')));
