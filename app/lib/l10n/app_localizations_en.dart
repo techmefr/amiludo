@@ -2530,4 +2530,27 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get counterSkipsTurn => 'Skips a turn';
+
+  @override
+  String get toolHourglassTitle => 'Hourglass';
+
+  @override
+  String get toolHourglassSubtitle => 'Sand that measures a turn, then flips.';
+
+  @override
+  String get hourglassTurn => 'Turn';
+
+  @override
+  String get hourglassStart => 'Start';
+
+  @override
+  String get hourglassPause => 'Pause';
+
+  @override
+  String get hourglassDone => 'Time is up';
+
+  @override
+  String hourglassSeconds(int count) {
+    return '$count s';
+  }
 }

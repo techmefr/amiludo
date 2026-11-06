@@ -767,5 +767,12 @@
   "counterIncrease": "Aumentar",
   "counterDecrease": "Diminuir",
   "counterEliminated": "Eliminado",
-  "counterSkipsTurn": "Perde a vez"
+  "counterSkipsTurn": "Perde a vez",
+  "toolHourglassTitle": "Ampulheta",
+  "toolHourglassSubtitle": "Areia que mede uma vez e depois se vira.",
+  "hourglassTurn": "Virar",
+  "hourglassStart": "Iniciar",
+  "hourglassPause": "Pausa",
+  "hourglassDone": "Tempo esgotado",
+  "hourglassSeconds": "{count} s"
 }

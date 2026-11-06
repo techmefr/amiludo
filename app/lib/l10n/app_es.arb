@@ -767,5 +767,12 @@
   "counterIncrease": "Aumentar",
   "counterDecrease": "Disminuir",
   "counterEliminated": "Eliminado",
-  "counterSkipsTurn": "Pierde el turno"
+  "counterSkipsTurn": "Pierde el turno",
+  "toolHourglassTitle": "Reloj de arena",
+  "toolHourglassSubtitle": "Arena que mide un turno y se da la vuelta.",
+  "hourglassTurn": "Girar",
+  "hourglassStart": "Iniciar",
+  "hourglassPause": "Pausa",
+  "hourglassDone": "Se acabó el tiempo",
+  "hourglassSeconds": "{count} s"
 }

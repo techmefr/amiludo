@@ -767,5 +767,12 @@
   "counterIncrease": "Erhöhen",
   "counterDecrease": "Verringern",
   "counterEliminated": "Ausgeschieden",
-  "counterSkipsTurn": "Setzt aus"
+  "counterSkipsTurn": "Setzt aus",
+  "toolHourglassTitle": "Sanduhr",
+  "toolHourglassSubtitle": "Sand misst eine Runde, dann wird gedreht.",
+  "hourglassTurn": "Umdrehen",
+  "hourglassStart": "Start",
+  "hourglassPause": "Pause",
+  "hourglassDone": "Zeit ist um",
+  "hourglassSeconds": "{count} s"
 }
