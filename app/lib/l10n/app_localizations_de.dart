@@ -2868,6 +2868,176 @@ class AppLocalizationsDe extends AppLocalizations {
       'Der gemeinsame Pot, um den alle spielen.';
 
   @override
+  String get campaignTitle => 'Einstieg ins Rollenspiel';
+
+  @override
+  String get campaignHomeTile => 'Rollenspiel lernen';
+
+  @override
+  String campaignSubtitle(String universe) {
+    return 'Eine kurze Geschichte in ${universe}, Mission für Mission.';
+  }
+
+  @override
+  String campaignProgress(int done, int total) {
+    return '${done} von ${total} Missionen';
+  }
+
+  @override
+  String campaignMinutes(int count) {
+    return '${count} Min.';
+  }
+
+  @override
+  String get campaignLocked => 'Schließe die vorherige Mission ab, um diese freizuschalten.';
+
+  @override
+  String get campaignStart => 'Starten';
+
+  @override
+  String get campaignReplay => 'Nochmal spielen';
+
+  @override
+  String get campaignConcept => 'Was du lernst';
+
+  @override
+  String get campaignYourTurn => 'Du bist dran';
+
+  @override
+  String get campaignComplete => 'Mission abschließen';
+
+  @override
+  String get campaignCompleted => 'Mission abgeschlossen';
+
+  @override
+  String get campaignBadgeEarned => 'Abzeichen erhalten';
+
+  @override
+  String get campaignBadges => 'Deine Abzeichen';
+
+  @override
+  String get campaignNoBadges => 'Schließe eine Mission ab, um dein erstes Abzeichen zu verdienen.';
+
+  @override
+  String get campaignNext => 'Nächste Mission';
+
+  @override
+  String get campaignToList => 'Alle Missionen';
+
+  @override
+  String get campaignReset => 'Kampagne neu starten';
+
+  @override
+  String get campaignChoose => 'Wähle deinen Weg';
+
+  @override
+  String campaignFinale(String universe) {
+    return 'Die Laterne leuchtet wieder über ${universe}. Du bist bereit für dein erstes Rollenspiel.';
+  }
+
+  @override
+  String get campaignM1Title => 'Das klemmende Tor';
+
+  @override
+  String get campaignM1Story => 'Die Nacht senkt sich herab. Das alte Tor des Laternenturms klemmt. Im Rollenspiel würfelt man, wenn der Ausgang ungewiss ist.';
+
+  @override
+  String get campaignM1Lesson => 'Eine Probe: Würfle und vergleiche das Ergebnis mit einem Zielwert.';
+
+  @override
+  String get campaignM1Task => 'Wirf die Würfel unten. Eine 4 oder mehr öffnet das Tor. Sonst versuche es erneut.';
+
+  @override
+  String get campaignM1Badge => 'Toröffner';
+
+  @override
+  String get campaignM2Title => 'Eine zerbrechliche Laterne';
+
+  @override
+  String get campaignM2Story => 'Drinnen wackelt die Laterne und jeder Stoß lässt ihr Glas springen. Auch dein Held hat Lebenspunkte, und das Spiel zählt sie mit.';
+
+  @override
+  String get campaignM2Lesson => 'Lebenspunkte sinken bei Verletzungen und steigen bei Heilung.';
+
+  @override
+  String get campaignM2Task => 'Nutze die Herzen unten: verliere zwei durch die Stöße, gewinne eines durch Rast zurück.';
+
+  @override
+  String get campaignM2Badge => 'Herzenswächter';
+
+  @override
+  String get campaignM3Title => 'Wer bist du?';
+
+  @override
+  String get campaignM3Story => 'Eine Stimme fragt nach deinem Namen. Jeder Held hat einen Namen, Stärken und ein paar Kräfte, alles auf einem Charakterbogen.';
+
+  @override
+  String get campaignM3Lesson => 'Ein Charakterbogen sammelt alles, was deinen Helden einzigartig macht.';
+
+  @override
+  String get campaignM3Task => 'Füge einen Helden mit Namen hinzu und gib ihm eine Kraft.';
+
+  @override
+  String get campaignM3Badge => 'Held mit Namen';
+
+  @override
+  String get campaignM4Title => 'Der Schatten im Flur';
+
+  @override
+  String get campaignM4Story => 'Ein Schatten versperrt die Treppe. Ein Kampf ist nur eine Folge von Würfen, jeder Treffer kostet den Gegner etwas Leben.';
+
+  @override
+  String get campaignM4Lesson => 'Im Kampf würfelt man abwechselnd und senkt Lebenspunkte.';
+
+  @override
+  String get campaignM4Task => 'Wirf die Würfel: eine Summe von 7 oder mehr verletzt den Schatten. Lande drei Treffer.';
+
+  @override
+  String get campaignM4Badge => 'Schattenjäger';
+
+  @override
+  String get campaignM5Title => 'Zwei Treppen';
+
+  @override
+  String get campaignM5Story => 'Die Treppe teilt sich: Eine steigt in die Kälte, die andere taucht in den Keller. Niemand sagt dir, welche richtig ist. Heute Nacht entscheidest du.';
+
+  @override
+  String get campaignM5Lesson => 'Im Rollenspiel verändern deine Entscheidungen die Geschichte.';
+
+  @override
+  String get campaignM5Task => 'Ziehe ein Dilemma zur Inspiration und wähle dann deinen Weg.';
+
+  @override
+  String get campaignM5Badge => 'Wegwähler';
+
+  @override
+  String get campaignM5ChoiceA => 'Die kalte Treppe hinaufsteigen';
+
+  @override
+  String get campaignM5ChoiceB => 'In den Keller hinabsteigen';
+
+  @override
+  String get campaignM5OutcomeA => 'Die Kälte schärft deine Sinne und du erreichst die Spitze lautlos.';
+
+  @override
+  String get campaignM5OutcomeB => 'Im Dunkeln finden deine Hände einen vergessenen Schlüssel.';
+
+  @override
+  String get campaignM6Title => 'Die Laterne leuchtet wieder';
+
+  @override
+  String get campaignM6Story => 'Ganz oben wartet die Laterne. Beschreibe laut, wie du sie entzündest, bevor der Sand abläuft: Die Szene zu erzählen ist das Herz des Spiels.';
+
+  @override
+  String get campaignM6Lesson => 'Eine Szene wird gemeinsam, laut und mit etwas Fantasie erzählt.';
+
+  @override
+  String get campaignM6Task => 'Starte die Sanduhr und erzähle deine Schlussszene.';
+
+  @override
+  String get campaignM6Badge => 'Flammenträger';
+
+  @override
   String get chroniclesTitle => 'Chronicles';
 
   @override

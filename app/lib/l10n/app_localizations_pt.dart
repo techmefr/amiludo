@@ -2863,6 +2863,176 @@ class AppLocalizationsPt extends AppLocalizations {
   String get toolCounterPotSubtitle => 'O pote comum pelo qual todos jogam.';
 
   @override
+  String get campaignTitle => 'Iniciação ao jogo de RPG';
+
+  @override
+  String get campaignHomeTile => 'Aprender RPG';
+
+  @override
+  String campaignSubtitle(String universe) {
+    return 'Uma história curta em ${universe}, uma missão de cada vez.';
+  }
+
+  @override
+  String campaignProgress(int done, int total) {
+    return '${done} de ${total} missões';
+  }
+
+  @override
+  String campaignMinutes(int count) {
+    return '${count} min';
+  }
+
+  @override
+  String get campaignLocked => 'Conclua a missão anterior para desbloquear esta.';
+
+  @override
+  String get campaignStart => 'Começar';
+
+  @override
+  String get campaignReplay => 'Jogar de novo';
+
+  @override
+  String get campaignConcept => 'O que você aprende';
+
+  @override
+  String get campaignYourTurn => 'Sua vez';
+
+  @override
+  String get campaignComplete => 'Concluir a missão';
+
+  @override
+  String get campaignCompleted => 'Missão concluída';
+
+  @override
+  String get campaignBadgeEarned => 'Insígnia conquistada';
+
+  @override
+  String get campaignBadges => 'Suas insígnias';
+
+  @override
+  String get campaignNoBadges => 'Conclua uma missão para ganhar sua primeira insígnia.';
+
+  @override
+  String get campaignNext => 'Próxima missão';
+
+  @override
+  String get campaignToList => 'Todas as missões';
+
+  @override
+  String get campaignReset => 'Reiniciar a campanha';
+
+  @override
+  String get campaignChoose => 'Escolha seu caminho';
+
+  @override
+  String campaignFinale(String universe) {
+    return 'A lanterna brilha de novo sobre ${universe}. Você está pronto para sua primeira partida de RPG.';
+  }
+
+  @override
+  String get campaignM1Title => 'A porta emperrada';
+
+  @override
+  String get campaignM1Story => 'A noite cai. O velho portão da torre das lanternas está emperrado. Em um RPG, quando o resultado é incerto, rolam-se os dados.';
+
+  @override
+  String get campaignM1Lesson => 'Um teste: role um dado e compare o resultado com uma meta.';
+
+  @override
+  String get campaignM1Task => 'Role os dados abaixo. Um 4 ou mais abre o portão. Senão, tente de novo.';
+
+  @override
+  String get campaignM1Badge => 'Abridor de portões';
+
+  @override
+  String get campaignM2Title => 'Uma lanterna frágil';
+
+  @override
+  String get campaignM2Story => 'Lá dentro, a lanterna treme e cada choque racha seu vidro. Seu herói também tem pontos de vida, e o jogo os conta.';
+
+  @override
+  String get campaignM2Lesson => 'Os pontos de vida diminuem ao se ferir e aumentam ao se curar.';
+
+  @override
+  String get campaignM2Task => 'Use os corações abaixo: perca dois pelos choques e recupere um descansando.';
+
+  @override
+  String get campaignM2Badge => 'Guardião dos corações';
+
+  @override
+  String get campaignM3Title => 'Quem é você?';
+
+  @override
+  String get campaignM3Story => 'Uma voz pergunta seu nome. Todo herói tem nome, pontos fortes e alguns poderes, tudo anotado em uma ficha de personagem.';
+
+  @override
+  String get campaignM3Lesson => 'Uma ficha de personagem reúne tudo o que torna seu herói único.';
+
+  @override
+  String get campaignM3Task => 'Adicione um herói com um nome e dê a ele um poder.';
+
+  @override
+  String get campaignM3Badge => 'Herói com nome';
+
+  @override
+  String get campaignM4Title => 'A sombra no corredor';
+
+  @override
+  String get campaignM4Story => 'Uma sombra bloqueia a escada. Uma luta é só uma série de rolagens, e cada golpe tira um pouco de vida do inimigo.';
+
+  @override
+  String get campaignM4Lesson => 'Em uma luta, rola-se por turnos e reduzem-se pontos de vida.';
+
+  @override
+  String get campaignM4Task => 'Role os dados: um total de 7 ou mais fere a sombra. Acerte três golpes.';
+
+  @override
+  String get campaignM4Badge => 'Caçador de sombras';
+
+  @override
+  String get campaignM5Title => 'Duas escadas';
+
+  @override
+  String get campaignM5Story => 'A escada se divide em duas: uma sobe para o frio, a outra desce ao porão. Ninguém diz qual é a certa. Esta noite, você decide.';
+
+  @override
+  String get campaignM5Lesson => 'Em um RPG, suas escolhas mudam a história.';
+
+  @override
+  String get campaignM5Task => 'Sorteie um dilema como inspiração e escolha seu caminho.';
+
+  @override
+  String get campaignM5Badge => 'Escolhedor de caminhos';
+
+  @override
+  String get campaignM5ChoiceA => 'Subir a escada fria';
+
+  @override
+  String get campaignM5ChoiceB => 'Descer ao porão';
+
+  @override
+  String get campaignM5OutcomeA => 'O frio aguça seus sentidos e você chega ao topo sem fazer barulho.';
+
+  @override
+  String get campaignM5OutcomeB => 'No escuro, suas mãos encontram uma chave esquecida.';
+
+  @override
+  String get campaignM6Title => 'A lanterna se acende';
+
+  @override
+  String get campaignM6Story => 'No alto, a lanterna espera. Descreva em voz alta como a reacende antes que a areia acabe: contar a cena é o coração do jogo.';
+
+  @override
+  String get campaignM6Lesson => 'Uma cena é contada em conjunto, em voz alta, com um pouco de imaginação.';
+
+  @override
+  String get campaignM6Task => 'Inicie a ampulheta e narre sua cena final.';
+
+  @override
+  String get campaignM6Badge => 'Portador da chama';
+
+  @override
   String get chroniclesTitle => 'Chronicles';
 
   @override
