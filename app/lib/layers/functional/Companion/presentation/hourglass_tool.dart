@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/hourglass.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/turn_sensor.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/hourglass_view.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
@@ -8,8 +9,13 @@ import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 const hourglassPresets = [30, 60, 120, 300];
 
 class HourglassTool extends StatefulWidget {
-  const HourglassTool({super.key, this.initial = const HourglassSettings()});
+  const HourglassTool({
+    super.key,
+    this.initial = const HourglassSettings(),
+    this.sensor = const NoTurnSensor(),
+  });
   final HourglassSettings initial;
+  final TurnSensor sensor;
 
   @override
   State<HourglassTool> createState() => _HourglassToolState();
@@ -39,7 +45,7 @@ class _HourglassToolState extends State<HourglassTool> {
           ],
         ),
         const SizedBox(height: Space.xl),
-        HourglassView(settings: settings),
+        HourglassView(settings: settings, sensor: widget.sensor),
       ],
     ),
   );

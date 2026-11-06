@@ -140,6 +140,21 @@ class AppLocalizationsEn extends AppLocalizations {
       'Keep screen awake during games';
 
   @override
+  String get appearanceMotionSensors => 'Motion sensors';
+
+  @override
+  String get appearanceSensorsOff => 'Off';
+
+  @override
+  String get appearanceSensorsLow => 'Low';
+
+  @override
+  String get appearanceSensorsMedium => 'Medium';
+
+  @override
+  String get appearanceSensorsHigh => 'High';
+
+  @override
   String get appearanceProfileName => 'Profile name';
 
   @override

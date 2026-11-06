@@ -354,6 +354,36 @@ abstract class AppLocalizations {
   /// **'Keep screen awake during games'**
   String get appearanceKeepScreenAwakeDuringGames;
 
+  /// No description provided for @appearanceMotionSensors.
+  ///
+  /// In en, this message translates to:
+  /// **'Motion sensors'**
+  String get appearanceMotionSensors;
+
+  /// No description provided for @appearanceSensorsOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Off'**
+  String get appearanceSensorsOff;
+
+  /// No description provided for @appearanceSensorsLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get appearanceSensorsLow;
+
+  /// No description provided for @appearanceSensorsMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get appearanceSensorsMedium;
+
+  /// No description provided for @appearanceSensorsHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get appearanceSensorsHigh;
+
   /// No description provided for @appearanceProfileName.
   ///
   /// In en, this message translates to:

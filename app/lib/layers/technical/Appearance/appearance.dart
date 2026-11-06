@@ -1,4 +1,5 @@
 import 'package:amiludo/layers/technical/Locale/supported_languages.dart';
+import 'package:amiludo/layers/technical/Sensors/sensor_sensitivity.dart';
 
 class Appearance {
   const Appearance({
@@ -14,8 +15,9 @@ class Appearance {
     this.haptics = true,
     this.keepAwake = true,
     this.language = 'fr',
+    this.sensors = 'medium',
   });
-  final String skin, palette, mode, font, shape, language;
+  final String skin, palette, mode, font, shape, language, sensors;
   final bool compact, large, motion, keepAwake, sound, haptics;
   static const palettes = [
     'play',
@@ -54,6 +56,7 @@ class Appearance {
     bool? haptics,
     bool? keepAwake,
     String? language,
+    String? sensors,
   }) => Appearance(
     skin: skin ?? this.skin,
     palette: palette ?? this.palette,
@@ -67,6 +70,7 @@ class Appearance {
     haptics: haptics ?? this.haptics,
     keepAwake: keepAwake ?? this.keepAwake,
     language: language ?? this.language,
+    sensors: sensors ?? this.sensors,
   );
   Map<String, Object?> toJson() => {
     'skin': skin,
@@ -81,6 +85,7 @@ class Appearance {
     'haptics': haptics,
     'keepAwake': keepAwake,
     'language': language,
+    if (sensors != 'medium') 'sensors': sensors,
   };
   factory Appearance.fromJson(Map<String, dynamic> j) {
     const oldFonts = {
@@ -106,13 +111,15 @@ class Appearance {
       haptics: j['haptics'] as bool? ?? true,
       keepAwake: j['keepAwake'] as bool? ?? true,
       language: j['language'] as String? ?? 'fr',
+      sensors: j['sensors'] as String? ?? 'medium',
     );
     if (!['play', 'cyber', 'orbital', 'paper', 'game'].contains(a.skin) ||
         !palettes.contains(a.palette) ||
         !['dark', 'light', 'system'].contains(a.mode) ||
         !fonts.contains(a.font) ||
         !['cut', 'square', 'soft', 'round'].contains(a.shape) ||
-        !isValidLanguage(a.language)) {
+        !isValidLanguage(a.language) ||
+        !SensorSensitivity.values.any((level) => level.name == a.sensors)) {
       throw const FormatException('Thème invalide');
     }
     return a;
