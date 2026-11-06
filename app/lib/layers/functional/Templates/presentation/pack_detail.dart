@@ -3,6 +3,8 @@ import 'package:amiludo/layers/technical/Locale/tool_texts.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+
+import 'package:amiludo/dice_sharing.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -153,12 +155,14 @@ class _PackShareActions extends StatelessWidget {
       runSpacing: 12,
       children: [
         FilledButton.icon(
-          onPressed: () => FileTransfer.shareText(
-            jsonEncode({
-              'format': 'table-companion-template',
-              'version': 1,
-              'template': pack.toJson(),
-            }),
+          onPressed: () async => FileTransfer.shareText(
+            await embedDice(
+              jsonEncode({
+                'format': 'table-companion-template',
+                'version': 1,
+                'template': pack.toJson(),
+              }),
+            ),
             'pack-${pack.id}.json',
           ),
           icon: const DeckIcon(Icons.file_download_outlined),

@@ -6,6 +6,7 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.da
 import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_controls.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_summary.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_arena.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/die_studio.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_surface_picker.dart';
 import 'package:amiludo/layers/technical/Feedback/tray_feedback.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
@@ -42,7 +43,15 @@ class DiceTrayPage extends StatefulWidget {
 }
 
 class _DiceTrayPageState extends State<DiceTrayPage> {
-  late DiceTraySession session = DiceTraySession(settings: widget.initial);
+  late DiceTraySession session = DiceTraySession(
+    settings: _live(widget.initial),
+  );
+
+  DiceTraySettings _live(DiceTraySettings settings) {
+    final library = DieStudio.maybeOf(context)?.state;
+    return library == null ? settings : settings.resolved(library);
+  }
+
   late final int seed = widget.seed ?? DateTime.now().microsecondsSinceEpoch;
   late final TrayFeedback feedback = TrayFeedback(
     output: widget.soundOutput,

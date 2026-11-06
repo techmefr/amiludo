@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/dice_studio.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/creation_draft.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/pack_drafts.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
@@ -85,6 +86,16 @@ class _DieEditor extends StatelessWidget {
     children: [
       BuilderField(die.name, context.l10n.templatesDieName),
       BuilderField(die.count, context.l10n.templatesNumberOfCopies),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: OutlinedButton(
+          onPressed: () async {
+            final picked = await pickDesignFromLibrary(context);
+            if (picked != null && context.mounted) refresh(() => die.useDesign(picked));
+          },
+          child: Text(context.l10n.diceUseFromLibrary),
+        ),
+      ),
       for (final f in die.faces)
         Padding(
           key: ObjectKey(f),

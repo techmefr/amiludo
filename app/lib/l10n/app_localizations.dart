@@ -5845,6 +5845,294 @@ abstract class AppLocalizations {
   /// **'Close'**
   String get chroniclesClose;
 
+  /// No description provided for @diceUseFromLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'Use a die from My dice'**
+  String get diceUseFromLibrary;
+
+  /// No description provided for @diceMyDice.
+  ///
+  /// In en, this message translates to:
+  /// **'My dice'**
+  String get diceMyDice;
+
+  /// No description provided for @diceLibraryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'My dice'**
+  String get diceLibraryTitle;
+
+  /// No description provided for @diceLibraryEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No dice yet. Create your first one.'**
+  String get diceLibraryEmpty;
+
+  /// No description provided for @diceNew.
+  ///
+  /// In en, this message translates to:
+  /// **'New die'**
+  String get diceNew;
+
+  /// No description provided for @diceEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit die'**
+  String get diceEdit;
+
+  /// No description provided for @diceDuplicate.
+  ///
+  /// In en, this message translates to:
+  /// **'Duplicate die'**
+  String get diceDuplicate;
+
+  /// No description provided for @diceDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete die'**
+  String get diceDelete;
+
+  /// No description provided for @diceExport.
+  ///
+  /// In en, this message translates to:
+  /// **'Export die'**
+  String get diceExport;
+
+  /// No description provided for @diceExportSelection.
+  ///
+  /// In en, this message translates to:
+  /// **'Export selected dice'**
+  String get diceExportSelection;
+
+  /// No description provided for @diceImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Import dice'**
+  String get diceImport;
+
+  /// No description provided for @diceImported.
+  ///
+  /// In en, this message translates to:
+  /// **'Dice imported.'**
+  String get diceImported;
+
+  /// No description provided for @diceImportFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'This dice file is not valid.'**
+  String get diceImportFailed;
+
+  /// No description provided for @diceImportClashTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Dice already in your library'**
+  String get diceImportClashTitle;
+
+  /// No description provided for @diceImportClashBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} dice already exist. Replace them or keep both?'**
+  String diceImportClashBody(Object count);
+
+  /// No description provided for @diceImportReplace.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace'**
+  String get diceImportReplace;
+
+  /// No description provided for @diceImportKeepBoth.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep both'**
+  String get diceImportKeepBoth;
+
+  /// No description provided for @diceCopyName.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} (copy)'**
+  String diceCopyName(Object name);
+
+  /// No description provided for @diceSelectDie.
+  ///
+  /// In en, this message translates to:
+  /// **'Select {name}'**
+  String diceSelectDie(Object name);
+
+  /// No description provided for @diceFaceTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} faces'**
+  String diceFaceTotal(Object count);
+
+  /// No description provided for @diceManage.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage my dice'**
+  String get diceManage;
+
+  /// No description provided for @diceEditorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Design a die'**
+  String get diceEditorTitle;
+
+  /// No description provided for @diceName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get diceName;
+
+  /// No description provided for @diceFaceCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Number of faces (2 to 100)'**
+  String get diceFaceCount;
+
+  /// No description provided for @diceBodyColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Die color'**
+  String get diceBodyColor;
+
+  /// No description provided for @diceFaces.
+  ///
+  /// In en, this message translates to:
+  /// **'Faces'**
+  String get diceFaces;
+
+  /// No description provided for @diceFaceEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit face {n}'**
+  String diceFaceEdit(Object n);
+
+  /// No description provided for @diceFaceText.
+  ///
+  /// In en, this message translates to:
+  /// **'Text or number'**
+  String get diceFaceText;
+
+  /// No description provided for @diceFaceIcon.
+  ///
+  /// In en, this message translates to:
+  /// **'Icon'**
+  String get diceFaceIcon;
+
+  /// No description provided for @diceFaceImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Image'**
+  String get diceFaceImage;
+
+  /// No description provided for @diceIconSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search icons'**
+  String get diceIconSearch;
+
+  /// No description provided for @diceImageImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Import image'**
+  String get diceImageImport;
+
+  /// No description provided for @diceImageDraw.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw'**
+  String get diceImageDraw;
+
+  /// No description provided for @diceDrawUndo.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo stroke'**
+  String get diceDrawUndo;
+
+  /// No description provided for @diceDrawClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear drawing'**
+  String get diceDrawClear;
+
+  /// No description provided for @diceDrawWidth.
+  ///
+  /// In en, this message translates to:
+  /// **'Stroke width'**
+  String get diceDrawWidth;
+
+  /// No description provided for @diceDrawColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Stroke color'**
+  String get diceDrawColor;
+
+  /// No description provided for @diceDrawUse.
+  ///
+  /// In en, this message translates to:
+  /// **'Use this drawing'**
+  String get diceDrawUse;
+
+  /// No description provided for @diceBulk.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill several faces'**
+  String get diceBulk;
+
+  /// No description provided for @diceBulkFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'From face'**
+  String get diceBulkFrom;
+
+  /// No description provided for @diceBulkTo.
+  ///
+  /// In en, this message translates to:
+  /// **'To face'**
+  String get diceBulkTo;
+
+  /// No description provided for @diceBulkStart.
+  ///
+  /// In en, this message translates to:
+  /// **'First number'**
+  String get diceBulkStart;
+
+  /// No description provided for @diceBulkNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Number the range'**
+  String get diceBulkNumber;
+
+  /// No description provided for @diceBulkCopy.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy face {n} to the range'**
+  String diceBulkCopy(Object n);
+
+  /// No description provided for @diceFaceMoveEarlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Move face earlier'**
+  String get diceFaceMoveEarlier;
+
+  /// No description provided for @diceFaceMoveLater.
+  ///
+  /// In en, this message translates to:
+  /// **'Move face later'**
+  String get diceFaceMoveLater;
+
+  /// No description provided for @diceFaceDuplicate.
+  ///
+  /// In en, this message translates to:
+  /// **'Duplicate face'**
+  String get diceFaceDuplicate;
+
+  /// No description provided for @diceFaceRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove face'**
+  String get diceFaceRemove;
+
   /// No description provided for @chroniclesSwipeHint.
   ///
   /// In en, this message translates to:

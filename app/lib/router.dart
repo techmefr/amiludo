@@ -12,6 +12,7 @@ import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/counter.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/counter_tool.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
+import 'package:amiludo/dice_studio.dart';
 import 'package:amiludo/sensor_tools.dart';
 import 'package:amiludo/layers/functional/Account/presentation/account_screen.dart';
 import 'package:amiludo/layers/functional/Admin/presentation/admin_screen.dart';
@@ -146,6 +147,7 @@ final router = GoRouter(
       ),
     ),
     GoRoute(path: '/timer', redirect: (context, state) => '/tools/timer'),
+    _page('/dice/designs', (state) => diceLibraryPage()),
     _page('/builder/new', (state) => const PackBuilder()),
     _page(
       '/builder/:id',

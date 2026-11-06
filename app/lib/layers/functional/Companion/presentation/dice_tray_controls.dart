@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/die_picker_sheet.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/die_studio.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/deck_sheet.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
@@ -39,9 +41,15 @@ class DiceTrayControls extends StatelessWidget {
     if (spec != null) add(spec);
   }
 
+  Future<void> addFromLibrary(BuildContext context, DieStudioCubit cubit) async {
+    final spec = await pickLibraryDie(context, cubit);
+    if (spec != null) add(spec);
+  }
+
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
+    final studio = DieStudio.maybeOf(context);
     return Wrap(
       spacing: Space.sm,
       runSpacing: Space.sm,
@@ -59,6 +67,12 @@ class DiceTrayControls extends StatelessWidget {
           label: Text(l.diceTrayCustomDie),
           onPressed: () => addCustom(context),
         ),
+        if (studio != null)
+          ActionChip(
+            tooltip: l.diceMyDice,
+            label: Text(l.diceMyDice),
+            onPressed: () => addFromLibrary(context, studio),
+          ),
         for (var i = 0; i < settings.dice.length; i++)
           InputChip(
             label: Text(settings.dice[i].name),

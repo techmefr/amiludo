@@ -3141,4 +3141,160 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get chroniclesTearHint =>
       'Arrastra de lado para cambiar de edición, lejos para rasgar.';
+
+  @override
+  String get diceMyDice => 'Mis dados';
+
+  @override
+  String get diceLibraryTitle => 'Mis dados';
+
+  @override
+  String get diceLibraryEmpty => 'Aún no hay dados. Crea el primero.';
+
+  @override
+  String get diceNew => 'Nuevo dado';
+
+  @override
+  String get diceEdit => 'Editar dado';
+
+  @override
+  String get diceDuplicate => 'Duplicar dado';
+
+  @override
+  String get diceDelete => 'Eliminar dado';
+
+  @override
+  String get diceExport => 'Exportar dado';
+
+  @override
+  String get diceExportSelection => 'Exportar dados elegidos';
+
+  @override
+  String get diceImport => 'Importar dados';
+
+  @override
+  String get diceImported => 'Dados importados.';
+
+  @override
+  String get diceImportFailed => 'Este archivo de dados no es válido.';
+
+  @override
+  String get diceImportClashTitle => 'Dados ya en tu biblioteca';
+
+  @override
+  String diceImportClashBody(Object count) {
+    return '${count} dados ya existen. ¿Reemplazarlos o conservar ambos?';
+  }
+
+  @override
+  String get diceImportReplace => 'Reemplazar';
+
+  @override
+  String get diceImportKeepBoth => 'Conservar ambos';
+
+  @override
+  String diceCopyName(Object name) {
+    return '${name} (copia)';
+  }
+
+  @override
+  String diceSelectDie(Object name) {
+    return 'Seleccionar ${name}';
+  }
+
+  @override
+  String diceFaceTotal(Object count) {
+    return '${count} caras';
+  }
+
+  @override
+  String get diceManage => 'Gestionar mis dados';
+
+  @override
+  String get diceEditorTitle => 'Diseñar un dado';
+
+  @override
+  String get diceName => 'Nombre';
+
+  @override
+  String get diceFaceCount => 'Número de caras (2 a 100)';
+
+  @override
+  String get diceBodyColor => 'Color del dado';
+
+  @override
+  String get diceFaces => 'Caras';
+
+  @override
+  String diceFaceEdit(Object n) {
+    return 'Editar la cara ${n}';
+  }
+
+  @override
+  String get diceFaceText => 'Texto o número';
+
+  @override
+  String get diceFaceIcon => 'Icono';
+
+  @override
+  String get diceFaceImage => 'Imagen';
+
+  @override
+  String get diceIconSearch => 'Buscar iconos';
+
+  @override
+  String get diceImageImport => 'Importar imagen';
+
+  @override
+  String get diceImageDraw => 'Dibujar';
+
+  @override
+  String get diceDrawUndo => 'Deshacer trazo';
+
+  @override
+  String get diceDrawClear => 'Borrar todo';
+
+  @override
+  String get diceDrawWidth => 'Grosor del trazo';
+
+  @override
+  String get diceDrawColor => 'Color del trazo';
+
+  @override
+  String get diceDrawUse => 'Usar este dibujo';
+
+  @override
+  String get diceBulk => 'Rellenar varias caras';
+
+  @override
+  String get diceBulkFrom => 'Desde la cara';
+
+  @override
+  String get diceBulkTo => 'Hasta la cara';
+
+  @override
+  String get diceBulkStart => 'Primer número';
+
+  @override
+  String get diceBulkNumber => 'Numerar el rango';
+
+  @override
+  String diceBulkCopy(Object n) {
+    return 'Copiar la cara ${n} al rango';
+  }
+
+  @override
+  String get diceFaceMoveEarlier => 'Mover la cara antes';
+
+  @override
+  String get diceFaceMoveLater => 'Mover la cara después';
+
+  @override
+  String get diceFaceDuplicate => 'Duplicar la cara';
+
+  @override
+  String get diceFaceRemove => 'Quitar la cara';
+
+  @override
+  String get diceUseFromLibrary => 'Usar un dado de Mis dados';
 }

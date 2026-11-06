@@ -1,10 +1,12 @@
 import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/die_library.dart';
 import 'package:amiludo/layers/technical/Physics/seeded_random.dart';
 
 const diceTrayBrickType = 'dice-tray';
 const standardSides = [4, 6, 8, 10, 12, 20];
 const maxTrayDice = 12;
-const maxCustomFaces = 12;
+const maxCustomFaces = 100;
 const facePalette = [
   0xFF3D7BD9,
   0xFFD9573D,
@@ -19,9 +21,29 @@ class DiceSpec {
     required this.sides,
     this.faces = const [],
     this.color = 0xFF3D7BD9,
+    this.design,
   });
 
+  factory DiceSpec.fromDesign(DieDesign design) => DiceSpec(
+    sides: design.sides,
+    faces: [
+      for (final f in design.faces) f.label.isEmpty ? f.kind.name : f.label,
+    ],
+    color: design.color,
+    design: design,
+  );
+
   factory DiceSpec.fromJson(Map<String, dynamic> j) {
+    final raw = j['design'];
+    if (raw is Map) {
+      try {
+        return DiceSpec.fromDesign(
+          DieDesign.fromJson(Map<String, dynamic>.from(raw)),
+        );
+      } on FormatException {
+        return DiceSpec(sides: ((j['sides'] as num?)?.toInt() ?? 6));
+      }
+    }
     final faces = [for (final f in j['faces'] as List? ?? const []) '$f'];
     return DiceSpec(
       sides: faces.isEmpty ? ((j['sides'] as num?)?.toInt() ?? 6) : faces.length,
@@ -35,17 +57,30 @@ class DiceSpec {
 
   final int sides, color;
   final List<String> faces;
+  final DieDesign? design;
 
   bool get custom => faces.isNotEmpty;
 
   String faceLabel(int value) => custom ? faces[value - 1] : '$value';
 
-  String get name => custom ? faces.join(' ') : 'd$sides';
+  DieFaceContent faceContent(int value) =>
+      design?.faces[value - 1] ?? DieFaceContent(value: faceLabel(value));
+
+  int? scoreOf(int value) {
+    final d = design;
+    if (d != null) {
+      return d.numeric ? int.parse(d.faces[value - 1].value) : null;
+    }
+    return custom ? null : value;
+  }
+
+  String get name => design?.name ?? (custom ? faces.join(' ') : 'd$sides');
 
   Map<String, dynamic> toJson() => {
     'sides': sides,
     if (custom) 'faces': faces,
     'color': color,
+    if (design != null) 'design': design!.toJson(),
   };
 }
 
@@ -68,6 +103,16 @@ class DiceTraySettings {
 
   final List<DiceSpec> dice;
   final String surface;
+
+  DiceTraySettings resolved(DieLibrary library) => DiceTraySettings(
+    dice: [
+      for (final d in dice)
+        d.design == null
+            ? d
+            : DiceSpec.fromDesign(library.byId(d.design!.id) ?? d.design!),
+    ],
+    surface: surface,
+  );
 
   DiceTraySettings withSurface(String next) =>
       DiceTraySettings(dice: dice, surface: next);
@@ -107,7 +152,7 @@ class DiceTraySession {
   int totalOf(List<int> list) {
     var sum = 0;
     for (var i = 0; i < list.length && i < settings.dice.length; i++) {
-      if (!settings.dice[i].custom) sum += list[i];
+      sum += settings.dice[i].scoreOf(list[i]) ?? 0;
     }
     return sum;
   }

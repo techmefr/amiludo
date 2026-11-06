@@ -16,14 +16,21 @@ class DieFace {
 }
 
 class GameDie {
-  const GameDie({required this.name, required this.faces, this.count = 1});
+  const GameDie({
+    required this.name,
+    required this.faces,
+    this.count = 1,
+    this.design,
+  });
   final String name;
   final List<DieFace> faces;
   final int count;
+  final String? design;
   Map<String, Object?> toJson() => {
     'name': name,
     'count': count,
     'faces': faces.map((f) => f.toJson()).toList(),
+    if (design != null) 'design': design,
   };
   factory GameDie.fromJson(Map<String, dynamic> j) {
     final d = GameDie(
@@ -32,9 +39,11 @@ class GameDie {
       faces: (j['faces'] as List)
           .map((f) => DieFace.fromJson(Map<String, dynamic>.from(f as Map)))
           .toList(),
+      design: j['design'] as String?,
     );
     if (d.name.trim().isEmpty ||
         d.name.length > 80 ||
+        (d.design != null && (d.design!.isEmpty || d.design!.length > 64)) ||
         d.count < 1 ||
         d.count > 32 ||
         d.faces.length < 2 ||

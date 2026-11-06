@@ -3149,4 +3149,160 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get chroniclesTearHint =>
       'Seitlich ziehen für eine andere Edition, weit ziehen zum Aufreißen.';
+
+  @override
+  String get diceMyDice => 'Meine Würfel';
+
+  @override
+  String get diceLibraryTitle => 'Meine Würfel';
+
+  @override
+  String get diceLibraryEmpty => 'Noch keine Würfel. Erstelle den ersten.';
+
+  @override
+  String get diceNew => 'Neuer Würfel';
+
+  @override
+  String get diceEdit => 'Würfel bearbeiten';
+
+  @override
+  String get diceDuplicate => 'Würfel duplizieren';
+
+  @override
+  String get diceDelete => 'Würfel löschen';
+
+  @override
+  String get diceExport => 'Würfel exportieren';
+
+  @override
+  String get diceExportSelection => 'Ausgewählte Würfel exportieren';
+
+  @override
+  String get diceImport => 'Würfel importieren';
+
+  @override
+  String get diceImported => 'Würfel importiert.';
+
+  @override
+  String get diceImportFailed => 'Diese Würfeldatei ist ungültig.';
+
+  @override
+  String get diceImportClashTitle => 'Würfel bereits in deiner Bibliothek';
+
+  @override
+  String diceImportClashBody(Object count) {
+    return '${count} Würfel existieren bereits. Ersetzen oder beide behalten?';
+  }
+
+  @override
+  String get diceImportReplace => 'Ersetzen';
+
+  @override
+  String get diceImportKeepBoth => 'Beide behalten';
+
+  @override
+  String diceCopyName(Object name) {
+    return '${name} (Kopie)';
+  }
+
+  @override
+  String diceSelectDie(Object name) {
+    return '${name} auswählen';
+  }
+
+  @override
+  String diceFaceTotal(Object count) {
+    return '${count} Seiten';
+  }
+
+  @override
+  String get diceManage => 'Meine Würfel verwalten';
+
+  @override
+  String get diceEditorTitle => 'Würfel gestalten';
+
+  @override
+  String get diceName => 'Name';
+
+  @override
+  String get diceFaceCount => 'Anzahl der Seiten (2 bis 100)';
+
+  @override
+  String get diceBodyColor => 'Würfelfarbe';
+
+  @override
+  String get diceFaces => 'Seiten';
+
+  @override
+  String diceFaceEdit(Object n) {
+    return 'Seite ${n} bearbeiten';
+  }
+
+  @override
+  String get diceFaceText => 'Text oder Zahl';
+
+  @override
+  String get diceFaceIcon => 'Symbol';
+
+  @override
+  String get diceFaceImage => 'Bild';
+
+  @override
+  String get diceIconSearch => 'Symbole suchen';
+
+  @override
+  String get diceImageImport => 'Bild importieren';
+
+  @override
+  String get diceImageDraw => 'Zeichnen';
+
+  @override
+  String get diceDrawUndo => 'Strich rückgängig';
+
+  @override
+  String get diceDrawClear => 'Alles löschen';
+
+  @override
+  String get diceDrawWidth => 'Strichstärke';
+
+  @override
+  String get diceDrawColor => 'Strichfarbe';
+
+  @override
+  String get diceDrawUse => 'Zeichnung verwenden';
+
+  @override
+  String get diceBulk => 'Mehrere Seiten füllen';
+
+  @override
+  String get diceBulkFrom => 'Ab Seite';
+
+  @override
+  String get diceBulkTo => 'Bis Seite';
+
+  @override
+  String get diceBulkStart => 'Erste Zahl';
+
+  @override
+  String get diceBulkNumber => 'Bereich nummerieren';
+
+  @override
+  String diceBulkCopy(Object n) {
+    return 'Seite ${n} auf den Bereich kopieren';
+  }
+
+  @override
+  String get diceFaceMoveEarlier => 'Seite nach vorn';
+
+  @override
+  String get diceFaceMoveLater => 'Seite nach hinten';
+
+  @override
+  String get diceFaceDuplicate => 'Seite duplizieren';
+
+  @override
+  String get diceFaceRemove => 'Seite entfernen';
+
+  @override
+  String get diceUseFromLibrary => 'Würfel aus Meine Würfel verwenden';
 }

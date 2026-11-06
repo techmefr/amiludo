@@ -3147,4 +3147,160 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get chroniclesTearHint =>
       'Glissez sur le côté pour changer d\'édition, loin pour déchirer.';
+
+  @override
+  String get diceMyDice => 'Mes dés';
+
+  @override
+  String get diceLibraryTitle => 'Mes dés';
+
+  @override
+  String get diceLibraryEmpty => 'Aucun dé pour l’instant. Créez le premier.';
+
+  @override
+  String get diceNew => 'Nouveau dé';
+
+  @override
+  String get diceEdit => 'Modifier le dé';
+
+  @override
+  String get diceDuplicate => 'Dupliquer le dé';
+
+  @override
+  String get diceDelete => 'Supprimer le dé';
+
+  @override
+  String get diceExport => 'Exporter le dé';
+
+  @override
+  String get diceExportSelection => 'Exporter les dés choisis';
+
+  @override
+  String get diceImport => 'Importer des dés';
+
+  @override
+  String get diceImported => 'Dés importés.';
+
+  @override
+  String get diceImportFailed => 'Ce fichier de dés n’est pas valide.';
+
+  @override
+  String get diceImportClashTitle => 'Dés déjà dans votre bibliothèque';
+
+  @override
+  String diceImportClashBody(Object count) {
+    return '${count} dés existent déjà. Les remplacer ou garder les deux ?';
+  }
+
+  @override
+  String get diceImportReplace => 'Remplacer';
+
+  @override
+  String get diceImportKeepBoth => 'Garder les deux';
+
+  @override
+  String diceCopyName(Object name) {
+    return '${name} (copie)';
+  }
+
+  @override
+  String diceSelectDie(Object name) {
+    return 'Sélectionner ${name}';
+  }
+
+  @override
+  String diceFaceTotal(Object count) {
+    return '${count} faces';
+  }
+
+  @override
+  String get diceManage => 'Gérer mes dés';
+
+  @override
+  String get diceEditorTitle => 'Créer un dé';
+
+  @override
+  String get diceName => 'Nom';
+
+  @override
+  String get diceFaceCount => 'Nombre de faces (2 à 100)';
+
+  @override
+  String get diceBodyColor => 'Couleur du dé';
+
+  @override
+  String get diceFaces => 'Faces';
+
+  @override
+  String diceFaceEdit(Object n) {
+    return 'Modifier la face ${n}';
+  }
+
+  @override
+  String get diceFaceText => 'Texte ou nombre';
+
+  @override
+  String get diceFaceIcon => 'Icône';
+
+  @override
+  String get diceFaceImage => 'Image';
+
+  @override
+  String get diceIconSearch => 'Chercher une icône';
+
+  @override
+  String get diceImageImport => 'Importer une image';
+
+  @override
+  String get diceImageDraw => 'Dessiner';
+
+  @override
+  String get diceDrawUndo => 'Annuler le trait';
+
+  @override
+  String get diceDrawClear => 'Tout effacer';
+
+  @override
+  String get diceDrawWidth => 'Épaisseur du trait';
+
+  @override
+  String get diceDrawColor => 'Couleur du trait';
+
+  @override
+  String get diceDrawUse => 'Utiliser ce dessin';
+
+  @override
+  String get diceBulk => 'Remplir plusieurs faces';
+
+  @override
+  String get diceBulkFrom => 'De la face';
+
+  @override
+  String get diceBulkTo => 'À la face';
+
+  @override
+  String get diceBulkStart => 'Premier nombre';
+
+  @override
+  String get diceBulkNumber => 'Numéroter la plage';
+
+  @override
+  String diceBulkCopy(Object n) {
+    return 'Copier la face ${n} sur la plage';
+  }
+
+  @override
+  String get diceFaceMoveEarlier => 'Avancer la face';
+
+  @override
+  String get diceFaceMoveLater => 'Reculer la face';
+
+  @override
+  String get diceFaceDuplicate => 'Dupliquer la face';
+
+  @override
+  String get diceFaceRemove => 'Retirer la face';
+
+  @override
+  String get diceUseFromLibrary => 'Utiliser un dé de Mes dés';
 }

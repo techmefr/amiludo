@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:amiludo/dependencies.dart';
+import 'package:amiludo/dice_studio.dart';
 import 'package:amiludo/layers/functional/Appearance/presentation/cubit/appearance_cubit.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/turn_sensor.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_page.dart';
@@ -41,7 +42,7 @@ SoundOutput _sounds(bool enabled) =>
 
 Widget diceTrayWithSensors(BuildContext context) {
   final appearance = context.read<AppearanceCubit>().state.appearance;
-  return _sensed(
+  return DieStudioHost(child: _sensed(
     (level) => DiceTrayPage(
       shakeSource: const NoShakeSource(),
       motion: _motion(level),
@@ -49,7 +50,7 @@ Widget diceTrayWithSensors(BuildContext context) {
       sound: appearance.sound,
       haptics: appearance.haptics,
     ),
-  );
+  ));
 }
 
 Widget hourglassWithSensors(BuildContext context) =>
