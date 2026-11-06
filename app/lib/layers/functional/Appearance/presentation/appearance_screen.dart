@@ -9,6 +9,7 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Files/file_transfer.dart';
 import 'package:amiludo/layers/functional/Appearance/presentation/cubit/appearance_cubit.dart';
 import 'package:amiludo/layers/functional/Appearance/presentation/appearance_style_grids.dart';
+import 'package:amiludo/layers/functional/Appearance/presentation/sensor_sensitivity_section.dart';
 import 'package:amiludo/layers/technical/Theme/text_prompt.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
@@ -88,6 +89,10 @@ class AppearanceScreen extends StatelessWidget {
           ],
           selected: a.language,
           change: (v) => controller.change(a.copyWith(language: v)),
+        ),
+        SensorSensitivitySection(
+          appearance: a,
+          change: controller.change,
         ),
         SectionHeading(context.l10n.appearance07YourProfiles),
         _ProfileActions(

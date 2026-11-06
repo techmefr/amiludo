@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/dependencies.dart';
+import 'package:amiludo/sensor_tools.dart';
 import 'package:amiludo/layers/functional/Account/presentation/account_screen.dart';
 import 'package:amiludo/layers/functional/Admin/presentation/admin_screen.dart';
 import 'package:amiludo/layers/functional/Admin/presentation/cubit/admin_cubit.dart';
@@ -18,7 +19,6 @@ import 'package:amiludo/layers/functional/Friends/presentation/friend_form.dart'
 import 'package:amiludo/layers/functional/Friends/presentation/friends_screen.dart';
 import 'package:amiludo/layers/functional/Friends/presentation/review_screen.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/heroes_tool.dart';
-import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_page.dart';
 import 'package:amiludo/layers/functional/Game/presentation/game_screen.dart';
 import 'package:amiludo/layers/functional/Game/presentation/score_sheet.dart';
 import 'package:amiludo/layers/functional/History/presentation/history_screen.dart';
@@ -38,7 +38,6 @@ import 'package:amiludo/layers/functional/Templates/presentation/pack_builder.da
 import 'package:amiludo/layers/functional/Templates/presentation/pack_detail.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/templates_screen.dart';
 import 'package:amiludo/layers/functional/Timer/presentation/timer_panel.dart';
-import 'package:amiludo/layers/functional/Companion/presentation/hourglass_tool.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/app_shell.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/game_setup.dart';
@@ -48,13 +47,9 @@ import 'package:amiludo/layers/functional/Workspace/presentation/workspace_gate.
 Widget _timer(BuildContext context) =>
     const SizedBox(width: double.infinity, child: TimerPanel());
 
-Widget _hourglass(BuildContext context) => const HourglassTool();
-
 Widget _heroes(BuildContext context) => const HeroesTool();
 
 Widget _scores(BuildContext context) => const GameScreen(timer: _timer);
-
-Widget _diceTray(BuildContext context) => const DiceTrayPage();
 
 class _AdminPage extends StatelessWidget {
   const _AdminPage();
@@ -84,8 +79,8 @@ final router = GoRouter(
         embeddedTools: const {
           'scores': _scores,
           'timer': _timer,
-          'dice-tray': _diceTray,
-          'hourglass': _hourglass,
+          'dice-tray': diceTrayWithSensors,
+          'hourglass': hourglassWithSensors,
           'heroes': _heroes,
         },
       ),

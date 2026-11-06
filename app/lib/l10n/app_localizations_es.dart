@@ -140,6 +140,21 @@ class AppLocalizationsEs extends AppLocalizations {
       'Mantener la pantalla encendida durante las partidas';
 
   @override
+  String get appearanceMotionSensors => 'Sensores de movimiento';
+
+  @override
+  String get appearanceSensorsOff => 'Desactivados';
+
+  @override
+  String get appearanceSensorsLow => 'Baja';
+
+  @override
+  String get appearanceSensorsMedium => 'Media';
+
+  @override
+  String get appearanceSensorsHigh => 'Alta';
+
+  @override
   String get appearanceProfileName => 'Nombre del perfil';
 
   @override

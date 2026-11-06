@@ -38,6 +38,13 @@ import 'package:amiludo/layers/functional/Lobby/domain/use_cases/leave_lobby_use
 import 'package:amiludo/layers/functional/Lobby/domain/use_cases/start_lobby_game_use_case.dart';
 import 'package:amiludo/layers/functional/Lobby/domain/use_cases/toggle_lobby_open_use_case.dart';
 import 'package:amiludo/layers/functional/Lobby/domain/use_cases/watch_lobby_use_case.dart';
+import 'package:amiludo/layers/functional/Companion/data/accelerometer_turn_sensor.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/turn_sensor.dart';
+import 'package:amiludo/layers/technical/Motion/shake_source.dart';
+import 'package:amiludo/layers/technical/Sensors/accelerometer_feed.dart';
+import 'package:amiludo/layers/technical/Sensors/accelerometer_shake_source.dart';
+import 'package:amiludo/layers/technical/Sensors/accelerometer_turns.dart';
+import 'package:amiludo/layers/technical/Sensors/sensor_sensitivity.dart';
 import 'package:amiludo/layers/technical/Network/room_channel.dart';
 import 'package:amiludo/layers/technical/Network/room_network_impl.dart';
 import 'package:amiludo/layers/functional/Appearance/domain/use_cases/change_appearance_use_case.dart';
@@ -164,9 +171,21 @@ void configureDependencies(StoreDatabase database) {
     ..registerLazySingleton<LobbyGateway>(() => LobbyGatewayImpl(getIt()))
     ..registerLazySingleton<AccountGateway>(AccountGatewayImpl.new)
     ..registerLazySingleton<EveningRemoteGateway>(EveningRemoteGatewayImpl.new);
+  _registerSensors();
   _registerTable();
   _registerCollections();
   _registerGatherings();
+}
+
+void _registerSensors() {
+  getIt
+    ..registerLazySingleton<AccelerometerFeed>(PlatformAccelerometerFeed.new)
+    ..registerFactoryParam<ShakeSource, SensorSensitivity, void>(
+      (level, _) => AccelerometerShakeSource(getIt(), level),
+    )
+    ..registerFactoryParam<TurnSensor, SensorSensitivity, void>(
+      (level, _) => AccelerometerTurnSensor(AccelerometerTurns(getIt(), level)),
+    );
 }
 
 void _registerTable() {
