@@ -2615,4 +2615,92 @@ class AppLocalizationsNl extends AppLocalizations {
   String hourglassSeconds(int count) {
     return '$count s';
   }
+
+  @override
+  String get toolMagicItemTitle =>
+      'Magisch voorwerp-generator';
+
+  @override
+  String get toolMagicItemSubtitle =>
+      'Een relikwie met een kracht, een eigenaardigheid en een herkomst.';
+
+  @override
+  String get toolWeatherTitle =>
+      'Weer-generator';
+
+  @override
+  String get toolWeatherSubtitle =>
+      'Lucht, temperatuur, wind, effecten en voortekenen.';
+
+  @override
+  String get toolPlaceTitle =>
+      'Plaatsnaam-generator';
+
+  @override
+  String get toolPlaceSubtitle =>
+      'Een naam, een soort plek en een opvallend kenmerk.';
+
+  @override
+  String get toolDilemmaTitle =>
+      'Moreel dilemma-generator';
+
+  @override
+  String get toolDilemmaSubtitle =>
+      'Een lastige situatie, twee keuzes en de prijs ervan.';
+
+  @override
+  String get toolRumourTitle =>
+      'Taverne-gerucht-generator';
+
+  @override
+  String get toolRumourSubtitle =>
+      'Wie het zei, wat er gezegd wordt en hoe waar het is.';
+
+  @override
+  String get toolTraitTitle =>
+      'NPC-eigenschap-generator';
+
+  @override
+  String get toolTraitSubtitle =>
+      'Een karaktertrek, hoe die zich toont en een verborgen gebrek.';
+
+  @override
+  String get toolTwistTitle =>
+      'Plotwending-generator';
+
+  @override
+  String get toolTwistSubtitle =>
+      'Een wending, een vroege aanwijzing en het gevolg.';
+
+  @override
+  String get templatesShareCompanion =>
+      'Companion-bestand delen (alleen blokken en instellingen)';
+
+  @override
+  String get templatesImportCompanion =>
+      'Companion-bestand importeren';
+
+  @override
+  String get templatesCompanionImported =>
+      'Companion geïmporteerd';
+
+  @override
+  String get companionErrorNotJson =>
+      'Dit bestand is geen geldige JSON.';
+
+  @override
+  String get companionErrorFormat =>
+      'Dit is geen Amiludo-companionbestand.';
+
+  @override
+  String get companionErrorVersion =>
+      'Deze versie van het companionbestand wordt niet ondersteund.';
+
+  @override
+  String get companionErrorInvalid =>
+      'De inhoud van het companionbestand is ongeldig.';
+
+  @override
+  String get companionErrorReserved =>
+      'Deze id is gereserveerd voor een ingebouwd sjabloon.';
 }
