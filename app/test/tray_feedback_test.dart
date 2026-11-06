@@ -56,14 +56,14 @@ void main() {
   group('tray feedback', () {
     test('impact volume grows with the impact speed', () {
       final out = RecordingSoundOutput();
-      var ms = 0;
+      var ms = 1000;
       final feedback = TrayFeedback(
         output: out,
         sound: true,
         clock: () => DateTime.fromMillisecondsSinceEpoch(ms),
       );
       feedback.impact(const TrayImpact(ImpactKind.floor, 200));
-      ms = 100;
+      ms = 1100;
       feedback.impact(const TrayImpact(ImpactKind.floor, 800));
       expect(out.played.length, 2);
       expect(out.played[1].$2, greaterThan(out.played[0].$2));
