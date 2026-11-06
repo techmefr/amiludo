@@ -178,8 +178,14 @@ void _screenTests(Size size) {
     await tester.ensureVisible(find.text('Ajouter à un compagnon'));
     await tester.tap(find.text('Ajouter à un compagnon'));
     await tester.pumpAndSettle();
-    await tester.tap(find.widgetWithText(ListTile, 'Ma partie'));
-    await tester.pumpAndSettle();
+    await tester.tap(
+      find.descendant(
+        of: find.byType(BottomSheet),
+        matching: find.text('Ma partie'),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
     expect(find.text('Brique ajoutée au compagnon.'), findsOneWidget);
     final saved = getIt<ReadWorkspaceUseCase>()().templates.single;
     expect(saved.bricks.single.id, 'pot');
