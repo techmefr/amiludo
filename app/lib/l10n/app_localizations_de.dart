@@ -1581,7 +1581,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get eveningsYourAnswer => 'Deine Antwort';
 
   @override
-  String get eveningsSignInToSignUp => 'Melde dich an, um dich anzumelden';
+  String get eveningsSignInToSignUp => 'Melde dich an, um teilzunehmen';
 
   @override
   String get eveningsFullYouAreOnThe => 'Voll: du stehst auf der Warteliste.';
