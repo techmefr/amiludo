@@ -1,40 +1,40 @@
-# Tester le compagnon
+# Testing the companion
 
-L’alpha est publique, gratuite et utilisable sans compte. Le nom reste provisoire.
+The alpha is public, free and usable without an account. The name remains provisional.
 
-- **Web, ordinateur et mobile :** https://techmefr.github.io/amiludo/app/
-- **Android :** télécharger le fichier APK de la dernière [version de test](https://github.com/techmefr/amiludo/releases). Autoriser son installation depuis votre navigateur si Android le demande.
-- **iPhone et iPad :** tester le site dans Safari. Aucune application iOS native n’est distribuée actuellement.
+- **Web, desktop and mobile:** https://techmefr.github.io/amiludo/app/
+- **Android:** download the APK file from the latest [test release](https://github.com/techmefr/amiludo/releases). Allow its installation from your browser if Android asks.
+- **iPhone and iPad:** test the site in Safari. No native iOS app is currently distributed.
 
-## Un premier essai en dix minutes
+## A first ten-minute try
 
-1. Créer une partie avec plusieurs joueurs, ajouter des points et une manche.
-2. Annuler puis rétablir une modification ; fermer puis rouvrir l’application pour vérifier la reprise.
-3. Essayer les dés, un tirage, les équipes et une horloge avec pause.
-4. Choisir un univers, une palette et une police ; vérifier leur conservation après rechargement.
-5. Désactiver les sons, vibrations et animations selon vos préférences.
-6. Exporter une sauvegarde JSON et la conserver. Tester une restauration uniquement avec des données que vous pouvez remplacer.
-7. Après un premier chargement complet connecté, passer hors connexion, rouvrir et modifier une partie. Revenir en ligne si les ressources n’ont pas fini de se télécharger.
-8. Terminer une partie et retrouver son résultat dans l’historique ; essayer l’export CSV.
+1. Create a game with several players, add points and a round.
+2. Undo then redo a change; close and reopen the application to check that the game resumes.
+3. Try the dice, a draw, teams and a clock with pause.
+4. Choose a universe, a palette and a font; check that they are kept after reloading.
+5. Turn off sounds, vibrations and animations according to your preferences.
+6. Export a JSON backup and keep it. Test a restore only with data you can replace.
+7. After a first full load while online, go offline, reopen and edit a game. Go back online if the resources have not finished downloading.
+8. Finish a game and find its result in the history; try the CSV export.
 
-## Signaler un problème
+## Report a problem
 
-Utiliser le [formulaire de bug](https://github.com/techmefr/amiludo/issues/new?template=bug_report.yml). Indiquer la version affichée dans « À propos », l’appareil, le navigateur et les étapes pour reproduire. Ne joindre aucune sauvegarde contenant des informations personnelles ; utiliser des joueurs fictifs.
+Use the [bug form](https://github.com/techmefr/amiludo/issues/new?template=bug_report.yml). Give the version shown in "About", the device, the browser and the steps to reproduce. Do not attach any backup containing personal information; use fictional players.
 
-Les [Discussions](https://github.com/techmefr/amiludo/discussions) accueillent les questions et les retours d’usage. Pour une nouvelle fonction, décrire le jeu concerné et le besoin dans le [formulaire de proposition](https://github.com/techmefr/amiludo/issues/new?template=feature_request.yml).
+[Discussions](https://github.com/techmefr/amiludo/discussions) welcome questions and usage feedback. For a new feature, describe the game concerned and the need in the [feature request form](https://github.com/techmefr/amiludo/issues/new?template=feature_request.yml).
 
-## Limites de cette alpha
+## Limits of this alpha
 
-Les parcours Chromium ont été contrôlés, dont les scores persistants et le rechargement hors connexion. Les essais sur téléphones physiques, Safari, le multitouch, les vibrations et les comportements en veille restent à compléter. Les sons dépendent aussi du système. Une horloge ne garantit pas une alarme lorsque le système suspend l’application.
+Chromium flows have been checked, including persistent scores and offline reloading. Tests on physical phones, Safari, multitouch, vibrations and sleep behavior remain to be completed. Sounds also depend on the system. A clock does not guarantee an alarm when the system suspends the application.
 
-Le navigateur peut effacer le stockage local. Exporter régulièrement une sauvegarde. Les APK de test utilisent une signature de développement ; une mise à jour peut nécessiter une désinstallation. **Sauvegarder avant de mettre à jour**, car désinstaller efface les données locales.
+The browser may clear local storage. Export a backup regularly. Test APKs use a development signature; an update may require an uninstall. **Back up before updating**, because uninstalling erases local data.
 
-Les salles partagées, tournois et autres fonctions non cochées du [catalogue](docs/FEATURES.md) ne sont pas encore disponibles.
+Shared rooms, tournaments and other unchecked features of the [catalog](docs/FEATURES.md) are not yet available.
 
-## Nouveaux parcours de l’alpha 0.2.0
+## New flows in alpha 0.2.0
 
-- Depuis Modèles, ouvrir la galerie, installer un exemple et le retrouver dans la bibliothèque.
-- Créer un pack avec plusieurs dés, des rôles et un calcul ; le sauvegarder, le rouvrir et exporter son JSON.
-- Démarrer une partie avec ce pack et appliquer un décompte deux fois : le total d’une catégorie ne doit pas être doublé.
-- Installer « Origines », choisir les boosters, garder deux races puis terminer le personnage. Enregistrer la fiche, recharger et la retrouver. Tester aussi le mode liste et l’export/import de fiche.
-- Ouvrir « Qui commence ? » : la sélection tactile occupe la page ; le bouton retour ramène aux outils.
+- From Templates, open the gallery, install an example and find it in the library.
+- Create a pack with several dice, roles and a calculation; save it, reopen it and export its JSON.
+- Start a game with this pack and apply a count twice: a category total must not be doubled.
+- Install "Origines", choose the boosters, keep two races then finish the character. Save the sheet, reload and find it again. Also test list mode and sheet export/import.
+- Open "Who starts?": the touch selection fills the page; the back button returns to the tools.
