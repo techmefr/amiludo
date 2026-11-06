@@ -6,7 +6,7 @@
 
 **Status**: Draft
 
-**Input**: User description: "The app is a builder to play many games: Yahtzee, poker with chips and counters, role-playing games, Dice Throne, Toy Battle, tag team games and others. Every element is independent (counter, life counter, score, chips, timer, hourglass that changes flow when turned, dice tray with physical dice and shaking, cards, character sheet, generators, status trackers) and elements can be combined to make the companion of one's own game, or to put everything a game contains in digital form so it can be played easily elsewhere. Players can put whatever they want to play."
+**Input**: User description: "The app is a builder to play many games: Yahtzee, poker with chips and counters, role-playing games, Dice Throne, Toy Battle, tag team games and others. Every element is independent (counter, life counter, score, chips, timer, hourglass that changes flow when turned, dice tray with physical dice and shaking, cards, character sheet, generators, status trackers) and elements can be combined to make the companion of one's own game. The app is only the companion of a game: it never recreates a game, its cards or its rules, and the player types whatever names and values their own game needs."
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -61,7 +61,7 @@ Players are grouped in teams. A team can hold several heroes of which one is act
 
 ### User Story 3b - Heroes with powers that charge (Priority: P2)
 
-A hero has a card with its name, picture and powers, its own point counter, and its own way of charging each power. A power shows whether it is charging, ready or used. Charging can come from the hero's points reaching a threshold, from a fixed amount each turn, from an event the player marks, or by hand.
+A hero has a tile with its name, an optional picture and its powers, its own point counter, and its own way of charging each power. A power shows whether it is charging, ready or used. Charging can come from the hero's points reaching a threshold, from a fixed amount each turn, from an event the player marks, or by hand.
 
 **Why this priority**: it is how tag team style games work and it generalizes to abilities in any game.
 
@@ -108,17 +108,17 @@ The player chooses dice (kind, count, look), then shakes the phone. The dice are
 
 ---
 
-### User Story 6 - Put a whole game in digital form (Priority: P2)
+### User Story 6 - Share my companion setup (Priority: P2)
 
-A companion can hold the content of a game: cards, custom dice, character or hero sheets, rules text, and a setup. It can be exported and shared as one file, and opened on another device without the box.
+A companion can be exported and shared as one file holding only its bricks and settings, and opened on another device or by a friend.
 
-**Why this priority**: second usage promised by the product; reuses card packs.
+**Why this priority**: lets players reuse and exchange setups without the app holding any game content.
 
-**Independent Test**: export a companion, import it on a clean install, and play the same setup.
+**Independent Test**: export a companion, import it on a clean install, and get the same bricks and settings.
 
 **Acceptance Scenarios**:
 
-1. **Given** a companion, **When** exported and imported, **Then** bricks, settings and content are identical.
+1. **Given** a companion, **When** exported and imported, **Then** bricks and settings are identical and no game content is included.
 2. **Given** an incompatible version, **When** imported, **Then** the player is told what is unsupported and nothing is lost.
 
 ---
@@ -140,25 +140,25 @@ A companion can hold the content of a game: cards, custom dice, character or her
 - **FR-003**: The counter brick MUST support name, icon, start value, minimum, maximum, step, color, display and outcome at a bound.
 - **FR-004**: A life counter MUST be a counter preset, not a separate brick.
 - **FR-005**: Players, teams and heroes MUST be able to own bricks, with an active hero per team.
-- **FR-005b**: A hero MUST hold a card, a point counter and powers, and each power MUST have its own charge rule (points threshold, amount per turn, marked event, or manual) and a state (charging, ready, used).
-- **FR-005c**: A deck brick MUST support an ordered stack that is revealed card by card, adding a card at a chosen position, and forbidding reordering when the game says so.
+- **FR-005b**: A hero MUST hold a tile, a point counter and powers, and each power MUST have its own charge rule (points threshold, amount per turn, marked event, or manual) and a state (charging, ready, used).
+- **FR-005c**: The app MUST NOT ship, require or reproduce the cards, boards, texts or rules of any published game; names, values and pictures are entered by the player.
 - **FR-006**: The hourglass MUST reverse on a physical turn when a sensor exists and offer a button otherwise.
 - **FR-007**: The dice tray MUST use a physics simulation, support the common dice kinds, custom faces and keeping dice aside.
 - **FR-008**: Shake detection MUST have a non-sensor fallback and a sensitivity setting.
 - **FR-009**: Every change MUST be recorded in a history with undo.
 - **FR-010**: Every brick MUST be usable full screen with a single discreet back button.
-- **FR-011**: Companions MUST be exportable and importable as one versioned file.
+- **FR-011**: Companions MUST be exportable and importable as one versioned file holding bricks and settings only.
 - **FR-012**: Unknown bricks or fields MUST be preserved on import.
 - **FR-013**: All texts MUST be translated, and bricks MUST be accessible by screen reader and at large text sizes.
 - **FR-014**: Reduced motion MUST remove physics animation without removing results.
-- **FR-015**: The app MUST ship ready-made examples (Yahtzee, poker, role-playing, a hero-duel game) built only from bricks.
+- **FR-015**: The app MUST ship generic starting setups (dice and score sheet, chips and pot, heroes with counters) built only from bricks, without naming or reproducing a published game.
 
 ### Key Entities
 
-- **Companion**: name, version, bricks, players, teams, content.
+- **Companion**: name, version, bricks, players, teams.
 - **Brick**: type, settings, owner, layout position.
 - **Counter settings**: name, icon, start, bounds, step, display, outcome.
-- **Hero**: name, card, counters, statuses, powers, team, active flag.
+- **Hero**: name, optional picture, counters, statuses, powers, team, active flag.
 - **Power**: name, text, cost, charge rule, charge level, state.
 - **Dice set**: kinds, count, look, custom faces.
 - **Companion file**: versioned export holding everything above.
@@ -173,8 +173,7 @@ A companion can hold the content of a game: cards, custom dice, character or her
 ## Assumptions
 
 - Rules of specific games (Dice Throne, Toy Battle, tag team) are given by the player as settings; the app only provides bricks.
-- Tag Team (Scorpion Masqué) is a two-player auto battler with deckbuilding: each player picks two of twelve fighters, each fighter has a board and ten combat cards, decks start with two cards and are revealed in order, new cards are added between rounds without reordering, and the goal is to knock out the opponent. Life is tracked with markers, powers with purple cubes, plus special markers and tokens. The example is modeled from this and from the published rules once the player supplies them.
-- Powers in tag team charge in the way each fighter defines; the exact cube rules are taken from the rulebook, not guessed.
-- The Toy Battle example waits for the player to describe its rules.
+- The player keeps the physical game (cards, boards, box); the app only counts, rolls, times and tracks, so the app plus the player's own deck is enough to play.
+- Tag Team style games are served by generic bricks: a tile per fighter with its life and power counters and a charge rule the player sets; the app never carries the fighters, cards or rules.
 - The shake sensor is available on phones and absent on web and desktop.
 - The video-game look is a style option and is specified separately.
