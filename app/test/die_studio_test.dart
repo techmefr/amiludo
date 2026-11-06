@@ -9,6 +9,7 @@ import 'package:amiludo/l10n/app_localizations.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_bundle.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_library.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/die_refs.dart';
 import 'package:amiludo/layers/functional/Companion/domain/gateways/die_gateways.dart';
 import 'package:amiludo/layers/functional/Companion/domain/use_cases/die_share_use_cases.dart';
 import 'package:amiludo/layers/functional/Companion/domain/use_cases/die_use_cases.dart';
@@ -167,7 +168,7 @@ void main() {
         ],
       });
       final embedded = await embed(file);
-      expect(jsonDecode(embedded)['dice'], isNotNull);
+      expect(jsonDecode(embedded)[embeddedDiceKey], isNotNull);
       expect(await embed('{"x":1}'), '{"x":1}');
 
       final target = studio([DieDesign.standard('a', 'Other', 6)]);
@@ -179,7 +180,7 @@ void main() {
       expect(target.library.current.designs, hasLength(2));
       final newId = target.library.current.designs.last.id;
       expect(newId, isNot('a'));
-      expect(jsonDecode(text).containsKey('dice'), isFalse);
+      expect(jsonDecode(text).containsKey(embeddedDiceKey), isFalse);
       expect(text, contains(newId));
       expect(target.images.store, hasLength(1));
     });

@@ -1,4 +1,4 @@
-const embeddedDiceKey = 'dice';
+const embeddedDiceKey = 'amiludoDice';
 
 Set<String> collectDesignIds(Object? json) {
   final found = <String>{};
