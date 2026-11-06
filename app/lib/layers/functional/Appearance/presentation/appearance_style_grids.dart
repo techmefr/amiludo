@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Appearance/appearance.dart';
 import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
+import 'package:amiludo/layers/technical/Theme/components/hud_bar.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Appearance/presentation/cubit/appearance_cubit.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
@@ -15,45 +16,42 @@ class AppearanceSkinGrid extends StatelessWidget {
   final Appearance appearance;
   final AppearanceCubit controller;
 
-  static const _skins = [
-    ('play', 'Playroom', 'Des couleurs, des cartes et l’envie de jouer.'),
-    ('cyber', 'CYBERDECK', 'Noir, néon, angles biseautés.'),
-    ('orbital', 'ORBITAL 77', 'Ivoire, ambre, instruments rétro.'),
-    ('paper', 'CARNET', 'Doux, coloré, esprit papier.'),
-  ];
+  static const _presets = {
+    'play': ('play', 'light', 'round', 'LilGrotesk'),
+    'cyber': ('acid', 'dark', 'cut', 'SpaceGrotesk'),
+    'orbital': ('amber', 'light', 'square', 'Rajdhani'),
+    'paper': ('lichen', 'light', 'soft', 'DMSans'),
+    'game': ('gold', 'dark', 'square', 'Rajdhani'),
+  };
 
-  Appearance _withSkin(String id) => appearance.copyWith(
-    skin: id,
-    palette: id == 'play'
-        ? 'play'
-        : id == 'cyber'
-        ? 'acid'
-        : id == 'orbital'
-        ? 'amber'
-        : 'lichen',
-    mode: id == 'cyber' ? 'dark' : 'light',
-    shape: id == 'play'
-        ? 'round'
-        : id == 'cyber'
-        ? 'cut'
-        : id == 'orbital'
-        ? 'square'
-        : 'soft',
-    font: id == 'play'
-        ? 'LilGrotesk'
-        : id == 'orbital'
-        ? 'Rajdhani'
-        : id == 'paper'
-        ? 'DMSans'
-        : 'SpaceGrotesk',
-  );
+  Appearance _withSkin(String id) {
+    final (palette, mode, shape, font) = _presets[id]!;
+    return appearance.copyWith(
+      skin: id,
+      palette: palette,
+      mode: mode,
+      shape: shape,
+      font: font,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    final skins = [
+      ('play', 'Playroom', 'Des couleurs, des cartes et l’envie de jouer.'),
+      ('cyber', 'CYBERDECK', 'Noir, néon, angles biseautés.'),
+      ('orbital', 'ORBITAL 77', 'Ivoire, ambre, instruments rétro.'),
+      ('paper', 'CARNET', 'Doux, coloré, esprit papier.'),
+      (
+        'game',
+        context.l10n.appearanceSkinGameName,
+        context.l10n.appearanceSkinGameDesc,
+      ),
+    ];
     return ResponsiveGrid(
       minimumWidth: 200,
       children: [
-        for (final (id, name, desc) in _skins)
+        for (final (id, name, desc) in skins)
           DeckPanel(
             highlight: appearance.skin == id,
             padding: 20,
@@ -92,6 +90,8 @@ class _SkinCard extends StatelessWidget {
               ? Icons.hexagon_outlined
               : id == 'orbital'
               ? Icons.radar
+              : id == 'game'
+              ? Icons.shield_outlined
               : Icons.auto_stories_outlined,
           size: 36,
           color: theme.colorScheme.primary,
@@ -100,6 +100,10 @@ class _SkinCard extends StatelessWidget {
         Text(name, style: theme.textTheme.titleLarge),
         const SizedBox(height: 8),
         Text(desc),
+        if (id == 'game') ...[
+          const SizedBox(height: 12),
+          HudBar(value: .7, label: context.l10n.appearanceHudPreview),
+        ],
         const SizedBox(height: 12),
         Text(
           selected

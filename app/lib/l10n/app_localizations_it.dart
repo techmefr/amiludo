@@ -161,6 +161,15 @@ class AppLocalizationsIt extends AppLocalizations {
   String get appearanceChooseThisWorld => 'Scegli questo mondo ↗';
 
   @override
+  String get appearanceSkinGameName => 'HUD di missione';
+
+  @override
+  String get appearanceSkinGameDesc => 'Scuro e oro, riquadri spessi, stile interfaccia di gioco.';
+
+  @override
+  String get appearanceHudPreview => 'Anteprima della barra di avanzamento';
+
+  @override
   String get workspaceHome => 'Home';
 
   @override

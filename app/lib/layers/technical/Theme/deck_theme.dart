@@ -11,17 +11,19 @@ export 'package:amiludo/layers/technical/Theme/deck_style.dart';
 const deckSymbolFallback = ['NotoSansSymbols2', 'NotoSansSymbols'];
 
 ThemeData deckTheme(Appearance appearance, Brightness brightness) {
-  final dark = brightness == Brightness.dark,
+  final game = appearance.skin == 'game',
+      dark = game || brightness == Brightness.dark,
       p = DeckPalette.values[appearance.palette]!;
+  final mode = dark ? Brightness.dark : Brightness.light;
   final ink = Color(dark ? p.darkInk : p.ink),
       accent = Color(dark ? p.darkAccent : p.accent),
       background = Color(dark ? p.darkBackground : p.background),
       hero = Color(dark ? p.darkHero : p.hero),
       surface = Color.lerp(background, ink, .035)!;
-  final border = Color.lerp(background, ink, .22)!;
+  final border = game ? accent : Color.lerp(background, ink, .22)!;
   final heading = appearance.skin == 'cyber'
       ? 'ChakraPetch'
-      : appearance.skin == 'orbital'
+      : appearance.skin == 'orbital' || game
       ? 'Rajdhani'
       : 'BricolageGrotesque';
   final style = DeckStyle(
@@ -29,8 +31,10 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
     signal: dark ? Color(p.signal) : ink,
     headingFont: heading,
     compact: appearance.compact,
+    borderWidth: game ? 3 : 1,
+    glow: game ? accent.withValues(alpha: .6) : null,
   );
-  final scheme = ColorScheme.fromSeed(seedColor: accent, brightness: brightness)
+  final scheme = ColorScheme.fromSeed(seedColor: accent, brightness: mode)
       .copyWith(
         primary: accent,
         onPrimary: appearance.palette == 'play' && !dark
@@ -43,9 +47,9 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
         outline: border,
         surfaceContainerHighest: hero,
       );
-  final base = _deckBase(appearance, brightness, scheme, background);
+  final base = _deckBase(appearance, mode, scheme, background);
   final scale = appearance.large ? 1.15 : 1.0;
-  final themed = appearance.skin == 'cyber' || appearance.skin == 'orbital';
+  final themed = ['cyber', 'orbital', 'game'].contains(appearance.skin);
   final buttonText = TextStyle(
     fontFamily: themed ? heading : appearance.font,
     fontFamilyFallback: deckSymbolFallback,
