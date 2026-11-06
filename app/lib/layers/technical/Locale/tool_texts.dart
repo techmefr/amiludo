@@ -8,6 +8,7 @@ extension ToolTexts on BuildContext {
     return switch (id) {
       'picker' => l.toolPickerTitle,
       'dice' => l.toolDiceTitle,
+      'dice-tray' => l.toolDiceTrayTitle,
       'scores' => l.toolScoresTitle,
       'timer' => l.toolTimerTitle,
       'hourglass' => l.toolHourglassTitle,
@@ -42,6 +43,7 @@ extension ToolTexts on BuildContext {
     return switch (id) {
       'picker' => l.toolPickerSubtitle,
       'dice' => l.toolDiceSubtitle,
+      'dice-tray' => l.toolDiceTraySubtitle,
       'scores' => l.toolScoresSubtitle,
       'timer' => l.toolTimerSubtitle,
       'hourglass' => l.toolHourglassSubtitle,

@@ -2550,6 +2550,46 @@ class AppLocalizationsEs extends AppLocalizations {
   String get counterSkipsTurn => 'Pierde el turno';
 
   @override
+  String get toolDiceTrayTitle => 'Bandeja de dados';
+
+  @override
+  String get toolDiceTraySubtitle => 'Agita para lanzar, aparta dados y mira el total.';
+
+  @override
+  String get diceTrayThrow => 'Lanzar';
+
+  @override
+  String get diceTrayShakeHint => 'Agita el móvil o pulsa Lanzar.';
+
+  @override
+  String get diceTrayTotal => 'Total';
+
+  @override
+  String get diceTrayHistory => 'Historial';
+
+  @override
+  String get diceTrayKeepHint => 'Toca un dado para apartarlo.';
+
+  @override
+  String get diceTrayKept => 'Apartado';
+
+  @override
+  String get diceTrayAddDie => 'Añadir un dado';
+
+  @override
+  String get diceTrayRemoveDie => 'Quitar este dado';
+
+  @override
+  String get diceTrayCustomFaces => 'Caras personalizadas, separadas por comas';
+
+  @override
+  String get diceTrayCustomDie => 'Dado personalizado';
+
+  @override
+  String get diceTrayEmpty => 'Añade un dado para empezar.';
+
+  @override
+  String get diceTrayCustomColor => 'Color de las caras';
   String get toolHourglassTitle => 'Reloj de arena';
 
   @override
