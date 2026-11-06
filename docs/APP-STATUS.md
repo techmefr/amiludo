@@ -1,86 +1,86 @@
-# Application — état réel
+# Application — actual status
 
-Alpha **0.4.0**. Nom : amiLudo. Le code Flutter est dans `app/`, l’application web est publiée sous `/app/`, et les anciennes maquettes restent à la racine du site.
+Alpha **0.4.0**. Name: amiLudo. The Flutter code is in `app/`, the web app is published under `/app/`, and the old mockups remain at the site root.
 
-## Disponible
+## Available
 
-- **Partie** :
-  - scores locaux, manches, catégories, objectifs ;
-  - journal annulable, ressources et statuts, notes ;
-  - horloges par table, outils de hasard, équipes par noms, joueurs du salon ou doigts.
-- **Personnalisation** : thèmes et profils, builders de packs (dés, rôles, calculs déclaratifs, personnages par listes ou boosters) et galerie installable. Voir [PACKS.md](PACKS.md).
-- **Ludothèque et amis** :
-  - étagères de jeux, profils d’amis avec goûts, temps disponible et avis par jeu ;
-  - suggestions « On joue à quoi ce soir ? » ;
-  - souvenirs avec photos et galerie chiffrée.
-- **Partage hors ligne** : session complète en QR code animé à codage fontaine.
-- **Salons** :
-  - code court, QR ou lien ;
-  - même Wi‑Fi sans serveur, avec découverte UDP et WebSocket ;
-  - ou à distance par Supabase Realtime ;
-  - l’hôte accepte ou refuse chaque joueur.
-- **Comptes facultatifs** :
-  - inscription, connexion par mot de passe ou par lien magique (lien ou code reçu par e-mail) ;
-  - mot de passe oublié, changement de mot de passe, prénom ;
-  - le rôle `admin` est porté par `app_metadata.role`, que seul le serveur peut attribuer ;
-  - écran « Gérer les comptes » réservé aux admins : liste, invitation par e-mail, rôle admin, blocage, suppression. Une action sur son propre compte est refusée.
-- **Soirées** : date, lieu, places, jeux prévus, réponses oui / peut-être / non, liste d’attente, invitation par lien, code ou QR. Sans serveur, l’hôte note les réponses.
-- **Stockage** : SQLite, historique, CSV et sauvegardes JSON.
+- **Game**:
+  - local scores, rounds, categories, goals;
+  - undoable log, resources and statuses, notes;
+  - per-table clocks, chance tools, teams by names, room players or fingers.
+- **Customization**: themes and profiles, pack builders (dice, roles, declarative calculations, characters by lists or boosters) and an installable gallery. See [PACKS.md](PACKS.md).
+- **Game library and friends**:
+  - game shelves, friend profiles with tastes, available time and per-game opinions;
+  - "What are we playing tonight?" suggestions;
+  - memories with photos and an encrypted gallery.
+- **Offline sharing**: full session in an animated QR code with fountain coding.
+- **Rooms**:
+  - short code, QR or link;
+  - same Wi-Fi without a server, with UDP discovery and WebSocket;
+  - or remotely through Supabase Realtime;
+  - the host accepts or refuses each player.
+- **Optional accounts**:
+  - sign-up, sign-in by password or magic link (link or code received by email);
+  - forgotten password, password change, first name;
+  - the `admin` role is carried by `app_metadata.role`, which only the server can assign;
+  - "Manage accounts" screen reserved for admins: list, invitation by email, admin role, blocking, deletion. An action on one's own account is refused.
+- **Evenings**: date, place, seats, planned games, yes / maybe / no answers, waiting list, invitation by link, code or QR. Without a server, the host records the answers.
+- **Storage**: SQLite, history, CSV and JSON backups.
 
-Le catalogue compte **170 fonctions : 113 cochées, 57 prévues ou incomplètes**. Les trois packs initiaux sont des exemples originaux du projet. La publication communautaire passe par la relecture des pull requests.
+The catalog counts **170 features: 113 checked, 57 planned or incomplete**. The three initial packs are original examples from the project. Community publishing goes through pull request review.
 
-## Serveur
+## Server
 
-Projet Supabase facultatif, fourni au build par `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY` et `AMILUDO_LINK_BASE` (variables du dépôt GitHub dans la CI).
+Optional Supabase project, provided at build time by `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY` and `AMILUDO_LINK_BASE` (GitHub repository variables in the CI).
 
-Côté base, le schéma est dans `server/supabase/migrations` :
-- table `evenings` protégée par RLS ;
-- fonctions `publish_evening`, `get_evening` et `answer_evening`, réservées aux comptes connectés ;
-- fonction Edge `admin-users` (`server/supabase/functions`) : elle vérifie le rôle admin de l’appelant, puis passe par l’API d’administration de Supabase Auth.
+On the database side, the schema is in `server/supabase/migrations`:
+- `evenings` table protected by RLS;
+- `publish_evening`, `get_evening` and `answer_evening` functions, reserved for signed-in accounts;
+- `admin-users` Edge function (`server/supabase/functions`): it checks the caller's admin role, then goes through the Supabase Auth admin API.
 
-Sans ces variables, l’app reste entièrement locale. Le salon Wi‑Fi n’existe pas dans le navigateur.
+Without these variables, the app stays entirely local. The Wi-Fi room does not exist in the browser.
 
-## Vérifications
+## Checks
 
-- **Tests** : 115 tests Flutter.
-  - Partie, hasard et données : scores, imports, stockage, temps, tirages, profils, packs, ludothèque, amis, suggestions, souvenirs, partage QR.
-  - Salons : protocole, puis vrais sockets en boucle locale.
-  - Soirées, comptes, gestion des comptes et liens.
-  - Un test d’architecture vérifie les dépendances entre couches.
-- **CI** : le workflow analyse le code et lance les tests avant de compiler le web et l’APK Android.
-- **Version en ligne contrôlée** : la page répond, le bundle pointe vers le bon projet Supabase, les réglages d’auth sont joignables, et un appel anonyme aux soirées est refusé.
+- **Tests**: 115 Flutter tests.
+  - Game, chance and data: scores, imports, storage, time, draws, profiles, packs, game library, friends, suggestions, memories, QR sharing.
+  - Rooms: protocol, then real sockets over local loopback.
+  - Evenings, accounts, account management and links.
+  - An architecture test checks the dependencies between layers.
+- **CI**: the workflow analyzes the code and runs the tests before building the web app and the Android APK.
+- **Checked online version**: the page responds, the bundle points to the right Supabase project, the auth settings are reachable, and an anonymous call to evenings is refused.
 
-Restent à faire :
-- les essais sur vrais téléphones : découverte Wi‑Fi, caméra, multitouch, veille, sons, vibrations ;
-- Safari et les lecteurs d’écran.
+Still to do:
+- tests on real phones: Wi-Fi discovery, camera, multitouch, sleep, sounds, vibrations;
+- Safari and screen readers.
 
-## Limites connues
+## Known limits
 
-**Salons** :
-- le code du salon est le seul contrôle d’accès ;
-- le canal à distance est public et le WebSocket local n’est pas chiffré.
+**Rooms**:
+- the room code is the only access control;
+- the remote channel is public and the local WebSocket is not encrypted.
 
-Un secret d’hôte et des canaux privés sont prévus avant une ouverture large (voir la feuille de route).
+A host secret and private channels are planned before a wide opening (see the roadmap).
 
-**E-mails de compte** :
-- ils partent par l’envoi intégré de Supabase : 2 e-mails par heure, en anglais ;
-- le plan gratuit n’autorise pas les modèles personnalisés sans SMTP dédié ;
-- les modèles français aux couleurs d’amiLudo sont prêts : `python3 server/supabase/auth_emails.py` produit le JSON à envoyer sur `/v1/projects/<ref>/config/auth` une fois le SMTP configuré.
+**Account emails**:
+- they go out through Supabase's built-in sending: 2 emails per hour, in English;
+- the free plan does not allow custom templates without a dedicated SMTP;
+- French templates in amiLudo colors are ready: `python3 server/supabase/auth_emails.py` produces the JSON to send to `/v1/projects/<ref>/config/auth` once SMTP is configured.
 
-**Données** :
-- le document `Workspace` regroupe toutes les données de l’appareil et il est réécrit à chaque modification ;
-- un découpage par fonctionnalité est prévu.
+**Data**:
+- the `Workspace` document gathers all the device's data and is rewritten on every change;
+- a per-feature split is planned.
 
-**Traduction** : l’anglais est partiel, et certains textes et messages d’erreur restent en français.
+**Translation**: English is partial, and some texts and error messages remain in French.
 
-**Règles et calculs** :
-- les règles distantes sont des liens, sans analyse des livrets ;
-- les calculs disponibles ne vérifient pas toutes les règles d’un jeu ;
-- une partie garde la copie de son pack.
+**Rules and calculations**:
+- remote rules are links, with no analysis of rulebooks;
+- the available calculations do not check every rule of a game;
+- a game keeps a copy of its pack.
 
-**Plateformes** :
-- iOS natif demande macOS, Xcode et une signature Apple, et n’est pas distribué. Le site est utilisable sur iPhone et iPad.
-- Les APK sont des versions de test : exporter une sauvegarde avant toute mise à jour.
-- Aucune alarme en arrière-plan n’est garantie.
+**Platforms**:
+- native iOS requires macOS, Xcode and an Apple signature, and is not distributed. The site is usable on iPhone and iPad.
+- APKs are test versions: export a backup before any update.
+- No background alarm is guaranteed.
 
-Les identifiants de stockage, les formats de fichiers et les paquets natifs historiques sont conservés pour la continuité des données.
+Storage identifiers, file formats and legacy native packages are kept for data continuity.
