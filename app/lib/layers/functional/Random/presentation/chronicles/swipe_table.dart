@@ -47,6 +47,20 @@ class _SwipeTableState extends State<SwipeTable> {
     }
   }
 
+  void drag(HorizontalDragGestureRecognizer r, double width) {
+    r.onStart = (_) => setState(() => dragging = true);
+    r.onUpdate = (d) {
+      if (widget.enabled) setState(() => dx += d.delta.dx);
+    };
+    r.onEnd = (_) {
+      if (widget.enabled) end(width);
+    };
+    r.onCancel = () => setState(() {
+      dragging = false;
+      dx = 0;
+    });
+  }
+
   Widget stamp(String text, Alignment at, double strength, Color color) =>
       Align(
         alignment: at,
@@ -75,18 +89,10 @@ class _SwipeTableState extends State<SwipeTable> {
           HorizontalDragGestureRecognizer:
               GestureRecognizerFactoryWithHandlers<
                 HorizontalDragGestureRecognizer
-              >(HorizontalDragGestureRecognizer.new, (r) {
-                r
-                  ..onStart = (_) => setState(() => dragging = true)
-                  ..onUpdate = (d) {
-                    if (widget.enabled) setState(() => dx += d.delta.dx);
-                  }
-                  ..onEnd = (_) => widget.enabled ? end(width) : null
-                  ..onCancel = () => setState(() {
-                    dragging = false;
-                    dx = 0;
-                  });
-              }),
+              >(
+                HorizontalDragGestureRecognizer.new,
+                (r) => drag(r, width),
+              ),
           TapGestureRecognizer:
               GestureRecognizerFactoryWithHandlers<TapGestureRecognizer>(
                 TapGestureRecognizer.new,
