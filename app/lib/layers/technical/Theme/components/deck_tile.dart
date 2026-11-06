@@ -48,6 +48,8 @@ class _DeckTileState extends State<DeckTile> {
           shape: style.border(
             widget.selected ? scheme.primary : scheme.outline,
           ),
+          elevation: widget.selected && style.glow != null ? 8 : 0,
+          shadowColor: style.glow,
           clipBehavior: Clip.antiAlias,
           child: InkWell(
             onTap: widget.onTap,

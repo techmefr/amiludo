@@ -162,6 +162,15 @@ class AppLocalizationsFr extends AppLocalizations {
   String get appearanceChooseThisWorld => 'Choisir cet univers ↗';
 
   @override
+  String get appearanceSkinGameName => 'HUD de quête';
+
+  @override
+  String get appearanceSkinGameDesc => 'Sombre et doré, cadres épais, esprit interface de jeu.';
+
+  @override
+  String get appearanceHudPreview => 'Aperçu de la barre de progression';
+
+  @override
   String get workspaceHome => 'Accueil';
 
   @override

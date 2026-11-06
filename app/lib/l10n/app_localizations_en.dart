@@ -161,6 +161,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appearanceChooseThisWorld => 'Choose this world ↗';
 
   @override
+  String get appearanceSkinGameName => 'Quest HUD';
+
+  @override
+  String get appearanceSkinGameDesc => 'Dark and gold, framed panels, a game-HUD feel.';
+
+  @override
+  String get appearanceHudPreview => 'Progress bar preview';
+
+  @override
   String get workspaceHome => 'Home';
 
   @override
