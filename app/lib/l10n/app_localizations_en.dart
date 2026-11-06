@@ -2595,6 +2595,49 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get toolHeroesTitle => 'Heroes and powers';
+
+  @override
+  String get toolHeroesSubtitle => 'Heroes with counters and powers that charge up.';
+
+  @override
+  String get heroesEmpty => 'No hero yet. Add one to start.';
+
+  @override
+  String get heroesAddHero => 'Add a hero';
+
+  @override
+  String get heroesHeroName => 'Hero name';
+
+  @override
+  String get heroesAddPower => 'Add a power';
+
+  @override
+  String get heroesPowerName => 'Power name';
+
+  @override
+  String get heroesUse => 'Use';
+
+  @override
+  String get heroesCharging => 'Charging';
+
+  @override
+  String get heroesReady => 'Ready';
+
+  @override
+  String get heroesUsed => 'Used';
+
+  @override
+  String get heroesCharge => 'Add a charge';
+
+  @override
+  String get heroesRecharge => 'Recharge';
+
+  @override
+  String get heroesActive => 'Active hero';
+
+  @override
+  String get heroesMakeActive => 'Make active';
   String get toolMagicItemTitle =>
       'Magic item generator';
 

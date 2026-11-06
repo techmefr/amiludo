@@ -2619,6 +2619,49 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String get toolHeroesTitle => 'Héros et pouvoirs';
+
+  @override
+  String get toolHeroesSubtitle => 'Des héros avec compteurs et pouvoirs qui se chargent.';
+
+  @override
+  String get heroesEmpty => 'Aucun héros. Ajoutez-en un pour commencer.';
+
+  @override
+  String get heroesAddHero => 'Ajouter un héros';
+
+  @override
+  String get heroesHeroName => 'Nom du héros';
+
+  @override
+  String get heroesAddPower => 'Ajouter un pouvoir';
+
+  @override
+  String get heroesPowerName => 'Nom du pouvoir';
+
+  @override
+  String get heroesUse => 'Utiliser';
+
+  @override
+  String get heroesCharging => 'En charge';
+
+  @override
+  String get heroesReady => 'Prêt';
+
+  @override
+  String get heroesUsed => 'Utilisé';
+
+  @override
+  String get heroesCharge => 'Ajouter une charge';
+
+  @override
+  String get heroesRecharge => 'Recharger';
+
+  @override
+  String get heroesActive => 'Héros actif';
+
+  @override
+  String get heroesMakeActive => 'Rendre actif';
   String get toolMagicItemTitle =>
       'Générateur d\'objet magique';
 

@@ -4736,6 +4736,96 @@ abstract class AppLocalizations {
   /// **'Skips a turn'**
   String get counterSkipsTurn;
 
+  /// No description provided for @toolHeroesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Heroes and powers'**
+  String get toolHeroesTitle;
+
+  /// No description provided for @toolHeroesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Heroes with counters and powers that charge up.'**
+  String get toolHeroesSubtitle;
+
+  /// No description provided for @heroesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No hero yet. Add one to start.'**
+  String get heroesEmpty;
+
+  /// No description provided for @heroesAddHero.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a hero'**
+  String get heroesAddHero;
+
+  /// No description provided for @heroesHeroName.
+  ///
+  /// In en, this message translates to:
+  /// **'Hero name'**
+  String get heroesHeroName;
+
+  /// No description provided for @heroesAddPower.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a power'**
+  String get heroesAddPower;
+
+  /// No description provided for @heroesPowerName.
+  ///
+  /// In en, this message translates to:
+  /// **'Power name'**
+  String get heroesPowerName;
+
+  /// No description provided for @heroesUse.
+  ///
+  /// In en, this message translates to:
+  /// **'Use'**
+  String get heroesUse;
+
+  /// No description provided for @heroesCharging.
+  ///
+  /// In en, this message translates to:
+  /// **'Charging'**
+  String get heroesCharging;
+
+  /// No description provided for @heroesReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready'**
+  String get heroesReady;
+
+  /// No description provided for @heroesUsed.
+  ///
+  /// In en, this message translates to:
+  /// **'Used'**
+  String get heroesUsed;
+
+  /// No description provided for @heroesCharge.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a charge'**
+  String get heroesCharge;
+
+  /// No description provided for @heroesRecharge.
+  ///
+  /// In en, this message translates to:
+  /// **'Recharge'**
+  String get heroesRecharge;
+
+  /// No description provided for @heroesActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Active hero'**
+  String get heroesActive;
+
+  /// No description provided for @heroesMakeActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Make active'**
+  String get heroesMakeActive;
+
   /// No description provided for @toolDiceTrayTitle.
   ///
   /// In en, this message translates to:
