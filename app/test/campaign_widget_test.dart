@@ -8,6 +8,8 @@ import 'package:amiludo/layers/functional/Campaign/domain/entities/campaign_cata
 import 'package:amiludo/layers/functional/Campaign/presentation/campaign_screen.dart';
 import 'package:amiludo/layers/functional/Campaign/presentation/cubit/campaign_cubit.dart';
 import 'package:amiludo/layers/functional/Campaign/presentation/mission_screen.dart';
+import 'package:amiludo/layers/technical/Appearance/appearance.dart';
+import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
 
 import 'campaign_model_test.dart';
 
@@ -42,6 +44,7 @@ Widget app(MemoryCampaign gateway, {String start = '/'}) {
     ],
   );
   return MaterialApp.router(
+    theme: deckTheme(const Appearance(), Brightness.light),
     locale: const Locale('en'),
     localizationsDelegates: AppLocalizations.localizationsDelegates,
     supportedLocales: AppLocalizations.supportedLocales,
