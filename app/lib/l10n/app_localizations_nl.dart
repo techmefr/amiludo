@@ -141,6 +141,18 @@ class AppLocalizationsNl extends AppLocalizations {
       'Scherm aan houden tijdens spellen';
 
   @override
+  String get diceTrayView => 'Weergave';
+
+  @override
+  String get diceTrayView2d => '2D';
+
+  @override
+  String get diceTrayView3d => '3D';
+
+  @override
+  String get appearanceDice3d => '3D-dobbelstenen';
+
+  @override
   String get appearanceMotionSensors => 'Bewegingssensoren';
 
   @override
@@ -180,7 +192,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get appearanceSkinGameName => 'Quest-HUD';
 
   @override
-  String get appearanceSkinGameDesc => 'Donker en goud, dikke kaders, gevoel van een game-interface.';
+  String get appearanceSkinGameDesc =>
+      'Donker en goud, dikke kaders, gevoel van een game-interface.';
 
   @override
   String get appearanceHudPreview => 'Voorbeeld van de voortgangsbalk';
@@ -825,6 +838,21 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get templatesCounters2 => 'Tellers';
+
+  @override
+  String get templatesBricks => 'Onderdelen';
+
+  @override
+  String get brickLife => 'Leven';
+
+  @override
+  String get brickPoints => 'Punten';
+
+  @override
+  String get brickChips => 'Fiches';
+
+  @override
+  String get brickPot => 'Pot';
 
   @override
   String get templatesTime => 'Tijd';
@@ -2580,7 +2608,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolDiceTrayTitle => 'Dobbelbak';
 
   @override
-  String get toolDiceTraySubtitle => 'Schud om te gooien, leg dobbelstenen opzij, zie het totaal.';
+  String get toolDiceTraySubtitle =>
+      'Schud om te gooien, leg dobbelstenen opzij, zie het totaal.';
 
   @override
   String get diceTrayThrow => 'Gooien';
@@ -2595,7 +2624,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get diceTrayHistory => 'Geschiedenis';
 
   @override
-  String get diceTrayKeepHint => 'Tik op een dobbelsteen om hem opzij te leggen.';
+  String get diceTrayKeepHint =>
+      'Tik op een dobbelsteen om hem opzij te leggen.';
 
   @override
   String get diceTrayKept => 'Opzijgelegd';
@@ -2629,6 +2659,8 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get diceTrayGlass => 'Glas';
+
+  @override
   String get toolHourglassTitle => 'Zandloper';
 
   @override
@@ -2656,7 +2688,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolHeroesTitle => 'Helden en krachten';
 
   @override
-  String get toolHeroesSubtitle => 'Helden met tellers en krachten die opladen.';
+  String get toolHeroesSubtitle =>
+      'Helden met tellers en krachten die opladen.';
 
   @override
   String get heroesEmpty => 'Nog geen held. Voeg er een toe.';
@@ -2696,56 +2729,51 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get heroesMakeActive => 'Actief maken';
-  String get toolMagicItemTitle =>
-      'Magisch voorwerp-generator';
+
+  @override
+  String get toolMagicItemTitle => 'Magisch voorwerp-generator';
 
   @override
   String get toolMagicItemSubtitle =>
       'Een relikwie met een kracht, een eigenaardigheid en een herkomst.';
 
   @override
-  String get toolWeatherTitle =>
-      'Weer-generator';
+  String get toolWeatherTitle => 'Weer-generator';
 
   @override
   String get toolWeatherSubtitle =>
       'Lucht, temperatuur, wind, effecten en voortekenen.';
 
   @override
-  String get toolPlaceTitle =>
-      'Plaatsnaam-generator';
+  String get toolPlaceTitle => 'Plaatsnaam-generator';
 
   @override
   String get toolPlaceSubtitle =>
       'Een naam, een soort plek en een opvallend kenmerk.';
 
   @override
-  String get toolDilemmaTitle =>
-      'Moreel dilemma-generator';
+  String get toolDilemmaTitle => 'Moreel dilemma-generator';
 
   @override
   String get toolDilemmaSubtitle =>
       'Een lastige situatie, twee keuzes en de prijs ervan.';
 
   @override
-  String get toolRumourTitle =>
-      'Taverne-gerucht-generator';
+  String get toolRumourTitle => 'Taverne-gerucht-generator';
 
   @override
   String get toolRumourSubtitle =>
       'Wie het zei, wat er gezegd wordt en hoe waar het is.';
 
   @override
-  String get toolTraitTitle =>
-      'NPC-eigenschap-generator';
+  String get toolTraitTitle => 'NPC-eigenschap-generator';
 
   @override
   String get toolTraitSubtitle =>
       'Een karaktertrek, hoe die zich toont en een verborgen gebrek.';
 
   @override
-  String get toolTwistTitle =>
-      'Plotwending-generator';
+  String get toolTwistTitle => 'Plotwending-generator';
 
   @override
   String get toolTwistSubtitle =>
@@ -2756,20 +2784,16 @@ class AppLocalizationsNl extends AppLocalizations {
       'Companion-bestand delen (alleen blokken en instellingen)';
 
   @override
-  String get templatesImportCompanion =>
-      'Companion-bestand importeren';
+  String get templatesImportCompanion => 'Companion-bestand importeren';
 
   @override
-  String get templatesCompanionImported =>
-      'Companion geïmporteerd';
+  String get templatesCompanionImported => 'Companion geïmporteerd';
 
   @override
-  String get companionErrorNotJson =>
-      'Dit bestand is geen geldige JSON.';
+  String get companionErrorNotJson => 'Dit bestand is geen geldige JSON.';
 
   @override
-  String get companionErrorFormat =>
-      'Dit is geen Amiludo-companionbestand.';
+  String get companionErrorFormat => 'Dit is geen Amiludo-companionbestand.';
 
   @override
   String get companionErrorVersion =>
@@ -2883,21 +2907,22 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String campaignSubtitle(String universe) {
-    return 'Een kort verhaal in ${universe}, missie na missie.';
+    return 'Een kort verhaal in $universe, missie na missie.';
   }
 
   @override
   String campaignProgress(int done, int total) {
-    return '${done} van ${total} missies';
+    return '$done van $total missies';
   }
 
   @override
   String campaignMinutes(int count) {
-    return '${count} min';
+    return '$count min';
   }
 
   @override
-  String get campaignLocked => 'Rond de vorige missie af om deze te ontgrendelen.';
+  String get campaignLocked =>
+      'Rond de vorige missie af om deze te ontgrendelen.';
 
   @override
   String get campaignStart => 'Starten';
@@ -2924,7 +2949,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get campaignBadges => 'Je badges';
 
   @override
-  String get campaignNoBadges => 'Rond een missie af om je eerste badge te verdienen.';
+  String get campaignNoBadges =>
+      'Rond een missie af om je eerste badge te verdienen.';
 
   @override
   String get campaignNext => 'Volgende missie';
@@ -2940,20 +2966,23 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String campaignFinale(String universe) {
-    return 'De lantaarn schijnt weer boven ${universe}. Je bent klaar voor je eerste rollenspel.';
+    return 'De lantaarn schijnt weer boven $universe. Je bent klaar voor je eerste rollenspel.';
   }
 
   @override
   String get campaignM1Title => 'De klemmende poort';
 
   @override
-  String get campaignM1Story => 'De nacht valt. De oude poort van de lantaarntoren klemt. In een rollenspel gooi je de dobbelstenen als de uitkomst onzeker is.';
+  String get campaignM1Story =>
+      'De nacht valt. De oude poort van de lantaarntoren klemt. In een rollenspel gooi je de dobbelstenen als de uitkomst onzeker is.';
 
   @override
-  String get campaignM1Lesson => 'Een proef: gooi een dobbelsteen en vergelijk het resultaat met een doel.';
+  String get campaignM1Lesson =>
+      'Een proef: gooi een dobbelsteen en vergelijk het resultaat met een doel.';
 
   @override
-  String get campaignM1Task => 'Gooi de dobbelstenen hieronder. Een 4 of meer opent de poort. Anders probeer je opnieuw.';
+  String get campaignM1Task =>
+      'Gooi de dobbelstenen hieronder. Een 4 of meer opent de poort. Anders probeer je opnieuw.';
 
   @override
   String get campaignM1Badge => 'Poortopener';
@@ -2962,13 +2991,16 @@ class AppLocalizationsNl extends AppLocalizations {
   String get campaignM2Title => 'Een breekbare lantaarn';
 
   @override
-  String get campaignM2Story => 'Binnen trilt de lantaarn en elke schok doet het glas barsten. Ook je held heeft levenspunten, en het spel houdt ze bij.';
+  String get campaignM2Story =>
+      'Binnen trilt de lantaarn en elke schok doet het glas barsten. Ook je held heeft levenspunten, en het spel houdt ze bij.';
 
   @override
-  String get campaignM2Lesson => 'Levenspunten dalen bij verwondingen en stijgen bij genezing.';
+  String get campaignM2Lesson =>
+      'Levenspunten dalen bij verwondingen en stijgen bij genezing.';
 
   @override
-  String get campaignM2Task => 'Gebruik de hartjes hieronder: verlies er twee door de schokken en win er één terug door te rusten.';
+  String get campaignM2Task =>
+      'Gebruik de hartjes hieronder: verlies er twee door de schokken en win er één terug door te rusten.';
 
   @override
   String get campaignM2Badge => 'Hartenbewaker';
@@ -2977,13 +3009,16 @@ class AppLocalizationsNl extends AppLocalizations {
   String get campaignM3Title => 'Wie ben jij?';
 
   @override
-  String get campaignM3Story => 'Een stem vraagt naar je naam. Elke held heeft een naam, sterke punten en een paar krachten, alles op een karakterblad.';
+  String get campaignM3Story =>
+      'Een stem vraagt naar je naam. Elke held heeft een naam, sterke punten en een paar krachten, alles op een karakterblad.';
 
   @override
-  String get campaignM3Lesson => 'Een karakterblad verzamelt alles wat je held uniek maakt.';
+  String get campaignM3Lesson =>
+      'Een karakterblad verzamelt alles wat je held uniek maakt.';
 
   @override
-  String get campaignM3Task => 'Voeg een held met een naam toe en geef hem een kracht.';
+  String get campaignM3Task =>
+      'Voeg een held met een naam toe en geef hem een kracht.';
 
   @override
   String get campaignM3Badge => 'Held met een naam';
@@ -2992,13 +3027,16 @@ class AppLocalizationsNl extends AppLocalizations {
   String get campaignM4Title => 'De schaduw in de gang';
 
   @override
-  String get campaignM4Story => 'Een schaduw versperrt de trap. Een gevecht is slechts een reeks worpen, elke treffer kost de vijand wat leven.';
+  String get campaignM4Story =>
+      'Een schaduw versperrt de trap. Een gevecht is slechts een reeks worpen, elke treffer kost de vijand wat leven.';
 
   @override
-  String get campaignM4Lesson => 'In een gevecht gooi je om de beurt en verlaag je levenspunten.';
+  String get campaignM4Lesson =>
+      'In een gevecht gooi je om de beurt en verlaag je levenspunten.';
 
   @override
-  String get campaignM4Task => 'Gooi de dobbelstenen: een totaal van 7 of meer verwondt de schaduw. Raak drie keer.';
+  String get campaignM4Task =>
+      'Gooi de dobbelstenen: een totaal van 7 of meer verwondt de schaduw. Raak drie keer.';
 
   @override
   String get campaignM4Badge => 'Schaduwjager';
@@ -3007,13 +3045,16 @@ class AppLocalizationsNl extends AppLocalizations {
   String get campaignM5Title => 'Twee trappen';
 
   @override
-  String get campaignM5Story => 'De trap splitst in tweeën: de ene klimt de kou in, de andere duikt de kelder in. Niemand zegt welke goed is. Vanavond beslis jij.';
+  String get campaignM5Story =>
+      'De trap splitst in tweeën: de ene klimt de kou in, de andere duikt de kelder in. Niemand zegt welke goed is. Vanavond beslis jij.';
 
   @override
-  String get campaignM5Lesson => 'In een rollenspel veranderen je keuzes het verhaal.';
+  String get campaignM5Lesson =>
+      'In een rollenspel veranderen je keuzes het verhaal.';
 
   @override
-  String get campaignM5Task => 'Trek een dilemma als inspiratie en kies dan je weg.';
+  String get campaignM5Task =>
+      'Trek een dilemma als inspiratie en kies dan je weg.';
 
   @override
   String get campaignM5Badge => 'Padkiezer';
@@ -3025,19 +3066,23 @@ class AppLocalizationsNl extends AppLocalizations {
   String get campaignM5ChoiceB => 'Naar de kelder afdalen';
 
   @override
-  String get campaignM5OutcomeA => 'De kou scherpt je zintuigen en je bereikt de top zonder geluid.';
+  String get campaignM5OutcomeA =>
+      'De kou scherpt je zintuigen en je bereikt de top zonder geluid.';
 
   @override
-  String get campaignM5OutcomeB => 'In het donker vinden je handen een vergeten sleutel.';
+  String get campaignM5OutcomeB =>
+      'In het donker vinden je handen een vergeten sleutel.';
 
   @override
   String get campaignM6Title => 'De lantaarn gaat weer aan';
 
   @override
-  String get campaignM6Story => 'Bovenaan wacht de lantaarn. Beschrijf hardop hoe je hem weer aansteekt voor het zand op is: de scène vertellen is het hart van het spel.';
+  String get campaignM6Story =>
+      'Bovenaan wacht de lantaarn. Beschrijf hardop hoe je hem weer aansteekt voor het zand op is: de scène vertellen is het hart van het spel.';
 
   @override
-  String get campaignM6Lesson => 'Een scène vertel je samen, hardop, met een beetje verbeelding.';
+  String get campaignM6Lesson =>
+      'Een scène vertel je samen, hardop, met een beetje verbeelding.';
 
   @override
   String get campaignM6Task => 'Start de zandloper en vertel je slotscène.';
@@ -3049,7 +3094,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get chroniclesTitle => 'Chronicles';
 
   @override
-  String get chroniclesSubtitle => 'Maak een personage in vijf stappen met boosters.';
+  String get chroniclesSubtitle =>
+      'Maak een personage in vijf stappen met boosters.';
 
   @override
   String get chroniclesChooseUniverse => 'Kies een universum';
@@ -3082,7 +3128,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get chroniclesRefusedQuota => 'Geen plek meer voor dit type kaart.';
 
   @override
-  String get chroniclesRefusedConflict => 'Deze kaart botst met een bewaarde kaart.';
+  String get chroniclesRefusedConflict =>
+      'Deze kaart botst met een bewaarde kaart.';
 
   @override
   String get chroniclesRecap => 'Overzicht van de booster';
@@ -3133,7 +3180,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get chroniclesCopied => 'Gekopieerd';
 
   @override
-  String get chroniclesLoadFailed => 'De Chronicles-gegevens konden niet worden gelezen.';
+  String get chroniclesLoadFailed =>
+      'De Chronicles-gegevens konden niet worden gelezen.';
 
   @override
   String get chroniclesClose => 'Sluiten';
@@ -3187,7 +3235,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String diceImportClashBody(Object count) {
-    return '${count} dobbelstenen bestaan al. Vervangen of beide houden?';
+    return '$count dobbelstenen bestaan al. Vervangen of beide houden?';
   }
 
   @override
@@ -3198,17 +3246,17 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String diceCopyName(Object name) {
-    return '${name} (kopie)';
+    return '$name (kopie)';
   }
 
   @override
   String diceSelectDie(Object name) {
-    return '${name} selecteren';
+    return '$name selecteren';
   }
 
   @override
   String diceFaceTotal(Object count) {
-    return '${count} zijden';
+    return '$count zijden';
   }
 
   @override
@@ -3231,7 +3279,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String diceFaceEdit(Object n) {
-    return 'Zijde ${n} bewerken';
+    return 'Zijde $n bewerken';
   }
 
   @override
@@ -3284,7 +3332,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String diceBulkCopy(Object n) {
-    return 'Zijde ${n} naar het bereik kopiëren';
+    return 'Zijde $n naar het bereik kopiëren';
   }
 
   @override
@@ -3300,5 +3348,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get diceFaceRemove => 'Zijde verwijderen';
 
   @override
-  String get diceUseFromLibrary => 'Dobbelsteen uit Mijn dobbelstenen gebruiken';
+  String get diceUseFromLibrary =>
+      'Dobbelsteen uit Mijn dobbelstenen gebruiken';
 }

@@ -6,6 +6,7 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.da
 import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_controls.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_summary.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_arena.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/dice_view_toggle.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/die_studio.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_surface_picker.dart';
 import 'package:amiludo/layers/technical/Feedback/tray_feedback.dart';
@@ -29,6 +30,8 @@ class DiceTrayPage extends StatefulWidget {
     this.soundOutput = const SilentSoundOutput(),
     this.sound = false,
     this.haptics = false,
+    this.solid = false,
+    this.onSolidChanged,
   });
   final DiceTraySettings initial;
   final ShakeSource shakeSource;
@@ -36,7 +39,8 @@ class DiceTrayPage extends StatefulWidget {
   final ValueChanged<DiceTraySettings>? onChanged;
   final TrayMotion motion;
   final SoundOutput soundOutput;
-  final bool sound, haptics;
+  final bool sound, haptics, solid;
+  final ValueChanged<bool>? onSolidChanged;
 
   @override
   State<DiceTrayPage> createState() => _DiceTrayPageState();
@@ -62,6 +66,7 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
   StreamSubscription<double>? throws;
   StreamSubscription<Tilt>? tilts;
   int throwId = 0;
+  late bool solid = widget.solid;
   double power = 0.7;
   Tilt tilt = Tilt.flat;
 
@@ -137,15 +142,35 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
         const SizedBox(height: Space.md),
         SizedBox(
           height: trayHeight,
-          child: DiceTraySurface(
-            session: session,
-            throwId: throwId,
-            seed: seed,
-            power: power,
-            tilt: tilt,
-            feedback: feedback,
-            onOutcome: (v) => setState(() => session = session.withOutcome(v)),
-            onTapDie: (i) => setState(() => session = session.toggleKeep(i)),
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: DiceTraySurface(
+                  session: session,
+                  throwId: throwId,
+                  seed: seed,
+                  power: power,
+                  tilt: tilt,
+                  feedback: feedback,
+                  solid: solid,
+                  onOutcome: (v) =>
+                      setState(() => session = session.withOutcome(v)),
+                  onTapDie: (i) =>
+                      setState(() => session = session.toggleKeep(i)),
+                ),
+              ),
+              Positioned(
+                top: Space.sm,
+                right: Space.sm,
+                child: DiceViewToggle(
+                  solid: solid,
+                  onChanged: (value) {
+                    setState(() => solid = value);
+                    widget.onSolidChanged?.call(value);
+                  },
+                ),
+              ),
+            ],
           ),
         ),
         const SizedBox(height: Space.md),

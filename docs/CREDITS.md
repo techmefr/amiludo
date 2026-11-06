@@ -15,3 +15,7 @@ Cited brands and games belong to their owners. The project is not presented as a
 - Face icons come from the same Hugeicons Free / Stroke Rounded set (MIT, copyright 2024 Halal Labs); the searchable catalogue in `app/lib/layers/technical/Theme/icon_catalog.dart` maps plain names to a curated subset. Licence compatible with the MIT project code; no new dependency was added.
 - Image import reuses `file_selector` (BSD-3-Clause); drawings and imported images are downscaled to 256x256 PNG with `dart:ui` and stored in the local document store.
 - Dice files (`amiludo-dice.json`) contain only the user’s own dice and their face images; nothing from published games.
+
+## 3D dice
+
+- The 3D dice mode is drawn with Flutter `Canvas` and plain vector maths in `app/lib/layers/technical/Dice3D`; the polyhedra (tetrahedron, cube, octahedron, pentagonal trapezohedron, dodecahedron, icosahedron) are generated from their standard coordinates. No new dependency was added.

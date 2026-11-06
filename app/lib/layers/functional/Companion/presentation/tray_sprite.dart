@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_surface.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/die_3d_view.dart';
 import 'package:amiludo/layers/technical/Physics/tray_body.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -13,14 +14,15 @@ List<Widget> traySprite({
   required int value,
   required ColorScheme scheme,
   required VoidCallback onTap,
+  bool solid = false,
 }) {
   const size = traySpriteSize;
   final round = TrayBody.roundnessFor(spec.sides);
   final lift = (body.z / size).clamp(0.0, 2.0);
   final tumble = Matrix4.identity()
     ..setEntry(3, 2, 0.003)
-    ..rotateX(body.flipX * 1.2)
-    ..rotateY(body.flipY * 1.2)
+    ..rotateX(solid ? 0 : body.flipX * 1.2)
+    ..rotateY(solid ? 0 : body.flipY * 1.2)
     ..scaleByDouble(
       (1 + lift * 0.35) * (1 - round * 0.25),
       (1 + lift * 0.35) * (1 - round * 0.25),
@@ -53,10 +55,17 @@ List<Widget> traySprite({
           transform: tumble,
           child: Transform.rotate(
             angle: body.angle,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(round * size / 2),
-              child: DieFace(spec: spec, value: value),
-            ),
+            child: solid
+                ? Die3dView(
+                    spec: spec,
+                    value: value,
+                    flipX: body.spinX,
+                    flipY: body.spinY,
+                  )
+                : ClipRRect(
+                    borderRadius: BorderRadius.circular(round * size / 2),
+                    child: DieFace(spec: spec, value: value),
+                  ),
           ),
         ),
       ),

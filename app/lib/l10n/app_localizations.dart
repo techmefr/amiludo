@@ -354,6 +354,30 @@ abstract class AppLocalizations {
   /// **'Keep screen awake during games'**
   String get appearanceKeepScreenAwakeDuringGames;
 
+  /// No description provided for @diceTrayView.
+  ///
+  /// In en, this message translates to:
+  /// **'View'**
+  String get diceTrayView;
+
+  /// No description provided for @diceTrayView2d.
+  ///
+  /// In en, this message translates to:
+  /// **'2D'**
+  String get diceTrayView2d;
+
+  /// No description provided for @diceTrayView3d.
+  ///
+  /// In en, this message translates to:
+  /// **'3D'**
+  String get diceTrayView3d;
+
+  /// No description provided for @appearanceDice3d.
+  ///
+  /// In en, this message translates to:
+  /// **'3D dice'**
+  String get appearanceDice3d;
+
   /// No description provided for @appearanceMotionSensors.
   ///
   /// In en, this message translates to:
@@ -1588,6 +1612,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Counters'**
   String get templatesCounters2;
+
+  /// No description provided for @templatesBricks.
+  ///
+  /// In en, this message translates to:
+  /// **'Bricks'**
+  String get templatesBricks;
+
+  /// No description provided for @brickLife.
+  ///
+  /// In en, this message translates to:
+  /// **'Life'**
+  String get brickLife;
+
+  /// No description provided for @brickPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Points'**
+  String get brickPoints;
+
+  /// No description provided for @brickChips.
+  ///
+  /// In en, this message translates to:
+  /// **'Chips'**
+  String get brickChips;
+
+  /// No description provided for @brickPot.
+  ///
+  /// In en, this message translates to:
+  /// **'Pot'**
+  String get brickPot;
 
   /// No description provided for @templatesTime.
   ///
@@ -4784,96 +4838,6 @@ abstract class AppLocalizations {
   /// **'Skips a turn'**
   String get counterSkipsTurn;
 
-  /// No description provided for @toolHeroesTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Heroes and powers'**
-  String get toolHeroesTitle;
-
-  /// No description provided for @toolHeroesSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Heroes with counters and powers that charge up.'**
-  String get toolHeroesSubtitle;
-
-  /// No description provided for @heroesEmpty.
-  ///
-  /// In en, this message translates to:
-  /// **'No hero yet. Add one to start.'**
-  String get heroesEmpty;
-
-  /// No description provided for @heroesAddHero.
-  ///
-  /// In en, this message translates to:
-  /// **'Add a hero'**
-  String get heroesAddHero;
-
-  /// No description provided for @heroesHeroName.
-  ///
-  /// In en, this message translates to:
-  /// **'Hero name'**
-  String get heroesHeroName;
-
-  /// No description provided for @heroesAddPower.
-  ///
-  /// In en, this message translates to:
-  /// **'Add a power'**
-  String get heroesAddPower;
-
-  /// No description provided for @heroesPowerName.
-  ///
-  /// In en, this message translates to:
-  /// **'Power name'**
-  String get heroesPowerName;
-
-  /// No description provided for @heroesUse.
-  ///
-  /// In en, this message translates to:
-  /// **'Use'**
-  String get heroesUse;
-
-  /// No description provided for @heroesCharging.
-  ///
-  /// In en, this message translates to:
-  /// **'Charging'**
-  String get heroesCharging;
-
-  /// No description provided for @heroesReady.
-  ///
-  /// In en, this message translates to:
-  /// **'Ready'**
-  String get heroesReady;
-
-  /// No description provided for @heroesUsed.
-  ///
-  /// In en, this message translates to:
-  /// **'Used'**
-  String get heroesUsed;
-
-  /// No description provided for @heroesCharge.
-  ///
-  /// In en, this message translates to:
-  /// **'Add a charge'**
-  String get heroesCharge;
-
-  /// No description provided for @heroesRecharge.
-  ///
-  /// In en, this message translates to:
-  /// **'Recharge'**
-  String get heroesRecharge;
-
-  /// No description provided for @heroesActive.
-  ///
-  /// In en, this message translates to:
-  /// **'Active hero'**
-  String get heroesActive;
-
-  /// No description provided for @heroesMakeActive.
-  ///
-  /// In en, this message translates to:
-  /// **'Make active'**
-  String get heroesMakeActive;
-
   /// No description provided for @toolDiceTrayTitle.
   ///
   /// In en, this message translates to:
@@ -4981,6 +4945,7 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Glass'**
   String get diceTrayGlass;
+
   /// No description provided for @toolHourglassTitle.
   ///
   /// In en, this message translates to:
@@ -5022,6 +4987,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} s'**
   String hourglassSeconds(int count);
+
+  /// No description provided for @toolHeroesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Heroes and powers'**
+  String get toolHeroesTitle;
+
+  /// No description provided for @toolHeroesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Heroes with counters and powers that charge up.'**
+  String get toolHeroesSubtitle;
+
+  /// No description provided for @heroesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No hero yet. Add one to start.'**
+  String get heroesEmpty;
+
+  /// No description provided for @heroesAddHero.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a hero'**
+  String get heroesAddHero;
+
+  /// No description provided for @heroesHeroName.
+  ///
+  /// In en, this message translates to:
+  /// **'Hero name'**
+  String get heroesHeroName;
+
+  /// No description provided for @heroesAddPower.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a power'**
+  String get heroesAddPower;
+
+  /// No description provided for @heroesPowerName.
+  ///
+  /// In en, this message translates to:
+  /// **'Power name'**
+  String get heroesPowerName;
+
+  /// No description provided for @heroesUse.
+  ///
+  /// In en, this message translates to:
+  /// **'Use'**
+  String get heroesUse;
+
+  /// No description provided for @heroesCharging.
+  ///
+  /// In en, this message translates to:
+  /// **'Charging'**
+  String get heroesCharging;
+
+  /// No description provided for @heroesReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready'**
+  String get heroesReady;
+
+  /// No description provided for @heroesUsed.
+  ///
+  /// In en, this message translates to:
+  /// **'Used'**
+  String get heroesUsed;
+
+  /// No description provided for @heroesCharge.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a charge'**
+  String get heroesCharge;
+
+  /// No description provided for @heroesRecharge.
+  ///
+  /// In en, this message translates to:
+  /// **'Recharge'**
+  String get heroesRecharge;
+
+  /// No description provided for @heroesActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Active hero'**
+  String get heroesActive;
+
+  /// No description provided for @heroesMakeActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Make active'**
+  String get heroesMakeActive;
 
   /// No description provided for @toolMagicItemTitle.
   ///
@@ -5845,11 +5900,17 @@ abstract class AppLocalizations {
   /// **'Close'**
   String get chroniclesClose;
 
-  /// No description provided for @diceUseFromLibrary.
+  /// No description provided for @chroniclesSwipeHint.
   ///
   /// In en, this message translates to:
-  /// **'Use a die from My dice'**
-  String get diceUseFromLibrary;
+  /// **'Swipe right to keep, left to pass, tap for details.'**
+  String get chroniclesSwipeHint;
+
+  /// No description provided for @chroniclesTearHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag sideways to change edition, drag far to tear.'**
+  String get chroniclesTearHint;
 
   /// No description provided for @diceMyDice.
   ///
@@ -6133,18 +6194,11 @@ abstract class AppLocalizations {
   /// **'Remove face'**
   String get diceFaceRemove;
 
-  /// No description provided for @chroniclesSwipeHint.
+  /// No description provided for @diceUseFromLibrary.
   ///
   /// In en, this message translates to:
-  /// **'Swipe right to keep, left to pass, tap for details.'**
-  String get chroniclesSwipeHint;
-
-  /// No description provided for @chroniclesTearHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Drag sideways to change edition, drag far to tear.'**
-  String get chroniclesTearHint;
-
+  /// **'Use a die from My dice'**
+  String get diceUseFromLibrary;
 }
 
 class _AppLocalizationsDelegate

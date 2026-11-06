@@ -23,6 +23,7 @@ class DiceTraySurface extends StatefulWidget {
     this.power = 1,
     this.tilt = Tilt.flat,
     this.feedback,
+    this.solid = false,
   });
   final DiceTraySession session;
   final int throwId, seed;
@@ -31,6 +32,7 @@ class DiceTraySurface extends StatefulWidget {
   final double power;
   final Tilt tilt;
   final TrayFeedback? feedback;
+  final bool solid;
 
   @override
   State<DiceTraySurface> createState() => _DiceTraySurfaceState();
@@ -154,6 +156,7 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
       value: b.rolling ? b.face : widget.session.values[i],
       scheme: scheme,
       onTap: () => widget.onTapDie(i),
+      solid: widget.solid,
     );
   }
 
