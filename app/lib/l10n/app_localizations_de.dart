@@ -3811,4 +3811,39 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get notebookComplication => 'Komplikation';
+
+  @override
+  String get notebookTabAtlas => 'Atlas';
+
+  @override
+  String get notebookAtlasEmpty =>
+      'Noch kein Ort. Füge ein Meer, eine Insel und darin eine Siedlung oder ein Verlies hinzu.';
+
+  @override
+  String get notebookNewPlace => 'Neuer Ort';
+
+  @override
+  String get notebookOpenMap => 'Karte öffnen';
+
+  @override
+  String get notebookParentPlace => 'Gelegen in';
+
+  @override
+  String get notebookNoParent => 'Nichts (oberste Ebene)';
+
+  @override
+  String get notebookPins => 'Markierungen';
+
+  @override
+  String get notebookNoPins =>
+      'Setze eine Markierung auf der Karte, um sie mit einem Eintrag oder einer anderen Karte zu verknüpfen.';
+
+  @override
+  String get notebookPinLink => 'Verknüpfen mit';
+
+  @override
+  String get notebookPinUnlinked => 'Nicht verknüpft';
+
+  @override
+  String get notebookPinUnnamed => 'Unbenannte Markierung';
 }

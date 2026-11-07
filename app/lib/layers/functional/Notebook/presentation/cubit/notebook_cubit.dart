@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:amiludo/layers/functional/Notebook/domain/entities/atlas.dart';
 import 'package:amiludo/layers/functional/Notebook/domain/entities/journal.dart';
 import 'package:amiludo/layers/functional/Notebook/domain/entities/notebook.dart';
 import 'package:amiludo/layers/functional/Notebook/domain/entities/notebook_campaign.dart';
@@ -96,6 +97,13 @@ class NotebookCubit extends Cubit<Notebook> {
 
   Future<void> saveEntry(String id, NotebookEntry entry) =>
       update(id, (c) => c.withEntry(entry));
+
+  Future<void> setPinLink(
+    String id,
+    String placeId,
+    String markerId,
+    String? targetId,
+  ) => update(id, (c) => withPinLink(c, placeId, markerId, targetId));
 
   Future<void> removeEntry(String id, String entryId) =>
       update(id, (c) => c.withoutEntry(entryId));

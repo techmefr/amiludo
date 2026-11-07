@@ -1159,5 +1159,16 @@
   "notebookRandomEvent": "Suceso aleatorio",
   "notebookReaction": "Reacción de un personaje",
   "notebookDiscovery": "Descubrimiento",
-  "notebookComplication": "Complicación"
+  "notebookComplication": "Complicación",
+  "notebookTabAtlas": "Atlas",
+  "notebookAtlasEmpty": "Aún no hay lugares. Añade un mar, una isla y dentro un poblado o una mazmorra.",
+  "notebookNewPlace": "Nuevo lugar",
+  "notebookOpenMap": "Abrir el mapa",
+  "notebookParentPlace": "Dentro de",
+  "notebookNoParent": "Nada (nivel principal)",
+  "notebookPins": "Marcadores",
+  "notebookNoPins": "Coloca un marcador en el mapa para vincularlo a una ficha u otro mapa.",
+  "notebookPinLink": "Vincular a",
+  "notebookPinUnlinked": "Sin vincular",
+  "notebookPinUnnamed": "Marcador sin nombre"
 }

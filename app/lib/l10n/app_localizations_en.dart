@@ -3777,4 +3777,39 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notebookComplication => 'Complication';
+
+  @override
+  String get notebookTabAtlas => 'Atlas';
+
+  @override
+  String get notebookAtlasEmpty =>
+      'No place yet. Add a sea, an isle, then a settlement or a dungeon inside it.';
+
+  @override
+  String get notebookNewPlace => 'New place';
+
+  @override
+  String get notebookOpenMap => 'Open the map';
+
+  @override
+  String get notebookParentPlace => 'Inside';
+
+  @override
+  String get notebookNoParent => 'Nothing (top level)';
+
+  @override
+  String get notebookPins => 'Pins';
+
+  @override
+  String get notebookNoPins =>
+      'Place a pin on the map to link it to an entry or another map.';
+
+  @override
+  String get notebookPinLink => 'Link to';
+
+  @override
+  String get notebookPinUnlinked => 'Not linked';
+
+  @override
+  String get notebookPinUnnamed => 'Unnamed pin';
 }

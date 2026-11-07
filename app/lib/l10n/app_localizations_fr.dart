@@ -3808,4 +3808,39 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get notebookComplication => 'Complication';
+
+  @override
+  String get notebookTabAtlas => 'Atlas';
+
+  @override
+  String get notebookAtlasEmpty =>
+      'Aucun lieu. Ajoute une mer, une île, puis un village ou un donjon à l’intérieur.';
+
+  @override
+  String get notebookNewPlace => 'Nouveau lieu';
+
+  @override
+  String get notebookOpenMap => 'Ouvrir la carte';
+
+  @override
+  String get notebookParentPlace => 'Situé dans';
+
+  @override
+  String get notebookNoParent => 'Rien (niveau principal)';
+
+  @override
+  String get notebookPins => 'Repères';
+
+  @override
+  String get notebookNoPins =>
+      'Place un repère sur la carte pour le lier à une fiche ou à une autre carte.';
+
+  @override
+  String get notebookPinLink => 'Lier à';
+
+  @override
+  String get notebookPinUnlinked => 'Non lié';
+
+  @override
+  String get notebookPinUnnamed => 'Repère sans nom';
 }

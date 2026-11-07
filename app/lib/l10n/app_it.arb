@@ -1159,5 +1159,16 @@
   "notebookRandomEvent": "Evento casuale",
   "notebookReaction": "Reazione di un personaggio",
   "notebookDiscovery": "Scoperta",
-  "notebookComplication": "Complicazione"
+  "notebookComplication": "Complicazione",
+  "notebookTabAtlas": "Atlante",
+  "notebookAtlasEmpty": "Nessun luogo. Aggiungi un mare, un’isola e al suo interno un insediamento o un dungeon.",
+  "notebookNewPlace": "Nuovo luogo",
+  "notebookOpenMap": "Apri la mappa",
+  "notebookParentPlace": "All’interno di",
+  "notebookNoParent": "Niente (livello principale)",
+  "notebookPins": "Segnaposti",
+  "notebookNoPins": "Metti un segnaposto sulla mappa per collegarlo a una scheda o a un’altra mappa.",
+  "notebookPinLink": "Collega a",
+  "notebookPinUnlinked": "Non collegato",
+  "notebookPinUnnamed": "Segnaposto senza nome"
 }

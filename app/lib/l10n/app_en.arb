@@ -1431,5 +1431,16 @@
   "notebookRandomEvent": "Random event",
   "notebookReaction": "NPC reaction",
   "notebookDiscovery": "Discovery",
-  "notebookComplication": "Complication"
+  "notebookComplication": "Complication",
+  "notebookTabAtlas": "Atlas",
+  "notebookAtlasEmpty": "No place yet. Add a sea, an isle, then a settlement or a dungeon inside it.",
+  "notebookNewPlace": "New place",
+  "notebookOpenMap": "Open the map",
+  "notebookParentPlace": "Inside",
+  "notebookNoParent": "Nothing (top level)",
+  "notebookPins": "Pins",
+  "notebookNoPins": "Place a pin on the map to link it to an entry or another map.",
+  "notebookPinLink": "Link to",
+  "notebookPinUnlinked": "Not linked",
+  "notebookPinUnnamed": "Unnamed pin"
 }

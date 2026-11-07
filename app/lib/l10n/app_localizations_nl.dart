@@ -3806,4 +3806,39 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get notebookComplication => 'Complicatie';
+
+  @override
+  String get notebookTabAtlas => 'Atlas';
+
+  @override
+  String get notebookAtlasEmpty =>
+      'Nog geen plaatsen. Voeg een zee, een eiland en daarin een nederzetting of kerker toe.';
+
+  @override
+  String get notebookNewPlace => 'Nieuwe plaats';
+
+  @override
+  String get notebookOpenMap => 'Kaart openen';
+
+  @override
+  String get notebookParentPlace => 'Gelegen in';
+
+  @override
+  String get notebookNoParent => 'Niets (hoogste niveau)';
+
+  @override
+  String get notebookPins => 'Pins';
+
+  @override
+  String get notebookNoPins =>
+      'Plaats een pin op de kaart om hem aan een item of een andere kaart te koppelen.';
+
+  @override
+  String get notebookPinLink => 'Koppelen aan';
+
+  @override
+  String get notebookPinUnlinked => 'Niet gekoppeld';
+
+  @override
+  String get notebookPinUnnamed => 'Naamloze pin';
 }

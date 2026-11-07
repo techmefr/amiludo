@@ -10,6 +10,7 @@ import 'package:amiludo/layers/functional/Notebook/presentation/cubit/notebook_c
 import 'package:amiludo/layers/functional/Notebook/presentation/entry_kinds.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/entry_section_card.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/linked_text.dart';
+import 'package:amiludo/layers/functional/Notebook/presentation/parent_picker.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -121,6 +122,16 @@ class _EntryViewState extends State<_EntryView> {
             onChanged: (v) => save(entry.copyWith(name: v)),
           ),
           const SizedBox(height: Space.md),
+          if (entry.kind == EntryKind.place)
+            ParentPicker(
+              campaign: widget.campaign,
+              entry: entry,
+              onChanged: (parent) => save(
+                parent == null
+                    ? entry.withoutParent()
+                    : entry.copyWith(parentId: parent),
+              ),
+            ),
           for (final section in entry.sections)
             EntrySectionCard(
               key: ValueKey(section.id),

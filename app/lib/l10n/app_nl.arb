@@ -1159,5 +1159,16 @@
   "notebookRandomEvent": "Willekeurige gebeurtenis",
   "notebookReaction": "Reactie van een personage",
   "notebookDiscovery": "Ontdekking",
-  "notebookComplication": "Complicatie"
+  "notebookComplication": "Complicatie",
+  "notebookTabAtlas": "Atlas",
+  "notebookAtlasEmpty": "Nog geen plaatsen. Voeg een zee, een eiland en daarin een nederzetting of kerker toe.",
+  "notebookNewPlace": "Nieuwe plaats",
+  "notebookOpenMap": "Kaart openen",
+  "notebookParentPlace": "Gelegen in",
+  "notebookNoParent": "Niets (hoogste niveau)",
+  "notebookPins": "Pins",
+  "notebookNoPins": "Plaats een pin op de kaart om hem aan een item of een andere kaart te koppelen.",
+  "notebookPinLink": "Koppelen aan",
+  "notebookPinUnlinked": "Niet gekoppeld",
+  "notebookPinUnnamed": "Naamloze pin"
 }

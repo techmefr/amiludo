@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/layers/functional/Notebook/domain/entities/notebook_campaign.dart';
+import 'package:amiludo/layers/functional/Notebook/presentation/atlas_tab.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/campaign_theme.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/cubit/notebook_cubit.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/entries_tab.dart';
@@ -31,7 +32,7 @@ class _CampaignView extends StatelessWidget {
     final l = context.l10n;
     final cubit = context.read<NotebookCubit>();
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           leading: BackButton(
@@ -51,6 +52,7 @@ class _CampaignView extends StatelessWidget {
               Tab(text: l.notebookTabJournal),
               Tab(text: l.notebookTabEntries),
               Tab(text: l.notebookTabOracle),
+              Tab(text: l.notebookTabAtlas),
             ],
           ),
         ),
@@ -67,6 +69,7 @@ class _CampaignView extends StatelessWidget {
                 onPush: (kind, text) => cubit.addLine(campaign.id, kind, text),
               ),
             ),
+            AtlasTab(campaign: campaign),
           ],
         ),
       ),
