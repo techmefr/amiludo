@@ -4,7 +4,7 @@ What the app reads. Anything not listed here is ignored, so extra fields are har
 
 ## Pieces
 
-- PNG, 1024x1024, transparent background, one shared canvas for every piece of the same body shape. Never crop or resize a piece: its position on the canvas is its attachment, so no coordinates are needed.
+- PNG, 512x512 (1024x1024 also accepted; the canvas is square and shared), transparent background, one shared canvas for every piece of the same body shape. Never crop or resize a piece: its position on the canvas is its attachment, so no coordinates are needed.
 - File path inside the app: `assets/avatar/<group>/<name>.png`, referenced in JSON as `avatar/<group>/<name>` (no `assets/` prefix, no extension).
 - A piece meant to be colored by the app is drawn in light grey and white shading only (no hue). The app multiplies it by the chosen color, so shadows and highlights survive.
 - Outlines, shadows and textures that must not change color go in their own separate piece, without a tint.
