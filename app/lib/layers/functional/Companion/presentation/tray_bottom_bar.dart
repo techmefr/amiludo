@@ -5,7 +5,6 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/tray_result.
 import 'package:amiludo/layers/functional/Companion/presentation/tray_history_sheet.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Network/link_share.dart';
-import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class TrayBottomBar extends StatelessWidget {
   const TrayBottomBar({
@@ -29,17 +28,23 @@ class TrayBottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final l = context.l10n;
     final thrown = session.thrown;
-    return Row(
+    return IconButtonTheme(
+      data: IconButtonThemeData(
+        style: IconButton.styleFrom(visualDensity: VisualDensity.compact),
+      ),
+      child: Row(
       children: [
         IconButton(
           tooltip: l.diceLook,
           onPressed: onLook,
           icon: const Icon(Icons.tune),
         ),
-        TextButton.icon(
-          onPressed: onAdd,
-          icon: const Icon(Icons.add),
-          label: Text(l.diceTrayAddDie),
+        Flexible(
+          child: TextButton.icon(
+            onPressed: onAdd,
+            icon: const Icon(Icons.add),
+            label: Text(l.diceTrayAddDie, overflow: TextOverflow.ellipsis),
+          ),
         ),
         Expanded(
           child: Text(
@@ -65,8 +70,8 @@ class TrayBottomBar extends StatelessWidget {
               : () => showTrayHistorySheet(context, session),
           icon: const Icon(Icons.history),
         ),
-        const SizedBox(width: Space.xs),
       ],
+    ),
     );
   }
 }
