@@ -88,10 +88,12 @@ class GameCharacter {
     required this.packName,
     required this.createdAt,
     required this.choices,
+    this.sheet,
   });
   final String id, name, packName;
   final int createdAt;
   final Map<String, List<CharacterCard>> choices;
+  final Map<String, Object?>? sheet;
   Map<String, Object?> toJson() => {
     'id': id,
     'name': name,
@@ -100,6 +102,7 @@ class GameCharacter {
     'choices': choices.map(
       (k, v) => MapEntry(k, v.map((c) => c.toJson()).toList()),
     ),
+    if (sheet != null) 'sheet': sheet,
   };
   factory GameCharacter.fromJson(Map<String, dynamic> j) {
     final c = GameCharacter(
@@ -107,6 +110,9 @@ class GameCharacter {
       name: j['name'] as String,
       packName: j['packName'] as String,
       createdAt: j['createdAt'] as int,
+      sheet: j['sheet'] == null
+          ? null
+          : Map<String, Object?>.from(j['sheet'] as Map),
       choices: (j['choices'] as Map<String, dynamic>).map(
         (k, v) => MapEntry(
           k,
