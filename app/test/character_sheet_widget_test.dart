@@ -146,4 +146,50 @@ void main() {
     expect(find.text('34 · Forgeron'), findsOneWidget);
     expect(find.text('Loyal · Calme'), findsOneWidget);
   });
+
+  testWidgets('editions, resume callback and avatar hook', (tester) async {
+    final changes = <CharacterSheet>[];
+    final c = SheetCubit(
+      LoadSheetGeneratorUseCase(_Tables()),
+      random: RandomTools(random: Random(3)),
+      onChanged: changes.add,
+    );
+    addTearDown(c.close);
+    await c.load(universe: 'cyberpunk');
+    Map<String, Object?>? given;
+    await tester.pumpWidget(
+      BlocProvider.value(
+        value: c,
+        child: MaterialApp(
+          theme: deckTheme(const Appearance(), Brightness.light),
+          home: Scaffold(
+            body: SingleChildScrollView(
+              child: SheetView(
+                avatarEditor: (context, look, current) async {
+                  given = {'tints': look.tints};
+                  return {
+                    'base': {'item': 'base.arms-1'},
+                  };
+                },
+                avatarPreview: (avatar) =>
+                    const SizedBox(key: ValueKey('preview')),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tapKey(tester, 'sheet-edition-esprit');
+    expect(c.state.sheet!.edition, 'esprit');
+    await tapKey(tester, 'sheet-generate-all');
+    expect(changes, isNotEmpty);
+    expect(changes.last.completedSteps, SheetSpec.stepCount);
+    await tapKey(tester, 'sheet-avatar');
+    expect(given, isNotNull);
+    expect(c.state.sheet!.avatar, isNotNull);
+    c.setReading(true);
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('preview')), findsOneWidget);
+  });
 }

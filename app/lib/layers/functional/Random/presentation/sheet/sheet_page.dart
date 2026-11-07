@@ -8,6 +8,8 @@ import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_editor
 import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_export_bar.dart';
 import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_labels.dart';
 import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_read_view.dart';
+import 'package:amiludo/layers/functional/Random/domain/sheet/sheet_look.dart';
+import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_avatar.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
@@ -17,19 +19,37 @@ import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class SheetPage extends StatelessWidget {
-  const SheetPage({super.key, this.onSave});
+  const SheetPage({
+    super.key,
+    this.onSave,
+    this.avatarEditor,
+    this.avatarPreview,
+  });
   final Future<void> Function(GameCharacter character)? onSave;
+  final AvatarEditor? avatarEditor;
+  final AvatarPreview? avatarPreview;
 
   @override
   Widget build(BuildContext context) => FullPage(
     title: context.l10n.sheetTitle,
-    child: SheetView(onSave: onSave),
+    child: SheetView(
+      onSave: onSave,
+      avatarEditor: avatarEditor,
+      avatarPreview: avatarPreview,
+    ),
   );
 }
 
 class SheetView extends StatefulWidget {
-  const SheetView({super.key, this.onSave});
+  const SheetView({
+    super.key,
+    this.onSave,
+    this.avatarEditor,
+    this.avatarPreview,
+  });
   final Future<void> Function(GameCharacter character)? onSave;
+  final AvatarEditor? avatarEditor;
+  final AvatarPreview? avatarPreview;
 
   @override
   State<SheetView> createState() => _SheetViewState();
@@ -52,6 +72,13 @@ class _SheetViewState extends State<SheetView> {
       ),
     );
     if (mounted) setState(() => saved = true);
+  }
+
+  Future<void> applyAvatar(CharacterSheet sheet, SheetState state) async {
+    final cubit = context.read<SheetCubit>();
+    final look = SheetLook.of(sheet, state.generator!.tables);
+    final result = await widget.avatarEditor!(context, look, sheet.avatar);
+    if (result != null) cubit.setAvatar(result);
   }
 
   Widget picker(BuildContext context, SheetState state) {
@@ -110,9 +137,27 @@ class _SheetViewState extends State<SheetView> {
             ),
           ),
         if (state.reading)
-          SheetReadView(sheet: sheet, tables: state.generator!.tables)
+          SheetReadView(
+            sheet: sheet,
+            tables: state.generator!.tables,
+            avatar: sheet.avatar == null
+                ? null
+                : widget.avatarPreview?.call(sheet.avatar!),
+          )
         else
-          SheetEditor(sheet: sheet, step: state.step),
+          SheetEditor(
+            sheet: sheet,
+            step: state.step,
+            editions: state.generator!.tables.editions.keys.toList(),
+          ),
+        if (widget.avatarEditor != null) ...[
+          const SizedBox(height: Space.lg),
+          OutlinedButton(
+            key: const ValueKey('sheet-avatar'),
+            onPressed: () => applyAvatar(sheet, state),
+            child: Text(l10n.sheetApplyAvatar),
+          ),
+        ],
         const SizedBox(height: Space.xl),
         SheetExportBar(
           sheet: sheet,

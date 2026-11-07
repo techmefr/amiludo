@@ -46,6 +46,9 @@ import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit
 import 'package:amiludo/layers/functional/Random/presentation/cubit/sheet_cubit.dart';
 import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_page.dart';
 import 'package:amiludo/layers/functional/Random/domain/sheet/sheet_use_cases.dart';
+import 'package:amiludo/layers/functional/Random/domain/sheet/character_sheet.dart';
+import 'package:amiludo/sheet_avatar.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/character_draft.dart';
 import 'package:amiludo/layers/functional/Random/presentation/tool_page.dart';
 import 'package:amiludo/layers/functional/Random/presentation/tools_screen.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/builder_entry.dart';
@@ -129,16 +132,54 @@ class _ChroniclesRoute extends StatelessWidget {
 }
 
 class _SheetRoute extends StatelessWidget {
-  const _SheetRoute(this.seed);
+  const _SheetRoute(this.seed, this.pack);
   final SheetSeed? seed;
+  final String? pack;
+
+  CharacterSheet? _resumed(CharacterDraft? draft) {
+    final raw = draft?.sheet;
+    if (raw == null) return null;
+    try {
+      return CharacterSheet.fromJson(Map<String, dynamic>.from(raw));
+    } on Object {
+      return null;
+    }
+  }
 
   @override
-  Widget build(BuildContext context) => BlocProvider(
-    create: (_) => SheetCubit(
-      getIt<LoadSheetGeneratorUseCase>(),
-    )..load(universe: seed?.universe, kept: seed?.kept, initial: seed?.initial),
-    child: SheetPage(onSave: context.read<RandomCubit>().saveCharacter),
-  );
+  Widget build(BuildContext context) {
+    final random = context.read<RandomCubit>();
+    final draft = pack == null ? null : random.draftFor(pack!);
+    final resumed = seed?.initial == null ? _resumed(draft) : null;
+    return BlocProvider(
+      create: (_) =>
+          SheetCubit(
+            getIt<LoadSheetGeneratorUseCase>(),
+            onChanged: draft == null
+                ? null
+                : (s) {
+                    draft.sheet = s.toJson();
+                    random.saveDraft(draft);
+                  },
+          )..load(
+            universe: seed?.universe,
+            kept: seed?.kept,
+            initial: seed?.initial ?? resumed,
+            reading: seed?.initial != null || seed?.kept != null,
+          ),
+      child: SheetPage(
+        onSave: (character) async {
+          await random.saveCharacter(character);
+          if (draft != null) {
+            draft.sheet = null;
+            await random.saveDraft(draft);
+          }
+        },
+        avatarEditor: editSheetAvatar,
+        avatarPreview: sheetAvatarPreview,
+      ),
+    );
+  }
 }
 
 final router = GoRouter(
@@ -148,6 +189,7 @@ final router = GoRouter(
       '/character-sheet',
       (state) => _SheetRoute(
         state.extra is SheetSeed ? state.extra as SheetSeed : null,
+        state.uri.queryParameters['pack'],
       ),
     ),
     _page(

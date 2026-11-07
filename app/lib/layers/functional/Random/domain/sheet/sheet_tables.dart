@@ -29,6 +29,17 @@ const _chroniclesFields = {
   'quete': 'aims',
 };
 
+const editionFields = [
+  'job',
+  'talents',
+  'qualities',
+  'habits',
+  'style',
+  'motivation',
+  'goal',
+  'group',
+];
+
 class SheetTables {
   const SheetTables({
     required this.universes,
@@ -37,6 +48,7 @@ class SheetTables {
     required this.steps,
     required this.labels,
     this.palettes = const {},
+    this.editions = const {},
   });
 
   factory SheetTables.fromJson(Map<String, dynamic> j) => SheetTables(
@@ -54,6 +66,10 @@ class SheetTables {
     ],
     steps: [for (final s in j['etapes'] as List) s as String],
     labels: (j['libelles'] as Map).map((k, v) => MapEntry('$k', '$v')),
+    editions: {
+      for (final e in (j['editions'] as Map? ?? const {}).entries)
+        e.key as String: poolsFrom(e.value as Map),
+    },
   );
 
   final Map<String, SheetUniverse> universes;
@@ -62,6 +78,7 @@ class SheetTables {
   final List<String> steps;
   final Map<String, String> labels;
   final Map<String, List<String>> palettes;
+  final Map<String, Map<String, List<SheetOption>>> editions;
 
   SheetUniverse universe(String id) =>
       universes[id] ?? (throw ArgumentError('Univers inconnu : $id'));
@@ -70,6 +87,9 @@ class SheetTables {
     ...?universe(universeId).pools[field],
     ...?common[field],
   ];
+
+  List<SheetOption> editionPool(String? edition, String field) =>
+      edition == null ? const [] : (editions[edition]?[field] ?? const []);
 
   Set<String> oppositesOf(Iterable<String> texts) => {
     for (final p in opposites)
@@ -99,6 +119,7 @@ class SheetTables {
       steps: steps,
       labels: labels,
       palettes: palettes,
+      editions: editions,
     );
   }
 
@@ -109,6 +130,7 @@ class SheetTables {
     steps: steps,
     labels: labels,
     palettes: next,
+    editions: editions,
   );
 
   String? colorOf(String palette, int index) {
@@ -134,6 +156,11 @@ class SheetTables {
         if (universal.contains(f.id)) continue;
         final n = pool(u.id, f.id).length;
         if (n < minimum || n < f.min) found.add('${u.id}.${f.id}: $n options');
+      }
+    }
+    for (final e in editions.entries) {
+      for (final f in editionFields) {
+        if ((e.value[f]?.length ?? 0) < 3) found.add('${e.key}.$f: too few');
       }
     }
     for (final f in SheetSpec.fields) {

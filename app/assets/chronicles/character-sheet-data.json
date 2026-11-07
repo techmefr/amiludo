@@ -49,6 +49,38 @@
       "Rancunier", "Naïf"
     ]
   },
+  "editions": {
+    "fer": {
+      "job": ["Garde du corps", "Bretteur", "Portefaix infatigable", "Sentinelle de nuit"],
+      "talents": ["Encaisser sans broncher", "Briser une porte d'une épaule", "Tenir une position seul", "Porter deux fois son poids"],
+      "qualities": ["Endurant", "Résolu", "Inébranlable"],
+      "habits": ["S'entraîne à l'aube", "Teste chaque porte avant d'entrer", "Garde toujours une main libre"],
+      "style": ["Tenue renforcée aux épaules", "Vêtements sobres et solides", "Protections portées en permanence"],
+      "motivation": ["Prouver sa valeur par l'épreuve", "Ne plus jamais reculer", "Protéger ceux qui ne le peuvent pas"],
+      "goal": ["Tenir jusqu'au bout d'une épreuve", "Défendre un passage contre tous", "Escorter quelqu'un jusqu'à destination"],
+      "group": ["Garde rapprochée", "Troupe d'élite", "Cercle des lutteurs"]
+    },
+    "vent": {
+      "job": ["Éclaireur", "Voleur de grands chemins", "Messager rapide", "Pisteur"],
+      "talents": ["Se faufiler sans bruit", "Repérer un détail minuscule", "Courir sans s'essouffler", "Viser à la perfection"],
+      "qualities": ["Vif", "Attentif", "Souple"],
+      "habits": ["Compte les sorties de chaque pièce", "Marche toujours face au vent", "Vérifie les ombres avant d'avancer"],
+      "style": ["Tenue légère aux poches multiples", "Capuche et vêtements sombres", "Chaussures silencieuses et sangles ajustées"],
+      "motivation": ["Voir ce qu'il y a au-delà de l'horizon", "Échapper à son passé", "Ne devoir rien à personne"],
+      "goal": ["Atteindre un lieu avant tout le monde", "Voler un objet bien gardé", "Ouvrir une nouvelle route"],
+      "group": ["Réseau d'éclaireurs", "Bande de voleurs", "Relais de messagers"]
+    },
+    "esprit": {
+      "job": ["Érudit", "Négociateur", "Conseiller", "Archiviste"],
+      "talents": ["Convaincre sans élever la voix", "Retenir tout ce qu'il lit", "Deviner les intentions d'autrui", "Résoudre une énigme en quelques minutes"],
+      "qualities": ["Éloquent", "Réfléchi", "Cultivé"],
+      "habits": ["Prend des notes en permanence", "Pèse chaque mot avant de parler", "Relit toujours deux fois"],
+      "style": ["Tenue soignée et sobre", "Vêtements couverts d'annotations", "Accessoires de prestige discrets"],
+      "motivation": ["Comprendre ce que personne n'a compris", "Unir des camps opposés", "Transmettre un savoir menacé"],
+      "goal": ["Obtenir un accord impossible", "Déchiffrer un secret ancien", "Faire éclater une vérité cachée"],
+      "group": ["Cercle de savants", "Délégation de médiateurs", "Maison de conseil"]
+    }
+  },
   "univers": {
     "fantasy": {
       "epoque": {"annee": 1243, "mois": 9, "jour": 14},

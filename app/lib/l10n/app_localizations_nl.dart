@@ -3512,4 +3512,232 @@ class AppLocalizationsNl extends AppLocalizations {
   String diceTrayCount(int count) {
     return '$count dobbelstenen';
   }
+
+  @override
+  String get sheetFieldName => 'Voor- en achternaam';
+
+  @override
+  String get sheetFieldNickname => 'Bijnaam';
+
+  @override
+  String get sheetFieldAge => 'Leeftijd';
+
+  @override
+  String get sheetFieldBirthDate => 'Geboortedatum';
+
+  @override
+  String get sheetFieldBirthPlace => 'Geboorteplaats';
+
+  @override
+  String get sheetFieldGender => 'Geslacht';
+
+  @override
+  String get sheetFieldOrigin => 'Nationaliteit en afkomst';
+
+  @override
+  String get sheetFieldLanguages => 'Gesproken talen';
+
+  @override
+  String get sheetFieldJob => 'Beroep of bezigheid';
+
+  @override
+  String get sheetFieldStatus => 'Sociale status';
+
+  @override
+  String get sheetFieldGroup => 'Groep (familie, clan...)';
+
+  @override
+  String get sheetFieldSkin => 'Huidskleur';
+
+  @override
+  String get sheetFieldEyes => 'Oogkleur';
+
+  @override
+  String get sheetFieldHair => 'Haarkleur';
+
+  @override
+  String get sheetFieldBuild => 'Lichaamsbouw';
+
+  @override
+  String get sheetFieldHeight => 'Lengte';
+
+  @override
+  String get sheetFieldStyle => 'Kledingstijl';
+
+  @override
+  String get sheetFieldMarks => 'Onderscheidende kenmerken';
+
+  @override
+  String get sheetFieldQualities => 'Kwaliteiten';
+
+  @override
+  String get sheetFieldFlaws => 'Gebreken';
+
+  @override
+  String get sheetFieldLikes => 'Waar hij van houdt';
+
+  @override
+  String get sheetFieldDislikes => 'Waar hij een hekel aan heeft';
+
+  @override
+  String get sheetFieldTalents => 'Bijzondere talenten';
+
+  @override
+  String get sheetFieldHabits => 'Gewoontes';
+
+  @override
+  String get sheetFieldMotivation => 'Diepe motivatie';
+
+  @override
+  String get sheetFieldGoal => 'Doel in het verhaal';
+
+  @override
+  String get sheetFieldFamily => 'Familiale afkomst';
+
+  @override
+  String get sheetFieldChildhood => 'Jeugdverhaal en trauma';
+
+  @override
+  String get sheetFieldExperiences => 'Ervaringen die het verhaal dienen';
+
+  @override
+  String get sheetFieldEvolution => 'Ontwikkeling voor het verhaal';
+
+  @override
+  String get sheetFieldSituation => 'Beginsituatie';
+
+  @override
+  String get sheetFieldAims => 'Motieven, doelen en acties';
+
+  @override
+  String get sheetStep1 => 'Algemene gegevens';
+
+  @override
+  String get sheetStep2 => 'Uiterlijk';
+
+  @override
+  String get sheetStep3 => 'Persoonlijkheid en vaardigheden';
+
+  @override
+  String get sheetStep4 => 'Verleden';
+
+  @override
+  String get sheetStep5 => 'Heden';
+
+  @override
+  String get sheetUniverseFantasy => 'Middeleeuwse fantasy';
+
+  @override
+  String get sheetUniverseScifi => 'Sciencefiction';
+
+  @override
+  String get sheetUniverseCyberpunk => 'Cyberpunk';
+
+  @override
+  String get sheetUniverseGothique => 'Gotische horror';
+
+  @override
+  String get sheetTitle => 'Personagekaart';
+
+  @override
+  String get sheetSubtitle =>
+      'Vijf stappen, van identiteit tot de eerste scène.';
+
+  @override
+  String get sheetChooseUniverse => 'Kies een universum';
+
+  @override
+  String get sheetOpen => 'Volledige personagekaart';
+
+  @override
+  String get sheetCompleteFromCards => 'Volledige kaart aanvullen';
+
+  @override
+  String sheetStepOf(int step, int total) {
+    return 'Stap $step van $total';
+  }
+
+  @override
+  String get sheetGenerateStep => 'Deze stap genereren';
+
+  @override
+  String get sheetGenerateAll => 'Alles genereren';
+
+  @override
+  String get sheetPrevious => 'Vorige';
+
+  @override
+  String get sheetNext => 'Volgende';
+
+  @override
+  String get sheetReroll => 'Opnieuw trekken';
+
+  @override
+  String get sheetLock => 'Vergrendelen';
+
+  @override
+  String get sheetUnlock => 'Ontgrendelen';
+
+  @override
+  String get sheetEdit => 'Bewerken';
+
+  @override
+  String get sheetEditHint => 'Eén waarde per regel';
+
+  @override
+  String sheetEditInvalid(int min, int max) {
+    return '$min tot $max waarden verwacht';
+  }
+
+  @override
+  String get sheetEmpty => 'Niet ingevuld';
+
+  @override
+  String get sheetEditMode => 'Kaart bewerken';
+
+  @override
+  String get sheetReadMode => 'Kaart lezen';
+
+  @override
+  String get sheetSave => 'Opslaan bij mijn personages';
+
+  @override
+  String get sheetSaved => 'Opgeslagen';
+
+  @override
+  String get sheetCopyText => 'Kopiëren als tekst';
+
+  @override
+  String get sheetCopyJson => 'Kopiëren als JSON';
+
+  @override
+  String get sheetShare => 'Delen';
+
+  @override
+  String get sheetCopied => 'Gekopieerd';
+
+  @override
+  String get sheetMismatch => 'Sommige gegevens komen niet overeen';
+
+  @override
+  String get sheetLoadFailed =>
+      'De tabellen van de kaart konden niet worden geladen.';
+
+  @override
+  String get sheetView => 'Kaart bekijken';
+
+  @override
+  String get sheetEditionLabel => 'Editie';
+
+  @override
+  String get sheetEditionFer => 'IJzer';
+
+  @override
+  String get sheetEditionVent => 'Wind';
+
+  @override
+  String get sheetEditionEsprit => 'Geest';
+
+  @override
+  String get sheetApplyAvatar => 'Toepassen op avatar';
 }

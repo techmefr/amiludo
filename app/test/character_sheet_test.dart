@@ -4,6 +4,7 @@ import 'dart:math';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:amiludo/layers/functional/Companion/data/avatar_catalogue.dart';
 import 'package:amiludo/layers/functional/Random/data/chronicles/chronicles_catalog_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Random/data/sheet/sheet_tables_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Random/domain/sheet/sheet_use_cases.dart';
@@ -258,5 +259,51 @@ void main() {
     final g = await useCase(random: RandomTools(random: Random(1)));
     final sheet = g.generateAll(g.blank('gothique'));
     expect(sheet.completedSteps, SheetSpec.stepCount);
+  });
+
+  test('editions bias the draw and persist with the sheet', () {
+    var fromEdition = 0;
+    for (var seed = 0; seed < 100; seed++) {
+      final g = generator(seed);
+      final sheet = g.generateStep(g.blank('fantasy').withEdition('fer'), 1);
+      final own = tables.editionPool('fer', 'job').map((o) => o.text);
+      if (own.contains(sheet.first('job'))) fromEdition++;
+    }
+    expect(fromEdition, greaterThan(40));
+    final sheet = CharacterSheet(
+      universe: 'scifi',
+      edition: 'vent',
+      avatar: const {
+        'base': {'item': 'base.arms-1'},
+      },
+    );
+    final back = CharacterSheet.fromJson(
+      jsonDecode(jsonEncode(sheet.toJson())) as Map<String, dynamic>,
+    );
+    expect(back.edition, 'vent');
+    expect(back.avatar, sheet.avatar);
+    expect(back.withValue('job', ['x']).edition, 'vent');
+  });
+
+  test('the look drives avatar pieces and tints', () {
+    final catalogue = AvatarCatalogue.decode(
+      File('assets/avatar/items.json').readAsStringSync(),
+      File('assets/avatar/palettes.json').readAsStringSync(),
+    );
+    final look = catalogue.lookFor(
+      tints: const {'skin': 3, 'eyes': 1},
+      pieces: const ['marks.marks-2'],
+      hairless: true,
+    );
+    expect(look.picks['base']!.color, catalogue.palettes['skin']![3]);
+    expect(look.picks['eyes']!.color, catalogue.palettes['eyes']![1]);
+    expect(look.picks['marks']!.itemId, 'marks.marks-2');
+    expect(look.picks.containsKey('hair'), isFalse);
+    final haired = catalogue.lookFor(
+      tints: const {'hair': 4},
+      pieces: const [],
+      hairless: false,
+    );
+    expect(haired.picks['hair']!.color, catalogue.palettes['hair']![4]);
   });
 }

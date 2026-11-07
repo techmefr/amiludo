@@ -1,9 +1,13 @@
 import 'package:amiludo/layers/functional/Random/domain/sheet/sheet_fields.dart';
 
+const _keep = Object();
+
 class CharacterSheet {
   const CharacterSheet({
     required this.universe,
     this.culture,
+    this.edition,
+    this.avatar,
     this.values = const {},
     this.locked = const {},
   });
@@ -30,13 +34,18 @@ class CharacterSheet {
     return CharacterSheet(
       universe: j['universe'] as String,
       culture: j['culture'] as String?,
+      edition: j['edition'] as String?,
+      avatar: j['avatar'] == null
+          ? null
+          : Map<String, Object?>.from(j['avatar'] as Map),
       values: values,
       locked: locked,
     );
   }
 
   final String universe;
-  final String? culture;
+  final String? culture, edition;
+  final Map<String, Object?>? avatar;
   final Map<String, List<String>> values;
   final Set<String> locked;
 
@@ -48,29 +57,39 @@ class CharacterSheet {
 
   bool get isEmpty => values.values.every((v) => v.isEmpty);
 
+  CharacterSheet _copy({
+    Object? culture = _keep,
+    Object? edition = _keep,
+    Object? avatar = _keep,
+    Map<String, List<String>>? values,
+    Set<String>? locked,
+  }) => CharacterSheet(
+    universe: universe,
+    culture: identical(culture, _keep) ? this.culture : culture as String?,
+    edition: identical(edition, _keep) ? this.edition : edition as String?,
+    avatar: identical(avatar, _keep)
+        ? this.avatar
+        : avatar as Map<String, Object?>?,
+    values: values ?? this.values,
+    locked: locked ?? this.locked,
+  );
+
   CharacterSheet withValue(String id, List<String> value, {bool lock = false}) {
     SheetSpec.field(id);
-    return CharacterSheet(
-      universe: universe,
-      culture: culture,
+    return _copy(
       values: {...values, id: value},
       locked: lock ? {...locked, id} : locked,
     );
   }
 
-  CharacterSheet withCulture(String? id) => CharacterSheet(
-    universe: universe,
-    culture: id,
-    values: values,
-    locked: locked,
-  );
+  CharacterSheet withCulture(String? id) => _copy(culture: id);
 
-  CharacterSheet withLock(String id, bool lock) => CharacterSheet(
-    universe: universe,
-    culture: culture,
-    values: values,
-    locked: lock ? {...locked, id} : ({...locked}..remove(id)),
-  );
+  CharacterSheet withEdition(String? id) => _copy(edition: id);
+
+  CharacterSheet withAvatar(Map<String, Object?>? json) => _copy(avatar: json);
+
+  CharacterSheet withLock(String id, bool lock) =>
+      _copy(locked: lock ? {...locked, id} : ({...locked}..remove(id)));
 
   bool fieldComplete(SheetField f) {
     final n = of(f.id).length;
@@ -87,6 +106,8 @@ class CharacterSheet {
   Map<String, Object?> toJson() => {
     'universe': universe,
     if (culture != null) 'culture': culture,
+    if (edition != null) 'edition': edition,
+    if (avatar != null) 'avatar': avatar,
     'values': {
       for (final e in values.entries)
         if (e.value.isNotEmpty) e.key: e.value,

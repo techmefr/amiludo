@@ -39,10 +39,12 @@ class SheetSeed {
 }
 
 class SheetCubit extends Cubit<SheetState> {
-  SheetCubit(this._load, {this.random}) : super(const SheetState());
+  SheetCubit(this._load, {this.random, this.onChanged})
+    : super(const SheetState());
 
   final LoadSheetGeneratorUseCase _load;
   final RandomTools? random;
+  final void Function(CharacterSheet sheet)? onChanged;
 
   SheetGenerator get _generator => state.generator!;
   CharacterSheet get _sheet => state.sheet!;
@@ -51,6 +53,7 @@ class SheetCubit extends Cubit<SheetState> {
     String? universe,
     List<KeptCard>? kept,
     CharacterSheet? initial,
+    bool reading = false,
   }) async {
     try {
       final generator = await _load(random: random);
@@ -61,37 +64,44 @@ class SheetCubit extends Cubit<SheetState> {
               : kept == null
               ? generator.blank(universe)
               : SheetImport.fromKept(generator, universe, kept));
-      emit(
-        SheetState(
-          generator: generator,
-          sheet: sheet,
-          reading: kept != null || initial != null,
-        ),
-      );
+      emit(SheetState(generator: generator, sheet: sheet, reading: reading));
     } on Object {
       emit(const SheetState(failed: true));
     }
   }
 
-  void start(String universe) => emit(
+  void _commit(SheetState next) {
+    emit(next);
+    final sheet = next.sheet;
+    if (sheet != null) onChanged?.call(sheet);
+  }
+
+  void setEdition(String? id) =>
+      _commit(state.copyWith(sheet: _sheet.withEdition(id)));
+
+  void setAvatar(Map<String, Object?>? avatar) =>
+      _commit(state.copyWith(sheet: _sheet.withAvatar(avatar)));
+
+  void start(String universe) => _commit(
     state.copyWith(sheet: _generator.blank(universe), step: 1, reading: false),
   );
 
   void generateAll() =>
-      emit(state.copyWith(sheet: _generator.generateAll(_sheet), step: 1));
+      _commit(state.copyWith(sheet: _generator.generateAll(_sheet), step: 1));
 
-  void generateStep() =>
-      emit(state.copyWith(sheet: _generator.generateStep(_sheet, state.step)));
+  void generateStep() => _commit(
+    state.copyWith(sheet: _generator.generateStep(_sheet, state.step)),
+  );
 
   void reroll(String id) =>
-      emit(state.copyWith(sheet: _generator.rerollField(_sheet, id)));
+      _commit(state.copyWith(sheet: _generator.rerollField(_sheet, id)));
 
   void toggleLock(String id) =>
-      emit(state.copyWith(sheet: _sheet.withLock(id, !_sheet.isLocked(id))));
+      _commit(state.copyWith(sheet: _sheet.withLock(id, !_sheet.isLocked(id))));
 
   bool edit(String id, List<String> values) {
     try {
-      emit(state.copyWith(sheet: _generator.edit(_sheet, id, values)));
+      _commit(state.copyWith(sheet: _generator.edit(_sheet, id, values)));
       return true;
     } on FormatException {
       return false;

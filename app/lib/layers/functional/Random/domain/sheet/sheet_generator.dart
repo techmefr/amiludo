@@ -146,7 +146,20 @@ class SheetGenerator {
   List<String> _draw(CharacterSheet s, SheetField f, bool force) {
     final low = f.optional && force ? 1 : f.min;
     final count = f.min == f.max ? f.max : random.integer(low, f.max);
-    return random.shuffled(_pool(s, f)).take(count).toList();
+    final banned = _excluded(s, f.id);
+    final own = [
+      for (final o in tables.editionPool(s.edition, f.id))
+        if (!banned.contains(o.text)) o.text,
+    ];
+    final picked = <String>[];
+    if (own.isNotEmpty && count > 0 && random.integer(1, 10) <= 7) {
+      picked.add(random.pick(own));
+    }
+    for (final t in random.shuffled(_pool(s, f))) {
+      if (picked.length >= count) break;
+      if (!picked.contains(t)) picked.add(t);
+    }
+    return picked;
   }
 
   CharacterSheet topUp(CharacterSheet s, String id) {

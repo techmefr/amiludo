@@ -6517,6 +6517,450 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} dice'**
   String diceTrayCount(int count);
+
+  /// No description provided for @sheetFieldName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full name'**
+  String get sheetFieldName;
+
+  /// No description provided for @sheetFieldNickname.
+  ///
+  /// In en, this message translates to:
+  /// **'Nickname'**
+  String get sheetFieldNickname;
+
+  /// No description provided for @sheetFieldAge.
+  ///
+  /// In en, this message translates to:
+  /// **'Age'**
+  String get sheetFieldAge;
+
+  /// No description provided for @sheetFieldBirthDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of birth'**
+  String get sheetFieldBirthDate;
+
+  /// No description provided for @sheetFieldBirthPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Place of birth'**
+  String get sheetFieldBirthPlace;
+
+  /// No description provided for @sheetFieldGender.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender'**
+  String get sheetFieldGender;
+
+  /// No description provided for @sheetFieldOrigin.
+  ///
+  /// In en, this message translates to:
+  /// **'Nationality and origins'**
+  String get sheetFieldOrigin;
+
+  /// No description provided for @sheetFieldLanguages.
+  ///
+  /// In en, this message translates to:
+  /// **'Languages spoken'**
+  String get sheetFieldLanguages;
+
+  /// No description provided for @sheetFieldJob.
+  ///
+  /// In en, this message translates to:
+  /// **'Trade or occupation'**
+  String get sheetFieldJob;
+
+  /// No description provided for @sheetFieldStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Social status'**
+  String get sheetFieldStatus;
+
+  /// No description provided for @sheetFieldGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'Group (family, clan...)'**
+  String get sheetFieldGroup;
+
+  /// No description provided for @sheetFieldSkin.
+  ///
+  /// In en, this message translates to:
+  /// **'Skin color'**
+  String get sheetFieldSkin;
+
+  /// No description provided for @sheetFieldEyes.
+  ///
+  /// In en, this message translates to:
+  /// **'Eye color'**
+  String get sheetFieldEyes;
+
+  /// No description provided for @sheetFieldHair.
+  ///
+  /// In en, this message translates to:
+  /// **'Hair color'**
+  String get sheetFieldHair;
+
+  /// No description provided for @sheetFieldBuild.
+  ///
+  /// In en, this message translates to:
+  /// **'Build'**
+  String get sheetFieldBuild;
+
+  /// No description provided for @sheetFieldHeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Height'**
+  String get sheetFieldHeight;
+
+  /// No description provided for @sheetFieldStyle.
+  ///
+  /// In en, this message translates to:
+  /// **'Clothing style'**
+  String get sheetFieldStyle;
+
+  /// No description provided for @sheetFieldMarks.
+  ///
+  /// In en, this message translates to:
+  /// **'Distinctive marks'**
+  String get sheetFieldMarks;
+
+  /// No description provided for @sheetFieldQualities.
+  ///
+  /// In en, this message translates to:
+  /// **'Qualities'**
+  String get sheetFieldQualities;
+
+  /// No description provided for @sheetFieldFlaws.
+  ///
+  /// In en, this message translates to:
+  /// **'Flaws'**
+  String get sheetFieldFlaws;
+
+  /// No description provided for @sheetFieldLikes.
+  ///
+  /// In en, this message translates to:
+  /// **'Likes'**
+  String get sheetFieldLikes;
+
+  /// No description provided for @sheetFieldDislikes.
+  ///
+  /// In en, this message translates to:
+  /// **'Dislikes'**
+  String get sheetFieldDislikes;
+
+  /// No description provided for @sheetFieldTalents.
+  ///
+  /// In en, this message translates to:
+  /// **'Special talents'**
+  String get sheetFieldTalents;
+
+  /// No description provided for @sheetFieldHabits.
+  ///
+  /// In en, this message translates to:
+  /// **'Habits'**
+  String get sheetFieldHabits;
+
+  /// No description provided for @sheetFieldMotivation.
+  ///
+  /// In en, this message translates to:
+  /// **'Deep motivation'**
+  String get sheetFieldMotivation;
+
+  /// No description provided for @sheetFieldGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal in the story'**
+  String get sheetFieldGoal;
+
+  /// No description provided for @sheetFieldFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'Family origin'**
+  String get sheetFieldFamily;
+
+  /// No description provided for @sheetFieldChildhood.
+  ///
+  /// In en, this message translates to:
+  /// **'Childhood story and trauma'**
+  String get sheetFieldChildhood;
+
+  /// No description provided for @sheetFieldExperiences.
+  ///
+  /// In en, this message translates to:
+  /// **'Experiences useful to the story'**
+  String get sheetFieldExperiences;
+
+  /// No description provided for @sheetFieldEvolution.
+  ///
+  /// In en, this message translates to:
+  /// **'Evolution before the story'**
+  String get sheetFieldEvolution;
+
+  /// No description provided for @sheetFieldSituation.
+  ///
+  /// In en, this message translates to:
+  /// **'Starting situation'**
+  String get sheetFieldSituation;
+
+  /// No description provided for @sheetFieldAims.
+  ///
+  /// In en, this message translates to:
+  /// **'Motivations, goals and actions'**
+  String get sheetFieldAims;
+
+  /// No description provided for @sheetStep1.
+  ///
+  /// In en, this message translates to:
+  /// **'General information'**
+  String get sheetStep1;
+
+  /// No description provided for @sheetStep2.
+  ///
+  /// In en, this message translates to:
+  /// **'Physical appearance'**
+  String get sheetStep2;
+
+  /// No description provided for @sheetStep3.
+  ///
+  /// In en, this message translates to:
+  /// **'Personality and abilities'**
+  String get sheetStep3;
+
+  /// No description provided for @sheetStep4.
+  ///
+  /// In en, this message translates to:
+  /// **'Past'**
+  String get sheetStep4;
+
+  /// No description provided for @sheetStep5.
+  ///
+  /// In en, this message translates to:
+  /// **'Present'**
+  String get sheetStep5;
+
+  /// No description provided for @sheetUniverseFantasy.
+  ///
+  /// In en, this message translates to:
+  /// **'Medieval fantasy'**
+  String get sheetUniverseFantasy;
+
+  /// No description provided for @sheetUniverseScifi.
+  ///
+  /// In en, this message translates to:
+  /// **'Science fiction'**
+  String get sheetUniverseScifi;
+
+  /// No description provided for @sheetUniverseCyberpunk.
+  ///
+  /// In en, this message translates to:
+  /// **'Cyberpunk'**
+  String get sheetUniverseCyberpunk;
+
+  /// No description provided for @sheetUniverseGothique.
+  ///
+  /// In en, this message translates to:
+  /// **'Gothic horror'**
+  String get sheetUniverseGothique;
+
+  /// No description provided for @sheetTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Character sheet'**
+  String get sheetTitle;
+
+  /// No description provided for @sheetSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Five steps, from identity to the first scene.'**
+  String get sheetSubtitle;
+
+  /// No description provided for @sheetChooseUniverse.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a universe'**
+  String get sheetChooseUniverse;
+
+  /// No description provided for @sheetOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Full character sheet'**
+  String get sheetOpen;
+
+  /// No description provided for @sheetCompleteFromCards.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete the full sheet'**
+  String get sheetCompleteFromCards;
+
+  /// No description provided for @sheetStepOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Step {step} of {total}'**
+  String sheetStepOf(int step, int total);
+
+  /// No description provided for @sheetGenerateStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate this step'**
+  String get sheetGenerateStep;
+
+  /// No description provided for @sheetGenerateAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate everything'**
+  String get sheetGenerateAll;
+
+  /// No description provided for @sheetPrevious.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous'**
+  String get sheetPrevious;
+
+  /// No description provided for @sheetNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get sheetNext;
+
+  /// No description provided for @sheetReroll.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw again'**
+  String get sheetReroll;
+
+  /// No description provided for @sheetLock.
+  ///
+  /// In en, this message translates to:
+  /// **'Lock'**
+  String get sheetLock;
+
+  /// No description provided for @sheetUnlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock'**
+  String get sheetUnlock;
+
+  /// No description provided for @sheetEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get sheetEdit;
+
+  /// No description provided for @sheetEditHint.
+  ///
+  /// In en, this message translates to:
+  /// **'One value per line'**
+  String get sheetEditHint;
+
+  /// No description provided for @sheetEditInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'{min} to {max} values expected'**
+  String sheetEditInvalid(int min, int max);
+
+  /// No description provided for @sheetEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Not filled in'**
+  String get sheetEmpty;
+
+  /// No description provided for @sheetEditMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit the sheet'**
+  String get sheetEditMode;
+
+  /// No description provided for @sheetReadMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Read the sheet'**
+  String get sheetReadMode;
+
+  /// No description provided for @sheetSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save to my characters'**
+  String get sheetSave;
+
+  /// No description provided for @sheetSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved'**
+  String get sheetSaved;
+
+  /// No description provided for @sheetCopyText.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy as text'**
+  String get sheetCopyText;
+
+  /// No description provided for @sheetCopyJson.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy as JSON'**
+  String get sheetCopyJson;
+
+  /// No description provided for @sheetShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get sheetShare;
+
+  /// No description provided for @sheetCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied'**
+  String get sheetCopied;
+
+  /// No description provided for @sheetMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Some details do not match'**
+  String get sheetMismatch;
+
+  /// No description provided for @sheetLoadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The sheet tables could not be loaded.'**
+  String get sheetLoadFailed;
+
+  /// No description provided for @sheetView.
+  ///
+  /// In en, this message translates to:
+  /// **'View the sheet'**
+  String get sheetView;
+
+  /// No description provided for @sheetEditionLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Edition'**
+  String get sheetEditionLabel;
+
+  /// No description provided for @sheetEditionFer.
+  ///
+  /// In en, this message translates to:
+  /// **'Iron'**
+  String get sheetEditionFer;
+
+  /// No description provided for @sheetEditionVent.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind'**
+  String get sheetEditionVent;
+
+  /// No description provided for @sheetEditionEsprit.
+  ///
+  /// In en, this message translates to:
+  /// **'Mind'**
+  String get sheetEditionEsprit;
+
+  /// No description provided for @sheetApplyAvatar.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply to avatar'**
+  String get sheetApplyAvatar;
 }
 
 class _AppLocalizationsDelegate

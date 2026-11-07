@@ -12,9 +12,15 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class SheetReadView extends StatelessWidget {
-  const SheetReadView({super.key, required this.sheet, required this.tables});
+  const SheetReadView({
+    super.key,
+    required this.sheet,
+    required this.tables,
+    this.avatar,
+  });
   final CharacterSheet sheet;
   final SheetTables tables;
+  final Widget? avatar;
 
   ChroniclesAppearance get _portrait {
     final look = SheetLook.of(sheet, tables);
@@ -33,7 +39,7 @@ class SheetReadView extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Center(child: ChroniclesPortrait(look: _portrait)),
+        Center(child: avatar ?? ChroniclesPortrait(look: _portrait)),
         Text(sheet.first('name'), style: theme.textTheme.headlineMedium),
         if (sheet.of('nickname').isNotEmpty)
           Text(

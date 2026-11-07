@@ -11,9 +11,15 @@ import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class SheetEditor extends StatelessWidget {
-  const SheetEditor({super.key, required this.sheet, required this.step});
+  const SheetEditor({
+    super.key,
+    required this.sheet,
+    required this.step,
+    this.editions = const [],
+  });
   final CharacterSheet sheet;
   final int step;
+  final List<String> editions;
 
   void _edit(BuildContext context, SheetField field) {
     final cubit = context.read<SheetCubit>();
@@ -44,6 +50,22 @@ class SheetEditor extends StatelessWidget {
             borderRadius: BorderRadius.circular(Radii.pill),
           ),
         ),
+        if (editions.isNotEmpty) ...[
+          Text(l10n.sheetEditionLabel, style: theme.textTheme.labelLarge),
+          Wrap(
+            spacing: Space.sm,
+            children: [
+              for (final e in editions)
+                ChoiceChip(
+                  key: ValueKey('sheet-edition-$e'),
+                  label: Text(sheetEditionLabel(l10n, e)),
+                  selected: sheet.edition == e,
+                  onSelected: (on) => cubit.setEdition(on ? e : null),
+                ),
+            ],
+          ),
+          const SizedBox(height: Space.md),
+        ],
         const SizedBox(height: Space.sm),
         Wrap(
           spacing: Space.sm,

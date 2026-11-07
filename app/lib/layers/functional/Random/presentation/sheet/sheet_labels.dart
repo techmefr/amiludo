@@ -60,3 +60,10 @@ Map<String, String> sheetLabelMap(AppLocalizations l) => {
 List<String> sheetStepNames(AppLocalizations l) => [
   for (var i = 1; i <= SheetSpec.stepCount; i++) sheetStepLabel(l, i),
 ];
+
+String sheetEditionLabel(AppLocalizations l, String id) => switch (id) {
+  'fer' => l.sheetEditionFer,
+  'vent' => l.sheetEditionVent,
+  'esprit' => l.sheetEditionEsprit,
+  _ => id,
+};
