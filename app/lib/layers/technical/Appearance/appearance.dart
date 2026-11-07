@@ -5,10 +5,10 @@ import 'package:amiludo/layers/technical/Sensors/sensor_sensitivity.dart';
 
 class Appearance {
   const Appearance({
-    this.skin = 'play',
-    this.palette = 'play',
-    this.mode = 'light',
-    this.font = 'LilGrotesk',
+    this.skin = 'clean',
+    this.palette = 'clean',
+    this.mode = 'system',
+    this.font = 'System',
     this.shape = 'round',
     this.compact = false,
     this.large = false,
@@ -26,6 +26,7 @@ class Appearance {
   final String dieSkin, table;
   final bool compact, large, motion, keepAwake, sound, haptics, dice3d;
   static const palettes = [
+    'clean',
     'play',
     'acid',
     'neon',
@@ -40,6 +41,7 @@ class Appearance {
     'gold',
   ];
   static const fonts = [
+    'System',
     'LilGrotesk',
     'SpaceGrotesk',
     'ChakraPetch',
@@ -131,7 +133,14 @@ class Appearance {
       dieSkin: _known(j['dieSkin'], DieSkin.all.map((s) => s.id), 'classic'),
       table: _known(j['table'], TableTheme.all.map((t) => t.id), 'felt'),
     );
-    if (!['play', 'cyber', 'orbital', 'paper', 'game'].contains(a.skin) ||
+    if (![
+          'clean',
+          'play',
+          'cyber',
+          'orbital',
+          'paper',
+          'game',
+        ].contains(a.skin) ||
         !palettes.contains(a.palette) ||
         !['dark', 'light', 'system'].contains(a.mode) ||
         !fonts.contains(a.font) ||

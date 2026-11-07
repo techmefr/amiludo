@@ -4070,4 +4070,14 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get sheetApplyAvatar => 'Aplicar ao avatar';
+
+  @override
+  String get appearanceSkinCleanName => 'Clean';
+
+  @override
+  String get appearanceSkinCleanDesc =>
+      'Claro e escuro, superfícies calmas, um único destaque azul.';
+
+  @override
+  String get appearanceFontSystem => 'Sistema';
 }

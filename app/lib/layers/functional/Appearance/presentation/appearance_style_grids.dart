@@ -17,6 +17,7 @@ class AppearanceSkinGrid extends StatelessWidget {
   final AppearanceCubit controller;
 
   static const _presets = {
+    'clean': ('clean', 'system', 'round', 'System'),
     'play': ('play', 'light', 'round', 'LilGrotesk'),
     'cyber': ('acid', 'dark', 'cut', 'SpaceGrotesk'),
     'orbital': ('amber', 'light', 'square', 'Rajdhani'),
@@ -38,6 +39,11 @@ class AppearanceSkinGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final skins = [
+      (
+        'clean',
+        context.l10n.appearanceSkinCleanName,
+        context.l10n.appearanceSkinCleanDesc,
+      ),
       ('play', 'Playroom', 'Des couleurs, des cartes et l’envie de jouer.'),
       ('cyber', 'CYBERDECK', 'Noir, néon, angles biseautés.'),
       ('orbital', 'ORBITAL 77', 'Ivoire, ambre, instruments rétro.'),
@@ -86,7 +92,9 @@ class _SkinCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DeckIcon(
-          id == 'cyber'
+          id == 'clean'
+              ? Icons.contrast
+              : id == 'cyber'
               ? Icons.hexagon_outlined
               : id == 'orbital'
               ? Icons.radar
@@ -182,11 +190,19 @@ class AppearanceFontGrid extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      font,
-                      style: TextStyle(fontFamily: font, fontSize: 22),
+                      font == 'System'
+                          ? context.l10n.appearanceFontSystem
+                          : font,
+                      style: TextStyle(
+                        fontFamily: deckFontFamily(font),
+                        fontSize: 22,
+                      ),
                     ),
                     const SizedBox(height: 8),
-                    Text('Aa / 0123456789', style: TextStyle(fontFamily: font)),
+                    Text(
+                      'Aa / 0123456789',
+                      style: TextStyle(fontFamily: deckFontFamily(font)),
+                    ),
                   ],
                 ),
               ),

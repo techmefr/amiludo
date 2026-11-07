@@ -22,6 +22,18 @@ class DeckPalette {
       darkBackground,
       signal;
   static const values = {
+    'clean': DeckPalette(
+      'Clean',
+      0xff1C1C1E,
+      0xff0062CC,
+      0xffFFFFFF,
+      0xffF2F2F7,
+      0xffF5F5F7,
+      0xff4DA3FF,
+      0xff1C1C1E,
+      0xff000000,
+      0xff30D158,
+    ),
     'gold': DeckPalette(
       'Gold Quest',
       0xff2B2108,

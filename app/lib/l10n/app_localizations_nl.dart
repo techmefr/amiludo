@@ -4072,4 +4072,14 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get sheetApplyAvatar => 'Toepassen op avatar';
+
+  @override
+  String get appearanceSkinCleanName => 'Clean';
+
+  @override
+  String get appearanceSkinCleanDesc =>
+      'Licht en donker, rustige vlakken, één blauwe accentkleur.';
+
+  @override
+  String get appearanceFontSystem => 'Systeem';
 }

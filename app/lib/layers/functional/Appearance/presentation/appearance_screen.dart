@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:amiludo/layers/technical/Locale/supported_languages.dart';
 import 'package:amiludo/layers/technical/Appearance/appearance.dart';
+import 'package:amiludo/layers/technical/Theme/components/deck_segmented.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Files/file_transfer.dart';
 import 'package:amiludo/layers/functional/Appearance/presentation/cubit/appearance_cubit.dart';
@@ -53,15 +54,15 @@ class AppearanceScreen extends StatelessWidget {
         _AppearanceHeading(controller: controller),
         SectionHeading(context.l10n.appearance01YourWorld),
         AppearanceSkinGrid(appearance: a, controller: controller),
-        _ChoiceSection(
-          title: context.l10n.appearance02Light,
+        SectionHeading(context.l10n.appearance02Light),
+        DeckSegmented<String>(
           options: [
             ('light', context.l10n.appearanceLight),
             ('dark', context.l10n.appearanceDark),
             ('system', context.l10n.appearanceSystem),
           ],
           selected: a.mode,
-          change: (v) => controller.change(a.copyWith(mode: v)),
+          onChanged: (v) => controller.change(a.copyWith(mode: v)),
         ),
         SectionHeading(context.l10n.appearance03Palette),
         AppearancePaletteGrid(appearance: a, controller: controller),
@@ -90,10 +91,7 @@ class AppearanceScreen extends StatelessWidget {
           selected: a.language,
           change: (v) => controller.change(a.copyWith(language: v)),
         ),
-        SensorSensitivitySection(
-          appearance: a,
-          change: controller.change,
-        ),
+        SensorSensitivitySection(appearance: a, change: controller.change),
         SectionHeading(context.l10n.appearance07YourProfiles),
         _ProfileActions(
           appearance: a,

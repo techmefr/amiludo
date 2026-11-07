@@ -4074,4 +4074,14 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get sheetApplyAvatar => 'Appliquer à l\'avatar';
+
+  @override
+  String get appearanceSkinCleanName => 'Clean';
+
+  @override
+  String get appearanceSkinCleanDesc =>
+      'Clair et sombre, surfaces calmes, un seul accent bleu.';
+
+  @override
+  String get appearanceFontSystem => 'Système';
 }

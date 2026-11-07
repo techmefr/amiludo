@@ -68,4 +68,13 @@ void main() {
     expect(count(RegExp(r'Colors\.[a-z]')), lessThanOrEqualTo(9));
     expect(count(RegExp(r'fontSize: \d')), lessThanOrEqualTo(5));
   });
+
+  test('clean tokens sit inside the scales and stay accessible', () {
+    expect(Radii.control, inInclusiveRange(Radii.sm, Radii.md));
+    expect(Radii.group, inInclusiveRange(Radii.md, Radii.lg));
+    expect(Hairline.width, lessThanOrEqualTo(1));
+    expect(Hairline.barOpacity, inInclusiveRange(.6, .95));
+    expect(Numerals.tabular, isNotEmpty);
+    expect(Motion.spring, isNotNull);
+  });
 }

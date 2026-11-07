@@ -74,20 +74,25 @@ void _builderTests() {
     await tester.tap(find.text('Continuer'));
     await tester.pump();
     await tester.ensureVisible(find.text('Lancer les dés'));
+    await tester.pump();
     await tester.tap(find.text('Lancer les dés'));
     await tester.pump();
     await tester.ensureVisible(find.text('Continuer'));
+    await tester.pump();
     await tester.tap(find.text('Continuer'));
     await tester.pump();
     await tester.ensureVisible(find.text('Ajouter un dé'));
+    await tester.pump();
     await tester.tap(find.text('Ajouter un dé'));
     await tester.pump();
     while (find.text('Enregistrer le pack').evaluate().isEmpty) {
       await tester.ensureVisible(find.text('Continuer'));
+      await tester.pump();
       await tester.tap(find.text('Continuer'));
       await tester.pump();
     }
     await tester.ensureVisible(find.text('Enregistrer le pack'));
+    await tester.pump();
     await tester.tap(find.text('Enregistrer le pack'));
     await tester.pumpAndSettle();
     expect(find.text('My pack'), findsOneWidget);

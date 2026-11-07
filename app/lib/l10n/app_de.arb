@@ -1245,5 +1245,8 @@
   "sheetEditionFer": "Eisen",
   "sheetEditionVent": "Wind",
   "sheetEditionEsprit": "Geist",
-  "sheetApplyAvatar": "Auf Avatar anwenden"
+  "sheetApplyAvatar": "Auf Avatar anwenden",
+  "appearanceSkinCleanName": "Clean",
+  "appearanceSkinCleanDesc": "Hell und dunkel, ruhige Flächen, ein blauer Akzent.",
+  "appearanceFontSystem": "System"
 }

@@ -15,6 +15,18 @@ abstract final class Radii {
   static const double md = 12;
   static const double lg = 20;
   static const double pill = 28;
+  static const double control = 10;
+  static const double group = 16;
+}
+
+abstract final class Hairline {
+  static const double width = .5;
+  static const double blur = 24;
+  static const double barOpacity = .78;
+}
+
+abstract final class Numerals {
+  static const List<FontFeature> tabular = [FontFeature.tabularFigures()];
 }
 
 abstract final class Elevation {
@@ -41,6 +53,7 @@ abstract final class Motion {
   static const Duration base = Duration(milliseconds: 250);
   static const Duration slow = Duration(milliseconds: 350);
   static const Curve curve = Curves.easeOutCubic;
+  static const Curve spring = Curves.easeOutBack;
 
   static Duration of(BuildContext context, Duration duration) =>
       MediaQuery.disableAnimationsOf(context) ? Duration.zero : duration;

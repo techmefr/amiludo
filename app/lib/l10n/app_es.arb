@@ -1245,5 +1245,8 @@
   "sheetEditionFer": "Hierro",
   "sheetEditionVent": "Viento",
   "sheetEditionEsprit": "Espíritu",
-  "sheetApplyAvatar": "Aplicar al avatar"
+  "sheetApplyAvatar": "Aplicar al avatar",
+  "appearanceSkinCleanName": "Clean",
+  "appearanceSkinCleanDesc": "Claro y oscuro, superficies tranquilas, un solo acento azul.",
+  "appearanceFontSystem": "Sistema"
 }

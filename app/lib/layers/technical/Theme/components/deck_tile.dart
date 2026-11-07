@@ -47,6 +47,7 @@ class _DeckTileState extends State<DeckTile> {
           color: widget.selected ? scheme.secondary : scheme.surface,
           shape: style.border(
             widget.selected ? scheme.primary : scheme.outline,
+            strong: widget.selected,
           ),
           elevation: widget.selected && style.glow != null ? 8 : 0,
           shadowColor: style.glow,

@@ -33,7 +33,7 @@ SnackBarThemeData deckSnackBarTheme(
   backgroundColor: ink,
   contentTextStyle: TextStyle(
     color: background,
-    fontFamily: appearance.font,
+    fontFamily: deckFontFamily(appearance.font),
     fontFamilyFallback: deckSymbolFallback,
   ),
 );
@@ -186,7 +186,7 @@ NavigationBarThemeData deckNavigationBarTheme(
   indicatorColor: hero,
   labelTextStyle: WidgetStatePropertyAll(
     TextStyle(
-      fontFamily: appearance.font,
+      fontFamily: deckFontFamily(appearance.font),
       fontFamilyFallback: deckSymbolFallback,
       fontSize: 12,
       fontWeight: FontWeight.w500,

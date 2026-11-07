@@ -7603,6 +7603,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Apply to avatar'**
   String get sheetApplyAvatar;
+
+  /// No description provided for @appearanceSkinCleanName.
+  ///
+  /// In en, this message translates to:
+  /// **'Clean'**
+  String get appearanceSkinCleanName;
+
+  /// No description provided for @appearanceSkinCleanDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Light and dark, quiet surfaces, one blue accent.'**
+  String get appearanceSkinCleanDesc;
+
+  /// No description provided for @appearanceFontSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get appearanceFontSystem;
 }
 
 class _AppLocalizationsDelegate

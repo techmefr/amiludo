@@ -108,11 +108,13 @@ void main() {
       await tester.pumpAndSettle();
       Finder complete() => find.widgetWithText(FilledButton, 'Complete the mission');
       await tester.ensureVisible(complete());
+      await tester.pump();
       expect(tester.widget<FilledButton>(complete()).onPressed, isNull);
       await tester.tap(find.text('Go down to the cellar'));
       await tester.pump();
       expect(find.textContaining('forgotten key'), findsOneWidget);
       await tester.ensureVisible(complete());
+      await tester.pump();
       await tester.tap(complete());
       await tester.pumpAndSettle();
       expect(gateway.current.choices['crossroads'], 1);

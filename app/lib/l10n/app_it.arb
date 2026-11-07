@@ -1245,5 +1245,8 @@
   "sheetEditionFer": "Ferro",
   "sheetEditionVent": "Vento",
   "sheetEditionEsprit": "Spirito",
-  "sheetApplyAvatar": "Applica all'avatar"
+  "sheetApplyAvatar": "Applica all'avatar",
+  "appearanceSkinCleanName": "Clean",
+  "appearanceSkinCleanDesc": "Chiaro e scuro, superfici calme, un solo accento blu.",
+  "appearanceFontSystem": "Sistema"
 }

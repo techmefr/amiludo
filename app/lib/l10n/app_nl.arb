@@ -1245,5 +1245,8 @@
   "sheetEditionFer": "IJzer",
   "sheetEditionVent": "Wind",
   "sheetEditionEsprit": "Geest",
-  "sheetApplyAvatar": "Toepassen op avatar"
+  "sheetApplyAvatar": "Toepassen op avatar",
+  "appearanceSkinCleanName": "Clean",
+  "appearanceSkinCleanDesc": "Licht en donker, rustige vlakken, één blauwe accentkleur.",
+  "appearanceFontSystem": "Systeem"
 }
