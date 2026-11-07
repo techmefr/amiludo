@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/hourglass.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/turn_sensor.dart';
-import 'package:amiludo/layers/technical/Theme/components/hourglass_painter.dart';
+import 'package:amiludo/layers/technical/Theme/components/sand_scene.dart';
+import 'package:amiludo/layers/technical/Theme/components/sandglass_painter.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -97,7 +98,6 @@ class _HourglassViewState extends State<HourglassView> {
       step = wanted;
       if (flow.running) startTicker();
     }
-    final theme = Theme.of(context);
     final l10n = context.l10n;
     final height = (MediaQuery.sizeOf(context).height * 0.45).clamp(
       200.0,
@@ -118,35 +118,34 @@ class _HourglassViewState extends State<HourglassView> {
             height: height,
             width: height * 0.6,
             child: CustomPaint(
-              painter: HourglassPainter(
+              painter: SandglassPainter(
                 upperFill: flow.upperFill,
                 lowerFill: flow.lowerFill,
                 sand: Color(widget.settings.color),
-                glass: theme.colorScheme.onSurface,
                 streaming: flow.running && !reduced,
+                phase: (flow.remaining.inMilliseconds % 1000) / 1000,
               ),
             ),
           ),
           const SizedBox(height: Space.lg),
-          Text(status, style: theme.textTheme.displaySmall),
-          const SizedBox(height: Space.lg),
+          Text(status, style: sandNumerals(TypeScale.display * 1.6)),
+          const SizedBox(height: Space.xl),
           Wrap(
             alignment: WrapAlignment.center,
             spacing: Space.md,
             runSpacing: Space.sm,
             children: [
-              FilledButton(
+              SandPill(
+                filled: true,
                 onPressed: flow.finished
                     ? null
                     : () => apply(flow.running ? flow.pause : flow.start),
-                child: Text(
-                  flow.running ? l10n.hourglassPause : l10n.hourglassStart,
-                ),
+                label: flow.running ? l10n.hourglassPause : l10n.hourglassStart,
               ),
-              OutlinedButton(onPressed: turn, child: Text(l10n.hourglassTurn)),
-              TextButton(
+              SandPill(onPressed: turn, label: l10n.hourglassTurn),
+              SandPill(
                 onPressed: () => apply(flow.reset),
-                child: Text(l10n.appearanceReset),
+                label: l10n.appearanceReset,
               ),
             ],
           ),

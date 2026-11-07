@@ -4,6 +4,7 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/hourglass.da
 import 'package:amiludo/layers/functional/Companion/domain/entities/turn_sensor.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/hourglass_view.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/sand_scene.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 const hourglassPresets = [30, 60, 120, 300];
@@ -25,28 +26,33 @@ class _HourglassToolState extends State<HourglassTool> {
   late HourglassSettings settings = widget.initial;
 
   @override
-  Widget build(BuildContext context) => Center(
-    child: Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Wrap(
-          alignment: WrapAlignment.center,
-          spacing: Space.sm,
-          runSpacing: Space.sm,
+  Widget build(BuildContext context) => SandScene(
+    child: Center(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(Space.xl),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            for (final seconds in hourglassPresets)
-              ChoiceChip(
-                label: Text(context.l10n.hourglassSeconds(seconds)),
-                selected: settings.seconds == seconds,
-                onSelected: (_) => setState(
-                  () => settings = settings.copyWith(seconds: seconds),
-                ),
-              ),
+            Wrap(
+              alignment: WrapAlignment.center,
+              spacing: Space.sm,
+              runSpacing: Space.sm,
+              children: [
+                for (final seconds in hourglassPresets)
+                  SandPill(
+                    label: context.l10n.hourglassSeconds(seconds),
+                    selected: settings.seconds == seconds,
+                    onPressed: () => setState(
+                      () => settings = settings.copyWith(seconds: seconds),
+                    ),
+                  ),
+              ],
+            ),
+            const SizedBox(height: Space.xl),
+            HourglassView(settings: settings, sensor: widget.sensor),
           ],
         ),
-        const SizedBox(height: Space.xl),
-        HourglassView(settings: settings, sensor: widget.sensor),
-      ],
+      ),
     ),
   );
 }
