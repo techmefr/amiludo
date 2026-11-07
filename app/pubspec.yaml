@@ -61,6 +61,7 @@ flutter:
     - assets/community/
     - assets/fonts/
     - assets/generators/
+    - assets/oracle/
   fonts:
     - family: LilGrotesk
       fonts:

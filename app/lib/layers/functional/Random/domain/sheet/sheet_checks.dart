@@ -20,24 +20,38 @@ abstract final class SheetChecks {
     if (birth != null &&
         age != null &&
         SheetDates.ageAt(universe.era, birth) != age) {
-      found.add(const SheetProblem(SheetProblemKind.ageBirth, ['age', 'birthDate']));
+      found.add(
+        const SheetProblem(SheetProblemKind.ageBirth, ['age', 'birthDate']),
+      );
     }
     final flaws = sheet.of('flaws');
     final qualities = sheet.of('qualities');
     final clash = tables.oppositesOf(qualities);
     if (flaws.any((f) => clash.contains(f) || qualities.contains(f))) {
-      found.add(const SheetProblem(SheetProblemKind.qualityFlaw, ['qualities', 'flaws']));
+      found.add(
+        const SheetProblem(SheetProblemKind.qualityFlaw, [
+          'qualities',
+          'flaws',
+        ]),
+      );
     }
     final culture = universe.culture(sheet.culture);
     if (culture != null) {
       final spoken = sheet.of('languages');
       final place = sheet.first('birthPlace');
-      final nameOk = sheet.first('name').isEmpty ||
+      final nameOk =
+          sheet.first('name').isEmpty ||
           culture.firstNames.any(sheet.first('name').startsWith);
       if ((spoken.isNotEmpty && !culture.languages.any(spoken.contains)) ||
           (place.isNotEmpty && !culture.places.contains(place)) ||
           !nameOk) {
-        found.add(const SheetProblem(SheetProblemKind.culture, ['origin', 'name', 'languages']));
+        found.add(
+          const SheetProblem(SheetProblemKind.culture, [
+            'origin',
+            'name',
+            'languages',
+          ]),
+        );
       }
     }
     for (final f in SheetSpec.fields) {

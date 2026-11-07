@@ -148,6 +148,23 @@ class _CharacterToolState extends State<CharacterTool> {
     ),
   ];
 
+  void openSheet() {
+    if (draft == null) {
+      final fresh = CharacterDraft(
+        widget.pack.creation,
+        packName: widget.pack.name,
+        boosters: boosters,
+      );
+      cubit.saveDraft(fresh);
+      setState(() {
+        draft = fresh;
+        opened = !boosters;
+      });
+    }
+    final pack = Uri.encodeQueryComponent(widget.pack.name);
+    context.push('/character-sheet?pack=$pack');
+  }
+
   void goBack(CharacterDraft d) {
     d.back();
     cubit.saveDraft(d);
@@ -252,6 +269,13 @@ class _CharacterToolState extends State<CharacterTool> {
           onPressed: () => context.push('/chronicles'),
           icon: const DeckIcon(Icons.auto_stories_outlined),
           label: Text(context.l10n.chroniclesTitle),
+        ),
+        const SizedBox(height: 12),
+        OutlinedButton.icon(
+          key: const ValueKey('open-sheet'),
+          onPressed: openSheet,
+          icon: const DeckIcon(Icons.assignment_ind_outlined),
+          label: Text(context.l10n.sheetOpen),
         ),
         const SizedBox(height: 20),
         if (d == null) ...setup(),

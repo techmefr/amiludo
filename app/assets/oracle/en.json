@@ -1,0 +1,10 @@
+{
+  "action": ["Gather", "Hide", "Follow", "Break", "Offer", "Refuse", "Mend", "Betray", "Guard", "Wander", "Trade", "Reveal", "Chase", "Bind", "Forget", "Summon"],
+  "theme": ["Debt", "Harvest", "Storm", "Heirloom", "Secret", "Border", "Festival", "Hunger", "Oath", "Shadow", "Bridge", "Rumour", "Lantern", "Winter", "Crown", "Tide"],
+  "descriptor": ["Fragile", "Ancient", "Bitter", "Gleaming", "Hollow", "Restless", "Humble", "Cunning", "Wild", "Silent", "Crooked", "Sacred", "Borrowed", "Rusty", "Radiant", "Forbidden"],
+  "aspect": ["Voice", "Door", "Road", "Blade", "Garden", "Mirror", "Song", "Ledger", "Flame", "Well", "Mask", "Bell", "Coin", "Thread", "Tower", "Feast"],
+  "eventFocus": ["A newcomer arrives", "An ally is in trouble", "A rival makes a move", "The place changes", "An old promise returns", "Something is lost", "A rumour spreads", "Nature intervenes"],
+  "reaction": ["Hostile", "Wary", "Indifferent", "Friendly", "Eager to help"],
+  "discovery": ["A hidden passage", "A forgotten tool", "A sealed letter", "Fresh tracks", "A stash of supplies", "A strange symbol", "A wounded stranger", "A working mechanism", "An unexpected view", "A source of clean water"],
+  "complication": ["Time is running out", "Someone is watching", "A tool breaks", "The weather turns", "A friend hesitates", "The path is blocked", "A price must be paid", "An old enemy shows up", "The map was wrong", "Supplies run low"]
+}

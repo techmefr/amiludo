@@ -6,11 +6,13 @@ class SheetLook {
     this.tints = const {},
     this.pieces = const [],
     this.hairless = false,
+    this.colors = const {},
   });
 
   final Map<String, int> tints;
   final List<String> pieces;
   final bool hairless;
+  final Map<String, String> colors;
 
   static const _tinted = {'skin': 'skin', 'eyes': 'eyes', 'hair': 'hair'};
 
@@ -29,12 +31,16 @@ class SheetLook {
         .pool(sheet.universe, field)
         .where((o) => o.text == text)
         .firstOrNull;
-    final tints = <String, int>{};
+    final tints = <String, int>{}, colors = <String, String>{};
     final pieces = <String>[];
     var hairless = false;
     for (final e in _tinted.entries) {
       final o = option(e.key, sheet.first(e.key));
-      if (o?.palette != null) tints[e.value] = o!.palette!;
+      if (o?.palette != null) {
+        tints[e.value] = o!.palette!;
+        final hex = tables.colorOf(e.value, o.palette!);
+        if (hex != null) colors[e.value] = hex;
+      }
       if (e.key == 'hair' && o?.kind == 'bald') hairless = true;
     }
     final mech = option('eyes', sheet.first('eyes'));
@@ -45,6 +51,11 @@ class SheetLook {
       final id = piece == null ? null : _piece(piece);
       if (id != null && !pieces.contains(id)) pieces.add(id);
     }
-    return SheetLook(tints: tints, pieces: pieces, hairless: hairless);
+    return SheetLook(
+      tints: tints,
+      pieces: pieces,
+      hairless: hairless,
+      colors: colors,
+    );
   }
 }

@@ -1036,7 +1036,9 @@
   "hourglassSeconds": "{count} s",
   "@hourglassSeconds": {
     "placeholders": {
-      "count": {"type": "int"}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "toolHeroesTitle": "Heroes and powers",
@@ -1111,19 +1113,28 @@
   "campaignSubtitle": "A short story in {universe}, one mission at a time.",
   "@campaignSubtitle": {
     "placeholders": {
-      "universe": {"type": "String"}
+      "universe": {
+        "type": "String"
+      }
     }
   },
   "campaignProgress": "{done} of {total} missions",
   "@campaignProgress": {
     "placeholders": {
-      "done": {"type": "int"}, "total": {"type": "int"}
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "campaignMinutes": "{count} min",
   "@campaignMinutes": {
     "placeholders": {
-      "count": {"type": "int"}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "campaignLocked": "Finish the previous mission to unlock this one.",
@@ -1143,7 +1154,9 @@
   "campaignFinale": "The lantern shines again over {universe}. You are ready to play your first role-playing game.",
   "@campaignFinale": {
     "placeholders": {
-      "universe": {"type": "String"}
+      "universe": {
+        "type": "String"
+      }
     }
   },
   "campaignM1Title": "The door that sticks",
@@ -1227,15 +1240,31 @@
   "diceImportFailed": "This dice file is not valid.",
   "diceImportClashTitle": "Dice already in your library",
   "diceImportClashBody": "{count} dice already exist. Replace them or keep both?",
-  "@diceImportClashBody": {"placeholders": {"count": {}}},
+  "@diceImportClashBody": {
+    "placeholders": {
+      "count": {}
+    }
+  },
   "diceImportReplace": "Replace",
   "diceImportKeepBoth": "Keep both",
   "diceCopyName": "{name} (copy)",
-  "@diceCopyName": {"placeholders": {"name": {}}},
+  "@diceCopyName": {
+    "placeholders": {
+      "name": {}
+    }
+  },
   "diceSelectDie": "Select {name}",
-  "@diceSelectDie": {"placeholders": {"name": {}}},
+  "@diceSelectDie": {
+    "placeholders": {
+      "name": {}
+    }
+  },
   "diceFaceTotal": "{count} faces",
-  "@diceFaceTotal": {"placeholders": {"count": {}}},
+  "@diceFaceTotal": {
+    "placeholders": {
+      "count": {}
+    }
+  },
   "diceManage": "Manage my dice",
   "diceEditorTitle": "Design a die",
   "diceName": "Name",
@@ -1243,7 +1272,11 @@
   "diceBodyColor": "Die color",
   "diceFaces": "Faces",
   "diceFaceEdit": "Edit face {n}",
-  "@diceFaceEdit": {"placeholders": {"n": {}}},
+  "@diceFaceEdit": {
+    "placeholders": {
+      "n": {}
+    }
+  },
   "diceFaceText": "Text or number",
   "diceFaceIcon": "Icon",
   "diceFaceImage": "Image",
@@ -1261,7 +1294,11 @@
   "diceBulkStart": "First number",
   "diceBulkNumber": "Number the range",
   "diceBulkCopy": "Copy face {n} to the range",
-  "@diceBulkCopy": {"placeholders": {"n": {}}},
+  "@diceBulkCopy": {
+    "placeholders": {
+      "n": {}
+    }
+  },
   "diceFaceMoveEarlier": "Move face earlier",
   "diceFaceMoveLater": "Move face later",
   "diceFaceDuplicate": "Duplicate face",
@@ -1327,6 +1364,217 @@
       }
     }
   },
+  "notebookHomeTile": "Campaign notebook",
+  "notebookTitle": "Campaign notebook",
+  "notebookIntro": "Keep the story of your solo adventures or your game master notes, with an oracle to answer your questions.",
+  "notebookEmpty": "No campaign yet",
+  "notebookEmptyHint": "Create a campaign or import a file to begin.",
+  "notebookNewCampaign": "New campaign",
+  "notebookCampaignName": "Campaign name",
+  "notebookCreate": "Create",
+  "notebookKindSolo": "Solo",
+  "notebookKindGm": "Game master",
+  "notebookImport": "Import a campaign",
+  "notebookImported": "Campaign imported",
+  "notebookImportFailed": "This file is not a campaign",
+  "notebookExport": "Export",
+  "notebookDelete": "Delete",
+  "notebookDeleteAsk": "Delete “{name}” and everything in it?",
+  "@notebookDeleteAsk": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "notebookFavorite": "Favorite",
+  "notebookLook": "Look",
+  "notebookPalette": "Palette",
+  "notebookDefaultPalette": "Default palette",
+  "notebookHeaderImage": "Header image",
+  "notebookRemoveImage": "Remove image",
+  "notebookTabJournal": "Journal",
+  "notebookTabEntries": "Entries",
+  "notebookTabOracle": "Oracle",
+  "notebookStartSession": "Start a session",
+  "notebookEndSession": "End session",
+  "notebookSessionTitle": "Session title",
+  "notebookSession": "Session",
+  "notebookSessionActive": "active",
+  "notebookJournalEmpty": "Nothing written yet. Tell what happened below.",
+  "notebookQuickEntryHint": "What happened?",
+  "notebookAdd": "Add",
+  "notebookAddToJournal": "Add to journal",
+  "notebookRemove": "Remove",
+  "notebookToolDice": "Dice",
+  "notebookToolOracle": "Oracle",
+  "notebookToolGenerator": "Generator",
+  "notebookToolScene": "Scene note",
+  "notebookSceneNote": "Scene",
+  "notebookDiceExpression": "Roll (for example 2d6+1)",
+  "notebookDiceInvalid": "Use a format like 2d6+1",
+  "notebookRoll": "Roll",
+  "notebookReroll": "Draw again",
+  "notebookAll": "All",
+  "notebookKindNpc": "Character",
+  "notebookKindPlace": "Place",
+  "notebookKindQuest": "Quest",
+  "notebookKindLoot": "Loot",
+  "notebookKindFaction": "Faction",
+  "notebookNewEntry": "New entry",
+  "notebookEntryName": "Name",
+  "notebookEntriesEmpty": "No entry yet. Add characters, places, quests, loot and factions.",
+  "notebookSearchHint": "Search the campaign",
+  "notebookNoResults": "Nothing found",
+  "notebookSectionDescription": "Description",
+  "notebookSectionNotes": "Notes",
+  "notebookSectionChecklist": "Checklist",
+  "notebookSectionTags": "Tags",
+  "notebookSectionStats": "Statistics",
+  "notebookSectionPictures": "Pictures",
+  "notebookAddSection": "Add a section",
+  "notebookSectionTitle": "Rename section",
+  "notebookAddItem": "Add an item",
+  "notebookAddTag": "Add a tag",
+  "notebookStatName": "Name",
+  "notebookStatValue": "Value",
+  "notebookAddStat": "Add a statistic",
+  "notebookAddPicture": "Add a picture",
+  "notebookLinkHint": "Write here. Names of other entries become links, or use [[Name]].",
+  "notebookBacklinks": "Mentioned in",
+  "notebookLikelihood": "Likelihood",
+  "notebookLikelihoodVeryUnlikely": "Very unlikely",
+  "notebookLikelihoodUnlikely": "Unlikely",
+  "notebookLikelihoodEven": "Even odds",
+  "notebookLikelihoodLikely": "Likely",
+  "notebookLikelihoodVeryLikely": "Very likely",
+  "notebookChaos": "Chaos factor: {value}",
+  "@notebookChaos": {
+    "placeholders": {
+      "value": {"type": "int"}
+    }
+  },
+  "notebookAsk": "Ask the oracle",
+  "notebookOracleQuestion": "Yes or no question",
+  "notebookAnswerYes": "Yes",
+  "notebookAnswerNo": "No",
+  "notebookAnswerExceptionalYes": "Yes, and more",
+  "notebookAnswerExceptionalNo": "No, and worse",
+  "notebookAnswerEvent": "a random event occurs",
+  "notebookSceneCheck": "Scene check",
+  "notebookSceneExpected": "The scene goes as expected",
+  "notebookSceneAltered": "The scene is altered",
+  "notebookSceneInterrupted": "The scene is interrupted",
+  "notebookMeaning": "Action and theme",
+  "notebookDescriptors": "Descriptors",
+  "notebookRandomEvent": "Random event",
+  "notebookReaction": "NPC reaction",
+  "notebookDiscovery": "Discovery",
+  "notebookComplication": "Complication",
+  "notebookTabAtlas": "Atlas",
+  "notebookAtlasEmpty": "No place yet. Add a sea, an isle, then a settlement or a dungeon inside it.",
+  "notebookNewPlace": "New place",
+  "notebookOpenMap": "Open the map",
+  "notebookParentPlace": "Inside",
+  "notebookNoParent": "Nothing (top level)",
+  "notebookPins": "Pins",
+  "notebookNoPins": "Place a pin on the map to link it to an entry or another map.",
+  "notebookPinLink": "Link to",
+  "notebookPinUnlinked": "Not linked",
+  "notebookPinUnnamed": "Unnamed pin",
+  "notebookSearchAll": "Search all campaigns",
+  "sheetFieldName": "Full name",
+  "sheetFieldNickname": "Nickname",
+  "sheetFieldAge": "Age",
+  "sheetFieldBirthDate": "Date of birth",
+  "sheetFieldBirthPlace": "Place of birth",
+  "sheetFieldGender": "Gender",
+  "sheetFieldOrigin": "Nationality and origins",
+  "sheetFieldLanguages": "Languages spoken",
+  "sheetFieldJob": "Trade or occupation",
+  "sheetFieldStatus": "Social status",
+  "sheetFieldGroup": "Group (family, clan...)",
+  "sheetFieldSkin": "Skin color",
+  "sheetFieldEyes": "Eye color",
+  "sheetFieldHair": "Hair color",
+  "sheetFieldBuild": "Build",
+  "sheetFieldHeight": "Height",
+  "sheetFieldStyle": "Clothing style",
+  "sheetFieldMarks": "Distinctive marks",
+  "sheetFieldQualities": "Qualities",
+  "sheetFieldFlaws": "Flaws",
+  "sheetFieldLikes": "Likes",
+  "sheetFieldDislikes": "Dislikes",
+  "sheetFieldTalents": "Special talents",
+  "sheetFieldHabits": "Habits",
+  "sheetFieldMotivation": "Deep motivation",
+  "sheetFieldGoal": "Goal in the story",
+  "sheetFieldFamily": "Family origin",
+  "sheetFieldChildhood": "Childhood story and trauma",
+  "sheetFieldExperiences": "Experiences useful to the story",
+  "sheetFieldEvolution": "Evolution before the story",
+  "sheetFieldSituation": "Starting situation",
+  "sheetFieldAims": "Motivations, goals and actions",
+  "sheetStep1": "General information",
+  "sheetStep2": "Physical appearance",
+  "sheetStep3": "Personality and abilities",
+  "sheetStep4": "Past",
+  "sheetStep5": "Present",
+  "sheetUniverseFantasy": "Medieval fantasy",
+  "sheetUniverseScifi": "Science fiction",
+  "sheetUniverseCyberpunk": "Cyberpunk",
+  "sheetUniverseGothique": "Gothic horror",
+  "sheetTitle": "Character sheet",
+  "sheetSubtitle": "Five steps, from identity to the first scene.",
+  "sheetChooseUniverse": "Choose a universe",
+  "sheetOpen": "Full character sheet",
+  "sheetCompleteFromCards": "Complete the full sheet",
+  "sheetStepOf": "Step {step} of {total}",
+  "@sheetStepOf": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "sheetGenerateStep": "Generate this step",
+  "sheetGenerateAll": "Generate everything",
+  "sheetPrevious": "Previous",
+  "sheetNext": "Next",
+  "sheetReroll": "Draw again",
+  "sheetLock": "Lock",
+  "sheetUnlock": "Unlock",
+  "sheetEdit": "Edit",
+  "sheetEditHint": "One value per line",
+  "sheetEditInvalid": "{min} to {max} values expected",
+  "@sheetEditInvalid": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "sheetEmpty": "Not filled in",
+  "sheetEditMode": "Edit the sheet",
+  "sheetReadMode": "Read the sheet",
+  "sheetSave": "Save to my characters",
+  "sheetSaved": "Saved",
+  "sheetCopyText": "Copy as text",
+  "sheetCopyJson": "Copy as JSON",
+  "sheetShare": "Share",
+  "sheetCopied": "Copied",
+  "sheetMismatch": "Some details do not match",
+  "sheetLoadFailed": "The sheet tables could not be loaded.",
+  "sheetView": "View the sheet",
+  "sheetEditionLabel": "Edition",
+  "sheetEditionFer": "Iron",
+  "sheetEditionVent": "Wind",
+  "sheetEditionEsprit": "Mind",
+  "sheetApplyAvatar": "Apply to avatar",
   "appearanceSkinCleanName": "Clean",
   "appearanceSkinCleanDesc": "Light and dark, quiet surfaces, one blue accent.",
   "appearanceFontSystem": "System"

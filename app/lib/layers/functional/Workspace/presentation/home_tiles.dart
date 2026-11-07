@@ -47,6 +47,11 @@ class HomeWaysToPlay extends StatelessWidget {
         title: context.l10n.campaignHomeTile,
         onTap: () => context.go('/campaign'),
       ),
+      DeckTile(
+        icon: Icons.menu_book_outlined,
+        title: context.l10n.notebookHomeTile,
+        onTap: () => context.push('/notebook'),
+      ),
     ],
   );
 }

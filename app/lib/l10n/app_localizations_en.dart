@@ -3485,6 +3485,564 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get notebookHomeTile => 'Campaign notebook';
+
+  @override
+  String get notebookTitle => 'Campaign notebook';
+
+  @override
+  String get notebookIntro =>
+      'Keep the story of your solo adventures or your game master notes, with an oracle to answer your questions.';
+
+  @override
+  String get notebookEmpty => 'No campaign yet';
+
+  @override
+  String get notebookEmptyHint =>
+      'Create a campaign or import a file to begin.';
+
+  @override
+  String get notebookNewCampaign => 'New campaign';
+
+  @override
+  String get notebookCampaignName => 'Campaign name';
+
+  @override
+  String get notebookCreate => 'Create';
+
+  @override
+  String get notebookKindSolo => 'Solo';
+
+  @override
+  String get notebookKindGm => 'Game master';
+
+  @override
+  String get notebookImport => 'Import a campaign';
+
+  @override
+  String get notebookImported => 'Campaign imported';
+
+  @override
+  String get notebookImportFailed => 'This file is not a campaign';
+
+  @override
+  String get notebookExport => 'Export';
+
+  @override
+  String get notebookDelete => 'Delete';
+
+  @override
+  String notebookDeleteAsk(String name) {
+    return 'Delete “$name” and everything in it?';
+  }
+
+  @override
+  String get notebookFavorite => 'Favorite';
+
+  @override
+  String get notebookLook => 'Look';
+
+  @override
+  String get notebookPalette => 'Palette';
+
+  @override
+  String get notebookDefaultPalette => 'Default palette';
+
+  @override
+  String get notebookHeaderImage => 'Header image';
+
+  @override
+  String get notebookRemoveImage => 'Remove image';
+
+  @override
+  String get notebookTabJournal => 'Journal';
+
+  @override
+  String get notebookTabEntries => 'Entries';
+
+  @override
+  String get notebookTabOracle => 'Oracle';
+
+  @override
+  String get notebookStartSession => 'Start a session';
+
+  @override
+  String get notebookEndSession => 'End session';
+
+  @override
+  String get notebookSessionTitle => 'Session title';
+
+  @override
+  String get notebookSession => 'Session';
+
+  @override
+  String get notebookSessionActive => 'active';
+
+  @override
+  String get notebookJournalEmpty =>
+      'Nothing written yet. Tell what happened below.';
+
+  @override
+  String get notebookQuickEntryHint => 'What happened?';
+
+  @override
+  String get notebookAdd => 'Add';
+
+  @override
+  String get notebookAddToJournal => 'Add to journal';
+
+  @override
+  String get notebookRemove => 'Remove';
+
+  @override
+  String get notebookToolDice => 'Dice';
+
+  @override
+  String get notebookToolOracle => 'Oracle';
+
+  @override
+  String get notebookToolGenerator => 'Generator';
+
+  @override
+  String get notebookToolScene => 'Scene note';
+
+  @override
+  String get notebookSceneNote => 'Scene';
+
+  @override
+  String get notebookDiceExpression => 'Roll (for example 2d6+1)';
+
+  @override
+  String get notebookDiceInvalid => 'Use a format like 2d6+1';
+
+  @override
+  String get notebookRoll => 'Roll';
+
+  @override
+  String get notebookReroll => 'Draw again';
+
+  @override
+  String get notebookAll => 'All';
+
+  @override
+  String get notebookKindNpc => 'Character';
+
+  @override
+  String get notebookKindPlace => 'Place';
+
+  @override
+  String get notebookKindQuest => 'Quest';
+
+  @override
+  String get notebookKindLoot => 'Loot';
+
+  @override
+  String get notebookKindFaction => 'Faction';
+
+  @override
+  String get notebookNewEntry => 'New entry';
+
+  @override
+  String get notebookEntryName => 'Name';
+
+  @override
+  String get notebookEntriesEmpty =>
+      'No entry yet. Add characters, places, quests, loot and factions.';
+
+  @override
+  String get notebookSearchHint => 'Search the campaign';
+
+  @override
+  String get notebookNoResults => 'Nothing found';
+
+  @override
+  String get notebookSectionDescription => 'Description';
+
+  @override
+  String get notebookSectionNotes => 'Notes';
+
+  @override
+  String get notebookSectionChecklist => 'Checklist';
+
+  @override
+  String get notebookSectionTags => 'Tags';
+
+  @override
+  String get notebookSectionStats => 'Statistics';
+
+  @override
+  String get notebookSectionPictures => 'Pictures';
+
+  @override
+  String get notebookAddSection => 'Add a section';
+
+  @override
+  String get notebookSectionTitle => 'Rename section';
+
+  @override
+  String get notebookAddItem => 'Add an item';
+
+  @override
+  String get notebookAddTag => 'Add a tag';
+
+  @override
+  String get notebookStatName => 'Name';
+
+  @override
+  String get notebookStatValue => 'Value';
+
+  @override
+  String get notebookAddStat => 'Add a statistic';
+
+  @override
+  String get notebookAddPicture => 'Add a picture';
+
+  @override
+  String get notebookLinkHint =>
+      'Write here. Names of other entries become links, or use [[Name]].';
+
+  @override
+  String get notebookBacklinks => 'Mentioned in';
+
+  @override
+  String get notebookLikelihood => 'Likelihood';
+
+  @override
+  String get notebookLikelihoodVeryUnlikely => 'Very unlikely';
+
+  @override
+  String get notebookLikelihoodUnlikely => 'Unlikely';
+
+  @override
+  String get notebookLikelihoodEven => 'Even odds';
+
+  @override
+  String get notebookLikelihoodLikely => 'Likely';
+
+  @override
+  String get notebookLikelihoodVeryLikely => 'Very likely';
+
+  @override
+  String notebookChaos(int value) {
+    return 'Chaos factor: $value';
+  }
+
+  @override
+  String get notebookAsk => 'Ask the oracle';
+
+  @override
+  String get notebookOracleQuestion => 'Yes or no question';
+
+  @override
+  String get notebookAnswerYes => 'Yes';
+
+  @override
+  String get notebookAnswerNo => 'No';
+
+  @override
+  String get notebookAnswerExceptionalYes => 'Yes, and more';
+
+  @override
+  String get notebookAnswerExceptionalNo => 'No, and worse';
+
+  @override
+  String get notebookAnswerEvent => 'a random event occurs';
+
+  @override
+  String get notebookSceneCheck => 'Scene check';
+
+  @override
+  String get notebookSceneExpected => 'The scene goes as expected';
+
+  @override
+  String get notebookSceneAltered => 'The scene is altered';
+
+  @override
+  String get notebookSceneInterrupted => 'The scene is interrupted';
+
+  @override
+  String get notebookMeaning => 'Action and theme';
+
+  @override
+  String get notebookDescriptors => 'Descriptors';
+
+  @override
+  String get notebookRandomEvent => 'Random event';
+
+  @override
+  String get notebookReaction => 'NPC reaction';
+
+  @override
+  String get notebookDiscovery => 'Discovery';
+
+  @override
+  String get notebookComplication => 'Complication';
+
+  @override
+  String get notebookTabAtlas => 'Atlas';
+
+  @override
+  String get notebookAtlasEmpty =>
+      'No place yet. Add a sea, an isle, then a settlement or a dungeon inside it.';
+
+  @override
+  String get notebookNewPlace => 'New place';
+
+  @override
+  String get notebookOpenMap => 'Open the map';
+
+  @override
+  String get notebookParentPlace => 'Inside';
+
+  @override
+  String get notebookNoParent => 'Nothing (top level)';
+
+  @override
+  String get notebookPins => 'Pins';
+
+  @override
+  String get notebookNoPins =>
+      'Place a pin on the map to link it to an entry or another map.';
+
+  @override
+  String get notebookPinLink => 'Link to';
+
+  @override
+  String get notebookPinUnlinked => 'Not linked';
+
+  @override
+  String get notebookPinUnnamed => 'Unnamed pin';
+
+  @override
+  String get notebookSearchAll => 'Search all campaigns';
+
+  @override
+  String get sheetFieldName => 'Full name';
+
+  @override
+  String get sheetFieldNickname => 'Nickname';
+
+  @override
+  String get sheetFieldAge => 'Age';
+
+  @override
+  String get sheetFieldBirthDate => 'Date of birth';
+
+  @override
+  String get sheetFieldBirthPlace => 'Place of birth';
+
+  @override
+  String get sheetFieldGender => 'Gender';
+
+  @override
+  String get sheetFieldOrigin => 'Nationality and origins';
+
+  @override
+  String get sheetFieldLanguages => 'Languages spoken';
+
+  @override
+  String get sheetFieldJob => 'Trade or occupation';
+
+  @override
+  String get sheetFieldStatus => 'Social status';
+
+  @override
+  String get sheetFieldGroup => 'Group (family, clan...)';
+
+  @override
+  String get sheetFieldSkin => 'Skin color';
+
+  @override
+  String get sheetFieldEyes => 'Eye color';
+
+  @override
+  String get sheetFieldHair => 'Hair color';
+
+  @override
+  String get sheetFieldBuild => 'Build';
+
+  @override
+  String get sheetFieldHeight => 'Height';
+
+  @override
+  String get sheetFieldStyle => 'Clothing style';
+
+  @override
+  String get sheetFieldMarks => 'Distinctive marks';
+
+  @override
+  String get sheetFieldQualities => 'Qualities';
+
+  @override
+  String get sheetFieldFlaws => 'Flaws';
+
+  @override
+  String get sheetFieldLikes => 'Likes';
+
+  @override
+  String get sheetFieldDislikes => 'Dislikes';
+
+  @override
+  String get sheetFieldTalents => 'Special talents';
+
+  @override
+  String get sheetFieldHabits => 'Habits';
+
+  @override
+  String get sheetFieldMotivation => 'Deep motivation';
+
+  @override
+  String get sheetFieldGoal => 'Goal in the story';
+
+  @override
+  String get sheetFieldFamily => 'Family origin';
+
+  @override
+  String get sheetFieldChildhood => 'Childhood story and trauma';
+
+  @override
+  String get sheetFieldExperiences => 'Experiences useful to the story';
+
+  @override
+  String get sheetFieldEvolution => 'Evolution before the story';
+
+  @override
+  String get sheetFieldSituation => 'Starting situation';
+
+  @override
+  String get sheetFieldAims => 'Motivations, goals and actions';
+
+  @override
+  String get sheetStep1 => 'General information';
+
+  @override
+  String get sheetStep2 => 'Physical appearance';
+
+  @override
+  String get sheetStep3 => 'Personality and abilities';
+
+  @override
+  String get sheetStep4 => 'Past';
+
+  @override
+  String get sheetStep5 => 'Present';
+
+  @override
+  String get sheetUniverseFantasy => 'Medieval fantasy';
+
+  @override
+  String get sheetUniverseScifi => 'Science fiction';
+
+  @override
+  String get sheetUniverseCyberpunk => 'Cyberpunk';
+
+  @override
+  String get sheetUniverseGothique => 'Gothic horror';
+
+  @override
+  String get sheetTitle => 'Character sheet';
+
+  @override
+  String get sheetSubtitle => 'Five steps, from identity to the first scene.';
+
+  @override
+  String get sheetChooseUniverse => 'Choose a universe';
+
+  @override
+  String get sheetOpen => 'Full character sheet';
+
+  @override
+  String get sheetCompleteFromCards => 'Complete the full sheet';
+
+  @override
+  String sheetStepOf(int step, int total) {
+    return 'Step $step of $total';
+  }
+
+  @override
+  String get sheetGenerateStep => 'Generate this step';
+
+  @override
+  String get sheetGenerateAll => 'Generate everything';
+
+  @override
+  String get sheetPrevious => 'Previous';
+
+  @override
+  String get sheetNext => 'Next';
+
+  @override
+  String get sheetReroll => 'Draw again';
+
+  @override
+  String get sheetLock => 'Lock';
+
+  @override
+  String get sheetUnlock => 'Unlock';
+
+  @override
+  String get sheetEdit => 'Edit';
+
+  @override
+  String get sheetEditHint => 'One value per line';
+
+  @override
+  String sheetEditInvalid(int min, int max) {
+    return '$min to $max values expected';
+  }
+
+  @override
+  String get sheetEmpty => 'Not filled in';
+
+  @override
+  String get sheetEditMode => 'Edit the sheet';
+
+  @override
+  String get sheetReadMode => 'Read the sheet';
+
+  @override
+  String get sheetSave => 'Save to my characters';
+
+  @override
+  String get sheetSaved => 'Saved';
+
+  @override
+  String get sheetCopyText => 'Copy as text';
+
+  @override
+  String get sheetCopyJson => 'Copy as JSON';
+
+  @override
+  String get sheetShare => 'Share';
+
+  @override
+  String get sheetCopied => 'Copied';
+
+  @override
+  String get sheetMismatch => 'Some details do not match';
+
+  @override
+  String get sheetLoadFailed => 'The sheet tables could not be loaded.';
+
+  @override
+  String get sheetView => 'View the sheet';
+
+  @override
+  String get sheetEditionLabel => 'Edition';
+
+  @override
+  String get sheetEditionFer => 'Iron';
+
+  @override
+  String get sheetEditionVent => 'Wind';
+
+  @override
+  String get sheetEditionEsprit => 'Mind';
+
+  @override
+  String get sheetApplyAvatar => 'Apply to avatar';
+
+  @override
   String get appearanceSkinCleanName => 'Clean';
 
   @override

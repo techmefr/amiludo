@@ -1,5 +1,8 @@
 import 'package:get_it/get_it.dart';
 
+import 'package:amiludo/layers/functional/Notebook/data/gateways/notebook_gateways_impl.dart';
+import 'package:amiludo/notebook_registry.dart';
+
 import 'package:amiludo/layers/functional/Campaign/data/gateways/campaign_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Campaign/domain/gateways/campaign_gateway.dart';
 import 'package:amiludo/layers/functional/Campaign/domain/use_cases/complete_mission_use_case.dart';
@@ -159,9 +162,7 @@ void configureDependencies(StoreDatabase database) {
     ..registerLazySingleton<WorkspaceGateway>(
       () => WorkspaceGatewayImpl(getIt()),
     )
-    ..registerLazySingleton<DataWipeGateway>(
-      () => DataWipeGatewayImpl(getIt()),
-    )
+    ..registerLazySingleton<DataWipeGateway>(() => DataWipeGatewayImpl(getIt()))
     ..registerLazySingleton<FriendsGatewayImpl>(
       () => FriendsGatewayImpl(getIt()),
     )
@@ -196,9 +197,7 @@ void configureDependencies(StoreDatabase database) {
     ..registerLazySingleton<DieLibraryGateway>(
       () => getIt<DieLibraryGatewayImpl>(),
     )
-    ..registerLazySingleton<DieImageGateway>(
-      () => DieImageGatewayImpl(getIt()),
-    )
+    ..registerLazySingleton<DieImageGateway>(() => DieImageGatewayImpl(getIt()))
     ..registerLazySingleton<ChroniclesCatalogGateway>(
       ChroniclesCatalogGatewayImpl.new,
     )
@@ -215,6 +214,7 @@ void configureDependencies(StoreDatabase database) {
         getIt<ChroniclesRunGatewayImpl>(),
         getIt<DieLibraryGatewayImpl>(),
         getIt<MapBoardsGatewayImpl>(),
+        getIt<NotebookGatewayImpl>(),
       ],
     )
     ..registerLazySingleton<EveningsGatewayImpl>(
@@ -234,6 +234,7 @@ void configureDependencies(StoreDatabase database) {
   _registerCampaign();
   _registerDice();
   _registerMaps();
+  registerNotebook();
 }
 
 void _registerSensors() {
