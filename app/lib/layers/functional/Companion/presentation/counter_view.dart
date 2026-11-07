@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/counter.dart';
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
-import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/counter_numeral.dart';
+import 'package:amiludo/layers/technical/Theme/components/stone_slab.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -35,15 +36,16 @@ class _CounterViewState extends State<CounterView> {
   Widget build(BuildContext context) {
     final settings = counter.settings;
     final background = Color(settings.color);
-    final ink = readableOn(background);
+    const ink = StonePalette.cream;
+    final high = settings.maximum;
+    final danger = high != null && high > 10 && counter.value <= 5;
     final theme = Theme.of(context);
     return Semantics(
       container: true,
       label: '${settings.name} ${numberText(counter.value)}',
-      child: Material(
-        color: background,
-        borderRadius: BorderRadius.circular(Radii.lg),
-        clipBehavior: Clip.antiAlias,
+      child: StoneSlab(
+        accent: background,
+        halo: danger ? StonePalette.ember : null,
         child: IconTheme(
           data: IconThemeData(color: ink),
           child: Padding(
@@ -115,12 +117,19 @@ class _Step extends StatelessWidget {
   final String tooltip;
   final VoidCallback onTap;
   @override
-  Widget build(BuildContext context) => IconButton(
+  Widget build(BuildContext context) => IconButton.filled(
     tooltip: tooltip,
-    iconSize: 32,
-    constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+    style: IconButton.styleFrom(
+      backgroundColor: StonePalette.edge,
+      foregroundColor: StonePalette.cream,
+      side: const BorderSide(color: StonePalette.gold, width: 1.5),
+    ),
+    constraints: const BoxConstraints(
+      minWidth: Targets.minimum + Space.sm,
+      minHeight: Targets.minimum + Space.sm,
+    ),
     onPressed: onTap,
-    icon: DeckIcon(icon, size: 32),
+    icon: DeckIcon(icon, size: 28),
   );
 }
 
@@ -132,16 +141,9 @@ class _Reading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final settings = counter.settings;
-    final theme = Theme.of(context);
-    final number = FittedBox(
-      fit: BoxFit.scaleDown,
-      child: Text(
-        numberText(counter.value),
-        style: theme.textTheme.displayMedium?.copyWith(
-          color: ink,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
+    final number = CounterNumeral(
+      text: numberText(counter.value),
+      value: counter.value.toDouble(),
     );
     final high = settings.maximum;
     final low = settings.minimum ?? 0;
