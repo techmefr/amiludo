@@ -5,6 +5,7 @@ import 'package:amiludo/layers/functional/Notebook/presentation/entry_kinds.dart
 import 'package:amiludo/layers/functional/Notebook/presentation/linked_field.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/rich_section_editors.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/section_editors.dart';
+import 'package:amiludo/layers/functional/Notebook/presentation/name_dialog.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -28,31 +29,13 @@ class EntrySectionCard extends StatelessWidget {
 
   Future<void> _rename(BuildContext context) async {
     final l = context.l10n;
-    final controller = TextEditingController(text: section.title);
-    final title = await showDialog<String>(
-      context: context,
-      builder: (dialog) => AlertDialog(
-        title: Text(l.notebookSectionTitle),
-        content: TextField(
-          controller: controller,
-          autofocus: true,
-          decoration: InputDecoration(
-            hintText: context.sectionTypeLabel(section.type),
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(dialog),
-            child: Text(l.themeCancel),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(dialog, controller.text.trim()),
-            child: Text(l.themeSave),
-          ),
-        ],
-      ),
+    final title = await showNameDialog(
+      context,
+      title: l.notebookSectionTitle,
+      hint: context.sectionTypeLabel(section.type),
+      action: l.themeSave,
+      initial: section.title,
     );
-    controller.dispose();
     if (title != null) onChange(section.copyWith(title: title));
   }
 

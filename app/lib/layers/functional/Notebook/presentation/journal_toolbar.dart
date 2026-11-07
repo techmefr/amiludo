@@ -4,6 +4,7 @@ import 'package:amiludo/layers/functional/Notebook/domain/entities/journal.dart'
 import 'package:amiludo/layers/functional/Notebook/presentation/dice_sheet.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/generator_sheet.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/oracle_panel.dart';
+import 'package:amiludo/layers/functional/Notebook/presentation/name_dialog.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -67,29 +68,12 @@ class _JournalToolbarState extends State<JournalToolbar> {
 
   Future<void> scene() async {
     final l = context.l10n;
-    final controller = TextEditingController();
-    final text = await showDialog<String>(
-      context: context,
-      builder: (dialog) => AlertDialog(
-        title: Text(l.notebookToolScene),
-        content: TextField(
-          controller: controller,
-          autofocus: true,
-          decoration: InputDecoration(labelText: l.notebookSceneNote),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(dialog),
-            child: Text(l.themeCancel),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(dialog, controller.text),
-            child: Text(l.notebookAdd),
-          ),
-        ],
-      ),
+    final text = await showNameDialog(
+      context,
+      title: l.notebookToolScene,
+      label: l.notebookSceneNote,
+      action: l.notebookAdd,
     );
-    controller.dispose();
     if (text != null && text.trim().isNotEmpty) {
       widget.onLine(JournalKind.scene, text.trim());
     }

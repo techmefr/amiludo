@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Notebook/domain/entities/notebook_camp
 import 'package:amiludo/layers/functional/Notebook/presentation/cubit/notebook_cubit.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/journal_toolbar.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/linked_text.dart';
+import 'package:amiludo/layers/functional/Notebook/presentation/name_dialog.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -25,29 +26,12 @@ class JournalTab extends StatelessWidget {
   Future<void> _start(BuildContext context) async {
     final l = context.l10n;
     final cubit = context.read<NotebookCubit>();
-    final controller = TextEditingController();
-    final title = await showDialog<String>(
-      context: context,
-      builder: (dialog) => AlertDialog(
-        title: Text(l.notebookStartSession),
-        content: TextField(
-          controller: controller,
-          autofocus: true,
-          decoration: InputDecoration(labelText: l.notebookSessionTitle),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(dialog),
-            child: Text(l.themeCancel),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(dialog, controller.text),
-            child: Text(l.notebookStartSession),
-          ),
-        ],
-      ),
+    final title = await showNameDialog(
+      context,
+      title: l.notebookStartSession,
+      label: l.notebookSessionTitle,
+      action: l.notebookStartSession,
     );
-    controller.dispose();
     if (title != null) await cubit.startSession(campaign.id, title);
   }
 
