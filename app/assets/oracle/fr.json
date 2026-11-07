@@ -1,0 +1,10 @@
+{
+  "action": ["Rassembler", "Cacher", "Suivre", "Briser", "Offrir", "Refuser", "Réparer", "Trahir", "Garder", "Errer", "Troquer", "Révéler", "Poursuivre", "Lier", "Oublier", "Invoquer"],
+  "theme": ["Dette", "Moisson", "Tempête", "Héritage", "Secret", "Frontière", "Fête", "Faim", "Serment", "Ombre", "Pont", "Rumeur", "Lanterne", "Hiver", "Couronne", "Marée"],
+  "descriptor": ["Fragile", "Ancien", "Amer", "Étincelant", "Creux", "Agité", "Humble", "Rusé", "Sauvage", "Silencieux", "Tordu", "Sacré", "Emprunté", "Rouillé", "Radieux", "Interdit"],
+  "aspect": ["Voix", "Porte", "Route", "Lame", "Jardin", "Miroir", "Chant", "Registre", "Flamme", "Puits", "Masque", "Cloche", "Pièce", "Fil", "Tour", "Festin"],
+  "eventFocus": ["Un nouveau venu arrive", "Un allié est en difficulté", "Un rival passe à l’action", "Le lieu change", "Une vieille promesse revient", "Quelque chose est perdu", "Une rumeur se répand", "La nature intervient"],
+  "reaction": ["Hostile", "Méfiant", "Indifférent", "Amical", "Prêt à aider"],
+  "discovery": ["Un passage caché", "Un outil oublié", "Une lettre scellée", "Des traces fraîches", "Une réserve de provisions", "Un symbole étrange", "Un inconnu blessé", "Un mécanisme en état de marche", "Une vue inattendue", "Une source d’eau claire"],
+  "complication": ["Le temps presse", "Quelqu’un observe", "Un outil casse", "Le temps tourne", "Un ami hésite", "Le chemin est bloqué", "Il faut payer un prix", "Un vieil ennemi surgit", "La carte était fausse", "Les vivres s’épuisent"]
+}

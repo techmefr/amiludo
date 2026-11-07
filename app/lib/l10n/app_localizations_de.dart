@@ -3519,6 +3519,300 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
+  String get notebookHomeTile => 'Kampagnenbuch';
+
+  @override
+  String get notebookTitle => 'Kampagnenbuch';
+
+  @override
+  String get notebookIntro =>
+      'Halte die Geschichte deiner Solo-Abenteuer oder deine Spielleiter-Notizen fest, mit einem Orakel für deine Fragen.';
+
+  @override
+  String get notebookEmpty => 'Noch keine Kampagne';
+
+  @override
+  String get notebookEmptyHint =>
+      'Erstelle eine Kampagne oder importiere eine Datei, um zu beginnen.';
+
+  @override
+  String get notebookNewCampaign => 'Neue Kampagne';
+
+  @override
+  String get notebookCampaignName => 'Name der Kampagne';
+
+  @override
+  String get notebookCreate => 'Erstellen';
+
+  @override
+  String get notebookKindSolo => 'Solo';
+
+  @override
+  String get notebookKindGm => 'Spielleiter';
+
+  @override
+  String get notebookImport => 'Kampagne importieren';
+
+  @override
+  String get notebookImported => 'Kampagne importiert';
+
+  @override
+  String get notebookImportFailed => 'Diese Datei ist keine Kampagne';
+
+  @override
+  String get notebookExport => 'Exportieren';
+
+  @override
+  String get notebookDelete => 'Löschen';
+
+  @override
+  String notebookDeleteAsk(String name) {
+    return '„$name“ und alles darin löschen?';
+  }
+
+  @override
+  String get notebookFavorite => 'Favorit';
+
+  @override
+  String get notebookLook => 'Aussehen';
+
+  @override
+  String get notebookPalette => 'Farbpalette';
+
+  @override
+  String get notebookDefaultPalette => 'Standardpalette';
+
+  @override
+  String get notebookHeaderImage => 'Kopfbild';
+
+  @override
+  String get notebookRemoveImage => 'Bild entfernen';
+
+  @override
+  String get notebookTabJournal => 'Journal';
+
+  @override
+  String get notebookTabEntries => 'Einträge';
+
+  @override
+  String get notebookTabOracle => 'Orakel';
+
+  @override
+  String get notebookStartSession => 'Sitzung starten';
+
+  @override
+  String get notebookEndSession => 'Sitzung beenden';
+
+  @override
+  String get notebookSessionTitle => 'Titel der Sitzung';
+
+  @override
+  String get notebookSession => 'Sitzung';
+
+  @override
+  String get notebookSessionActive => 'aktiv';
+
+  @override
+  String get notebookJournalEmpty =>
+      'Noch nichts notiert. Erzähle unten, was passiert ist.';
+
+  @override
+  String get notebookQuickEntryHint => 'Was ist passiert?';
+
+  @override
+  String get notebookAdd => 'Hinzufügen';
+
+  @override
+  String get notebookAddToJournal => 'Zum Journal hinzufügen';
+
+  @override
+  String get notebookRemove => 'Entfernen';
+
+  @override
+  String get notebookToolDice => 'Würfel';
+
+  @override
+  String get notebookToolOracle => 'Orakel';
+
+  @override
+  String get notebookToolGenerator => 'Generator';
+
+  @override
+  String get notebookToolScene => 'Szenennotiz';
+
+  @override
+  String get notebookSceneNote => 'Szene';
+
+  @override
+  String get notebookDiceExpression => 'Wurf (zum Beispiel 2d6+1)';
+
+  @override
+  String get notebookDiceInvalid => 'Nutze ein Format wie 2d6+1';
+
+  @override
+  String get notebookRoll => 'Würfeln';
+
+  @override
+  String get notebookReroll => 'Neu ziehen';
+
+  @override
+  String get notebookAll => 'Alle';
+
+  @override
+  String get notebookKindNpc => 'Figur';
+
+  @override
+  String get notebookKindPlace => 'Ort';
+
+  @override
+  String get notebookKindQuest => 'Quest';
+
+  @override
+  String get notebookKindLoot => 'Beute';
+
+  @override
+  String get notebookKindFaction => 'Fraktion';
+
+  @override
+  String get notebookNewEntry => 'Neuer Eintrag';
+
+  @override
+  String get notebookEntryName => 'Name';
+
+  @override
+  String get notebookEntriesEmpty =>
+      'Noch kein Eintrag. Füge Figuren, Orte, Quests, Beute und Fraktionen hinzu.';
+
+  @override
+  String get notebookSearchHint => 'Kampagne durchsuchen';
+
+  @override
+  String get notebookNoResults => 'Nichts gefunden';
+
+  @override
+  String get notebookSectionDescription => 'Beschreibung';
+
+  @override
+  String get notebookSectionNotes => 'Notizen';
+
+  @override
+  String get notebookSectionChecklist => 'Checkliste';
+
+  @override
+  String get notebookSectionTags => 'Schlagwörter';
+
+  @override
+  String get notebookSectionStats => 'Werte';
+
+  @override
+  String get notebookSectionPictures => 'Bilder';
+
+  @override
+  String get notebookAddSection => 'Abschnitt hinzufügen';
+
+  @override
+  String get notebookSectionTitle => 'Abschnitt umbenennen';
+
+  @override
+  String get notebookAddItem => 'Element hinzufügen';
+
+  @override
+  String get notebookAddTag => 'Schlagwort hinzufügen';
+
+  @override
+  String get notebookStatName => 'Name';
+
+  @override
+  String get notebookStatValue => 'Wert';
+
+  @override
+  String get notebookAddStat => 'Wert hinzufügen';
+
+  @override
+  String get notebookAddPicture => 'Bild hinzufügen';
+
+  @override
+  String get notebookLinkHint =>
+      'Schreibe hier. Namen anderer Einträge werden zu Links, oder nutze [[Name]].';
+
+  @override
+  String get notebookBacklinks => 'Erwähnt in';
+
+  @override
+  String get notebookLikelihood => 'Wahrscheinlichkeit';
+
+  @override
+  String get notebookLikelihoodVeryUnlikely => 'Sehr unwahrscheinlich';
+
+  @override
+  String get notebookLikelihoodUnlikely => 'Unwahrscheinlich';
+
+  @override
+  String get notebookLikelihoodEven => 'Fifty-fifty';
+
+  @override
+  String get notebookLikelihoodLikely => 'Wahrscheinlich';
+
+  @override
+  String get notebookLikelihoodVeryLikely => 'Sehr wahrscheinlich';
+
+  @override
+  String notebookChaos(int value) {
+    return 'Chaosfaktor: $value';
+  }
+
+  @override
+  String get notebookAsk => 'Orakel befragen';
+
+  @override
+  String get notebookOracleQuestion => 'Ja-Nein-Frage';
+
+  @override
+  String get notebookAnswerYes => 'Ja';
+
+  @override
+  String get notebookAnswerNo => 'Nein';
+
+  @override
+  String get notebookAnswerExceptionalYes => 'Ja, und mehr';
+
+  @override
+  String get notebookAnswerExceptionalNo => 'Nein, und schlimmer';
+
+  @override
+  String get notebookAnswerEvent => 'ein Zufallsereignis tritt ein';
+
+  @override
+  String get notebookSceneCheck => 'Szenenprüfung';
+
+  @override
+  String get notebookSceneExpected => 'Die Szene verläuft wie erwartet';
+
+  @override
+  String get notebookSceneAltered => 'Die Szene wird verändert';
+
+  @override
+  String get notebookSceneInterrupted => 'Die Szene wird unterbrochen';
+
+  @override
+  String get notebookMeaning => 'Handlung und Thema';
+
+  @override
+  String get notebookDescriptors => 'Beschreibungen';
+
+  @override
+  String get notebookRandomEvent => 'Zufallsereignis';
+
+  @override
+  String get notebookReaction => 'Reaktion einer Figur';
+
+  @override
+  String get notebookDiscovery => 'Entdeckung';
+
+  @override
+  String get notebookComplication => 'Komplikation';
+
+  @override
   String get sheetFieldName => 'Vor- und Nachname';
 
   @override
