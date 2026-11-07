@@ -25,6 +25,7 @@ class DeckPanel extends StatelessWidget {
       color: color ?? theme.colorScheme.surface,
       shape: style.border(
         highlight ? theme.colorScheme.primary : theme.colorScheme.outline,
+        strong: highlight,
       ),
       clipBehavior: Clip.antiAlias,
       child: Padding(

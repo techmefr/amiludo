@@ -3511,4 +3511,14 @@ class AppLocalizationsPt extends AppLocalizations {
   String diceTrayCount(int count) {
     return '$count dados';
   }
+
+  @override
+  String get appearanceSkinCleanName => 'Clean';
+
+  @override
+  String get appearanceSkinCleanDesc =>
+      'Claro e escuro, superfícies calmas, um único destaque azul.';
+
+  @override
+  String get appearanceFontSystem => 'Sistema';
 }

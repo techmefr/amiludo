@@ -28,6 +28,7 @@ import 'package:amiludo/layers/technical/About/app_info.dart';
 import 'package:amiludo/layers/technical/Appearance/appearance.dart';
 import 'package:amiludo/layers/technical/Storage/store_database.dart';
 import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
+import 'package:amiludo/layers/technical/Feedback/deck_haptics.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -226,6 +227,7 @@ class _AmiludoRouter extends StatelessWidget {
     final appearance = context.select<WorkspaceCubit, Appearance>(
       (cubit) => cubit.state.workspace.appearance,
     );
+    DeckHaptics.enabled = appearance.haptics;
     return MaterialApp.router(
       title: 'amiLudo',
       debugShowCheckedModeBanner: false,

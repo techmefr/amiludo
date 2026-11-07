@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:amiludo/layers/technical/Theme/components/clean_scroll_page.dart';
+import 'package:amiludo/layers/technical/Theme/deck_style.dart';
+
 class FullPage extends StatelessWidget {
   const FullPage({
     super.key,
@@ -90,6 +93,16 @@ class FullPage extends StatelessWidget {
             ],
           ),
         ),
+      );
+    }
+    if (scroll && Theme.of(context).extension<DeckStyle>()?.clean == true) {
+      return CleanScrollPage(
+        title: title,
+        onBack: () => _back(context),
+        actions: actions,
+        maxWidth: maxWidth,
+        fillHeight: fillHeight,
+        child: child,
       );
     }
     return Scaffold(

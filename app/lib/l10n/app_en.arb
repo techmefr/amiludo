@@ -1326,5 +1326,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "appearanceSkinCleanName": "Clean",
+  "appearanceSkinCleanDesc": "Light and dark, quiet surfaces, one blue accent.",
+  "appearanceFontSystem": "System"
 }

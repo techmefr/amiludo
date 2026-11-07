@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Appearance/appearance.dart';
+import 'package:amiludo/layers/technical/Theme/clean/clean_theme.dart';
 import 'package:amiludo/layers/technical/Theme/deck_component_themes.dart';
 import 'package:amiludo/layers/technical/Theme/deck_palette.dart';
 import 'package:amiludo/layers/technical/Theme/deck_style.dart';
@@ -11,6 +12,7 @@ export 'package:amiludo/layers/technical/Theme/deck_style.dart';
 const deckSymbolFallback = ['NotoSansSymbols2', 'NotoSansSymbols'];
 
 ThemeData deckTheme(Appearance appearance, Brightness brightness) {
+  if (appearance.skin == 'clean') return cleanTheme(appearance, brightness);
   final game = appearance.skin == 'game',
       dark = game || brightness == Brightness.dark,
       p = DeckPalette.values[appearance.palette]!;
@@ -51,7 +53,7 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
   final scale = appearance.large ? 1.15 : 1.0;
   final themed = ['cyber', 'orbital', 'game'].contains(appearance.skin);
   final buttonText = TextStyle(
-    fontFamily: themed ? heading : appearance.font,
+    fontFamily: themed ? heading : deckFontFamily(appearance.font),
     fontFamilyFallback: deckSymbolFallback,
     fontSize: 15 * scale,
     fontWeight: FontWeight.w700,
@@ -101,7 +103,7 @@ ThemeData _deckBase(
   brightness: brightness,
   colorScheme: scheme,
   scaffoldBackgroundColor: background,
-  fontFamily: appearance.font,
+  fontFamily: deckFontFamily(appearance.font),
   fontFamilyFallback: deckSymbolFallback,
   visualDensity: appearance.compact
       ? VisualDensity.compact

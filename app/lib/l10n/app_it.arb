@@ -1064,5 +1064,8 @@
   "diceTableLight": "Chiaro",
   "diceTableWood": "Legno",
   "diceTableBlue": "Blu",
-  "diceTrayCount": "{count} dadi"
+  "diceTrayCount": "{count} dadi",
+  "appearanceSkinCleanName": "Clean",
+  "appearanceSkinCleanDesc": "Chiaro e scuro, superfici calme, un solo accento blu.",
+  "appearanceFontSystem": "Sistema"
 }

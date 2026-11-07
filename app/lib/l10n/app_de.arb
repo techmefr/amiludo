@@ -1064,5 +1064,8 @@
   "diceTableLight": "Hell",
   "diceTableWood": "Holz",
   "diceTableBlue": "Blau",
-  "diceTrayCount": "{count} Würfel"
+  "diceTrayCount": "{count} Würfel",
+  "appearanceSkinCleanName": "Clean",
+  "appearanceSkinCleanDesc": "Hell und dunkel, ruhige Flächen, ein blauer Akzent.",
+  "appearanceFontSystem": "System"
 }

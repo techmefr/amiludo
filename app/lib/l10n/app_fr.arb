@@ -1064,5 +1064,8 @@
   "diceTableLight": "Clair",
   "diceTableWood": "Bois",
   "diceTableBlue": "Bleu",
-  "diceTrayCount": "{count} dés"
+  "diceTrayCount": "{count} dés",
+  "appearanceSkinCleanName": "Clean",
+  "appearanceSkinCleanDesc": "Clair et sombre, surfaces calmes, un seul accent bleu.",
+  "appearanceFontSystem": "Système"
 }

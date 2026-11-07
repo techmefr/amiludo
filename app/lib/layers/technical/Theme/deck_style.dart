@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+
+String? deckFontFamily(String font) => font == 'System' ? null : font;
+
 class DeckStyle extends ThemeExtension<DeckStyle> {
   const DeckStyle({
     required this.shape,
@@ -8,13 +12,20 @@ class DeckStyle extends ThemeExtension<DeckStyle> {
     required this.compact,
     this.borderWidth = 1,
     this.glow,
+    this.clean = false,
   });
   final String shape, headingFont;
   final Color signal;
   final bool compact;
   final double borderWidth;
   final Color? glow;
-  OutlinedBorder border(Color color) => shape == 'cut'
+  final bool clean;
+  OutlinedBorder border(Color color, {bool strong = false}) => clean
+      ? RoundedRectangleBorder(
+          side: strong ? BorderSide(color: color, width: 2) : BorderSide.none,
+          borderRadius: BorderRadius.circular(Radii.group),
+        )
+      : shape == 'cut'
       ? BeveledRectangleBorder(
           side: BorderSide(color: color, width: borderWidth),
           borderRadius: const BorderRadius.only(
@@ -40,6 +51,7 @@ class DeckStyle extends ThemeExtension<DeckStyle> {
     bool? compact,
     double? borderWidth,
     Color? glow,
+    bool? clean,
   }) => DeckStyle(
     shape: shape ?? this.shape,
     signal: signal ?? this.signal,
@@ -47,6 +59,7 @@ class DeckStyle extends ThemeExtension<DeckStyle> {
     compact: compact ?? this.compact,
     borderWidth: borderWidth ?? this.borderWidth,
     glow: glow ?? this.glow,
+    clean: clean ?? this.clean,
   );
   @override
   DeckStyle lerp(covariant DeckStyle? other, double t) =>

@@ -1064,5 +1064,8 @@
   "diceTableLight": "Claro",
   "diceTableWood": "Madeira",
   "diceTableBlue": "Azul",
-  "diceTrayCount": "{count} dados"
+  "diceTrayCount": "{count} dados",
+  "appearanceSkinCleanName": "Clean",
+  "appearanceSkinCleanDesc": "Claro e escuro, superfícies calmas, um único destaque azul.",
+  "appearanceFontSystem": "Sistema"
 }

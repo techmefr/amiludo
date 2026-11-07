@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Workspace/presentation/cubit/workspace
 import 'package:amiludo/layers/functional/Workspace/presentation/workspace_gate.dart';
 import 'package:amiludo/layers/technical/About/app_info.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Theme/components/blur_bar.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
@@ -384,16 +385,18 @@ class _BottomBar extends StatelessWidget {
                 theme.textTheme.labelMedium,
               ),
             ),
-      child: NavigationBar(
-        selectedIndex: active ? _barRoutes.indexOf(index) : 0,
-        onDestinationSelected: (i) => context.go(items[_barRoutes[i]].$1),
-        destinations: [
-          for (final i in _barRoutes)
-            NavigationDestination(
-              icon: DeckIcon(items[i].$2),
-              label: items[i].$3,
-            ),
-        ],
+      child: BlurBar(
+        child: NavigationBar(
+          selectedIndex: active ? _barRoutes.indexOf(index) : 0,
+          onDestinationSelected: (i) => context.go(items[_barRoutes[i]].$1),
+          destinations: [
+            for (final i in _barRoutes)
+              NavigationDestination(
+                icon: DeckIcon(items[i].$2),
+                label: items[i].$3,
+              ),
+          ],
+        ),
       ),
     );
   }

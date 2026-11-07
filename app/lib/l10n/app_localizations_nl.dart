@@ -3512,4 +3512,14 @@ class AppLocalizationsNl extends AppLocalizations {
   String diceTrayCount(int count) {
     return '$count dobbelstenen';
   }
+
+  @override
+  String get appearanceSkinCleanName => 'Clean';
+
+  @override
+  String get appearanceSkinCleanDesc =>
+      'Licht en donker, rustige vlakken, één blauwe accentkleur.';
+
+  @override
+  String get appearanceFontSystem => 'Systeem';
 }
