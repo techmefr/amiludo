@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:amiludo/dependencies.dart';
 import 'package:amiludo/layers/technical/Storage/store_database.dart';
 import 'package:amiludo/layers/technical/Theme/components/finger_ring.dart';
+import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/main.dart';
 import 'package:amiludo/router.dart';
 
@@ -74,6 +75,10 @@ void main() {
       matching: find.byType(TweenAnimationBuilder<double>),
     );
     expect(disc, findsOneWidget);
+    expect(
+      tester.widget<FullPage>(find.byType(FullPage)).background,
+      isIn(fingerColors),
+    );
     expect(tester.getSize(disc).width, fingerRingSize * 2);
     await a.up();
     await b.up();

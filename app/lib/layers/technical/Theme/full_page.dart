@@ -5,6 +5,7 @@ import 'package:amiludo/layers/technical/Theme/components/clean_scroll_page.dart
 import 'package:amiludo/layers/technical/Theme/components/tool_badge.dart';
 import 'package:amiludo/layers/technical/Theme/components/tool_frame.dart';
 import 'package:amiludo/layers/technical/Theme/deck_style.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class FullPage extends StatelessWidget {
   const FullPage({
@@ -18,10 +19,12 @@ class FullPage extends StatelessWidget {
     this.fillHeight = false,
     this.immersive = false,
     this.tool,
+    this.background,
   });
   final String title, fallback;
   final String? tool;
   final Widget child;
+  final Color? background;
   final bool scroll, fillHeight, immersive;
   final double maxWidth;
   final List<Widget> actions;
@@ -87,7 +90,12 @@ class FullPage extends StatelessWidget {
 
   Widget _page(BuildContext context) {
     if (immersive) {
-      return Scaffold(
+      return AnimatedContainer(
+        duration: Motion.of(context, Motion.slow),
+        curve: Motion.curve,
+        color: background ?? Theme.of(context).scaffoldBackgroundColor,
+        child: Scaffold(
+        backgroundColor: Colors.transparent,
         body: SafeArea(
           child: Stack(
             fit: StackFit.expand,
@@ -104,6 +112,7 @@ class FullPage extends StatelessWidget {
                 ToolHeaderPill(id: tool!, onBack: () => _back(context)),
             ],
           ),
+        ),
         ),
       );
     }

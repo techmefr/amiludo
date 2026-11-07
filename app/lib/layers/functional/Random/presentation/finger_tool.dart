@@ -16,9 +16,11 @@ class FingerTool extends StatefulWidget {
     required this.names,
     this.haptics = true,
     this.fullscreen = false,
+    this.onTint,
   });
   final bool haptics, fullscreen;
   final List<String> names;
+  final ValueChanged<Color?>? onTint;
   @override
   State<FingerTool> createState() => _FingerToolState();
 }
@@ -53,6 +55,7 @@ class _FingerToolState extends State<FingerTool> {
         }
         drawn = true;
       });
+      widget.onTint?.call(winnerColor());
       DeviceFeedback.selection(haptics: widget.haptics);
     });
   }
@@ -67,6 +70,7 @@ class _FingerToolState extends State<FingerTool> {
     drawn = false;
     winner = null;
     ranks.clear();
+    widget.onTint?.call(null);
   }
 
   void onDown(PointerDownEvent e) {

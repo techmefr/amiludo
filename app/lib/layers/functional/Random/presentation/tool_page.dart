@@ -36,6 +36,7 @@ class ToolPage extends StatefulWidget {
 
 class _ToolPageState extends State<ToolPage> {
   String? selected;
+  Color? tint;
   @override
   void initState() {
     super.initState();
@@ -99,6 +100,7 @@ class _ToolPageState extends State<ToolPage> {
           names: names,
           haptics: ws.appearance.haptics,
           fullscreen: true,
+          onTint: (c) => setState(() => tint = c),
         ),
         final id when widget.embeddedTools.containsKey(id) =>
           widget.embeddedTools[id]!(context),
@@ -167,6 +169,7 @@ class _ToolPageState extends State<ToolPage> {
         title: title,
         tool: widget.id,
         immersive: true,
+        background: tint,
         scroll: false,
         child: child,
       );
