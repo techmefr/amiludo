@@ -4856,6 +4856,24 @@ abstract class AppLocalizations {
   /// **'Throw'**
   String get diceTrayThrow;
 
+  /// No description provided for @diceTrayErase.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear result'**
+  String get diceTrayErase;
+
+  /// No description provided for @diceTrayShareResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Share result'**
+  String get diceTrayShareResult;
+
+  /// No description provided for @diceMoreDice.
+  ///
+  /// In en, this message translates to:
+  /// **'More dice'**
+  String get diceMoreDice;
+
   /// No description provided for @diceResultMode.
   ///
   /// In en, this message translates to:

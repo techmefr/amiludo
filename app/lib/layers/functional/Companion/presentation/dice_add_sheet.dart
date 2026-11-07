@@ -8,6 +8,7 @@ import 'package:amiludo/layers/technical/Theme/components/deck_sheet.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 const diceListSides = [...standardSides, 100];
+const diceMoreSides = [2, 3, 5, 16, 24, 30, 60, 1000];
 
 Future<void> showDiceAddSheet(
   BuildContext context,
@@ -102,6 +103,30 @@ class _DiceAddListState extends State<DiceAddList> {
             DiceSpec(sides: sides),
             (d) => d.sides == sides && !d.custom && d.design == null,
           ),
+        const SizedBox(height: Space.md),
+        Text(l.diceMoreDice, style: Theme.of(context).textTheme.labelLarge),
+        Wrap(
+          spacing: Space.sm,
+          runSpacing: Space.sm,
+          children: [
+            for (final sides in diceMoreSides)
+              ActionChip(
+                label: Text('+ d$sides'),
+                onPressed: dice.length >= maxTrayDice
+                    ? null
+                    : () => add(DiceSpec(sides: sides)),
+              ),
+            for (final d in dice.where(
+              (d) =>
+                  diceMoreSides.contains(d.sides) && !d.custom && d.design == null,
+            ))
+              InputChip(
+                label: Text(d.name),
+                deleteButtonTooltipMessage: l.diceTrayRemoveDie,
+                onDeleted: () => change([...dice]..remove(d)),
+              ),
+          ],
+        ),
         if (library.isNotEmpty) ...[
           const SizedBox(height: Space.md),
           Text(l.diceMyDice, style: Theme.of(context).textTheme.labelLarge),

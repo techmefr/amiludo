@@ -2614,6 +2614,15 @@ class AppLocalizationsIt extends AppLocalizations {
   String get diceTrayThrow => 'Lancia';
 
   @override
+  String get diceTrayErase => 'Cancella risultato';
+
+  @override
+  String get diceTrayShareResult => 'Condividi risultato';
+
+  @override
+  String get diceMoreDice => 'Altri dadi';
+
+  @override
   String get diceResultMode => 'Visualizzazione del risultato';
 
   @override

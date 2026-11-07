@@ -73,7 +73,6 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
   late String skin = widget.skin, table = widget.table;
   double power = 0.7;
   Offset aim = Offset.zero;
-  TrayResultMode mode = TrayResultMode.sum;
   Tilt tilt = Tilt.flat;
 
   @override
@@ -110,6 +109,7 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
     final kept = DiceTraySettings(
       dice: next.dice,
       surface: session.settings.surface,
+      resultMode: session.settings.resultMode,
     );
     setState(() => session = session.withSettings(kept));
     widget.onChanged?.call(kept);
@@ -119,6 +119,11 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
     final next = session.settings.withSurface(name);
     setState(() => session = session.withSettings(next));
     widget.onChanged?.call(next);
+  }
+
+  void chooseMode(TrayResultMode mode) {
+    setState(() => session = session.withMode(mode.name));
+    widget.onChanged?.call(session.settings);
   }
 
   void changeView(bool value) {
@@ -155,8 +160,9 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
         table: table,
         onConfigure: configure,
         onThrow: throwDice,
-        mode: mode,
-        onMode: (m) => setState(() => mode = m),
+        mode: TrayResultMode.parse(session.settings.resultMode),
+        onMode: chooseMode,
+        onClear: () => setState(() => session = session.cleared()),
         onSkin: (id) {
           setState(() => skin = id);
           widget.onSkinChanged?.call(id);

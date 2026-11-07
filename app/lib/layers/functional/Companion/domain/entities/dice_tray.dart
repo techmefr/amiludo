@@ -90,6 +90,7 @@ class DiceTraySettings {
   const DiceTraySettings({
     this.dice = const [DiceSpec(sides: 6), DiceSpec(sides: 6)],
     this.surface = 'wood',
+    this.resultMode = 'sum',
   });
 
   factory DiceTraySettings.fromJson(Map<String, dynamic> j) {
@@ -98,13 +99,15 @@ class DiceTraySettings {
         DiceSpec.fromJson(Map<String, dynamic>.from(d as Map)),
     ].where((d) => d.sides >= 2).take(maxTrayDice).toList();
     final surface = '${j['surface'] ?? 'wood'}';
-    return parsed.isEmpty
-        ? DiceTraySettings(surface: surface)
-        : DiceTraySettings(dice: parsed, surface: surface);
+    return DiceTraySettings(
+      dice: parsed.isEmpty ? const DiceTraySettings().dice : parsed,
+      surface: surface,
+      resultMode: '${j['result'] ?? 'sum'}',
+    );
   }
 
   final List<DiceSpec> dice;
-  final String surface;
+  final String surface, resultMode;
 
   DiceTraySettings resolved(DieLibrary library) => DiceTraySettings(
     dice: [
@@ -114,14 +117,19 @@ class DiceTraySettings {
             : DiceSpec.fromDesign(library.byId(d.design!.id) ?? d.design!),
     ],
     surface: surface,
+    resultMode: resultMode,
   );
 
   DiceTraySettings withSurface(String next) =>
-      DiceTraySettings(dice: dice, surface: next);
+      DiceTraySettings(dice: dice, surface: next, resultMode: resultMode);
+
+  DiceTraySettings withResultMode(String next) =>
+      DiceTraySettings(dice: dice, surface: surface, resultMode: next);
 
   Map<String, dynamic> toJson() => {
     'dice': dice.map((d) => d.toJson()).toList(),
     'surface': surface,
+    if (resultMode != 'sum') 'result': resultMode,
   };
 
   Brick toBrick(String id) =>
@@ -176,6 +184,16 @@ class DiceTraySession {
       history: [TrayRoll(next, totalOf(next)), ...history].take(20).toList(),
     );
   }
+
+  DiceTraySession withMode(String mode) => DiceTraySession(
+    settings: settings.withResultMode(mode),
+    values: values,
+    kept: kept,
+    history: history,
+  );
+
+  DiceTraySession cleared() =>
+      DiceTraySession(settings: settings, history: history);
 
   DiceTraySession withOutcome(List<int> outcome) {
     if (!thrown || outcome.length != values.length) return this;

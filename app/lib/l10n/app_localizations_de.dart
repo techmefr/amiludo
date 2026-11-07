@@ -2618,6 +2618,15 @@ class AppLocalizationsDe extends AppLocalizations {
   String get diceTrayThrow => 'Werfen';
 
   @override
+  String get diceTrayErase => 'Ergebnis löschen';
+
+  @override
+  String get diceTrayShareResult => 'Ergebnis teilen';
+
+  @override
+  String get diceMoreDice => 'Weitere Würfel';
+
+  @override
   String get diceResultMode => 'Ergebnisanzeige';
 
   @override

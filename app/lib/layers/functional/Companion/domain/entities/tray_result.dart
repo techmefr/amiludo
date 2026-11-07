@@ -11,7 +11,10 @@ enum TrayResultMode {
   dropBest,
   middle,
   average,
-  oddEven,
+  oddEven;
+
+  static TrayResultMode parse(String? name) =>
+      values.firstWhere((m) => m.name == name, orElse: () => sum);
 }
 
 String _number(double value) =>
