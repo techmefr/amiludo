@@ -91,8 +91,9 @@ class _DieEditor extends StatelessWidget {
         child: OutlinedButton(
           onPressed: () async {
             final picked = await pickDesignFromLibrary(context);
-            if (picked != null && context.mounted)
+            if (picked != null && context.mounted) {
               refresh(() => die.useDesign(picked));
+            }
           },
           child: Text(context.l10n.diceUseFromLibrary),
         ),

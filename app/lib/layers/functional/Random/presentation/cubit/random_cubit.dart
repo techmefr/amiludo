@@ -27,12 +27,10 @@ class RandomCubit extends Cubit<Workspace> {
     this._lobby,
     this._readDraft,
     this._saveDraft,
-    this._clearDraft, {
-    RememberToolUseCase? rememberTool,
-    ReorderFavoriteToolsUseCase? reorderFavorites,
-  }) : _rememberTool = rememberTool,
-       _reorderFavorites = reorderFavorites,
-       super(readWorkspace()) {
+    this._clearDraft, [
+    this._rememberTool,
+    this._reorderFavorites,
+  ]) : super(readWorkspace()) {
     _subscription = watchWorkspace().listen(emit);
   }
 

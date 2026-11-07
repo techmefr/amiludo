@@ -88,8 +88,8 @@ List<BlocProvider> _tableProviders() => [
       getIt(),
       getIt(),
       getIt(),
-      rememberTool: getIt(),
-      reorderFavorites: getIt(),
+      getIt(),
+      getIt(),
     ),
   ),
 ];

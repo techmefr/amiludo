@@ -40,10 +40,8 @@ class ToolCard extends StatelessWidget {
       width: width,
       child: Semantics(
         customSemanticsActions: {
-          if (onMoveEarlier != null)
-            CustomSemanticsAction(label: l.toolMoveEarlier): onMoveEarlier!,
-          if (onMoveLater != null)
-            CustomSemanticsAction(label: l.toolMoveLater): onMoveLater!,
+          CustomSemanticsAction(label: l.toolMoveEarlier): ?onMoveEarlier,
+          CustomSemanticsAction(label: l.toolMoveLater): ?onMoveLater,
         },
         child: Material(
           color: tool.surface(context),
