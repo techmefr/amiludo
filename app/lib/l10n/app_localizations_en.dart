@@ -3321,4 +3321,64 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get diceUseFromLibrary => 'Use a die from My dice';
+
+  @override
+  String get avatarCreatorTitle => 'Appearance';
+
+  @override
+  String get avatarEdit => 'Edit appearance';
+
+  @override
+  String get avatarSave => 'Save';
+
+  @override
+  String get avatarNone => 'None';
+
+  @override
+  String get avatarColor => 'Color';
+
+  @override
+  String get avatarSlotBase => 'Body';
+
+  @override
+  String get avatarSlotHead => 'Head';
+
+  @override
+  String get avatarSlotEyes => 'Eyes';
+
+  @override
+  String get avatarSlotEyebrows => 'Eyebrows';
+
+  @override
+  String get avatarSlotNose => 'Nose';
+
+  @override
+  String get avatarSlotMouth => 'Mouth';
+
+  @override
+  String get avatarSlotHair => 'Hair';
+
+  @override
+  String get avatarSlotBeard => 'Beard';
+
+  @override
+  String get avatarSlotMarks => 'Marks';
+
+  @override
+  String get avatarSlotOutfit => 'Outfit';
+
+  @override
+  String get avatarSlotShoes => 'Shoes';
+
+  @override
+  String get avatarSlotAccessory => 'Accessories';
+
+  @override
+  String get avatarSlotImplant => 'Implants';
+
+  @override
+  String get avatarSlotEquipment => 'Gear';
+
+  @override
+  String get avatarSlotWeapon => 'Weapons and tools';
 }

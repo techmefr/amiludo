@@ -3352,4 +3352,64 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get diceUseFromLibrary => 'Utiliser un dé de Mes dés';
+
+  @override
+  String get avatarCreatorTitle => 'Apparence';
+
+  @override
+  String get avatarEdit => 'Modifier le personnage';
+
+  @override
+  String get avatarSave => 'Enregistrer';
+
+  @override
+  String get avatarNone => 'Aucun';
+
+  @override
+  String get avatarColor => 'Couleur';
+
+  @override
+  String get avatarSlotBase => 'Corps';
+
+  @override
+  String get avatarSlotHead => 'Tête';
+
+  @override
+  String get avatarSlotEyes => 'Yeux';
+
+  @override
+  String get avatarSlotEyebrows => 'Sourcils';
+
+  @override
+  String get avatarSlotNose => 'Nez';
+
+  @override
+  String get avatarSlotMouth => 'Bouche';
+
+  @override
+  String get avatarSlotHair => 'Cheveux';
+
+  @override
+  String get avatarSlotBeard => 'Barbe';
+
+  @override
+  String get avatarSlotMarks => 'Marques';
+
+  @override
+  String get avatarSlotOutfit => 'Tenue';
+
+  @override
+  String get avatarSlotShoes => 'Chaussures';
+
+  @override
+  String get avatarSlotAccessory => 'Accessoires';
+
+  @override
+  String get avatarSlotImplant => 'Implants';
+
+  @override
+  String get avatarSlotEquipment => 'Équipement';
+
+  @override
+  String get avatarSlotWeapon => 'Armes et outils';
 }

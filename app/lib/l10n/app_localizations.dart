@@ -6199,6 +6199,127 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Use a die from My dice'**
   String get diceUseFromLibrary;
+
+  /// No description provided for @avatarCreatorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
+  String get avatarCreatorTitle;
+
+  /// No description provided for @avatarEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit appearance'**
+  String get avatarEdit;
+
+  /// No description provided for @avatarSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get avatarSave;
+
+  /// No description provided for @avatarNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get avatarNone;
+
+  /// No description provided for @avatarColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Color'**
+  String get avatarColor;
+
+  /// No description provided for @avatarSlotBase.
+  ///
+  /// In en, this message translates to:
+  /// **'Body'**
+  String get avatarSlotBase;
+
+  /// No description provided for @avatarSlotHead.
+  ///
+  /// In en, this message translates to:
+  /// **'Head'**
+  String get avatarSlotHead;
+
+  /// No description provided for @avatarSlotEyes.
+  ///
+  /// In en, this message translates to:
+  /// **'Eyes'**
+  String get avatarSlotEyes;
+
+  /// No description provided for @avatarSlotEyebrows.
+  ///
+  /// In en, this message translates to:
+  /// **'Eyebrows'**
+  String get avatarSlotEyebrows;
+
+  /// No description provided for @avatarSlotNose.
+  ///
+  /// In en, this message translates to:
+  /// **'Nose'**
+  String get avatarSlotNose;
+
+  /// No description provided for @avatarSlotMouth.
+  ///
+  /// In en, this message translates to:
+  /// **'Mouth'**
+  String get avatarSlotMouth;
+
+  /// No description provided for @avatarSlotHair.
+  ///
+  /// In en, this message translates to:
+  /// **'Hair'**
+  String get avatarSlotHair;
+
+  /// No description provided for @avatarSlotBeard.
+  ///
+  /// In en, this message translates to:
+  /// **'Beard'**
+  String get avatarSlotBeard;
+
+  /// No description provided for @avatarSlotMarks.
+  ///
+  /// In en, this message translates to:
+  /// **'Marks'**
+  String get avatarSlotMarks;
+
+  /// No description provided for @avatarSlotOutfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Outfit'**
+  String get avatarSlotOutfit;
+
+  /// No description provided for @avatarSlotShoes.
+  ///
+  /// In en, this message translates to:
+  /// **'Shoes'**
+  String get avatarSlotShoes;
+
+  /// No description provided for @avatarSlotAccessory.
+  ///
+  /// In en, this message translates to:
+  /// **'Accessories'**
+  String get avatarSlotAccessory;
+
+  /// No description provided for @avatarSlotImplant.
+  ///
+  /// In en, this message translates to:
+  /// **'Implants'**
+  String get avatarSlotImplant;
+
+  /// No description provided for @avatarSlotEquipment.
+  ///
+  /// In en, this message translates to:
+  /// **'Gear'**
+  String get avatarSlotEquipment;
+
+  /// No description provided for @avatarSlotWeapon.
+  ///
+  /// In en, this message translates to:
+  /// **'Weapons and tools'**
+  String get avatarSlotWeapon;
+
 }
 
 class _AppLocalizationsDelegate

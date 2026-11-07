@@ -1,3 +1,4 @@
+import 'package:amiludo/layers/functional/Companion/domain/entities/avatar_look.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/counter.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/power.dart';
@@ -12,6 +13,7 @@ class HeroSettings {
     this.color = 0xFF3D7BD9,
     this.counters = const [],
     this.powers = const [],
+    this.avatar = const AvatarLook(),
   });
 
   factory HeroSettings.fromJson(Map<String, dynamic> j) => HeroSettings(
@@ -25,18 +27,25 @@ class HeroSettings {
       for (final p in j['powers'] as List? ?? const [])
         PowerSettings.fromJson(Map<String, dynamic>.from(p as Map)),
     ],
+    avatar: AvatarLook.fromJson(
+      j['avatar'] == null
+          ? null
+          : Map<String, dynamic>.from(j['avatar'] as Map),
+    ),
   );
 
   final String name;
   final int color;
   final List<CounterSettings> counters;
   final List<PowerSettings> powers;
+  final AvatarLook avatar;
 
   Map<String, dynamic> toJson() => {
     'name': name,
     'color': color,
     'counters': counters.map((c) => c.toJson()).toList(),
     'powers': powers.map((p) => p.toJson()).toList(),
+    if (!avatar.isEmpty) 'avatar': avatar.toJson(),
   };
 
   Brick toBrick(String id) =>
@@ -48,18 +57,21 @@ class HeroState {
     : name = initial.name,
       color = initial.color,
       counters = [for (final c in initial.counters) CounterState(c)],
-      powers = [for (final p in initial.powers) PowerState(p)];
+      powers = [for (final p in initial.powers) PowerState(p)],
+      avatar = initial.avatar;
 
   final String name;
   final int color;
   final List<CounterState> counters;
   final List<PowerState> powers;
+  AvatarLook avatar;
 
   HeroSettings get settings => HeroSettings(
     name: name,
     color: color,
     counters: [for (final c in counters) c.settings],
     powers: [for (final p in powers) p.settings],
+    avatar: avatar,
   );
 
   void addPower(PowerSettings power) => powers.add(PowerState(power));

@@ -3355,4 +3355,64 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get diceUseFromLibrary => 'Würfel aus Meine Würfel verwenden';
+
+  @override
+  String get avatarCreatorTitle => 'Aussehen';
+
+  @override
+  String get avatarEdit => 'Aussehen ändern';
+
+  @override
+  String get avatarSave => 'Speichern';
+
+  @override
+  String get avatarNone => 'Keine';
+
+  @override
+  String get avatarColor => 'Farbe';
+
+  @override
+  String get avatarSlotBase => 'Körper';
+
+  @override
+  String get avatarSlotHead => 'Kopf';
+
+  @override
+  String get avatarSlotEyes => 'Augen';
+
+  @override
+  String get avatarSlotEyebrows => 'Augenbrauen';
+
+  @override
+  String get avatarSlotNose => 'Nase';
+
+  @override
+  String get avatarSlotMouth => 'Mund';
+
+  @override
+  String get avatarSlotHair => 'Haare';
+
+  @override
+  String get avatarSlotBeard => 'Bart';
+
+  @override
+  String get avatarSlotMarks => 'Zeichen';
+
+  @override
+  String get avatarSlotOutfit => 'Kleidung';
+
+  @override
+  String get avatarSlotShoes => 'Schuhe';
+
+  @override
+  String get avatarSlotAccessory => 'Zubehör';
+
+  @override
+  String get avatarSlotImplant => 'Implantate';
+
+  @override
+  String get avatarSlotEquipment => 'Ausrüstung';
+
+  @override
+  String get avatarSlotWeapon => 'Waffen und Werkzeuge';
 }
