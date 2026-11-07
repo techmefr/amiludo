@@ -121,7 +121,11 @@ class _HourglassViewState extends State<HourglassView> {
               painter: SandglassPainter(
                 upperFill: flow.upperFill,
                 lowerFill: flow.lowerFill,
-                sand: Color(widget.settings.color),
+                sand: Color.lerp(
+                  SandPalette.alert,
+                  Color(widget.settings.color),
+                  (flow.upperFill * 3).clamp(0.0, 1.0),
+                )!,
                 streaming: flow.running && !reduced,
                 phase: (flow.remaining.inMilliseconds % 1000) / 1000,
               ),

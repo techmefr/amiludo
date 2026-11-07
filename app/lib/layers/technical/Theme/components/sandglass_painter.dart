@@ -4,14 +4,15 @@ import 'package:flutter/material.dart';
 
 class SandPalette {
   const SandPalette._();
-  static const night = Color(0xff121a30);
+  static const night = Color(0xff0f1b24);
   static const dusk = Color(0xff3a2b45);
   static const ember = Color(0xff7a4a2a);
-  static const sand = Color(0xffe9b35a);
-  static const glass = Color(0xffbfd7f2);
+  static const sand = Color(0xffe9c46a);
+  static const alert = Color(0xffe76f51);
+  static const glass = Color(0xffbfe3e0);
   static const cream = Color(0xfff6ebd6);
-  static const wood = Color(0xff6b4a2b);
-  static const woodLight = Color(0xff9a7143);
+  static const wood = Color(0xffb5832f);
+  static const woodLight = Color(0xffd9a74e);
 }
 
 class SandglassPainter extends CustomPainter {
