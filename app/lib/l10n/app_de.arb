@@ -1170,5 +1170,6 @@
   "notebookNoPins": "Setze eine Markierung auf der Karte, um sie mit einem Eintrag oder einer anderen Karte zu verknüpfen.",
   "notebookPinLink": "Verknüpfen mit",
   "notebookPinUnlinked": "Nicht verknüpft",
-  "notebookPinUnnamed": "Unbenannte Markierung"
+  "notebookPinUnnamed": "Unbenannte Markierung",
+  "notebookSearchAll": "Alle Kampagnen durchsuchen"
 }

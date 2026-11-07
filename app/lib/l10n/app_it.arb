@@ -1170,5 +1170,6 @@
   "notebookNoPins": "Metti un segnaposto sulla mappa per collegarlo a una scheda o a un’altra mappa.",
   "notebookPinLink": "Collega a",
   "notebookPinUnlinked": "Non collegato",
-  "notebookPinUnnamed": "Segnaposto senza nome"
+  "notebookPinUnnamed": "Segnaposto senza nome",
+  "notebookSearchAll": "Cerca in tutte le campagne"
 }

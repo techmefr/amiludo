@@ -7153,6 +7153,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unnamed pin'**
   String get notebookPinUnnamed;
+
+  /// No description provided for @notebookSearchAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Search all campaigns'**
+  String get notebookSearchAll;
 }
 
 class _AppLocalizationsDelegate

@@ -3812,4 +3812,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notebookPinUnnamed => 'Unnamed pin';
+
+  @override
+  String get notebookSearchAll => 'Search all campaigns';
 }

@@ -1442,5 +1442,6 @@
   "notebookNoPins": "Place a pin on the map to link it to an entry or another map.",
   "notebookPinLink": "Link to",
   "notebookPinUnlinked": "Not linked",
-  "notebookPinUnnamed": "Unnamed pin"
+  "notebookPinUnnamed": "Unnamed pin",
+  "notebookSearchAll": "Search all campaigns"
 }

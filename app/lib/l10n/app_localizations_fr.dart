@@ -3843,4 +3843,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get notebookPinUnnamed => 'Repère sans nom';
+
+  @override
+  String get notebookSearchAll => 'Chercher dans toutes les campagnes';
 }

@@ -1170,5 +1170,6 @@
   "notebookNoPins": "Coloca um marcador no mapa para o ligar a uma ficha ou a outro mapa.",
   "notebookPinLink": "Ligar a",
   "notebookPinUnlinked": "Sem ligação",
-  "notebookPinUnnamed": "Marcador sem nome"
+  "notebookPinUnnamed": "Marcador sem nome",
+  "notebookSearchAll": "Pesquisar em todas as campanhas"
 }

@@ -8,6 +8,7 @@ import 'package:amiludo/layers/functional/Notebook/presentation/campaign_card.da
 import 'package:amiludo/layers/functional/Notebook/presentation/campaign_look_sheet.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/cubit/notebook_cubit.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/new_campaign_sheet.dart';
+import 'package:amiludo/layers/functional/Notebook/presentation/notebook_search_panel.dart';
 import 'package:amiludo/layers/technical/Files/file_transfer.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
@@ -80,11 +81,34 @@ class CampaignsScreen extends StatelessWidget {
         CampaignAction.delete => _delete(context, c),
       };
 
+  Widget _content(BuildContext context, Notebook notebook) {
+    final l = context.l10n;
+    final cubit = context.read<NotebookCubit>();
+    if (notebook.isEmpty) {
+      return EmptyPanel(
+        icon: Icons.menu_book_outlined,
+        title: l.notebookEmpty,
+        message: l.notebookEmptyHint,
+      );
+    }
+    return ResponsiveGrid(
+      minimumWidth: 280,
+      children: [
+        for (final c in notebook.sorted)
+          CampaignCard(
+            campaign: c,
+            onOpen: () => context.push('/notebook/${c.id}'),
+            onFavorite: () => cubit.toggleFavorite(c.id),
+            onAction: (a) => _act(context, c, a),
+          ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
     final Notebook notebook = context.watch<NotebookCubit>().state;
-    final cubit = context.read<NotebookCubit>();
     return FullPage(
       title: l.notebookTitle,
       fallback: '/',
@@ -106,25 +130,10 @@ class CampaignsScreen extends StatelessWidget {
             label: Text(l.notebookNewCampaign),
           ),
           const SizedBox(height: Space.lg),
-          if (notebook.isEmpty)
-            EmptyPanel(
-              icon: Icons.menu_book_outlined,
-              title: l.notebookEmpty,
-              message: l.notebookEmptyHint,
-            )
-          else
-            ResponsiveGrid(
-              minimumWidth: 280,
-              children: [
-                for (final c in notebook.sorted)
-                  CampaignCard(
-                    campaign: c,
-                    onOpen: () => context.push('/notebook/${c.id}'),
-                    onFavorite: () => cubit.toggleFavorite(c.id),
-                    onAction: (a) => _act(context, c, a),
-                  ),
-              ],
-            ),
+          NotebookSearchPanel(
+            notebook: notebook,
+            fallback: _content(context, notebook),
+          ),
         ],
       ),
     );

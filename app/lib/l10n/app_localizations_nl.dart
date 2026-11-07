@@ -3841,4 +3841,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get notebookPinUnnamed => 'Naamloze pin';
+
+  @override
+  String get notebookSearchAll => 'Zoeken in alle campagnes';
 }

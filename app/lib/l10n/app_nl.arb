@@ -1170,5 +1170,6 @@
   "notebookNoPins": "Plaats een pin op de kaart om hem aan een item of een andere kaart te koppelen.",
   "notebookPinLink": "Koppelen aan",
   "notebookPinUnlinked": "Niet gekoppeld",
-  "notebookPinUnnamed": "Naamloze pin"
+  "notebookPinUnnamed": "Naamloze pin",
+  "notebookSearchAll": "Zoeken in alle campagnes"
 }

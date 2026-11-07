@@ -3841,4 +3841,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get notebookPinUnnamed => 'Segnaposto senza nome';
+
+  @override
+  String get notebookSearchAll => 'Cerca in tutte le campagne';
 }

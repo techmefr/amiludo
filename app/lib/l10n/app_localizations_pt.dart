@@ -3840,4 +3840,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get notebookPinUnnamed => 'Marcador sem nome';
+
+  @override
+  String get notebookSearchAll => 'Pesquisar em todas as campanhas';
 }
