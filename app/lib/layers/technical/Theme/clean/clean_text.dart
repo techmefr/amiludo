@@ -77,7 +77,7 @@ TextTheme cleanTextTheme(
       15,
       FontWeight.w400,
       height: 1.5,
-      letterSpacing: -.2,
+      letterSpacing: 0,
       tabular: false,
     ),
     bodySmall: style(
