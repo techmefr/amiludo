@@ -15,6 +15,7 @@ List<Widget> traySprite({
   required int value,
   required ColorScheme scheme,
   required VoidCallback onTap,
+  ValueChanged<Offset>? onSwipe,
   bool solid = false,
   DieSkin skin = DieSkin.classic,
 }) {
@@ -62,6 +63,9 @@ List<Widget> traySprite({
       top: body.y - size / 2,
       child: GestureDetector(
         onTap: onTap,
+        onPanEnd: solid || onSwipe == null
+            ? null
+            : (d) => onSwipe(d.velocity.pixelsPerSecond),
         child: Transform(
           alignment: Alignment.center,
           transform: tumble,

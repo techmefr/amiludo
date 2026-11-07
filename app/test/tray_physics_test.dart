@@ -63,4 +63,29 @@ void main() {
     expect(p.isMoving(const {}), isFalse);
     expect(steps, lessThan(2000));
   });
+
+  test('dice leave the bottom edge and fly toward the aim', () {
+    final p = TrayPhysics(width: 320, height: 300, radius: 28, count: 3)
+      ..launch(SeededRandom(4), const {}, aimX: 1, aimY: 0);
+    for (final b in p.bodies) {
+      expect(b.y, greaterThan(300 - 28 * 3));
+      expect(b.vx, greaterThan(0));
+    }
+    final up = TrayPhysics(width: 320, height: 300, radius: 28, count: 3)
+      ..launch(SeededRandom(4), const {});
+    for (final b in up.bodies) {
+      expect(b.vy, lessThan(0));
+    }
+  });
+
+  test('an aimed throw is seeded and settles on the same faces', () {
+    List<int> run() {
+      final p = TrayPhysics(width: 320, height: 300, radius: 28, count: 4)
+        ..launch(SeededRandom(6), const {}, aimX: -0.6, aimY: -0.8)
+        ..settle(const {});
+      return p.outcome();
+    }
+
+    expect(run(), run());
+  });
 }

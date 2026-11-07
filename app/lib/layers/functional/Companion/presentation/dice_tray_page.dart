@@ -71,6 +71,7 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
   late bool solid = widget.solid;
   late String skin = widget.skin, table = widget.table;
   double power = 0.7;
+  Offset aim = Offset.zero;
   Tilt tilt = Tilt.flat;
 
   @override
@@ -93,10 +94,11 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
     super.dispose();
   }
 
-  void throwDice([double strength = 0.7]) {
+  void throwDice([double strength = 0.7, Offset direction = Offset.zero]) {
     if (session.settings.dice.isEmpty) return;
     setState(() {
       power = strength;
+      aim = direction;
       throwId++;
       session = session.throwDice(SeededRandom(seed + throwId));
     });
@@ -127,6 +129,9 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
     throwId: throwId,
     seed: seed,
     power: power,
+    aim: aim,
+    onFlick: throwDice,
+    onTapTable: throwDice,
     tilt: tilt,
     feedback: feedback,
     solid: solid,

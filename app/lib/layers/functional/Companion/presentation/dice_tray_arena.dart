@@ -25,6 +25,9 @@ class DiceTraySurface extends StatefulWidget {
     required this.onTapDie,
     this.onOutcome,
     this.power = 1,
+    this.aim = Offset.zero,
+    this.onFlick,
+    this.onTapTable,
     this.tilt = Tilt.flat,
     this.feedback,
     this.solid = false,
@@ -36,6 +39,9 @@ class DiceTraySurface extends StatefulWidget {
   final ValueChanged<int> onTapDie;
   final ValueChanged<List<int>>? onOutcome;
   final double power;
+  final Offset aim;
+  final void Function(double power, Offset aim)? onFlick;
+  final VoidCallback? onTapTable;
   final Tilt tilt;
   final TrayFeedback? feedback;
   final bool solid;
@@ -88,7 +94,7 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
     last = elapsed;
     final kept = widget.session.kept;
     var steps = 0;
-    while (carry >= TrayPhysics.step && steps++ < 6) {
+    while (carry >= TrayPhysics.step && steps++ < 400) {
       p.advance(TrayPhysics.step, kept);
       carry -= TrayPhysics.step;
     }
@@ -106,10 +112,24 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
     final sides = [for (final d in widget.session.settings.dice) d.sides];
     SeededRandom rng() => SeededRandom(widget.seed ^ (widget.throwId * 7919));
     final rehearsal = p.copy()
-      ..launch(rng(), kept, power: widget.power, sides: sides)
+      ..launch(
+        rng(),
+        kept,
+        power: widget.power,
+        sides: sides,
+        aimX: widget.aim.dx,
+        aimY: widget.aim.dy,
+      )
       ..settle(kept);
     final outcome = rehearsal.outcome();
-    p.launch(rng(), kept, power: widget.power, sides: sides);
+    p.launch(
+      rng(),
+      kept,
+      power: widget.power,
+      sides: sides,
+      aimX: widget.aim.dx,
+      aimY: widget.aim.dy,
+    );
     widget.feedback?.thrown(widget.power);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) widget.onOutcome?.call(outcome);
@@ -125,6 +145,21 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
       return;
     }
     run();
+  }
+
+  void swipe(int i, Offset v) {
+    if (v.distance < 400) return;
+    if (v.dx < 0 && v.dx.abs() > v.dy.abs()) {
+      widget.onTapDie(i);
+    } else if (v.dy < 0) {
+      flick(DragEndDetails(velocity: Velocity(pixelsPerSecond: v)));
+    }
+  }
+
+  void flick(DragEndDetails d) {
+    final v = d.velocity.pixelsPerSecond;
+    if (v.distance < 400) return;
+    widget.onFlick?.call((v.distance / 1800).clamp(0.5, 1.5), v / v.distance);
   }
 
   TrayPhysics bodyFor(BoxConstraints box) {
@@ -159,6 +194,7 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
       value: b.rolling ? b.face : widget.session.values[i],
       scheme: scheme,
       onTap: () => widget.onTapDie(i),
+      onSwipe: (v) => swipe(i, v),
       solid: widget.solid,
       skin: widget.skin,
     );
@@ -182,17 +218,22 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(Radii.lg),
-            child: Stack(
-              children: [
-                trayFelt(material, widget.solid),
-                if (widget.solid)
-                  Positioned.fill(
-                    child: CustomPaint(painter: TablePainter(widget.table)),
-                  ),
-                if (session.thrown)
-                  for (var i = 0; i < p.bodies.length; i++)
-                    if (!session.kept.contains(i)) ...dieAt(p, i, scheme),
-              ],
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: widget.onTapTable,
+              onPanEnd: flick,
+              child: Stack(
+                children: [
+                  trayFelt(material, widget.solid),
+                  if (widget.solid)
+                    Positioned.fill(
+                      child: CustomPaint(painter: TablePainter(widget.table)),
+                    ),
+                  if (session.thrown)
+                    for (var i = 0; i < p.bodies.length; i++)
+                      if (!session.kept.contains(i)) ...dieAt(p, i, scheme),
+                ],
+              ),
             ),
           ),
         );
