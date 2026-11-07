@@ -14,6 +14,8 @@ const fingerColors = [
 const fingerPadColor = Color(0xFF121212);
 const fingerHintColor = Color(0xB3FFFFFF);
 const fingerIdleColor = Color(0x8AFFFFFF);
+const fingerWinnerDiscColor = Color(0xFF000000);
+const fingerRingSize = 132.0;
 
 enum FingerRingState { idle, dim, winner }
 
@@ -23,7 +25,7 @@ class FingerRing extends StatelessWidget {
     required this.color,
     this.state = FingerRingState.idle,
     this.label,
-    this.size = 88,
+    this.size = fingerRingSize,
   });
 
   final Color color;
@@ -35,51 +37,76 @@ class FingerRing extends StatelessWidget {
   Widget build(BuildContext context) {
     final dim = state == FingerRingState.dim;
     final winner = state == FingerRingState.winner;
+    if (winner) return _WinnerDisc(size: size);
     final base = dim ? const Color(0xFF3A3A3C) : color;
     final inner = size * 0.62;
     final core = size * 0.44;
-    return AnimatedContainer(
-      duration: Motion.of(context, Motion.base),
-      width: size,
-      height: size,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: base.withValues(alpha: dim ? 0.5 : 0.55),
-        boxShadow: winner
-            ? [
-                BoxShadow(
-                  color: color.withValues(alpha: 0.7),
-                  blurRadius: 36,
-                  spreadRadius: 6,
-                ),
-              ]
-            : const [],
-      ),
-      child: Container(
-        width: inner,
-        height: inner,
+    return AnimatedOpacity(
+      opacity: dim ? 0 : 1,
+      duration: Motion.of(context, Motion.slow),
+      child: AnimatedContainer(
+        duration: Motion.of(context, Motion.base),
+        width: size,
+        height: size,
         alignment: Alignment.center,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: fingerPadColor,
+          color: base.withValues(alpha: dim ? 0.5 : 0.55),
         ),
         child: Container(
-          width: core,
-          height: core,
+          width: inner,
+          height: inner,
           alignment: Alignment.center,
-          decoration: BoxDecoration(shape: BoxShape.circle, color: base),
-          child: label == null
-              ? null
-              : Text(
-                  label!,
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w800,
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: fingerPadColor,
+          ),
+          child: Container(
+            width: core,
+            height: core,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(shape: BoxShape.circle, color: base),
+            child: label == null
+                ? null
+                : Text(
+                    label!,
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
-                ),
+          ),
         ),
-      ),
+    ),
     );
   }
+}
+
+class _WinnerDisc extends StatelessWidget {
+  const _WinnerDisc({required this.size});
+
+  final double size;
+
+  @override
+  Widget build(BuildContext context) => SizedBox(
+    width: size,
+    height: size,
+    child: OverflowBox(
+      maxWidth: size * 2,
+      maxHeight: size * 2,
+      child: TweenAnimationBuilder<double>(
+        tween: Tween(begin: 1, end: 2),
+        duration: Motion.of(context, Motion.base),
+        curve: Motion.curve,
+        builder: (context, scale, _) => Container(
+          width: size * scale,
+          height: size * scale,
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: fingerWinnerDiscColor,
+          ),
+        ),
+      ),
+    ),
+  );
 }
