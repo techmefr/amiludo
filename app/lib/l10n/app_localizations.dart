@@ -5912,114 +5912,6 @@ abstract class AppLocalizations {
   /// **'Drag sideways to change edition, drag far to tear.'**
   String get chroniclesTearHint;
 
-  /// No description provided for @toolMapTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Map'**
-  String get toolMapTitle;
-
-  /// No description provided for @toolMapSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Pins, tokens and sketches on a board of your choice.'**
-  String get toolMapSubtitle;
-
-  /// No description provided for @mapToolMove.
-  ///
-  /// In en, this message translates to:
-  /// **'Move and zoom'**
-  String get mapToolMove;
-
-  /// No description provided for @mapToolPin.
-  ///
-  /// In en, this message translates to:
-  /// **'Pin'**
-  String get mapToolPin;
-
-  /// No description provided for @mapToolToken.
-  ///
-  /// In en, this message translates to:
-  /// **'Token'**
-  String get mapToolToken;
-
-  /// No description provided for @mapToolLine.
-  ///
-  /// In en, this message translates to:
-  /// **'Line'**
-  String get mapToolLine;
-
-  /// No description provided for @mapToolZone.
-  ///
-  /// In en, this message translates to:
-  /// **'Zone'**
-  String get mapToolZone;
-
-  /// No description provided for @mapToolErase.
-  ///
-  /// In en, this message translates to:
-  /// **'Erase'**
-  String get mapToolErase;
-
-  /// No description provided for @mapUndo.
-  ///
-  /// In en, this message translates to:
-  /// **'Undo'**
-  String get mapUndo;
-
-  /// No description provided for @mapBackground.
-  ///
-  /// In en, this message translates to:
-  /// **'Background'**
-  String get mapBackground;
-
-  /// No description provided for @mapBackgroundBlank.
-  ///
-  /// In en, this message translates to:
-  /// **'Blank'**
-  String get mapBackgroundBlank;
-
-  /// No description provided for @mapBackgroundGrid.
-  ///
-  /// In en, this message translates to:
-  /// **'Square grid'**
-  String get mapBackgroundGrid;
-
-  /// No description provided for @mapBackgroundHex.
-  ///
-  /// In en, this message translates to:
-  /// **'Hex grid'**
-  String get mapBackgroundHex;
-
-  /// No description provided for @mapBackgroundImage.
-  ///
-  /// In en, this message translates to:
-  /// **'Import an image'**
-  String get mapBackgroundImage;
-
-  /// No description provided for @mapIcon.
-  ///
-  /// In en, this message translates to:
-  /// **'Icon'**
-  String get mapIcon;
-
-  /// No description provided for @mapColor.
-  ///
-  /// In en, this message translates to:
-  /// **'Color'**
-  String get mapColor;
-
-  /// No description provided for @mapMarkerLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Label'**
-  String get mapMarkerLabel;
-
-  /// No description provided for @mapMarkerDelete.
-  ///
-  /// In en, this message translates to:
-  /// **'Delete'**
-  String get mapMarkerDelete;
-
   /// No description provided for @diceMyDice.
   ///
   /// In en, this message translates to:
@@ -6428,6 +6320,203 @@ abstract class AppLocalizations {
   /// **'Weapons and tools'**
   String get avatarSlotWeapon;
 
+  /// No description provided for @toolMapTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Map'**
+  String get toolMapTitle;
+
+  /// No description provided for @toolMapSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pins, tokens and sketches on a board of your choice.'**
+  String get toolMapSubtitle;
+
+  /// No description provided for @mapToolMove.
+  ///
+  /// In en, this message translates to:
+  /// **'Move and zoom'**
+  String get mapToolMove;
+
+  /// No description provided for @mapToolPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Pin'**
+  String get mapToolPin;
+
+  /// No description provided for @mapToolToken.
+  ///
+  /// In en, this message translates to:
+  /// **'Token'**
+  String get mapToolToken;
+
+  /// No description provided for @mapToolLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Line'**
+  String get mapToolLine;
+
+  /// No description provided for @mapToolZone.
+  ///
+  /// In en, this message translates to:
+  /// **'Zone'**
+  String get mapToolZone;
+
+  /// No description provided for @mapToolErase.
+  ///
+  /// In en, this message translates to:
+  /// **'Erase'**
+  String get mapToolErase;
+
+  /// No description provided for @mapUndo.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo'**
+  String get mapUndo;
+
+  /// No description provided for @mapBackground.
+  ///
+  /// In en, this message translates to:
+  /// **'Background'**
+  String get mapBackground;
+
+  /// No description provided for @mapBackgroundBlank.
+  ///
+  /// In en, this message translates to:
+  /// **'Blank'**
+  String get mapBackgroundBlank;
+
+  /// No description provided for @mapBackgroundGrid.
+  ///
+  /// In en, this message translates to:
+  /// **'Square grid'**
+  String get mapBackgroundGrid;
+
+  /// No description provided for @mapBackgroundHex.
+  ///
+  /// In en, this message translates to:
+  /// **'Hex grid'**
+  String get mapBackgroundHex;
+
+  /// No description provided for @mapBackgroundImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Import an image'**
+  String get mapBackgroundImage;
+
+  /// No description provided for @mapIcon.
+  ///
+  /// In en, this message translates to:
+  /// **'Icon'**
+  String get mapIcon;
+
+  /// No description provided for @mapColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Color'**
+  String get mapColor;
+
+  /// No description provided for @mapMarkerLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Label'**
+  String get mapMarkerLabel;
+
+  /// No description provided for @mapMarkerDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get mapMarkerDelete;
+
+  /// No description provided for @diceLook.
+  ///
+  /// In en, this message translates to:
+  /// **'Style'**
+  String get diceLook;
+
+  /// No description provided for @diceLookSkin.
+  ///
+  /// In en, this message translates to:
+  /// **'Dice'**
+  String get diceLookSkin;
+
+  /// No description provided for @diceLookTable.
+  ///
+  /// In en, this message translates to:
+  /// **'Table'**
+  String get diceLookTable;
+
+  /// No description provided for @diceSkinClassic.
+  ///
+  /// In en, this message translates to:
+  /// **'Classic'**
+  String get diceSkinClassic;
+
+  /// No description provided for @diceSkinMatte.
+  ///
+  /// In en, this message translates to:
+  /// **'Matte black'**
+  String get diceSkinMatte;
+
+  /// No description provided for @diceSkinGold.
+  ///
+  /// In en, this message translates to:
+  /// **'Gold'**
+  String get diceSkinGold;
+
+  /// No description provided for @diceSkinWood.
+  ///
+  /// In en, this message translates to:
+  /// **'Wood'**
+  String get diceSkinWood;
+
+  /// No description provided for @diceSkinCrystal.
+  ///
+  /// In en, this message translates to:
+  /// **'Crystal'**
+  String get diceSkinCrystal;
+
+  /// No description provided for @diceSkinGlass.
+  ///
+  /// In en, this message translates to:
+  /// **'Glass'**
+  String get diceSkinGlass;
+
+  /// No description provided for @diceTableFelt.
+  ///
+  /// In en, this message translates to:
+  /// **'Felt'**
+  String get diceTableFelt;
+
+  /// No description provided for @diceTableDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get diceTableDark;
+
+  /// No description provided for @diceTableLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get diceTableLight;
+
+  /// No description provided for @diceTableWood.
+  ///
+  /// In en, this message translates to:
+  /// **'Wood'**
+  String get diceTableWood;
+
+  /// No description provided for @diceTableBlue.
+  ///
+  /// In en, this message translates to:
+  /// **'Blue'**
+  String get diceTableBlue;
+
+  /// No description provided for @diceTrayCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} dice'**
+  String diceTrayCount(int count);
 }
 
 class _AppLocalizationsDelegate

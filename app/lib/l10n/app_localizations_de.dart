@@ -3416,10 +3416,12 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get avatarSlotWeapon => 'Waffen und Werkzeuge';
 
+  @override
   String get toolMapTitle => 'Karte';
 
   @override
-  String get toolMapSubtitle => 'Markierungen, Spielfiguren und Skizzen auf einem Plan Ihrer Wahl.';
+  String get toolMapSubtitle =>
+      'Markierungen, Spielfiguren und Skizzen auf einem Plan Ihrer Wahl.';
 
   @override
   String get mapToolMove => 'Verschieben und zoomen';
@@ -3468,4 +3470,51 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get mapMarkerDelete => 'Löschen';
+
+  @override
+  String get diceLook => 'Stil';
+
+  @override
+  String get diceLookSkin => 'Würfel';
+
+  @override
+  String get diceLookTable => 'Tisch';
+
+  @override
+  String get diceSkinClassic => 'Klassisch';
+
+  @override
+  String get diceSkinMatte => 'Mattschwarz';
+
+  @override
+  String get diceSkinGold => 'Gold';
+
+  @override
+  String get diceSkinWood => 'Holz';
+
+  @override
+  String get diceSkinCrystal => 'Kristall';
+
+  @override
+  String get diceSkinGlass => 'Glas';
+
+  @override
+  String get diceTableFelt => 'Filz';
+
+  @override
+  String get diceTableDark => 'Dunkel';
+
+  @override
+  String get diceTableLight => 'Hell';
+
+  @override
+  String get diceTableWood => 'Holz';
+
+  @override
+  String get diceTableBlue => 'Blau';
+
+  @override
+  String diceTrayCount(int count) {
+    return '$count Würfel';
+  }
 }

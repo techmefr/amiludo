@@ -1,3 +1,5 @@
+import 'package:amiludo/layers/technical/Dice3D/die_skin.dart';
+import 'package:amiludo/layers/technical/Dice3D/table_theme.dart';
 import 'package:amiludo/layers/technical/Locale/supported_languages.dart';
 import 'package:amiludo/layers/technical/Sensors/sensor_sensitivity.dart';
 
@@ -17,8 +19,11 @@ class Appearance {
     this.language = 'fr',
     this.sensors = 'medium',
     this.dice3d = false,
+    this.dieSkin = 'classic',
+    this.table = 'felt',
   });
   final String skin, palette, mode, font, shape, language, sensors;
+  final String dieSkin, table;
   final bool compact, large, motion, keepAwake, sound, haptics, dice3d;
   static const palettes = [
     'play',
@@ -59,6 +64,8 @@ class Appearance {
     String? language,
     String? sensors,
     bool? dice3d,
+    String? dieSkin,
+    String? table,
   }) => Appearance(
     skin: skin ?? this.skin,
     palette: palette ?? this.palette,
@@ -74,6 +81,8 @@ class Appearance {
     language: language ?? this.language,
     sensors: sensors ?? this.sensors,
     dice3d: dice3d ?? this.dice3d,
+    dieSkin: dieSkin ?? this.dieSkin,
+    table: table ?? this.table,
   );
   Map<String, Object?> toJson() => {
     'skin': skin,
@@ -90,6 +99,8 @@ class Appearance {
     'language': language,
     if (sensors != 'medium') 'sensors': sensors,
     if (dice3d) 'dice3d': true,
+    if (dieSkin != 'classic') 'dieSkin': dieSkin,
+    if (table != 'felt') 'table': table,
   };
   factory Appearance.fromJson(Map<String, dynamic> j) {
     const oldFonts = {
@@ -117,6 +128,8 @@ class Appearance {
       language: j['language'] as String? ?? 'fr',
       sensors: j['sensors'] as String? ?? 'medium',
       dice3d: j['dice3d'] as bool? ?? false,
+      dieSkin: _known(j['dieSkin'], DieSkin.all.map((s) => s.id), 'classic'),
+      table: _known(j['table'], TableTheme.all.map((t) => t.id), 'felt'),
     );
     if (!['play', 'cyber', 'orbital', 'paper', 'game'].contains(a.skin) ||
         !palettes.contains(a.palette) ||
@@ -130,6 +143,9 @@ class Appearance {
     return a;
   }
 }
+
+String _known(Object? value, Iterable<String> ids, String fallback) =>
+    value is String && ids.contains(value) ? value : fallback;
 
 class StyleProfile {
   const StyleProfile(this.name, this.appearance);

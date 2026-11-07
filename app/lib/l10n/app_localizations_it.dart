@@ -3411,10 +3411,12 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get avatarSlotWeapon => 'Armi e attrezzi';
 
+  @override
   String get toolMapTitle => 'Mappa';
 
   @override
-  String get toolMapSubtitle => 'Segnaposto, pedine e disegni sul tabellone che preferisci.';
+  String get toolMapSubtitle =>
+      'Segnaposto, pedine e disegni sul tabellone che preferisci.';
 
   @override
   String get mapToolMove => 'Sposta e ingrandisci';
@@ -3463,4 +3465,51 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get mapMarkerDelete => 'Elimina';
+
+  @override
+  String get diceLook => 'Stile';
+
+  @override
+  String get diceLookSkin => 'Dadi';
+
+  @override
+  String get diceLookTable => 'Tavolo';
+
+  @override
+  String get diceSkinClassic => 'Classico';
+
+  @override
+  String get diceSkinMatte => 'Nero opaco';
+
+  @override
+  String get diceSkinGold => 'Oro';
+
+  @override
+  String get diceSkinWood => 'Legno';
+
+  @override
+  String get diceSkinCrystal => 'Cristallo';
+
+  @override
+  String get diceSkinGlass => 'Vetro';
+
+  @override
+  String get diceTableFelt => 'Feltro';
+
+  @override
+  String get diceTableDark => 'Scuro';
+
+  @override
+  String get diceTableLight => 'Chiaro';
+
+  @override
+  String get diceTableWood => 'Legno';
+
+  @override
+  String get diceTableBlue => 'Blu';
+
+  @override
+  String diceTrayCount(int count) {
+    return '$count dadi';
+  }
 }

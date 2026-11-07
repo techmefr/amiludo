@@ -3410,10 +3410,12 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get avatarSlotWeapon => 'Armas e ferramentas';
 
+  @override
   String get toolMapTitle => 'Mapa';
 
   @override
-  String get toolMapSubtitle => 'Marcadores, peões e traços no tabuleiro à tua escolha.';
+  String get toolMapSubtitle =>
+      'Marcadores, peões e traços no tabuleiro à tua escolha.';
 
   @override
   String get mapToolMove => 'Mover e ampliar';
@@ -3462,4 +3464,51 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get mapMarkerDelete => 'Eliminar';
+
+  @override
+  String get diceLook => 'Estilo';
+
+  @override
+  String get diceLookSkin => 'Dados';
+
+  @override
+  String get diceLookTable => 'Mesa';
+
+  @override
+  String get diceSkinClassic => 'Clássico';
+
+  @override
+  String get diceSkinMatte => 'Preto fosco';
+
+  @override
+  String get diceSkinGold => 'Ouro';
+
+  @override
+  String get diceSkinWood => 'Madeira';
+
+  @override
+  String get diceSkinCrystal => 'Cristal';
+
+  @override
+  String get diceSkinGlass => 'Vidro';
+
+  @override
+  String get diceTableFelt => 'Feltro';
+
+  @override
+  String get diceTableDark => 'Escuro';
+
+  @override
+  String get diceTableLight => 'Claro';
+
+  @override
+  String get diceTableWood => 'Madeira';
+
+  @override
+  String get diceTableBlue => 'Azul';
+
+  @override
+  String diceTrayCount(int count) {
+    return '$count dados';
+  }
 }

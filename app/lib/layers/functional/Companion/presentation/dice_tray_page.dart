@@ -3,21 +3,17 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
-import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_controls.dart';
-import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_summary.dart';
-import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_arena.dart';
-import 'package:amiludo/layers/functional/Companion/presentation/dice_view_toggle.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/dice_2d_panel.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/dice_3d_panel.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/tray_stage.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/die_studio.dart';
-import 'package:amiludo/layers/functional/Companion/presentation/tray_surface_picker.dart';
+import 'package:amiludo/layers/technical/Dice3D/die_skin.dart';
+import 'package:amiludo/layers/technical/Dice3D/table_theme.dart';
 import 'package:amiludo/layers/technical/Feedback/tray_feedback.dart';
-import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Motion/shake_source.dart';
 import 'package:amiludo/layers/technical/Physics/seeded_random.dart';
-import 'package:amiludo/layers/technical/Physics/surface_material.dart';
 import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
 import 'package:amiludo/layers/technical/Sound/sound_output.dart';
-import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
-import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class DiceTrayPage extends StatefulWidget {
   const DiceTrayPage({
@@ -32,6 +28,10 @@ class DiceTrayPage extends StatefulWidget {
     this.haptics = false,
     this.solid = false,
     this.onSolidChanged,
+    this.skin = 'classic',
+    this.table = 'felt',
+    this.onSkinChanged,
+    this.onTableChanged,
   });
   final DiceTraySettings initial;
   final ShakeSource shakeSource;
@@ -40,7 +40,9 @@ class DiceTrayPage extends StatefulWidget {
   final TrayMotion motion;
   final SoundOutput soundOutput;
   final bool sound, haptics, solid;
+  final String skin, table;
   final ValueChanged<bool>? onSolidChanged;
+  final ValueChanged<String>? onSkinChanged, onTableChanged;
 
   @override
   State<DiceTrayPage> createState() => _DiceTrayPageState();
@@ -67,6 +69,7 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
   StreamSubscription<Tilt>? tilts;
   int throwId = 0;
   late bool solid = widget.solid;
+  late String skin = widget.skin, table = widget.table;
   double power = 0.7;
   Tilt tilt = Tilt.flat;
 
@@ -114,80 +117,55 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
     widget.onChanged?.call(next);
   }
 
+  void changeView(bool value) {
+    setState(() => solid = value);
+    widget.onSolidChanged?.call(value);
+  }
+
+  Widget stage() => TrayStage(
+    session: session,
+    throwId: throwId,
+    seed: seed,
+    power: power,
+    tilt: tilt,
+    feedback: feedback,
+    solid: solid,
+    skin: DieSkin.byId(skin),
+    table: TableTheme.byId(table),
+    onOutcome: (v) => setState(() => session = session.withOutcome(v)),
+    onTapDie: (i) => solid
+        ? throwDice()
+        : setState(() => session = session.toggleKeep(i)),
+    onView: changeView,
+  );
+
   @override
   Widget build(BuildContext context) {
-    final l = context.l10n;
-    final theme = Theme.of(context);
-    final trayHeight = (MediaQuery.sizeOf(context).height * 0.42).clamp(
-      240.0,
-      520.0,
-    );
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        DiceTrayControls(settings: session.settings, onChanged: configure),
-        const SizedBox(height: Space.md),
-        TraySurfacePicker(
-          value: SurfaceMaterial.parse(session.settings.surface).name,
-          onChanged: chooseSurface,
-        ),
-        const SizedBox(height: Space.lg),
-        Text(
-          session.settings.dice.isEmpty
-              ? l.diceTrayEmpty
-              : '${l.diceTrayShakeHint} ${l.diceTrayKeepHint}',
-          style: theme.textTheme.bodySmall,
-        ),
-        const SizedBox(height: Space.md),
-        SizedBox(
-          height: trayHeight,
-          child: Stack(
-            children: [
-              Positioned.fill(
-                child: DiceTraySurface(
-                  session: session,
-                  throwId: throwId,
-                  seed: seed,
-                  power: power,
-                  tilt: tilt,
-                  feedback: feedback,
-                  solid: solid,
-                  onOutcome: (v) =>
-                      setState(() => session = session.withOutcome(v)),
-                  onTapDie: (i) =>
-                      setState(() => session = session.toggleKeep(i)),
-                ),
-              ),
-              Positioned(
-                top: Space.sm,
-                right: Space.sm,
-                child: DiceViewToggle(
-                  solid: solid,
-                  onChanged: (value) {
-                    setState(() => solid = value);
-                    widget.onSolidChanged?.call(value);
-                  },
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: Space.md),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: FilledButton.icon(
-            onPressed: session.settings.dice.isEmpty ? null : throwDice,
-            icon: const DeckIcon(Icons.casino_outlined),
-            label: Text(l.diceTrayThrow),
-          ),
-        ),
-        const SizedBox(height: Space.md),
-        DiceTraySummary(
-          session: session,
-          onTapDie: (i) => setState(() => session = session.toggleKeep(i)),
-        ),
-      ],
+    if (solid) {
+      return Dice3dPanel(
+        session: session,
+        stage: stage(),
+        skin: skin,
+        table: table,
+        onConfigure: configure,
+        onThrow: throwDice,
+        onSkin: (id) {
+          setState(() => skin = id);
+          widget.onSkinChanged?.call(id);
+        },
+        onTable: (id) {
+          setState(() => table = id);
+          widget.onTableChanged?.call(id);
+        },
+      );
+    }
+    return Dice2dPanel(
+      session: session,
+      stage: stage(),
+      onConfigure: configure,
+      onSurface: chooseSurface,
+      onThrow: throwDice,
+      onKeep: (i) => setState(() => session = session.toggleKeep(i)),
     );
   }
 }

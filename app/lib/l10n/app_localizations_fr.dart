@@ -3413,10 +3413,12 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get avatarSlotWeapon => 'Armes et outils';
 
+  @override
   String get toolMapTitle => 'Carte';
 
   @override
-  String get toolMapSubtitle => 'Repères, pions et tracés sur le plateau de votre choix.';
+  String get toolMapSubtitle =>
+      'Repères, pions et tracés sur le plateau de votre choix.';
 
   @override
   String get mapToolMove => 'Déplacer et zoomer';
@@ -3465,4 +3467,51 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get mapMarkerDelete => 'Supprimer';
+
+  @override
+  String get diceLook => 'Style';
+
+  @override
+  String get diceLookSkin => 'Dés';
+
+  @override
+  String get diceLookTable => 'Table';
+
+  @override
+  String get diceSkinClassic => 'Classique';
+
+  @override
+  String get diceSkinMatte => 'Noir mat';
+
+  @override
+  String get diceSkinGold => 'Or';
+
+  @override
+  String get diceSkinWood => 'Bois';
+
+  @override
+  String get diceSkinCrystal => 'Cristal';
+
+  @override
+  String get diceSkinGlass => 'Verre';
+
+  @override
+  String get diceTableFelt => 'Feutre';
+
+  @override
+  String get diceTableDark => 'Sombre';
+
+  @override
+  String get diceTableLight => 'Clair';
+
+  @override
+  String get diceTableWood => 'Bois';
+
+  @override
+  String get diceTableBlue => 'Bleu';
+
+  @override
+  String diceTrayCount(int count) {
+    return '$count dés';
+  }
 }

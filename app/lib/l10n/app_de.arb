@@ -1049,5 +1049,20 @@
   "mapIcon": "Symbol",
   "mapColor": "Farbe",
   "mapMarkerLabel": "Beschriftung",
-  "mapMarkerDelete": "Löschen"
+  "mapMarkerDelete": "Löschen",
+  "diceLook": "Stil",
+  "diceLookSkin": "Würfel",
+  "diceLookTable": "Tisch",
+  "diceSkinClassic": "Klassisch",
+  "diceSkinMatte": "Mattschwarz",
+  "diceSkinGold": "Gold",
+  "diceSkinWood": "Holz",
+  "diceSkinCrystal": "Kristall",
+  "diceSkinGlass": "Glas",
+  "diceTableFelt": "Filz",
+  "diceTableDark": "Dunkel",
+  "diceTableLight": "Hell",
+  "diceTableWood": "Holz",
+  "diceTableBlue": "Blau",
+  "diceTrayCount": "{count} Würfel"
 }

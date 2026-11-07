@@ -1304,5 +1304,27 @@
   "mapIcon": "Icon",
   "mapColor": "Color",
   "mapMarkerLabel": "Label",
-  "mapMarkerDelete": "Delete"
+  "mapMarkerDelete": "Delete",
+  "diceLook": "Style",
+  "diceLookSkin": "Dice",
+  "diceLookTable": "Table",
+  "diceSkinClassic": "Classic",
+  "diceSkinMatte": "Matte black",
+  "diceSkinGold": "Gold",
+  "diceSkinWood": "Wood",
+  "diceSkinCrystal": "Crystal",
+  "diceSkinGlass": "Glass",
+  "diceTableFelt": "Felt",
+  "diceTableDark": "Dark",
+  "diceTableLight": "Light",
+  "diceTableWood": "Wood",
+  "diceTableBlue": "Blue",
+  "diceTrayCount": "{count} dice",
+  "@diceTrayCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

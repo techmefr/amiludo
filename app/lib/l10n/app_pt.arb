@@ -1049,5 +1049,20 @@
   "mapIcon": "Ícone",
   "mapColor": "Cor",
   "mapMarkerLabel": "Etiqueta",
-  "mapMarkerDelete": "Eliminar"
+  "mapMarkerDelete": "Eliminar",
+  "diceLook": "Estilo",
+  "diceLookSkin": "Dados",
+  "diceLookTable": "Mesa",
+  "diceSkinClassic": "Clássico",
+  "diceSkinMatte": "Preto fosco",
+  "diceSkinGold": "Ouro",
+  "diceSkinWood": "Madeira",
+  "diceSkinCrystal": "Cristal",
+  "diceSkinGlass": "Vidro",
+  "diceTableFelt": "Feltro",
+  "diceTableDark": "Escuro",
+  "diceTableLight": "Claro",
+  "diceTableWood": "Madeira",
+  "diceTableBlue": "Azul",
+  "diceTrayCount": "{count} dados"
 }
