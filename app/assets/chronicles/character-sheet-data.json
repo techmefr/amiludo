@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "etapes": ["Informations générales", "Apparence physique", "Personnalité et aptitudes", "Passé", "Présent"],
+  "libelles": {
+    "name": "Nom et prénom", "nickname": "Surnom", "age": "Âge", "birthDate": "Date de naissance",
+    "birthPlace": "Lieu de naissance", "gender": "Genre", "origin": "Nationalité et origines",
+    "languages": "Langues parlées", "job": "Métier, activité, occupation", "status": "Statut social",
+    "group": "Groupe d'appartenance", "skin": "Couleur de peau", "eyes": "Couleur des yeux",
+    "hair": "Couleur des cheveux", "build": "Silhouette et carrure", "height": "Taille",
+    "style": "Style vestimentaire", "marks": "Signes distinctifs", "qualities": "Qualités",
+    "flaws": "Défauts", "likes": "Ce qu'il aime", "dislikes": "Ce qu'il déteste",
+    "talents": "Talents particuliers", "habits": "Habitudes", "motivation": "Motivation profonde",
+    "goal": "Objectif dans le récit", "family": "Origine familiale", "childhood": "Enfance",
+    "experiences": "Expériences utiles au récit", "evolution": "Évolution avant le récit",
+    "situation": "Situation initiale", "aims": "Motivations, objectifs et actions"
+  },
+  "contraires": [
+    ["Courageux", "Lâche"], ["Loyal", "Fourbe"], ["Généreux", "Avare"], ["Curieux", "Indifférent"],
+    ["Patient", "Impulsif"], ["Honnête", "Menteur"], ["Calme", "Colérique"], ["Persévérant", "Inconstant"],
+    ["Chaleureux", "Froid"], ["Discipliné", "Désordonné"], ["Optimiste", "Pessimiste"],
+    ["Prudent", "Téméraire"], ["Protecteur", "Égoïste"], ["Humble", "Orgueilleux"], ["Lucide", "Naïf"]
+  ],
+  "commun": {
+    "gender": ["Femme", "Homme", "Non-binaire", "Sans genre défini"],
+    "skin": [
+      {"t": "Peau très claire", "p": 0}, {"t": "Peau hâlée", "p": 1},
+      {"t": "Peau brune", "p": 2}, {"t": "Peau foncée", "p": 3}
+    ],
+    "eyes": [
+      {"t": "Yeux marron foncé", "p": 0}, {"t": "Yeux verts", "p": 1}, {"t": "Yeux bleus", "p": 2},
+      {"t": "Yeux gris", "p": 3}, {"t": "Yeux noisette", "p": 4}, {"t": "Yeux violets", "p": 5},
+      {"t": "Yeux dorés", "p": 6}, {"t": "Yeux noirs", "p": 7}
+    ],
+    "hair": [
+      {"t": "Cheveux noirs", "p": 0}, {"t": "Cheveux châtains", "p": 1}, {"t": "Cheveux brun clair", "p": 2},
+      {"t": "Cheveux blonds", "p": 3}, {"t": "Cheveux roux", "p": 4}, {"t": "Cheveux gris", "p": 5},
+      {"t": "Cheveux blancs", "p": 6}, {"t": "Cheveux bleu nuit", "p": 7}, {"t": "Crâne rasé", "k": "bald"}
+    ],
+    "build": ["Mince", "Athlétique", "De carrure moyenne", "Robuste", "Trapue", "Longiligne", "Massive"],
+    "height": ["Minuscule (1,40 m)", "Petite (1,55 m)", "Moyenne (1,70 m)", "Grande (1,85 m)", "Très grande (1,98 m)"],
+    "qualities": [
+      "Courageux", "Loyal", "Généreux", "Curieux", "Patient", "Honnête", "Ingénieux", "Calme",
+      "Persévérant", "Chaleureux", "Rusé", "Discipliné", "Optimiste", "Prudent", "Protecteur", "Drôle",
+      "Humble", "Lucide"
+    ],
+    "flaws": [
+      "Lâche", "Fourbe", "Avare", "Indifférent", "Impulsif", "Menteur", "Colérique", "Inconstant",
+      "Froid", "Désordonné", "Pessimiste", "Téméraire", "Égoïste", "Orgueilleux", "Jaloux", "Têtu",
+      "Rancunier", "Naïf"
+    ]
+  },
+  "editions": {
+    "fer": {
+      "job": ["Garde du corps", "Bretteur", "Portefaix infatigable", "Sentinelle de nuit"],
+      "talents": ["Encaisser sans broncher", "Briser une porte d'une épaule", "Tenir une position seul", "Porter deux fois son poids"],
+      "qualities": ["Endurant", "Résolu", "Inébranlable"],
+      "habits": ["S'entraîne à l'aube", "Teste chaque porte avant d'entrer", "Garde toujours une main libre"],
+      "style": ["Tenue renforcée aux épaules", "Vêtements sobres et solides", "Protections portées en permanence"],
+      "motivation": ["Prouver sa valeur par l'épreuve", "Ne plus jamais reculer", "Protéger ceux qui ne le peuvent pas"],
+      "goal": ["Tenir jusqu'au bout d'une épreuve", "Défendre un passage contre tous", "Escorter quelqu'un jusqu'à destination"],
+      "group": ["Garde rapprochée", "Troupe d'élite", "Cercle des lutteurs"]
+    },
+    "vent": {
+      "job": ["Éclaireur", "Voleur de grands chemins", "Messager rapide", "Pisteur"],
+      "talents": ["Se faufiler sans bruit", "Repérer un détail minuscule", "Courir sans s'essouffler", "Viser à la perfection"],
+      "qualities": ["Vif", "Attentif", "Souple"],
+      "habits": ["Compte les sorties de chaque pièce", "Marche toujours face au vent", "Vérifie les ombres avant d'avancer"],
+      "style": ["Tenue légère aux poches multiples", "Capuche et vêtements sombres", "Chaussures silencieuses et sangles ajustées"],
+      "motivation": ["Voir ce qu'il y a au-delà de l'horizon", "Échapper à son passé", "Ne devoir rien à personne"],
+      "goal": ["Atteindre un lieu avant tout le monde", "Voler un objet bien gardé", "Ouvrir une nouvelle route"],
+      "group": ["Réseau d'éclaireurs", "Bande de voleurs", "Relais de messagers"]
+    },
+    "esprit": {
+      "job": ["Érudit", "Négociateur", "Conseiller", "Archiviste"],
+      "talents": ["Convaincre sans élever la voix", "Retenir tout ce qu'il lit", "Deviner les intentions d'autrui", "Résoudre une énigme en quelques minutes"],
+      "qualities": ["Éloquent", "Réfléchi", "Cultivé"],
+      "habits": ["Prend des notes en permanence", "Pèse chaque mot avant de parler", "Relit toujours deux fois"],
+      "style": ["Tenue soignée et sobre", "Vêtements couverts d'annotations", "Accessoires de prestige discrets"],
+      "motivation": ["Comprendre ce que personne n'a compris", "Unir des camps opposés", "Transmettre un savoir menacé"],
+      "goal": ["Obtenir un accord impossible", "Déchiffrer un secret ancien", "Faire éclater une vérité cachée"],
+      "group": ["Cercle de savants", "Délégation de médiateurs", "Maison de conseil"]
+    }
+  },
+  "univers": {
+    "fantasy": {
+      "epoque": {"annee": 1243, "mois": 9, "jour": 14},
+      "cultures": [
+        {"id": "hautes-terres", "nom": "Clans des Hautes-Terres",
+         "prenoms": ["Brenna", "Torvald", "Isolde", "Kaelen", "Maëve", "Rurik"],
+         "noms": ["Fierroc", "Valdhame", "Korsten", "Ashmoor", "Dunveil", "Grimsay"],
+         "langues": ["Parler des clans", "Vieux runique"],
+         "lieux": ["Pierre-Corbeau", "Les Hautes-Brumes", "Val-de-Cendre", "Fort-Aldren"]},
+        {"id": "marenne", "nom": "Royaume de Marenne",
+         "prenoms": ["Lucan", "Odile", "Garance", "Thibaut", "Elyse", "Corentin"],
+         "noms": ["Marchebois", "Hautepierre", "Vaucelle", "Rochemaure", "Clairefont", "Bellerive"],
+         "langues": ["Marennais", "Langue des cours"],
+         "lieux": ["Port-Marenne", "Clairval", "Sainte-Ysolde", "Bois-Sombre"]}
+      ],
+      "champs": {
+        "languages": ["Elfique des sous-bois", "Nain des forges", "Langue des marchands du Sud"],
+        "nickname": ["Main-de-Fer", "Pas-Feutré", "La Corneille", "Barbe-d'Orage", "Le Tisseur"],
+        "job": ["Forgeron", "Chevalier errant", "Herboriste", "Ménestrel", "Chasseur de primes", "Scribe d'abbaye"],
+        "status": ["Paysan libre", "Artisan de guilde", "Petite noblesse", "Serviteur du château", "Hors-la-loi"],
+        "group": ["Compagnie d'aventuriers", "Guilde des forgerons", "Clan des Hautes-Terres", "Ordre des veilleurs"],
+        "style": ["Cotte de mailles rapiécée", "Cape de voyage brodée", "Robe de laine grise", "Cuir clouté et fourrures"],
+        "marks": [
+          {"t": "Cicatrice de lame sur la joue", "k": "scar"}, {"t": "Rune tatouée sur l'avant-bras"},
+          {"t": "Tache de naissance en forme de lune"}, {"t": "Oreille entaillée lors d'un duel", "k": "scar"}
+        ],
+        "likes": ["L'hydromel près du feu", "Les chansons des routes", "Le bruit de l'enclume", "Les aurores sur la lande"],
+        "dislikes": ["Les collecteurs de dîme", "Les ponts de corde", "Les promesses de nobles", "Le bruit des cloches"],
+        "talents": ["Lire les traces", "Forger une lame parfaite", "Chanter faux mais fort", "Apaiser les chevaux"],
+        "habits": ["Aiguise sa lame chaque soir", "Parle seul à son cheval", "Compte les corbeaux", "Grave son nom dans les tables"],
+        "motivation": ["Racheter l'honneur de sa lignée", "Protéger son village natal", "Trouver sa place dans le monde", "Venger un serment brisé"],
+        "goal": ["Retrouver l'épée de son père", "Atteindre la cité de Marenne", "Libérer un prisonnier du château", "Rapporter une herbe rare à la guérisseuse"],
+        "family": ["Fils de forgeron", "Dernier d'une lignée de chevaliers ruinés", "Enfant de ménestrels itinérants", "Orphelin recueilli par une abbaye"],
+        "childhood": ["Grandit près d'une forge", "Perdit sa mère dans un hiver sans fin", "Fut élevé par un ermite", "Fit l'apprentissage d'un guide des cols"],
+        "experiences": ["A survécu à une embuscade de brigands", "A servi dans la garde d'un seigneur", "A traversé la forêt interdite", "A soigné des blessés après une bataille"],
+        "evolution": ["Quitta son village après une dispute", "Fit ses preuves dans un tournoi", "Perdit sa foi puis la retrouva", "Passa sept ans sur les routes"],
+        "situation": ["Arrive dans une auberge au cœur d'une tempête", "Se réveille sans bagages au bord d'une route", "Est convoqué au château par un messager", "Vient d'être engagé comme garde de caravane"],
+        "aims": ["Trouver un guide fiable", "Réunir de quoi payer sa dette", "Déchiffrer une carte héritée", "Éviter les patrouilles du baron"]
+      }
+    },
+    "scifi": {
+      "epoque": {"annee": 2387, "mois": 3, "jour": 2},
+      "cultures": [
+        {"id": "titan-orbite", "nom": "Colonies de Titan-Orbite",
+         "prenoms": ["Ilya", "Mara", "Soren", "Anika", "Teo", "Jun"],
+         "noms": ["Voss", "Okonkwo-Lind", "Kestrel", "Duarte", "Halvorsen", "Mbeki"],
+         "langues": ["Anglo-orbital", "Pidgin des docks"],
+         "lieux": ["Station Perséphone", "Dôme de Képler", "Anneau Delta", "Ceinture de Hesta"]},
+        {"id": "nefs-meres", "nom": "Peuple des Nefs-Mères",
+         "prenoms": ["Aru", "Veyra", "Kiro", "Sela", "Dax", "Nuri"],
+         "noms": ["de la Nef Aube", "de la Nef Cendre", "de la Nef Brume", "de la Nef Écume"],
+         "langues": ["Chant des nefs", "Anglo-orbital"],
+         "lieux": ["Nef Aube", "Nef Cendre", "Pont des Marées", "Cale Zéro"]}
+      ],
+      "champs": {
+        "languages": ["Code des pilotes", "Langue des insectoïdes de Hesta", "Esperanto stellaire"],
+        "nickname": ["Sans-Gravité", "Vieux Cargo", "La Comète", "Soudure", "L'Écho"],
+        "job": ["Pilote de cargo", "Ingénieure de bord", "Xénobiologiste", "Contrebandier", "Médecin de station", "Mineur d'astéroïdes"],
+        "status": ["Équipage salarié", "Colon endetté", "Officier de la flotte", "Citoyen sans licence", "Diplomate de la Ligue"],
+        "group": ["Équipage du Mistral", "Syndicat des mineurs", "Ligue des colonies", "Réseau de passeurs"],
+        "style": ["Combinaison rapiécée aux couleurs du vaisseau", "Veste de pilote en fibre argentée", "Blouse de laboratoire usée", "Tenue de gala de la flotte"],
+        "marks": [
+          {"t": "Cicatrice de dépressurisation sur le cou", "k": "scar"}, {"t": "Port neural visible derrière l'oreille"},
+          {"t": "Peau marbrée de taches d'irradiation"}, {"t": "Tatouage de matricule de convoi"}
+        ],
+        "likes": ["Le silence des longues dérives", "Le café de vrai grain", "Les vieux cartographes d'étoiles", "Les couchers de soleil sur un dôme"],
+        "dislikes": ["Les contrôles de douane", "Les ordinateurs de bord bavards", "L'odeur de recyclage", "Les gravités trop fortes"],
+        "talents": ["Piloter dans un champ d'astéroïdes", "Réparer n'importe quel circuit", "Parler aux machines", "Mémoriser les cartes stellaires"],
+        "habits": ["Vérifie trois fois les joints de sa combinaison", "Parle aux étoiles avant de dormir", "Collectionne les pièces de monnaie de chaque port", "Note chaque rêve dans un journal"],
+        "motivation": ["Rembourser sa dette à la Compagnie", "Retrouver sa sœur disparue en transit", "Voir une étoile que personne n'a nommée", "Offrir une terre à son équipage"],
+        "goal": ["Livrer une cargaison scellée à Hesta", "Réparer le moteur avant la fenêtre de saut", "Obtenir une licence de navigation", "Localiser une balise de détresse"],
+        "family": ["Fille de mineurs de Titan", "Enfant d'un équipage de nef", "Héritier d'une licence de transport", "Clone de série adopté par une famille d'accueil"],
+        "childhood": ["Grandit dans les coursives d'un cargo", "Apprit à marcher en micro-gravité", "Perdit ses parents dans une panne de station", "Fut formé dans une école de la flotte"],
+        "experiences": ["A survécu à un saut raté", "A servi sur un navire de guerre", "A passé un an en quarantaine", "A négocié avec des pirates"],
+        "evolution": ["Quitta la flotte après un ordre douteux", "Devint capitaine à la mort de son mentor", "Réapprit à vivre sur une planète", "Changea de nom pour fuir une dette"],
+        "situation": ["S'éveille d'un sommeil cryogénique plus tôt que prévu", "Vient d'accoster à une station en quarantaine", "Reçoit un message codé de son ancien capitaine", "Se trouve coincé sur un vaisseau à la dérive"],
+        "aims": ["Trouver du carburant pour deux sauts", "Éviter la patrouille de la Ligue", "Identifier l'expéditeur du message", "Remettre en marche le générateur"]
+      }
+    },
+    "cyberpunk": {
+      "epoque": {"annee": 2089, "mois": 11, "jour": 21},
+      "cultures": [
+        {"id": "neon-sud", "nom": "Districts de Néon-Sud",
+         "prenoms": ["Kiyo", "Rin", "Jax", "Nova", "Mika", "Dante"],
+         "noms": ["Reyes", "Okabe", "Valdez", "Moreau", "Ishikawa", "Brandt"],
+         "langues": ["Argot des rues", "Anglais de zone"],
+         "lieux": ["Rue des Néons", "Bloc 47", "Docks de Sable", "Tour Hélix"]},
+        {"id": "friches", "nom": "Zones libres des Friches",
+         "prenoms": ["Zed", "Lio", "Sasha", "Bram", "Ysa", "Pip"],
+         "noms": ["Rouille", "Câble", "Soudure", "Fusible", "Brasier", "Cuivre"],
+         "langues": ["Patois des friches", "Argot des rues"],
+         "lieux": ["Décharge Nord", "Camp Cuivre", "Tunnel 9", "Marché de la Brune"]}
+      ],
+      "champs": {
+        "languages": ["Code des hackers", "Dialecte des gangs de Néon-Sud", "Mandarin d'entreprise"],
+        "nickname": ["Glitch", "Zéro-Un", "Mâchoire", "Spectre", "Nuit-Blanche"],
+        "job": ["Hackeuse freelance", "Coursier de données", "Médecin de rue", "Garde du corps", "Tatoueur d'implants", "Fixeur"],
+        "status": ["Sans identité officielle", "Employé d'une mégacorp", "Indépendant endetté", "Chef de bande", "Citoyen premium"],
+        "group": ["Gang des Mâchoires", "Collectif de hackers Lucioles", "Syndicat des coursiers", "Division sécurité d'Helix Corp"],
+        "style": ["Manteau luminescent usé", "Costume d'entreprise détourné", "Veste en cuir à capteurs", "Combinaison de coursier fluo"],
+        "marks": [
+          {"t": "Œil mécanique à l'iris ambré", "k": "mech-eyes"}, {"t": "Circuits tatoués sur l'avant-bras"},
+          {"t": "Cicatrice de port d'interface sur la nuque", "k": "scar"}, {"t": "Implant lumineux sur la tempe"}
+        ],
+        "likes": ["Les nouilles de rue à minuit", "La pluie sur les néons", "Les vieux synthés", "Le calme d'un serveur éteint"],
+        "dislikes": ["Les drones publicitaires", "Les agents de recouvrement", "Les mises à jour forcées", "Les odeurs de plastique brûlé"],
+        "talents": ["Casser un chiffrement en direct", "Piloter une moto sans conducteur", "Reconnaître un faux au toucher", "Disparaître dans une foule"],
+        "habits": ["Change de téléphone chaque semaine", "Garde un vieux livre en papier", "Mâche du gingembre en pleine action", "Vérifie les caméras en entrant"],
+        "motivation": ["Effacer sa dette numérique", "Venger son ancienne équipe", "Prouver qu'un humain compte encore", "Offrir une sortie à sa famille"],
+        "goal": ["Voler un fichier à Helix Corp", "Retrouver un coursier disparu", "Obtenir une nouvelle identité", "Réparer une IA endommagée"],
+        "family": ["Enfant d'une ouvrière de Néon-Sud", "Fils d'un cadre déchu", "Né dans un camp des Friches", "Orphelin élevé par un gang"],
+        "childhood": ["Grandit entre deux décharges", "Apprit à coder sur une console volée", "Vit sa famille expulsée d'un bloc", "Fut recruté par un gang à dix ans"],
+        "experiences": ["A survécu à un raid de la sécurité", "A travaillé pour une mégacorp", "A infiltré un data-center", "A soigné des blessés après une émeute"],
+        "evolution": ["Quitta sa corporation avec des données", "Remplaça son bras après un accident", "Perdit son nom officiel", "Devint le visage d'un collectif"],
+        "situation": ["Attend un contact sous une enseigne clignotante", "Vient d'être dénoncé à la sécurité", "Se réveille dans une clinique clandestine", "Reçoit un colis qu'il n'a jamais commandé"],
+        "aims": ["Trouver un abri avant le couvre-feu", "Décrypter le contenu du colis", "Semer les drones de poursuite", "Réunir l'argent d'un implant"]
+      }
+    },
+    "gothique": {
+      "epoque": {"annee": 1847, "mois": 10, "jour": 31},
+      "cultures": [
+        {"id": "marches-sombres", "nom": "Gens des Marches sombres",
+         "prenoms": ["Mathias", "Elvire", "Ambroise", "Cordélia", "Lazar", "Odalys"],
+         "noms": ["Krael", "Morvaine", "Vespertin", "Grisemort", "Hollowell", "Draven"],
+         "langues": ["Vieux gothique", "Latin des chapelles"],
+         "lieux": ["Corbeaux-Gris", "Abbaye de Saint-Veil", "Hameau des Saules", "Marais de Brume"]},
+        {"id": "haute-ville", "nom": "Famille de la Haute Ville",
+         "prenoms": ["Augustin", "Lucrèce", "Sébastien", "Philomène", "Octave", "Céleste"],
+         "noms": ["de Valmorin", "de Ravenclos", "d'Aubemort", "de Sombrelac"],
+         "langues": ["Français de cour", "Latin des chapelles"],
+         "lieux": ["Quartier des Lanternes", "Manoir de Ravenclos", "Rue des Cierges", "Cathédrale-Basse"]}
+      ],
+      "champs": {
+        "languages": ["Roumain des montagnes", "Parler des fossoyeurs", "Allemand de brume"],
+        "nickname": ["La Veuve", "Pâle-Lanterne", "Le Fossoyeur", "Corbeau", "Murmure"],
+        "job": ["Médecin de la peste", "Chasseur de vampires", "Gouvernante de manoir", "Fossoyeur", "Antiquaire de reliques", "Prêtre défroqué"],
+        "status": ["Aristocrate déchue", "Domestique du manoir", "Paysan superstitieux", "Notable respecté", "Étranger suspect"],
+        "group": ["Ordre des veilleurs de nuit", "Maison Valmorin", "Confrérie des fossoyeurs", "Cercle des antiquaires"],
+        "style": ["Redingote noire élimée", "Robe de deuil brodée de jais", "Cape de voyage et chapeau haut", "Tablier de cuir taché"],
+        "marks": [
+          {"t": "Cicatrice de morsure au cou", "k": "scar"}, {"t": "Mèche blanche apparue en une nuit"},
+          {"t": "Tache de naissance en forme de croix"}, {"t": "Marque de brûlure à la paume", "k": "scar"}
+        ],
+        "likes": ["Les bougies et les vieux livres", "Le chant du corbeau à l'aube", "Les brumes d'automne", "Les contes au coin du feu"],
+        "dislikes": ["Les miroirs", "L'ail et l'argenterie sale", "Les nuits sans lune", "Les cloches de minuit"],
+        "talents": ["Reconnaître un poison à l'odeur", "Dormir peu et lucidement", "Déchiffrer les écritures anciennes", "Apaiser les âmes inquiètes"],
+        "habits": ["Allume un cierge chaque soir", "Marche à minuit dans le cimetière", "Écrit des lettres jamais envoyées", "Garde un crucifix dans sa manche"],
+        "motivation": ["Libérer sa famille d'une malédiction", "Retrouver un être aimé disparu", "Prouver que les légendes sont vraies", "Expier une faute ancienne"],
+        "goal": ["Découvrir qui hante le manoir", "Récupérer un reliquaire volé", "Atteindre l'abbaye avant l'aube", "Briser le sceau de la crypte"],
+        "family": ["Dernière héritière de la Maison Valmorin", "Fils de fossoyeur", "Enfant illégitime d'un notable", "Orpheline recueillie par un couvent"],
+        "childhood": ["Grandit dans un manoir aux pièces closes", "Vit mourir la moitié du village de fièvre", "Entendit des voix dans les murs", "Fut élevé par une gouvernante sévère"],
+        "experiences": ["A survécu à une nuit dans la crypte", "A soigné des malades de la peste", "A traqué une créature dans les marais", "A déchiffré un grimoire interdit"],
+        "evolution": ["Perdit la foi à la mort d'un proche", "Fut banni de sa Maison", "Prit un nom d'emprunt", "Apprit les rites des anciens"],
+        "situation": ["Arrive dans un village où les portes sont closes", "Hérite d'un manoir qu'il n'a jamais vu", "Est convoqué par un prêtre inquiet", "Se trouve piégé dans une auberge par la brume"],
+        "aims": ["Trouver un guide qui connaît les marais", "Consulter les archives de l'abbaye", "Survivre jusqu'à l'aube", "Interroger le fossoyeur"]
+      }
+    }
+  }
+}

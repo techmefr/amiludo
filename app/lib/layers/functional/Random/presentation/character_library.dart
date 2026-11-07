@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:go_router/go_router.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -7,6 +9,9 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Files/file_transfer.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
 import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit.dart';
+import 'package:amiludo/layers/functional/Random/domain/sheet/character_sheet.dart';
+import 'package:amiludo/layers/functional/Random/presentation/cubit/sheet_cubit.dart';
+import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_summary_card.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class CharacterLibrary extends StatelessWidget {
@@ -73,6 +78,16 @@ class _CharacterCard extends StatelessWidget {
 
   final GameCharacter character;
 
+  CharacterSheet? get _sheet {
+    final raw = character.sheet;
+    if (raw == null) return null;
+    try {
+      return CharacterSheet.fromJson(Map<String, dynamic>.from(raw));
+    } on Object {
+      return null;
+    }
+  }
+
   Future<void> _remove(BuildContext context) async {
     final controller = context.read<RandomCubit>();
     if (await confirm(
@@ -102,6 +117,10 @@ class _CharacterCard extends StatelessWidget {
         children: [
           Text(character.name, style: Theme.of(context).textTheme.titleLarge),
           Text(character.packName),
+          if (_sheet != null) ...[
+            const SizedBox(height: 8),
+            SheetSummaryCard(sheet: _sheet!),
+          ],
           for (final e in character.choices.entries)
             Padding(
               padding: const EdgeInsets.only(top: 12),
@@ -112,6 +131,15 @@ class _CharacterCard extends StatelessWidget {
           Wrap(
             spacing: 12,
             children: [
+              if (_sheet != null)
+                TextButton(
+                  key: ValueKey('view-sheet-${character.id}'),
+                  onPressed: () => context.push(
+                    '/character-sheet',
+                    extra: SheetSeed(initial: _sheet),
+                  ),
+                  child: Text(context.l10n.sheetView),
+                ),
               TextButton(
                 onPressed: _export,
                 child: Text(context.l10n.randomExportTheSheet),

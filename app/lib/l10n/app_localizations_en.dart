@@ -3815,4 +3815,230 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notebookSearchAll => 'Search all campaigns';
+
+  @override
+  String get sheetFieldName => 'Full name';
+
+  @override
+  String get sheetFieldNickname => 'Nickname';
+
+  @override
+  String get sheetFieldAge => 'Age';
+
+  @override
+  String get sheetFieldBirthDate => 'Date of birth';
+
+  @override
+  String get sheetFieldBirthPlace => 'Place of birth';
+
+  @override
+  String get sheetFieldGender => 'Gender';
+
+  @override
+  String get sheetFieldOrigin => 'Nationality and origins';
+
+  @override
+  String get sheetFieldLanguages => 'Languages spoken';
+
+  @override
+  String get sheetFieldJob => 'Trade or occupation';
+
+  @override
+  String get sheetFieldStatus => 'Social status';
+
+  @override
+  String get sheetFieldGroup => 'Group (family, clan...)';
+
+  @override
+  String get sheetFieldSkin => 'Skin color';
+
+  @override
+  String get sheetFieldEyes => 'Eye color';
+
+  @override
+  String get sheetFieldHair => 'Hair color';
+
+  @override
+  String get sheetFieldBuild => 'Build';
+
+  @override
+  String get sheetFieldHeight => 'Height';
+
+  @override
+  String get sheetFieldStyle => 'Clothing style';
+
+  @override
+  String get sheetFieldMarks => 'Distinctive marks';
+
+  @override
+  String get sheetFieldQualities => 'Qualities';
+
+  @override
+  String get sheetFieldFlaws => 'Flaws';
+
+  @override
+  String get sheetFieldLikes => 'Likes';
+
+  @override
+  String get sheetFieldDislikes => 'Dislikes';
+
+  @override
+  String get sheetFieldTalents => 'Special talents';
+
+  @override
+  String get sheetFieldHabits => 'Habits';
+
+  @override
+  String get sheetFieldMotivation => 'Deep motivation';
+
+  @override
+  String get sheetFieldGoal => 'Goal in the story';
+
+  @override
+  String get sheetFieldFamily => 'Family origin';
+
+  @override
+  String get sheetFieldChildhood => 'Childhood story and trauma';
+
+  @override
+  String get sheetFieldExperiences => 'Experiences useful to the story';
+
+  @override
+  String get sheetFieldEvolution => 'Evolution before the story';
+
+  @override
+  String get sheetFieldSituation => 'Starting situation';
+
+  @override
+  String get sheetFieldAims => 'Motivations, goals and actions';
+
+  @override
+  String get sheetStep1 => 'General information';
+
+  @override
+  String get sheetStep2 => 'Physical appearance';
+
+  @override
+  String get sheetStep3 => 'Personality and abilities';
+
+  @override
+  String get sheetStep4 => 'Past';
+
+  @override
+  String get sheetStep5 => 'Present';
+
+  @override
+  String get sheetUniverseFantasy => 'Medieval fantasy';
+
+  @override
+  String get sheetUniverseScifi => 'Science fiction';
+
+  @override
+  String get sheetUniverseCyberpunk => 'Cyberpunk';
+
+  @override
+  String get sheetUniverseGothique => 'Gothic horror';
+
+  @override
+  String get sheetTitle => 'Character sheet';
+
+  @override
+  String get sheetSubtitle => 'Five steps, from identity to the first scene.';
+
+  @override
+  String get sheetChooseUniverse => 'Choose a universe';
+
+  @override
+  String get sheetOpen => 'Full character sheet';
+
+  @override
+  String get sheetCompleteFromCards => 'Complete the full sheet';
+
+  @override
+  String sheetStepOf(int step, int total) {
+    return 'Step $step of $total';
+  }
+
+  @override
+  String get sheetGenerateStep => 'Generate this step';
+
+  @override
+  String get sheetGenerateAll => 'Generate everything';
+
+  @override
+  String get sheetPrevious => 'Previous';
+
+  @override
+  String get sheetNext => 'Next';
+
+  @override
+  String get sheetReroll => 'Draw again';
+
+  @override
+  String get sheetLock => 'Lock';
+
+  @override
+  String get sheetUnlock => 'Unlock';
+
+  @override
+  String get sheetEdit => 'Edit';
+
+  @override
+  String get sheetEditHint => 'One value per line';
+
+  @override
+  String sheetEditInvalid(int min, int max) {
+    return '$min to $max values expected';
+  }
+
+  @override
+  String get sheetEmpty => 'Not filled in';
+
+  @override
+  String get sheetEditMode => 'Edit the sheet';
+
+  @override
+  String get sheetReadMode => 'Read the sheet';
+
+  @override
+  String get sheetSave => 'Save to my characters';
+
+  @override
+  String get sheetSaved => 'Saved';
+
+  @override
+  String get sheetCopyText => 'Copy as text';
+
+  @override
+  String get sheetCopyJson => 'Copy as JSON';
+
+  @override
+  String get sheetShare => 'Share';
+
+  @override
+  String get sheetCopied => 'Copied';
+
+  @override
+  String get sheetMismatch => 'Some details do not match';
+
+  @override
+  String get sheetLoadFailed => 'The sheet tables could not be loaded.';
+
+  @override
+  String get sheetView => 'View the sheet';
+
+  @override
+  String get sheetEditionLabel => 'Edition';
+
+  @override
+  String get sheetEditionFer => 'Iron';
+
+  @override
+  String get sheetEditionVent => 'Wind';
+
+  @override
+  String get sheetEditionEsprit => 'Mind';
+
+  @override
+  String get sheetApplyAvatar => 'Apply to avatar';
 }

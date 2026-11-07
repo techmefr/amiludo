@@ -10,6 +10,11 @@ class RandomTools {
     return minimum + _random.nextInt(maximum - minimum + 1);
   }
 
+  T pick<T>(List<T> values) {
+    if (values.isEmpty) throw ArgumentError('Liste vide');
+    return values[_random.nextInt(values.length)];
+  }
+
   List<T> shuffled<T>(Iterable<T> values) {
     final result = values.toList();
     for (var i = result.length - 1; i > 0; i--) {

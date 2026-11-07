@@ -51,7 +51,7 @@ class CharacterDraft {
         choices.length != index) {
       throw const FormatException('Brouillon invalide');
     }
-    return CharacterDraft._restored(
+    final restored = CharacterDraft._restored(
       categories,
       j['packName'] as String,
       j['boosters'] as bool,
@@ -64,6 +64,11 @@ class CharacterDraft {
           {},
       j['catalogueVersion'] as int? ?? 1,
     );
+    final sheet = j['sheet'];
+    if (sheet != null) {
+      restored.sheet = Map<String, Object?>.from(sheet as Map);
+    }
+    return restored;
   }
 
   final List<CreationCategory> categories;
@@ -73,6 +78,7 @@ class CharacterDraft {
   final Map<String, List<CharacterCard>> choices = {};
   final Map<String, String> appearance = {};
   int catalogueVersion = 1;
+  Map<String, Object?>? sheet;
   int index = 0;
   bool get complete => index >= categories.length;
 
@@ -81,6 +87,7 @@ class CharacterDraft {
     'boosters': boosters,
     'index': index,
     'catalogueVersion': catalogueVersion,
+    if (sheet != null) 'sheet': sheet,
     'appearance': appearance,
     'categories': categories.map((c) => c.toJson()).toList(),
     'offers': offers.map((o) => o.map((c) => c.toJson()).toList()).toList(),

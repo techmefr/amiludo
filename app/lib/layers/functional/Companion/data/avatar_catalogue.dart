@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:amiludo/layers/functional/Companion/domain/entities/avatar_look.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/appearance_item.dart';
 
 class AvatarCatalogue {
@@ -52,5 +53,56 @@ class AvatarCatalogue {
       if (l.tint != null) return l.tint;
     }
     return null;
+  }
+
+  static const _defaults = [
+    'base.body-base-full-1',
+    'head.heads-base-grey-1',
+    'eyes.eyes-1',
+    'eyebrows.eyebrows-1',
+  ];
+
+  int? _colorOf(AppearanceItem item, Map<String, int> tints) {
+    final name = tintOf(item);
+    final index = name == null ? null : tints[name];
+    final colors = name == null ? null : palettes[name];
+    if (index == null || colors == null || index >= colors.length) return null;
+    return colors[index];
+  }
+
+  AvatarLook lookFor({
+    required Map<String, int> tints,
+    required List<String> pieces,
+    required bool hairless,
+    AvatarLook base = const AvatarLook(),
+  }) {
+    var look = base;
+    void put(String id, {bool force = true}) {
+      final item = byId(id);
+      if (item == null) return;
+      if (!force && look.picks.containsKey(item.slot)) return;
+      look = look.withPick(
+        item.slot,
+        AvatarPick(item.id, _colorOf(item, tints)),
+      );
+    }
+
+    for (final id in _defaults) {
+      put(id, force: false);
+    }
+    if (hairless) {
+      look = look.withPick('hair', null);
+    } else {
+      put('hair.hairstyles-1', force: false);
+    }
+    pieces.forEach(put);
+    for (final e in look.picks.entries.toList()) {
+      final item = byId(e.value.itemId);
+      final color = item == null ? null : _colorOf(item, tints);
+      if (color != null) {
+        look = look.withPick(e.key, AvatarPick(e.value.itemId, color));
+      }
+    }
+    return look;
   }
 }

@@ -3843,4 +3843,231 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get notebookSearchAll => 'Pesquisar em todas as campanhas';
+
+  @override
+  String get sheetFieldName => 'Nome completo';
+
+  @override
+  String get sheetFieldNickname => 'Alcunha';
+
+  @override
+  String get sheetFieldAge => 'Idade';
+
+  @override
+  String get sheetFieldBirthDate => 'Data de nascimento';
+
+  @override
+  String get sheetFieldBirthPlace => 'Local de nascimento';
+
+  @override
+  String get sheetFieldGender => 'Género';
+
+  @override
+  String get sheetFieldOrigin => 'Nacionalidade e origens';
+
+  @override
+  String get sheetFieldLanguages => 'Idiomas falados';
+
+  @override
+  String get sheetFieldJob => 'Ofício ou ocupação';
+
+  @override
+  String get sheetFieldStatus => 'Estatuto social';
+
+  @override
+  String get sheetFieldGroup => 'Grupo (família, clã...)';
+
+  @override
+  String get sheetFieldSkin => 'Cor da pele';
+
+  @override
+  String get sheetFieldEyes => 'Cor dos olhos';
+
+  @override
+  String get sheetFieldHair => 'Cor do cabelo';
+
+  @override
+  String get sheetFieldBuild => 'Constituição';
+
+  @override
+  String get sheetFieldHeight => 'Altura';
+
+  @override
+  String get sheetFieldStyle => 'Estilo de vestuário';
+
+  @override
+  String get sheetFieldMarks => 'Sinais distintivos';
+
+  @override
+  String get sheetFieldQualities => 'Qualidades';
+
+  @override
+  String get sheetFieldFlaws => 'Defeitos';
+
+  @override
+  String get sheetFieldLikes => 'O que gosta';
+
+  @override
+  String get sheetFieldDislikes => 'O que detesta';
+
+  @override
+  String get sheetFieldTalents => 'Talentos especiais';
+
+  @override
+  String get sheetFieldHabits => 'Hábitos';
+
+  @override
+  String get sheetFieldMotivation => 'Motivação profunda';
+
+  @override
+  String get sheetFieldGoal => 'Objetivo na história';
+
+  @override
+  String get sheetFieldFamily => 'Origem familiar';
+
+  @override
+  String get sheetFieldChildhood => 'História e trauma de infância';
+
+  @override
+  String get sheetFieldExperiences => 'Experiências úteis à história';
+
+  @override
+  String get sheetFieldEvolution => 'Evolução antes da história';
+
+  @override
+  String get sheetFieldSituation => 'Situação inicial';
+
+  @override
+  String get sheetFieldAims => 'Motivações, objetivos e ações';
+
+  @override
+  String get sheetStep1 => 'Informações gerais';
+
+  @override
+  String get sheetStep2 => 'Aparência física';
+
+  @override
+  String get sheetStep3 => 'Personalidade e aptidões';
+
+  @override
+  String get sheetStep4 => 'Passado';
+
+  @override
+  String get sheetStep5 => 'Presente';
+
+  @override
+  String get sheetUniverseFantasy => 'Fantasia medieval';
+
+  @override
+  String get sheetUniverseScifi => 'Ficção científica';
+
+  @override
+  String get sheetUniverseCyberpunk => 'Cyberpunk';
+
+  @override
+  String get sheetUniverseGothique => 'Horror gótico';
+
+  @override
+  String get sheetTitle => 'Ficha de personagem';
+
+  @override
+  String get sheetSubtitle => 'Cinco passos, da identidade à primeira cena.';
+
+  @override
+  String get sheetChooseUniverse => 'Escolha um universo';
+
+  @override
+  String get sheetOpen => 'Ficha completa';
+
+  @override
+  String get sheetCompleteFromCards => 'Completar a ficha completa';
+
+  @override
+  String sheetStepOf(int step, int total) {
+    return 'Passo $step de $total';
+  }
+
+  @override
+  String get sheetGenerateStep => 'Gerar este passo';
+
+  @override
+  String get sheetGenerateAll => 'Gerar tudo';
+
+  @override
+  String get sheetPrevious => 'Anterior';
+
+  @override
+  String get sheetNext => 'Seguinte';
+
+  @override
+  String get sheetReroll => 'Sortear de novo';
+
+  @override
+  String get sheetLock => 'Bloquear';
+
+  @override
+  String get sheetUnlock => 'Desbloquear';
+
+  @override
+  String get sheetEdit => 'Editar';
+
+  @override
+  String get sheetEditHint => 'Um valor por linha';
+
+  @override
+  String sheetEditInvalid(int min, int max) {
+    return 'Esperados de $min a $max valores';
+  }
+
+  @override
+  String get sheetEmpty => 'Não preenchido';
+
+  @override
+  String get sheetEditMode => 'Editar a ficha';
+
+  @override
+  String get sheetReadMode => 'Ler a ficha';
+
+  @override
+  String get sheetSave => 'Guardar nos meus personagens';
+
+  @override
+  String get sheetSaved => 'Guardada';
+
+  @override
+  String get sheetCopyText => 'Copiar como texto';
+
+  @override
+  String get sheetCopyJson => 'Copiar como JSON';
+
+  @override
+  String get sheetShare => 'Partilhar';
+
+  @override
+  String get sheetCopied => 'Copiado';
+
+  @override
+  String get sheetMismatch => 'Alguns detalhes não coincidem';
+
+  @override
+  String get sheetLoadFailed =>
+      'Não foi possível carregar as tabelas da ficha.';
+
+  @override
+  String get sheetView => 'Ver a ficha';
+
+  @override
+  String get sheetEditionLabel => 'Edição';
+
+  @override
+  String get sheetEditionFer => 'Ferro';
+
+  @override
+  String get sheetEditionVent => 'Vento';
+
+  @override
+  String get sheetEditionEsprit => 'Espírito';
+
+  @override
+  String get sheetApplyAvatar => 'Aplicar ao avatar';
 }
