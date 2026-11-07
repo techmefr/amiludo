@@ -3808,4 +3808,232 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get notebookComplication => 'Complication';
+
+  @override
+  String get sheetFieldName => 'Nom et prénom';
+
+  @override
+  String get sheetFieldNickname => 'Surnom';
+
+  @override
+  String get sheetFieldAge => 'Âge';
+
+  @override
+  String get sheetFieldBirthDate => 'Date de naissance';
+
+  @override
+  String get sheetFieldBirthPlace => 'Lieu de naissance';
+
+  @override
+  String get sheetFieldGender => 'Genre';
+
+  @override
+  String get sheetFieldOrigin => 'Nationalité et origines';
+
+  @override
+  String get sheetFieldLanguages => 'Langues parlées';
+
+  @override
+  String get sheetFieldJob => 'Métier, activité, occupation';
+
+  @override
+  String get sheetFieldStatus => 'Statut social';
+
+  @override
+  String get sheetFieldGroup => 'Groupe d\'appartenance (famille, clan...)';
+
+  @override
+  String get sheetFieldSkin => 'Couleur de peau';
+
+  @override
+  String get sheetFieldEyes => 'Couleur des yeux';
+
+  @override
+  String get sheetFieldHair => 'Couleur des cheveux';
+
+  @override
+  String get sheetFieldBuild => 'Silhouette et carrure';
+
+  @override
+  String get sheetFieldHeight => 'Taille';
+
+  @override
+  String get sheetFieldStyle => 'Style vestimentaire';
+
+  @override
+  String get sheetFieldMarks => 'Signes distinctifs';
+
+  @override
+  String get sheetFieldQualities => 'Qualités';
+
+  @override
+  String get sheetFieldFlaws => 'Défauts';
+
+  @override
+  String get sheetFieldLikes => 'Ce qu\'il aime';
+
+  @override
+  String get sheetFieldDislikes => 'Ce qu\'il déteste';
+
+  @override
+  String get sheetFieldTalents => 'Talents particuliers';
+
+  @override
+  String get sheetFieldHabits => 'Habitudes';
+
+  @override
+  String get sheetFieldMotivation => 'Motivation profonde';
+
+  @override
+  String get sheetFieldGoal => 'Objectif dans le récit';
+
+  @override
+  String get sheetFieldFamily => 'Origine familiale';
+
+  @override
+  String get sheetFieldChildhood => 'Histoire et trauma d\'enfance';
+
+  @override
+  String get sheetFieldExperiences => 'Expériences utiles au récit';
+
+  @override
+  String get sheetFieldEvolution => 'Évolution avant le récit';
+
+  @override
+  String get sheetFieldSituation => 'Situation initiale';
+
+  @override
+  String get sheetFieldAims => 'Motivations, objectifs et actions';
+
+  @override
+  String get sheetStep1 => 'Informations générales';
+
+  @override
+  String get sheetStep2 => 'Apparence physique';
+
+  @override
+  String get sheetStep3 => 'Personnalité et aptitudes';
+
+  @override
+  String get sheetStep4 => 'Passé';
+
+  @override
+  String get sheetStep5 => 'Présent';
+
+  @override
+  String get sheetUniverseFantasy => 'Fantasy médiévale';
+
+  @override
+  String get sheetUniverseScifi => 'Science-fiction';
+
+  @override
+  String get sheetUniverseCyberpunk => 'Cyberpunk';
+
+  @override
+  String get sheetUniverseGothique => 'Horreur gothique';
+
+  @override
+  String get sheetTitle => 'Fiche de personnage';
+
+  @override
+  String get sheetSubtitle =>
+      'Cinq étapes, de l\'identité à la première scène.';
+
+  @override
+  String get sheetChooseUniverse => 'Choisir un univers';
+
+  @override
+  String get sheetOpen => 'Fiche complète';
+
+  @override
+  String get sheetCompleteFromCards => 'Compléter la fiche complète';
+
+  @override
+  String sheetStepOf(int step, int total) {
+    return 'Étape $step sur $total';
+  }
+
+  @override
+  String get sheetGenerateStep => 'Générer cette étape';
+
+  @override
+  String get sheetGenerateAll => 'Tout générer';
+
+  @override
+  String get sheetPrevious => 'Précédent';
+
+  @override
+  String get sheetNext => 'Suivant';
+
+  @override
+  String get sheetReroll => 'Tirer à nouveau';
+
+  @override
+  String get sheetLock => 'Verrouiller';
+
+  @override
+  String get sheetUnlock => 'Déverrouiller';
+
+  @override
+  String get sheetEdit => 'Modifier';
+
+  @override
+  String get sheetEditHint => 'Une valeur par ligne';
+
+  @override
+  String sheetEditInvalid(int min, int max) {
+    return '$min à $max valeurs attendues';
+  }
+
+  @override
+  String get sheetEmpty => 'Non renseigné';
+
+  @override
+  String get sheetEditMode => 'Modifier la fiche';
+
+  @override
+  String get sheetReadMode => 'Lire la fiche';
+
+  @override
+  String get sheetSave => 'Enregistrer dans mes personnages';
+
+  @override
+  String get sheetSaved => 'Enregistrée';
+
+  @override
+  String get sheetCopyText => 'Copier en texte';
+
+  @override
+  String get sheetCopyJson => 'Copier en JSON';
+
+  @override
+  String get sheetShare => 'Partager';
+
+  @override
+  String get sheetCopied => 'Copié';
+
+  @override
+  String get sheetMismatch => 'Certains détails sont incohérents';
+
+  @override
+  String get sheetLoadFailed =>
+      'Les tables de la fiche n\'ont pas pu être chargées.';
+
+  @override
+  String get sheetView => 'Voir la fiche';
+
+  @override
+  String get sheetEditionLabel => 'Édition';
+
+  @override
+  String get sheetEditionFer => 'Fer';
+
+  @override
+  String get sheetEditionVent => 'Vent';
+
+  @override
+  String get sheetEditionEsprit => 'Esprit';
+
+  @override
+  String get sheetApplyAvatar => 'Appliquer à l\'avatar';
 }

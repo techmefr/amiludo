@@ -98,6 +98,9 @@ import 'package:amiludo/layers/functional/Library/domain/use_cases/watch_shelf_u
 import 'package:amiludo/layers/functional/Memories/data/gateways/memories_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Random/data/chronicles/chronicles_catalog_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Random/data/chronicles/chronicles_run_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Random/data/sheet/sheet_tables_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Random/domain/sheet/sheet_gateways.dart';
+import 'package:amiludo/layers/functional/Random/domain/sheet/sheet_use_cases.dart';
 import 'package:amiludo/layers/functional/Random/domain/chronicles/chronicles_gateways.dart';
 import 'package:amiludo/layers/functional/Random/domain/chronicles/chronicles_use_cases.dart';
 import 'package:amiludo/layers/functional/Random/data/gateways/character_draft_gateway_impl.dart';
@@ -159,9 +162,7 @@ void configureDependencies(StoreDatabase database) {
     ..registerLazySingleton<WorkspaceGateway>(
       () => WorkspaceGatewayImpl(getIt()),
     )
-    ..registerLazySingleton<DataWipeGateway>(
-      () => DataWipeGatewayImpl(getIt()),
-    )
+    ..registerLazySingleton<DataWipeGateway>(() => DataWipeGatewayImpl(getIt()))
     ..registerLazySingleton<FriendsGatewayImpl>(
       () => FriendsGatewayImpl(getIt()),
     )
@@ -196,11 +197,12 @@ void configureDependencies(StoreDatabase database) {
     ..registerLazySingleton<DieLibraryGateway>(
       () => getIt<DieLibraryGatewayImpl>(),
     )
-    ..registerLazySingleton<DieImageGateway>(
-      () => DieImageGatewayImpl(getIt()),
-    )
+    ..registerLazySingleton<DieImageGateway>(() => DieImageGatewayImpl(getIt()))
     ..registerLazySingleton<ChroniclesCatalogGateway>(
       ChroniclesCatalogGatewayImpl.new,
+    )
+    ..registerLazySingleton<SheetTablesGateway>(
+      () => SheetTablesGatewayImpl(getIt()),
     )
     ..registerLazySingleton<List<BackupSection>>(
       () => [
@@ -295,6 +297,7 @@ void _registerCollections() {
     ..registerFactory(() => ClearCharacterDraftUseCase(getIt()))
     ..registerFactory(() => LoadChroniclesUseCase(getIt(), getIt()))
     ..registerFactory(() => SaveChroniclesRunUseCase(getIt()))
+    ..registerFactory(() => LoadSheetGeneratorUseCase(getIt()))
     ..registerFactory(() => SaveShelfGameUseCase(getIt()))
     ..registerFactory(() => RemoveShelfGameUseCase(getIt(), getIt()))
     ..registerFactory(() => SuggestGamesUseCase(getIt(), getIt()))
