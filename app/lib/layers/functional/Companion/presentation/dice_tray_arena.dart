@@ -184,6 +184,7 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
             borderRadius: BorderRadius.circular(Radii.lg),
             child: Stack(
               children: [
+                trayFelt(material, widget.solid),
                 if (widget.solid)
                   Positioned.fill(
                     child: CustomPaint(painter: TablePainter(widget.table)),
