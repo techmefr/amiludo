@@ -7154,6 +7154,12 @@ abstract class AppLocalizations {
   /// **'Unnamed pin'**
   String get notebookPinUnnamed;
 
+  /// No description provided for @notebookSearchAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Search all campaigns'**
+  String get notebookSearchAll;
+
   /// No description provided for @sheetFieldName.
   ///
   /// In en, this message translates to:

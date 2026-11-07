@@ -10,6 +10,7 @@ import 'package:amiludo/layers/functional/Notebook/domain/entities/notebook.dart
 import 'package:amiludo/layers/functional/Notebook/domain/entities/notebook_campaign.dart';
 import 'package:amiludo/layers/functional/Notebook/domain/entities/notebook_entry.dart';
 import 'package:amiludo/layers/functional/Notebook/domain/entities/notebook_search.dart';
+import 'package:amiludo/layers/functional/Notebook/domain/entities/notebook_wide_search.dart';
 import 'package:amiludo/layers/functional/Notebook/domain/entities/oracle.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 
@@ -119,6 +120,19 @@ void main() {
     expect(searchCampaign(campaign, 'met mira').single.line, isNotNull);
     expect(searchCampaign(campaign, '  '), isEmpty);
     expect(searchCampaign(campaign, 'zzz'), isEmpty);
+  });
+
+  test('search covers every campaign and keeps favourites first', () {
+    final other = NotebookCampaign.create('Other', CampaignKind.gm)
+        .withEntry(NotebookEntry.create(EntryKind.npc, 'Mirabel'))
+        .copyWith(favorite: true);
+    final found = searchNotebook(
+      Notebook(campaigns: [_campaign(), other]),
+      'mira',
+    );
+    expect(found.map((h) => h.campaign.title).toSet(), {'Tides', 'Other'});
+    expect(found.first.campaign.title, 'Other');
+    expect(searchNotebook(const Notebook(), 'mira'), isEmpty);
   });
 
   test('a campaign file imports with fresh ids and images', () {

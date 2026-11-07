@@ -3843,6 +3843,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get notebookPinUnnamed => 'Naamloze pin';
 
   @override
+  String get notebookSearchAll => 'Zoeken in alle campagnes';
+
+  @override
   String get sheetFieldName => 'Voor- en achternaam';
 
   @override

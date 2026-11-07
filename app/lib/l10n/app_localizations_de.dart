@@ -3848,6 +3848,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get notebookPinUnnamed => 'Unbenannte Markierung';
 
   @override
+  String get notebookSearchAll => 'Alle Kampagnen durchsuchen';
+
+  @override
   String get sheetFieldName => 'Vor- und Nachname';
 
   @override

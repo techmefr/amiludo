@@ -3839,6 +3839,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get notebookPinUnnamed => 'Marcador sin nombre';
 
   @override
+  String get notebookSearchAll => 'Buscar en todas las campañas';
+
+  @override
   String get sheetFieldName => 'Nombre y apellido';
 
   @override

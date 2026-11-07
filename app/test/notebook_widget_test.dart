@@ -300,6 +300,28 @@ void main() {
         expect(links.values.single, isNotEmpty);
         expect(find.text('Mira'), findsOneWidget);
       });
+
+      testWidgets('search spans every campaign', (tester) async {
+        final h = await _open(tester, size);
+        final first = _seed();
+        final second = NotebookCampaign.create(
+          'Dunes',
+          CampaignKind.gm,
+        ).withEntry(NotebookEntry.create(EntryKind.npc, 'Miraculous Oasis'));
+        await h.gateway.save(h.gateway.current.put(first).put(second));
+        await tester.pumpWidget(h.app('/notebook'));
+        await tester.pumpAndSettle();
+        await tester.enterText(find.byType(TextField), 'mira');
+        await tester.pumpAndSettle();
+        expect(find.text('Tides'), findsWidgets);
+        expect(find.textContaining('Dunes'), findsOneWidget);
+        await tester.tap(find.text('Miraculous Oasis'));
+        await tester.pumpAndSettle();
+        expect(
+          find.widgetWithText(TextField, 'Miraculous Oasis'),
+          findsOneWidget,
+        );
+      });
     });
   }
 }

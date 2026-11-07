@@ -3843,6 +3843,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get notebookPinUnnamed => 'Segnaposto senza nome';
 
   @override
+  String get notebookSearchAll => 'Cerca in tutte le campagne';
+
+  @override
   String get sheetFieldName => 'Nome e cognome';
 
   @override

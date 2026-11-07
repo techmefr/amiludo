@@ -3814,6 +3814,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get notebookPinUnnamed => 'Unnamed pin';
 
   @override
+  String get notebookSearchAll => 'Search all campaigns';
+
+  @override
   String get sheetFieldName => 'Full name';
 
   @override
