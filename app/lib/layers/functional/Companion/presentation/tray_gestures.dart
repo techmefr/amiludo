@@ -1,0 +1,21 @@
+import 'dart:ui';
+
+const double _minSpeed = 400;
+
+class TrayFlick {
+  const TrayFlick(this.power, this.aim);
+
+  final double power;
+  final Offset aim;
+}
+
+TrayFlick? flickOf(Offset velocity) {
+  if (velocity.distance < _minSpeed) return null;
+  return TrayFlick(
+    (velocity.distance / 1800).clamp(0.5, 1.5),
+    velocity / velocity.distance,
+  );
+}
+
+bool isLockSwipe(Offset v) =>
+    v.distance >= _minSpeed && v.dx < 0 && v.dx.abs() > v.dy.abs();

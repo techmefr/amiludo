@@ -2615,6 +2615,47 @@ class AppLocalizationsNl extends AppLocalizations {
   String get diceTrayThrow => 'Gooien';
 
   @override
+  String get diceResultMode => 'Resultaat tonen';
+
+  @override
+  String get diceResultNone => 'Geen';
+
+  @override
+  String get diceResultList => 'Lijst';
+
+  @override
+  String get diceResultCombined => 'Gecombineerd';
+
+  @override
+  String get diceResultSum => 'Som';
+
+  @override
+  String get diceResultBest => 'Beste';
+
+  @override
+  String get diceResultWorst => 'Slechtste';
+
+  @override
+  String get diceResultDropWorst => 'Laagste negeren';
+
+  @override
+  String get diceResultDropBest => 'Hoogste negeren';
+
+  @override
+  String get diceResultMiddle => 'Midden';
+
+  @override
+  String get diceResultAverage => 'Gemiddelde';
+
+  @override
+  String get diceResultOddEven => 'Oneven / even';
+
+  @override
+  String diceResultOddEvenCount(int odd, int even) {
+    return '$odd oneven · $even even';
+  }
+
+  @override
   String get diceTrayShakeHint => 'Schud je telefoon of tik op Gooien.';
 
   @override

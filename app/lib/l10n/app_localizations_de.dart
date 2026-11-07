@@ -2618,6 +2618,47 @@ class AppLocalizationsDe extends AppLocalizations {
   String get diceTrayThrow => 'Werfen';
 
   @override
+  String get diceResultMode => 'Ergebnisanzeige';
+
+  @override
+  String get diceResultNone => 'Keine';
+
+  @override
+  String get diceResultList => 'Liste';
+
+  @override
+  String get diceResultCombined => 'Kombiniert';
+
+  @override
+  String get diceResultSum => 'Summe';
+
+  @override
+  String get diceResultBest => 'Bester';
+
+  @override
+  String get diceResultWorst => 'Schlechtester';
+
+  @override
+  String get diceResultDropWorst => 'Niedrigsten ignorieren';
+
+  @override
+  String get diceResultDropBest => 'Höchsten ignorieren';
+
+  @override
+  String get diceResultMiddle => 'Mitte';
+
+  @override
+  String get diceResultAverage => 'Durchschnitt';
+
+  @override
+  String get diceResultOddEven => 'Ungerade / gerade';
+
+  @override
+  String diceResultOddEvenCount(int odd, int even) {
+    return '$odd ungerade · $even gerade';
+  }
+
+  @override
   String get diceTrayShakeHint => 'Schüttle dein Handy oder tippe auf Werfen.';
 
   @override

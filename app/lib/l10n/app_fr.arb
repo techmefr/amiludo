@@ -788,6 +788,29 @@
   "toolDiceTrayTitle": "Plateau de dés",
   "toolDiceTraySubtitle": "Secouez pour lancer, gardez des dés de côté, voyez le total.",
   "diceTrayThrow": "Lancer",
+  "diceResultMode": "Affichage du résultat",
+  "diceResultNone": "Aucun",
+  "diceResultList": "Liste",
+  "diceResultCombined": "Combiné",
+  "diceResultSum": "Somme",
+  "diceResultBest": "Le meilleur",
+  "diceResultWorst": "Le pire",
+  "diceResultDropWorst": "Ignorer le moins bon",
+  "diceResultDropBest": "Ignorer le meilleur",
+  "diceResultMiddle": "Milieu",
+  "diceResultAverage": "Moyenne",
+  "diceResultOddEven": "Impair / pair",
+  "diceResultOddEvenCount": "{odd} impair · {even} pair",
+  "@diceResultOddEvenCount": {
+    "placeholders": {
+      "odd": {
+        "type": "int"
+      },
+      "even": {
+        "type": "int"
+      }
+    }
+  },
   "diceTrayShakeHint": "Secouez le téléphone ou appuyez sur Lancer.",
   "diceTrayTotal": "Total",
   "diceTrayHistory": "Historique",

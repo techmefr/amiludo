@@ -1012,6 +1012,29 @@
   "toolDiceTrayTitle": "Dice tray",
   "toolDiceTraySubtitle": "Shake to throw, keep dice aside, see the total.",
   "diceTrayThrow": "Throw",
+  "diceResultMode": "Result display",
+  "diceResultNone": "None",
+  "diceResultList": "List",
+  "diceResultCombined": "Combined",
+  "diceResultSum": "Sum",
+  "diceResultBest": "Best",
+  "diceResultWorst": "Worst",
+  "diceResultDropWorst": "Drop lowest",
+  "diceResultDropBest": "Drop highest",
+  "diceResultMiddle": "Middle",
+  "diceResultAverage": "Average",
+  "diceResultOddEven": "Odd / even",
+  "diceResultOddEvenCount": "{odd} odd · {even} even",
+  "@diceResultOddEvenCount": {
+    "placeholders": {
+      "odd": {
+        "type": "int"
+      },
+      "even": {
+        "type": "int"
+      }
+    }
+  },
   "diceTrayShakeHint": "Shake your phone or press Throw.",
   "diceTrayTotal": "Total",
   "diceTrayHistory": "History",

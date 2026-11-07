@@ -4856,6 +4856,84 @@ abstract class AppLocalizations {
   /// **'Throw'**
   String get diceTrayThrow;
 
+  /// No description provided for @diceResultMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Result display'**
+  String get diceResultMode;
+
+  /// No description provided for @diceResultNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get diceResultNone;
+
+  /// No description provided for @diceResultList.
+  ///
+  /// In en, this message translates to:
+  /// **'List'**
+  String get diceResultList;
+
+  /// No description provided for @diceResultCombined.
+  ///
+  /// In en, this message translates to:
+  /// **'Combined'**
+  String get diceResultCombined;
+
+  /// No description provided for @diceResultSum.
+  ///
+  /// In en, this message translates to:
+  /// **'Sum'**
+  String get diceResultSum;
+
+  /// No description provided for @diceResultBest.
+  ///
+  /// In en, this message translates to:
+  /// **'Best'**
+  String get diceResultBest;
+
+  /// No description provided for @diceResultWorst.
+  ///
+  /// In en, this message translates to:
+  /// **'Worst'**
+  String get diceResultWorst;
+
+  /// No description provided for @diceResultDropWorst.
+  ///
+  /// In en, this message translates to:
+  /// **'Drop lowest'**
+  String get diceResultDropWorst;
+
+  /// No description provided for @diceResultDropBest.
+  ///
+  /// In en, this message translates to:
+  /// **'Drop highest'**
+  String get diceResultDropBest;
+
+  /// No description provided for @diceResultMiddle.
+  ///
+  /// In en, this message translates to:
+  /// **'Middle'**
+  String get diceResultMiddle;
+
+  /// No description provided for @diceResultAverage.
+  ///
+  /// In en, this message translates to:
+  /// **'Average'**
+  String get diceResultAverage;
+
+  /// No description provided for @diceResultOddEven.
+  ///
+  /// In en, this message translates to:
+  /// **'Odd / even'**
+  String get diceResultOddEven;
+
+  /// No description provided for @diceResultOddEvenCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{odd} odd · {even} even'**
+  String diceResultOddEvenCount(int odd, int even);
+
   /// No description provided for @diceTrayShakeHint.
   ///
   /// In en, this message translates to:

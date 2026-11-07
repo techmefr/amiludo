@@ -788,6 +788,29 @@
   "toolDiceTrayTitle": "Dobbelbak",
   "toolDiceTraySubtitle": "Schud om te gooien, leg dobbelstenen opzij, zie het totaal.",
   "diceTrayThrow": "Gooien",
+  "diceResultMode": "Resultaat tonen",
+  "diceResultNone": "Geen",
+  "diceResultList": "Lijst",
+  "diceResultCombined": "Gecombineerd",
+  "diceResultSum": "Som",
+  "diceResultBest": "Beste",
+  "diceResultWorst": "Slechtste",
+  "diceResultDropWorst": "Laagste negeren",
+  "diceResultDropBest": "Hoogste negeren",
+  "diceResultMiddle": "Midden",
+  "diceResultAverage": "Gemiddelde",
+  "diceResultOddEven": "Oneven / even",
+  "diceResultOddEvenCount": "{odd} oneven · {even} even",
+  "@diceResultOddEvenCount": {
+    "placeholders": {
+      "odd": {
+        "type": "int"
+      },
+      "even": {
+        "type": "int"
+      }
+    }
+  },
   "diceTrayShakeHint": "Schud je telefoon of tik op Gooien.",
   "diceTrayTotal": "Totaal",
   "diceTrayHistory": "Geschiedenis",
