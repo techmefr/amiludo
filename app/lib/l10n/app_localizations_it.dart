@@ -3410,4 +3410,57 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get avatarSlotWeapon => 'Armi e attrezzi';
+
+  String get toolMapTitle => 'Mappa';
+
+  @override
+  String get toolMapSubtitle => 'Segnaposto, pedine e disegni sul tabellone che preferisci.';
+
+  @override
+  String get mapToolMove => 'Sposta e ingrandisci';
+
+  @override
+  String get mapToolPin => 'Segnaposto';
+
+  @override
+  String get mapToolToken => 'Pedina';
+
+  @override
+  String get mapToolLine => 'Linea';
+
+  @override
+  String get mapToolZone => 'Zona';
+
+  @override
+  String get mapToolErase => 'Cancella';
+
+  @override
+  String get mapUndo => 'Annulla';
+
+  @override
+  String get mapBackground => 'Sfondo';
+
+  @override
+  String get mapBackgroundBlank => 'Vuoto';
+
+  @override
+  String get mapBackgroundGrid => 'Griglia quadrata';
+
+  @override
+  String get mapBackgroundHex => 'Griglia esagonale';
+
+  @override
+  String get mapBackgroundImage => 'Importa un\'immagine';
+
+  @override
+  String get mapIcon => 'Icona';
+
+  @override
+  String get mapColor => 'Colore';
+
+  @override
+  String get mapMarkerLabel => 'Etichetta';
+
+  @override
+  String get mapMarkerDelete => 'Elimina';
 }

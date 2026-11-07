@@ -3381,4 +3381,57 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get avatarSlotWeapon => 'Weapons and tools';
+
+  String get toolMapTitle => 'Map';
+
+  @override
+  String get toolMapSubtitle => 'Pins, tokens and sketches on a board of your choice.';
+
+  @override
+  String get mapToolMove => 'Move and zoom';
+
+  @override
+  String get mapToolPin => 'Pin';
+
+  @override
+  String get mapToolToken => 'Token';
+
+  @override
+  String get mapToolLine => 'Line';
+
+  @override
+  String get mapToolZone => 'Zone';
+
+  @override
+  String get mapToolErase => 'Erase';
+
+  @override
+  String get mapUndo => 'Undo';
+
+  @override
+  String get mapBackground => 'Background';
+
+  @override
+  String get mapBackgroundBlank => 'Blank';
+
+  @override
+  String get mapBackgroundGrid => 'Square grid';
+
+  @override
+  String get mapBackgroundHex => 'Hex grid';
+
+  @override
+  String get mapBackgroundImage => 'Import an image';
+
+  @override
+  String get mapIcon => 'Icon';
+
+  @override
+  String get mapColor => 'Color';
+
+  @override
+  String get mapMarkerLabel => 'Label';
+
+  @override
+  String get mapMarkerDelete => 'Delete';
 }

@@ -3415,4 +3415,57 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get avatarSlotWeapon => 'Waffen und Werkzeuge';
+
+  String get toolMapTitle => 'Karte';
+
+  @override
+  String get toolMapSubtitle => 'Markierungen, Spielfiguren und Skizzen auf einem Plan Ihrer Wahl.';
+
+  @override
+  String get mapToolMove => 'Verschieben und zoomen';
+
+  @override
+  String get mapToolPin => 'Markierung';
+
+  @override
+  String get mapToolToken => 'Spielfigur';
+
+  @override
+  String get mapToolLine => 'Linie';
+
+  @override
+  String get mapToolZone => 'Bereich';
+
+  @override
+  String get mapToolErase => 'Löschen';
+
+  @override
+  String get mapUndo => 'Rückgängig';
+
+  @override
+  String get mapBackground => 'Hintergrund';
+
+  @override
+  String get mapBackgroundBlank => 'Leer';
+
+  @override
+  String get mapBackgroundGrid => 'Quadratraster';
+
+  @override
+  String get mapBackgroundHex => 'Hexraster';
+
+  @override
+  String get mapBackgroundImage => 'Bild importieren';
+
+  @override
+  String get mapIcon => 'Symbol';
+
+  @override
+  String get mapColor => 'Farbe';
+
+  @override
+  String get mapMarkerLabel => 'Beschriftung';
+
+  @override
+  String get mapMarkerDelete => 'Löschen';
 }

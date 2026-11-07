@@ -46,6 +46,9 @@ import 'package:amiludo/layers/functional/Lobby/domain/use_cases/start_lobby_gam
 import 'package:amiludo/layers/functional/Lobby/domain/use_cases/toggle_lobby_open_use_case.dart';
 import 'package:amiludo/layers/functional/Lobby/domain/use_cases/watch_lobby_use_case.dart';
 import 'package:amiludo/layers/functional/Companion/data/accelerometer_turn_sensor.dart';
+import 'package:amiludo/layers/functional/Companion/data/gateways/map_gateways_impl.dart';
+import 'package:amiludo/layers/functional/Companion/domain/gateways/map_gateways.dart';
+import 'package:amiludo/layers/functional/Companion/domain/use_cases/map_use_cases.dart';
 import 'package:amiludo/layers/functional/Companion/data/gateways/die_gateways_impl.dart';
 import 'package:amiludo/layers/functional/Companion/domain/gateways/die_gateways.dart';
 import 'package:amiludo/layers/functional/Companion/domain/use_cases/die_share_use_cases.dart';
@@ -205,6 +208,7 @@ void configureDependencies(StoreDatabase database) {
         getIt<CharacterDraftGatewayImpl>(),
         getIt<ChroniclesRunGatewayImpl>(),
         getIt<DieLibraryGatewayImpl>(),
+        getIt<MapBoardsGatewayImpl>(),
       ],
     )
     ..registerLazySingleton<EveningsGatewayImpl>(
@@ -223,6 +227,7 @@ void configureDependencies(StoreDatabase database) {
   _registerGatherings();
   _registerCampaign();
   _registerDice();
+  _registerMaps();
 }
 
 void _registerSensors() {
@@ -368,4 +373,19 @@ void _registerDice() {
     ..registerFactory(() => EmbedDiceUseCase(getIt(), getIt()))
     ..registerFactory(() => ReadEmbeddedDiceUseCase(getIt()))
     ..registerFactory(() => AcceptEmbeddedDiceUseCase(getIt()));
+}
+
+void _registerMaps() {
+  getIt
+    ..registerLazySingleton<MapBoardsGatewayImpl>(
+      () => MapBoardsGatewayImpl(getIt()),
+    )
+    ..registerLazySingleton<MapBoardsGateway>(
+      () => getIt<MapBoardsGatewayImpl>(),
+    )
+    ..registerLazySingleton<MapImageGateway>(() => MapImageGatewayImpl(getIt()))
+    ..registerFactory(() => ReadMapUseCase(getIt()))
+    ..registerFactory(() => SaveMapUseCase(getIt(), getIt()))
+    ..registerFactory(() => ImportMapImageUseCase(getIt()))
+    ..registerFactory(() => ReadMapImageUseCase(getIt()));
 }
