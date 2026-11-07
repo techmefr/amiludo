@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:amiludo/dependencies.dart';
+import 'package:amiludo/layers/technical/Theme/components/sand_scene.dart';
+import 'package:amiludo/layers/technical/Theme/components/sandglass_painter.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_backdrop.dart';
 import 'package:amiludo/layers/technical/Physics/surface_material.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
@@ -30,6 +32,7 @@ void main() {
     _homeTest(size, reduced: false);
   }
   _homeTest(const Size(390, 844), reduced: true);
+  hourglassLookTests();
 }
 
 void _modelTests() {
@@ -120,4 +123,44 @@ void _homeTest(Size size, {required bool reduced}) {
     await tester.pumpWidget(const SizedBox());
     await db.close();
   });
+}
+
+void hourglassLookTests() {
+  test('the sand palette keeps text readable', () {
+    const pairs = [
+      (SandPalette.cream, SandPalette.night),
+      (SandPalette.cream, SandPalette.dusk),
+      (SandPalette.cream, SandPalette.ember),
+      (SandPalette.night, SandPalette.sand),
+    ];
+    for (final (a, b) in pairs) {
+      expect(toolContrast(a, b), greaterThanOrEqualTo(4.5));
+    }
+  });
+  for (final size in const [
+    Size(390, 844),
+    Size(844, 390),
+    Size(1280, 720),
+    Size(1920, 1080),
+  ]) {
+    testWidgets('the hourglass is its own scene at $size', (tester) async {
+      tester.view.physicalSize = size;
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      final db = StoreDatabase.forTesting(NativeDatabase.memory());
+      configureDependencies(db);
+      addTearDown(getIt.reset);
+      await tester.pumpWidget(const AmiludoApp());
+      await tester.pumpAndSettle();
+      router.go('/tools');
+      await tester.pumpAndSettle();
+      router.push('/tools/hourglass');
+      await tester.pumpAndSettle();
+      expect(find.byType(SandScene), findsOneWidget);
+      expect(find.byType(SandPill), findsNWidgets(7));
+      expect(tester.takeException(), isNull);
+      await tester.pumpWidget(const SizedBox());
+      await db.close();
+    });
+  }
 }
