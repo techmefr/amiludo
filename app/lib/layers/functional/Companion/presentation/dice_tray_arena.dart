@@ -94,7 +94,7 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
     last = elapsed;
     final kept = widget.session.kept;
     var steps = 0;
-    while (carry >= TrayPhysics.step && steps++ < 6) {
+    while (carry >= TrayPhysics.step && steps++ < 400) {
       p.advance(TrayPhysics.step, kept);
       carry -= TrayPhysics.step;
     }
