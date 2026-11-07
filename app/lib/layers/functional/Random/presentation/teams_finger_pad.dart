@@ -86,8 +86,8 @@ class _TeamsFingerPadState extends State<TeamsFingerPad> {
   Widget _contact(MapEntry<int, Offset> entry) {
     final team = assigned[entry.key];
     return Positioned(
-      left: entry.value.dx - 44,
-      top: entry.value.dy - 44,
+      left: entry.value.dx - fingerRingSize / 2,
+      top: entry.value.dy - fingerRingSize / 2,
       child: FingerRing(
         color: team == null ? fingerIdleColor : teamColors[team],
         label: team == null ? null : '${team + 1}',
