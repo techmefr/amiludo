@@ -16,9 +16,10 @@ class Appearance {
     this.keepAwake = true,
     this.language = 'fr',
     this.sensors = 'medium',
+    this.dice3d = false,
   });
   final String skin, palette, mode, font, shape, language, sensors;
-  final bool compact, large, motion, keepAwake, sound, haptics;
+  final bool compact, large, motion, keepAwake, sound, haptics, dice3d;
   static const palettes = [
     'play',
     'acid',
@@ -57,6 +58,7 @@ class Appearance {
     bool? keepAwake,
     String? language,
     String? sensors,
+    bool? dice3d,
   }) => Appearance(
     skin: skin ?? this.skin,
     palette: palette ?? this.palette,
@@ -71,6 +73,7 @@ class Appearance {
     keepAwake: keepAwake ?? this.keepAwake,
     language: language ?? this.language,
     sensors: sensors ?? this.sensors,
+    dice3d: dice3d ?? this.dice3d,
   );
   Map<String, Object?> toJson() => {
     'skin': skin,
@@ -86,6 +89,7 @@ class Appearance {
     'keepAwake': keepAwake,
     'language': language,
     if (sensors != 'medium') 'sensors': sensors,
+    if (dice3d) 'dice3d': true,
   };
   factory Appearance.fromJson(Map<String, dynamic> j) {
     const oldFonts = {
@@ -112,6 +116,7 @@ class Appearance {
       keepAwake: j['keepAwake'] as bool? ?? true,
       language: j['language'] as String? ?? 'fr',
       sensors: j['sensors'] as String? ?? 'medium',
+      dice3d: j['dice3d'] as bool? ?? false,
     );
     if (!['play', 'cyber', 'orbital', 'paper', 'game'].contains(a.skin) ||
         !palettes.contains(a.palette) ||

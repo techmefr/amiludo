@@ -13,10 +13,14 @@ class HeroView extends StatefulWidget {
     required this.state,
     this.onChanged,
     this.onAddPower,
+    this.avatar,
+    this.onEditAvatar,
   });
   final HeroState state;
   final VoidCallback? onChanged;
   final VoidCallback? onAddPower;
+  final Widget? avatar;
+  final VoidCallback? onEditAvatar;
 
   @override
   State<HeroView> createState() => _HeroViewState();
@@ -41,6 +45,8 @@ class _HeroViewState extends State<HeroView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            if (widget.avatar != null)
+              Center(child: SizedBox(height: 120, child: widget.avatar)),
             Text(
               hero.name,
               style: Theme.of(
@@ -51,6 +57,13 @@ class _HeroViewState extends State<HeroView> {
               CounterView(state: counter, onChanged: widget.onChanged),
             for (final power in hero.powers)
               PowerView(state: power, ink: ink, onChanged: changed),
+            if (widget.onEditAvatar != null)
+              TextButton.icon(
+                onPressed: widget.onEditAvatar,
+                style: TextButton.styleFrom(foregroundColor: ink),
+                icon: const Icon(Icons.face),
+                label: Text(context.l10n.avatarEdit),
+              ),
             if (widget.onAddPower != null)
               TextButton.icon(
                 onPressed: widget.onAddPower,

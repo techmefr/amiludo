@@ -1,0 +1,3 @@
+"CFBundleDisplayName" = "amiLudo";
+"NSLocalNetworkUsageDescription" = "amiLudo trouve et rejoint les parties ouvertes sur votre Wi-Fi.";
+"NSCameraUsageDescription" = "amiLudo scanne les QR codes pour rejoindre une partie ou recevoir un pack.";

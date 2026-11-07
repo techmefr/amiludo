@@ -1,0 +1,3941 @@
+{
+ "version": 1,
+ "items": [
+  {
+   "id": "implant.arms-mechanical-1",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/arms-mechanical-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.arms-mechanical-2",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/arms-mechanical-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.arms-mechanical-3",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/arms-mechanical-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.arms-mechanical-4",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/arms-mechanical-sheet-4"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.arms-mechanical-5",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/arms-mechanical-sheet-5"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.arms-mechanical-6",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/arms-mechanical-sheet-6"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.arms-1",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/arms-sheet-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.arms-2",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/arms-sheet-2",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.arms-3",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/arms-sheet-3",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.arms-4",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/arms-sheet-4",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.arms-5",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/arms-sheet-5",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.arms-6",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/arms-sheet-6",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.backpacks-1",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 10,
+       "src": "avatar/pieces/backpacks-sheet-1",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.backpacks-2",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 10,
+       "src": "avatar/pieces/backpacks-sheet-2",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.backpacks-3",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 10,
+       "src": "avatar/pieces/backpacks-sheet-3",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "beard.beards-1",
+   "slot": "beard",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 80,
+       "src": "avatar/pieces/beards-sheet-1",
+       "tint": "hair"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "beard.beards-2",
+   "slot": "beard",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 80,
+       "src": "avatar/pieces/beards-sheet-2",
+       "tint": "hair"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "beard.beards-3",
+   "slot": "beard",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 80,
+       "src": "avatar/pieces/beards-sheet-3",
+       "tint": "hair"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.belt-items-1",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/belt-items-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.belt-items-2",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/belt-items-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.belt-items-3",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/belt-items-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.belts-1",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/belts-sheet-1",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.belts-2",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/belts-sheet-2",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.belts-3",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/belts-sheet-3",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.body-base-full-1",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/body-base-full-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "shoes.boots-1",
+   "slot": "shoes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 40,
+       "src": "avatar/pieces/boots-sheet-1",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "shoes.boots-2",
+   "slot": "shoes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 40,
+       "src": "avatar/pieces/boots-sheet-2",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "shoes.boots-3",
+   "slot": "shoes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 40,
+       "src": "avatar/pieces/boots-sheet-3",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "shoes.boots-4",
+   "slot": "shoes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 40,
+       "src": "avatar/pieces/boots-sheet-4",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "shoes.boots-5",
+   "slot": "shoes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 40,
+       "src": "avatar/pieces/boots-sheet-5",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "shoes.boots-6",
+   "slot": "shoes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 40,
+       "src": "avatar/pieces/boots-sheet-6",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.calves-1",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 40,
+       "src": "avatar/pieces/calves-sheet-1",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.calves-2",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 40,
+       "src": "avatar/pieces/calves-sheet-2",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.calves-3",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 40,
+       "src": "avatar/pieces/calves-sheet-3",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.calves-4",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 40,
+       "src": "avatar/pieces/calves-sheet-4",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.calves-5",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 40,
+       "src": "avatar/pieces/calves-sheet-5",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.calves-6",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 40,
+       "src": "avatar/pieces/calves-sheet-6",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.capes-1",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 10,
+       "src": "avatar/pieces/capes-sheet-1",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.capes-2",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 10,
+       "src": "avatar/pieces/capes-sheet-2",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.chain-net-1",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/chain-net-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.chain-net-2",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/chain-net-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.chain-net-3",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/chain-net-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.chain-net-4",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/chain-net-sheet-4"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.collars-1",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 60,
+       "src": "avatar/pieces/collars-sheet-1",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.collars-2",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 60,
+       "src": "avatar/pieces/collars-sheet-2",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.collars-3",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 60,
+       "src": "avatar/pieces/collars-sheet-3",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.crests-1",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/crests-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.crests-2",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/crests-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.crests-3",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/crests-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyebrows.eyebrows-1",
+   "slot": "eyebrows",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyebrows-sheet-1",
+       "tint": "hair"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyebrows.eyebrows-2",
+   "slot": "eyebrows",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyebrows-sheet-2",
+       "tint": "hair"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyebrows.eyebrows-3",
+   "slot": "eyebrows",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyebrows-sheet-3",
+       "tint": "hair"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyebrows.eyebrows-4",
+   "slot": "eyebrows",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyebrows-sheet-4",
+       "tint": "hair"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyebrows.eyebrows-5",
+   "slot": "eyebrows",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyebrows-sheet-5",
+       "tint": "hair"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyebrows.eyebrows-6",
+   "slot": "eyebrows",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyebrows-sheet-6",
+       "tint": "hair"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-mechanical-a-1",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-mechanical-sheet-a-1",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-mechanical-a-2",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-mechanical-sheet-a-2",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-mechanical-a-3",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-mechanical-sheet-a-3",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-mechanical-a-4",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-mechanical-sheet-a-4",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-mechanical-b-1",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-mechanical-sheet-b-1",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-mechanical-b-2",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-mechanical-sheet-b-2",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-mechanical-b-3",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-mechanical-sheet-b-3",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-mechanical-b-4",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-mechanical-sheet-b-4",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-1",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-sheet-1",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-10",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-sheet-10",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-11",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-sheet-11",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-12",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-sheet-12",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-2",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-sheet-2",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-3",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-sheet-3",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-4",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-sheet-4",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-5",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-sheet-5",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-6",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-sheet-6",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-7",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-sheet-7",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-8",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-sheet-8",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.eyes-9",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/eyes-sheet-9",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.face-masks-1",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/face-masks-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.face-masks-2",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/face-masks-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.face-masks-3",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/face-masks-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.feet-mechanical-1",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/feet-mechanical-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.feet-mechanical-2",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/feet-mechanical-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.feet-mechanical-3",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/feet-mechanical-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.feet-mechanical-4",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/feet-mechanical-sheet-4"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.feet-mechanical-5",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/feet-mechanical-sheet-5"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.feet-mechanical-6",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/feet-mechanical-sheet-6"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.feet-1",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/feet-sheet-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.feet-2",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/feet-sheet-2",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.feet-3",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/feet-sheet-3",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.feet-4",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/feet-sheet-4",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.feet-5",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/feet-sheet-5",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.feet-6",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/feet-sheet-6",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.forearms-1",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/forearms-sheet-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.forearms-2",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/forearms-sheet-2",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.forearms-3",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/forearms-sheet-3",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.forearms-4",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/forearms-sheet-4",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.forearms-5",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/forearms-sheet-5",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.forearms-6",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/forearms-sheet-6",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.goggles-1",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/goggles-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.goggles-2",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/goggles-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "hair.hair-short-a-1",
+   "slot": "hair",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 80,
+       "src": "avatar/pieces/hair-short-a-1",
+       "tint": "hair"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "hair.hairstyles-1",
+   "slot": "hair",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 80,
+       "src": "avatar/pieces/hairstyles-sheet-1",
+       "tint": "hair"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "hair.hairstyles-2",
+   "slot": "hair",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 80,
+       "src": "avatar/pieces/hairstyles-sheet-2",
+       "tint": "hair"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "hair.hairstyles-3",
+   "slot": "hair",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 80,
+       "src": "avatar/pieces/hairstyles-sheet-3",
+       "tint": "hair"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "weapon.hand-tools-1",
+   "slot": "weapon",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 100,
+       "src": "avatar/pieces/hand-tools-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "weapon.hand-tools-2",
+   "slot": "weapon",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 100,
+       "src": "avatar/pieces/hand-tools-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "weapon.hand-tools-3",
+   "slot": "weapon",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 100,
+       "src": "avatar/pieces/hand-tools-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "weapon.hand-tools-4",
+   "slot": "weapon",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 100,
+       "src": "avatar/pieces/hand-tools-sheet-4"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.hands-mechanical-1",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/hands-mechanical-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.hands-mechanical-2",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/hands-mechanical-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.hands-mechanical-3",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/hands-mechanical-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.hands-mechanical-4",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/hands-mechanical-sheet-4"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.hands-1",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/hands-sheet-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.hands-2",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/hands-sheet-2",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.hands-3",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/hands-sheet-3",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.hands-4",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/hands-sheet-4",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.hands-5",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/hands-sheet-5",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "base.hands-6",
+   "slot": "base",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 20,
+       "src": "avatar/pieces/hands-sheet-6",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.head-painted-a-1",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/head-painted-a-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.head-painted-b-1",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/head-painted-b-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.heads-base-grey-1",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/heads-base-grey-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.heads-base-grey-2-1",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/heads-base-grey-2-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.heads-base-grey-2-2",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/heads-base-grey-2-2",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.heads-base-grey-2",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/heads-base-grey-2",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.heads-base-grey-3-1",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/heads-base-grey-3-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.heads-base-grey-3-2",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/heads-base-grey-3-2",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.heads-base-grey-animal-ears-1",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/heads-base-grey-animal-ears-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.heads-base-grey-animal-ears-2",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/heads-base-grey-animal-ears-2",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.heads-base-grey-no-ears-1",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/heads-base-grey-no-ears-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.heads-base-grey-no-ears-2",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/heads-base-grey-no-ears-2",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.heads-base-grey-pointed-ears-1",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/heads-base-grey-pointed-ears-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.heads-base-grey-pointed-ears-2",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/heads-base-grey-pointed-ears-2",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.heads-base-grey-small-ears-1",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/heads-base-grey-small-ears-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.heads-base-grey-small-ears-2",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/heads-base-grey-small-ears-2",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "head.heads-base-grey-wide-ears-1",
+   "slot": "head",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 70,
+       "src": "avatar/pieces/heads-base-grey-wide-ears-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.hoods-1",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 60,
+       "src": "avatar/pieces/hoods-sheet-1",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.hoods-2",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 60,
+       "src": "avatar/pieces/hoods-sheet-2",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.hoods-3",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 60,
+       "src": "avatar/pieces/hoods-sheet-3",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.horns-1",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/horns-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.horns-2",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/horns-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.horns-3",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/horns-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.horns-4",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/horns-sheet-4"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.horns-5",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/horns-sheet-5"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "accessory.horns-6",
+   "slot": "accessory",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 85,
+       "src": "avatar/pieces/horns-sheet-6"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.legs-mechanical-1",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/legs-mechanical-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.legs-mechanical-2",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/legs-mechanical-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.legs-mechanical-3",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/legs-mechanical-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.legs-mechanical-4",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/legs-mechanical-sheet-4"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.legs-mechanical-5",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/legs-mechanical-sheet-5"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.legs-mechanical-6",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/legs-mechanical-sheet-6"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.legwear-1",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 40,
+       "src": "avatar/pieces/legwear-sheet-1",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.legwear-2",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 40,
+       "src": "avatar/pieces/legwear-sheet-2",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.legwear-3",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 40,
+       "src": "avatar/pieces/legwear-sheet-3",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "mouth.lips-1",
+   "slot": "mouth",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/lips-sheet-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "mouth.lips-2",
+   "slot": "mouth",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/lips-sheet-2",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "mouth.lips-3",
+   "slot": "mouth",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/lips-sheet-3",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.marks-1",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/marks-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.marks-2",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/marks-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.marks-3",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/marks-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.marks-4",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/marks-sheet-4"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.marks-5",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/marks-sheet-5"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.marks-6",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/marks-sheet-6"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.marks-7",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/marks-sheet-7"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.mechanical-plates-1",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/mechanical-plates-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.mechanical-plates-2",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/mechanical-plates-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.mechanical-plates-3",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/mechanical-plates-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.mechanical-plates-4",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/mechanical-plates-sheet-4"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.mechanical-plates-5",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/mechanical-plates-sheet-5"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "implant.mechanical-plates-6",
+   "slot": "implant",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 30,
+       "src": "avatar/pieces/mechanical-plates-sheet-6"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "mouth.mouths-mechanical-1",
+   "slot": "mouth",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/mouths-mechanical-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "mouth.mouths-mechanical-2",
+   "slot": "mouth",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/mouths-mechanical-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "mouth.mouths-mechanical-3",
+   "slot": "mouth",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/mouths-mechanical-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "nose.noses-animal-1",
+   "slot": "nose",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/noses-animal-sheet-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "nose.noses-animal-2",
+   "slot": "nose",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/noses-animal-sheet-2",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "nose.noses-animal-3",
+   "slot": "nose",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/noses-animal-sheet-3",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "nose.noses-1",
+   "slot": "nose",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/noses-sheet-1",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "nose.noses-2",
+   "slot": "nose",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/noses-sheet-2",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "nose.noses-3",
+   "slot": "nose",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/noses-sheet-3",
+       "tint": "skin"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.outfit-vest-trousers-boots-1",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 60,
+       "src": "avatar/pieces/outfit-vest-trousers-boots-1",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.pockets-and-fasteners-1",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/pockets-and-fasteners-sheet-1",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.pockets-and-fasteners-2",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/pockets-and-fasteners-sheet-2",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.pockets-and-fasteners-3",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/pockets-and-fasteners-sheet-3",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.pockets-and-fasteners-4",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/pockets-and-fasteners-sheet-4",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.pockets-and-fasteners-5",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/pockets-and-fasteners-sheet-5",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.pockets-and-fasteners-6",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/pockets-and-fasteners-sheet-6",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.reptile-eyes-brows-1",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/reptile-eyes-brows-sheet-1",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.reptile-eyes-brows-10",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/reptile-eyes-brows-sheet-10",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.reptile-eyes-brows-11",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/reptile-eyes-brows-sheet-11",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.reptile-eyes-brows-12",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/reptile-eyes-brows-sheet-12",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.reptile-eyes-brows-2",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/reptile-eyes-brows-sheet-2",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.reptile-eyes-brows-3",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/reptile-eyes-brows-sheet-3",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.reptile-eyes-brows-4",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/reptile-eyes-brows-sheet-4",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.reptile-eyes-brows-5",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/reptile-eyes-brows-sheet-5",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.reptile-eyes-brows-6",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/reptile-eyes-brows-sheet-6",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.reptile-eyes-brows-7",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/reptile-eyes-brows-sheet-7",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.reptile-eyes-brows-8",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/reptile-eyes-brows-sheet-8",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "eyes.reptile-eyes-brows-9",
+   "slot": "eyes",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/reptile-eyes-brows-sheet-9",
+       "tint": "eyes"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-1",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-10",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-10"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-11",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-11"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-12",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-12"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-13",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-13"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-14",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-14"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-15",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-15"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-16",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-16"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-17",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-17"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-18",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-18"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-19",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-19"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-2",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-20",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-20"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-3",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-4",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-4"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-5",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-5"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-6",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-6"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-7",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-7"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-8",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-8"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "marks.scales-marks-9",
+   "slot": "marks",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 75,
+       "src": "avatar/pieces/scales-marks-sheet-9"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "weapon.sidearms-1",
+   "slot": "weapon",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 100,
+       "src": "avatar/pieces/sidearms-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "weapon.sidearms-2",
+   "slot": "weapon",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 100,
+       "src": "avatar/pieces/sidearms-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "weapon.sidearms-3",
+   "slot": "weapon",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 100,
+       "src": "avatar/pieces/sidearms-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "weapon.sidearms-4",
+   "slot": "weapon",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 100,
+       "src": "avatar/pieces/sidearms-sheet-4"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.signal-gear-1",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/signal-gear-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.signal-gear-2",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/signal-gear-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.signal-gear-3",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/signal-gear-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.sleeves-1",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 60,
+       "src": "avatar/pieces/sleeves-sheet-1",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.sleeves-2",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 60,
+       "src": "avatar/pieces/sleeves-sheet-2",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.sleeves-3",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 60,
+       "src": "avatar/pieces/sleeves-sheet-3",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.sleeves-4",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 60,
+       "src": "avatar/pieces/sleeves-sheet-4",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.sleeves-5",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 60,
+       "src": "avatar/pieces/sleeves-sheet-5",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.sleeves-6",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 60,
+       "src": "avatar/pieces/sleeves-sheet-6",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.straps-1",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/straps-sheet-1",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.straps-2",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/straps-sheet-2",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "equipment.straps-3",
+   "slot": "equipment",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 90,
+       "src": "avatar/pieces/straps-sheet-3",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "weapon.tools-1",
+   "slot": "weapon",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 100,
+       "src": "avatar/pieces/tools-sheet-1"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "weapon.tools-2",
+   "slot": "weapon",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 100,
+       "src": "avatar/pieces/tools-sheet-2"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "weapon.tools-3",
+   "slot": "weapon",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 100,
+       "src": "avatar/pieces/tools-sheet-3"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.torsos-sleeveless-1",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 60,
+       "src": "avatar/pieces/torsos-sleeveless-sheet-1",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.torsos-sleeveless-2",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 60,
+       "src": "avatar/pieces/torsos-sleeveless-sheet-2",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  },
+  {
+   "id": "outfit.torsos-sleeveless-3",
+   "slot": "outfit",
+   "peoples": [],
+   "variants": {
+    "average": {
+     "layers": [
+      {
+       "order": 60,
+       "src": "avatar/pieces/torsos-sleeveless-sheet-3",
+       "tint": "cloth"
+      }
+     ],
+     "hideBodyParts": []
+    }
+   }
+  }
+ ]
+}

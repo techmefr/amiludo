@@ -108,6 +108,6 @@ jeu de société,score,dés,minuteur,équipes,soirée jeux,compagnon,compteur,ha
 
 ## Open points before submission
 
-- Confirm the final application id: the Android and iOS projects still use a legacy identifier (`io.github.techmefr.table_companion`). Changing it after publication is not possible on Google Play.
+- Application id: Android applicationId and namespace, iOS bundle id and the Dart package all use `com.techmefr.amiludo` (iOS: `amiludo`). The id cannot be changed once published on Google Play.
 - Native iOS distribution requires macOS, Xcode and an Apple signature; the repository does not yet distribute it.
 - Choose the store category and age rating answers (see data-safety.md).
