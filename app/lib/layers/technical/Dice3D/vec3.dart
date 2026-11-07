@@ -17,11 +17,8 @@ class Vec3 {
 
   double dot(Vec3 o) => x * o.x + y * o.y + z * o.z;
 
-  Vec3 cross(Vec3 o) => Vec3(
-    y * o.z - z * o.y,
-    z * o.x - x * o.z,
-    x * o.y - y * o.x,
-  );
+  Vec3 cross(Vec3 o) =>
+      Vec3(y * o.z - z * o.y, z * o.x - x * o.z, x * o.y - y * o.x);
 
   double get length => sqrt(dot(this));
 

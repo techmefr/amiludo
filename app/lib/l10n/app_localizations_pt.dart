@@ -4080,4 +4080,34 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get appearanceFontSystem => 'Sistema';
+
+  @override
+  String get toolShelfPinned => 'Fixados';
+
+  @override
+  String get toolShelfPlay => 'Jogar';
+
+  @override
+  String get toolShelfStory => 'História';
+
+  @override
+  String get toolShelfGenerators => 'Geradores';
+
+  @override
+  String get toolShelfCharacters => 'Personagens';
+
+  @override
+  String get toolShelfUtilities => 'Utilitários';
+
+  @override
+  String get toolHeroResume => 'Continue de onde parou';
+
+  @override
+  String get toolHeroFeatured => 'Ferramenta em destaque';
+
+  @override
+  String get toolMoveEarlier => 'Mover para antes';
+
+  @override
+  String get toolMoveLater => 'Mover para depois';
 }

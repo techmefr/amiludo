@@ -46,8 +46,10 @@ CampaignCubit cubitOn(MemoryCampaign gateway) => CampaignCubit(
 void main() {
   test('the campaign has five to six short missions with unique ids', () {
     expect(campaignMissions.length, inInclusiveRange(5, 6));
-    expect(campaignMissions.map((m) => m.id).toSet().length,
-        campaignMissions.length);
+    expect(
+      campaignMissions.map((m) => m.id).toSet().length,
+      campaignMissions.length,
+    );
     for (final mission in campaignMissions) {
       expect(mission.minutes, inInclusiveRange(3, 5));
     }

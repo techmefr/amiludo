@@ -9,8 +9,7 @@ const maxDesignName = 40;
 
 int _dieCounter = 0;
 
-String dieId() =>
-    '${DateTime.now().microsecondsSinceEpoch}-${_dieCounter++}';
+String dieId() => '${DateTime.now().microsecondsSinceEpoch}-${_dieCounter++}';
 
 enum DieShape {
   coin,
@@ -101,7 +100,10 @@ class DieDesign {
   );
 
   factory DieDesign.fromJson(Map<String, dynamic> j) {
-    final id = j['id'], name = j['name'], faces = j['faces'], color = j['color'];
+    final id = j['id'],
+        name = j['name'],
+        faces = j['faces'],
+        color = j['color'];
     if (id is! String ||
         id.isEmpty ||
         id.length > 64 ||
@@ -133,8 +135,9 @@ class DieDesign {
 
   DieShape get shape => DieShape.forSides(sides);
 
-  bool get numeric =>
-      faces.every((f) => f.kind == DieFaceKind.text && int.tryParse(f.value) != null);
+  bool get numeric => faces.every(
+    (f) => f.kind == DieFaceKind.text && int.tryParse(f.value) != null,
+  );
 
   Set<String> get imageIds => {
     for (final f in faces)

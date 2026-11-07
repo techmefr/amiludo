@@ -86,26 +86,32 @@ void main() {
       contrast(Color(p.darkBackground), Color(p.accent)),
       greaterThan(4.5),
     );
-    expect(contrast(Color(p.signal), Color(p.darkBackground)), greaterThan(4.5));
-  });
-
-  test('game tokens are chunky and glowing while other skins are unchanged', () {
-    final style = deckTheme(game, Brightness.light).extension<DeckStyle>()!;
-    expect(style.borderWidth, 3);
-    expect(style.glow, isNotNull);
-    for (final skin in ['play', 'cyber', 'orbital', 'paper']) {
-      final other = deckTheme(
-        Appearance(skin: skin),
-        Brightness.light,
-      ).extension<DeckStyle>()!;
-      expect(other.borderWidth, 1, reason: skin);
-      expect(other.glow, isNull, reason: skin);
-    }
     expect(
-      deckTheme(const Appearance(), Brightness.light).brightness,
-      Brightness.light,
+      contrast(Color(p.signal), Color(p.darkBackground)),
+      greaterThan(4.5),
     );
   });
+
+  test(
+    'game tokens are chunky and glowing while other skins are unchanged',
+    () {
+      final style = deckTheme(game, Brightness.light).extension<DeckStyle>()!;
+      expect(style.borderWidth, 3);
+      expect(style.glow, isNotNull);
+      for (final skin in ['play', 'cyber', 'orbital', 'paper']) {
+        final other = deckTheme(
+          Appearance(skin: skin),
+          Brightness.light,
+        ).extension<DeckStyle>()!;
+        expect(other.borderWidth, 1, reason: skin);
+        expect(other.glow, isNull, reason: skin);
+      }
+      expect(
+        deckTheme(const Appearance(), Brightness.light).brightness,
+        Brightness.light,
+      );
+    },
+  );
 
   for (final size in const [Size(390, 844), Size(1280, 720)]) {
     testWidgets('game skin renders tiles, buttons and bar at $size', (

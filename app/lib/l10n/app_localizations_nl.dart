@@ -4082,4 +4082,34 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get appearanceFontSystem => 'Systeem';
+
+  @override
+  String get toolShelfPinned => 'Vastgezet';
+
+  @override
+  String get toolShelfPlay => 'Spelen';
+
+  @override
+  String get toolShelfStory => 'Verhaal';
+
+  @override
+  String get toolShelfGenerators => 'Generatoren';
+
+  @override
+  String get toolShelfCharacters => 'Personages';
+
+  @override
+  String get toolShelfUtilities => 'Hulpmiddelen';
+
+  @override
+  String get toolHeroResume => 'Ga verder waar je gebleven was';
+
+  @override
+  String get toolHeroFeatured => 'Uitgelicht hulpmiddel';
+
+  @override
+  String get toolMoveEarlier => 'Eerder zetten';
+
+  @override
+  String get toolMoveLater => 'Later zetten';
 }

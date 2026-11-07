@@ -37,9 +37,8 @@ class DieFaceView extends StatelessWidget {
               padding: const EdgeInsets.all(Space.xs),
               child: Text(
                 face.value,
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: ink,
-                ),
+                style: Theme.of(context).textTheme.titleLarge
+                    ?.copyWith(color: ink),
               ),
             ),
           ),

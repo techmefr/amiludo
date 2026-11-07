@@ -5,7 +5,13 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/power.dart';
 
 const heroBrickType = 'hero';
 
-const heroPalette = [0xFF3D7BD9, 0xFFD94A4A, 0xFF2F9E6B, 0xFFE0A526, 0xFF8A55C7];
+const heroPalette = [
+  0xFF3D7BD9,
+  0xFFD94A4A,
+  0xFF2F9E6B,
+  0xFFE0A526,
+  0xFF8A55C7,
+];
 
 class HeroSettings {
   const HeroSettings({

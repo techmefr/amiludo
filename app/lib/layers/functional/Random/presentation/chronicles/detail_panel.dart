@@ -8,11 +8,7 @@ import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class ChroniclesDetail extends StatelessWidget {
-  const ChroniclesDetail({
-    super.key,
-    required this.card,
-    required this.data,
-  });
+  const ChroniclesDetail({super.key, required this.card, required this.data});
   final ChroniclesCard card;
   final ChroniclesData data;
 

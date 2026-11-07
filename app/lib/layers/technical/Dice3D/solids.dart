@@ -95,8 +95,7 @@ List<MeshFace> trapezohedron() {
   final cosine = cos(pi / 5);
   const a = 0.1;
   final apex = Vec3(0, 0, a * (1 + cosine) / (1 - cosine));
-  Vec3 ring(int i, double z) =>
-      Vec3(cos(i * pi / 5), sin(i * pi / 5), z);
+  Vec3 ring(int i, double z) => Vec3(cos(i * pi / 5), sin(i * pi / 5), z);
   Vec3 upper(int k) => ring(2 * k, a);
   Vec3 lower(int k) => ring(2 * k + 1, -a);
   final top = [
@@ -114,8 +113,7 @@ List<MeshFace> ballFaces(int count) {
   final half = min(0.8, sqrt(4 * pi / count) / 2 * 0.95);
   final distance = sqrt(1 - half * half);
   return [
-    for (var i = 0; i < count; i++)
-      _disc(_fibonacci(i, count), half, distance),
+    for (var i = 0; i < count; i++) _disc(_fibonacci(i, count), half, distance),
   ];
 }
 

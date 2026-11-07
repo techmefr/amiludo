@@ -89,10 +89,7 @@ class _SwipeTableState extends State<SwipeTable> {
           HorizontalDragGestureRecognizer:
               GestureRecognizerFactoryWithHandlers<
                 HorizontalDragGestureRecognizer
-              >(
-                HorizontalDragGestureRecognizer.new,
-                (r) => drag(r, width),
-              ),
+              >(HorizontalDragGestureRecognizer.new, (r) => drag(r, width)),
           TapGestureRecognizer:
               GestureRecognizerFactoryWithHandlers<TapGestureRecognizer>(
                 TapGestureRecognizer.new,

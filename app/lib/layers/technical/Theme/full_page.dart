@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/layers/technical/Theme/components/clean_scroll_page.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_badge.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_frame.dart';
 import 'package:amiludo/layers/technical/Theme/deck_style.dart';
 
 class FullPage extends StatelessWidget {
@@ -15,8 +17,10 @@ class FullPage extends StatelessWidget {
     this.maxWidth = 760,
     this.fillHeight = false,
     this.immersive = false,
+    this.tool,
   });
   final String title, fallback;
+  final String? tool;
   final Widget child;
   final bool scroll, fillHeight, immersive;
   final double maxWidth;
@@ -77,6 +81,11 @@ class FullPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final page = _page(context);
+    return tool == null ? page : ToolFrame(id: tool!, child: page);
+  }
+
+  Widget _page(BuildContext context) {
     if (immersive) {
       return Scaffold(
         body: SafeArea(
@@ -89,7 +98,10 @@ class FullPage extends StatelessWidget {
                 label: title,
                 child: const SizedBox.shrink(),
               ),
-              _discreetBack(context),
+              if (tool == null)
+                _discreetBack(context)
+              else
+                ToolHeaderPill(id: tool!, onBack: () => _back(context)),
             ],
           ),
         ),

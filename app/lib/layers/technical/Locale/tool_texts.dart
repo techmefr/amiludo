@@ -97,4 +97,16 @@ extension ToolTexts on BuildContext {
       _ => l.toolCategoryAll,
     };
   }
+
+  String toolShelfLabel(String id) {
+    final l = l10n;
+    return switch (id) {
+      'pinned' => l.toolShelfPinned,
+      'play' => l.toolShelfPlay,
+      'story' => l.toolShelfStory,
+      'generators' => l.toolShelfGenerators,
+      'characters' => l.toolShelfCharacters,
+      _ => l.toolShelfUtilities,
+    };
+  }
 }

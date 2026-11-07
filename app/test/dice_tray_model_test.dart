@@ -20,9 +20,8 @@ void main() {
   });
 
   test('a kept die keeps its value on the next throw', () {
-    var session = DiceTraySession(
-      settings: settings,
-    ).throwDice(SeededRandom(1));
+    var session = DiceTraySession(settings: settings)
+        .throwDice(SeededRandom(1));
     final kept = session.values[1];
     session = session.toggleKeep(1);
     for (var seed = 2; seed < 12; seed++) {
@@ -57,9 +56,8 @@ void main() {
 
   test('settings survive a brick round trip', () {
     final custom = DiceSpec.custom(['A', 'B'], 0xFF3DA66B);
-    final brick = DiceTraySettings(
-      dice: [const DiceSpec(sides: 12), custom],
-    ).toBrick('tray');
+    final brick = DiceTraySettings(dice: [const DiceSpec(sides: 12), custom])
+        .toBrick('tray');
     expect(brick.type, diceTrayBrickType);
     final back = DiceTraySettings.fromJson(
       Brick.fromJson(brick.toJson()).settings,
@@ -70,7 +68,11 @@ void main() {
   });
 
   test('broken settings fall back to two d6', () {
-    final back = DiceTraySettings.fromJson({'dice': [{'sides': 1}]});
+    final back = DiceTraySettings.fromJson({
+      'dice': [
+        {'sides': 1},
+      ],
+    });
     expect(back.dice, hasLength(2));
   });
 }

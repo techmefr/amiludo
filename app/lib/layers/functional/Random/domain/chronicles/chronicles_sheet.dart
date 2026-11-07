@@ -38,11 +38,13 @@ class ChroniclesSheet {
 
   static Map<String, int> statsOf(ChroniclesData data, List<KeptCard> kept) => {
     for (final s in data.stats)
-      s.id: (baseStat +
-              kept
-                  .where((k) => !k.destiny)
-                  .fold(0, (a, k) => a + (k.card.modifiers[s.id] ?? 0)))
-          .clamp(minStat, maxStat).toInt(),
+      s.id:
+          (baseStat +
+                  kept
+                      .where((k) => !k.destiny)
+                      .fold(0, (a, k) => a + (k.card.modifiers[s.id] ?? 0)))
+              .clamp(minStat, maxStat)
+              .toInt(),
   };
 
   static ChroniclesRarity rarityOf(ChroniclesData data, List<KeptCard> kept) {
@@ -52,7 +54,9 @@ class ChroniclesSheet {
         ? data.rarities.first.score.toDouble()
         : scores.fold(0, (a, b) => a + b) / scores.length;
     if (scores.any((s) => s >= legendaryScore)) mean += legendaryBonus;
-    final top = data.rarities.map((r) => r.score).reduce((a, b) => a > b ? a : b);
+    final top = data.rarities
+        .map((r) => r.score)
+        .reduce((a, b) => a > b ? a : b);
     final rounded = mean.round().clamp(1, top).toInt();
     return data.rarities.firstWhere(
       (r) => r.score == rounded,
@@ -60,7 +64,11 @@ class ChroniclesSheet {
     );
   }
 
-  static String epithetOf(ChroniclesData data, String universe, List<KeptCard> kept) {
+  static String epithetOf(
+    ChroniclesData data,
+    String universe,
+    List<KeptCard> kept,
+  ) {
     ChroniclesCard? best;
     for (final k in kept) {
       final e = k.card.epithet;

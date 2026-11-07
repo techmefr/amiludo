@@ -63,7 +63,10 @@ void main() {
       await tester.pumpWidget(app(MemoryCampaign()));
       await tester.pumpAndSettle();
       expect(find.text('Role-playing initiation'), findsWidgets);
-      expect(find.text('0 of ${campaignMissions.length} missions'), findsOneWidget);
+      expect(
+        find.text('0 of ${campaignMissions.length} missions'),
+        findsOneWidget,
+      );
       expect(find.text('The door that sticks'), findsOneWidget);
       expect(
         find.text('Finish the previous mission to unlock this one.'),
@@ -106,7 +109,8 @@ void main() {
       }
       await tester.pumpWidget(app(gateway, start: '/campaign/crossroads'));
       await tester.pumpAndSettle();
-      Finder complete() => find.widgetWithText(FilledButton, 'Complete the mission');
+      Finder complete() =>
+          find.widgetWithText(FilledButton, 'Complete the mission');
       await tester.ensureVisible(complete());
       await tester.pump();
       expect(tester.widget<FilledButton>(complete()).onPressed, isNull);
@@ -125,7 +129,9 @@ void main() {
   testWidgets('a locked mission shows the unlock hint instead of its action', (
     tester,
   ) async {
-    await tester.pumpWidget(app(MemoryCampaign(), start: '/campaign/final-scene'));
+    await tester.pumpWidget(
+      app(MemoryCampaign(), start: '/campaign/final-scene'),
+    );
     await tester.pumpAndSettle();
     expect(find.text('action-hourglass'), findsNothing);
     expect(

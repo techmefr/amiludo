@@ -110,7 +110,9 @@ void main() {
     );
     expect(find.text('5'), findsWidgets);
     await tester.pumpWidget(
-      host(Die3dView(spec: DiceSpec.custom(['a', 'b', 'c'], 0xFF336699), value: 2)),
+      host(
+        Die3dView(spec: DiceSpec.custom(['a', 'b', 'c'], 0xFF336699), value: 2),
+      ),
     );
     expect(find.text('b'), findsWidgets);
   });

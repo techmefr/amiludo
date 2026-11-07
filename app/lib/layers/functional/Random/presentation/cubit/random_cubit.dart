@@ -6,7 +6,9 @@ import 'package:amiludo/layers/functional/Lobby/domain/use_cases/watch_lobby_use
 import 'package:amiludo/layers/functional/Random/domain/entities/character_draft.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/clear_character_draft_use_case.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/read_character_draft_use_case.dart';
+import 'package:amiludo/layers/functional/Random/domain/use_cases/remember_tool_use_case.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/remove_character_use_case.dart';
+import 'package:amiludo/layers/functional/Random/domain/use_cases/reorder_favorite_tools_use_case.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/save_character_draft_use_case.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/save_character_use_case.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/toggle_favorite_tool_use_case.dart';
@@ -25,8 +27,10 @@ class RandomCubit extends Cubit<Workspace> {
     this._lobby,
     this._readDraft,
     this._saveDraft,
-    this._clearDraft,
-  ) : super(readWorkspace()) {
+    this._clearDraft, [
+    this._rememberTool,
+    this._reorderFavorites,
+  ]) : super(readWorkspace()) {
     _subscription = watchWorkspace().listen(emit);
   }
 
@@ -37,6 +41,8 @@ class RandomCubit extends Cubit<Workspace> {
   final ReadCharacterDraftUseCase _readDraft;
   final SaveCharacterDraftUseCase _saveDraft;
   final ClearCharacterDraftUseCase _clearDraft;
+  final RememberToolUseCase? _rememberTool;
+  final ReorderFavoriteToolsUseCase? _reorderFavorites;
   late final StreamSubscription<Workspace> _subscription;
 
   List<String> get lobbyNames {
@@ -46,6 +52,11 @@ class RandomCubit extends Cubit<Workspace> {
   }
 
   Future<void> toggleFavorite(String tool) => _toggleFavoriteTool(tool);
+
+  Future<void> rememberTool(String tool) async => _rememberTool?.call(tool);
+
+  Future<void> moveFavorite(String tool, String before) async =>
+      _reorderFavorites?.call(tool, before);
 
   Future<void> saveCharacter(GameCharacter character) =>
       _saveCharacter(character);

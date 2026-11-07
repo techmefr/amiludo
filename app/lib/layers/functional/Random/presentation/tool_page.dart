@@ -165,6 +165,7 @@ class _ToolPageState extends State<ToolPage> {
     if (widget.id == 'picker' || widget.id == 'map') {
       return FullPage(
         title: title,
+        tool: widget.id,
         immersive: true,
         scroll: false,
         child: child,
@@ -172,6 +173,7 @@ class _ToolPageState extends State<ToolPage> {
     }
     return FullPage(
       title: title,
+      tool: widget.id,
       immersive: true,
       maxWidth: double.infinity,
       fillHeight: true,

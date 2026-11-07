@@ -7,8 +7,10 @@ import 'package:amiludo/layers/functional/Random/domain/entities/brick_catalog.d
 import 'package:amiludo/layers/functional/Random/presentation/add_brick_sheet.dart';
 import 'package:amiludo/layers/functional/Random/presentation/brick_tile.dart';
 import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit.dart';
+import 'package:amiludo/layers/functional/Random/presentation/tools_home.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Locale/tool_texts.dart';
+import 'package:amiludo/layers/technical/Theme/components/reveal_margin.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -33,7 +35,10 @@ class _ToolsScreenState extends State<ToolsScreen> {
     }
   }
 
-  void open(String id) => context.push('/tools/$id');
+  void open(String id) {
+    context.read<RandomCubit>().rememberTool(id);
+    context.push('/tools/$id');
+  }
 
   Future<void> add(BrickEntry entry) async {
     final templates = context.read<RandomCubit>().state.templates;
@@ -47,7 +52,8 @@ class _ToolsScreenState extends State<ToolsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final favorites = context.watch<RandomCubit>().state.favorites;
+    final state = context.watch<RandomCubit>().state;
+    final favorites = state.favorites;
     final shown = filterBricks(
       brickEntries,
       category: category,
@@ -85,7 +91,19 @@ class _ToolsScreenState extends State<ToolsScreen> {
           ],
         ),
         const SizedBox(height: Space.xl),
-        if (shown.isEmpty)
+        if (category == 'all' && query.trim().isEmpty)
+          RevealMargin(
+            top: Targets.minimum * 3,
+            child: ToolsHome(
+              favorites: favorites,
+              lastTool: state.lastTool,
+              onOpen: open,
+              onFavorite: context.read<RandomCubit>().toggleFavorite,
+              onMove: context.read<RandomCubit>().moveFavorite,
+              onAdd: widget.addBrick == null ? null : add,
+            ),
+          )
+        else if (shown.isEmpty)
           Text(context.l10n.brickLibraryNone)
         else
           ResponsiveGrid(

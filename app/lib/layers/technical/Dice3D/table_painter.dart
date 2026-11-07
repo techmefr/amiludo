@@ -72,7 +72,10 @@ class TablePainter extends CustomPainter {
         inner.topLeft + Offset(0, min(18, size.height * 0.1)),
         [const Color(0x55000000), const Color(0x00000000)],
       );
-    canvas.drawRect(Rect.fromLTWH(inner.left, inner.top, inner.width, 18), shadow);
+    canvas.drawRect(
+      Rect.fromLTWH(inner.left, inner.top, inner.width, 18),
+      shadow,
+    );
   }
 
   @override

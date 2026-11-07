@@ -42,8 +42,7 @@ class DieStudioCubit extends Cubit<DieLibrary> {
 
   Future<void> remove(String id) => actions.remove(id);
 
-  Future<void> duplicate(String id, String name) =>
-      actions.duplicate(id, name);
+  Future<void> duplicate(String id, String name) => actions.duplicate(id, name);
 
   final Map<String, List<int>> staged = {};
 

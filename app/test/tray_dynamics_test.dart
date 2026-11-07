@@ -4,16 +4,14 @@ import 'package:amiludo/layers/technical/Physics/seeded_random.dart';
 import 'package:amiludo/layers/technical/Physics/surface_material.dart';
 import 'package:amiludo/layers/technical/Physics/tray_physics.dart';
 
-TrayPhysics rig(
-  int count, {
-  SurfaceMaterial surface = SurfaceMaterial.wood,
-}) => TrayPhysics(
-  width: 320,
-  height: 300,
-  radius: 28,
-  count: count,
-  surface: surface,
-);
+TrayPhysics rig(int count, {SurfaceMaterial surface = SurfaceMaterial.wood}) =>
+    TrayPhysics(
+      width: 320,
+      height: 300,
+      radius: 28,
+      count: count,
+      surface: surface,
+    );
 
 List<int> roll(int seed, List<int> sides) {
   final p = rig(sides.length);
@@ -51,12 +49,18 @@ void main() {
   }
 
   test('outcomes are spread uniformly over the faces', () {
-    final coin = [for (var s = 1; s <= 300; s++) roll(s, [2]).single];
+    final coin = [
+      for (var s = 1; s <= 300; s++) roll(s, [2]).single,
+    ];
     final heads = coin.where((v) => v == 1).length;
     expect(heads, inInclusiveRange(105, 195));
-    final six = {for (var s = 1; s <= 300; s++) roll(s, [6]).single};
+    final six = {
+      for (var s = 1; s <= 300; s++) roll(s, [6]).single,
+    };
     expect(six, {1, 2, 3, 4, 5, 6});
-    final hundred = {for (var s = 1; s <= 300; s++) roll(s, [100]).single};
+    final hundred = {
+      for (var s = 1; s <= 300; s++) roll(s, [100]).single,
+    };
     expect(hundred.length, greaterThan(50));
   });
 

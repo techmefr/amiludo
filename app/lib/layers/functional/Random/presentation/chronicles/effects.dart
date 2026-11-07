@@ -55,17 +55,17 @@ class Burst extends StatelessWidget {
         child,
         if (active)
           Positioned.fill(
-          child: IgnorePointer(
-            child: TweenAnimationBuilder<double>(
-              key: ValueKey(trigger),
-              tween: Tween(begin: 0, end: 1),
-              duration: Motion.slow,
-              builder: (context, t, _) => t >= 1
-                  ? const SizedBox.shrink()
-                  : CustomPaint(painter: BurstPainter(t, color)),
+            child: IgnorePointer(
+              child: TweenAnimationBuilder<double>(
+                key: ValueKey(trigger),
+                tween: Tween(begin: 0, end: 1),
+                duration: Motion.slow,
+                builder: (context, t, _) => t >= 1
+                    ? const SizedBox.shrink()
+                    : CustomPaint(painter: BurstPainter(t, color)),
+              ),
             ),
           ),
-        ),
       ],
     );
   }

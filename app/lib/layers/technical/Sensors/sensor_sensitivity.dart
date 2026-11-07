@@ -10,8 +10,6 @@ enum SensorSensitivity {
 
   bool get enabled => this != off;
 
-  static SensorSensitivity parse(String? value) => values.firstWhere(
-    (level) => level.name == value,
-    orElse: () => medium,
-  );
+  static SensorSensitivity parse(String? value) =>
+      values.firstWhere((level) => level.name == value, orElse: () => medium);
 }

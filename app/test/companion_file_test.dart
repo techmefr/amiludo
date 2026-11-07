@@ -101,7 +101,9 @@ void main() {
       problemOf(
         jsonEncode({
           ...data,
-          'settings': {'modules': ['unknown']},
+          'settings': {
+            'modules': ['unknown'],
+          },
         }),
       ),
       CompanionFileProblem.invalid,

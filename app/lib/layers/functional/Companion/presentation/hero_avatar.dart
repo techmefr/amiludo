@@ -37,8 +37,6 @@ class HeroAvatar extends StatelessWidget {
   final String? label;
 
   @override
-  Widget build(BuildContext context) => AvatarStack(
-    layers: avatarLayers(look, catalogue),
-    semanticLabel: label,
-  );
+  Widget build(BuildContext context) =>
+      AvatarStack(layers: avatarLayers(look, catalogue), semanticLabel: label);
 }

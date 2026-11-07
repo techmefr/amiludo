@@ -1,7 +1,13 @@
 import 'package:amiludo/l10n/app_localizations.dart';
 
 class MissionTexts {
-  const MissionTexts(this.title, this.story, this.lesson, this.task, this.badge);
+  const MissionTexts(
+    this.title,
+    this.story,
+    this.lesson,
+    this.task,
+    this.badge,
+  );
 
   final String title, story, lesson, task, badge;
 }

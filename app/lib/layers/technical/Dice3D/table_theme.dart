@@ -16,7 +16,12 @@ class TableTheme {
   static const all = [
     felt,
     TableTheme('dark', Color(0xFF2A2D34), Color(0xFF121317), Color(0xFF0A0B0D)),
-    TableTheme('light', Color(0xFFF1EFEA), Color(0xFFD5D1C8), Color(0xFFB9B4A8)),
+    TableTheme(
+      'light',
+      Color(0xFFF1EFEA),
+      Color(0xFFD5D1C8),
+      Color(0xFFB9B4A8),
+    ),
     TableTheme('wood', Color(0xFFA8743F), Color(0xFF6B4423), Color(0xFF3F2512)),
     TableTheme('blue', Color(0xFF3F74C4), Color(0xFF1D3F7A), Color(0xFF112650)),
   ];

@@ -26,8 +26,9 @@ void _fingerToolTests() {
     router.go('/tools');
     await tester.pumpWidget(const AmiludoApp());
     await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('Ouvrir ↗').first);
-    await tester.tap(find.text('Ouvrir ↗').first);
+    await tester.ensureVisible(find.text('Qui commence ?'));
+    await tester.pump();
+    await tester.tap(find.text('Qui commence ?'));
     await tester.pumpAndSettle();
     expect(find.byType(Dialog), findsNothing);
     expect(find.byType(FingerTool), findsOneWidget);

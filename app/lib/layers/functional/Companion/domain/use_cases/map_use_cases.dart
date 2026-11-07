@@ -20,9 +20,7 @@ class SaveMapUseCase {
     final before = _maps.current.of(key).imageId;
     await _maps.save(_maps.current.put(key, board));
     if (before == null || before == board.imageId) return;
-    final used = {
-      for (final b in _maps.current.boards.values) b.imageId,
-    };
+    final used = {for (final b in _maps.current.boards.values) b.imageId};
     if (!used.contains(before)) await _images.delete(before);
   }
 }

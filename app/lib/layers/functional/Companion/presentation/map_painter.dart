@@ -92,10 +92,7 @@ class MapPainter extends CustomPainter {
         for (var i = 0; i < 6; i++) {
           final a = pi / 3 * i + pi / 6;
           final p = view.toScreen(
-            MapPoint(
-              x + mapHexRadius * cos(a),
-              y + mapHexRadius * sin(a),
-            ),
+            MapPoint(x + mapHexRadius * cos(a), y + mapHexRadius * sin(a)),
           );
           i == 0 ? path.moveTo(p.dx, p.dy) : path.lineTo(p.dx, p.dy);
         }
@@ -111,7 +108,12 @@ class MapPainter extends CustomPainter {
     paintImage(canvas: canvas, rect: sheet, image: source, fit: BoxFit.contain);
   }
 
-  void _stroke(Canvas canvas, List<MapPoint> points, MapStrokeKind kind, int c) {
+  void _stroke(
+    Canvas canvas,
+    List<MapPoint> points,
+    MapStrokeKind kind,
+    int c,
+  ) {
     if (points.length < 2) return;
     final path = Path();
     for (var i = 0; i < points.length; i++) {

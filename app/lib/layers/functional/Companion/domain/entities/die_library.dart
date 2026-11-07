@@ -25,8 +25,10 @@ class DieLibrary {
       ? DieLibrary([for (final d in designs) d.id == design.id ? design : d])
       : DieLibrary([...designs, design]);
 
-  DieLibrary remove(String id) =>
-      DieLibrary([for (final d in designs) if (d.id != id) d]);
+  DieLibrary remove(String id) => DieLibrary([
+    for (final d in designs)
+      if (d.id != id) d,
+  ]);
 
   Set<String> clashes(Iterable<DieDesign> incoming) => {
     for (final d in incoming)

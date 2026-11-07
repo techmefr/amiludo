@@ -35,7 +35,10 @@ Widget host(Widget child) => MaterialApp(
 
 void main() {
   test('a look survives the json round trip', () {
-    final look = const AvatarLook().withPick('eyes', const AvatarPick('eyes.a', 5));
+    final look = const AvatarLook().withPick(
+      'eyes',
+      const AvatarPick('eyes.a', 5),
+    );
     final back = AvatarLook.fromJson(
       Map<String, dynamic>.from(jsonDecode(jsonEncode(look.toJson())) as Map),
     );
@@ -45,7 +48,10 @@ void main() {
   });
 
   test('an empty avatar is omitted from the hero backup', () {
-    expect(const HeroSettings(name: 'Ada').toJson().containsKey('avatar'), isFalse);
+    expect(
+      const HeroSettings(name: 'Ada').toJson().containsKey('avatar'),
+      isFalse,
+    );
     final json = HeroSettings(
       name: 'Ada',
       avatar: const AvatarLook({'eyes': AvatarPick('eyes.a')}),

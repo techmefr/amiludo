@@ -1248,5 +1248,15 @@
   "sheetApplyAvatar": "Aplicar ao avatar",
   "appearanceSkinCleanName": "Clean",
   "appearanceSkinCleanDesc": "Claro e escuro, superfícies calmas, um único destaque azul.",
-  "appearanceFontSystem": "Sistema"
+  "appearanceFontSystem": "Sistema",
+  "toolShelfPinned": "Fixados",
+  "toolShelfPlay": "Jogar",
+  "toolShelfStory": "História",
+  "toolShelfGenerators": "Geradores",
+  "toolShelfCharacters": "Personagens",
+  "toolShelfUtilities": "Utilitários",
+  "toolHeroResume": "Continue de onde parou",
+  "toolHeroFeatured": "Ferramenta em destaque",
+  "toolMoveEarlier": "Mover para antes",
+  "toolMoveLater": "Mover para depois"
 }

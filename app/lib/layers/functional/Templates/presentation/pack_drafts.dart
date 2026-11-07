@@ -102,12 +102,15 @@ class DieDraft {
         for (var i = 0; i < d.faces.length; i++)
           FaceDraft(
             DieFace(
-              d.faces[i].label.isEmpty ? d.faces[i].kind.name : d.faces[i].label,
+              d.faces[i].label.isEmpty
+                  ? d.faces[i].kind.name
+                  : d.faces[i].label,
               (int.tryParse(d.faces[i].value) ?? i + 1).toDouble(),
             ),
           ),
       ]);
   }
+
   void dispose() {
     name.dispose();
     count.dispose();

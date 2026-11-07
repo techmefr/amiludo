@@ -29,8 +29,10 @@ class Workspace {
     this.bankMode = false,
     this.reverse = false,
     this.nickname = '',
+    this.lastTool,
   });
   final String nickname;
+  final String? lastTool;
   final Appearance appearance;
   final List<StyleProfile> profiles;
   final List<GameSession> games;
@@ -72,8 +74,10 @@ class Workspace {
     bool? bankMode,
     bool? reverse,
     String? nickname,
+    String? lastTool,
   }) => Workspace(
     nickname: nickname ?? this.nickname,
+    lastTool: lastTool ?? this.lastTool,
     appearance: appearance ?? this.appearance,
     profiles: profiles ?? this.profiles,
     games: games ?? this.games,
@@ -105,6 +109,7 @@ class Workspace {
     'bankMode': bankMode,
     'reverse': reverse,
     'nickname': nickname,
+    'lastTool': ?lastTool,
   };
   String export() => jsonEncode(toJson());
   factory Workspace.fromJson(Map<String, dynamic> j) {
@@ -127,6 +132,7 @@ class Workspace {
       characters: _list(j['characters'], GameCharacter.fromJson),
       templates: _list(j['templates'], GameTemplate.fromJson),
       nickname: (j['nickname'] as String? ?? '').trim(),
+      lastTool: j['lastTool'] as String?,
       playerNames: List<String>.from(j['playerNames'] as List? ?? []),
       favorites: List<String>.from(j['favorites'] as List? ?? []),
       currentId: j['currentId'] as String?,

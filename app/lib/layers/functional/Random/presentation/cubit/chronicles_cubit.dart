@@ -8,7 +8,12 @@ import 'package:amiludo/layers/functional/Random/domain/chronicles/chronicles_us
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 
 class ChroniclesState {
-  const ChroniclesState({this.data, this.run, this.refusal, this.failed = false});
+  const ChroniclesState({
+    this.data,
+    this.run,
+    this.refusal,
+    this.failed = false,
+  });
   final ChroniclesData? data;
   final ChroniclesRun? run;
   final Refusal? refusal;

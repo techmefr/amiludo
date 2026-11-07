@@ -29,10 +29,7 @@ void main() {
         for (var seed = 0; seed < 25; seed++) {
           final sheet = engine(language, seed).generate(id);
           expect(sheet.title.trim(), isNotEmpty);
-          expect(
-            sheet.sections.length,
-            generatorRecipes[id]!.sections.length,
-          );
+          expect(sheet.sections.length, generatorRecipes[id]!.sections.length);
           for (final s in sheet.sections) {
             expect(s.label.trim(), isNotEmpty);
             expect(s.lines, isNotEmpty);

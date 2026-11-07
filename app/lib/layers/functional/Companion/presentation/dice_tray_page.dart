@@ -133,9 +133,8 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
     skin: DieSkin.byId(skin),
     table: TableTheme.byId(table),
     onOutcome: (v) => setState(() => session = session.withOutcome(v)),
-    onTapDie: (i) => solid
-        ? throwDice()
-        : setState(() => session = session.toggleKeep(i)),
+    onTapDie: (i) =>
+        solid ? throwDice() : setState(() => session = session.toggleKeep(i)),
     onView: changeView,
   );
 

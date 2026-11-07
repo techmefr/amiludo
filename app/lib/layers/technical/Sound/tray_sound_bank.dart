@@ -9,21 +9,21 @@ class TraySoundBank {
         for (var level = 0; level < 3; level++)
           [for (var v = 0; v < 3; v++) _impact(material, level, v)],
       ],
-        rattle = clatter(
-          frequency: 700 * material.pitch,
-          decay: 90,
-          seconds: 0.09,
-          seed: 900,
-          peak: 0.5,
-        ),
-        tick = clatter(
-          frequency: 1500 * material.pitch,
-          decay: 220,
-          seconds: 0.04,
-          seed: 901,
-          peak: 0.6,
-        ),
-        whooshSound = whoosh(seconds: 0.26, seed: 902);
+      rattle = clatter(
+        frequency: 700 * material.pitch,
+        decay: 90,
+        seconds: 0.09,
+        seed: 900,
+        peak: 0.5,
+      ),
+      tick = clatter(
+        frequency: 1500 * material.pitch,
+        decay: 220,
+        seconds: 0.04,
+        seed: 901,
+        peak: 0.6,
+      ),
+      whooshSound = whoosh(seconds: 0.26, seed: 902);
 
   final SurfaceMaterial material;
   final List<List<Uint8List>> impacts;

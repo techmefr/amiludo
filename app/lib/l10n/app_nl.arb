@@ -1248,5 +1248,15 @@
   "sheetApplyAvatar": "Toepassen op avatar",
   "appearanceSkinCleanName": "Clean",
   "appearanceSkinCleanDesc": "Licht en donker, rustige vlakken, één blauwe accentkleur.",
-  "appearanceFontSystem": "Systeem"
+  "appearanceFontSystem": "Systeem",
+  "toolShelfPinned": "Vastgezet",
+  "toolShelfPlay": "Spelen",
+  "toolShelfStory": "Verhaal",
+  "toolShelfGenerators": "Generatoren",
+  "toolShelfCharacters": "Personages",
+  "toolShelfUtilities": "Hulpmiddelen",
+  "toolHeroResume": "Ga verder waar je gebleven was",
+  "toolHeroFeatured": "Uitgelicht hulpmiddel",
+  "toolMoveEarlier": "Eerder zetten",
+  "toolMoveLater": "Later zetten"
 }

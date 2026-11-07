@@ -67,9 +67,8 @@ class MissionReward extends StatelessWidget {
               children: [
                 if (next != null)
                   FilledButton(
-                    onPressed: () => context.pushReplacement(
-                      '/campaign/${next.id}',
-                    ),
+                    onPressed: () =>
+                        context.pushReplacement('/campaign/${next.id}'),
                     child: Text(l.campaignNext),
                   ),
                 OutlinedButton(

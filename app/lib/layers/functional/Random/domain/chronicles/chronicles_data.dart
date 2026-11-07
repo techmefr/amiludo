@@ -116,8 +116,7 @@ class ChroniclesData {
   ChroniclesUniverse universe(String id) =>
       universes.firstWhere((u) => u.id == id);
 
-  ChroniclesCard? card(String id) =>
-      cards.where((c) => c.id == id).firstOrNull;
+  ChroniclesCard? card(String id) => cards.where((c) => c.id == id).firstOrNull;
 
   List<ChroniclesCard> poolFor(String universe, int step) => [
     for (final c in cards)

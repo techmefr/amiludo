@@ -74,7 +74,11 @@ class ChroniclesPortrait extends StatelessWidget {
         width: 120,
         height: 160,
         child: CustomPaint(
-          painter: PortraitPainter(look, scheme.outlineVariant, scheme.onSurface),
+          painter: PortraitPainter(
+            look,
+            scheme.outlineVariant,
+            scheme.onSurface,
+          ),
         ),
       ),
     );
