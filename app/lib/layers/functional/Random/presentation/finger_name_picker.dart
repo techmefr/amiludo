@@ -1,7 +1,7 @@
-import package:flutter/material.dart;
+import 'package:flutter/material.dart';
 
-import package:amiludo/layers/technical/Locale/context_l10n.dart;
-import package:amiludo/layers/technical/Theme/tokens/design_tokens.dart;
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class FingerNamePicker extends StatelessWidget {
   const FingerNamePicker({

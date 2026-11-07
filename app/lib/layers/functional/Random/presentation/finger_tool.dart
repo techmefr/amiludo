@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
+import 'package:amiludo/layers/functional/Random/presentation/finger_mode_selector.dart';
+import 'package:amiludo/layers/functional/Random/presentation/finger_name_picker.dart';
 import 'package:amiludo/layers/technical/Feedback/device_feedback.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/finger_ring.dart';
