@@ -33,8 +33,7 @@ abstract final class SheetDates {
 
   static SheetDate birthFor(SheetEra era, int age, RandomTools random) {
     final month = random.integer(1, 12), day = random.integer(1, 28);
-    final reached =
-        month < era.month || (month == era.month && day <= era.day);
+    final reached = month < era.month || (month == era.month && day <= era.day);
     return SheetDate(era.year - age - (reached ? 0 : 1), month, day);
   }
 }

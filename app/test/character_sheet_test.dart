@@ -24,9 +24,8 @@ import 'chronicles_fixtures.dart';
 
 final tables = SheetTables.fromJson(
   jsonDecode(
-        File('assets/chronicles/character-sheet-data.json').readAsStringSync(),
-      )
-      as Map<String, dynamic>,
+    File('assets/chronicles/character-sheet-data.json').readAsStringSync(),
+  ) as Map<String, dynamic>,
 );
 
 const universes = ['fantasy', 'scifi', 'cyberpunk', 'gothique'];
@@ -62,7 +61,11 @@ void main() {
         expect(sheet.completedSteps, SheetSpec.stepCount, reason: '$u $seed');
         expect(sheet.of('qualities'), hasLength(5));
         expect(sheet.of('flaws'), hasLength(5));
-        expect(SheetChecks.problems(sheet, tables), isEmpty, reason: '$u $seed');
+        expect(
+          SheetChecks.problems(sheet, tables),
+          isEmpty,
+          reason: '$u $seed',
+        );
       }
     }
   });
@@ -179,12 +182,18 @@ void main() {
       'choices': <String, dynamic>{},
     };
     expect(GameCharacter.fromJson(base).toJson().containsKey('sheet'), isFalse);
-    final withSheet = GameCharacter.fromJson({...base, 'sheet': sheet.toJson()});
+    final withSheet = GameCharacter.fromJson({
+      ...base,
+      'sheet': sheet.toJson(),
+    });
     expect(withSheet.toJson()['sheet'], sheet.toJson());
     final draft = CharacterDraft([
       const CreationCategory(
         name: 'x',
-        cards: [CharacterCard(name: 'a'), CharacterCard(name: 'b')],
+        cards: [
+          CharacterCard(name: 'a'),
+          CharacterCard(name: 'b'),
+        ],
         draw: 2,
       ),
     ]);

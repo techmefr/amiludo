@@ -253,6 +253,13 @@ class _CharacterToolState extends State<CharacterTool> {
           icon: const DeckIcon(Icons.auto_stories_outlined),
           label: Text(context.l10n.chroniclesTitle),
         ),
+        const SizedBox(height: 12),
+        OutlinedButton.icon(
+          key: const ValueKey('open-sheet'),
+          onPressed: () => context.push('/character-sheet'),
+          icon: const DeckIcon(Icons.assignment_ind_outlined),
+          label: Text(context.l10n.sheetOpen),
+        ),
         const SizedBox(height: 20),
         if (d == null) ...setup(),
         if (d != null && category != null) ...step(d, category),

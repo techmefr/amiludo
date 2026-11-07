@@ -1,88 +1,8 @@
 import 'package:amiludo/layers/functional/Random/domain/chronicles/chronicles_data.dart';
 import 'package:amiludo/layers/functional/Random/domain/sheet/sheet_fields.dart';
+import 'package:amiludo/layers/functional/Random/domain/sheet/sheet_universe.dart';
 
-class SheetOption {
-  const SheetOption(this.text, {this.palette, this.kind});
-
-  factory SheetOption.fromJson(Object json) => json is String
-      ? SheetOption(json)
-      : SheetOption(
-          (json as Map)['t'] as String,
-          palette: json['p'] as int?,
-          kind: json['k'] as String?,
-        );
-
-  final String text;
-  final int? palette;
-  final String? kind;
-}
-
-class SheetCulture {
-  const SheetCulture({
-    required this.id,
-    required this.name,
-    required this.firstNames,
-    required this.lastNames,
-    required this.languages,
-    required this.places,
-  });
-
-  factory SheetCulture.fromJson(Map<String, dynamic> j) {
-    List<String> list(String key) =>
-        [for (final v in j[key] as List) v as String];
-    return SheetCulture(
-      id: j['id'] as String,
-      name: j['nom'] as String,
-      firstNames: list('prenoms'),
-      lastNames: list('noms'),
-      languages: list('langues'),
-      places: list('lieux'),
-    );
-  }
-
-  final String id, name;
-  final List<String> firstNames, lastNames, languages, places;
-}
-
-class SheetEra {
-  const SheetEra(this.year, this.month, this.day);
-  final int year, month, day;
-}
-
-class SheetUniverse {
-  const SheetUniverse(this.id, this.era, this.cultures, this.pools);
-
-  factory SheetUniverse.fromJson(String id, Map<String, dynamic> j) {
-    final era = Map<String, dynamic>.from(j['epoque'] as Map);
-    return SheetUniverse(
-      id,
-      SheetEra(era['annee'] as int, era['mois'] as int, era['jour'] as int),
-      [
-        for (final c in j['cultures'] as List)
-          SheetCulture.fromJson(Map<String, dynamic>.from(c as Map)),
-      ],
-      poolsFrom(j['champs'] as Map),
-    );
-  }
-
-  final String id;
-  final SheetEra era;
-  final List<SheetCulture> cultures;
-  final Map<String, List<SheetOption>> pools;
-
-  SheetCulture? culture(String? cultureId) =>
-      cultures.where((c) => c.id == cultureId).firstOrNull;
-
-  SheetCulture? cultureNamed(String name) =>
-      cultures.where((c) => c.name == name).firstOrNull;
-}
-
-Map<String, List<SheetOption>> poolsFrom(Map raw) => {
-  for (final e in raw.entries)
-    e.key as String: [
-      for (final o in e.value as List) SheetOption.fromJson(o as Object),
-    ],
-};
+export 'package:amiludo/layers/functional/Random/domain/sheet/sheet_universe.dart';
 
 const _chroniclesFields = {
   'surnom': 'nickname',
@@ -116,6 +36,7 @@ class SheetTables {
     required this.opposites,
     required this.steps,
     required this.labels,
+    this.palettes = const {},
   });
 
   factory SheetTables.fromJson(Map<String, dynamic> j) => SheetTables(
@@ -140,6 +61,7 @@ class SheetTables {
   final List<List<String>> opposites;
   final List<String> steps;
   final Map<String, String> labels;
+  final Map<String, List<String>> palettes;
 
   SheetUniverse universe(String id) =>
       universes[id] ?? (throw ArgumentError('Univers inconnu : $id'));
@@ -162,7 +84,9 @@ class SheetTables {
       };
       for (final c in data.cards) {
         final field = _chroniclesFields[c.type];
-        if (field == null || (c.universe != u.id && c.universe != '*')) continue;
+        if (field == null || (c.universe != u.id && c.universe != '*')) {
+          continue;
+        }
         final list = pools.putIfAbsent(field, () => []);
         if (!list.any((o) => o.text == c.name)) list.add(SheetOption(c.name));
       }
@@ -174,12 +98,36 @@ class SheetTables {
       opposites: opposites,
       steps: steps,
       labels: labels,
+      palettes: palettes,
     );
+  }
+
+  SheetTables withPalettes(Map<String, List<String>> next) => SheetTables(
+    universes: universes,
+    common: common,
+    opposites: opposites,
+    steps: steps,
+    labels: labels,
+    palettes: next,
+  );
+
+  String? colorOf(String palette, int index) {
+    final colors = palettes[palette];
+    return colors != null && index >= 0 && index < colors.length
+        ? colors[index]
+        : null;
   }
 
   List<String> problems({int minimum = 4}) {
     final found = <String>[];
-    final universal = {'name', 'age', 'birthDate', 'birthPlace', 'origin', 'languages'};
+    final universal = {
+      'name',
+      'age',
+      'birthDate',
+      'birthPlace',
+      'origin',
+      'languages',
+    };
     for (final u in universes.values) {
       if (u.cultures.isEmpty) found.add('${u.id}: no culture');
       for (final f in SheetSpec.fields) {

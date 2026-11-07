@@ -43,6 +43,9 @@ import 'package:amiludo/layers/functional/Sharing/presentation/share_session_scr
 import 'package:amiludo/layers/functional/Random/presentation/chronicles/chronicles_view.dart';
 import 'package:amiludo/layers/functional/Random/presentation/cubit/chronicles_cubit.dart';
 import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit.dart';
+import 'package:amiludo/layers/functional/Random/presentation/cubit/sheet_cubit.dart';
+import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_page.dart';
+import 'package:amiludo/layers/functional/Random/domain/sheet/sheet_use_cases.dart';
 import 'package:amiludo/layers/functional/Random/presentation/tool_page.dart';
 import 'package:amiludo/layers/functional/Random/presentation/tools_screen.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/builder_entry.dart';
@@ -125,9 +128,28 @@ class _ChroniclesRoute extends StatelessWidget {
   );
 }
 
+class _SheetRoute extends StatelessWidget {
+  const _SheetRoute(this.seed);
+  final SheetSeed? seed;
+
+  @override
+  Widget build(BuildContext context) => BlocProvider(
+    create: (_) => SheetCubit(
+      getIt<LoadSheetGeneratorUseCase>(),
+    )..load(universe: seed?.universe, kept: seed?.kept, initial: seed?.initial),
+    child: SheetPage(onSave: context.read<RandomCubit>().saveCharacter),
+  );
+}
+
 final router = GoRouter(
   routes: [
     _page('/chronicles', (state) => const _ChroniclesRoute()),
+    _page(
+      '/character-sheet',
+      (state) => _SheetRoute(
+        state.extra is SheetSeed ? state.extra as SheetSeed : null,
+      ),
+    ),
     _page(
       '/tools/:id',
       (state) => ToolPage(
@@ -250,8 +272,7 @@ final router = GoRouter(
       ('/game', (state) => const GameScreen(timer: _timer)),
       (
         '/tools',
-        (state) =>
-            _ToolsPage(initialTool: state.uri.queryParameters['tool']),
+        (state) => _ToolsPage(initialTool: state.uri.queryParameters['tool']),
       ),
       ('/templates', (state) => const TemplatesScreen()),
       ('/library', (state) => const LibraryScreen()),

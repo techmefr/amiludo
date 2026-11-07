@@ -159,9 +159,7 @@ void configureDependencies(StoreDatabase database) {
     ..registerLazySingleton<WorkspaceGateway>(
       () => WorkspaceGatewayImpl(getIt()),
     )
-    ..registerLazySingleton<DataWipeGateway>(
-      () => DataWipeGatewayImpl(getIt()),
-    )
+    ..registerLazySingleton<DataWipeGateway>(() => DataWipeGatewayImpl(getIt()))
     ..registerLazySingleton<FriendsGatewayImpl>(
       () => FriendsGatewayImpl(getIt()),
     )
@@ -196,9 +194,7 @@ void configureDependencies(StoreDatabase database) {
     ..registerLazySingleton<DieLibraryGateway>(
       () => getIt<DieLibraryGatewayImpl>(),
     )
-    ..registerLazySingleton<DieImageGateway>(
-      () => DieImageGatewayImpl(getIt()),
-    )
+    ..registerLazySingleton<DieImageGateway>(() => DieImageGatewayImpl(getIt()))
     ..registerLazySingleton<ChroniclesCatalogGateway>(
       ChroniclesCatalogGatewayImpl.new,
     )

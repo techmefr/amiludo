@@ -39,7 +39,9 @@ class SheetGenerator {
     if (sheet.isLocked(id)) return sheet;
     var next = _fill(_anchored(sheet), SheetSpec.field(id), force: true);
     for (final dep in SheetSpec.dependents[id] ?? const <String>[]) {
-      if (!next.isLocked(dep)) next = _fill(next, SheetSpec.field(dep), force: true);
+      if (!next.isLocked(dep)) {
+        next = _fill(next, SheetSpec.field(dep), force: true);
+      }
     }
     return next;
   }
@@ -64,7 +66,9 @@ class SheetGenerator {
     } else if (id == 'birthDate') {
       final birth = SheetDate.parse(clean.first);
       if (birth != null && !next.isLocked('age')) {
-        next = next.withValue('age', ['${SheetDates.ageAt(universe.era, birth)}']);
+        next = next.withValue('age', [
+          '${SheetDates.ageAt(universe.era, birth)}',
+        ]);
       }
     }
     return next;
@@ -93,10 +97,14 @@ class SheetGenerator {
             ? next
             : _fill(next, SheetSpec.field('birthDate'), force: force);
       case 'birthDate':
-        if (s.of('age').isEmpty) return _fill(s, SheetSpec.field('age'), force: force);
+        if (s.of('age').isEmpty) {
+          return _fill(s, SheetSpec.field('age'), force: force);
+        }
         final age = int.tryParse(s.first('age'));
         if (age == null) return s;
-        return s.withValue('birthDate', ['${SheetDates.birthFor(universe.era, age, random)}']);
+        return s.withValue('birthDate', [
+          '${SheetDates.birthFor(universe.era, age, random)}',
+        ]);
       case 'birthPlace':
         return s.withValue('birthPlace', [random.pick(_culture(s).places)]);
       case 'languages':
@@ -112,9 +120,9 @@ class SheetGenerator {
 
   List<String> _languages(CharacterSheet s) {
     final own = _culture(s).languages;
-    final extra = {
-      for (final o in tables.pool(s.universe, 'languages')) o.text,
-    }.where((t) => !own.contains(t)).toList();
+    final extra = {for (final o in tables.pool(s.universe, 'languages')) o.text}
+        .where((t) => !own.contains(t))
+        .toList();
     final pool = random.shuffled([...own.skip(1), ...extra]);
     return [own.first, ...pool.take(random.integer(0, 2))];
   }
@@ -129,7 +137,8 @@ class SheetGenerator {
 
   List<String> _pool(CharacterSheet s, SheetField f) {
     final banned = _excluded(s, f.id);
-    final texts = {for (final o in tables.pool(s.universe, f.id)) o.text}.toList();
+    final texts = {for (final o in tables.pool(s.universe, f.id)) o.text}
+        .toList();
     final allowed = texts.where((t) => !banned.contains(t)).toList();
     return allowed.length >= f.min ? allowed : texts;
   }
