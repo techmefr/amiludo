@@ -1382,7 +1382,9 @@
   "notebookDeleteAsk": "Delete “{name}” and everything in it?",
   "@notebookDeleteAsk": {
     "placeholders": {
-      "name": {"type": "String"}
+      "name": {
+        "type": "String"
+      }
     }
   },
   "notebookFavorite": "Favorite",
@@ -1449,7 +1451,9 @@
   "notebookChaos": "Chaos factor: {value}",
   "@notebookChaos": {
     "placeholders": {
-      "value": {"type": "int"}
+      "value": {
+        "type": "int"
+      }
     }
   },
   "notebookAsk": "Ask the oracle",
@@ -1577,5 +1581,15 @@
   "sheetApplyAvatar": "Apply to avatar",
   "appearanceSkinCleanName": "Clean",
   "appearanceSkinCleanDesc": "Light and dark, quiet surfaces, one blue accent.",
-  "appearanceFontSystem": "System"
+  "appearanceFontSystem": "System",
+  "toolShelfPinned": "Pinned",
+  "toolShelfPlay": "Play",
+  "toolShelfStory": "Story",
+  "toolShelfGenerators": "Generators",
+  "toolShelfCharacters": "Characters",
+  "toolShelfUtilities": "Utilities",
+  "toolHeroResume": "Pick up where you left off",
+  "toolHeroFeatured": "Featured tool",
+  "toolMoveEarlier": "Move earlier",
+  "toolMoveLater": "Move later"
 }

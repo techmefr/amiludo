@@ -35,8 +35,6 @@ enum SurfaceMaterial {
 
   final double floorBounce, wallBounce, friction, pitch, ring, loudness;
 
-  static SurfaceMaterial parse(String? value) => values.firstWhere(
-    (m) => m.name == value,
-    orElse: () => wood,
-  );
+  static SurfaceMaterial parse(String? value) =>
+      values.firstWhere((m) => m.name == value, orElse: () => wood);
 }

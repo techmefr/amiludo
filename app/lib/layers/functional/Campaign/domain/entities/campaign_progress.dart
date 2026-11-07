@@ -29,14 +29,12 @@ class CampaignProgress {
     return index == 0 || isDone(campaignMissions[index - 1].id);
   }
 
-  Mission? get next =>
-      campaignMissions.where((m) => !isDone(m.id)).firstOrNull;
+  Mission? get next => campaignMissions.where((m) => !isDone(m.id)).firstOrNull;
 
-  CampaignProgress withCompleted(String id, {int? choice}) =>
-      CampaignProgress(
-        completed: isDone(id) ? completed : [...completed, id],
-        choices: choice == null ? choices : {...choices, id: choice},
-      );
+  CampaignProgress withCompleted(String id, {int? choice}) => CampaignProgress(
+    completed: isDone(id) ? completed : [...completed, id],
+    choices: choice == null ? choices : {...choices, id: choice},
+  );
 
   Map<String, Object?> toJson() => {'completed': completed, 'choices': choices};
 }

@@ -21,10 +21,11 @@ Future<Uint8List> renderDrawingPng(
 }) {
   final recorder = ui.PictureRecorder();
   final canvas = Canvas(recorder);
-  StrokesPainter(strokes, logical, background: background).paint(
-    canvas,
-    const Size(256, 256),
-  );
+  StrokesPainter(
+    strokes,
+    logical,
+    background: background,
+  ).paint(canvas, const Size(256, 256));
   return _encode(recorder.endRecording());
 }
 
@@ -52,7 +53,10 @@ Future<Uint8List> downscaleToPng(Uint8List bytes) async {
 
 const mapImageMaxSide = 1600;
 
-Future<Uint8List> fitToPng(Uint8List bytes, {int maxSide = mapImageMaxSide}) async {
+Future<Uint8List> fitToPng(
+  Uint8List bytes, {
+  int maxSide = mapImageMaxSide,
+}) async {
   final probe = await ui.instantiateImageCodec(bytes);
   final first = (await probe.getNextFrame()).image;
   final (width, height) = (first.width, first.height);

@@ -9,9 +9,9 @@ import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.da
 
 const rarityIds = ['c', 'u', 'r', 'e', 'l', 'm'];
 
-Map<String, dynamic> sampleJson() =>
-    jsonDecode(File('assets/chronicles/chronicles-data.json').readAsStringSync())
-        as Map<String, dynamic>;
+Map<String, dynamic> sampleJson() => jsonDecode(
+  File('assets/chronicles/chronicles-data.json').readAsStringSync(),
+) as Map<String, dynamic>;
 
 ChroniclesData sampleData() => ChroniclesData.fromJson(sampleJson());
 

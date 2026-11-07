@@ -14,7 +14,8 @@ Color rarityColor(int score) {
   return HSLColor.fromAHSL(1, _hues[i], i == 0 ? 0 : 0.65, 0.5).toColor();
 }
 
-int sigilSeed(String id) => id.codeUnits.fold(7, (a, c) => (a * 31 + c) & 0xffff);
+int sigilSeed(String id) =>
+    id.codeUnits.fold(7, (a, c) => (a * 31 + c) & 0xffff);
 
 class ChroniclesCardPainter extends CustomPainter {
   const ChroniclesCardPainter({
@@ -92,8 +93,12 @@ class ChroniclesCardPainter extends CustomPainter {
             colors: [
               color.withValues(alpha: 0),
               color.withValues(alpha: 0.35),
-              HSLColor.fromAHSL(0.3, (_hues[_index(score)] + 60) % 360, 0.8, 0.7)
-                  .toColor(),
+              HSLColor.fromAHSL(
+                0.3,
+                (_hues[_index(score)] + 60) % 360,
+                0.8,
+                0.7,
+              ).toColor(),
               color.withValues(alpha: 0),
             ],
             stops: const [0.2, 0.4, 0.55, 0.8],

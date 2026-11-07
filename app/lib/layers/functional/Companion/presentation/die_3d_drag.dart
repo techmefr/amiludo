@@ -26,10 +26,10 @@ class Die3dDrag extends StatefulWidget {
 
 class _Die3dDragState extends State<Die3dDrag>
     with SingleTickerProviderStateMixin {
-  late final AnimationController release = AnimationController(
-    vsync: this,
-    duration: Motion.slow,
-  )..addListener(() => setState(() => turn = from * (1 - _ease(release.value))));
+  late final AnimationController release =
+      AnimationController(vsync: this, duration: Motion.slow)..addListener(
+        () => setState(() => turn = from * (1 - _ease(release.value))),
+      );
   Offset turn = Offset.zero, from = Offset.zero;
 
   double _ease(double t) => Curves.easeOutBack.transform(t);

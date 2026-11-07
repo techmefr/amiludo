@@ -13,10 +13,12 @@ void main() {
         locale: const Locale('fr'),
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
-        home: Scaffold(body: StatefulBuilder(
-          builder: (context, set) =>
-              BricksStage(bricks: bricks, refresh: set),
-        )),
+        home: Scaffold(
+          body: StatefulBuilder(
+            builder: (context, set) =>
+                BricksStage(bricks: bricks, refresh: set),
+          ),
+        ),
       ),
     );
     await tester.tap(find.text('Vie'));

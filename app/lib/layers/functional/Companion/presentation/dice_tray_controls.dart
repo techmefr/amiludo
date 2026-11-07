@@ -28,9 +28,8 @@ class DiceTrayControls extends StatelessWidget {
     onChanged(DiceTraySettings(dice: [...settings.dice, spec]));
   }
 
-  void removeAt(int index) => onChanged(
-    DiceTraySettings(dice: [...settings.dice]..removeAt(index)),
-  );
+  void removeAt(int index) =>
+      onChanged(DiceTraySettings(dice: [...settings.dice]..removeAt(index)));
 
   Future<void> addCustom(BuildContext context) async {
     final spec = await showDeckSheet<DiceSpec>(
@@ -41,7 +40,10 @@ class DiceTrayControls extends StatelessWidget {
     if (spec != null) add(spec);
   }
 
-  Future<void> addFromLibrary(BuildContext context, DieStudioCubit cubit) async {
+  Future<void> addFromLibrary(
+    BuildContext context,
+    DieStudioCubit cubit,
+  ) async {
     final spec = await pickLibraryDie(context, cubit);
     if (spec != null) add(spec);
   }

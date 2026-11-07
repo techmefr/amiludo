@@ -10,7 +10,10 @@ class SaveDieUseCase {
   final DieLibraryGateway _library;
   final DieImageGateway _images;
 
-  Future<void> call(DieDesign design, {Map<String, List<int>> images = const {}}) async {
+  Future<void> call(
+    DieDesign design, {
+    Map<String, List<int>> images = const {},
+  }) async {
     for (final e in images.entries) {
       await _images.write(e.key, e.value);
     }
@@ -27,9 +30,7 @@ class RemoveDieUseCase {
     final design = _library.current.byId(id);
     if (design == null) return;
     await _library.save(_library.current.remove(id));
-    final others = {
-      for (final d in _library.current.designs) ...d.imageIds,
-    };
+    final others = {for (final d in _library.current.designs) ...d.imageIds};
     for (final image in design.imageIds.difference(others)) {
       await _images.delete(image);
     }

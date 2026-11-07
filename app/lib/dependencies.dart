@@ -121,6 +121,8 @@ import 'package:amiludo/layers/functional/Memories/domain/use_cases/save_memory_
 import 'package:amiludo/layers/functional/Memories/domain/use_cases/watch_album_use_case.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/remove_character_use_case.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/save_character_use_case.dart';
+import 'package:amiludo/layers/functional/Random/domain/use_cases/remember_tool_use_case.dart';
+import 'package:amiludo/layers/functional/Random/domain/use_cases/reorder_favorite_tools_use_case.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/toggle_favorite_tool_use_case.dart';
 import 'package:amiludo/layers/functional/Sharing/domain/use_cases/build_session_bundle_use_case.dart';
 import 'package:amiludo/layers/functional/Sharing/domain/use_cases/import_session_bundle_use_case.dart';
@@ -285,7 +287,9 @@ void _registerTable() {
     ..registerFactory(() => RemoveTemplateUseCase(getIt()))
     ..registerFactory(() => LoadBundledCatalogUseCase(getIt()))
     ..registerFactory(() => FetchPackCatalogUseCase(getIt()))
-    ..registerFactory(() => ToggleFavoriteToolUseCase(getIt()));
+    ..registerFactory(() => ToggleFavoriteToolUseCase(getIt()))
+    ..registerFactory(() => RememberToolUseCase(getIt()))
+    ..registerFactory(() => ReorderFavoriteToolsUseCase(getIt()));
 }
 
 void _registerCollections() {

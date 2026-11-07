@@ -4051,4 +4051,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get appearanceFontSystem => 'System';
+
+  @override
+  String get toolShelfPinned => 'Pinned';
+
+  @override
+  String get toolShelfPlay => 'Play';
+
+  @override
+  String get toolShelfStory => 'Story';
+
+  @override
+  String get toolShelfGenerators => 'Generators';
+
+  @override
+  String get toolShelfCharacters => 'Characters';
+
+  @override
+  String get toolShelfUtilities => 'Utilities';
+
+  @override
+  String get toolHeroResume => 'Pick up where you left off';
+
+  @override
+  String get toolHeroFeatured => 'Featured tool';
+
+  @override
+  String get toolMoveEarlier => 'Move earlier';
+
+  @override
+  String get toolMoveLater => 'Move later';
 }

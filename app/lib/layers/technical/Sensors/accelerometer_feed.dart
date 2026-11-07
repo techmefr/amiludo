@@ -31,8 +31,7 @@ class PlatformAccelerometerFeed implements AccelerometerFeed {
   @override
   Stream<AccelSample> get samples {
     if (!supported) return const Stream.empty();
-    return accelerometerEventStream(
-      samplingPeriod: SensorInterval.gameInterval,
-    ).map((event) => AccelSample(event.x, event.y, event.z));
+    return accelerometerEventStream(samplingPeriod: SensorInterval.gameInterval)
+        .map((event) => AccelSample(event.x, event.y, event.z));
   }
 }

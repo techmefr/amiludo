@@ -70,7 +70,11 @@ class _MarkerFormState extends State<_MarkerForm> {
 
   void save() {
     widget.onSave(
-      widget.marker.copyWith(color: color, icon: icon, label: label.text.trim()),
+      widget.marker.copyWith(
+        color: color,
+        icon: icon,
+        label: label.text.trim(),
+      ),
     );
     Navigator.pop(context);
   }

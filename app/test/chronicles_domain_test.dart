@@ -114,19 +114,22 @@ void main() {
       Refusal.conflict,
     );
     expect(
-      ChroniclesRules.refusal(
-        step,
-        card('e', type: 't2', tags: ['y']),
-        [KeptCard(card('f', type: 't3', conflicts: ['y']))],
-      ),
+      ChroniclesRules.refusal(step, card('e', type: 't2', tags: ['y']), [
+        KeptCard(card('f', type: 't3', conflicts: ['y'])),
+      ]),
       Refusal.conflict,
     );
     expect(ChroniclesRules.refusal(step, card('g', type: 't2'), kept), isNull);
   });
 
   test('a type without a compatible card counts as filled', () {
-    final pool = [card('a', type: 't0'), card('b', type: 't1', tags: ['k'])];
-    final kept = [KeptCard(card('z', type: 't9', conflicts: ['k']))];
+    final pool = [
+      card('a', type: 't0'),
+      card('b', type: 't1', tags: ['k']),
+    ];
+    final kept = [
+      KeptCard(card('z', type: 't9', conflicts: ['k'])),
+    ];
     final missing = ChroniclesRules.missing(step, pool, kept);
     expect(missing.map((q) => q.type), ['t0']);
   });
@@ -138,10 +141,7 @@ void main() {
       final added = draw.destiny(universe: 'fantasy', stepIndex: s, kept: []);
       expect(added.every((k) => k.destiny), isTrue);
       final pool = sample.poolFor('fantasy', sample.step(s).id);
-      expect(
-        ChroniclesRules.stepComplete(sample.step(s), pool, added),
-        isTrue,
-      );
+      expect(ChroniclesRules.stepComplete(sample.step(s), pool, added), isTrue);
       for (final q in sample.step(s).quotas.where((q) => q.min > 0)) {
         expect(
           ChroniclesRules.count(added, sample.step(s).id, q.type),
@@ -173,7 +173,8 @@ void main() {
     expect(of([KeptCard(card('a')), KeptCard(card('b', rarity: 'u'))]).id, 'u');
     expect(of([KeptCard(card('a', rarity: 'm'), destiny: true)]).id, 'c');
     expect(
-      of([KeptCard(card('a', rarity: 'c')), KeptCard(card('b', rarity: 'l'))]).id,
+      of([KeptCard(card('a', rarity: 'c')), KeptCard(card('b', rarity: 'l'))])
+          .id,
       'e',
     );
     expect(of([KeptCard(card('a', rarity: 'm'))]).id, 'm');
@@ -199,7 +200,11 @@ void main() {
     expect(run.phase, ChroniclesPhase.done);
     for (var s = 0; s < sample.steps.length; s++) {
       expect(
-        ChroniclesRules.stepComplete(sample.step(s), sample.poolFor('fantasy', sample.step(s).id), run.kept),
+        ChroniclesRules.stepComplete(
+          sample.step(s),
+          sample.poolFor('fantasy', sample.step(s).id),
+          run.kept,
+        ),
         isTrue,
       );
     }

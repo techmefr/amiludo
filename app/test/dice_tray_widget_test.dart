@@ -51,9 +51,7 @@ void main() {
     await useSize(tester, const Size(390, 844));
     final source = ManualShakeSource();
     addTearDown(source.close);
-    await tester.pumpWidget(
-      host(DiceTrayPage(seed: 1, shakeSource: source)),
-    );
+    await tester.pumpWidget(host(DiceTrayPage(seed: 1, shakeSource: source)));
     source.shake();
     await tester.pump();
     await tester.pump(const Duration(seconds: 6));

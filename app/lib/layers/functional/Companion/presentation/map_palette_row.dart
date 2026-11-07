@@ -7,7 +7,11 @@ import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 const mapSwatchSize = 28.0;
 
 class MapPaletteRow extends StatelessWidget {
-  const MapPaletteRow({super.key, required this.selected, required this.onPick});
+  const MapPaletteRow({
+    super.key,
+    required this.selected,
+    required this.onPick,
+  });
   final int selected;
   final ValueChanged<int> onPick;
 

@@ -49,9 +49,8 @@ class MapBoard {
 
   MapBoard addMarker(MapMarker marker) => _with(markers: [...markers, marker]);
 
-  MapBoard replaceMarker(MapMarker marker) => _with(
-    markers: [for (final m in markers) m.id == marker.id ? marker : m],
-  );
+  MapBoard replaceMarker(MapMarker marker) =>
+      _with(markers: [for (final m in markers) m.id == marker.id ? marker : m]);
 
   MapBoard removeMarker(String id) =>
       _with(markers: markers.where((m) => m.id != id).toList());

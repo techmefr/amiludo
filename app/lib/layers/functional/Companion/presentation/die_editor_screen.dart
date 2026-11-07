@@ -20,8 +20,7 @@ class DieEditorScreen extends StatefulWidget {
 }
 
 class _DieEditorScreenState extends State<DieEditorScreen> {
-  late DieDesign design =
-      widget.initial ?? DieDesign.standard(dieId(), '', 6);
+  late DieDesign design = widget.initial ?? DieDesign.standard(dieId(), '', 6);
   late final name = TextEditingController(text: design.name);
   int current = 0;
 
@@ -66,7 +65,9 @@ class _DieEditorScreenState extends State<DieEditorScreen> {
       body: ListView(
         padding: const EdgeInsets.all(Space.lg),
         children: [
-          Center(child: DiePreview(design: design, size: 112, faceIndex: current)),
+          Center(
+            child: DiePreview(design: design, size: 112, faceIndex: current),
+          ),
           const SizedBox(height: Space.lg),
           TextField(
             controller: name,

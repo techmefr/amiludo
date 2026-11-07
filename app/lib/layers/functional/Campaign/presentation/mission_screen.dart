@@ -13,7 +13,11 @@ import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class MissionScreen extends StatefulWidget {
-  const MissionScreen({super.key, required this.mission, required this.actions});
+  const MissionScreen({
+    super.key,
+    required this.mission,
+    required this.actions,
+  });
 
   final Mission mission;
   final Map<MissionAction, WidgetBuilder> actions;

@@ -49,21 +49,15 @@ class TrayBody {
     rolling = false;
   }
 
-  TrayBody copy() => TrayBody(
-    x: x,
-    y: y,
-    vx: vx,
-    vy: vy,
-    angle: angle,
-    spin: spin,
-  )
-    ..z = z
-    ..vz = vz
-    ..phase = phase
-    ..tumble = tumble
-    ..roundness = roundness
-    ..offset = offset
-    ..sides = sides
-    ..asleep = asleep
-    ..rolling = rolling;
+  TrayBody copy() =>
+      TrayBody(x: x, y: y, vx: vx, vy: vy, angle: angle, spin: spin)
+        ..z = z
+        ..vz = vz
+        ..phase = phase
+        ..tumble = tumble
+        ..roundness = roundness
+        ..offset = offset
+        ..sides = sides
+        ..asleep = asleep
+        ..rolling = rolling;
 }

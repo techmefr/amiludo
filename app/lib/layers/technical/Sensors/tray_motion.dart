@@ -50,10 +50,8 @@ class ManualTrayMotion implements TrayMotion {
   }
 }
 
-Tilt tiltOf(AccelSample s) => Tilt(
-  (-s.x / _earth).clamp(-1.0, 1.0),
-  (s.y / _earth).clamp(-1.0, 1.0),
-);
+Tilt tiltOf(AccelSample s) =>
+    Tilt((-s.x / _earth).clamp(-1.0, 1.0), (s.y / _earth).clamp(-1.0, 1.0));
 
 double strengthOf(AccelSample s, double threshold) {
   final magnitude = math.sqrt(s.x * s.x + s.y * s.y + s.z * s.z);

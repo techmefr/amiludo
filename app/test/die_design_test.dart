@@ -111,7 +111,10 @@ void main() {
     });
 
     test('a bundle embeds images and survives a round trip', () {
-      final bundle = DieBundle([withImage('a', 'img1')], {'img1': png(256, 256)});
+      final bundle = DieBundle(
+        [withImage('a', 'img1')],
+        {'img1': png(256, 256)},
+      );
       final back = DieBundle.decode(bundle.encode());
       expect(back.designs.single.toJson(), bundle.designs.single.toJson());
       expect(back.images['img1'], png(256, 256));
@@ -154,7 +157,10 @@ void main() {
         throwsFormatException,
       );
       final missing = decoded()..['images'] = <String, dynamic>{};
-      expect(() => DieBundle.decode(jsonEncode(missing)), throwsFormatException);
+      expect(
+        () => DieBundle.decode(jsonEncode(missing)),
+        throwsFormatException,
+      );
     });
   });
 
@@ -206,7 +212,11 @@ void main() {
     });
 
     test('a design die scores numeric faces and survives JSON', () {
-      final d = DieDesign.standard('a', 'Zero to nine', 10).numbered(0, 9, start: 0);
+      final d = DieDesign.standard(
+        'a',
+        'Zero to nine',
+        10,
+      ).numbered(0, 9, start: 0);
       final spec = DiceSpec.fromDesign(d);
       expect(spec.scoreOf(1), 0);
       expect(spec.scoreOf(10), 9);
@@ -219,28 +229,34 @@ void main() {
     });
 
     test('a broken design falls back to a plain die', () {
-      final spec = DiceSpec.fromJson({'sides': 8, 'design': {'id': 1}});
+      final spec = DiceSpec.fromJson({
+        'sides': 8,
+        'design': {'id': 1},
+      });
       expect(spec.sides, 8);
       expect(spec.design, isNull);
     });
 
-    test('a template die references a design and stays backward compatible', () {
-      const legacy = {
-        'name': 'd',
-        'count': 1,
-        'faces': [
-          {'label': 'a', 'value': 1.0},
-          {'label': 'b', 'value': 2.0},
-        ],
-      };
-      expect(GameDie.fromJson(legacy).toJson(), legacy);
-      final linked = GameDie.fromJson({...legacy, 'design': 'abc'});
-      expect(linked.design, 'abc');
-      expect(linked.toJson()['design'], 'abc');
-      expect(
-        () => GameDie.fromJson({...legacy, 'design': ''}),
-        throwsFormatException,
-      );
-    });
+    test(
+      'a template die references a design and stays backward compatible',
+      () {
+        const legacy = {
+          'name': 'd',
+          'count': 1,
+          'faces': [
+            {'label': 'a', 'value': 1.0},
+            {'label': 'b', 'value': 2.0},
+          ],
+        };
+        expect(GameDie.fromJson(legacy).toJson(), legacy);
+        final linked = GameDie.fromJson({...legacy, 'design': 'abc'});
+        expect(linked.design, 'abc');
+        expect(linked.toJson()['design'], 'abc');
+        expect(
+          () => GameDie.fromJson({...legacy, 'design': ''}),
+          throwsFormatException,
+        );
+      },
+    );
   });
 }

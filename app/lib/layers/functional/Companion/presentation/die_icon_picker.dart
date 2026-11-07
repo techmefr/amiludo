@@ -5,7 +5,11 @@ import 'package:amiludo/layers/technical/Theme/icon_catalog.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class DieIconPicker extends StatefulWidget {
-  const DieIconPicker({super.key, required this.selected, required this.onPick});
+  const DieIconPicker({
+    super.key,
+    required this.selected,
+    required this.onPick,
+  });
   final String selected;
   final ValueChanged<String> onPick;
 

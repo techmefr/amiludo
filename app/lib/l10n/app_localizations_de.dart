@@ -4088,4 +4088,34 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get appearanceFontSystem => 'System';
+
+  @override
+  String get toolShelfPinned => 'Angeheftet';
+
+  @override
+  String get toolShelfPlay => 'Spielen';
+
+  @override
+  String get toolShelfStory => 'Geschichte';
+
+  @override
+  String get toolShelfGenerators => 'Generatoren';
+
+  @override
+  String get toolShelfCharacters => 'Charaktere';
+
+  @override
+  String get toolShelfUtilities => 'Werkzeuge';
+
+  @override
+  String get toolHeroResume => 'Weiter, wo du aufgehört hast';
+
+  @override
+  String get toolHeroFeatured => 'Empfohlenes Werkzeug';
+
+  @override
+  String get toolMoveEarlier => 'Früher einordnen';
+
+  @override
+  String get toolMoveLater => 'Später einordnen';
 }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/hourglass.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/turn_sensor.dart';
-import 'package:amiludo/layers/functional/Companion/presentation/hourglass_painter.dart';
+import 'package:amiludo/layers/technical/Theme/components/hourglass_painter.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 

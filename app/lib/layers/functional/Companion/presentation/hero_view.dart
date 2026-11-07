@@ -49,9 +49,8 @@ class _HeroViewState extends State<HeroView> {
               Center(child: SizedBox(height: 120, child: widget.avatar)),
             Text(
               hero.name,
-              style: Theme.of(
-                context,
-              ).textTheme.titleLarge?.copyWith(color: ink),
+              style: Theme.of(context).textTheme.titleLarge
+                  ?.copyWith(color: ink),
             ),
             for (final counter in hero.counters)
               CounterView(state: counter, onChanged: widget.onChanged),

@@ -106,11 +106,7 @@ class _DiceAddListState extends State<DiceAddList> {
           const SizedBox(height: Space.md),
           Text(l.diceMyDice, style: Theme.of(context).textTheme.labelLarge),
           for (final d in library)
-            row(
-              d.name,
-              DiceSpec.fromDesign(d),
-              (s) => s.design?.id == d.id,
-            ),
+            row(d.name, DiceSpec.fromDesign(d), (s) => s.design?.id == d.id),
         ],
         const SizedBox(height: Space.lg),
       ],

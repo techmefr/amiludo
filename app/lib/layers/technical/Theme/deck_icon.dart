@@ -90,11 +90,13 @@ class DeckIcon extends StatelessWidget {
     this.size,
     this.color,
     this.semanticLabel,
+    this.strokeWidth = 1.8,
   });
   final IconData icon;
   final double? size;
   final Color? color;
   final String? semanticLabel;
+  final double strokeWidth;
   @override
   Widget build(BuildContext context) {
     final theme = IconTheme.of(context);
@@ -105,7 +107,7 @@ class DeckIcon extends StatelessWidget {
             icon: data,
             size: size ?? theme.size ?? 24,
             color: color ?? theme.color,
-            strokeWidth: 1.8,
+            strokeWidth: strokeWidth,
           );
     return semanticLabel == null
         ? child

@@ -98,8 +98,14 @@ class EngravedNumber extends StatelessWidget {
           fontSize: 22,
           height: 1,
           shadows: [
-            Shadow(color: light.withValues(alpha: 0.55), offset: const Offset(0, 1)),
-            Shadow(color: color.withValues(alpha: 0.3), offset: const Offset(0, -0.6)),
+            Shadow(
+              color: light.withValues(alpha: 0.55),
+              offset: const Offset(0, 1),
+            ),
+            Shadow(
+              color: color.withValues(alpha: 0.3),
+              offset: const Offset(0, -0.6),
+            ),
           ],
         ),
       ),

@@ -37,7 +37,9 @@ class _AvatarCreatorScreenState extends State<AvatarCreatorScreen> {
   void tint(int color) {
     final current = look.picks[slot];
     if (current == null) return;
-    setState(() => look = look.withPick(slot, AvatarPick(current.itemId, color)));
+    setState(
+      () => look = look.withPick(slot, AvatarPick(current.itemId, color)),
+    );
   }
 
   @override
@@ -93,7 +95,10 @@ class _AvatarCreatorScreenState extends State<AvatarCreatorScreen> {
           ),
           if (tintName != null) ...[
             const SizedBox(height: Space.lg),
-            Text(l10n.avatarColor, style: Theme.of(context).textTheme.titleSmall),
+            Text(
+              l10n.avatarColor,
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
             const SizedBox(height: Space.sm),
             AvatarColorRow(
               colors: catalogue.palettes[tintName] ?? const [],

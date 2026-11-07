@@ -7,8 +7,9 @@ class MapBoards {
 
   factory MapBoards.fromJson(Map<String, dynamic> j) => MapBoards(
     boards: {
-      for (final e in Map<String, dynamic>.from(j['maps'] as Map? ?? const {})
-          .entries)
+      for (final e in Map<String, dynamic>.from(
+        j['maps'] as Map? ?? const {},
+      ).entries)
         e.key: MapBoard.fromJson(Map<String, dynamic>.from(e.value as Map)),
     },
   );

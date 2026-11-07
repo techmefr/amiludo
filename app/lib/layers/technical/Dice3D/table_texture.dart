@@ -34,7 +34,11 @@ void paintPlanks(Canvas canvas, Size size, Color tone) {
   for (var i = 0; i < 38; i++) {
     final y = grain.nextDouble() * size.height;
     final x = grain.nextDouble() * size.width;
-    canvas.drawLine(Offset(x, y), Offset(x + 30 + grain.nextDouble() * 50, y), paint);
+    canvas.drawLine(
+      Offset(x, y),
+      Offset(x + 30 + grain.nextDouble() * 50, y),
+      paint,
+    );
   }
 }
 

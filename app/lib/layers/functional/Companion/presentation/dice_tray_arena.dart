@@ -15,6 +15,7 @@ import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 const double _dieSize = traySpriteSize;
+
 class DiceTraySurface extends StatefulWidget {
   const DiceTraySurface({
     super.key,
@@ -138,15 +139,16 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
     }
     ticker.stop();
     launched = widget.throwId;
-    return physics = TrayPhysics(
-      width: box.maxWidth,
-      height: box.maxHeight,
-      radius: _dieSize / 2,
-      count: count,
-      surface: material,
-    )
-      ..onImpact = widget.feedback?.impact
-      ..settle(const {});
+    return physics =
+        TrayPhysics(
+            width: box.maxWidth,
+            height: box.maxHeight,
+            radius: _dieSize / 2,
+            count: count,
+            surface: material,
+          )
+          ..onImpact = widget.feedback?.impact
+          ..settle(const {});
   }
 
   List<Widget> dieAt(TrayPhysics p, int i, ColorScheme scheme) {

@@ -87,7 +87,8 @@ void paintSpecular(Canvas canvas, Path path, DieSkin skin) {
   if (skin.finish == DieFinish.matte) return;
   final bounds = path.getBounds();
   final reach = bounds.shortestSide * 0.55;
-  final spot = bounds.topLeft + Offset(bounds.width * 0.3, bounds.height * 0.28);
+  final spot =
+      bounds.topLeft + Offset(bounds.width * 0.3, bounds.height * 0.28);
   final peak = skin.finish == DieFinish.wood ? 0.18 : 0.6;
   canvas.save();
   canvas.clipPath(path);

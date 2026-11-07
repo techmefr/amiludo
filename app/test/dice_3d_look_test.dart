@@ -46,7 +46,13 @@ void main() {
     for (final skin in DieSkin.all) {
       for (final sides in [4, 6, 8, 10, 12, 20, 100]) {
         await tester.pumpWidget(
-          host(Die3dView(spec: DiceSpec(sides: sides), value: 3, skin: skin)),
+          host(
+            Die3dView(
+              spec: DiceSpec(sides: sides),
+              value: 3,
+              skin: skin,
+            ),
+          ),
         );
         expect(tester.takeException(), isNull, reason: '${skin.id} d$sides');
       }
@@ -61,7 +67,9 @@ void main() {
     );
     expect(find.byType(DiePips), findsWidgets);
     await tester.pumpWidget(
-      host(Die3dView(spec: DiceSpec.custom(['x', 'y', 'z'], 0xFF336699), value: 1)),
+      host(
+        Die3dView(spec: DiceSpec.custom(['x', 'y', 'z'], 0xFF336699), value: 1),
+      ),
     );
     expect(find.byType(DiePips), findsNothing);
     expect(find.text('x'), findsWidgets);
@@ -70,12 +78,7 @@ void main() {
   testWidgets('the add sheet steps counts up and down live', (tester) async {
     DiceTraySettings last = const DiceTraySettings(dice: []);
     await tester.pumpWidget(
-      host(
-        DiceAddList(
-          settings: last,
-          onChanged: (s) => last = s,
-        ),
-      ),
+      host(DiceAddList(settings: last, onChanged: (s) => last = s)),
     );
     expect(find.text('d100'), findsOneWidget);
     expect(find.text('0 dice'), findsOneWidget);
@@ -89,9 +92,7 @@ void main() {
     expect(last.dice, isEmpty);
   });
 
-  testWidgets('the look picker reports skin and table choices', (
-    tester,
-  ) async {
+  testWidgets('the look picker reports skin and table choices', (tester) async {
     String? skin, table;
     await tester.pumpWidget(
       host(

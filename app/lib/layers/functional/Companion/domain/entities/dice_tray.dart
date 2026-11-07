@@ -46,7 +46,9 @@ class DiceSpec {
     }
     final faces = [for (final f in j['faces'] as List? ?? const []) '$f'];
     return DiceSpec(
-      sides: faces.isEmpty ? ((j['sides'] as num?)?.toInt() ?? 6) : faces.length,
+      sides: faces.isEmpty
+          ? ((j['sides'] as num?)?.toInt() ?? 6)
+          : faces.length,
       faces: faces,
       color: (j['color'] as num? ?? 0xFF3D7BD9).toInt(),
     );

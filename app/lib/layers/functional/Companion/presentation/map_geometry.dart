@@ -54,7 +54,8 @@ class MapView {
         points.add(points.first);
       }
       for (var i = 0; i < points.length - 1; i++) {
-        if (_segmentDistance(screen, points[i], points[i + 1]) <= mapStrokeHit) {
+        if (_segmentDistance(screen, points[i], points[i + 1]) <=
+            mapStrokeHit) {
           return s;
         }
       }

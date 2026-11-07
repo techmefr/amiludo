@@ -11,7 +11,10 @@ extension DieFaceOps on DieDesign {
     faces: [
       for (var i = 0; i < faces.length; i++)
         i >= from && i <= to
-            ? DieFaceContent(value: '${start + i - from}', color: faces[i].color)
+            ? DieFaceContent(
+                value: '${start + i - from}',
+                color: faces[i].color,
+              )
             : faces[i],
     ],
   );

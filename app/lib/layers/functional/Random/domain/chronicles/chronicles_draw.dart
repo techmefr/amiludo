@@ -44,8 +44,11 @@ class ChroniclesDraw {
     return drawn;
   }
 
-  bool _exhausted(ChroniclesStep step, String type, List<ChroniclesCard> drawn) =>
-      step.quotaOf(type)?.max == 1 && drawn.any((c) => c.type == type);
+  bool _exhausted(
+    ChroniclesStep step,
+    String type,
+    List<ChroniclesCard> drawn,
+  ) => step.quotaOf(type)?.max == 1 && drawn.any((c) => c.type == type);
 
   String _rarityPresent(List<ChroniclesCard> source) {
     final present = source.map((c) => c.rarity).toSet();

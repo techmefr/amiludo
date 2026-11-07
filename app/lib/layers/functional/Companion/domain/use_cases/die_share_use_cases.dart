@@ -36,12 +36,10 @@ class AcceptEmbeddedDiceUseCase {
   AcceptEmbeddedDiceUseCase(this._import);
   final ImportDiceUseCase _import;
 
-  Future<String> call(
-    String text,
-    DieBundle bundle,
-    ClashPolicy policy,
-  ) async {
+  Future<String> call(String text, DieBundle bundle, ClashPolicy policy) async {
     final ids = await _import(bundle, policy);
-    return jsonEncode(rewriteDesignRefs(jsonDecode(text), ids.designs, ids.images));
+    return jsonEncode(
+      rewriteDesignRefs(jsonDecode(text), ids.designs, ids.images),
+    );
   }
 }

@@ -26,36 +26,47 @@ const generatorRecipes = {
       RecipeSection('origin', 'origins'),
     ],
   ),
-  'weather': GeneratorRecipe('weather', ['conditions'], [
-    RecipeSection('temperature', 'temperatures'),
-    RecipeSection('wind', 'winds'),
-    RecipeSection('effect', 'effects', 2),
-    RecipeSection('omen', 'omens'),
-  ]),
+  'weather': GeneratorRecipe(
+    'weather',
+    ['conditions'],
+    [
+      RecipeSection('temperature', 'temperatures'),
+      RecipeSection('wind', 'winds'),
+      RecipeSection('effect', 'effects', 2),
+      RecipeSection('omen', 'omens'),
+    ],
+  ),
   'place': GeneratorRecipe(
     'place',
     ['starts', 'ends'],
-    [
-      RecipeSection('placeKind', 'kinds'),
-      RecipeSection('feature', 'features'),
-    ],
+    [RecipeSection('placeKind', 'kinds'), RecipeSection('feature', 'features')],
     separator: '',
   ),
-  'dilemma': GeneratorRecipe('dilemma', ['situations'], [
-    RecipeSection('choiceA', 'optionsA'),
-    RecipeSection('choiceB', 'optionsB'),
-    RecipeSection('cost', 'costs'),
-  ]),
-  'rumour': GeneratorRecipe('rumour', ['sources'], [
-    RecipeSection('claim', 'claims'),
-    RecipeSection('truth', 'truths'),
-  ]),
-  'trait': GeneratorRecipe('trait', ['traits'], [
-    RecipeSection('shows', 'shows'),
-    RecipeSection('flaw', 'flaws'),
-  ]),
-  'twist': GeneratorRecipe('twist', ['twists'], [
-    RecipeSection('clue', 'clues'),
-    RecipeSection('consequence', 'consequences'),
-  ]),
+  'dilemma': GeneratorRecipe(
+    'dilemma',
+    ['situations'],
+    [
+      RecipeSection('choiceA', 'optionsA'),
+      RecipeSection('choiceB', 'optionsB'),
+      RecipeSection('cost', 'costs'),
+    ],
+  ),
+  'rumour': GeneratorRecipe(
+    'rumour',
+    ['sources'],
+    [RecipeSection('claim', 'claims'), RecipeSection('truth', 'truths')],
+  ),
+  'trait': GeneratorRecipe(
+    'trait',
+    ['traits'],
+    [RecipeSection('shows', 'shows'), RecipeSection('flaw', 'flaws')],
+  ),
+  'twist': GeneratorRecipe(
+    'twist',
+    ['twists'],
+    [
+      RecipeSection('clue', 'clues'),
+      RecipeSection('consequence', 'consequences'),
+    ],
+  ),
 };

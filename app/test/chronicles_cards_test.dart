@@ -77,7 +77,11 @@ void main() {
     }
     paintOnce(
       const PortraitPainter(
-        ChroniclesAppearance(skin: '#d9a679', hair: '#1e1b18', build: 'robuste'),
+        ChroniclesAppearance(
+          skin: '#d9a679',
+          hair: '#1e1b18',
+          build: 'robuste',
+        ),
         Color(0xff999999),
         Color(0xff000000),
       ),

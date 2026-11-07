@@ -9,7 +9,8 @@ abstract final class ChroniclesExport {
       sheet.name,
       '${sheet.epithet} · ${sheet.rarity.name} · ${sheet.universe.name}',
       '',
-      [for (final s in data.stats) '${s.name} ${sheet.stats[s.id]}'].join(' · '),
+      [for (final s in data.stats) '${s.name} ${sheet.stats[s.id]}']
+          .join(' · '),
     ];
     for (final section in sheet.sections) {
       lines

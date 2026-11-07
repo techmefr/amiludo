@@ -12,12 +12,12 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 
 String companionProblemText(AppLocalizations l, CompanionFileProblem p) =>
     switch (p) {
-    CompanionFileProblem.notJson => l.companionErrorNotJson,
-    CompanionFileProblem.wrongFormat => l.companionErrorFormat,
-    CompanionFileProblem.wrongVersion => l.companionErrorVersion,
-    CompanionFileProblem.invalid => l.companionErrorInvalid,
-    CompanionFileProblem.reserved => l.companionErrorReserved,
-  };
+      CompanionFileProblem.notJson => l.companionErrorNotJson,
+      CompanionFileProblem.wrongFormat => l.companionErrorFormat,
+      CompanionFileProblem.wrongVersion => l.companionErrorVersion,
+      CompanionFileProblem.invalid => l.companionErrorInvalid,
+      CompanionFileProblem.reserved => l.companionErrorReserved,
+    };
 
 Future<void> shareCompanionFile(GameTemplate template) async =>
     FileTransfer.shareText(

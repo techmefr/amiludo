@@ -1248,5 +1248,15 @@
   "sheetApplyAvatar": "Appliquer à l'avatar",
   "appearanceSkinCleanName": "Clean",
   "appearanceSkinCleanDesc": "Clair et sombre, surfaces calmes, un seul accent bleu.",
-  "appearanceFontSystem": "Système"
+  "appearanceFontSystem": "Système",
+  "toolShelfPinned": "Épinglés",
+  "toolShelfPlay": "Jouer",
+  "toolShelfStory": "Récit",
+  "toolShelfGenerators": "Générateurs",
+  "toolShelfCharacters": "Personnages",
+  "toolShelfUtilities": "Utilitaires",
+  "toolHeroResume": "Reprenez où vous en étiez",
+  "toolHeroFeatured": "Outil à découvrir",
+  "toolMoveEarlier": "Déplacer avant",
+  "toolMoveLater": "Déplacer après"
 }

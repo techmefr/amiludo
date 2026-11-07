@@ -7621,6 +7621,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'System'**
   String get appearanceFontSystem;
+
+  /// No description provided for @toolShelfPinned.
+  ///
+  /// In en, this message translates to:
+  /// **'Pinned'**
+  String get toolShelfPinned;
+
+  /// No description provided for @toolShelfPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Play'**
+  String get toolShelfPlay;
+
+  /// No description provided for @toolShelfStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Story'**
+  String get toolShelfStory;
+
+  /// No description provided for @toolShelfGenerators.
+  ///
+  /// In en, this message translates to:
+  /// **'Generators'**
+  String get toolShelfGenerators;
+
+  /// No description provided for @toolShelfCharacters.
+  ///
+  /// In en, this message translates to:
+  /// **'Characters'**
+  String get toolShelfCharacters;
+
+  /// No description provided for @toolShelfUtilities.
+  ///
+  /// In en, this message translates to:
+  /// **'Utilities'**
+  String get toolShelfUtilities;
+
+  /// No description provided for @toolHeroResume.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick up where you left off'**
+  String get toolHeroResume;
+
+  /// No description provided for @toolHeroFeatured.
+  ///
+  /// In en, this message translates to:
+  /// **'Featured tool'**
+  String get toolHeroFeatured;
+
+  /// No description provided for @toolMoveEarlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Move earlier'**
+  String get toolMoveEarlier;
+
+  /// No description provided for @toolMoveLater.
+  ///
+  /// In en, this message translates to:
+  /// **'Move later'**
+  String get toolMoveLater;
 }
 
 class _AppLocalizationsDelegate

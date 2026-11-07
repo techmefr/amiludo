@@ -67,8 +67,7 @@ class ChroniclesCard {
     );
   }
 
-  bool favors(List<String> stats) =>
-      stats.any((s) => (modifiers[s] ?? 0) > 0);
+  bool favors(List<String> stats) => stats.any((s) => (modifiers[s] ?? 0) > 0);
 
   bool conflictsWith(ChroniclesCard other) =>
       conflicts.any(other.tags.contains) || other.conflicts.any(tags.contains);
