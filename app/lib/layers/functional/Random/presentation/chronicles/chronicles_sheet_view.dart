@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Random/domain/chronicles/chronicles_data.dart';
@@ -10,6 +11,7 @@ import 'package:amiludo/layers/functional/Random/presentation/chronicles/chronic
 import 'package:amiludo/layers/functional/Random/presentation/chronicles/portrait_painter.dart';
 import 'package:amiludo/layers/functional/Random/presentation/character_sheet_stack.dart';
 import 'package:amiludo/layers/functional/Random/presentation/cubit/chronicles_cubit.dart';
+import 'package:amiludo/layers/functional/Random/presentation/cubit/sheet_cubit.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Network/link_share.dart';
@@ -34,11 +36,8 @@ class ChroniclesSheetView extends StatefulWidget {
 class _ChroniclesSheetViewState extends State<ChroniclesSheetView> {
   bool saved = false;
 
-  ChroniclesSheet get sheet => ChroniclesSheet.build(
-    widget.data,
-    widget.run.universe,
-    widget.run.kept,
-  );
+  ChroniclesSheet get sheet =>
+      ChroniclesSheet.build(widget.data, widget.run.universe, widget.run.kept);
 
   Map<String, List<CharacterCard>> choices(ChroniclesSheet s, String destiny) =>
       {
@@ -46,10 +45,7 @@ class _ChroniclesSheetViewState extends State<ChroniclesSheetView> {
           if (section.fields.isNotEmpty)
             section.step.name: [
               for (final k in section.fields)
-                characterCardOf(
-                  k.card,
-                  prefix: k.destiny ? destiny : '',
-                ),
+                characterCardOf(k.card, prefix: k.destiny ? destiny : ''),
             ],
       };
 
@@ -126,8 +122,7 @@ class _ChroniclesSheetViewState extends State<ChroniclesSheetView> {
             ),
             OutlinedButton(
               key: const ValueKey('share'),
-              onPressed: () =>
-                  shareLink(ChroniclesExport.text(s, widget.data)),
+              onPressed: () => shareLink(ChroniclesExport.text(s, widget.data)),
               child: Text(context.l10n.chroniclesShare),
             ),
             if (widget.onSave != null)
@@ -140,6 +135,17 @@ class _ChroniclesSheetViewState extends State<ChroniclesSheetView> {
                       : context.l10n.chroniclesSaveToLibrary,
                 ),
               ),
+            OutlinedButton(
+              key: const ValueKey('complete-sheet'),
+              onPressed: () => context.push(
+                '/character-sheet',
+                extra: SheetSeed(
+                  universe: widget.run.universe,
+                  kept: widget.run.kept,
+                ),
+              ),
+              child: Text(context.l10n.sheetCompleteFromCards),
+            ),
             TextButton(
               onPressed: context.read<ChroniclesCubit>().restart,
               child: Text(context.l10n.chroniclesRestart),

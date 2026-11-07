@@ -68,7 +68,8 @@ abstract final class SheetImport {
     return sheet;
   }
 
-  static bool _isDate(String text) => RegExp(r'^\d{1,2}/\d{1,2}/\d+$').hasMatch(text);
+  static bool _isDate(String text) =>
+      RegExp(r'^\d{1,2}/\d{1,2}/\d+$').hasMatch(text);
 
   static int _limit(String id) => switch (id) {
     'languages' || 'experiences' || 'aims' || 'likes' || 'dislikes' => 3,
