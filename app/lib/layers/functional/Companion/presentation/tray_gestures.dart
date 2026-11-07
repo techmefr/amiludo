@@ -1,7 +1,5 @@
 import 'dart:ui';
 
-import 'package:flutter/foundation.dart';
-
 const double _minSpeed = 400;
 
 class TrayFlick {

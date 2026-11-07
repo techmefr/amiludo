@@ -39,7 +39,7 @@ Future<void> showDieActionsSheet(
               title: Text(l.diceEdit),
               onTap: () {
                 Navigator.pop(sheet);
-                openDieEditor(context, design!);
+                openDieEditor(context, design);
               },
             ),
           ListTile(
