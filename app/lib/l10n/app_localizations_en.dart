@@ -2594,6 +2594,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get diceTrayThrow => 'Throw';
 
   @override
+  String get diceSkinCream => 'Soft cream';
+
+  @override
+  String get diceSkinViolet => 'Soft violet';
+
+  @override
+  String get diceTableRed => 'Red';
+
+  @override
   String get diceSeeMore => 'See all dice';
 
   @override

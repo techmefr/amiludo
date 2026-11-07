@@ -31,14 +31,16 @@ class DiePainter extends CustomPainter {
     for (final f in faces) {
       if (f.light > brightest) brightest = f.light;
     }
-    final corner = radius * 0.1;
+    final soft = skin.finish == DieFinish.soft;
+    final corner = radius * (soft ? 0.26 : 0.1);
     for (final face in faces) {
       final path = roundedPolygon(face.outline, corner);
       final tinted = faceted ? tintFacet(base, face.index) : base;
       final color = DieProjection.shade(tinted, face.light);
       paintFacet(canvas, path, color, skin);
-      paintBevel(canvas, path, color, radius * 0.07);
+      paintBevel(canvas, path, color, radius * (soft ? 0.12 : 0.07));
       if (face.light == brightest) paintSpecular(canvas, path, skin);
+      if (soft) continue;
       canvas.drawPath(
         path,
         Paint()

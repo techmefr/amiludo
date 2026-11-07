@@ -24,6 +24,7 @@ class TableTheme {
     ),
     TableTheme('wood', Color(0xFFA8743F), Color(0xFF6B4423), Color(0xFF3F2512)),
     TableTheme('blue', Color(0xFF3F74C4), Color(0xFF1D3F7A), Color(0xFF112650)),
+    TableTheme('red', Color(0xFFB23A3A), Color(0xFF6E1B1B), Color(0xFF450F0F)),
   ];
 
   static TableTheme byId(String id) =>

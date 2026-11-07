@@ -21,10 +21,10 @@ Widget host(Widget child) => MaterialApp(
 
 void main() {
   test('skins and tables are data with unique ids and a default', () {
-    expect(DieSkin.all.length, 6);
-    expect({for (final s in DieSkin.all) s.id}.length, 6);
-    expect(TableTheme.all.length, 5);
-    expect({for (final t in TableTheme.all) t.id}.length, 5);
+    expect(DieSkin.all.length, 8);
+    expect({for (final s in DieSkin.all) s.id}.length, 8);
+    expect(TableTheme.all.length, 6);
+    expect({for (final t in TableTheme.all) t.id}.length, 6);
     expect(DieSkin.byId('nope'), DieSkin.classic);
     expect(TableTheme.byId('nope'), TableTheme.felt);
   });

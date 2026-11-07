@@ -2615,6 +2615,15 @@ class AppLocalizationsNl extends AppLocalizations {
   String get diceTrayThrow => 'Gooien';
 
   @override
+  String get diceSkinCream => 'Zacht crème';
+
+  @override
+  String get diceSkinViolet => 'Zacht paars';
+
+  @override
+  String get diceTableRed => 'Rood';
+
+  @override
   String get diceSeeMore => 'Alle dobbelstenen tonen';
 
   @override

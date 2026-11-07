@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-enum DieFinish { gloss, matte, metal, wood, crystal, glass }
+enum DieFinish { gloss, matte, soft, metal, wood, crystal, glass }
 
 class DieSkin {
   const DieSkin(this.id, this.base, this.pip, this.finish);
@@ -26,6 +26,8 @@ class DieSkin {
     DieSkin('wood', Color(0xFF9C6B3F), Color(0xFF2E1A0A), DieFinish.wood),
     DieSkin('crystal', Color(0xFF8FD3F4), Color(0xFF0B3A5B), DieFinish.crystal),
     DieSkin('glass', Color(0xFFCFE8E0), Color(0xFF1F4D43), DieFinish.glass),
+    DieSkin('cream', Color(0xFFF0E4D4), Color(0xFF2E2825), DieFinish.soft),
+    DieSkin('violet', Color(0xFF9B3BE8), Color(0xFF2A2230), DieFinish.soft),
   ];
 
   static DieSkin byId(String id) =>
