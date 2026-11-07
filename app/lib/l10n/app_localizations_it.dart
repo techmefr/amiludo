@@ -2614,6 +2614,47 @@ class AppLocalizationsIt extends AppLocalizations {
   String get diceTrayThrow => 'Lancia';
 
   @override
+  String get diceResultMode => 'Visualizzazione del risultato';
+
+  @override
+  String get diceResultNone => 'Nessuno';
+
+  @override
+  String get diceResultList => 'Elenco';
+
+  @override
+  String get diceResultCombined => 'Combinato';
+
+  @override
+  String get diceResultSum => 'Somma';
+
+  @override
+  String get diceResultBest => 'Il migliore';
+
+  @override
+  String get diceResultWorst => 'Il peggiore';
+
+  @override
+  String get diceResultDropWorst => 'Ignora il più basso';
+
+  @override
+  String get diceResultDropBest => 'Ignora il più alto';
+
+  @override
+  String get diceResultMiddle => 'Medio';
+
+  @override
+  String get diceResultAverage => 'Media';
+
+  @override
+  String get diceResultOddEven => 'Dispari / pari';
+
+  @override
+  String diceResultOddEvenCount(int odd, int even) {
+    return '$odd dispari · $even pari';
+  }
+
+  @override
   String get diceTrayShakeHint => 'Scuoti il telefono o premi Lancia.';
 
   @override

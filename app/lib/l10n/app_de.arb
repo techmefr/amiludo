@@ -788,6 +788,29 @@
   "toolDiceTrayTitle": "Würfelbrett",
   "toolDiceTraySubtitle": "Schütteln zum Werfen, Würfel beiseitelegen, Summe sehen.",
   "diceTrayThrow": "Werfen",
+  "diceResultMode": "Ergebnisanzeige",
+  "diceResultNone": "Keine",
+  "diceResultList": "Liste",
+  "diceResultCombined": "Kombiniert",
+  "diceResultSum": "Summe",
+  "diceResultBest": "Bester",
+  "diceResultWorst": "Schlechtester",
+  "diceResultDropWorst": "Niedrigsten ignorieren",
+  "diceResultDropBest": "Höchsten ignorieren",
+  "diceResultMiddle": "Mitte",
+  "diceResultAverage": "Durchschnitt",
+  "diceResultOddEven": "Ungerade / gerade",
+  "diceResultOddEvenCount": "{odd} ungerade · {even} gerade",
+  "@diceResultOddEvenCount": {
+    "placeholders": {
+      "odd": {
+        "type": "int"
+      },
+      "even": {
+        "type": "int"
+      }
+    }
+  },
   "diceTrayShakeHint": "Schüttle dein Handy oder tippe auf Werfen.",
   "diceTrayTotal": "Gesamt",
   "diceTrayHistory": "Verlauf",

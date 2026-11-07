@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/tray_result.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_2d_panel.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_3d_panel.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_stage.dart';
@@ -72,6 +73,7 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
   late String skin = widget.skin, table = widget.table;
   double power = 0.7;
   Offset aim = Offset.zero;
+  TrayResultMode mode = TrayResultMode.sum;
   Tilt tilt = Tilt.flat;
 
   @override
@@ -153,6 +155,8 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
         table: table,
         onConfigure: configure,
         onThrow: throwDice,
+        mode: mode,
+        onMode: (m) => setState(() => mode = m),
         onSkin: (id) {
           setState(() => skin = id);
           widget.onSkinChanged?.call(id);

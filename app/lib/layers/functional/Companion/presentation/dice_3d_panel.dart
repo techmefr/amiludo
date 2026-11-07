@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_add_sheet.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/tray_result.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_look_sheet.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/tray_result_view.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
@@ -18,6 +20,8 @@ class Dice3dPanel extends StatelessWidget {
     required this.onThrow,
     required this.onSkin,
     required this.onTable,
+    this.mode = TrayResultMode.sum,
+    this.onMode,
   });
   final DiceTraySession session;
   final Widget stage;
@@ -25,6 +29,8 @@ class Dice3dPanel extends StatelessWidget {
   final ValueChanged<DiceTraySettings> onConfigure;
   final VoidCallback onThrow;
   final ValueChanged<String> onSkin, onTable;
+  final TrayResultMode mode;
+  final ValueChanged<TrayResultMode>? onMode;
 
   @override
   Widget build(BuildContext context) {
@@ -75,26 +81,7 @@ class Dice3dPanel extends StatelessWidget {
           ),
         ),
         const SizedBox(height: Space.md),
-        Semantics(
-          liveRegion: true,
-          child: Column(
-            children: [
-              Text(
-                session.thrown ? '${session.total}' : '–',
-                style: theme.textTheme.displayMedium,
-              ),
-              if (session.thrown)
-                Text(
-                  [
-                    for (var i = 0; i < session.values.length; i++)
-                      session.settings.dice[i].faceLabel(session.values[i]),
-                  ].join(' · '),
-                  style: theme.textTheme.titleMedium,
-                  textAlign: TextAlign.center,
-                ),
-            ],
-          ),
-        ),
+        TrayResultView(session: session, mode: mode, onMode: onMode),
       ],
     );
   }

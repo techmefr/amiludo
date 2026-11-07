@@ -788,6 +788,29 @@
   "toolDiceTrayTitle": "Bandeja de dados",
   "toolDiceTraySubtitle": "Agita para lanzar, aparta dados y mira el total.",
   "diceTrayThrow": "Lanzar",
+  "diceResultMode": "Mostrar resultado",
+  "diceResultNone": "Ninguno",
+  "diceResultList": "Lista",
+  "diceResultCombined": "Combinado",
+  "diceResultSum": "Suma",
+  "diceResultBest": "El mejor",
+  "diceResultWorst": "El peor",
+  "diceResultDropWorst": "Ignorar el más bajo",
+  "diceResultDropBest": "Ignorar el más alto",
+  "diceResultMiddle": "Medio",
+  "diceResultAverage": "Media",
+  "diceResultOddEven": "Impar / par",
+  "diceResultOddEvenCount": "{odd} impar · {even} par",
+  "@diceResultOddEvenCount": {
+    "placeholders": {
+      "odd": {
+        "type": "int"
+      },
+      "even": {
+        "type": "int"
+      }
+    }
+  },
   "diceTrayShakeHint": "Agita el móvil o pulsa Lanzar.",
   "diceTrayTotal": "Total",
   "diceTrayHistory": "Historial",

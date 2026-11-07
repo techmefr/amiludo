@@ -788,6 +788,29 @@
   "toolDiceTrayTitle": "Bandeja de dados",
   "toolDiceTraySubtitle": "Sacuda para lançar, guarde dados de lado e veja o total.",
   "diceTrayThrow": "Lançar",
+  "diceResultMode": "Mostrar resultado",
+  "diceResultNone": "Nenhum",
+  "diceResultList": "Lista",
+  "diceResultCombined": "Combinado",
+  "diceResultSum": "Soma",
+  "diceResultBest": "O melhor",
+  "diceResultWorst": "O pior",
+  "diceResultDropWorst": "Ignorar o mais baixo",
+  "diceResultDropBest": "Ignorar o mais alto",
+  "diceResultMiddle": "Médio",
+  "diceResultAverage": "Média",
+  "diceResultOddEven": "Ímpar / par",
+  "diceResultOddEvenCount": "{odd} ímpar · {even} par",
+  "@diceResultOddEvenCount": {
+    "placeholders": {
+      "odd": {
+        "type": "int"
+      },
+      "even": {
+        "type": "int"
+      }
+    }
+  },
   "diceTrayShakeHint": "Sacuda o telemóvel ou toque em Lançar.",
   "diceTrayTotal": "Total",
   "diceTrayHistory": "Histórico",

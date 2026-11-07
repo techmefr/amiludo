@@ -788,6 +788,29 @@
   "toolDiceTrayTitle": "Vassoio dei dadi",
   "toolDiceTraySubtitle": "Scuoti per lanciare, tieni da parte i dadi, vedi il totale.",
   "diceTrayThrow": "Lancia",
+  "diceResultMode": "Visualizzazione del risultato",
+  "diceResultNone": "Nessuno",
+  "diceResultList": "Elenco",
+  "diceResultCombined": "Combinato",
+  "diceResultSum": "Somma",
+  "diceResultBest": "Il migliore",
+  "diceResultWorst": "Il peggiore",
+  "diceResultDropWorst": "Ignora il più basso",
+  "diceResultDropBest": "Ignora il più alto",
+  "diceResultMiddle": "Medio",
+  "diceResultAverage": "Media",
+  "diceResultOddEven": "Dispari / pari",
+  "diceResultOddEvenCount": "{odd} dispari · {even} pari",
+  "@diceResultOddEvenCount": {
+    "placeholders": {
+      "odd": {
+        "type": "int"
+      },
+      "even": {
+        "type": "int"
+      }
+    }
+  },
   "diceTrayShakeHint": "Scuoti il telefono o premi Lancia.",
   "diceTrayTotal": "Totale",
   "diceTrayHistory": "Cronologia",
