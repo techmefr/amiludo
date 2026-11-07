@@ -4856,6 +4856,30 @@ abstract class AppLocalizations {
   /// **'Throw'**
   String get diceTrayThrow;
 
+  /// No description provided for @diceSeeMore.
+  ///
+  /// In en, this message translates to:
+  /// **'See all dice'**
+  String get diceSeeMore;
+
+  /// No description provided for @diceFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
+  String get diceFavorites;
+
+  /// No description provided for @diceFavoriteAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to favorites'**
+  String get diceFavoriteAdd;
+
+  /// No description provided for @diceFavoriteRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from favorites'**
+  String get diceFavoriteRemove;
+
   /// No description provided for @diceTrayErase.
   ///
   /// In en, this message translates to:

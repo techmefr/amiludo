@@ -2615,6 +2615,18 @@ class AppLocalizationsNl extends AppLocalizations {
   String get diceTrayThrow => 'Gooien';
 
   @override
+  String get diceSeeMore => 'Alle dobbelstenen tonen';
+
+  @override
+  String get diceFavorites => 'Favorieten';
+
+  @override
+  String get diceFavoriteAdd => 'Aan favorieten toevoegen';
+
+  @override
+  String get diceFavoriteRemove => 'Uit favorieten verwijderen';
+
+  @override
   String get diceTrayErase => 'Resultaat wissen';
 
   @override

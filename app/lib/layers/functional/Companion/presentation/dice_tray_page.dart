@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/tray_result.
 import 'package:amiludo/layers/functional/Companion/presentation/dice_2d_panel.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_3d_panel.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_stage.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/die_actions_sheet.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/die_studio.dart';
 import 'package:amiludo/layers/technical/Dice3D/die_skin.dart';
 import 'package:amiludo/layers/technical/Dice3D/table_theme.dart';
@@ -106,14 +107,24 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
   }
 
   void configure(DiceTraySettings next) {
-    final kept = DiceTraySettings(
-      dice: next.dice,
-      surface: session.settings.surface,
-      resultMode: session.settings.resultMode,
-    );
+    final kept = session.settings.withDice(next.dice);
     setState(() => session = session.withSettings(kept));
     widget.onChanged?.call(kept);
   }
+
+  void toggleFavorite(String key) {
+    final next = session.settings.toggleFavorite(key);
+    setState(() => session = session.withPreferences(next));
+    widget.onChanged?.call(next);
+  }
+
+  void editDie(int index) => showDieActionsSheet(
+    context,
+    session.settings.dice[index],
+    onRemove: () => configure(
+      session.settings.withDice([...session.settings.dice]..removeAt(index)),
+    ),
+  );
 
   void chooseSurface(String name) {
     final next = session.settings.withSurface(name);
@@ -139,6 +150,7 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
     aim: aim,
     onFlick: throwDice,
     onTapTable: throwDice,
+    onLongPressDie: editDie,
     tilt: tilt,
     feedback: feedback,
     solid: solid,
@@ -163,6 +175,7 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
         mode: TrayResultMode.parse(session.settings.resultMode),
         onMode: chooseMode,
         onClear: () => setState(() => session = session.cleared()),
+        onFavorite: toggleFavorite,
         onSkin: (id) {
           setState(() => skin = id);
           widget.onSkinChanged?.call(id);

@@ -2614,6 +2614,18 @@ class AppLocalizationsIt extends AppLocalizations {
   String get diceTrayThrow => 'Lancia';
 
   @override
+  String get diceSeeMore => 'Mostra tutti i dadi';
+
+  @override
+  String get diceFavorites => 'Preferiti';
+
+  @override
+  String get diceFavoriteAdd => 'Aggiungi ai preferiti';
+
+  @override
+  String get diceFavoriteRemove => 'Rimuovi dai preferiti';
+
+  @override
   String get diceTrayErase => 'Cancella risultato';
 
   @override

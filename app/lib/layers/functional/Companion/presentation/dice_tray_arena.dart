@@ -26,6 +26,7 @@ class DiceTraySurface extends StatefulWidget {
     this.aim = Offset.zero,
     this.onFlick,
     this.onTapTable,
+    this.onLongPressDie,
     this.tilt = Tilt.flat,
     this.feedback,
     this.solid = false,
@@ -40,6 +41,7 @@ class DiceTraySurface extends StatefulWidget {
   final Offset aim;
   final void Function(double power, Offset aim)? onFlick;
   final VoidCallback? onTapTable;
+  final ValueChanged<int>? onLongPressDie;
   final Tilt tilt;
   final TrayFeedback? feedback;
   final bool solid;
@@ -122,16 +124,6 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
     run();
   }
 
-  void swipe(int i, Offset v) {
-    if (isLockSwipe(v)) return widget.onTapDie(i);
-    if (v.dy < 0) flickAt(v);
-  }
-
-  void flickAt(Offset v) {
-    final f = flickOf(v);
-    if (f != null) widget.onFlick?.call(f.power, f.aim);
-  }
-
   TrayPhysics bodyFor(BoxConstraints box) {
     final count = widget.session.settings.dice.length;
     final current = physics;
@@ -164,7 +156,9 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
       value: b.rolling ? b.face : widget.session.values[i],
       scheme: scheme,
       onTap: () => widget.onTapDie(i),
-      onSwipe: (v) => swipe(i, v),
+      onLongPress: () => widget.onLongPressDie?.call(i),
+      onSwipe: (v) =>
+          routeSwipe(v, widget.onFlick, lock: () => widget.onTapDie(i)),
       solid: widget.solid,
       skin: widget.skin,
     );
@@ -185,7 +179,8 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
           solid: widget.solid,
           table: widget.table,
           onTap: widget.onTapTable,
-          onPanEnd: (d) => flickAt(d.velocity.pixelsPerSecond),
+          onPanEnd: (d) =>
+              routeSwipe(d.velocity.pixelsPerSecond, widget.onFlick),
           children: [
             if (session.thrown)
               for (var i = 0; i < p.bodies.length; i++)

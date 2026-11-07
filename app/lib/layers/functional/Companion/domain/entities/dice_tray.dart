@@ -78,6 +78,8 @@ class DiceSpec {
 
   String get name => design?.name ?? (custom ? faces.join(' ') : 'd$sides');
 
+  String get key => design?.id ?? (custom ? faces.join(',') : 'd$sides');
+
   Map<String, dynamic> toJson() => {
     'sides': sides,
     if (custom) 'faces': faces,
@@ -91,6 +93,7 @@ class DiceTraySettings {
     this.dice = const [DiceSpec(sides: 6), DiceSpec(sides: 6)],
     this.surface = 'wood',
     this.resultMode = 'sum',
+    this.favorites = const [],
   });
 
   factory DiceTraySettings.fromJson(Map<String, dynamic> j) {
@@ -103,11 +106,13 @@ class DiceTraySettings {
       dice: parsed.isEmpty ? const DiceTraySettings().dice : parsed,
       surface: surface,
       resultMode: '${j['result'] ?? 'sum'}',
+      favorites: [for (final f in j['favorites'] as List? ?? const []) '$f'],
     );
   }
 
   final List<DiceSpec> dice;
   final String surface, resultMode;
+  final List<String> favorites;
 
   DiceTraySettings resolved(DieLibrary library) => DiceTraySettings(
     dice: [
@@ -118,18 +123,43 @@ class DiceTraySettings {
     ],
     surface: surface,
     resultMode: resultMode,
+    favorites: favorites,
   );
 
-  DiceTraySettings withSurface(String next) =>
-      DiceTraySettings(dice: dice, surface: next, resultMode: resultMode);
+  DiceTraySettings copyWith({
+    List<DiceSpec>? dice,
+    String? surface,
+    String? resultMode,
+    List<String>? favorites,
+  }) => DiceTraySettings(
+    dice: dice ?? this.dice,
+    surface: surface ?? this.surface,
+    resultMode: resultMode ?? this.resultMode,
+    favorites: favorites ?? this.favorites,
+  );
 
-  DiceTraySettings withResultMode(String next) =>
-      DiceTraySettings(dice: dice, surface: surface, resultMode: next);
+  DiceTraySettings withSurface(String next) => copyWith(surface: next);
+
+  DiceTraySettings withResultMode(String next) => copyWith(resultMode: next);
+
+  DiceTraySettings withDice(List<DiceSpec> next) => copyWith(dice: next);
+
+  bool isFavorite(String key) => favorites.contains(key);
+
+  DiceTraySettings toggleFavorite(String key) => copyWith(
+    favorites: isFavorite(key)
+        ? [
+            for (final f in favorites)
+              if (f != key) f,
+          ]
+        : [...favorites, key],
+  );
 
   Map<String, dynamic> toJson() => {
     'dice': dice.map((d) => d.toJson()).toList(),
     'surface': surface,
     if (resultMode != 'sum') 'result': resultMode,
+    if (favorites.isNotEmpty) 'favorites': favorites,
   };
 
   Brick toBrick(String id) =>
@@ -185,8 +215,11 @@ class DiceTraySession {
     );
   }
 
-  DiceTraySession withMode(String mode) => DiceTraySession(
-    settings: settings.withResultMode(mode),
+  DiceTraySession withMode(String mode) =>
+      withPreferences(settings.withResultMode(mode));
+
+  DiceTraySession withPreferences(DiceTraySettings next) => DiceTraySession(
+    settings: next,
     values: values,
     kept: kept,
     history: history,

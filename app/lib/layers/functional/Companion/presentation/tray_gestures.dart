@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:flutter/foundation.dart';
+
 const double _minSpeed = 400;
 
 class TrayFlick {
@@ -15,6 +17,19 @@ TrayFlick? flickOf(Offset velocity) {
     (velocity.distance / 1800).clamp(0.5, 1.5),
     velocity / velocity.distance,
   );
+}
+
+void routeSwipe(
+  Offset v,
+  void Function(double power, Offset aim)? onFlick, {
+  VoidCallback? lock,
+}) {
+  if (lock != null) {
+    if (isLockSwipe(v)) return lock();
+    if (v.dy >= 0) return;
+  }
+  final f = flickOf(v);
+  if (f != null) onFlick?.call(f.power, f.aim);
 }
 
 bool isLockSwipe(Offset v) =>

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/dice_catalog_sheet.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/die_actions_sheet.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/die_studio.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/deck_sheet.dart';
@@ -13,13 +15,16 @@ const diceMoreSides = [2, 3, 5, 16, 24, 30, 60, 1000];
 Future<void> showDiceAddSheet(
   BuildContext context,
   DiceTraySettings settings,
-  ValueChanged<DiceTraySettings> onChanged,
-) => showDeckSheet<void>(
+  ValueChanged<DiceTraySettings> onChanged, {
+  ValueChanged<String>? onFavorite,
+}) => showDeckSheet<void>(
   context: context,
   title: context.l10n.diceTrayAddDie,
   builder: (_) => DiceAddList(
     settings: settings,
     onChanged: onChanged,
+    onFavorite: onFavorite,
+    onEdit: (d) => openDieEditor(context, d),
     library: DieStudio.maybeOf(context)?.state.designs ?? const [],
   ),
 );
@@ -30,10 +35,14 @@ class DiceAddList extends StatefulWidget {
     required this.settings,
     required this.onChanged,
     this.library = const [],
+    this.onFavorite,
+    this.onEdit,
   });
   final List<DieDesign> library;
   final DiceTraySettings settings;
   final ValueChanged<DiceTraySettings> onChanged;
+  final ValueChanged<String>? onFavorite;
+  final ValueChanged<DieDesign>? onEdit;
 
   @override
   State<DiceAddList> createState() => _DiceAddListState();
@@ -127,6 +136,19 @@ class _DiceAddListState extends State<DiceAddList> {
               ),
           ],
         ),
+        if (widget.onFavorite != null)
+          TextButton.icon(
+            onPressed: () => showDiceCatalogSheet(
+              context,
+              favorites: widget.settings.favorites,
+              library: library,
+              onAdd: add,
+              onFavorite: widget.onFavorite!,
+              onEdit: widget.onEdit,
+            ),
+            icon: const Icon(Icons.grid_view),
+            label: Text(l.diceSeeMore),
+          ),
         if (library.isNotEmpty) ...[
           const SizedBox(height: Space.md),
           Text(l.diceMyDice, style: Theme.of(context).textTheme.labelLarge),

@@ -2614,6 +2614,18 @@ class AppLocalizationsPt extends AppLocalizations {
   String get diceTrayThrow => 'Lançar';
 
   @override
+  String get diceSeeMore => 'Ver todos os dados';
+
+  @override
+  String get diceFavorites => 'Favoritos';
+
+  @override
+  String get diceFavoriteAdd => 'Adicionar aos favoritos';
+
+  @override
+  String get diceFavoriteRemove => 'Remover dos favoritos';
+
+  @override
   String get diceTrayErase => 'Limpar resultado';
 
   @override
