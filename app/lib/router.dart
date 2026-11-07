@@ -14,6 +14,7 @@ import 'package:amiludo/layers/functional/Companion/presentation/counter_tool.da
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
 import 'package:amiludo/dice_studio.dart';
 import 'package:amiludo/map_tool.dart';
+import 'package:amiludo/notebook_routes.dart';
 import 'package:amiludo/sensor_tools.dart';
 import 'package:amiludo/layers/functional/Account/presentation/account_screen.dart';
 import 'package:amiludo/layers/functional/Admin/presentation/admin_screen.dart';
@@ -127,6 +128,7 @@ class _ChroniclesRoute extends StatelessWidget {
 
 final router = GoRouter(
   routes: [
+    ...notebookRoutes,
     _page('/chronicles', (state) => const _ChroniclesRoute()),
     _page(
       '/tools/:id',

@@ -6517,6 +6517,576 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} dice'**
   String diceTrayCount(int count);
+
+  /// No description provided for @notebookHomeTile.
+  ///
+  /// In en, this message translates to:
+  /// **'Campaign notebook'**
+  String get notebookHomeTile;
+
+  /// No description provided for @notebookTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Campaign notebook'**
+  String get notebookTitle;
+
+  /// No description provided for @notebookIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep the story of your solo adventures or your game master notes, with an oracle to answer your questions.'**
+  String get notebookIntro;
+
+  /// No description provided for @notebookEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No campaign yet'**
+  String get notebookEmpty;
+
+  /// No description provided for @notebookEmptyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a campaign or import a file to begin.'**
+  String get notebookEmptyHint;
+
+  /// No description provided for @notebookNewCampaign.
+  ///
+  /// In en, this message translates to:
+  /// **'New campaign'**
+  String get notebookNewCampaign;
+
+  /// No description provided for @notebookCampaignName.
+  ///
+  /// In en, this message translates to:
+  /// **'Campaign name'**
+  String get notebookCampaignName;
+
+  /// No description provided for @notebookCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Create'**
+  String get notebookCreate;
+
+  /// No description provided for @notebookKindSolo.
+  ///
+  /// In en, this message translates to:
+  /// **'Solo'**
+  String get notebookKindSolo;
+
+  /// No description provided for @notebookKindGm.
+  ///
+  /// In en, this message translates to:
+  /// **'Game master'**
+  String get notebookKindGm;
+
+  /// No description provided for @notebookImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Import a campaign'**
+  String get notebookImport;
+
+  /// No description provided for @notebookImported.
+  ///
+  /// In en, this message translates to:
+  /// **'Campaign imported'**
+  String get notebookImported;
+
+  /// No description provided for @notebookImportFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'This file is not a campaign'**
+  String get notebookImportFailed;
+
+  /// No description provided for @notebookExport.
+  ///
+  /// In en, this message translates to:
+  /// **'Export'**
+  String get notebookExport;
+
+  /// No description provided for @notebookDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get notebookDelete;
+
+  /// No description provided for @notebookDeleteAsk.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete “{name}” and everything in it?'**
+  String notebookDeleteAsk(String name);
+
+  /// No description provided for @notebookFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite'**
+  String get notebookFavorite;
+
+  /// No description provided for @notebookLook.
+  ///
+  /// In en, this message translates to:
+  /// **'Look'**
+  String get notebookLook;
+
+  /// No description provided for @notebookPalette.
+  ///
+  /// In en, this message translates to:
+  /// **'Palette'**
+  String get notebookPalette;
+
+  /// No description provided for @notebookDefaultPalette.
+  ///
+  /// In en, this message translates to:
+  /// **'Default palette'**
+  String get notebookDefaultPalette;
+
+  /// No description provided for @notebookHeaderImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Header image'**
+  String get notebookHeaderImage;
+
+  /// No description provided for @notebookRemoveImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove image'**
+  String get notebookRemoveImage;
+
+  /// No description provided for @notebookTabJournal.
+  ///
+  /// In en, this message translates to:
+  /// **'Journal'**
+  String get notebookTabJournal;
+
+  /// No description provided for @notebookTabEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'Entries'**
+  String get notebookTabEntries;
+
+  /// No description provided for @notebookTabOracle.
+  ///
+  /// In en, this message translates to:
+  /// **'Oracle'**
+  String get notebookTabOracle;
+
+  /// No description provided for @notebookStartSession.
+  ///
+  /// In en, this message translates to:
+  /// **'Start a session'**
+  String get notebookStartSession;
+
+  /// No description provided for @notebookEndSession.
+  ///
+  /// In en, this message translates to:
+  /// **'End session'**
+  String get notebookEndSession;
+
+  /// No description provided for @notebookSessionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Session title'**
+  String get notebookSessionTitle;
+
+  /// No description provided for @notebookSession.
+  ///
+  /// In en, this message translates to:
+  /// **'Session'**
+  String get notebookSession;
+
+  /// No description provided for @notebookSessionActive.
+  ///
+  /// In en, this message translates to:
+  /// **'active'**
+  String get notebookSessionActive;
+
+  /// No description provided for @notebookJournalEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing written yet. Tell what happened below.'**
+  String get notebookJournalEmpty;
+
+  /// No description provided for @notebookQuickEntryHint.
+  ///
+  /// In en, this message translates to:
+  /// **'What happened?'**
+  String get notebookQuickEntryHint;
+
+  /// No description provided for @notebookAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get notebookAdd;
+
+  /// No description provided for @notebookAddToJournal.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to journal'**
+  String get notebookAddToJournal;
+
+  /// No description provided for @notebookRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get notebookRemove;
+
+  /// No description provided for @notebookToolDice.
+  ///
+  /// In en, this message translates to:
+  /// **'Dice'**
+  String get notebookToolDice;
+
+  /// No description provided for @notebookToolOracle.
+  ///
+  /// In en, this message translates to:
+  /// **'Oracle'**
+  String get notebookToolOracle;
+
+  /// No description provided for @notebookToolGenerator.
+  ///
+  /// In en, this message translates to:
+  /// **'Generator'**
+  String get notebookToolGenerator;
+
+  /// No description provided for @notebookToolScene.
+  ///
+  /// In en, this message translates to:
+  /// **'Scene note'**
+  String get notebookToolScene;
+
+  /// No description provided for @notebookSceneNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Scene'**
+  String get notebookSceneNote;
+
+  /// No description provided for @notebookDiceExpression.
+  ///
+  /// In en, this message translates to:
+  /// **'Roll (for example 2d6+1)'**
+  String get notebookDiceExpression;
+
+  /// No description provided for @notebookDiceInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Use a format like 2d6+1'**
+  String get notebookDiceInvalid;
+
+  /// No description provided for @notebookRoll.
+  ///
+  /// In en, this message translates to:
+  /// **'Roll'**
+  String get notebookRoll;
+
+  /// No description provided for @notebookReroll.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw again'**
+  String get notebookReroll;
+
+  /// No description provided for @notebookAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get notebookAll;
+
+  /// No description provided for @notebookKindNpc.
+  ///
+  /// In en, this message translates to:
+  /// **'Character'**
+  String get notebookKindNpc;
+
+  /// No description provided for @notebookKindPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Place'**
+  String get notebookKindPlace;
+
+  /// No description provided for @notebookKindQuest.
+  ///
+  /// In en, this message translates to:
+  /// **'Quest'**
+  String get notebookKindQuest;
+
+  /// No description provided for @notebookKindLoot.
+  ///
+  /// In en, this message translates to:
+  /// **'Loot'**
+  String get notebookKindLoot;
+
+  /// No description provided for @notebookKindFaction.
+  ///
+  /// In en, this message translates to:
+  /// **'Faction'**
+  String get notebookKindFaction;
+
+  /// No description provided for @notebookNewEntry.
+  ///
+  /// In en, this message translates to:
+  /// **'New entry'**
+  String get notebookNewEntry;
+
+  /// No description provided for @notebookEntryName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get notebookEntryName;
+
+  /// No description provided for @notebookEntriesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No entry yet. Add characters, places, quests, loot and factions.'**
+  String get notebookEntriesEmpty;
+
+  /// No description provided for @notebookSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search the campaign'**
+  String get notebookSearchHint;
+
+  /// No description provided for @notebookNoResults.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing found'**
+  String get notebookNoResults;
+
+  /// No description provided for @notebookSectionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get notebookSectionDescription;
+
+  /// No description provided for @notebookSectionNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get notebookSectionNotes;
+
+  /// No description provided for @notebookSectionChecklist.
+  ///
+  /// In en, this message translates to:
+  /// **'Checklist'**
+  String get notebookSectionChecklist;
+
+  /// No description provided for @notebookSectionTags.
+  ///
+  /// In en, this message translates to:
+  /// **'Tags'**
+  String get notebookSectionTags;
+
+  /// No description provided for @notebookSectionStats.
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics'**
+  String get notebookSectionStats;
+
+  /// No description provided for @notebookSectionPictures.
+  ///
+  /// In en, this message translates to:
+  /// **'Pictures'**
+  String get notebookSectionPictures;
+
+  /// No description provided for @notebookAddSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a section'**
+  String get notebookAddSection;
+
+  /// No description provided for @notebookSectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename section'**
+  String get notebookSectionTitle;
+
+  /// No description provided for @notebookAddItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Add an item'**
+  String get notebookAddItem;
+
+  /// No description provided for @notebookAddTag.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a tag'**
+  String get notebookAddTag;
+
+  /// No description provided for @notebookStatName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get notebookStatName;
+
+  /// No description provided for @notebookStatValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Value'**
+  String get notebookStatValue;
+
+  /// No description provided for @notebookAddStat.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a statistic'**
+  String get notebookAddStat;
+
+  /// No description provided for @notebookAddPicture.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a picture'**
+  String get notebookAddPicture;
+
+  /// No description provided for @notebookLinkHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Write here. Names of other entries become links, or use [[Name]].'**
+  String get notebookLinkHint;
+
+  /// No description provided for @notebookBacklinks.
+  ///
+  /// In en, this message translates to:
+  /// **'Mentioned in'**
+  String get notebookBacklinks;
+
+  /// No description provided for @notebookLikelihood.
+  ///
+  /// In en, this message translates to:
+  /// **'Likelihood'**
+  String get notebookLikelihood;
+
+  /// No description provided for @notebookLikelihoodVeryUnlikely.
+  ///
+  /// In en, this message translates to:
+  /// **'Very unlikely'**
+  String get notebookLikelihoodVeryUnlikely;
+
+  /// No description provided for @notebookLikelihoodUnlikely.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlikely'**
+  String get notebookLikelihoodUnlikely;
+
+  /// No description provided for @notebookLikelihoodEven.
+  ///
+  /// In en, this message translates to:
+  /// **'Even odds'**
+  String get notebookLikelihoodEven;
+
+  /// No description provided for @notebookLikelihoodLikely.
+  ///
+  /// In en, this message translates to:
+  /// **'Likely'**
+  String get notebookLikelihoodLikely;
+
+  /// No description provided for @notebookLikelihoodVeryLikely.
+  ///
+  /// In en, this message translates to:
+  /// **'Very likely'**
+  String get notebookLikelihoodVeryLikely;
+
+  /// No description provided for @notebookChaos.
+  ///
+  /// In en, this message translates to:
+  /// **'Chaos factor: {value}'**
+  String notebookChaos(int value);
+
+  /// No description provided for @notebookAsk.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask the oracle'**
+  String get notebookAsk;
+
+  /// No description provided for @notebookOracleQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes or no question'**
+  String get notebookOracleQuestion;
+
+  /// No description provided for @notebookAnswerYes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get notebookAnswerYes;
+
+  /// No description provided for @notebookAnswerNo.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get notebookAnswerNo;
+
+  /// No description provided for @notebookAnswerExceptionalYes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes, and more'**
+  String get notebookAnswerExceptionalYes;
+
+  /// No description provided for @notebookAnswerExceptionalNo.
+  ///
+  /// In en, this message translates to:
+  /// **'No, and worse'**
+  String get notebookAnswerExceptionalNo;
+
+  /// No description provided for @notebookAnswerEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'a random event occurs'**
+  String get notebookAnswerEvent;
+
+  /// No description provided for @notebookSceneCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'Scene check'**
+  String get notebookSceneCheck;
+
+  /// No description provided for @notebookSceneExpected.
+  ///
+  /// In en, this message translates to:
+  /// **'The scene goes as expected'**
+  String get notebookSceneExpected;
+
+  /// No description provided for @notebookSceneAltered.
+  ///
+  /// In en, this message translates to:
+  /// **'The scene is altered'**
+  String get notebookSceneAltered;
+
+  /// No description provided for @notebookSceneInterrupted.
+  ///
+  /// In en, this message translates to:
+  /// **'The scene is interrupted'**
+  String get notebookSceneInterrupted;
+
+  /// No description provided for @notebookMeaning.
+  ///
+  /// In en, this message translates to:
+  /// **'Action and theme'**
+  String get notebookMeaning;
+
+  /// No description provided for @notebookDescriptors.
+  ///
+  /// In en, this message translates to:
+  /// **'Descriptors'**
+  String get notebookDescriptors;
+
+  /// No description provided for @notebookRandomEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Random event'**
+  String get notebookRandomEvent;
+
+  /// No description provided for @notebookReaction.
+  ///
+  /// In en, this message translates to:
+  /// **'NPC reaction'**
+  String get notebookReaction;
+
+  /// No description provided for @notebookDiscovery.
+  ///
+  /// In en, this message translates to:
+  /// **'Discovery'**
+  String get notebookDiscovery;
+
+  /// No description provided for @notebookComplication.
+  ///
+  /// In en, this message translates to:
+  /// **'Complication'**
+  String get notebookComplication;
 }
 
 class _AppLocalizationsDelegate
