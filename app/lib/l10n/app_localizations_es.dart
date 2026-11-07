@@ -2612,6 +2612,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get diceTrayThrow => 'Lanzar';
 
   @override
+  String get diceTrayErase => 'Borrar resultado';
+
+  @override
+  String get diceTrayShareResult => 'Compartir resultado';
+
+  @override
+  String get diceMoreDice => 'Más dados';
+
+  @override
   String get diceResultMode => 'Mostrar resultado';
 
   @override

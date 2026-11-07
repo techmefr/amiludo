@@ -2617,6 +2617,15 @@ class AppLocalizationsFr extends AppLocalizations {
   String get diceTrayThrow => 'Lancer';
 
   @override
+  String get diceTrayErase => 'Effacer le résultat';
+
+  @override
+  String get diceTrayShareResult => 'Partager le résultat';
+
+  @override
+  String get diceMoreDice => 'Plus de dés';
+
+  @override
   String get diceResultMode => 'Affichage du résultat';
 
   @override

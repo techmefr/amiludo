@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
-import 'package:amiludo/layers/functional/Companion/presentation/dice_add_sheet.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/tray_result.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/dice_add_sheet.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_look_sheet.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/tray_bottom_bar.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_result_view.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
@@ -22,6 +23,7 @@ class Dice3dPanel extends StatelessWidget {
     required this.onTable,
     this.mode = TrayResultMode.sum,
     this.onMode,
+    this.onClear,
   });
   final DiceTraySession session;
   final Widget stage;
@@ -31,45 +33,16 @@ class Dice3dPanel extends StatelessWidget {
   final ValueChanged<String> onSkin, onTable;
   final TrayResultMode mode;
   final ValueChanged<TrayResultMode>? onMode;
+  final VoidCallback? onClear;
 
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
-    final theme = Theme.of(context);
     final empty = session.settings.dice.isEmpty;
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Row(
-          children: [
-            FilledButton.tonalIcon(
-              onPressed: () =>
-                  showDiceAddSheet(context, session.settings, onConfigure),
-              icon: const Icon(Icons.add),
-              label: Text(l.diceTrayAddDie),
-            ),
-            const SizedBox(width: Space.sm),
-            Expanded(
-              child: Text(
-                l.diceTrayCount(session.settings.dice.length),
-                style: theme.textTheme.bodyMedium,
-              ),
-            ),
-            IconButton.filledTonal(
-              tooltip: l.diceLook,
-              onPressed: () => showDiceLookSheet(
-                context,
-                skin: skin,
-                table: table,
-                onSkin: onSkin,
-                onTable: onTable,
-              ),
-              icon: const Icon(Icons.palette_outlined),
-            ),
-          ],
-        ),
-        const SizedBox(height: Space.md),
         stage,
         const SizedBox(height: Space.md),
         SizedBox(
@@ -82,6 +55,18 @@ class Dice3dPanel extends StatelessWidget {
         ),
         const SizedBox(height: Space.md),
         TrayResultView(session: session, mode: mode, onMode: onMode),
+        TrayBottomBar(
+          session: session,
+          onAdd: () => showDiceAddSheet(context, session.settings, onConfigure),
+          onClear: onClear,
+          onLook: () => showDiceLookSheet(
+            context,
+            skin: skin,
+            table: table,
+            onSkin: onSkin,
+            onTable: onTable,
+          ),
+        ),
       ],
     );
   }
