@@ -69,7 +69,10 @@ void main() {
     await tester.pumpAndSettle(const Duration(milliseconds: 100));
     expect(padColors(), isNot(contains(fingerPadColor)));
     expect(padColors().where(fingerColors.contains), isNotEmpty);
-    final disc = find.byType(TweenAnimationBuilder<double>);
+    final disc = find.descendant(
+      of: find.byType(FingerRing),
+      matching: find.byType(TweenAnimationBuilder<double>),
+    );
     expect(disc, findsOneWidget);
     expect(tester.getSize(disc).width, fingerRingSize * 2);
     await a.up();
