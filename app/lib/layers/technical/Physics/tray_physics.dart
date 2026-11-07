@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:amiludo/layers/technical/Physics/seeded_random.dart';
 import 'package:amiludo/layers/technical/Physics/surface_material.dart';
 import 'package:amiludo/layers/technical/Physics/tray_body.dart';
+import 'package:amiludo/layers/technical/Physics/tray_launch.dart';
 
 export 'package:amiludo/layers/technical/Physics/tray_body.dart';
 

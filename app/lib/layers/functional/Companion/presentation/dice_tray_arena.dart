@@ -147,6 +147,15 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
     run();
   }
 
+  void swipe(int i, Offset v) {
+    if (v.distance < 400) return;
+    if (v.dx < 0 && v.dx.abs() > v.dy.abs()) {
+      widget.onTapDie(i);
+    } else if (v.dy < 0) {
+      flick(DragEndDetails(velocity: Velocity(pixelsPerSecond: v)));
+    }
+  }
+
   void flick(DragEndDetails d) {
     final v = d.velocity.pixelsPerSecond;
     if (v.distance < 400) return;
@@ -185,6 +194,7 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
       value: b.rolling ? b.face : widget.session.values[i],
       scheme: scheme,
       onTap: () => widget.onTapDie(i),
+      onSwipe: (v) => swipe(i, v),
       solid: widget.solid,
       skin: widget.skin,
     );

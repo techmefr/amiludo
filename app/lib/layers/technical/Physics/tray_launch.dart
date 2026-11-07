@@ -1,7 +1,7 @@
-import dart:math;
+import 'dart:math';
 
-import package:amiludo/layers/technical/Physics/seeded_random.dart;
-import package:amiludo/layers/technical/Physics/tray_body.dart;
+import 'package:amiludo/layers/technical/Physics/seeded_random.dart';
+import 'package:amiludo/layers/technical/Physics/tray_body.dart';
 
 const double _fan = 0.45;
 
