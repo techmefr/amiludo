@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:amiludo/dependencies.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/tray_backdrop.dart';
+import 'package:amiludo/layers/technical/Physics/surface_material.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/brick_catalog.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/tool_shelves.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/remember_tool_use_case.dart';
@@ -30,6 +33,15 @@ void main() {
 }
 
 void _modelTests() {
+  test('the dice tray is framed by a felt rail', () {
+    const scheme = ColorScheme.light();
+    for (final material in SurfaceMaterial.values) {
+      final border = trayDecoration(scheme, material, null).border! as Border;
+      expect(border.top.width, Space.sm);
+      expect(border.top.color, trayRail(scheme));
+    }
+  });
+
   test('every tool has a look and a readable accent in light and dark', () {
     for (final entry in brickEntries) {
       expect(toolThemes.containsKey(entry.id), isTrue, reason: entry.id);
