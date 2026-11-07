@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_surface.dart';
-import 'package:amiludo/layers/functional/Companion/presentation/die_3d_view.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/die_3d_drag.dart';
+import 'package:amiludo/layers/technical/Dice3D/die_skin.dart';
 import 'package:amiludo/layers/technical/Physics/tray_body.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -15,6 +16,7 @@ List<Widget> traySprite({
   required ColorScheme scheme,
   required VoidCallback onTap,
   bool solid = false,
+  DieSkin skin = DieSkin.classic,
 }) {
   const size = traySpriteSize;
   final round = TrayBody.roundnessFor(spec.sides);
@@ -37,11 +39,21 @@ List<Widget> traySprite({
         opacity: 0.25 / (1 + lift),
         child: Container(
           width: size,
-          height: size,
-          decoration: BoxDecoration(
-            color: scheme.shadow,
-            borderRadius: BorderRadius.circular(Radii.md + round * size / 2),
-          ),
+          height: solid ? size * 0.55 : size,
+          margin: solid ? EdgeInsets.only(top: size * 0.45) : null,
+          decoration: solid
+              ? BoxDecoration(
+                  borderRadius: BorderRadius.circular(size),
+                  boxShadow: [
+                    BoxShadow(color: scheme.shadow, blurRadius: Space.md),
+                  ],
+                )
+              : BoxDecoration(
+                  color: scheme.shadow,
+                  borderRadius: BorderRadius.circular(
+                    Radii.md + round * size / 2,
+                  ),
+                ),
         ),
       ),
     ),
@@ -56,9 +68,10 @@ List<Widget> traySprite({
           child: Transform.rotate(
             angle: body.angle,
             child: solid
-                ? Die3dView(
+                ? Die3dDrag(
                     spec: spec,
                     value: value,
+                    skin: skin,
                     flipX: body.spinX,
                     flipY: body.spinY,
                   )

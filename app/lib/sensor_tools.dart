@@ -54,6 +54,16 @@ Widget diceTrayWithSensors(BuildContext context) {
         final cubit = context.read<AppearanceCubit>();
         cubit.change(cubit.state.appearance.copyWith(dice3d: value));
       },
+      skin: appearance.dieSkin,
+      table: appearance.table,
+      onSkinChanged: (id) {
+        final cubit = context.read<AppearanceCubit>();
+        cubit.change(cubit.state.appearance.copyWith(dieSkin: id));
+      },
+      onTableChanged: (id) {
+        final cubit = context.read<AppearanceCubit>();
+        cubit.change(cubit.state.appearance.copyWith(table: id));
+      },
     ),
   ));
 }

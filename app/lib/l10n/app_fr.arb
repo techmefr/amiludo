@@ -1049,5 +1049,20 @@
   "mapIcon": "Icône",
   "mapColor": "Couleur",
   "mapMarkerLabel": "Nom",
-  "mapMarkerDelete": "Supprimer"
+  "mapMarkerDelete": "Supprimer",
+  "diceLook": "Style",
+  "diceLookSkin": "Dés",
+  "diceLookTable": "Table",
+  "diceSkinClassic": "Classique",
+  "diceSkinMatte": "Noir mat",
+  "diceSkinGold": "Or",
+  "diceSkinWood": "Bois",
+  "diceSkinCrystal": "Cristal",
+  "diceSkinGlass": "Verre",
+  "diceTableFelt": "Feutre",
+  "diceTableDark": "Sombre",
+  "diceTableLight": "Clair",
+  "diceTableWood": "Bois",
+  "diceTableBlue": "Bleu",
+  "diceTrayCount": "{count} dés"
 }

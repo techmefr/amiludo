@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/tray_backdrop.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_sprite.dart';
+import 'package:amiludo/layers/technical/Dice3D/die_skin.dart';
+import 'package:amiludo/layers/technical/Dice3D/table_painter.dart';
+import 'package:amiludo/layers/technical/Dice3D/table_theme.dart';
 import 'package:amiludo/layers/technical/Feedback/tray_feedback.dart';
 import 'package:amiludo/layers/technical/Physics/seeded_random.dart';
 import 'package:amiludo/layers/technical/Physics/surface_material.dart';
@@ -11,7 +15,6 @@ import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 const double _dieSize = traySpriteSize;
-
 class DiceTraySurface extends StatefulWidget {
   const DiceTraySurface({
     super.key,
@@ -24,6 +27,8 @@ class DiceTraySurface extends StatefulWidget {
     this.tilt = Tilt.flat,
     this.feedback,
     this.solid = false,
+    this.skin = DieSkin.classic,
+    this.table = TableTheme.felt,
   });
   final DiceTraySession session;
   final int throwId, seed;
@@ -33,6 +38,8 @@ class DiceTraySurface extends StatefulWidget {
   final Tilt tilt;
   final TrayFeedback? feedback;
   final bool solid;
+  final DieSkin skin;
+  final TableTheme table;
 
   @override
   State<DiceTraySurface> createState() => _DiceTraySurfaceState();
@@ -142,12 +149,6 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
       ..settle(const {});
   }
 
-  Color trayColor(ColorScheme scheme) => switch (material) {
-    SurfaceMaterial.wood => scheme.tertiaryContainer,
-    SurfaceMaterial.felt => scheme.primaryContainer,
-    SurfaceMaterial.glass => scheme.surfaceContainerHighest,
-  };
-
   List<Widget> dieAt(TrayPhysics p, int i, ColorScheme scheme) {
     final b = p.bodies[i];
     return traySprite(
@@ -157,6 +158,7 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
       scheme: scheme,
       onTap: () => widget.onTapDie(i),
       solid: widget.solid,
+      skin: widget.skin,
     );
   }
 
@@ -171,15 +173,19 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
         final p = bodyFor(box);
         if (launched != widget.throwId && session.thrown) launch(p, reduced);
         return Container(
-          decoration: BoxDecoration(
-            color: trayColor(scheme),
-            borderRadius: BorderRadius.circular(Radii.lg),
-            border: Border.all(color: scheme.outlineVariant),
+          decoration: trayDecoration(
+            scheme,
+            material,
+            widget.solid ? widget.table : null,
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(Radii.lg),
             child: Stack(
               children: [
+                if (widget.solid)
+                  Positioned.fill(
+                    child: CustomPaint(painter: TablePainter(widget.table)),
+                  ),
                 if (session.thrown)
                   for (var i = 0; i < p.bodies.length; i++)
                     if (!session.kept.contains(i)) ...dieAt(p, i, scheme),

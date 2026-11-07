@@ -1049,5 +1049,20 @@
   "mapIcon": "Icona",
   "mapColor": "Colore",
   "mapMarkerLabel": "Etichetta",
-  "mapMarkerDelete": "Elimina"
+  "mapMarkerDelete": "Elimina",
+  "diceLook": "Stile",
+  "diceLookSkin": "Dadi",
+  "diceLookTable": "Tavolo",
+  "diceSkinClassic": "Classico",
+  "diceSkinMatte": "Nero opaco",
+  "diceSkinGold": "Oro",
+  "diceSkinWood": "Legno",
+  "diceSkinCrystal": "Cristallo",
+  "diceSkinGlass": "Vetro",
+  "diceTableFelt": "Feltro",
+  "diceTableDark": "Scuro",
+  "diceTableLight": "Chiaro",
+  "diceTableWood": "Legno",
+  "diceTableBlue": "Blu",
+  "diceTrayCount": "{count} dadi"
 }

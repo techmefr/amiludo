@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
-import 'package:amiludo/layers/functional/Companion/presentation/die_face_view.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/die_3d_face.dart';
 import 'package:amiludo/layers/technical/Dice3D/die_mesh.dart';
 import 'package:amiludo/layers/technical/Dice3D/die_painter.dart';
 import 'package:amiludo/layers/technical/Dice3D/die_pose.dart';
 import 'package:amiludo/layers/technical/Dice3D/die_projection.dart';
-import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
+import 'package:amiludo/layers/technical/Dice3D/die_skin.dart';
 
 const double _contentVisibleFrom = 0.25;
 
@@ -18,11 +18,13 @@ class Die3dView extends StatelessWidget {
     this.flipX = 0,
     this.flipY = 0,
     this.size = 56,
+    this.skin = DieSkin.classic,
   });
   final DiceSpec spec;
   final int value;
   final double flipX, flipY;
   final double size;
+  final DieSkin skin;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class Die3dView extends StatelessWidget {
       DiePose.tumbling(mesh, face, flipX, flipY),
       radius,
     );
-    final base = Color(spec.color);
+    final base = usesSkinColors(spec) ? skin.base : Color(spec.color);
     return Semantics(
       label: '${spec.name} ${spec.faceLabel(value)}',
       child: SizedBox.square(
@@ -47,9 +49,10 @@ class Die3dView extends StatelessWidget {
                 painter: DiePainter(
                   faces: shown,
                   base: base,
-                  edge: readableOn(base).withValues(alpha: 0.35),
+                  skin: skin,
                   radius: radius,
                   ball: mesh.ball,
+                  faceted: !mesh.ball && spec.sides != 6,
                 ),
               ),
             ),
@@ -74,10 +77,9 @@ class Die3dView extends StatelessWidget {
         0, 0, 1, 0,
         0, 0, 0, 1,
       ),
-      child: DieFaceView(
-        face: spec.faceContent(f.index + 1),
-        body: DieProjection.shade(base, f.light),
-        size: f.contentSize,
+      child: SizedBox.square(
+        dimension: f.contentSize,
+        child: die3dFace(spec: spec, face: f, base: base, skin: skin),
       ),
     ),
   );

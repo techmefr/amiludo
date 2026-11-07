@@ -3411,13 +3411,12 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get avatarSlotWeapon => 'Wapens en gereedschap';
 
-  String get diceUseFromLibrary => 'Dobbelsteen uit Mijn dobbelstenen gebruiken';
-
   @override
   String get toolMapTitle => 'Kaart';
 
   @override
-  String get toolMapSubtitle => 'Spelden, pionnen en schetsen op een bord naar keuze.';
+  String get toolMapSubtitle =>
+      'Spelden, pionnen en schetsen op een bord naar keuze.';
 
   @override
   String get mapToolMove => 'Verplaatsen en zoomen';
@@ -3466,4 +3465,51 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get mapMarkerDelete => 'Verwijderen';
+
+  @override
+  String get diceLook => 'Stijl';
+
+  @override
+  String get diceLookSkin => 'Dobbelstenen';
+
+  @override
+  String get diceLookTable => 'Tafel';
+
+  @override
+  String get diceSkinClassic => 'Klassiek';
+
+  @override
+  String get diceSkinMatte => 'Matzwart';
+
+  @override
+  String get diceSkinGold => 'Goud';
+
+  @override
+  String get diceSkinWood => 'Hout';
+
+  @override
+  String get diceSkinCrystal => 'Kristal';
+
+  @override
+  String get diceSkinGlass => 'Glas';
+
+  @override
+  String get diceTableFelt => 'Vilt';
+
+  @override
+  String get diceTableDark => 'Donker';
+
+  @override
+  String get diceTableLight => 'Licht';
+
+  @override
+  String get diceTableWood => 'Hout';
+
+  @override
+  String get diceTableBlue => 'Blauw';
+
+  @override
+  String diceTrayCount(int count) {
+    return '$count dobbelstenen';
+  }
 }

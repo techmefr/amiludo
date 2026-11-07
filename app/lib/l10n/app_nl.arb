@@ -1049,5 +1049,20 @@
   "mapIcon": "Pictogram",
   "mapColor": "Kleur",
   "mapMarkerLabel": "Label",
-  "mapMarkerDelete": "Verwijderen"
+  "mapMarkerDelete": "Verwijderen",
+  "diceLook": "Stijl",
+  "diceLookSkin": "Dobbelstenen",
+  "diceLookTable": "Tafel",
+  "diceSkinClassic": "Klassiek",
+  "diceSkinMatte": "Matzwart",
+  "diceSkinGold": "Goud",
+  "diceSkinWood": "Hout",
+  "diceSkinCrystal": "Kristal",
+  "diceSkinGlass": "Glas",
+  "diceTableFelt": "Vilt",
+  "diceTableDark": "Donker",
+  "diceTableLight": "Licht",
+  "diceTableWood": "Hout",
+  "diceTableBlue": "Blauw",
+  "diceTrayCount": "{count} dobbelstenen"
 }

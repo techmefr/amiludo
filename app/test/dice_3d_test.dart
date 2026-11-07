@@ -6,6 +6,7 @@ import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_page.
 import 'package:amiludo/layers/functional/Companion/presentation/die_3d_view.dart';
 import 'package:amiludo/layers/technical/Appearance/appearance.dart';
 import 'package:amiludo/layers/technical/Dice3D/die_mesh.dart';
+import 'package:amiludo/layers/technical/Dice3D/die_pips.dart';
 import 'package:amiludo/layers/technical/Dice3D/die_pose.dart';
 import 'package:amiludo/layers/technical/Dice3D/die_projection.dart';
 import 'package:amiludo/layers/technical/Dice3D/vec3.dart';
@@ -102,8 +103,12 @@ void main() {
     await tester.pumpWidget(
       host(const Die3dView(spec: DiceSpec(sides: 6), value: 5)),
     );
-    expect(find.text('5'), findsWidgets);
+    expect(find.byType(DiePips), findsWidgets);
     expect(find.bySemanticsLabel(RegExp('5')), findsWidgets);
+    await tester.pumpWidget(
+      host(const Die3dView(spec: DiceSpec(sides: 8), value: 5)),
+    );
+    expect(find.text('5'), findsWidgets);
     await tester.pumpWidget(
       host(Die3dView(spec: DiceSpec.custom(['a', 'b', 'c'], 0xFF336699), value: 2)),
     );
