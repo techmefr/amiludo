@@ -60,31 +60,26 @@ class TrayPhysics {
     Set<int> kept, {
     double power = 1,
     List<int> sides = const [],
+    double aimX = 0,
+    double aimY = 0,
   }) {
     final p = power.clamp(0.2, 1.5);
     _rolled = 0;
     for (var i = 0; i < bodies.length; i++) {
       if (kept.contains(i)) continue;
-      final n = i < sides.length ? max(2, sides[i]) : 6;
-      final round = TrayBody.roundnessFor(n);
-      final heading = rng.range(0, 2 * pi);
-      final force = rng.range(width, width * 2.2) * p;
-      bodies[i]
-        ..x = rng.range(radius, max(radius, width - radius))
-        ..y = rng.range(radius, max(radius, height - radius))
-        ..vx = cos(heading) * force
-        ..vy = sin(heading) * force
-        ..angle = rng.range(0, 2 * pi)
-        ..spin = rng.range(-14, 14) * p
-        ..z = radius * rng.range(0.6, 1.2)
-        ..vz = rng.range(300, 520) * (0.5 + 0.5 * p)
-        ..phase = rng.range(0, 60)
-        ..offset = rng.nextInt(n)
-        ..sides = n
-        ..roundness = round
-        ..tumble = rng.range(14, 24) * (0.4 + 0.6 * p) * (1 + round)
-        ..asleep = false
-        ..rolling = true;
+      launchBody(
+        bodies[i],
+        rng,
+        width: width,
+        height: height,
+        radius: radius,
+        index: i,
+        count: bodies.length,
+        sides: i < sides.length ? sides[i] : 6,
+        power: p,
+        aimX: aimX,
+        aimY: aimY,
+      );
     }
   }
 

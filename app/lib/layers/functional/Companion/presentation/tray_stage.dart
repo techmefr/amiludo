@@ -24,6 +24,9 @@ class TrayStage extends StatelessWidget {
     required this.onOutcome,
     required this.onTapDie,
     required this.onView,
+    this.aim = Offset.zero,
+    this.onFlick,
+    this.onTapTable,
   });
   final DiceTraySession session;
   final int throwId, seed;
@@ -36,6 +39,9 @@ class TrayStage extends StatelessWidget {
   final ValueChanged<List<int>> onOutcome;
   final ValueChanged<int> onTapDie;
   final ValueChanged<bool> onView;
+  final Offset aim;
+  final void Function(double power, Offset aim)? onFlick;
+  final VoidCallback? onTapTable;
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +59,9 @@ class TrayStage extends StatelessWidget {
               throwId: throwId,
               seed: seed,
               power: power,
+              aim: aim,
+              onFlick: onFlick,
+              onTapTable: onTapTable,
               tilt: tilt,
               feedback: feedback,
               solid: solid,
