@@ -7088,6 +7088,72 @@ abstract class AppLocalizations {
   /// **'Complication'**
   String get notebookComplication;
 
+  /// No description provided for @notebookTabAtlas.
+  ///
+  /// In en, this message translates to:
+  /// **'Atlas'**
+  String get notebookTabAtlas;
+
+  /// No description provided for @notebookAtlasEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No place yet. Add a sea, an isle, then a settlement or a dungeon inside it.'**
+  String get notebookAtlasEmpty;
+
+  /// No description provided for @notebookNewPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'New place'**
+  String get notebookNewPlace;
+
+  /// No description provided for @notebookOpenMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the map'**
+  String get notebookOpenMap;
+
+  /// No description provided for @notebookParentPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Inside'**
+  String get notebookParentPlace;
+
+  /// No description provided for @notebookNoParent.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing (top level)'**
+  String get notebookNoParent;
+
+  /// No description provided for @notebookPins.
+  ///
+  /// In en, this message translates to:
+  /// **'Pins'**
+  String get notebookPins;
+
+  /// No description provided for @notebookNoPins.
+  ///
+  /// In en, this message translates to:
+  /// **'Place a pin on the map to link it to an entry or another map.'**
+  String get notebookNoPins;
+
+  /// No description provided for @notebookPinLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Link to'**
+  String get notebookPinLink;
+
+  /// No description provided for @notebookPinUnlinked.
+  ///
+  /// In en, this message translates to:
+  /// **'Not linked'**
+  String get notebookPinUnlinked;
+
+  /// No description provided for @notebookPinUnnamed.
+  ///
+  /// In en, this message translates to:
+  /// **'Unnamed pin'**
+  String get notebookPinUnnamed;
+
   /// No description provided for @sheetFieldName.
   ///
   /// In en, this message translates to:

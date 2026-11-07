@@ -15,6 +15,9 @@ import 'package:amiludo/layers/functional/Notebook/domain/entities/journal.dart'
 import 'package:amiludo/layers/functional/Notebook/domain/entities/notebook_campaign.dart';
 import 'package:amiludo/layers/functional/Notebook/domain/entities/notebook_entry.dart';
 import 'package:amiludo/layers/functional/Notebook/domain/use_cases/notebook_use_cases.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/map_board.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/map_board_state.dart';
+import 'package:amiludo/layers/functional/Notebook/presentation/atlas_map_screen.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/campaign_card.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/campaign_screen.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/campaigns_screen.dart';
@@ -88,6 +91,22 @@ class _Harness {
         GoRoute(
           path: '/notebook/:id',
           builder: (_, s) => CampaignScreen(id: s.pathParameters['id']!),
+        ),
+        GoRoute(
+          path: '/notebook/:id/map/:place',
+          builder: (_, s) => AtlasMapScreen(
+            campaignId: s.pathParameters['id']!,
+            placeId: s.pathParameters['place']!,
+            readBoard: (_) => const MapBoard(),
+            buildMap: (context, key, onChanged) => TextButton(
+              onPressed: () => onChanged(
+                MapBoard(
+                  markers: [MapMarker(id: 'p1', x: 10, y: 10, label: 'Camp')],
+                ),
+              ),
+              child: Text(key),
+            ),
+          ),
         ),
         GoRoute(
           path: '/notebook/:id/entry/:entry',
@@ -247,6 +266,39 @@ void main() {
         final lines = h.gateway.current.campaigns.single.sessions.single.lines;
         expect(lines.last.kind, JournalKind.oracle);
         expect(lines.last.text, startsWith('Even odds'));
+      });
+
+      testWidgets('places nest in the atlas and pins link to entries', (
+        tester,
+      ) async {
+        final h = await _open(tester, size);
+        final isle = NotebookEntry.create(EntryKind.place, 'Black Isle');
+        final campaign = _seed().withEntry(isle);
+        await h.gateway.save(h.gateway.current.put(campaign));
+        await tester.pumpWidget(h.app('/notebook/${campaign.id}'));
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('Atlas'));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byTooltip('New place').last);
+        await tester.pumpAndSettle();
+        await tester.enterText(find.byType(TextField), 'Port');
+        await tester.tap(find.text('Create'));
+        await tester.pumpAndSettle();
+        final port = h.gateway.current.campaigns.single.entries.last;
+        expect(port.name, 'Port');
+        expect(port.parentId, isle.id);
+        await tester.tap(find.byTooltip('Open the map').first);
+        await tester.pumpAndSettle();
+        await tester.tap(find.textContaining('nb:'));
+        await tester.pumpAndSettle();
+        expect(find.text('Camp'), findsOneWidget);
+        await tester.tap(find.byTooltip('Link to'));
+        await tester.pumpAndSettle();
+        await tester.tap(find.textContaining('Mira').last);
+        await tester.pumpAndSettle();
+        final links = h.gateway.current.campaigns.single.pinLinks;
+        expect(links.values.single, isNotEmpty);
+        expect(find.text('Mira'), findsOneWidget);
       });
     });
   }

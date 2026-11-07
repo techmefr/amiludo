@@ -3,6 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/dependencies.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/map_board_state.dart';
+import 'package:amiludo/layers/functional/Companion/domain/use_cases/map_use_cases.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/map_tool.dart';
+import 'package:amiludo/layers/functional/Notebook/presentation/atlas_map_screen.dart';
 import 'package:amiludo/layers/functional/Notebook/domain/use_cases/notebook_use_cases.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/campaign_screen.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/campaigns_screen.dart';
@@ -46,4 +50,32 @@ final notebookRoutes = [
       entryId: state.pathParameters['entry']!,
     ),
   ),
+  _route(
+    '/notebook/:id/map/:place',
+    (state) => AtlasMapScreen(
+      key: ValueKey(state.pathParameters['place']),
+      campaignId: state.pathParameters['id']!,
+      placeId: state.pathParameters['place']!,
+      readBoard: getIt<ReadMapUseCase>().call,
+      buildMap: _atlasMap,
+    ),
+  ),
 ];
+
+Widget _atlasMap(
+  BuildContext context,
+  String mapKey,
+  ValueChanged<MapBoard> onChanged,
+) {
+  final save = getIt<SaveMapUseCase>();
+  return MapBoardTool(
+    key: ValueKey(mapKey),
+    initial: getIt<ReadMapUseCase>()(mapKey),
+    onChanged: (board) {
+      save(mapKey, board);
+      onChanged(board);
+    },
+    importImage: getIt<ImportMapImageUseCase>().call,
+    readImage: getIt<ReadMapImageUseCase>().call,
+  );
+}

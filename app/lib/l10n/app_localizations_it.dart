@@ -3808,6 +3808,41 @@ class AppLocalizationsIt extends AppLocalizations {
   String get notebookComplication => 'Complicazione';
 
   @override
+  String get notebookTabAtlas => 'Atlante';
+
+  @override
+  String get notebookAtlasEmpty =>
+      'Nessun luogo. Aggiungi un mare, un’isola e al suo interno un insediamento o un dungeon.';
+
+  @override
+  String get notebookNewPlace => 'Nuovo luogo';
+
+  @override
+  String get notebookOpenMap => 'Apri la mappa';
+
+  @override
+  String get notebookParentPlace => 'All’interno di';
+
+  @override
+  String get notebookNoParent => 'Niente (livello principale)';
+
+  @override
+  String get notebookPins => 'Segnaposti';
+
+  @override
+  String get notebookNoPins =>
+      'Metti un segnaposto sulla mappa per collegarlo a una scheda o a un’altra mappa.';
+
+  @override
+  String get notebookPinLink => 'Collega a';
+
+  @override
+  String get notebookPinUnlinked => 'Non collegato';
+
+  @override
+  String get notebookPinUnnamed => 'Segnaposto senza nome';
+
+  @override
   String get sheetFieldName => 'Nome e cognome';
 
   @override

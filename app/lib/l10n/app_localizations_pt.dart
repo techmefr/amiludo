@@ -3807,6 +3807,41 @@ class AppLocalizationsPt extends AppLocalizations {
   String get notebookComplication => 'Complicação';
 
   @override
+  String get notebookTabAtlas => 'Atlas';
+
+  @override
+  String get notebookAtlasEmpty =>
+      'Ainda não há lugares. Adiciona um mar, uma ilha e dentro dela uma povoação ou uma masmorra.';
+
+  @override
+  String get notebookNewPlace => 'Novo lugar';
+
+  @override
+  String get notebookOpenMap => 'Abrir o mapa';
+
+  @override
+  String get notebookParentPlace => 'Dentro de';
+
+  @override
+  String get notebookNoParent => 'Nada (nível principal)';
+
+  @override
+  String get notebookPins => 'Marcadores';
+
+  @override
+  String get notebookNoPins =>
+      'Coloca um marcador no mapa para o ligar a uma ficha ou a outro mapa.';
+
+  @override
+  String get notebookPinLink => 'Ligar a';
+
+  @override
+  String get notebookPinUnlinked => 'Sem ligação';
+
+  @override
+  String get notebookPinUnnamed => 'Marcador sem nome';
+
+  @override
   String get sheetFieldName => 'Nome completo';
 
   @override
