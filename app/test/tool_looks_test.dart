@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:amiludo/dependencies.dart';
+import 'package:amiludo/l10n/app_localizations.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/counter.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/counter_view.dart';
+import 'package:amiludo/layers/technical/Theme/components/stone_slab.dart';
 import 'package:amiludo/layers/technical/Theme/components/sand_scene.dart';
 import 'package:amiludo/layers/technical/Theme/components/sandglass_painter.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_backdrop.dart';
@@ -33,6 +37,7 @@ void main() {
   }
   _homeTest(const Size(390, 844), reduced: true);
   hourglassLookTests();
+  counterLookTests();
 }
 
 void _modelTests() {
@@ -163,4 +168,38 @@ void hourglassLookTests() {
       await db.close();
     });
   }
+}
+
+void counterLookTests() {
+  test('the stone palette keeps numerals readable', () {
+    for (final ground in const [StonePalette.stone, StonePalette.edge]) {
+      expect(
+        toolContrast(StonePalette.cream, ground),
+        greaterThanOrEqualTo(4.5),
+      );
+    }
+    expect(
+      toolContrast(StonePalette.cream, StonePalette.night),
+      greaterThanOrEqualTo(4.5),
+    );
+  });
+  testWidgets('a counter is an engraved slab that rolls its value', (
+    tester,
+  ) async {
+    final state = CounterState(const CounterSettings(maximum: 99, start: 3));
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('en'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: Scaffold(body: CounterView(state: state)),
+      ),
+    );
+    expect(find.byType(StoneSlab), findsOneWidget);
+    await tester.tap(find.byTooltip('Increase'));
+    await tester.pump(const Duration(milliseconds: 80));
+    expect(find.text('4'), findsOneWidget);
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+  });
 }
