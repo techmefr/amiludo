@@ -2617,6 +2617,18 @@ class AppLocalizationsFr extends AppLocalizations {
   String get diceTrayThrow => 'Lancer';
 
   @override
+  String get diceSeeMore => 'Voir tous les dés';
+
+  @override
+  String get diceFavorites => 'Favoris';
+
+  @override
+  String get diceFavoriteAdd => 'Ajouter aux favoris';
+
+  @override
+  String get diceFavoriteRemove => 'Retirer des favoris';
+
+  @override
   String get diceTrayErase => 'Effacer le résultat';
 
   @override

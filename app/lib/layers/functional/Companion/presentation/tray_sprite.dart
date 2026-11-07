@@ -16,6 +16,7 @@ List<Widget> traySprite({
   required ColorScheme scheme,
   required VoidCallback onTap,
   ValueChanged<Offset>? onSwipe,
+  VoidCallback? onLongPress,
   bool solid = false,
   DieSkin skin = DieSkin.classic,
 }) {
@@ -63,6 +64,7 @@ List<Widget> traySprite({
       top: body.y - size / 2,
       child: GestureDetector(
         onTap: onTap,
+        onLongPress: onLongPress,
         onPanEnd: solid || onSwipe == null
             ? null
             : (d) => onSwipe(d.velocity.pixelsPerSecond),

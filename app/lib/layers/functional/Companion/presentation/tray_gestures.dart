@@ -17,5 +17,18 @@ TrayFlick? flickOf(Offset velocity) {
   );
 }
 
+void routeSwipe(
+  Offset v,
+  void Function(double power, Offset aim)? onFlick, {
+  VoidCallback? lock,
+}) {
+  if (lock != null) {
+    if (isLockSwipe(v)) return lock();
+    if (v.dy >= 0) return;
+  }
+  final f = flickOf(v);
+  if (f != null) onFlick?.call(f.power, f.aim);
+}
+
 bool isLockSwipe(Offset v) =>
     v.distance >= _minSpeed && v.dx < 0 && v.dx.abs() > v.dy.abs();

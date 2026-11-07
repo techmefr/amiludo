@@ -2618,6 +2618,18 @@ class AppLocalizationsDe extends AppLocalizations {
   String get diceTrayThrow => 'Werfen';
 
   @override
+  String get diceSeeMore => 'Alle Würfel anzeigen';
+
+  @override
+  String get diceFavorites => 'Favoriten';
+
+  @override
+  String get diceFavoriteAdd => 'Zu Favoriten hinzufügen';
+
+  @override
+  String get diceFavoriteRemove => 'Aus Favoriten entfernen';
+
+  @override
   String get diceTrayErase => 'Ergebnis löschen';
 
   @override

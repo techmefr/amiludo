@@ -24,6 +24,7 @@ class Dice3dPanel extends StatelessWidget {
     this.mode = TrayResultMode.sum,
     this.onMode,
     this.onClear,
+    this.onFavorite,
   });
   final DiceTraySession session;
   final Widget stage;
@@ -34,6 +35,7 @@ class Dice3dPanel extends StatelessWidget {
   final TrayResultMode mode;
   final ValueChanged<TrayResultMode>? onMode;
   final VoidCallback? onClear;
+  final ValueChanged<String>? onFavorite;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,12 @@ class Dice3dPanel extends StatelessWidget {
         TrayResultView(session: session, mode: mode, onMode: onMode),
         TrayBottomBar(
           session: session,
-          onAdd: () => showDiceAddSheet(context, session.settings, onConfigure),
+          onAdd: () => showDiceAddSheet(
+            context,
+            session.settings,
+            onConfigure,
+            onFavorite: onFavorite,
+          ),
           onClear: onClear,
           onLook: () => showDiceLookSheet(
             context,
