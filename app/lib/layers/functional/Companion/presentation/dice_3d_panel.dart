@@ -35,6 +35,7 @@ class Dice3dPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
+    final theme = Theme.of(context);
     final empty = session.settings.dice.isEmpty;
     return Column(
       mainAxisSize: MainAxisSize.min,
