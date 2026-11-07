@@ -14,8 +14,18 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>fr</string>
+		<string>de</string>
+		<string>es</string>
+		<string>it</string>
+		<string>nl</string>
+		<string>pt</string>
+	</array>
 	<key>CFBundleName</key>
-	<string>table_companion</string>
+	<string>amiLudo</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -85,8 +95,8 @@
 		<true/>
 	</dict>
 	<key>NSLocalNetworkUsageDescription</key>
-	<string>amiLudo trouve et rejoint les parties ouvertes sur votre Wi-Fi.</string>
+	<string>amiLudo finds and joins open games on your Wi-Fi.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>amiLudo scanne les QR codes pour rejoindre une partie ou recevoir un pack.</string>
+	<string>amiLudo scans QR codes to join a game or receive a pack.</string>
 </dict>
 </plist>

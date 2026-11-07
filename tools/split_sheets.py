@@ -6,8 +6,8 @@ import numpy as np
 from PIL import Image
 from scipy import ndimage
 
-CANVAS = 1024
-MARGIN = 32
+CANVAS = 512
+MARGIN = 16
 MAX_UPSCALE = 2.0
 WHITE = 238
 MERGE_GAP = 10
@@ -53,11 +53,15 @@ def place(rgba, box, mask):
     return canvas
 
 
+def save_small(image, target):
+    image.quantize(256, Image.FASTOCTREE).save(target, optimize=True)
+
+
 def split_sheet(path, out_dir):
     cleaned = clear_white_background(np.array(Image.open(path).convert("RGBA")))
     pieces = find_pieces(cleaned)
     for number, (box, mask) in enumerate(pieces, start=1):
-        place(cleaned, box, mask).save(out_dir / f"{path.stem}-{number}.png")
+        save_small(place(cleaned, box, mask), out_dir / f"{path.stem}-{number}.png")
     return len(pieces)
 
 

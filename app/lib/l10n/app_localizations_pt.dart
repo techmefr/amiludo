@@ -141,6 +141,18 @@ class AppLocalizationsPt extends AppLocalizations {
       'Manter o ecrã ligado durante os jogos';
 
   @override
+  String get diceTrayView => 'Vista';
+
+  @override
+  String get diceTrayView2d => '2D';
+
+  @override
+  String get diceTrayView3d => '3D';
+
+  @override
+  String get appearanceDice3d => 'Dados em 3D';
+
+  @override
   String get appearanceMotionSensors => 'Sensores de movimento';
 
   @override
@@ -180,7 +192,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get appearanceSkinGameName => 'HUD de missão';
 
   @override
-  String get appearanceSkinGameDesc => 'Escuro e dourado, molduras grossas, ar de interface de jogo.';
+  String get appearanceSkinGameDesc =>
+      'Escuro e dourado, molduras grossas, ar de interface de jogo.';
 
   @override
   String get appearanceHudPreview => 'Pré-visualização da barra de progresso';
@@ -825,6 +838,21 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get templatesCounters2 => 'Contadores';
+
+  @override
+  String get templatesBricks => 'Peças';
+
+  @override
+  String get brickLife => 'Vida';
+
+  @override
+  String get brickPoints => 'Pontos';
+
+  @override
+  String get brickChips => 'Fichas';
+
+  @override
+  String get brickPot => 'Pote';
 
   @override
   String get templatesTime => 'Tempo';
@@ -2579,7 +2607,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get toolDiceTrayTitle => 'Bandeja de dados';
 
   @override
-  String get toolDiceTraySubtitle => 'Sacuda para lançar, guarde dados de lado e veja o total.';
+  String get toolDiceTraySubtitle =>
+      'Sacuda para lançar, guarde dados de lado e veja o total.';
 
   @override
   String get diceTrayThrow => 'Lançar';
@@ -2606,7 +2635,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get diceTrayRemoveDie => 'Remover este dado';
 
   @override
-  String get diceTrayCustomFaces => 'Faces personalizadas, separadas por vírgulas';
+  String get diceTrayCustomFaces =>
+      'Faces personalizadas, separadas por vírgulas';
 
   @override
   String get diceTrayCustomDie => 'Dado personalizado';
@@ -2628,6 +2658,8 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get diceTrayGlass => 'Vidro';
+
+  @override
   String get toolHourglassTitle => 'Ampulheta';
 
   @override
@@ -2655,7 +2687,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get toolHeroesTitle => 'Heróis e poderes';
 
   @override
-  String get toolHeroesSubtitle => 'Heróis com contadores e poderes que carregam.';
+  String get toolHeroesSubtitle =>
+      'Heróis com contadores e poderes que carregam.';
 
   @override
   String get heroesEmpty => 'Nenhum herói. Adicione um para começar.';
@@ -2695,56 +2728,51 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get heroesMakeActive => 'Tornar ativo';
-  String get toolMagicItemTitle =>
-      'Gerador de objetos mágicos';
+
+  @override
+  String get toolMagicItemTitle => 'Gerador de objetos mágicos';
 
   @override
   String get toolMagicItemSubtitle =>
       'Uma relíquia com um poder, uma peculiaridade e uma origem.';
 
   @override
-  String get toolWeatherTitle =>
-      'Gerador de clima';
+  String get toolWeatherTitle => 'Gerador de clima';
 
   @override
   String get toolWeatherSubtitle =>
       'Céu, temperatura, vento, efeitos e presságios.';
 
   @override
-  String get toolPlaceTitle =>
-      'Gerador de nomes de lugares';
+  String get toolPlaceTitle => 'Gerador de nomes de lugares';
 
   @override
   String get toolPlaceSubtitle =>
       'Um nome, um tipo de lugar e um detalhe marcante.';
 
   @override
-  String get toolDilemmaTitle =>
-      'Gerador de dilemas morais';
+  String get toolDilemmaTitle => 'Gerador de dilemas morais';
 
   @override
   String get toolDilemmaSubtitle =>
       'Uma situação difícil, duas escolhas e o preço a pagar.';
 
   @override
-  String get toolRumourTitle =>
-      'Gerador de rumores de taverna';
+  String get toolRumourTitle => 'Gerador de rumores de taverna';
 
   @override
   String get toolRumourSubtitle =>
       'Quem disse, o que se diz e quanto é verdade.';
 
   @override
-  String get toolTraitTitle =>
-      'Gerador de traços de PNJ';
+  String get toolTraitTitle => 'Gerador de traços de PNJ';
 
   @override
   String get toolTraitSubtitle =>
       'Um traço de personalidade, como se mostra e um defeito oculto.';
 
   @override
-  String get toolTwistTitle =>
-      'Gerador de reviravoltas';
+  String get toolTwistTitle => 'Gerador de reviravoltas';
 
   @override
   String get toolTwistSubtitle =>
@@ -2755,16 +2783,13 @@ class AppLocalizationsPt extends AppLocalizations {
       'Partilhar ficheiro de companheiro (só blocos e definições)';
 
   @override
-  String get templatesImportCompanion =>
-      'Importar ficheiro de companheiro';
+  String get templatesImportCompanion => 'Importar ficheiro de companheiro';
 
   @override
-  String get templatesCompanionImported =>
-      'Companheiro importado';
+  String get templatesCompanionImported => 'Companheiro importado';
 
   @override
-  String get companionErrorNotJson =>
-      'Este ficheiro não é um JSON válido.';
+  String get companionErrorNotJson => 'Este ficheiro não é um JSON válido.';
 
   @override
   String get companionErrorFormat =>
@@ -2882,21 +2907,22 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String campaignSubtitle(String universe) {
-    return 'Uma história curta em ${universe}, uma missão de cada vez.';
+    return 'Uma história curta em $universe, uma missão de cada vez.';
   }
 
   @override
   String campaignProgress(int done, int total) {
-    return '${done} de ${total} missões';
+    return '$done de $total missões';
   }
 
   @override
   String campaignMinutes(int count) {
-    return '${count} min';
+    return '$count min';
   }
 
   @override
-  String get campaignLocked => 'Conclua a missão anterior para desbloquear esta.';
+  String get campaignLocked =>
+      'Conclua a missão anterior para desbloquear esta.';
 
   @override
   String get campaignStart => 'Começar';
@@ -2923,7 +2949,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get campaignBadges => 'Suas insígnias';
 
   @override
-  String get campaignNoBadges => 'Conclua uma missão para ganhar sua primeira insígnia.';
+  String get campaignNoBadges =>
+      'Conclua uma missão para ganhar sua primeira insígnia.';
 
   @override
   String get campaignNext => 'Próxima missão';
@@ -2939,20 +2966,23 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String campaignFinale(String universe) {
-    return 'A lanterna brilha de novo sobre ${universe}. Você está pronto para sua primeira partida de RPG.';
+    return 'A lanterna brilha de novo sobre $universe. Você está pronto para sua primeira partida de RPG.';
   }
 
   @override
   String get campaignM1Title => 'A porta emperrada';
 
   @override
-  String get campaignM1Story => 'A noite cai. O velho portão da torre das lanternas está emperrado. Em um RPG, quando o resultado é incerto, rolam-se os dados.';
+  String get campaignM1Story =>
+      'A noite cai. O velho portão da torre das lanternas está emperrado. Em um RPG, quando o resultado é incerto, rolam-se os dados.';
 
   @override
-  String get campaignM1Lesson => 'Um teste: role um dado e compare o resultado com uma meta.';
+  String get campaignM1Lesson =>
+      'Um teste: role um dado e compare o resultado com uma meta.';
 
   @override
-  String get campaignM1Task => 'Role os dados abaixo. Um 4 ou mais abre o portão. Senão, tente de novo.';
+  String get campaignM1Task =>
+      'Role os dados abaixo. Um 4 ou mais abre o portão. Senão, tente de novo.';
 
   @override
   String get campaignM1Badge => 'Abridor de portões';
@@ -2961,13 +2991,16 @@ class AppLocalizationsPt extends AppLocalizations {
   String get campaignM2Title => 'Uma lanterna frágil';
 
   @override
-  String get campaignM2Story => 'Lá dentro, a lanterna treme e cada choque racha seu vidro. Seu herói também tem pontos de vida, e o jogo os conta.';
+  String get campaignM2Story =>
+      'Lá dentro, a lanterna treme e cada choque racha seu vidro. Seu herói também tem pontos de vida, e o jogo os conta.';
 
   @override
-  String get campaignM2Lesson => 'Os pontos de vida diminuem ao se ferir e aumentam ao se curar.';
+  String get campaignM2Lesson =>
+      'Os pontos de vida diminuem ao se ferir e aumentam ao se curar.';
 
   @override
-  String get campaignM2Task => 'Use os corações abaixo: perca dois pelos choques e recupere um descansando.';
+  String get campaignM2Task =>
+      'Use os corações abaixo: perca dois pelos choques e recupere um descansando.';
 
   @override
   String get campaignM2Badge => 'Guardião dos corações';
@@ -2976,13 +3009,16 @@ class AppLocalizationsPt extends AppLocalizations {
   String get campaignM3Title => 'Quem é você?';
 
   @override
-  String get campaignM3Story => 'Uma voz pergunta seu nome. Todo herói tem nome, pontos fortes e alguns poderes, tudo anotado em uma ficha de personagem.';
+  String get campaignM3Story =>
+      'Uma voz pergunta seu nome. Todo herói tem nome, pontos fortes e alguns poderes, tudo anotado em uma ficha de personagem.';
 
   @override
-  String get campaignM3Lesson => 'Uma ficha de personagem reúne tudo o que torna seu herói único.';
+  String get campaignM3Lesson =>
+      'Uma ficha de personagem reúne tudo o que torna seu herói único.';
 
   @override
-  String get campaignM3Task => 'Adicione um herói com um nome e dê a ele um poder.';
+  String get campaignM3Task =>
+      'Adicione um herói com um nome e dê a ele um poder.';
 
   @override
   String get campaignM3Badge => 'Herói com nome';
@@ -2991,13 +3027,16 @@ class AppLocalizationsPt extends AppLocalizations {
   String get campaignM4Title => 'A sombra no corredor';
 
   @override
-  String get campaignM4Story => 'Uma sombra bloqueia a escada. Uma luta é só uma série de rolagens, e cada golpe tira um pouco de vida do inimigo.';
+  String get campaignM4Story =>
+      'Uma sombra bloqueia a escada. Uma luta é só uma série de rolagens, e cada golpe tira um pouco de vida do inimigo.';
 
   @override
-  String get campaignM4Lesson => 'Em uma luta, rola-se por turnos e reduzem-se pontos de vida.';
+  String get campaignM4Lesson =>
+      'Em uma luta, rola-se por turnos e reduzem-se pontos de vida.';
 
   @override
-  String get campaignM4Task => 'Role os dados: um total de 7 ou mais fere a sombra. Acerte três golpes.';
+  String get campaignM4Task =>
+      'Role os dados: um total de 7 ou mais fere a sombra. Acerte três golpes.';
 
   @override
   String get campaignM4Badge => 'Caçador de sombras';
@@ -3006,13 +3045,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String get campaignM5Title => 'Duas escadas';
 
   @override
-  String get campaignM5Story => 'A escada se divide em duas: uma sobe para o frio, a outra desce ao porão. Ninguém diz qual é a certa. Esta noite, você decide.';
+  String get campaignM5Story =>
+      'A escada se divide em duas: uma sobe para o frio, a outra desce ao porão. Ninguém diz qual é a certa. Esta noite, você decide.';
 
   @override
   String get campaignM5Lesson => 'Em um RPG, suas escolhas mudam a história.';
 
   @override
-  String get campaignM5Task => 'Sorteie um dilema como inspiração e escolha seu caminho.';
+  String get campaignM5Task =>
+      'Sorteie um dilema como inspiração e escolha seu caminho.';
 
   @override
   String get campaignM5Badge => 'Escolhedor de caminhos';
@@ -3024,19 +3065,23 @@ class AppLocalizationsPt extends AppLocalizations {
   String get campaignM5ChoiceB => 'Descer ao porão';
 
   @override
-  String get campaignM5OutcomeA => 'O frio aguça seus sentidos e você chega ao topo sem fazer barulho.';
+  String get campaignM5OutcomeA =>
+      'O frio aguça seus sentidos e você chega ao topo sem fazer barulho.';
 
   @override
-  String get campaignM5OutcomeB => 'No escuro, suas mãos encontram uma chave esquecida.';
+  String get campaignM5OutcomeB =>
+      'No escuro, suas mãos encontram uma chave esquecida.';
 
   @override
   String get campaignM6Title => 'A lanterna se acende';
 
   @override
-  String get campaignM6Story => 'No alto, a lanterna espera. Descreva em voz alta como a reacende antes que a areia acabe: contar a cena é o coração do jogo.';
+  String get campaignM6Story =>
+      'No alto, a lanterna espera. Descreva em voz alta como a reacende antes que a areia acabe: contar a cena é o coração do jogo.';
 
   @override
-  String get campaignM6Lesson => 'Uma cena é contada em conjunto, em voz alta, com um pouco de imaginação.';
+  String get campaignM6Lesson =>
+      'Uma cena é contada em conjunto, em voz alta, com um pouco de imaginação.';
 
   @override
   String get campaignM6Task => 'Inicie a ampulheta e narre sua cena final.';
@@ -3048,7 +3093,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get chroniclesTitle => 'Chronicles';
 
   @override
-  String get chroniclesSubtitle => 'Crie uma personagem em cinco etapas abrindo boosters.';
+  String get chroniclesSubtitle =>
+      'Crie uma personagem em cinco etapas abrindo boosters.';
 
   @override
   String get chroniclesChooseUniverse => 'Escolha um universo';
@@ -3078,10 +3124,12 @@ class AppLocalizationsPt extends AppLocalizations {
   String get chroniclesFlip => 'Virar a carta';
 
   @override
-  String get chroniclesRefusedQuota => 'Já não há lugar para este tipo de carta.';
+  String get chroniclesRefusedQuota =>
+      'Já não há lugar para este tipo de carta.';
 
   @override
-  String get chroniclesRefusedConflict => 'Esta carta entra em conflito com uma que guardou.';
+  String get chroniclesRefusedConflict =>
+      'Esta carta entra em conflito com uma que guardou.';
 
   @override
   String get chroniclesRecap => 'Resumo do booster';
@@ -3132,7 +3180,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get chroniclesCopied => 'Copiado';
 
   @override
-  String get chroniclesLoadFailed => 'Não foi possível ler os dados de Chronicles.';
+  String get chroniclesLoadFailed =>
+      'Não foi possível ler os dados de Chronicles.';
 
   @override
   String get chroniclesClose => 'Fechar';
@@ -3186,7 +3235,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String diceImportClashBody(Object count) {
-    return '${count} dados já existem. Substituir ou manter ambos?';
+    return '$count dados já existem. Substituir ou manter ambos?';
   }
 
   @override
@@ -3197,17 +3246,17 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String diceCopyName(Object name) {
-    return '${name} (cópia)';
+    return '$name (cópia)';
   }
 
   @override
   String diceSelectDie(Object name) {
-    return 'Selecionar ${name}';
+    return 'Selecionar $name';
   }
 
   @override
   String diceFaceTotal(Object count) {
-    return '${count} faces';
+    return '$count faces';
   }
 
   @override
@@ -3230,7 +3279,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String diceFaceEdit(Object n) {
-    return 'Editar a face ${n}';
+    return 'Editar a face $n';
   }
 
   @override
@@ -3283,7 +3332,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String diceBulkCopy(Object n) {
-    return 'Copiar a face ${n} para o intervalo';
+    return 'Copiar a face $n para o intervalo';
   }
 
   @override

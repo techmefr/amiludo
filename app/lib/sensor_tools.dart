@@ -49,6 +49,11 @@ Widget diceTrayWithSensors(BuildContext context) {
       soundOutput: _sounds(appearance.sound),
       sound: appearance.sound,
       haptics: appearance.haptics,
+      solid: appearance.dice3d,
+      onSolidChanged: (value) {
+        final cubit = context.read<AppearanceCubit>();
+        cubit.change(cubit.state.appearance.copyWith(dice3d: value));
+      },
     ),
   ));
 }

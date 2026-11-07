@@ -10,7 +10,7 @@ Draft answers based on the code at alpha 0.4.0. Two build variants exist: a loca
 | --- | --- |
 | Does the app collect or share user data? | Yes (account email and evening data, only if the user uses those features) |
 | Is all collected data encrypted in transit? | Yes (HTTPS to the server). Note: the same-Wi-Fi room uses an unencrypted local WebSocket and is not sent to a server; it is not "collected" by the developer |
-| Can users request data deletion? | Yes, account deletion by an administrator or on request, and evening deletion by the host. Provide the deletion URL or contact in the policy |
+| Can users request data deletion? | Yes: in-app "Erase all my data" for everything stored on the device, account deletion by an administrator or on request, and evening deletion by the host. Provide the deletion URL or contact in the policy |
 | Independent security review | No |
 | Committed to the Play Families policy | No (not designed for children) |
 
@@ -62,10 +62,10 @@ Not collected: location, contacts, health, financial, browsing history, search h
 
 Required Info.plist purposes already present:
 - NSCameraUsageDescription: scan QR codes to join a game or receive a pack.
-- NSLocalNetworkUsageDescription: find and join open games on the user's Wi-Fi. Both strings are currently in French and must be provided in English and the other app languages (localized `InfoPlist.strings`) before submission.
+- NSLocalNetworkUsageDescription: find and join open games on the user's Wi-Fi. Both strings are localized in the seven app languages through `InfoPlist.strings` (English is the default value in Info.plist).
 
 Other Apple items:
 - Privacy policy URL: required, use the published privacy policy.
 - Age rating: no objectionable content; user-generated content exists only as player-entered text shared with invited guests (answer the questionnaire accordingly, "no unrestricted web access").
-- Account deletion: if accounts can be created in the app, Apple requires an in-app way to initiate deletion. The code has an admin deletion flow but no self-service deletion; this is a gap to close before the iOS release.
+- Account deletion: if accounts can be created in the app, Apple requires an in-app way to initiate deletion. Settings, under History, offers "Erase all my data": after a confirmation dialog it wipes the local database (games, library, photos, dice, preferences) and returns to the home screen. Server-side account deletion is still an administrator flow, so a self-service account deletion call remains to be added before the iOS release if accounts stay enabled.
 - Export compliance: the app uses standard encryption (HTTPS) plus cryptographic primitives for sealed boxes and hashing. Declare it and answer the encryption questions; most apps in this case qualify for the exemption but confirm.

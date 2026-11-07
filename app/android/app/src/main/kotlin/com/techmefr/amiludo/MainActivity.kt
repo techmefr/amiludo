@@ -1,4 +1,4 @@
-package io.github.techmefr.table_companion
+package com.techmefr.amiludo
 
 import io.flutter.embedding.android.FlutterActivity
 

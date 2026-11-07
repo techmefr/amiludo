@@ -204,6 +204,11 @@ class _ComfortPanel extends StatelessWidget {
             (v) => a.copyWith(motion: v),
           ),
           _toggle(
+            context.l10n.appearanceDice3d,
+            a.dice3d,
+            (v) => a.copyWith(dice3d: v),
+          ),
+          _toggle(
             context.l10n.appearanceAlertSounds,
             a.sound,
             (v) => a.copyWith(sound: v),
