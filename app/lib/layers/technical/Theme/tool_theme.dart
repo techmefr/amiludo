@@ -134,6 +134,23 @@ const toolThemes = <String, ToolTheme>{
     texture: ToolTexture.tactile,
     weight: 1.4,
   ),
+  'life': ToolTheme(
+    accent: Color(0xffC2493D),
+    texture: ToolTexture.tactile,
+    header: ToolHeader.ribbon,
+    haptic: ToolHaptic.impact,
+    weight: 1.4,
+  ),
+  'tally': ToolTheme(
+    accent: Color(0xff3F6FB0),
+    texture: ToolTexture.tactile,
+    weight: 1.4,
+  ),
+  'ranking': ToolTheme(
+    accent: Color(0xffB38A1D),
+    texture: ToolTexture.paper,
+    motion: ToolMotion.flip,
+  ),
   'counter-life': ToolTheme(
     accent: Color(0xffC2493D),
     texture: ToolTexture.tactile,

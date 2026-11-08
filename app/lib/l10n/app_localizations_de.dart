@@ -4472,4 +4472,86 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get toolCountdownSubtitle => 'Dauer einstellen, den Ring leerlaufen sehen, bei null gewarnt werden.';
+
+  @override
+  String get toolLifeTitle => 'Lebenszähler';
+
+  @override
+  String get toolLifeSubtitle => 'Lebenspunkte im Vollbild für 2 bis 6 Spieler, mit Gift, Kommandantenschaden und Energie.';
+
+  @override
+  String get lifePoison => 'Gift';
+
+  @override
+  String get lifeEnergy => 'Energie';
+
+  @override
+  String get lifeCommander => 'Kommandantenschaden';
+
+  @override
+  String lifeFromPlayer(String name) {
+    return 'Von $name';
+  }
+
+  @override
+  String lifeDetailsFor(String name) {
+    return 'Details zu $name';
+  }
+
+  @override
+  String get lifePlayers => 'Spieler';
+
+  @override
+  String get lifeStartingLife => 'Startleben';
+
+  @override
+  String get toolTallyTitle => 'Freie Zähler';
+
+  @override
+  String get toolTallySubtitle => 'Benenne eigene Zähler und verfolge sie für jeden Spieler.';
+
+  @override
+  String get tallyResources => 'Ressourcen';
+
+  @override
+  String get tallyAddCounter => 'Zähler hinzufügen';
+
+  @override
+  String get tallyCounterName => 'Name des Zählers';
+
+  @override
+  String tallyRemoveCounter(String name) {
+    return '$name entfernen';
+  }
+
+  @override
+  String get tallyEmpty => 'Füge einen Zähler hinzu, um zu starten.';
+
+  @override
+  String get toolRankingTitle => 'Rangliste';
+
+  @override
+  String get toolRankingSubtitle => 'Gib die Endstände ein, erhalte das Podium und löse Gleichstände.';
+
+  @override
+  String rankingScoreFor(String name) {
+    return 'Punkte von $name';
+  }
+
+  @override
+  String get rankingLowestWins => 'Die niedrigste Punktzahl gewinnt';
+
+  @override
+  String get rankingEmpty => 'Gib mindestens eine Punktzahl ein, um die Rangliste zu sehen.';
+
+  @override
+  String get rankingStamp => 'Sieger';
+
+  @override
+  String get rankingTie => 'Gleichstand';
+
+  @override
+  String rankingPosition(int position) {
+    return 'Platz $position';
+  }
 }

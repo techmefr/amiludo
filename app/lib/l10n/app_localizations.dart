@@ -8364,6 +8364,150 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Set a duration, watch the ring empty, get alerted at zero.'**
   String get toolCountdownSubtitle;
+
+  /// No description provided for @toolLifeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Life counter'**
+  String get toolLifeTitle;
+
+  /// No description provided for @toolLifeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Full-screen life for 2 to 6 players, with poison, commander damage and energy.'**
+  String get toolLifeSubtitle;
+
+  /// No description provided for @lifePoison.
+  ///
+  /// In en, this message translates to:
+  /// **'Poison'**
+  String get lifePoison;
+
+  /// No description provided for @lifeEnergy.
+  ///
+  /// In en, this message translates to:
+  /// **'Energy'**
+  String get lifeEnergy;
+
+  /// No description provided for @lifeCommander.
+  ///
+  /// In en, this message translates to:
+  /// **'Commander damage'**
+  String get lifeCommander;
+
+  /// No description provided for @lifeFromPlayer.
+  ///
+  /// In en, this message translates to:
+  /// **'From {name}'**
+  String lifeFromPlayer(String name);
+
+  /// No description provided for @lifeDetailsFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Details for {name}'**
+  String lifeDetailsFor(String name);
+
+  /// No description provided for @lifePlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Players'**
+  String get lifePlayers;
+
+  /// No description provided for @lifeStartingLife.
+  ///
+  /// In en, this message translates to:
+  /// **'Starting life'**
+  String get lifeStartingLife;
+
+  /// No description provided for @toolTallyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Free counters'**
+  String get toolTallyTitle;
+
+  /// No description provided for @toolTallySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Name your own counters and track them for every player.'**
+  String get toolTallySubtitle;
+
+  /// No description provided for @tallyResources.
+  ///
+  /// In en, this message translates to:
+  /// **'Resources'**
+  String get tallyResources;
+
+  /// No description provided for @tallyAddCounter.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a counter'**
+  String get tallyAddCounter;
+
+  /// No description provided for @tallyCounterName.
+  ///
+  /// In en, this message translates to:
+  /// **'Counter name'**
+  String get tallyCounterName;
+
+  /// No description provided for @tallyRemoveCounter.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove {name}'**
+  String tallyRemoveCounter(String name);
+
+  /// No description provided for @tallyEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a counter to start tracking.'**
+  String get tallyEmpty;
+
+  /// No description provided for @toolRankingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ranking'**
+  String get toolRankingTitle;
+
+  /// No description provided for @toolRankingSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the final scores, get the podium and settle the ties.'**
+  String get toolRankingSubtitle;
+
+  /// No description provided for @rankingScoreFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Score for {name}'**
+  String rankingScoreFor(String name);
+
+  /// No description provided for @rankingLowestWins.
+  ///
+  /// In en, this message translates to:
+  /// **'Lowest score wins'**
+  String get rankingLowestWins;
+
+  /// No description provided for @rankingEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter at least one score to see the ranking.'**
+  String get rankingEmpty;
+
+  /// No description provided for @rankingStamp.
+  ///
+  /// In en, this message translates to:
+  /// **'Winner'**
+  String get rankingStamp;
+
+  /// No description provided for @rankingTie.
+  ///
+  /// In en, this message translates to:
+  /// **'Tie'**
+  String get rankingTie;
+
+  /// No description provided for @rankingPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Rank {position}'**
+  String rankingPosition(int position);
 }
 
 class _AppLocalizationsDelegate

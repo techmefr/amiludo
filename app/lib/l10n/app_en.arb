@@ -1760,5 +1760,64 @@
     }
   },
   "toolCountdownTitle": "Countdown",
-  "toolCountdownSubtitle": "Set a duration, watch the ring empty, get alerted at zero."
+  "toolCountdownSubtitle": "Set a duration, watch the ring empty, get alerted at zero.",
+  "toolLifeTitle": "Life counter",
+  "toolLifeSubtitle": "Full-screen life for 2 to 6 players, with poison, commander damage and energy.",
+  "lifePoison": "Poison",
+  "lifeEnergy": "Energy",
+  "lifeCommander": "Commander damage",
+  "lifeFromPlayer": "From {name}",
+  "@lifeFromPlayer": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "lifeDetailsFor": "Details for {name}",
+  "@lifeDetailsFor": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "lifePlayers": "Players",
+  "lifeStartingLife": "Starting life",
+  "toolTallyTitle": "Free counters",
+  "toolTallySubtitle": "Name your own counters and track them for every player.",
+  "tallyResources": "Resources",
+  "tallyAddCounter": "Add a counter",
+  "tallyCounterName": "Counter name",
+  "tallyRemoveCounter": "Remove {name}",
+  "@tallyRemoveCounter": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "tallyEmpty": "Add a counter to start tracking.",
+  "toolRankingTitle": "Ranking",
+  "toolRankingSubtitle": "Enter the final scores, get the podium and settle the ties.",
+  "rankingScoreFor": "Score for {name}",
+  "@rankingScoreFor": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "rankingLowestWins": "Lowest score wins",
+  "rankingEmpty": "Enter at least one score to see the ranking.",
+  "rankingStamp": "Winner",
+  "rankingTie": "Tie",
+  "rankingPosition": "Rank {position}",
+  "@rankingPosition": {
+    "placeholders": {
+      "position": {
+        "type": "int"
+      }
+    }
+  }
 }

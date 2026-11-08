@@ -4468,4 +4468,86 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get toolCountdownSubtitle => 'Réglez une durée, regardez l’anneau se vider, alerte à zéro.';
+
+  @override
+  String get toolLifeTitle => 'Compteur de vie';
+
+  @override
+  String get toolLifeSubtitle => 'Points de vie en plein écran pour 2 à 6 joueurs, avec poison, dégâts de commandant et énergie.';
+
+  @override
+  String get lifePoison => 'Poison';
+
+  @override
+  String get lifeEnergy => 'Énergie';
+
+  @override
+  String get lifeCommander => 'Dégâts de commandant';
+
+  @override
+  String lifeFromPlayer(String name) {
+    return 'De $name';
+  }
+
+  @override
+  String lifeDetailsFor(String name) {
+    return 'Détails de $name';
+  }
+
+  @override
+  String get lifePlayers => 'Joueurs';
+
+  @override
+  String get lifeStartingLife => 'Vie de départ';
+
+  @override
+  String get toolTallyTitle => 'Compteurs libres';
+
+  @override
+  String get toolTallySubtitle => 'Nommez vos propres compteurs et suivez-les pour chaque joueur.';
+
+  @override
+  String get tallyResources => 'Ressources';
+
+  @override
+  String get tallyAddCounter => 'Ajouter un compteur';
+
+  @override
+  String get tallyCounterName => 'Nom du compteur';
+
+  @override
+  String tallyRemoveCounter(String name) {
+    return 'Retirer $name';
+  }
+
+  @override
+  String get tallyEmpty => 'Ajoutez un compteur pour commencer le suivi.';
+
+  @override
+  String get toolRankingTitle => 'Classement';
+
+  @override
+  String get toolRankingSubtitle => 'Saisissez les scores finaux, obtenez le podium et départagez les égalités.';
+
+  @override
+  String rankingScoreFor(String name) {
+    return 'Score de $name';
+  }
+
+  @override
+  String get rankingLowestWins => 'Le plus petit score gagne';
+
+  @override
+  String get rankingEmpty => 'Saisissez au moins un score pour voir le classement.';
+
+  @override
+  String get rankingStamp => 'Gagnant';
+
+  @override
+  String get rankingTie => 'Égalité';
+
+  @override
+  String rankingPosition(int position) {
+    return 'Rang $position';
+  }
 }

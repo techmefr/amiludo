@@ -4465,4 +4465,86 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get toolCountdownSubtitle => 'Imposta una durata, guarda l’anello svuotarsi e ricevi un avviso a zero.';
+
+  @override
+  String get toolLifeTitle => 'Contatore di vita';
+
+  @override
+  String get toolLifeSubtitle => 'Punti vita a schermo intero per 2-6 giocatori, con veleno, danni del comandante ed energia.';
+
+  @override
+  String get lifePoison => 'Veleno';
+
+  @override
+  String get lifeEnergy => 'Energia';
+
+  @override
+  String get lifeCommander => 'Danni del comandante';
+
+  @override
+  String lifeFromPlayer(String name) {
+    return 'Da $name';
+  }
+
+  @override
+  String lifeDetailsFor(String name) {
+    return 'Dettagli di $name';
+  }
+
+  @override
+  String get lifePlayers => 'Giocatori';
+
+  @override
+  String get lifeStartingLife => 'Vita iniziale';
+
+  @override
+  String get toolTallyTitle => 'Contatori liberi';
+
+  @override
+  String get toolTallySubtitle => 'Dai un nome ai tuoi contatori e seguili per ogni giocatore.';
+
+  @override
+  String get tallyResources => 'Risorse';
+
+  @override
+  String get tallyAddCounter => 'Aggiungi un contatore';
+
+  @override
+  String get tallyCounterName => 'Nome del contatore';
+
+  @override
+  String tallyRemoveCounter(String name) {
+    return 'Rimuovi $name';
+  }
+
+  @override
+  String get tallyEmpty => 'Aggiungi un contatore per iniziare.';
+
+  @override
+  String get toolRankingTitle => 'Classifica';
+
+  @override
+  String get toolRankingSubtitle => 'Inserisci i punteggi finali, ottieni il podio e gestisci i pareggi.';
+
+  @override
+  String rankingScoreFor(String name) {
+    return 'Punteggio di $name';
+  }
+
+  @override
+  String get rankingLowestWins => 'Vince il punteggio più basso';
+
+  @override
+  String get rankingEmpty => 'Inserisci almeno un punteggio per vedere la classifica.';
+
+  @override
+  String get rankingStamp => 'Vincitore';
+
+  @override
+  String get rankingTie => 'Pareggio';
+
+  @override
+  String rankingPosition(int position) {
+    return 'Posizione $position';
+  }
 }

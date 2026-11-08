@@ -111,6 +111,15 @@ class _ToolPreviewState extends State<ToolPreview>
     ),
   );
 
+  Widget _reading(BuildContext context, Color ink, String text) => Center(
+    child: Text(
+      text,
+      style: Numerals.instrument(
+        Theme.of(context).textTheme.displaySmall,
+      )?.copyWith(color: ink),
+    ),
+  );
+
   Widget _spin(double t) => Transform(
     alignment: Alignment.center,
     transform: Matrix4.identity()
@@ -138,6 +147,8 @@ class _ToolPreviewState extends State<ToolPreview>
       'map' => CustomPaint(
         painter: MapSketchPainter(progress: t, ink: ink, mark: tool.accent),
       ),
+      'life' => _reading(context, ink, '${40 - (t * 3).round()}'),
+      'tally' => _reading(context, ink, '${(t * 12).round()}'),
       'coin' || 'wheel' => _spin(t),
       _ => Opacity(
         opacity: .4 + .6 * t,

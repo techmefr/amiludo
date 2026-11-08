@@ -4466,4 +4466,86 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get toolCountdownSubtitle => 'Stel een duur in, zie de ring leeglopen en krijg een melding bij nul.';
+
+  @override
+  String get toolLifeTitle => 'Levensteller';
+
+  @override
+  String get toolLifeSubtitle => 'Levenspunten op volledig scherm voor 2 tot 6 spelers, met gif, commandantschade en energie.';
+
+  @override
+  String get lifePoison => 'Gif';
+
+  @override
+  String get lifeEnergy => 'Energie';
+
+  @override
+  String get lifeCommander => 'Commandantschade';
+
+  @override
+  String lifeFromPlayer(String name) {
+    return 'Van $name';
+  }
+
+  @override
+  String lifeDetailsFor(String name) {
+    return 'Details van $name';
+  }
+
+  @override
+  String get lifePlayers => 'Spelers';
+
+  @override
+  String get lifeStartingLife => 'Startleven';
+
+  @override
+  String get toolTallyTitle => 'Vrije tellers';
+
+  @override
+  String get toolTallySubtitle => 'Geef je eigen tellers een naam en volg ze voor elke speler.';
+
+  @override
+  String get tallyResources => 'Grondstoffen';
+
+  @override
+  String get tallyAddCounter => 'Teller toevoegen';
+
+  @override
+  String get tallyCounterName => 'Naam van de teller';
+
+  @override
+  String tallyRemoveCounter(String name) {
+    return '$name verwijderen';
+  }
+
+  @override
+  String get tallyEmpty => 'Voeg een teller toe om te beginnen.';
+
+  @override
+  String get toolRankingTitle => 'Ranglijst';
+
+  @override
+  String get toolRankingSubtitle => 'Voer de eindscores in, krijg het podium en regel de gelijke standen.';
+
+  @override
+  String rankingScoreFor(String name) {
+    return 'Score van $name';
+  }
+
+  @override
+  String get rankingLowestWins => 'Laagste score wint';
+
+  @override
+  String get rankingEmpty => 'Voer minstens één score in om de ranglijst te zien.';
+
+  @override
+  String get rankingStamp => 'Winnaar';
+
+  @override
+  String get rankingTie => 'Gelijkspel';
+
+  @override
+  String rankingPosition(int position) {
+    return 'Plaats $position';
+  }
 }

@@ -11,6 +11,9 @@ const toolShelves = [
   ToolShelf('chance', ['dice-tray', 'dice', 'wheel', 'coin', 'number']),
   ToolShelf('scores', [
     'scores',
+    'life',
+    'tally',
+    'ranking',
     'counter-life',
     'counter-points',
     'counter-chips',
