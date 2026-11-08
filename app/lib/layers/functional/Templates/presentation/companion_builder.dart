@@ -9,6 +9,7 @@ import 'package:amiludo/layers/functional/Templates/domain/entities/game_templat
 import 'package:amiludo/layers/functional/Companion/domain/entities/counter.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/add_brick_picker.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/brick_label_dialog.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/builder_header.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/brick_settings_sheet.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/companion_file_actions.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/saved_companions.dart';
@@ -114,6 +115,7 @@ class _CompanionBuilderState extends State<CompanionBuilder> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const BuilderHeader(),
           TextField(
             controller: name,
             decoration: InputDecoration(labelText: l.buildName),

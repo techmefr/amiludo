@@ -62,11 +62,19 @@ class SessionGrid extends StatelessWidget {
 
   Widget _slot(BuildContext context, int index, double width) {
     final brick = bricks[index];
-    final tile = SizedBox(
+    final tile = _Entrance(
       key: ValueKey(brick.id),
-      width: width,
-      height: sessionTileHeight(brick.size),
-      child: SessionTile(brick: brick, builder: builder, frozen: arrange),
+      delay: Motion.fast * (index > 6 ? 6 : index) ~/ 3,
+      child: AnimatedScale(
+        scale: arrange ? .97 : 1,
+        duration: Motion.of(context, Motion.base),
+        curve: Motion.spring,
+        child: SizedBox(
+          width: width,
+          height: sessionTileHeight(brick.size),
+          child: SessionTile(brick: brick, builder: builder, frozen: arrange),
+        ),
+      ),
     );
     if (!arrange) return tile;
     return DragTarget<int>(
@@ -89,6 +97,29 @@ class SessionGrid extends StatelessWidget {
           child: tile,
         ),
       ),
+    );
+  }
+}
+
+class _Entrance extends StatelessWidget {
+  const _Entrance({super.key, required this.delay, required this.child});
+  final Duration delay;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final total = Motion.of(context, Motion.slow + delay);
+    if (total == Duration.zero) return child;
+    final start = delay.inMilliseconds / total.inMilliseconds;
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: 0, end: 1),
+      duration: total,
+      curve: Interval(start, 1, curve: Motion.curve),
+      builder: (context, t, child) => Opacity(
+        opacity: t,
+        child: Transform.translate(offset: Offset(0, (1 - t) * 16), child: child),
+      ),
+      child: child,
     );
   }
 }

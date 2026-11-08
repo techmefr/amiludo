@@ -58,10 +58,14 @@ class _CompanionSessionState extends State<CompanionSession> {
         children: [
           Align(
             alignment: Alignment.centerRight,
-            child: TextButton.icon(
-              onPressed: () => setState(() => arrange = !arrange),
-              icon: DeckIcon(arrange ? Icons.check : Icons.swap_vert),
-              label: Text(arrange ? l.buildArrangeDone : l.buildArrange),
+            child: AnimatedSwitcher(
+              duration: Motion.of(context, Motion.fast),
+              child: TextButton.icon(
+                key: ValueKey(arrange),
+                onPressed: () => setState(() => arrange = !arrange),
+                icon: DeckIcon(arrange ? Icons.check : Icons.swap_vert),
+                label: Text(arrange ? l.buildArrangeDone : l.buildArrange),
+              ),
             ),
           ),
           const SizedBox(height: Space.sm),
