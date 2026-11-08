@@ -6,6 +6,8 @@ import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dar
 import 'package:amiludo/layers/functional/Library/domain/gateways/collection_import_gateway.dart';
 import 'package:amiludo/layers/functional/Library/domain/gateways/library_gateway.dart';
 
+const _palette = shelfColors;
+
 class ImportCollectionUseCase {
   ImportCollectionUseCase(this._library, this._source);
 
@@ -42,7 +44,7 @@ class ImportCollectionUseCase {
       minPlayers: minPlayers,
       maxPlayers: max(minPlayers, min(game.maxPlayers, 100)),
       minutes: game.minutes > 0 ? game.minutes.clamp(1, 6000) : 45,
-      color: shelfColors[index % shelfColors.length],
+      color: _palette[index % _palette.length],
       addedAt: DateTime.now().millisecondsSinceEpoch,
     );
   }
