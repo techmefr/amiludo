@@ -20,6 +20,8 @@ class ScanFrame extends StatefulWidget {
 
 class _ScanFrameState extends State<ScanFrame>
     with SingleTickerProviderStateMixin {
+  static const sweeps = 6;
+
   late final AnimationController sweep = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 1800),
@@ -33,7 +35,15 @@ class _ScanFrameState extends State<ScanFrame>
         ..stop()
         ..value = .5;
     } else if (!sweep.isAnimating) {
-      sweep.repeat(reverse: true);
+      sweep.repeat(reverse: true, count: sweeps);
+    }
+  }
+
+  @override
+  void didUpdateWidget(ScanFrame old) {
+    super.didUpdateWidget(old);
+    if (old.busy && !widget.busy && !sweep.isAnimating) {
+      sweep.repeat(reverse: true, count: sweeps);
     }
   }
 
