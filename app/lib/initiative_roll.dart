@@ -6,6 +6,7 @@ import 'package:amiludo/layers/functional/Appearance/presentation/cubit/appearan
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_page.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/immersive_page.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 Future<int?> rollInitiativeIn3d(BuildContext context, String name) =>
@@ -28,10 +29,9 @@ class _InitiativeRollPageState extends State<InitiativeRollPage> {
   Widget build(BuildContext context) {
     final l = context.l10n;
     final appearance = context.read<AppearanceCubit>().state.appearance;
-    return Scaffold(
-      appBar: AppBar(title: Text(l.combatRollTitle(widget.name))),
-      body: SafeArea(
-        child: Column(
+    return ImmersivePage(
+      title: l.combatRollTitle(widget.name),
+      child: Column(
           children: [
             Expanded(
               child: SingleChildScrollView(
@@ -64,7 +64,6 @@ class _InitiativeRollPageState extends State<InitiativeRollPage> {
             ),
           ],
         ),
-      ),
     );
   }
 }

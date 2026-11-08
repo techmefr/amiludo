@@ -5,6 +5,7 @@ import 'package:amiludo/layers/technical/Theme/components/clean_scroll_page.dart
 import 'package:amiludo/layers/technical/Theme/components/tool_badge.dart';
 import 'package:amiludo/layers/technical/Theme/components/tool_frame.dart';
 import 'package:amiludo/layers/technical/Theme/deck_style.dart';
+import 'package:amiludo/layers/technical/Theme/immersive_chrome.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 const double fullPageBackClearance = 56;
@@ -99,7 +100,9 @@ class FullPage extends StatelessWidget {
 
   Widget _page(BuildContext context) {
     if (immersive) {
-      return AnimatedContainer(
+      return ImmersiveChrome(
+        onBack: () => _back(context),
+        child: AnimatedContainer(
         duration: Motion.of(context, Motion.slow),
         curve: Motion.curve,
         color: background ?? Theme.of(context).scaffoldBackgroundColor,
@@ -128,6 +131,7 @@ class FullPage extends StatelessWidget {
               ],
             ),
           ),
+        ),
         ),
       );
     }

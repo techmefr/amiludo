@@ -8,6 +8,7 @@ import 'package:amiludo/layers/functional/Companion/presentation/avatar_slot_lab
 import 'package:amiludo/layers/functional/Companion/presentation/hero_avatar.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/appearance_item.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/immersive_page.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class AvatarCreatorScreen extends StatefulWidget {
@@ -50,17 +51,15 @@ class _AvatarCreatorScreenState extends State<AvatarCreatorScreen> {
     final item = current == null ? null : catalogue.byId(current.itemId);
     final tintName = item == null ? null : catalogue.tintOf(item);
     final label = avatarSlotLabel(l10n, slot);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(l10n.avatarCreatorTitle),
+    return ImmersivePage(
+      title: l10n.avatarCreatorTitle,
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, look),
             child: Text(l10n.avatarSave),
           ),
         ],
-      ),
-      body: ListView(
+      child: ListView(
         padding: const EdgeInsets.all(Space.lg),
         children: [
           Center(

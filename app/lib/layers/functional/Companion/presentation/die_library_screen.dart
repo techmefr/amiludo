@@ -9,6 +9,7 @@ import 'package:amiludo/layers/functional/Companion/presentation/die_preview.dar
 import 'package:amiludo/layers/functional/Companion/presentation/die_studio.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
+import 'package:amiludo/layers/technical/Theme/immersive_page.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class DieLibraryScreen extends StatefulWidget {
@@ -39,9 +40,8 @@ class _DieLibraryScreenState extends State<DieLibraryScreen> {
   Widget build(BuildContext context) {
     final cubit = DieStudio.maybeOf(context)!;
     final l = context.l10n;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(l.diceLibraryTitle),
+    return ImmersivePage(
+      title: l.diceLibraryTitle,
         actions: [
           IconButton(
             tooltip: l.diceImport,
@@ -64,13 +64,12 @@ class _DieLibraryScreenState extends State<DieLibraryScreen> {
                 : () => exportDice(context, cubit, selected.toList()),
           ),
         ],
-      ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => open(cubit, null),
         icon: const DeckIcon(Icons.add),
         label: Text(l.diceNew),
       ),
-      body: BlocBuilder<DieStudioCubit, DieLibrary>(
+      child: BlocBuilder<DieStudioCubit, DieLibrary>(
         bloc: cubit,
         builder: (context, library) => library.designs.isEmpty
             ? Center(child: Text(l.diceLibraryEmpty))
