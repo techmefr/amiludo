@@ -60,6 +60,6 @@ void main() {
     await tester.tap(find.text('Draw a dare'));
     await tester.pumpAndSettle();
     final card = tester.widget<PlayingCard>(find.byType(PlayingCard));
-    expect([Dance, Sing], contains(card.label));
+    expect(['Dance', 'Sing'], contains(card.label));
   });
 }
