@@ -71,6 +71,14 @@ void _modelTests() {
     expect(listed.toSet(), brickEntries.map((e) => e.id).toSet());
   });
 
+  test('every shelf is declared with tools and a visual identity', () {
+    for (final shelf in toolShelves) {
+      expect(shelf.tools, isNotEmpty, reason: shelf.id);
+      expect(toolShelf(shelf.id), same(shelf));
+    }
+    expect(toolShelf('unknown'), isNull);
+  });
+
   test('the hero resumes the last tool or features an unpinned one', () {
     expect(heroTool(lastTool: 'coin', favorites: const []), 'coin');
     expect(heroTool(lastTool: null, favorites: const []), 'dice-tray');

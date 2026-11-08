@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/brick_catalog.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/tool_shelves.dart';
 import 'package:amiludo/layers/functional/Random/presentation/add_brick_sheet.dart';
 import 'package:amiludo/layers/functional/Random/presentation/brick_tile.dart';
 import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit.dart';
@@ -15,8 +16,13 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class ToolsScreen extends StatefulWidget {
-  const ToolsScreen({super.key, this.initialTool, this.addBrick});
-  final String? initialTool;
+  const ToolsScreen({
+    super.key,
+    this.initialTool,
+    this.initialCategory,
+    this.addBrick,
+  });
+  final String? initialTool, initialCategory;
   final Future<void> Function(String templateId, Brick brick)? addBrick;
   @override
   State<ToolsScreen> createState() => _ToolsScreenState();
@@ -34,6 +40,8 @@ class _ToolsScreenState extends State<ToolsScreen> {
       });
     }
   }
+
+  void openCategory(String id) => context.push('/tools?category=$id');
 
   void open(String id) {
     context.read<RandomCubit>().rememberTool(id);
@@ -61,14 +69,32 @@ class _ToolsScreenState extends State<ToolsScreen> {
       query: query,
       title: context.toolTitle,
     );
+    final inCategory = toolShelf(widget.initialCategory ?? '') != null;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        DeckHeading(
-          eyebrow: context.l10n.randomYourToolboxWithinReach,
-          title: context.l10n.randomOneToolReadyToPlay,
-          subtitle: context.l10n.randomPlayersAreSharedAcrossTools,
-        ),
+        if (inCategory)
+          Row(
+            children: [
+              IconButton(
+                tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+                onPressed: () => context.pop(),
+                icon: const DeckIcon(Icons.arrow_back),
+              ),
+              Expanded(
+                child: Text(
+                  context.toolShelfLabel(widget.initialCategory!),
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+              ),
+            ],
+          )
+        else
+          DeckHeading(
+            eyebrow: context.l10n.randomYourToolboxWithinReach,
+            title: context.l10n.randomOneToolReadyToPlay,
+            subtitle: context.l10n.randomPlayersAreSharedAcrossTools,
+          ),
         TextField(
           onChanged: (v) => setState(() => query = v),
           textInputAction: TextInputAction.search,
@@ -91,7 +117,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
           ],
         ),
         const SizedBox(height: Space.xl),
-        if (category == 'all' && query.trim().isEmpty)
+        if (inCategory || (category == 'all' && query.trim().isEmpty))
           RevealMargin(
             top: Targets.minimum * 3,
             child: ToolsHome(
@@ -100,6 +126,8 @@ class _ToolsScreenState extends State<ToolsScreen> {
               onOpen: open,
               onFavorite: context.read<RandomCubit>().toggleFavorite,
               onMove: context.read<RandomCubit>().moveFavorite,
+              onCategory: openCategory,
+              category: widget.initialCategory,
               onAdd: widget.addBrick == null ? null : add,
             ),
           )

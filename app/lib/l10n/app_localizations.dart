@@ -7796,11 +7796,41 @@ abstract class AppLocalizations {
   /// **'Pinned'**
   String get toolShelfPinned;
 
-  /// No description provided for @toolShelfPlay.
+  /// No description provided for @toolShelfTime.
   ///
   /// In en, this message translates to:
-  /// **'Play'**
-  String get toolShelfPlay;
+  /// **'Time'**
+  String get toolShelfTime;
+
+  /// No description provided for @toolShelfChance.
+  ///
+  /// In en, this message translates to:
+  /// **'Dice & chance'**
+  String get toolShelfChance;
+
+  /// No description provided for @toolShelfScores.
+  ///
+  /// In en, this message translates to:
+  /// **'Scores & counters'**
+  String get toolShelfScores;
+
+  /// No description provided for @toolShelfCards.
+  ///
+  /// In en, this message translates to:
+  /// **'Cards & draw'**
+  String get toolShelfCards;
+
+  /// No description provided for @toolShelfMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Map & board'**
+  String get toolShelfMap;
+
+  /// No description provided for @toolShelfPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Players & turns'**
+  String get toolShelfPlayers;
 
   /// No description provided for @toolShelfStory.
   ///
@@ -7819,12 +7849,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Characters'**
   String get toolShelfCharacters;
-
-  /// No description provided for @toolShelfUtilities.
-  ///
-  /// In en, this message translates to:
-  /// **'Utilities'**
-  String get toolShelfUtilities;
 
   /// No description provided for @toolHeroResume.
   ///
