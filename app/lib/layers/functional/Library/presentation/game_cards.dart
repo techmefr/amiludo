@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
 import 'package:amiludo/layers/functional/Library/presentation/game_cover.dart';
 import 'package:amiludo/layers/functional/Library/presentation/shelf_game_fields.dart';
-import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class GameCards extends StatelessWidget {
