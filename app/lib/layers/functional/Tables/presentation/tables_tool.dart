@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 import 'package:amiludo/layers/functional/Tables/domain/entities/roll_table.dart';
 import 'package:amiludo/layers/functional/Tables/presentation/table_card.dart';
 import 'package:amiludo/layers/functional/Tables/presentation/table_editor.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
-import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
 
@@ -101,18 +101,21 @@ class _TablesToolState extends State<TablesTool> {
             padding: const EdgeInsets.all(Space.xl),
             child: Text(l.gmtablesEmpty, textAlign: TextAlign.center),
           ),
-        for (final t in tables.tables)
-          Padding(
-            key: ValueKey(t.id),
-            padding: const EdgeInsets.only(bottom: Space.sm),
-            child: TableCard(
-              table: t,
-              tool: tool,
-              result: results[t.id],
-              onRoll: () => _roll(t),
-              onEdit: () => _edit(t),
-            ),
-          ),
+        ResponsiveGrid(
+          minimumWidth: 360,
+          gap: Space.sm,
+          children: [
+            for (final t in tables.tables)
+              TableCard(
+                key: ValueKey(t.id),
+                table: t,
+                tool: tool,
+                result: results[t.id],
+                onRoll: () => _roll(t),
+                onEdit: () => _edit(t),
+              ),
+          ],
+        ),
       ],
     );
   }
