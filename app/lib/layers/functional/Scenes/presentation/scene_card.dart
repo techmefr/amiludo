@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Scenes/domain/entities/scene.dart';
+import 'package:amiludo/layers/functional/Scenes/presentation/scene_ambience.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
@@ -16,6 +17,8 @@ class SceneCard extends StatelessWidget {
     required this.tool,
     required this.onOpen,
     required this.onShow,
+    required this.playing,
+    required this.onAmbience,
     this.onUp,
     this.onDown,
   });
@@ -24,7 +27,8 @@ class SceneCard extends StatelessWidget {
   final List<Scene> followers;
   final List<String> creatureNames;
   final ToolTheme tool;
-  final VoidCallback onOpen, onShow;
+  final VoidCallback onOpen, onShow, onAmbience;
+  final bool playing;
   final VoidCallback? onUp, onDown;
 
   @override
@@ -89,6 +93,20 @@ class SceneCard extends StatelessWidget {
                           ),
                       ],
                     ),
+                    if (ambienceKind(scene.ambience) case final kind?)
+                      TextButton.icon(
+                        onPressed: onAmbience,
+                        icon: DeckIcon(
+                          playing ? Icons.close : ambienceIcon(kind),
+                        ),
+                        label: Text(
+                          playing
+                              ? l.scenesStopAmbience
+                              : l.scenesPlayAmbience(
+                                  ambienceLabel(context, kind),
+                                ),
+                        ),
+                      ),
                     if (scene.hasHandout)
                       TextButton.icon(
                         onPressed: onShow,

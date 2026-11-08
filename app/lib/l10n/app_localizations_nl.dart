@@ -5514,4 +5514,93 @@ class AppLocalizationsNl extends AppLocalizations {
   String scenesMoveDown(String title) {
     return '$title omlaag';
   }
+
+  @override
+  String get toolGmtablesTitle => 'Willekeurige tabellen';
+
+  @override
+  String get toolGmtablesSubtitle => 'Je eigen tabellen met namen, herbergen, buit, geruchten en ontmoetingen.';
+
+  @override
+  String get gmtablesEmpty => 'Nog geen tabellen. Maak er een of begin met de starttabellen.';
+
+  @override
+  String get gmtablesAdd => 'Nieuwe tabel';
+
+  @override
+  String get gmtablesStarter => 'Starttabellen toevoegen';
+
+  @override
+  String gmtablesRoll(String name) {
+    return 'Gooi op $name';
+  }
+
+  @override
+  String gmtablesEdit(String name) {
+    return '$name bewerken';
+  }
+
+  @override
+  String get gmtablesName => 'Naam van de tabel';
+
+  @override
+  String get gmtablesEntries => 'Items, één per regel';
+
+  @override
+  String get gmtablesSave => 'Tabel opslaan';
+
+  @override
+  String get gmtablesDelete => 'Deze tabel verwijderen';
+
+  @override
+  String gmtablesCount(int count) {
+    return '$count items';
+  }
+
+  @override
+  String get gmtablesNoEntries => 'Voeg items toe om op deze tabel te gooien.';
+
+  @override
+  String get gmtablesStarterNames => 'Namen';
+
+  @override
+  String get gmtablesStarterNamesEntries => 'Aldric|Brenna|Corvin|Delia|Edric|Fenna|Garrick|Helga';
+
+  @override
+  String get gmtablesStarterTaverns => 'Herbergen';
+
+  @override
+  String get gmtablesStarterTavernsEntries => 'Het Gouden Everzwijn|De Wenende Lantaarn|De Slaperige Vos|Het Roestige Anker|De Scheve Kroon|De Laatste Haard';
+
+  @override
+  String get gmtablesStarterLoot => 'Buit';
+
+  @override
+  String get gmtablesStarterLootEntries => 'Een zilveren ring met onleesbare inscriptie|Een buidel met dertig gemengde munten|Een verzegelde brief met een gebroken wapen|Een flesje troebele groene vloeistof|Een dolk met een edelsteen in het gevest|Een kaartfragment met een rood kruis';
+
+  @override
+  String get gmtablesStarterRumours => 'Geruchten';
+
+  @override
+  String get gmtablesStarterRumoursEntries => 'De kelder van de molenaar verbergt een geheime deur|Een vreemdeling betaalt met zeer oude munten|In de verlaten toren zijn lichten gezien|De baron komt zijn huis niet meer uit|Wolven verlaten ’s nachts het bos|Iemand koopt alle inktflessen van de stad op';
+
+  @override
+  String get gmtablesStarterEncounters => 'Ontmoetingen';
+
+  @override
+  String get gmtablesStarterEncountersEntries => 'Een gewonde reiziger vraagt om hulp|Twee bandieten versperren de brug|De kar van een koopman zit vast in de modder|Een zwijgend kind volgt de groep|Verse sporen verlaten de weg|Een klok luidt uit het niets';
+
+  @override
+  String get scenesAmbience => 'Geluidssfeer';
+
+  @override
+  String get scenesAmbienceNone => 'Geen';
+
+  @override
+  String scenesPlayAmbience(String name) {
+    return 'Sfeer starten: $name';
+  }
+
+  @override
+  String get scenesStopAmbience => 'Sfeer stoppen';
 }

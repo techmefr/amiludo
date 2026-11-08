@@ -10289,6 +10289,168 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Move {title} down'**
   String scenesMoveDown(String title);
+
+  /// No description provided for @toolGmtablesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Random tables'**
+  String get toolGmtablesTitle;
+
+  /// No description provided for @toolGmtablesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your own tables of names, taverns, loot, rumours and encounters.'**
+  String get toolGmtablesSubtitle;
+
+  /// No description provided for @gmtablesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No tables yet. Create one or start from the starter tables.'**
+  String get gmtablesEmpty;
+
+  /// No description provided for @gmtablesAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'New table'**
+  String get gmtablesAdd;
+
+  /// No description provided for @gmtablesStarter.
+  ///
+  /// In en, this message translates to:
+  /// **'Add starter tables'**
+  String get gmtablesStarter;
+
+  /// No description provided for @gmtablesRoll.
+  ///
+  /// In en, this message translates to:
+  /// **'Roll {name}'**
+  String gmtablesRoll(String name);
+
+  /// No description provided for @gmtablesEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit {name}'**
+  String gmtablesEdit(String name);
+
+  /// No description provided for @gmtablesName.
+  ///
+  /// In en, this message translates to:
+  /// **'Table name'**
+  String get gmtablesName;
+
+  /// No description provided for @gmtablesEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'Entries, one per line'**
+  String get gmtablesEntries;
+
+  /// No description provided for @gmtablesSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save table'**
+  String get gmtablesSave;
+
+  /// No description provided for @gmtablesDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this table'**
+  String get gmtablesDelete;
+
+  /// No description provided for @gmtablesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} entries'**
+  String gmtablesCount(int count);
+
+  /// No description provided for @gmtablesNoEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'Add entries to roll on this table.'**
+  String get gmtablesNoEntries;
+
+  /// No description provided for @gmtablesStarterNames.
+  ///
+  /// In en, this message translates to:
+  /// **'Names'**
+  String get gmtablesStarterNames;
+
+  /// No description provided for @gmtablesStarterNamesEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'Aldric|Brenna|Corvin|Delia|Edric|Fenna|Garrick|Helga'**
+  String get gmtablesStarterNamesEntries;
+
+  /// No description provided for @gmtablesStarterTaverns.
+  ///
+  /// In en, this message translates to:
+  /// **'Taverns'**
+  String get gmtablesStarterTaverns;
+
+  /// No description provided for @gmtablesStarterTavernsEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'The Gilded Boar|The Weeping Lantern|The Drowsy Fox|The Rusty Anchor|The Crooked Crown|The Last Hearth'**
+  String get gmtablesStarterTavernsEntries;
+
+  /// No description provided for @gmtablesStarterLoot.
+  ///
+  /// In en, this message translates to:
+  /// **'Loot'**
+  String get gmtablesStarterLoot;
+
+  /// No description provided for @gmtablesStarterLootEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'A silver ring with an unreadable inscription|A pouch of thirty mixed coins|A sealed letter marked with a broken crest|A vial of cloudy green liquid|A dagger with a gem in the hilt|A map fragment with a red cross'**
+  String get gmtablesStarterLootEntries;
+
+  /// No description provided for @gmtablesStarterRumours.
+  ///
+  /// In en, this message translates to:
+  /// **'Rumours'**
+  String get gmtablesStarterRumours;
+
+  /// No description provided for @gmtablesStarterRumoursEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'The miller’s cellar hides a secret door|A stranger pays with very old coins|Lights were seen in the abandoned tower|The baron has stopped leaving his house|Wolves leave the forest at night|Someone is buying every bottle of ink in town'**
+  String get gmtablesStarterRumoursEntries;
+
+  /// No description provided for @gmtablesStarterEncounters.
+  ///
+  /// In en, this message translates to:
+  /// **'Encounters'**
+  String get gmtablesStarterEncounters;
+
+  /// No description provided for @gmtablesStarterEncountersEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'A wounded traveller asks for help|Two bandits block the bridge|A merchant’s cart is stuck in the mud|A silent child follows the party|Fresh tracks leave the road|A bell rings from nowhere'**
+  String get gmtablesStarterEncountersEntries;
+
+  /// No description provided for @scenesAmbience.
+  ///
+  /// In en, this message translates to:
+  /// **'Sound ambience'**
+  String get scenesAmbience;
+
+  /// No description provided for @scenesAmbienceNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get scenesAmbienceNone;
+
+  /// No description provided for @scenesPlayAmbience.
+  ///
+  /// In en, this message translates to:
+  /// **'Play ambience: {name}'**
+  String scenesPlayAmbience(String name);
+
+  /// No description provided for @scenesStopAmbience.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop the ambience'**
+  String get scenesStopAmbience;
 }
 
 class _AppLocalizationsDelegate

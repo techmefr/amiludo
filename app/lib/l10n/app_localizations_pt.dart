@@ -5512,4 +5512,93 @@ class AppLocalizationsPt extends AppLocalizations {
   String scenesMoveDown(String title) {
     return 'Descer $title';
   }
+
+  @override
+  String get toolGmtablesTitle => 'Tabelas aleatórias';
+
+  @override
+  String get toolGmtablesSubtitle => 'Suas próprias tabelas de nomes, tavernas, saque, rumores e encontros.';
+
+  @override
+  String get gmtablesEmpty => 'Ainda não há tabelas. Crie uma ou comece pelas tabelas iniciais.';
+
+  @override
+  String get gmtablesAdd => 'Nova tabela';
+
+  @override
+  String get gmtablesStarter => 'Adicionar tabelas iniciais';
+
+  @override
+  String gmtablesRoll(String name) {
+    return 'Rolar $name';
+  }
+
+  @override
+  String gmtablesEdit(String name) {
+    return 'Editar $name';
+  }
+
+  @override
+  String get gmtablesName => 'Nome da tabela';
+
+  @override
+  String get gmtablesEntries => 'Entradas, uma por linha';
+
+  @override
+  String get gmtablesSave => 'Salvar a tabela';
+
+  @override
+  String get gmtablesDelete => 'Excluir esta tabela';
+
+  @override
+  String gmtablesCount(int count) {
+    return '$count entradas';
+  }
+
+  @override
+  String get gmtablesNoEntries => 'Adicione entradas para rolar nesta tabela.';
+
+  @override
+  String get gmtablesStarterNames => 'Nomes';
+
+  @override
+  String get gmtablesStarterNamesEntries => 'Aldric|Brenna|Corvin|Delia|Edric|Fenna|Garrick|Helga';
+
+  @override
+  String get gmtablesStarterTaverns => 'Tavernas';
+
+  @override
+  String get gmtablesStarterTavernsEntries => 'O Javali Dourado|A Lanterna que Chora|A Raposa Sonolenta|A Âncora Enferrujada|A Coroa Torta|A Última Lareira';
+
+  @override
+  String get gmtablesStarterLoot => 'Saque';
+
+  @override
+  String get gmtablesStarterLootEntries => 'Um anel de prata com inscrição ilegível|Uma bolsa com trinta moedas variadas|Uma carta lacrada com um brasão partido|Um frasco de líquido verde turvo|Uma adaga com uma gema no punho|Um fragmento de mapa com uma cruz vermelha';
+
+  @override
+  String get gmtablesStarterRumours => 'Rumores';
+
+  @override
+  String get gmtablesStarterRumoursEntries => 'A adega do moleiro esconde uma porta secreta|Um forasteiro paga com moedas muito antigas|Foram vistas luzes na torre abandonada|O barão deixou de sair de casa|Os lobos saem da floresta à noite|Alguém está comprando todos os frascos de tinta da cidade';
+
+  @override
+  String get gmtablesStarterEncounters => 'Encontros';
+
+  @override
+  String get gmtablesStarterEncountersEntries => 'Um viajante ferido pede ajuda|Dois bandidos bloqueiam a ponte|A carroça de um mercador está atolada na lama|Uma criança silenciosa segue o grupo|Rastros recentes deixam a estrada|Um sino toca vindo do nada';
+
+  @override
+  String get scenesAmbience => 'Ambiente sonoro';
+
+  @override
+  String get scenesAmbienceNone => 'Nenhum';
+
+  @override
+  String scenesPlayAmbience(String name) {
+    return 'Iniciar ambiente: $name';
+  }
+
+  @override
+  String get scenesStopAmbience => 'Parar o ambiente';
 }

@@ -19,16 +19,11 @@ class Storyline {
   Storyline put(Scene next) {
     final known = scenes.any((s) => s.id == next.id);
     final valid = {for (final s in scenes) s.id, next.id}..remove(next.id);
-    final cleaned = Scene(
-      id: next.id,
-      title: next.title,
-      notes: next.notes,
-      handout: next.handout,
+    final cleaned = next.copyWith(
       nextIds: [
         for (final id in next.nextIds)
           if (valid.contains(id)) id,
       ],
-      creatureIds: next.creatureIds,
     );
     return Storyline(
       scenes: known
@@ -41,16 +36,11 @@ class Storyline {
     scenes: [
       for (final s in scenes)
         if (s.id != id)
-          Scene(
-            id: s.id,
-            title: s.title,
-            notes: s.notes,
-            handout: s.handout,
+          s.copyWith(
             nextIds: [
               for (final n in s.nextIds)
                 if (n != id) n,
             ],
-            creatureIds: s.creatureIds,
           ),
     ],
   );

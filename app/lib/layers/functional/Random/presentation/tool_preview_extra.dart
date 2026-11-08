@@ -130,6 +130,7 @@ Widget? extraPreview(
   'bank' => _count(context, ink, '${1500 + (200 * t).round()}'),
   'auction' => _count(context, ink, '${(35 * t).round()}'),
   'combat' => _order(accent, ink, t),
+  'gmtables' => _bars(accent, ink, t, const [.5, 1, .7, .35]),
   'scenes' => _chain(accent, ink, t),
   'bestiary' => _stack(accent, ink, t),
   'clocks' => Center(

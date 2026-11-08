@@ -5520,4 +5520,93 @@ class AppLocalizationsDe extends AppLocalizations {
   String scenesMoveDown(String title) {
     return '$title nach unten';
   }
+
+  @override
+  String get toolGmtablesTitle => 'Zufallstabellen';
+
+  @override
+  String get toolGmtablesSubtitle => 'Deine eigenen Tabellen für Namen, Gasthäuser, Beute, Gerüchte und Begegnungen.';
+
+  @override
+  String get gmtablesEmpty => 'Noch keine Tabellen. Erstelle eine oder starte mit den Starttabellen.';
+
+  @override
+  String get gmtablesAdd => 'Neue Tabelle';
+
+  @override
+  String get gmtablesStarter => 'Starttabellen hinzufügen';
+
+  @override
+  String gmtablesRoll(String name) {
+    return '$name würfeln';
+  }
+
+  @override
+  String gmtablesEdit(String name) {
+    return '$name bearbeiten';
+  }
+
+  @override
+  String get gmtablesName => 'Name der Tabelle';
+
+  @override
+  String get gmtablesEntries => 'Einträge, einer pro Zeile';
+
+  @override
+  String get gmtablesSave => 'Tabelle speichern';
+
+  @override
+  String get gmtablesDelete => 'Diese Tabelle löschen';
+
+  @override
+  String gmtablesCount(int count) {
+    return '$count Einträge';
+  }
+
+  @override
+  String get gmtablesNoEntries => 'Füge Einträge hinzu, um zu würfeln.';
+
+  @override
+  String get gmtablesStarterNames => 'Namen';
+
+  @override
+  String get gmtablesStarterNamesEntries => 'Aldric|Brenna|Corvin|Delia|Edric|Fenna|Garrick|Helga';
+
+  @override
+  String get gmtablesStarterTaverns => 'Gasthäuser';
+
+  @override
+  String get gmtablesStarterTavernsEntries => 'Zum goldenen Eber|Die weinende Laterne|Zum schläfrigen Fuchs|Der rostige Anker|Die schiefe Krone|Der letzte Herd';
+
+  @override
+  String get gmtablesStarterLoot => 'Beute';
+
+  @override
+  String get gmtablesStarterLootEntries => 'Ein Silberring mit unleserlicher Inschrift|Ein Beutel mit dreißig gemischten Münzen|Ein versiegelter Brief mit zerbrochenem Wappen|Ein Fläschchen mit trüber grüner Flüssigkeit|Ein Dolch mit Edelstein im Griff|Ein Kartenfragment mit rotem Kreuz';
+
+  @override
+  String get gmtablesStarterRumours => 'Gerüchte';
+
+  @override
+  String get gmtablesStarterRumoursEntries => 'Im Keller des Müllers ist eine Geheimtür|Ein Fremder zahlt mit sehr alten Münzen|Im verlassenen Turm sah man Lichter|Der Baron verlässt sein Haus nicht mehr|Nachts verlassen Wölfe den Wald|Jemand kauft alle Tintenfässer der Stadt auf';
+
+  @override
+  String get gmtablesStarterEncounters => 'Begegnungen';
+
+  @override
+  String get gmtablesStarterEncountersEntries => 'Ein verletzter Reisender bittet um Hilfe|Zwei Banditen versperren die Brücke|Der Karren eines Händlers steckt im Schlamm|Ein stilles Kind folgt der Gruppe|Frische Spuren führen von der Straße weg|Eine Glocke läutet aus dem Nichts';
+
+  @override
+  String get scenesAmbience => 'Klangkulisse';
+
+  @override
+  String get scenesAmbienceNone => 'Keine';
+
+  @override
+  String scenesPlayAmbience(String name) {
+    return 'Klangkulisse starten: $name';
+  }
+
+  @override
+  String get scenesStopAmbience => 'Klangkulisse stoppen';
 }
