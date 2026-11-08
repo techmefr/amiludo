@@ -4247,4 +4247,170 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get toolChessClockSubtitle => 'Two clocks, one tap to pass the turn, with increment.';
+
+  @override
+  String get toolShelfRules => 'Rules';
+
+  @override
+  String get toolShelfVotes => 'Votes and secrets';
+
+  @override
+  String get toolDeckTitle => 'Card deck';
+
+  @override
+  String get toolDeckSubtitle => 'Draw from 52 cards or from your own deck.';
+
+  @override
+  String get deckStandard => '52 cards';
+
+  @override
+  String get deckCustom => 'My cards';
+
+  @override
+  String get deckCustomLabel => 'Your cards, one per line';
+
+  @override
+  String get deckCustomHelper => 'Add x3 after a name for three copies.';
+
+  @override
+  String get deckDraw => 'Draw a card';
+
+  @override
+  String get deckShuffle => 'Shuffle';
+
+  @override
+  String get deckRecycle => 'Reshuffle the discard';
+
+  @override
+  String get deckDiscardHand => 'Discard the hand';
+
+  @override
+  String deckRemaining(int count) {
+    return '$count in the deck';
+  }
+
+  @override
+  String deckDiscardCount(int count) {
+    return '$count discarded';
+  }
+
+  @override
+  String get deckEmpty => 'The deck is empty.';
+
+  @override
+  String get deckHandTitle => 'In hand';
+
+  @override
+  String deckDiscardCard(String card) {
+    return 'Discard $card';
+  }
+
+  @override
+  String get deckFaceDown => 'Face-down deck';
+
+  @override
+  String get toolRulesTitle => 'Rules memo';
+
+  @override
+  String get toolRulesSubtitle => 'Write the rules of a game once, find them mid-game.';
+
+  @override
+  String get rulesNewGame => 'New game';
+
+  @override
+  String get rulesGameName => 'Game name';
+
+  @override
+  String get rulesSearch => 'Search the rules';
+
+  @override
+  String get rulesNoMatch => 'No rule matches.';
+
+  @override
+  String get rulesEmpty => 'No rules yet. Add a game to start.';
+
+  @override
+  String get rulesNoSection => 'This game has no rule yet.';
+
+  @override
+  String get rulesAddSection => 'Add a rule';
+
+  @override
+  String get rulesSectionTitle => 'Rule title';
+
+  @override
+  String get rulesSectionBody => 'Rule text';
+
+  @override
+  String get rulesDeleteGame => 'Delete this game';
+
+  @override
+  String get rulesDeleteRule => 'Delete rule';
+
+  @override
+  String get rulesEditRule => 'Edit rule';
+
+  @override
+  String get rulesTableMode => 'Table view';
+
+  @override
+  String get toolVoteTitle => 'Secret vote';
+
+  @override
+  String get toolVoteSubtitle => 'Pass the phone, vote in secret, reveal together.';
+
+  @override
+  String get voteQuestion => 'Question';
+
+  @override
+  String get voteChoices => 'Choices, separated by commas';
+
+  @override
+  String get voteVoters => 'Voters';
+
+  @override
+  String get voteFewer => 'Fewer voters';
+
+  @override
+  String get voteMore => 'More voters';
+
+  @override
+  String get voteStart => 'Start the vote';
+
+  @override
+  String voteTurn(int number, int total) {
+    return 'Voter $number of $total';
+  }
+
+  @override
+  String get votePass => 'Hand the phone to the next voter.';
+
+  @override
+  String get voteDone => 'Everyone has voted.';
+
+  @override
+  String get voteReady => 'I am ready';
+
+  @override
+  String get voteCast => 'Cast my vote';
+
+  @override
+  String get voteReveal => 'Reveal the result';
+
+  @override
+  String get voteResult => 'Result';
+
+  @override
+  String get voteTie => 'Tie';
+
+  @override
+  String get voteAgain => 'Vote again';
+
+  @override
+  String get voteNeedTwo => 'Add a question and at least two choices.';
+
+  @override
+  String voteCount(int count) {
+    return '$count votes';
+  }
 }

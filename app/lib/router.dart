@@ -16,6 +16,9 @@ import 'package:amiludo/dice_studio.dart';
 import 'package:amiludo/map_tool.dart';
 import 'package:amiludo/notebook_routes.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/chess_clock_tool.dart';
+import 'package:amiludo/rules_tool.dart';
+import 'package:amiludo/layers/functional/Random/presentation/deck_tool.dart';
+import 'package:amiludo/layers/functional/Random/presentation/vote_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/stopwatch_tool.dart';
 import 'package:amiludo/sensor_tools.dart';
 import 'package:amiludo/layers/functional/Account/presentation/account_screen.dart';
@@ -77,6 +80,9 @@ Widget _timer(BuildContext context) =>
 Widget _stopwatch(BuildContext context) => const StopwatchTool();
 
 Widget _chessClock(BuildContext context) => const ChessClockTool();
+Widget _deck(BuildContext context) => const DeckTool();
+
+Widget _vote(BuildContext context) => const VoteTool();
 
 Widget _heroes(BuildContext context) => const HeroesTool();
 
@@ -216,6 +222,9 @@ final router = GoRouter(
           'timer': _timer,
           'stopwatch': _stopwatch,
           'chess-clock': _chessClock,
+          'deck': _deck,
+          'rules': rulesWithStorage,
+          'vote': _vote,
           'dice-tray': diceTrayWithSensors,
           'hourglass': hourglassWithSensors,
           'map': mapWithStorage,

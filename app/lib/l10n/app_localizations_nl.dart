@@ -4278,4 +4278,170 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get toolChessClockSubtitle => 'Twee klokken, één tik geeft de beurt door, met increment.';
+
+  @override
+  String get toolShelfRules => 'Regels';
+
+  @override
+  String get toolShelfVotes => 'Stemmen en geheimen';
+
+  @override
+  String get toolDeckTitle => 'Kaartspel';
+
+  @override
+  String get toolDeckSubtitle => 'Trek uit 52 kaarten of uit je eigen stapel.';
+
+  @override
+  String get deckStandard => '52 kaarten';
+
+  @override
+  String get deckCustom => 'Mijn kaarten';
+
+  @override
+  String get deckCustomLabel => 'Je kaarten, één per regel';
+
+  @override
+  String get deckCustomHelper => 'Voeg x3 toe achter een naam voor drie exemplaren.';
+
+  @override
+  String get deckDraw => 'Trek een kaart';
+
+  @override
+  String get deckShuffle => 'Schudden';
+
+  @override
+  String get deckRecycle => 'Aflegstapel schudden';
+
+  @override
+  String get deckDiscardHand => 'Hand afleggen';
+
+  @override
+  String deckRemaining(int count) {
+    return '$count in de stapel';
+  }
+
+  @override
+  String deckDiscardCount(int count) {
+    return '$count afgelegd';
+  }
+
+  @override
+  String get deckEmpty => 'De stapel is leeg.';
+
+  @override
+  String get deckHandTitle => 'In de hand';
+
+  @override
+  String deckDiscardCard(String card) {
+    return '$card afleggen';
+  }
+
+  @override
+  String get deckFaceDown => 'Gedekte stapel';
+
+  @override
+  String get toolRulesTitle => 'Regelkaart';
+
+  @override
+  String get toolRulesSubtitle => 'Schrijf de regels van een spel en vind ze midden in het spel.';
+
+  @override
+  String get rulesNewGame => 'Nieuw spel';
+
+  @override
+  String get rulesGameName => 'Spelnaam';
+
+  @override
+  String get rulesSearch => 'Zoek in de regels';
+
+  @override
+  String get rulesNoMatch => 'Geen regel past.';
+
+  @override
+  String get rulesEmpty => 'Nog geen regels. Voeg een spel toe om te beginnen.';
+
+  @override
+  String get rulesNoSection => 'Dit spel heeft nog geen regels.';
+
+  @override
+  String get rulesAddSection => 'Regel toevoegen';
+
+  @override
+  String get rulesSectionTitle => 'Titel van de regel';
+
+  @override
+  String get rulesSectionBody => 'Tekst van de regel';
+
+  @override
+  String get rulesDeleteGame => 'Dit spel verwijderen';
+
+  @override
+  String get rulesDeleteRule => 'Regel verwijderen';
+
+  @override
+  String get rulesEditRule => 'Regel bewerken';
+
+  @override
+  String get rulesTableMode => 'Tafelweergave';
+
+  @override
+  String get toolVoteTitle => 'Geheime stemming';
+
+  @override
+  String get toolVoteSubtitle => 'Geef de telefoon door, stem geheim, onthul samen.';
+
+  @override
+  String get voteQuestion => 'Vraag';
+
+  @override
+  String get voteChoices => 'Keuzes, gescheiden door komma’s';
+
+  @override
+  String get voteVoters => 'Stemmers';
+
+  @override
+  String get voteFewer => 'Minder stemmers';
+
+  @override
+  String get voteMore => 'Meer stemmers';
+
+  @override
+  String get voteStart => 'Stemming starten';
+
+  @override
+  String voteTurn(int number, int total) {
+    return 'Stemmer $number van $total';
+  }
+
+  @override
+  String get votePass => 'Geef de telefoon aan de volgende stemmer.';
+
+  @override
+  String get voteDone => 'Iedereen heeft gestemd.';
+
+  @override
+  String get voteReady => 'Ik ben klaar';
+
+  @override
+  String get voteCast => 'Stem uitbrengen';
+
+  @override
+  String get voteReveal => 'Resultaat onthullen';
+
+  @override
+  String get voteResult => 'Resultaat';
+
+  @override
+  String get voteTie => 'Gelijkspel';
+
+  @override
+  String get voteAgain => 'Opnieuw stemmen';
+
+  @override
+  String get voteNeedTwo => 'Voeg een vraag en minstens twee keuzes toe.';
+
+  @override
+  String voteCount(int count) {
+    return '$count stemmen';
+  }
 }

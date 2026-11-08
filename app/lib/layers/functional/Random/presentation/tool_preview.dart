@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Theme/components/hourglass_painter.dart';
+import 'package:amiludo/layers/technical/Theme/components/playing_card.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/stopwatch_state.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/brick_catalog.dart';
 import 'package:amiludo/layers/functional/Random/presentation/map_sketch_painter.dart';
@@ -85,6 +86,31 @@ class _ToolPreviewState extends State<ToolPreview>
     ),
   );
 
+  Widget _fanCard(int i, String rank, String suit, bool red, double t) =>
+      Transform.translate(
+        offset: Offset((i - 1) * widget.height * .3 * t, 0),
+        child: Transform.rotate(
+          angle: (i - 1) * .3 * t,
+          child: PlayingCard(
+            rank: rank,
+            suit: suit,
+            red: red,
+            width: widget.height * .5,
+          ),
+        ),
+      );
+
+  Widget _fan(double t) => Center(
+    child: Stack(
+      alignment: Alignment.center,
+      children: [
+        _fanCard(0, 'K', '♠', false, t),
+        _fanCard(2, 'A', '♦', true, t),
+        _fanCard(1, 'Q', '♥', true, t),
+      ],
+    ),
+  );
+
   Widget _spin(double t) => Transform(
     alignment: Alignment.center,
     transform: Matrix4.identity()
@@ -100,6 +126,7 @@ class _ToolPreviewState extends State<ToolPreview>
     return switch (widget.id) {
       'hourglass' || 'timer' => _hourglass(tool, ink, t),
       'stopwatch' => _stopwatch(context, tool, t),
+      'deck' => _fan(t),
       'dice' || 'dice-tray' => Center(
         child: Transform.rotate(
           angle: (1 - t) * pi * 2,

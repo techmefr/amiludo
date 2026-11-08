@@ -4276,4 +4276,170 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get toolChessClockSubtitle => 'Dois relógios, um toque passa a vez, com incremento.';
+
+  @override
+  String get toolShelfRules => 'Regras';
+
+  @override
+  String get toolShelfVotes => 'Votos e segredos';
+
+  @override
+  String get toolDeckTitle => 'Baralho';
+
+  @override
+  String get toolDeckSubtitle => 'Compre de 52 cartas ou do seu próprio baralho.';
+
+  @override
+  String get deckStandard => '52 cartas';
+
+  @override
+  String get deckCustom => 'Minhas cartas';
+
+  @override
+  String get deckCustomLabel => 'Suas cartas, uma por linha';
+
+  @override
+  String get deckCustomHelper => 'Adicione x3 após um nome para três cópias.';
+
+  @override
+  String get deckDraw => 'Comprar';
+
+  @override
+  String get deckShuffle => 'Embaralhar';
+
+  @override
+  String get deckRecycle => 'Reembaralhar o descarte';
+
+  @override
+  String get deckDiscardHand => 'Descartar a mão';
+
+  @override
+  String deckRemaining(int count) {
+    return '$count no baralho';
+  }
+
+  @override
+  String deckDiscardCount(int count) {
+    return '$count descartadas';
+  }
+
+  @override
+  String get deckEmpty => 'O baralho está vazio.';
+
+  @override
+  String get deckHandTitle => 'Na mão';
+
+  @override
+  String deckDiscardCard(String card) {
+    return 'Descartar $card';
+  }
+
+  @override
+  String get deckFaceDown => 'Baralho virado';
+
+  @override
+  String get toolRulesTitle => 'Resumo de regras';
+
+  @override
+  String get toolRulesSubtitle => 'Escreva as regras de um jogo e encontre-as durante a partida.';
+
+  @override
+  String get rulesNewGame => 'Novo jogo';
+
+  @override
+  String get rulesGameName => 'Nome do jogo';
+
+  @override
+  String get rulesSearch => 'Buscar nas regras';
+
+  @override
+  String get rulesNoMatch => 'Nenhuma regra corresponde.';
+
+  @override
+  String get rulesEmpty => 'Ainda sem regras. Adicione um jogo para começar.';
+
+  @override
+  String get rulesNoSection => 'Este jogo ainda não tem regras.';
+
+  @override
+  String get rulesAddSection => 'Adicionar uma regra';
+
+  @override
+  String get rulesSectionTitle => 'Título da regra';
+
+  @override
+  String get rulesSectionBody => 'Texto da regra';
+
+  @override
+  String get rulesDeleteGame => 'Excluir este jogo';
+
+  @override
+  String get rulesDeleteRule => 'Excluir regra';
+
+  @override
+  String get rulesEditRule => 'Editar regra';
+
+  @override
+  String get rulesTableMode => 'Vista de mesa';
+
+  @override
+  String get toolVoteTitle => 'Voto secreto';
+
+  @override
+  String get toolVoteSubtitle => 'Passe o telemóvel, vote em segredo, revelem juntos.';
+
+  @override
+  String get voteQuestion => 'Pergunta';
+
+  @override
+  String get voteChoices => 'Opções, separadas por vírgulas';
+
+  @override
+  String get voteVoters => 'Votantes';
+
+  @override
+  String get voteFewer => 'Menos votantes';
+
+  @override
+  String get voteMore => 'Mais votantes';
+
+  @override
+  String get voteStart => 'Iniciar a votação';
+
+  @override
+  String voteTurn(int number, int total) {
+    return 'Votante $number de $total';
+  }
+
+  @override
+  String get votePass => 'Passe o telemóvel ao próximo votante.';
+
+  @override
+  String get voteDone => 'Todos votaram.';
+
+  @override
+  String get voteReady => 'Estou pronto';
+
+  @override
+  String get voteCast => 'Votar';
+
+  @override
+  String get voteReveal => 'Revelar o resultado';
+
+  @override
+  String get voteResult => 'Resultado';
+
+  @override
+  String get voteTie => 'Empate';
+
+  @override
+  String get voteAgain => 'Votar de novo';
+
+  @override
+  String get voteNeedTwo => 'Adicione uma pergunta e pelo menos duas opções.';
+
+  @override
+  String voteCount(int count) {
+    return '$count votos';
+  }
 }

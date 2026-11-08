@@ -1662,5 +1662,95 @@
     }
   },
   "toolChessClockTitle": "Chess clock",
-  "toolChessClockSubtitle": "Two clocks, one tap to pass the turn, with increment."
+  "toolChessClockSubtitle": "Two clocks, one tap to pass the turn, with increment.",
+  "toolShelfRules": "Rules",
+  "toolShelfVotes": "Votes and secrets",
+  "toolDeckTitle": "Card deck",
+  "toolDeckSubtitle": "Draw from 52 cards or from your own deck.",
+  "deckStandard": "52 cards",
+  "deckCustom": "My cards",
+  "deckCustomLabel": "Your cards, one per line",
+  "deckCustomHelper": "Add x3 after a name for three copies.",
+  "deckDraw": "Draw a card",
+  "deckShuffle": "Shuffle",
+  "deckRecycle": "Reshuffle the discard",
+  "deckDiscardHand": "Discard the hand",
+  "deckRemaining": "{count} in the deck",
+  "@deckRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deckDiscardCount": "{count} discarded",
+  "@deckDiscardCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deckEmpty": "The deck is empty.",
+  "deckHandTitle": "In hand",
+  "deckDiscardCard": "Discard {card}",
+  "@deckDiscardCard": {
+    "placeholders": {
+      "card": {
+        "type": "String"
+      }
+    }
+  },
+  "deckFaceDown": "Face-down deck",
+  "toolRulesTitle": "Rules memo",
+  "toolRulesSubtitle": "Write the rules of a game once, find them mid-game.",
+  "rulesNewGame": "New game",
+  "rulesGameName": "Game name",
+  "rulesSearch": "Search the rules",
+  "rulesNoMatch": "No rule matches.",
+  "rulesEmpty": "No rules yet. Add a game to start.",
+  "rulesNoSection": "This game has no rule yet.",
+  "rulesAddSection": "Add a rule",
+  "rulesSectionTitle": "Rule title",
+  "rulesSectionBody": "Rule text",
+  "rulesDeleteGame": "Delete this game",
+  "rulesDeleteRule": "Delete rule",
+  "rulesEditRule": "Edit rule",
+  "rulesTableMode": "Table view",
+  "toolVoteTitle": "Secret vote",
+  "toolVoteSubtitle": "Pass the phone, vote in secret, reveal together.",
+  "voteQuestion": "Question",
+  "voteChoices": "Choices, separated by commas",
+  "voteVoters": "Voters",
+  "voteFewer": "Fewer voters",
+  "voteMore": "More voters",
+  "voteStart": "Start the vote",
+  "voteTurn": "Voter {number} of {total}",
+  "@voteTurn": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "votePass": "Hand the phone to the next voter.",
+  "voteDone": "Everyone has voted.",
+  "voteReady": "I am ready",
+  "voteCast": "Cast my vote",
+  "voteReveal": "Reveal the result",
+  "voteResult": "Result",
+  "voteTie": "Tie",
+  "voteAgain": "Vote again",
+  "voteNeedTwo": "Add a question and at least two choices.",
+  "voteCount": "{count} votes",
+  "@voteCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

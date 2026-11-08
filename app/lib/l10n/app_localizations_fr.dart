@@ -4280,4 +4280,170 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get toolChessClockSubtitle => 'Deux horloges, un tap pour passer la main, avec incrément.';
+
+  @override
+  String get toolShelfRules => 'Règles';
+
+  @override
+  String get toolShelfVotes => 'Votes et secrets';
+
+  @override
+  String get toolDeckTitle => 'Pioche de cartes';
+
+  @override
+  String get toolDeckSubtitle => 'Piochez dans 52 cartes ou dans votre propre paquet.';
+
+  @override
+  String get deckStandard => '52 cartes';
+
+  @override
+  String get deckCustom => 'Mes cartes';
+
+  @override
+  String get deckCustomLabel => 'Vos cartes, une par ligne';
+
+  @override
+  String get deckCustomHelper => 'Ajoutez x3 après un nom pour trois exemplaires.';
+
+  @override
+  String get deckDraw => 'Piocher';
+
+  @override
+  String get deckShuffle => 'Mélanger';
+
+  @override
+  String get deckRecycle => 'Remélanger la défausse';
+
+  @override
+  String get deckDiscardHand => 'Défausser la main';
+
+  @override
+  String deckRemaining(int count) {
+    return '$count dans la pioche';
+  }
+
+  @override
+  String deckDiscardCount(int count) {
+    return '$count défaussées';
+  }
+
+  @override
+  String get deckEmpty => 'La pioche est vide.';
+
+  @override
+  String get deckHandTitle => 'En main';
+
+  @override
+  String deckDiscardCard(String card) {
+    return 'Défausser $card';
+  }
+
+  @override
+  String get deckFaceDown => 'Pioche face cachée';
+
+  @override
+  String get toolRulesTitle => 'Aide-mémoire de règles';
+
+  @override
+  String get toolRulesSubtitle => 'Écrivez les règles d’un jeu, retrouvez-les en pleine partie.';
+
+  @override
+  String get rulesNewGame => 'Nouveau jeu';
+
+  @override
+  String get rulesGameName => 'Nom du jeu';
+
+  @override
+  String get rulesSearch => 'Chercher dans les règles';
+
+  @override
+  String get rulesNoMatch => 'Aucune règle ne correspond.';
+
+  @override
+  String get rulesEmpty => 'Pas encore de règles. Ajoutez un jeu pour commencer.';
+
+  @override
+  String get rulesNoSection => 'Ce jeu n’a pas encore de règle.';
+
+  @override
+  String get rulesAddSection => 'Ajouter une règle';
+
+  @override
+  String get rulesSectionTitle => 'Titre de la règle';
+
+  @override
+  String get rulesSectionBody => 'Texte de la règle';
+
+  @override
+  String get rulesDeleteGame => 'Supprimer ce jeu';
+
+  @override
+  String get rulesDeleteRule => 'Supprimer la règle';
+
+  @override
+  String get rulesEditRule => 'Modifier la règle';
+
+  @override
+  String get rulesTableMode => 'Vue de table';
+
+  @override
+  String get toolVoteTitle => 'Vote secret';
+
+  @override
+  String get toolVoteSubtitle => 'Passez le téléphone, votez en secret, révélez ensemble.';
+
+  @override
+  String get voteQuestion => 'Question';
+
+  @override
+  String get voteChoices => 'Choix, séparés par des virgules';
+
+  @override
+  String get voteVoters => 'Votants';
+
+  @override
+  String get voteFewer => 'Moins de votants';
+
+  @override
+  String get voteMore => 'Plus de votants';
+
+  @override
+  String get voteStart => 'Lancer le vote';
+
+  @override
+  String voteTurn(int number, int total) {
+    return 'Votant $number sur $total';
+  }
+
+  @override
+  String get votePass => 'Passez le téléphone au votant suivant.';
+
+  @override
+  String get voteDone => 'Tout le monde a voté.';
+
+  @override
+  String get voteReady => 'Je suis prêt';
+
+  @override
+  String get voteCast => 'Voter';
+
+  @override
+  String get voteReveal => 'Révéler le résultat';
+
+  @override
+  String get voteResult => 'Résultat';
+
+  @override
+  String get voteTie => 'Égalité';
+
+  @override
+  String get voteAgain => 'Revoter';
+
+  @override
+  String get voteNeedTwo => 'Ajoutez une question et au moins deux choix.';
+
+  @override
+  String voteCount(int count) {
+    return '$count voix';
+  }
 }
