@@ -1821,5 +1821,9 @@
   "rulesDecisionRuling": "Was entschieden wurde",
   "rulesDecisionAdd": "Entscheidung festhalten",
   "rulesDecisionsEmpty": "Noch keine Entscheidung festgehalten.",
-  "rulesDecisionDelete": "Entscheidung löschen"
+  "rulesDecisionDelete": "Entscheidung löschen",
+  "rulesCommon": "Gemeinsame Regeln",
+  "rulesCommonCount": "Gemeinsame Regeln ({count})",
+  "rulesCommon": "Gemeinsame Regeln",
+  "rulesCommonCount": "Gemeinsame Regeln ({count})"
 }

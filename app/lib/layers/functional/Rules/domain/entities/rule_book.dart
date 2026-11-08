@@ -149,35 +149,55 @@ class RuleGame {
   };
 }
 
+const commonRuleId = 'common';
+
 class RuleBook {
-  const RuleBook({this.games = const []});
+  const RuleBook({this.games = const [], this.common = const []});
 
   factory RuleBook.fromJson(Map<String, dynamic> j) => RuleBook(
     games: [
       for (final g in j['rules'] as List? ?? const [])
         RuleGame.fromJson(Map<String, dynamic>.from(g as Map)),
     ],
+    common: [
+      for (final c in j['commonRules'] as List? ?? const [])
+        RuleSection.fromJson(Map<String, dynamic>.from(c as Map)),
+    ],
   );
 
   final List<RuleGame> games;
+  final List<RuleSection> common;
 
-  bool get isEmpty => games.isEmpty;
+  bool get isEmpty => games.isEmpty && common.isEmpty;
 
-  RuleGame? of(String? id) => games.where((g) => g.id == id).firstOrNull;
+  RuleGame get commonGame =>
+      RuleGame(id: commonRuleId, name: '', sections: common);
+
+  RuleGame? of(String? id) => id == commonRuleId
+      ? commonGame
+      : games.where((g) => g.id == id).firstOrNull;
 
   RuleBook put(RuleGame game) {
+    if (game.id == commonRuleId) {
+      return RuleBook(games: games, common: game.sections);
+    }
     final known = games.any((g) => g.id == game.id);
     return RuleBook(
       games: known
           ? [for (final g in games) g.id == game.id ? game : g]
           : [...games, game],
+      common: common,
     );
   }
 
   RuleBook remove(String id) =>
-      RuleBook(games: [for (final g in games) if (g.id != id) g]);
+      RuleBook(
+        games: [for (final g in games) if (g.id != id) g],
+        common: common,
+      );
 
   Map<String, Object?> toJson() => {
     'rules': [for (final g in games) g.toJson()],
+    'commonRules': [for (final c in common) c.toJson()],
   };
 }

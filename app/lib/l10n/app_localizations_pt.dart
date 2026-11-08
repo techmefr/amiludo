@@ -5894,4 +5894,20 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get rulesDecisionDelete => 'Excluir decisão';
+
+  @override
+  String get rulesCommon => 'Regras comuns';
+
+  @override
+  String rulesCommonCount(int count) {
+    return 'Regras comuns ($count)';
+  }
+
+  @override
+  String get rulesCommon => 'Regras comuns';
+
+  @override
+  String rulesCommonCount(int count) {
+    return 'Regras comuns ($count)';
+  }
 }

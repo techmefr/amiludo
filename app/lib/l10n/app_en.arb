@@ -2672,5 +2672,23 @@
   "rulesDecisionRuling": "What was decided",
   "rulesDecisionAdd": "Record the ruling",
   "rulesDecisionsEmpty": "No ruling recorded yet.",
-  "rulesDecisionDelete": "Delete ruling"
+  "rulesDecisionDelete": "Delete ruling",
+  "rulesCommon": "Common rules",
+  "rulesCommonCount": "Common rules ({count})",
+  "@rulesCommonCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "rulesCommon": "Common rules",
+  "rulesCommonCount": "Common rules ({count})",
+  "@rulesCommonCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

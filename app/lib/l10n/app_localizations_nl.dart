@@ -5896,4 +5896,20 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get rulesDecisionDelete => 'Beslissing verwijderen';
+
+  @override
+  String get rulesCommon => 'Gemeenschappelijke regels';
+
+  @override
+  String rulesCommonCount(int count) {
+    return 'Gemeenschappelijke regels ($count)';
+  }
+
+  @override
+  String get rulesCommon => 'Gemeenschappelijke regels';
+
+  @override
+  String rulesCommonCount(int count) {
+    return 'Gemeenschappelijke regels ($count)';
+  }
 }
