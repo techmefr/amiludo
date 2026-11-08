@@ -2614,6 +2614,15 @@ class AppLocalizationsIt extends AppLocalizations {
   String get diceTrayThrow => 'Lancia';
 
   @override
+  String get diceSkinCream => 'Crema morbido';
+
+  @override
+  String get diceSkinViolet => 'Viola morbido';
+
+  @override
+  String get diceTableRed => 'Rosso';
+
+  @override
   String get diceSeeMore => 'Mostra tutti i dadi';
 
   @override

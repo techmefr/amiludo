@@ -15,8 +15,8 @@ Widget die3dFace({
   required ProjectedFace face,
   required Color base,
   required DieSkin skin,
+  required int value,
 }) {
-  final value = face.index + 1;
   final content = spec.faceContent(value);
   final shaded = DieProjection.shade(base, face.light);
   if (usesSkinColors(spec) && content.kind == DieFaceKind.text) {

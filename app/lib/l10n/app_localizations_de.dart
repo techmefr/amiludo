@@ -2618,6 +2618,15 @@ class AppLocalizationsDe extends AppLocalizations {
   String get diceTrayThrow => 'Werfen';
 
   @override
+  String get diceSkinCream => 'Sanftes Creme';
+
+  @override
+  String get diceSkinViolet => 'Sanftes Violett';
+
+  @override
+  String get diceTableRed => 'Rot';
+
+  @override
   String get diceSeeMore => 'Alle Würfel anzeigen';
 
   @override

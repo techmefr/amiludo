@@ -6,6 +6,9 @@ import 'package:amiludo/layers/functional/Companion/presentation/tray_backdrop.d
 import 'package:amiludo/layers/technical/Physics/surface_material.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
+const double _depth = 0.0009;
+const double _lean = 0.36;
+
 class TrayTable extends StatelessWidget {
   const TrayTable({
     super.key,
@@ -34,14 +37,27 @@ class TrayTable extends StatelessWidget {
           behavior: HitTestBehavior.opaque,
           onTap: onTap,
           onPanEnd: onPanEnd,
-          child: Stack(
-            children: [
-              trayFelt(material, solid),
-              if (solid)
-                Positioned.fill(child: CustomPaint(painter: TablePainter(table))),
-              ...children,
-            ],
-          ),
+          child: solid
+              ? Stack(
+                  children: [
+                    Positioned.fill(child: ColoredBox(color: table.rim)),
+                    Transform(
+                      alignment: Alignment.bottomCenter,
+                      transform: Matrix4.identity()
+                        ..setEntry(3, 2, _depth)
+                        ..rotateX(-_lean),
+                      child: Stack(
+                        children: [
+                          Positioned.fill(
+                            child: CustomPaint(painter: TablePainter(table)),
+                          ),
+                          ...children,
+                        ],
+                      ),
+                    ),
+                  ],
+                )
+              : Stack(children: [trayFelt(material, solid), ...children]),
         ),
       ),
     );

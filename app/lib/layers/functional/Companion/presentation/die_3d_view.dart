@@ -29,7 +29,7 @@ class Die3dView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mesh = DieMesh.forSides(spec.sides);
-    final face = (value - 1).clamp(0, mesh.faces.length - 1);
+    final face = mesh.faceOf(value);
     final radius = size * 0.5;
     final shown = DieProjection.faces(
       mesh,
@@ -57,14 +57,15 @@ class Die3dView extends StatelessWidget {
               ),
             ),
             for (final f in shown)
-              if (f.facing > _contentVisibleFrom) _content(f, base),
+              if (f.facing > _contentVisibleFrom && f.index < mesh.faces.length)
+                _content(f, base, f.index == face ? value : mesh.valueOf(f.index)),
           ],
         ),
       ),
     );
   }
 
-  Widget _content(ProjectedFace f, Color base) => Positioned(
+  Widget _content(ProjectedFace f, Color base, int shown) => Positioned(
     left: size / 2 + f.center.dx - f.contentSize / 2,
     top: size / 2 + f.center.dy - f.contentSize / 2,
     width: f.contentSize,
@@ -91,7 +92,13 @@ class Die3dView extends StatelessWidget {
       ),
       child: SizedBox.square(
         dimension: f.contentSize,
-        child: die3dFace(spec: spec, face: f, base: base, skin: skin),
+        child: die3dFace(
+          spec: spec,
+          face: f,
+          base: base,
+          skin: skin,
+          value: shown,
+        ),
       ),
     ),
   );

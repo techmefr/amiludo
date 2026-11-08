@@ -2614,6 +2614,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String get diceTrayThrow => 'Lançar';
 
   @override
+  String get diceSkinCream => 'Creme suave';
+
+  @override
+  String get diceSkinViolet => 'Violeta suave';
+
+  @override
+  String get diceTableRed => 'Vermelho';
+
+  @override
   String get diceSeeMore => 'Ver todos os dados';
 
   @override

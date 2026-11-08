@@ -91,22 +91,39 @@ List<MeshFace> dodecahedron() {
   ];
 }
 
-List<MeshFace> trapezohedron() {
-  final cosine = cos(pi / 5);
-  const a = 0.1;
+List<MeshFace> trapezohedron([int n = 5]) {
+  final cosine = cos(pi / n);
+  final a = n == 5 ? 0.1 : 0.95 * (1 - cosine) / (1 + cosine);
   final apex = Vec3(0, 0, a * (1 + cosine) / (1 - cosine));
-  Vec3 ring(int i, double z) => Vec3(cos(i * pi / 5), sin(i * pi / 5), z);
+  Vec3 ring(int i, double z) => Vec3(cos(i * pi / n), sin(i * pi / n), z);
   Vec3 upper(int k) => ring(2 * k, a);
   Vec3 lower(int k) => ring(2 * k + 1, -a);
   final top = [
-    for (var k = 0; k < 5; k++)
+    for (var k = 0; k < n; k++)
       MeshFace.fromCorners([apex, upper(k), lower(k), upper(k + 1)]),
   ];
   final bottom = [
-    for (var k = 0; k < 5; k++)
+    for (var k = 0; k < n; k++)
       MeshFace.fromCorners([-apex, lower(k), upper(k + 1), lower(k + 1)]),
   ];
+  if (n != 5) return [...top, ...bottom];
   return [...top, for (var k = 4; k >= 0; k--) bottom[(k + 2) % 5]];
+}
+
+List<MeshFace> prism(int n, double length) {
+  Vec3 corner(int i, double z) =>
+      Vec3(cos(2 * pi * i / n), sin(2 * pi * i / n), z);
+  return [
+    for (var i = 0; i < n; i++)
+      MeshFace.fromCorners([
+        corner(i, -length),
+        corner(i + 1, -length),
+        corner(i + 1, length),
+        corner(i, length),
+      ]),
+    MeshFace.fromCorners([for (var i = 0; i < n; i++) corner(i, length)]),
+    MeshFace.fromCorners([for (var i = 0; i < n; i++) corner(i, -length)]),
+  ];
 }
 
 List<MeshFace> ballFaces(int count) {

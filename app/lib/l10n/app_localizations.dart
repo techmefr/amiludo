@@ -4856,6 +4856,24 @@ abstract class AppLocalizations {
   /// **'Throw'**
   String get diceTrayThrow;
 
+  /// No description provided for @diceSkinCream.
+  ///
+  /// In en, this message translates to:
+  /// **'Soft cream'**
+  String get diceSkinCream;
+
+  /// No description provided for @diceSkinViolet.
+  ///
+  /// In en, this message translates to:
+  /// **'Soft violet'**
+  String get diceSkinViolet;
+
+  /// No description provided for @diceTableRed.
+  ///
+  /// In en, this message translates to:
+  /// **'Red'**
+  String get diceTableRed;
+
   /// No description provided for @diceSeeMore.
   ///
   /// In en, this message translates to:

@@ -32,6 +32,8 @@ String skinLabel(AppLocalizations l, String id) => switch (id) {
   'wood' => l.diceSkinWood,
   'crystal' => l.diceSkinCrystal,
   'glass' => l.diceSkinGlass,
+  'cream' => l.diceSkinCream,
+  'violet' => l.diceSkinViolet,
   _ => l.diceSkinClassic,
 };
 
@@ -40,6 +42,7 @@ String tableLabel(AppLocalizations l, String id) => switch (id) {
   'light' => l.diceTableLight,
   'wood' => l.diceTableWood,
   'blue' => l.diceTableBlue,
+  'red' => l.diceTableRed,
   _ => l.diceTableFelt,
 };
 

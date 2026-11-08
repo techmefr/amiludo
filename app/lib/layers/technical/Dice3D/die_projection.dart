@@ -34,8 +34,9 @@ class DieProjection {
   static List<ProjectedFace> faces(DieMesh mesh, Mat3 pose, double radius) {
     final light = _towardLight.unit;
     final shown = <ProjectedFace>[];
-    for (var i = 0; i < mesh.faces.length; i++) {
-      final f = mesh.faces[i];
+    final drawn = mesh.drawn;
+    for (var i = 0; i < drawn.length; i++) {
+      final f = drawn[i];
       final normal = pose.apply(f.normal);
       if (-normal.z < _minFacing) continue;
       final across = pose.apply(f.normal.cross(-f.up));
