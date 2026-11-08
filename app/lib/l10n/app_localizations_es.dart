@@ -5008,4 +5008,81 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String metronomeBeats(int count) {
     return '$count tiempos';
+
+  @override
+  String get toolBankTitle => 'Banco';
+
+  @override
+  String get toolBankSubtitle => 'Saldos de cada jugador y transferencias entre jugadores y banco.';
+
+  @override
+  String get bankName => 'Banco';
+
+  @override
+  String get bankFrom => 'De';
+
+  @override
+  String get bankTo => 'A';
+
+  @override
+  String get bankAmount => 'Importe';
+
+  @override
+  String get bankTransfer => 'Transferir';
+
+  @override
+  String get toolAuctionTitle => 'Subasta';
+
+  @override
+  String get toolAuctionSubtitle => 'Sube la puja; el martillo cae cuando termina la cuenta atrás.';
+
+  @override
+  String get auctionPickBidder => 'Elige quién puja';
+
+  @override
+  String auctionLeft(int seconds) {
+    return 'Quedan $seconds s';
+  }
+
+  @override
+  String auctionSold(String name, int price) {
+    return 'Adjudicado a $name por $price';
+  }
+
+  @override
+  String get toolTournamentTitle => 'Torneo';
+
+  @override
+  String get toolTournamentSubtitle => 'Un cuadro de eliminación directa: toca al ganador de cada partido.';
+
+  @override
+  String tournamentRound(int number) {
+    return 'Ronda $number';
+  }
+
+  @override
+  String tournamentChampion(String name) {
+    return '$name gana el torneo';
+  }
+
+  @override
+  String get toolBalanceTitle => 'Equipos equilibrados';
+
+  @override
+  String get toolBalanceSubtitle => 'Puntúa a cada jugador y obtén equipos justos.';
+
+  @override
+  String balanceLevel(String name, int level) {
+    return '$name, nivel $level';
+  }
+
+  @override
+  String balanceTeams(int count) {
+    return '$count equipos';
+  }
+
+  @override
+  String balanceTeamTotal(int number, int total) {
+    return 'Equipo $number, total $total';
+  }
 }

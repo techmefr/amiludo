@@ -26,7 +26,11 @@ import 'package:amiludo/layers/functional/Random/presentation/deck_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/vote_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/first_player_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/buzzer_tool.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/auction_tool.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/balance_tool.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/bank_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/clocks_tool.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/tournament_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/life_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/markers_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/sport_tool.dart';
@@ -125,6 +129,15 @@ Widget _clocks(BuildContext context) => const ClocksTool();
 Widget _sport(BuildContext context) => SportTool(names: _names(context));
 
 Widget _markers(BuildContext context) => MarkersTool(names: _names(context));
+
+Widget _bank(BuildContext context) => BankTool(names: _names(context));
+
+Widget _auction(BuildContext context) => AuctionTool(names: _names(context));
+
+Widget _tournament(BuildContext context) =>
+    TournamentTool(names: _names(context));
+
+Widget _balance(BuildContext context) => BalanceTool(names: _names(context));
 
 Widget _turns(BuildContext context) => TurnsTool(names: _names(context));
 
@@ -288,6 +301,10 @@ final router = GoRouter(
           'clocks': _clocks,
           'sport': _sport,
           'markers': _markers,
+          'bank': _bank,
+          'auction': _auction,
+          'tournament': _tournament,
+          'balance': _balance,
           'stats': _stats,
           'sheet': _sheet,
           'turns': _turns,

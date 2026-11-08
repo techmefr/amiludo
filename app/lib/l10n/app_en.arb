@@ -2104,5 +2104,84 @@
         "type": "int"
       }
     }
+  },
+  "toolBankTitle": "Bank",
+  "toolBankSubtitle": "Balances for every player and transfers between players and the bank.",
+  "bankName": "Bank",
+  "bankFrom": "From",
+  "bankTo": "To",
+  "bankAmount": "Amount",
+  "bankTransfer": "Transfer",
+  "toolAuctionTitle": "Auction",
+  "toolAuctionSubtitle": "Raise the bid; the hammer falls when the countdown runs out.",
+  "auctionPickBidder": "Pick who bids",
+  "auctionLeft": "{seconds} s left",
+  "@auctionLeft": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "auctionSold": "Sold to {name} for {price}",
+  "@auctionSold": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "price": {
+        "type": "int"
+      }
+    }
+  },
+  "toolTournamentTitle": "Tournament",
+  "toolTournamentSubtitle": "A knockout bracket: tap the winner of each match.",
+  "tournamentRound": "Round {number}",
+  "@tournamentRound": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "tournamentChampion": "{name} wins the tournament",
+  "@tournamentChampion": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "toolBalanceTitle": "Balanced teams",
+  "toolBalanceSubtitle": "Rate each player and get fair teams.",
+  "balanceLevel": "{name}, level {level}",
+  "@balanceLevel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "balanceTeams": "{count} teams",
+  "@balanceTeams": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "balanceTeamTotal": "Team {number}, total {total}",
+  "@balanceTeamTotal": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
   }
 }

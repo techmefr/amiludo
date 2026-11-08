@@ -9383,6 +9383,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tell a joke|Sing the chorus of a song|Do ten jumping jacks|Speak in an accent until your next turn|Compliment every player|Mime a movie until someone guesses it'**
   String get challengeStarters;
+
+  /// No description provided for @toolBankTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Bank'**
+  String get toolBankTitle;
+
+  /// No description provided for @toolBankSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Balances for every player and transfers between players and the bank.'**
+  String get toolBankSubtitle;
+
+  /// No description provided for @bankName.
+  ///
+  /// In en, this message translates to:
+  /// **'Bank'**
+  String get bankName;
+
+  /// No description provided for @bankFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'From'**
+  String get bankFrom;
+
+  /// No description provided for @bankTo.
+  ///
+  /// In en, this message translates to:
+  /// **'To'**
+  String get bankTo;
+
+  /// No description provided for @bankAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount'**
+  String get bankAmount;
+
+  /// No description provided for @bankTransfer.
+  ///
+  /// In en, this message translates to:
+  /// **'Transfer'**
+  String get bankTransfer;
+
+  /// No description provided for @toolAuctionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Auction'**
+  String get toolAuctionTitle;
+
+  /// No description provided for @toolAuctionSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Raise the bid; the hammer falls when the countdown runs out.'**
+  String get toolAuctionSubtitle;
+
+  /// No description provided for @auctionPickBidder.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick who bids'**
+  String get auctionPickBidder;
+
+  /// No description provided for @auctionLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'{seconds} s left'**
+  String auctionLeft(int seconds);
+
+  /// No description provided for @auctionSold.
+  ///
+  /// In en, this message translates to:
+  /// **'Sold to {name} for {price}'**
+  String auctionSold(String name, int price);
+
+  /// No description provided for @toolTournamentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tournament'**
+  String get toolTournamentTitle;
+
+  /// No description provided for @toolTournamentSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A knockout bracket: tap the winner of each match.'**
+  String get toolTournamentSubtitle;
+
+  /// No description provided for @tournamentRound.
+  ///
+  /// In en, this message translates to:
+  /// **'Round {number}'**
+  String tournamentRound(int number);
+
+  /// No description provided for @tournamentChampion.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} wins the tournament'**
+  String tournamentChampion(String name);
+
+  /// No description provided for @toolBalanceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Balanced teams'**
+  String get toolBalanceTitle;
+
+  /// No description provided for @toolBalanceSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate each player and get fair teams.'**
+  String get toolBalanceSubtitle;
+
+  /// No description provided for @balanceLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}, level {level}'**
+  String balanceLevel(String name, int level);
+
+  /// No description provided for @balanceTeams.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} teams'**
+  String balanceTeams(int count);
+
+  /// No description provided for @balanceTeamTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Team {number}, total {total}'**
+  String balanceTeamTotal(int number, int total);
 }
 
 class _AppLocalizationsDelegate

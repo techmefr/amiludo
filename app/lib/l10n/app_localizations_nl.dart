@@ -5013,4 +5013,81 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String metronomeBeats(int count) {
     return '$count tellen';
+
+  @override
+  String get toolBankTitle => 'Bank';
+
+  @override
+  String get toolBankSubtitle => 'Saldo\'s van elke speler en overboekingen tussen spelers en bank.';
+
+  @override
+  String get bankName => 'Bank';
+
+  @override
+  String get bankFrom => 'Van';
+
+  @override
+  String get bankTo => 'Naar';
+
+  @override
+  String get bankAmount => 'Bedrag';
+
+  @override
+  String get bankTransfer => 'Overboeken';
+
+  @override
+  String get toolAuctionTitle => 'Veiling';
+
+  @override
+  String get toolAuctionSubtitle => 'Verhoog het bod; de hamer valt als de aftelling afloopt.';
+
+  @override
+  String get auctionPickBidder => 'Kies wie biedt';
+
+  @override
+  String auctionLeft(int seconds) {
+    return 'Nog $seconds s';
+  }
+
+  @override
+  String auctionSold(String name, int price) {
+    return 'Verkocht aan $name voor $price';
+  }
+
+  @override
+  String get toolTournamentTitle => 'Toernooi';
+
+  @override
+  String get toolTournamentSubtitle => 'Een knock-outschema: tik op de winnaar van elke wedstrijd.';
+
+  @override
+  String tournamentRound(int number) {
+    return 'Ronde $number';
+  }
+
+  @override
+  String tournamentChampion(String name) {
+    return '$name wint het toernooi';
+  }
+
+  @override
+  String get toolBalanceTitle => 'Evenwichtige teams';
+
+  @override
+  String get toolBalanceSubtitle => 'Beoordeel elke speler en krijg eerlijke teams.';
+
+  @override
+  String balanceLevel(String name, int level) {
+    return '$name, niveau $level';
+  }
+
+  @override
+  String balanceTeams(int count) {
+    return '$count teams';
+  }
+
+  @override
+  String balanceTeamTotal(int number, int total) {
+    return 'Team $number, totaal $total';
+  }
 }
