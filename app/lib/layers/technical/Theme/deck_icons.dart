@@ -13,11 +13,8 @@ IconData toolIcon(String id) => switch (id) {
   'turns' => Icons.linear_scale,
   'first-player' => Icons.flag_circle_outlined,
   'stopwatch' => Icons.av_timer,
-<<<<<<< HEAD
   'turn-timer' => Icons.groups_outlined,
-=======
   'phases' => Icons.view_module_outlined,
->>>>>>> 2bf2b91 (Add chained phases tool in the time category)
   'countdown' => Icons.hourglass_top_outlined,
   'chess-clock' => Icons.hourglass_bottom_outlined,
   'timer' => Icons.timer_outlined,

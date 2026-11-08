@@ -7,11 +7,15 @@ class ToolShelf {
 }
 
 const toolShelves = [
-<<<<<<< HEAD
-  ToolShelf('time', ['stopwatch', 'countdown', 'turn-timer', 'timer', 'chess-clock', 'hourglass']),
-=======
-  ToolShelf('time', ['stopwatch', 'countdown', 'phases', 'timer', 'chess-clock', 'hourglass']),
->>>>>>> 2bf2b91 (Add chained phases tool in the time category)
+  ToolShelf('time', [
+    'stopwatch',
+    'countdown',
+    'turn-timer',
+    'phases',
+    'timer',
+    'chess-clock',
+    'hourglass',
+  ]),
   ToolShelf('chance', ['dice-tray', 'dice', 'wheel', 'coin', 'number']),
   ToolShelf('scores', [
     'scores',

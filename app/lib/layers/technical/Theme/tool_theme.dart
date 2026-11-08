@@ -116,18 +116,15 @@ const toolThemes = <String, ToolTheme>{
     haptic: ToolHaptic.impact,
     weight: 1.2,
   ),
-<<<<<<< HEAD
   'turn-timer': ToolTheme(
     accent: Color(0xff2E7D6B),
     texture: ToolTexture.plain,
     motion: ToolMotion.snap,
-=======
   'phases': ToolTheme(
     accent: Color(0xff6A5BB0),
     texture: ToolTexture.glass,
     motion: ToolMotion.flow,
     haptic: ToolHaptic.impact,
->>>>>>> 2bf2b91 (Add chained phases tool in the time category)
     weight: .9,
   ),
   'countdown': ToolTheme(
