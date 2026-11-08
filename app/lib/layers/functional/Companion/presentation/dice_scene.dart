@@ -2,20 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/dice_scene_layers.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_scene_parts.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_gestures.dart';
 import 'package:amiludo/layers/technical/Dice3D/die_skin.dart';
 import 'package:amiludo/layers/technical/Dice3D/table_theme.dart';
 import 'package:amiludo/layers/technical/Dice3D/vec3.dart';
-import 'package:amiludo/layers/technical/DicePhysics/contact.dart';
 import 'package:amiludo/layers/technical/DicePhysics/dice_simulation.dart';
 import 'package:amiludo/layers/technical/DiceScene/scene_camera.dart';
 import 'package:amiludo/layers/technical/DiceScene/tray_scene_painter.dart';
 import 'package:amiludo/layers/technical/Feedback/tray_feedback.dart';
+import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 const double _halfWidth = 6;
 const double _impactScale = 35;
+const double _leanScale = 26;
+const double _leanDeadZone = 0.12;
 
 class DiceScene extends StatefulWidget {
   const DiceScene({
@@ -27,6 +30,7 @@ class DiceScene extends StatefulWidget {
     required this.table,
     this.power = 1,
     this.aim = Offset.zero,
+    this.tilt = Tilt.flat,
     this.onOutcome,
     this.onFlick,
     this.onTapTable,
@@ -40,6 +44,7 @@ class DiceScene extends StatefulWidget {
   final TableTheme table;
   final double power;
   final Offset aim;
+  final Tilt tilt;
   final ValueChanged<List<int>>? onOutcome;
   final void Function(double power, Offset aim)? onFlick;
   final VoidCallback? onTapTable;
@@ -55,10 +60,9 @@ class _DiceSceneState extends State<DiceScene>
   late final Ticker ticker = createTicker(onTick);
   final ValueNotifier<int> frame = ValueNotifier(0);
   final ValueNotifier<int> handles = ValueNotifier(0);
-  int ticks = 0;
+  int ticks = 0, launched = 0;
   DiceSimulation? sim;
   String layout = '';
-  int launched = 0;
   bool throwing = false;
   Duration last = Duration.zero;
   Size size = Size.zero;
@@ -67,7 +71,10 @@ class _DiceSceneState extends State<DiceScene>
     for (final d in widget.session.settings.dice) d.sides,
   ];
 
-  double halfDepthFor(Size box) => arenaDepthFor(box, _halfWidth);
+  double get halfDepth => arenaDepthFor(size, _halfWidth);
+
+  SceneCamera get camera =>
+      TrayScenePainter.cameraFor(size, _halfWidth, halfDepth);
 
   @override
   void dispose() {
@@ -77,71 +84,78 @@ class _DiceSceneState extends State<DiceScene>
     super.dispose();
   }
 
-  Vec3 get heading => headingOf(widget.aim);
+  @override
+  void didUpdateWidget(DiceScene old) {
+    super.didUpdateWidget(old);
+    final t = widget.tilt;
+    if (t.x == old.tilt.x && t.y == old.tilt.y) return;
+    if (MediaQuery.disableAnimationsOf(context)) return;
+    final lean = Vec3(t.x, 0, t.y);
+    sim?.tilt(lean.length < _leanDeadZone ? Vec3.zero : lean * _leanScale);
+    run();
+  }
 
-  void impact(DieImpactKind kind, double speed) =>
-      widget.feedback?.impact(trayImpactOf(kind, speed * _impactScale));
+  void run() {
+    final current = sim;
+    if (current == null || current.settled || ticker.isActive) return;
+    last = Duration.zero;
+    ticker.start();
+  }
 
-  DiceSimulation simulate(int seed, double depth, {bool aimed = true}) =>
-      DiceSimulation(
-        sides: sides,
-        seed: seed,
-        power: aimed ? widget.power : 1,
-        aim: aimed ? heading : const Vec3(0, 0, -1),
-        halfWidth: _halfWidth,
-        halfDepth: depth,
-      );
+  DiceSimulation simulate(int seed, {bool aimed = true}) => DiceSimulation(
+    sides: sides,
+    seed: seed,
+    power: aimed ? widget.power : 1,
+    aim: aimed ? headingOf(widget.aim) : const Vec3(0, 0, -1),
+    halfWidth: _halfWidth,
+    halfDepth: halfDepth,
+  );
 
-  void ensure(Size box) {
-    final depth = halfDepthFor(box);
-    final key = '${sides.join(',')}|${depth.toStringAsFixed(1)}';
+  void ensure() {
+    final key = '${sides.join(',')}|${halfDepth.toStringAsFixed(1)}';
     if (key == layout && sim != null) return;
     layout = key;
     ticker.stop();
     launched = widget.throwId;
     throwing = false;
-    sim = simulate(widget.seed, depth, aimed: false)..settle();
+    sim = simulate(widget.seed, aimed: false)..settle();
   }
 
-  void launch(Size box, bool reduced) {
+  void launch(bool reduced) {
     launched = widget.throwId;
-    final depth = halfDepthFor(box);
     final seed = widget.seed ^ (widget.throwId * 7919);
-    final outcome = (simulate(seed, depth)..settle()).values;
+    final outcome = (simulate(seed)..settle()).values;
     widget.feedback?.thrown(widget.power);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) widget.onOutcome?.call(outcome);
     });
-    final run = simulate(seed, depth)..world.onImpact = impact;
-    sim = run;
+    final next = simulate(seed)
+      ..world.onImpact = (kind, speed) =>
+          widget.feedback?.impact(trayImpactOf(kind, speed * _impactScale));
+    sim = next;
     ticker.stop();
     if (reduced) {
-      run.world.onImpact = null;
-      run.settle();
-      throwing = false;
+      next.world.onImpact = null;
+      next.settle();
       widget.feedback?.settled();
       return;
     }
     throwing = true;
-    last = Duration.zero;
-    ticker.start();
+    run();
   }
 
   void onTick(Duration elapsed) {
-    final run = sim;
-    if (run == null) return;
-    run.advance((elapsed - last).inMicroseconds / 1e6);
+    final current = sim;
+    if (current == null) return;
+    current.advance((elapsed - last).inMicroseconds / 1e6);
     last = elapsed;
     frame.value++;
-    if (++ticks % 8 == 0 || run.settled) handles.value++;
-    if (!run.settled) return;
+    if (++ticks % 8 == 0 || current.settled) handles.value++;
+    if (!current.settled) return;
     ticker.stop();
     if (throwing) widget.feedback?.settled();
     throwing = false;
   }
-
-  SceneCamera get camera =>
-      TrayScenePainter.cameraFor(size, _halfWidth, halfDepthFor(size));
 
   @override
   Widget build(BuildContext context) {
@@ -151,53 +165,30 @@ class _DiceSceneState extends State<DiceScene>
       child: LayoutBuilder(
         builder: (context, box) {
           size = box.biggest;
-          ensure(size);
+          ensure();
           if (launched != widget.throwId && widget.session.thrown) {
-            launch(size, reduced);
+            launch(reduced);
           }
-          final run = sim!;
+          final current = sim!;
           return GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: widget.onTapTable,
             onPanEnd: (d) =>
                 routeSwipe(d.velocity.pixelsPerSecond, widget.onFlick),
             onLongPressStart: (d) {
-              final hit = pickDie(camera, run.bodies, d.localPosition);
+              final hit = pickDie(camera, current.bodies, d.localPosition);
               if (hit != null) widget.onLongPressDie?.call(hit);
             },
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                CustomPaint(
-                  size: Size.infinite,
-                  painter: TrayScenePainter(
-                    repaint: frame,
-                    table: widget.table,
-                    halfWidth: _halfWidth,
-                    halfDepth: halfDepthFor(size),
-                    dice: [
-                      for (var i = 0; i < run.bodies.length; i++)
-                        sceneDieFor(
-                          widget.session.settings.dice[i],
-                          run.bodies[i],
-                          widget.skin,
-                        ),
-                    ],
-                  ),
-                ),
-                if (widget.session.thrown)
-                  ValueListenableBuilder<int>(
-                    valueListenable: handles,
-                    builder: (context, _, _) => Stack(
-                      children: dieHandles(
-                        camera,
-                        run.bodies,
-                        widget.session,
-                        widget.skin,
-                      ),
-                    ),
-                  ),
-              ],
+            child: DiceSceneLayers(
+              run: current,
+              session: widget.session,
+              skin: widget.skin,
+              table: widget.table,
+              camera: camera,
+              halfWidth: _halfWidth,
+              halfDepth: halfDepth,
+              frame: frame,
+              handles: handles,
             ),
           );
         },

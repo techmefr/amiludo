@@ -26,7 +26,7 @@ class SceneDie {
   final DieBody body;
   final Color base;
   final DieSkin skin;
-  final String Function(int value) label;
+  final String? Function(int value) label;
   final bool pips;
   final Color? ink;
 }
@@ -93,14 +93,15 @@ void _face(Canvas canvas, SceneCamera cam, SceneDie die, _Visible v) {
       ..strokeWidth = 1
       ..color = darken(color, 0.6).withValues(alpha: soft ? 0.25 : 0.7),
   );
-  if (v.face.valued && v.facing > 0.18) {
+  final text = v.face.valued ? die.label(v.face.value) : null;
+  if (text != null && v.facing > 0.18) {
     final stamp = _stamp(die, color);
     paintMark(
       canvas,
       cam,
       body,
       v.face,
-      text: die.label(v.face.value),
+      text: text,
       ink: stamp.ink,
       glint: stamp.glint,
       alpha: ((v.facing - 0.18) / 0.4).clamp(0.0, 1.0),
@@ -164,13 +165,14 @@ void _ball(Canvas canvas, SceneCamera cam, SceneDie die) {
   final stamp = _stamp(die, die.base);
   for (final face in body.shape.valued) {
     final facing = facingOf(cam, body, face);
-    if (facing < 0.5) continue;
+    final text = die.label(face.value);
+    if (facing < 0.5 || text == null) continue;
     paintMark(
       canvas,
       cam,
       body,
       face,
-      text: die.label(face.value),
+      text: text,
       ink: stamp.ink,
       glint: stamp.glint,
       alpha: ((facing - 0.5) / 0.3).clamp(0.0, 1.0),

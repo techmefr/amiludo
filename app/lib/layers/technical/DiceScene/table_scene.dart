@@ -192,12 +192,5 @@ class TableScene {
           lighten(table.rim, 0.28),
         ]),
     );
-    canvas.drawPath(
-      top,
-      Paint()
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 1
-        ..color = lighten(table.rim, 0.45).withValues(alpha: 0.6),
-    );
   }
 }

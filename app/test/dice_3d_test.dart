@@ -93,10 +93,10 @@ void main() {
 
   test('the 3D preference is omitted by default and survives a round trip', () {
     expect(const Appearance().toJson().containsKey('dice3d'), isFalse);
-    final on = const Appearance().copyWith(dice3d: true);
-    expect(on.toJson()['dice3d'], isTrue);
-    expect(Appearance.fromJson(on.toJson()).dice3d, isTrue);
-    expect(Appearance.fromJson(const Appearance().toJson()).dice3d, isFalse);
+    final off = const Appearance().copyWith(dice3d: false);
+    expect(off.toJson()['dice3d'], isFalse);
+    expect(Appearance.fromJson(off.toJson()).dice3d, isFalse);
+    expect(Appearance.fromJson(const Appearance().toJson()).dice3d, isTrue);
   });
 
   testWidgets('a 3D die shows its landing face design', (tester) async {

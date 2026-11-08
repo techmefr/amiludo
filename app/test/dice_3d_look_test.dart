@@ -38,7 +38,7 @@ void main() {
     expect(back.dieSkin, 'gold');
     expect(back.table, 'blue');
     final odd = Appearance.fromJson({...json, 'dieSkin': 'x', 'table': 7});
-    expect(odd.dieSkin, 'classic');
+    expect(odd.dieSkin, 'matte');
     expect(odd.table, 'felt');
   });
 

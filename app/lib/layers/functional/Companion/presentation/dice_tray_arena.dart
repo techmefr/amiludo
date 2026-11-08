@@ -180,6 +180,7 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
         table: widget.table,
         power: widget.power,
         aim: widget.aim,
+        tilt: widget.tilt,
         onOutcome: widget.onOutcome,
         onFlick: widget.onFlick,
         onTapTable: widget.onTapTable,
