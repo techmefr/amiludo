@@ -22,9 +22,10 @@ const toolShelves = [
   ]),
   ToolShelf('cards', ['deck', 'bag']),
   ToolShelf('rules', ['rules']),
-  ToolShelf('votes', ['vote']),
+  ToolShelf('votes', ['vote', 'impostor']),
+  ToolShelf('ambience', ['ambience']),
   ToolShelf('map', ['map']),
-  ToolShelf('story', ['tavern', 'town', 'place', 'weather']),
+  ToolShelf('story', ['journal', 'tavern', 'town', 'place', 'weather']),
   ToolShelf('generators', [
     'npc',
     'encounter',

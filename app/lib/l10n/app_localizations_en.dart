@@ -4670,4 +4670,107 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sheetTotal => 'Total';
+
+  @override
+  String get toolShelfAmbience => 'Ambience';
+
+  @override
+  String get toolAmbienceTitle => 'Ambient sounds';
+
+  @override
+  String get toolAmbienceSubtitle => 'Mix rain, wind, fire and storm under your game.';
+
+  @override
+  String get ambienceRain => 'Rain';
+
+  @override
+  String get ambienceWind => 'Wind';
+
+  @override
+  String get ambienceFire => 'Fire';
+
+  @override
+  String get ambienceStorm => 'Storm';
+
+  @override
+  String get ambienceSilence => 'Silence everything';
+
+  @override
+  String get toolImpostorTitle => 'Impostor';
+
+  @override
+  String get toolImpostorSubtitle => 'One player does not know the secret word.';
+
+  @override
+  String get impostorWord => 'Secret word';
+
+  @override
+  String get impostorHint => 'Everyone gives one clue about the word. The impostor must bluff.';
+
+  @override
+  String get impostorPlayers => 'Players';
+
+  @override
+  String get impostorFewer => 'Fewer players';
+
+  @override
+  String get impostorMore => 'More players';
+
+  @override
+  String get impostorStart => 'Deal the roles';
+
+  @override
+  String get impostorNeedWord => 'Enter a secret word.';
+
+  @override
+  String impostorTurn(int number, int total) {
+    return 'Player $number of $total';
+  }
+
+  @override
+  String get impostorPass => 'Hand the phone to the next player.';
+
+  @override
+  String get impostorShow => 'Show my role';
+
+  @override
+  String get impostorYouAre => 'You are the impostor';
+
+  @override
+  String get impostorWordIs => 'The word is';
+
+  @override
+  String get impostorHide => 'Hide and pass on';
+
+  @override
+  String get impostorAllSeen => 'Everyone knows their role.';
+
+  @override
+  String get impostorReveal => 'Reveal the impostor';
+
+  @override
+  String impostorWas(int number) {
+    return 'The impostor was player $number';
+  }
+
+  @override
+  String get impostorAgain => 'New round';
+
+  @override
+  String get toolJournalTitle => 'Game log';
+
+  @override
+  String get toolJournalSubtitle => 'Jot down what happens, newest first.';
+
+  @override
+  String get journalWrite => 'What just happened?';
+
+  @override
+  String get journalAdd => 'Add to the log';
+
+  @override
+  String get journalEmpty => 'The log is empty.';
+
+  @override
+  String get journalDelete => 'Delete entry';
 }

@@ -8795,6 +8795,204 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Player {number}'**
   String turnTimerPlayer(int number);
+
+  /// No description provided for @toolShelfAmbience.
+  ///
+  /// In en, this message translates to:
+  /// **'Ambience'**
+  String get toolShelfAmbience;
+
+  /// No description provided for @toolAmbienceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ambient sounds'**
+  String get toolAmbienceTitle;
+
+  /// No description provided for @toolAmbienceSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Mix rain, wind, fire and storm under your game.'**
+  String get toolAmbienceSubtitle;
+
+  /// No description provided for @ambienceRain.
+  ///
+  /// In en, this message translates to:
+  /// **'Rain'**
+  String get ambienceRain;
+
+  /// No description provided for @ambienceWind.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind'**
+  String get ambienceWind;
+
+  /// No description provided for @ambienceFire.
+  ///
+  /// In en, this message translates to:
+  /// **'Fire'**
+  String get ambienceFire;
+
+  /// No description provided for @ambienceStorm.
+  ///
+  /// In en, this message translates to:
+  /// **'Storm'**
+  String get ambienceStorm;
+
+  /// No description provided for @ambienceSilence.
+  ///
+  /// In en, this message translates to:
+  /// **'Silence everything'**
+  String get ambienceSilence;
+
+  /// No description provided for @toolImpostorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Impostor'**
+  String get toolImpostorTitle;
+
+  /// No description provided for @toolImpostorSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'One player does not know the secret word.'**
+  String get toolImpostorSubtitle;
+
+  /// No description provided for @impostorWord.
+  ///
+  /// In en, this message translates to:
+  /// **'Secret word'**
+  String get impostorWord;
+
+  /// No description provided for @impostorHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Everyone gives one clue about the word. The impostor must bluff.'**
+  String get impostorHint;
+
+  /// No description provided for @impostorPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Players'**
+  String get impostorPlayers;
+
+  /// No description provided for @impostorFewer.
+  ///
+  /// In en, this message translates to:
+  /// **'Fewer players'**
+  String get impostorFewer;
+
+  /// No description provided for @impostorMore.
+  ///
+  /// In en, this message translates to:
+  /// **'More players'**
+  String get impostorMore;
+
+  /// No description provided for @impostorStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Deal the roles'**
+  String get impostorStart;
+
+  /// No description provided for @impostorNeedWord.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a secret word.'**
+  String get impostorNeedWord;
+
+  /// No description provided for @impostorTurn.
+  ///
+  /// In en, this message translates to:
+  /// **'Player {number} of {total}'**
+  String impostorTurn(int number, int total);
+
+  /// No description provided for @impostorPass.
+  ///
+  /// In en, this message translates to:
+  /// **'Hand the phone to the next player.'**
+  String get impostorPass;
+
+  /// No description provided for @impostorShow.
+  ///
+  /// In en, this message translates to:
+  /// **'Show my role'**
+  String get impostorShow;
+
+  /// No description provided for @impostorYouAre.
+  ///
+  /// In en, this message translates to:
+  /// **'You are the impostor'**
+  String get impostorYouAre;
+
+  /// No description provided for @impostorWordIs.
+  ///
+  /// In en, this message translates to:
+  /// **'The word is'**
+  String get impostorWordIs;
+
+  /// No description provided for @impostorHide.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide and pass on'**
+  String get impostorHide;
+
+  /// No description provided for @impostorAllSeen.
+  ///
+  /// In en, this message translates to:
+  /// **'Everyone knows their role.'**
+  String get impostorAllSeen;
+
+  /// No description provided for @impostorReveal.
+  ///
+  /// In en, this message translates to:
+  /// **'Reveal the impostor'**
+  String get impostorReveal;
+
+  /// No description provided for @impostorWas.
+  ///
+  /// In en, this message translates to:
+  /// **'The impostor was player {number}'**
+  String impostorWas(int number);
+
+  /// No description provided for @impostorAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'New round'**
+  String get impostorAgain;
+
+  /// No description provided for @toolJournalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Game log'**
+  String get toolJournalTitle;
+
+  /// No description provided for @toolJournalSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Jot down what happens, newest first.'**
+  String get toolJournalSubtitle;
+
+  /// No description provided for @journalWrite.
+  ///
+  /// In en, this message translates to:
+  /// **'What just happened?'**
+  String get journalWrite;
+
+  /// No description provided for @journalAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to the log'**
+  String get journalAdd;
+
+  /// No description provided for @journalEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'The log is empty.'**
+  String get journalEmpty;
+
+  /// No description provided for @journalDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete entry'**
+  String get journalDelete;
 }
 
 class _AppLocalizationsDelegate

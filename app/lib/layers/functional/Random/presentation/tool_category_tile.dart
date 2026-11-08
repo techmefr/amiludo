@@ -38,6 +38,10 @@ const toolShelfStyles = {
     Icons.how_to_vote_outlined,
     ToolTheme(accent: Color(0xff2F5D8C), texture: ToolTexture.paper),
   ),
+  'ambience': ToolShelfStyle(
+    Icons.graphic_eq,
+    ToolTheme(accent: Color(0xff2F7D6F), texture: ToolTexture.glass),
+  ),
   'map': ToolShelfStyle(
     Icons.flag_outlined,
     ToolTheme(accent: Color(0xff3F7D4E), texture: ToolTexture.paper),

@@ -1909,5 +1909,55 @@
       }
     }
   },
-  "sheetTotal": "Total"
+  "sheetTotal": "Total",
+  "toolShelfAmbience": "Ambience",
+  "toolAmbienceTitle": "Ambient sounds",
+  "toolAmbienceSubtitle": "Mix rain, wind, fire and storm under your game.",
+  "ambienceRain": "Rain",
+  "ambienceWind": "Wind",
+  "ambienceFire": "Fire",
+  "ambienceStorm": "Storm",
+  "ambienceSilence": "Silence everything",
+  "toolImpostorTitle": "Impostor",
+  "toolImpostorSubtitle": "One player does not know the secret word.",
+  "impostorWord": "Secret word",
+  "impostorHint": "Everyone gives one clue about the word. The impostor must bluff.",
+  "impostorPlayers": "Players",
+  "impostorFewer": "Fewer players",
+  "impostorMore": "More players",
+  "impostorStart": "Deal the roles",
+  "impostorNeedWord": "Enter a secret word.",
+  "impostorTurn": "Player {number} of {total}",
+  "@impostorTurn": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "impostorPass": "Hand the phone to the next player.",
+  "impostorShow": "Show my role",
+  "impostorYouAre": "You are the impostor",
+  "impostorWordIs": "The word is",
+  "impostorHide": "Hide and pass on",
+  "impostorAllSeen": "Everyone knows their role.",
+  "impostorReveal": "Reveal the impostor",
+  "impostorWas": "The impostor was player {number}",
+  "@impostorWas": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "impostorAgain": "New round",
+  "toolJournalTitle": "Game log",
+  "toolJournalSubtitle": "Jot down what happens, newest first.",
+  "journalWrite": "What just happened?",
+  "journalAdd": "Add to the log",
+  "journalEmpty": "The log is empty.",
+  "journalDelete": "Delete entry"
 }
