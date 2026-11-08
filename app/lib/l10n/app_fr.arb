@@ -1619,5 +1619,6 @@
   "buildExport": "Exporter",
   "buildMine": "Mes compagnons",
   "buildArrange": "Réorganiser",
-  "buildArrangeDone": "Terminé"
+  "buildArrangeDone": "Terminé",
+  "toolShelfGm": "Maître du jeu"
 }

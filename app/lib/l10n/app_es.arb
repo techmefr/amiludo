@@ -1619,5 +1619,6 @@
   "buildExport": "Exportar",
   "buildMine": "Mis compañeros",
   "buildArrange": "Reorganizar",
-  "buildArrangeDone": "Listo"
+  "buildArrangeDone": "Listo",
+  "toolShelfGm": "Director de juego"
 }

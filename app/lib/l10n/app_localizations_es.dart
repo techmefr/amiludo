@@ -5235,4 +5235,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get buildArrangeDone => 'Listo';
+
+  @override
+  String get toolShelfGm => 'Director de juego';
 }

@@ -58,6 +58,10 @@ const toolShelfStyles = {
     Icons.lightbulb_outline,
     ToolTheme(accent: Color(0xff4F46E5), texture: ToolTexture.plain),
   ),
+  'gm': ToolShelfStyle(
+    Icons.shield_moon_outlined,
+    ToolTheme(accent: Color(0xff6D28D9), texture: ToolTexture.frame),
+  ),
   'characters': ToolShelfStyle(
     Icons.badge_outlined,
     ToolTheme(accent: Color(0xff9A3412), texture: ToolTexture.frame),

@@ -1619,5 +1619,6 @@
   "buildExport": "Exporteren",
   "buildMine": "Mijn spelgenoten",
   "buildArrange": "Herschikken",
-  "buildArrangeDone": "Klaar"
+  "buildArrangeDone": "Klaar",
+  "toolShelfGm": "Spelleider"
 }

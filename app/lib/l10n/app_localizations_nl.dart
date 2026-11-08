@@ -5240,4 +5240,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get buildArrangeDone => 'Klaar';
+
+  @override
+  String get toolShelfGm => 'Spelleider';
 }
