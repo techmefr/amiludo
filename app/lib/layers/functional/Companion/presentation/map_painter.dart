@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/map_board.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/map_board_state.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/map_geometry.dart';
+import 'package:amiludo/layers/technical/Theme/components/parchment_sheet.dart';
 
 const mapGridStep = 50.0;
 const mapHexRadius = 40.0;
@@ -37,7 +38,7 @@ class MapPainter extends CustomPainter {
     final sheet = view.sheet;
     canvas.save();
     canvas.clipRect(sheet);
-    canvas.drawRect(sheet, Paint()..color = paper);
+    ParchmentSheet.paintBase(canvas, sheet);
     switch (board.background) {
       case MapBackground.grid:
         _grid(canvas);
@@ -53,12 +54,7 @@ class MapPainter extends CustomPainter {
     }
     _stroke(canvas, draft, draftKind, draftColor);
     canvas.restore();
-    canvas.drawRect(
-      sheet,
-      Paint()
-        ..style = PaintingStyle.stroke
-        ..color = ink.withValues(alpha: 0.4),
-    );
+    ParchmentSheet.paintFrame(canvas, sheet);
   }
 
   Paint get _line => Paint()

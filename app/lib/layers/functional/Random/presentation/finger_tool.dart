@@ -159,12 +159,11 @@ class _FingerToolState extends State<FingerTool> {
                   child: Text(
                     hint(),
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.titleMedium
-                        ?.copyWith(
-                          color: winnerColor() == null
-                              ? fingerHintColor
-                              : fingerWinnerDiscColor,
-                        ),
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      color: winnerColor() == null
+                          ? fingerHintColor
+                          : fingerWinnerDiscColor,
+                    ),
                   ),
                 ),
               ),

@@ -17,8 +17,9 @@ enum TrayResultMode {
       values.firstWhere((m) => m.name == name, orElse: () => sum);
 }
 
-String _number(double value) =>
-    value == value.roundToDouble() ? '${value.round()}' : value.toStringAsFixed(1);
+String _number(double value) => value == value.roundToDouble()
+    ? '${value.round()}'
+    : value.toStringAsFixed(1);
 
 List<int> _scores(DiceTraySession session) => [
   for (var i = 0; i < session.values.length; i++)
@@ -46,11 +47,14 @@ String trayResultText(
   return switch (mode) {
     TrayResultMode.best => '${scores.last}',
     TrayResultMode.worst => '${scores.first}',
-    TrayResultMode.dropWorst => '${scores.length > 1 ? total - scores.first : total}',
-    TrayResultMode.dropBest => '${scores.length > 1 ? total - scores.last : total}',
-    TrayResultMode.middle => scores.length.isOdd
-        ? '${scores[middle]}'
-        : _number((scores[middle - 1] + scores[middle]) / 2),
+    TrayResultMode.dropWorst =>
+      '${scores.length > 1 ? total - scores.first : total}',
+    TrayResultMode.dropBest =>
+      '${scores.length > 1 ? total - scores.last : total}',
+    TrayResultMode.middle =>
+      scores.length.isOdd
+          ? '${scores[middle]}'
+          : _number((scores[middle - 1] + scores[middle]) / 2),
     TrayResultMode.average => _number(total / scores.length),
     TrayResultMode.oddEven => oddEven(
       scores.where((s) => s.isOdd).length,

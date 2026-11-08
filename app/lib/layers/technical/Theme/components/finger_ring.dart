@@ -77,7 +77,7 @@ class FingerRing extends StatelessWidget {
                   ),
           ),
         ),
-    ),
+      ),
     );
   }
 }

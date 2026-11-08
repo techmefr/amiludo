@@ -95,24 +95,24 @@ class FullPage extends StatelessWidget {
         curve: Motion.curve,
         color: background ?? Theme.of(context).scaffoldBackgroundColor,
         child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: SafeArea(
-          child: Stack(
-            fit: StackFit.expand,
-            children: [
-              Positioned.fill(child: _body(context)),
-              Semantics(
-                header: true,
-                label: title,
-                child: const SizedBox.shrink(),
-              ),
-              if (tool == null)
-                _discreetBack(context)
-              else
-                ToolHeaderPill(id: tool!, onBack: () => _back(context)),
-            ],
+          backgroundColor: Colors.transparent,
+          body: SafeArea(
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                Positioned.fill(child: _body(context)),
+                Semantics(
+                  header: true,
+                  label: title,
+                  child: const SizedBox.shrink(),
+                ),
+                if (tool == null)
+                  _discreetBack(context)
+                else
+                  ToolHeaderPill(id: tool!, onBack: () => _back(context)),
+              ],
+            ),
           ),
-        ),
         ),
       );
     }
