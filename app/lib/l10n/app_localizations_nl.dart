@@ -4999,4 +4999,18 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get challengeStarters => 'Vertel een mop|Zing het refrein van een liedje|Doe tien jumping jacks|Praat met een accent tot je volgende beurt|Geef elke speler een compliment|Mime een film tot iemand hem raadt';
+
+  @override
+  String get toolMetronomeTitle => 'Metronoom';
+
+  @override
+  String get toolMetronomeSubtitle => 'Een vaste puls om de beurten te tempoën, met geaccentueerde eerste tel.';
+
+  @override
+  String metronomeBpm(int count) {
+    return '$count BPM';
+
+  @override
+  String metronomeBeats(int count) {
+    return '$count tellen';
 }

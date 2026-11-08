@@ -25,6 +25,7 @@ const toolDefinitions = [
   ToolDefinition('countdown', 'time'),
   ToolDefinition('turn-timer', 'time'),
   ToolDefinition('phases', 'time'),
+  ToolDefinition('metronome', 'time'),
   ToolDefinition('chess-clock', 'time'),
   ToolDefinition('timer', 'time'),
   ToolDefinition('hourglass', 'time'),

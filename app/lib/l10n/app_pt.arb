@@ -1548,5 +1548,9 @@
   "challengeFaceDown": "Desafio virado",
   "challengeEdit": "Seus desafios, um por linha",
   "challengeEditHelper": "Edite, adicione ou remova linhas livremente.",
-  "challengeStarters": "Conte uma piada|Cante o refrão de uma música|Faça dez polichinelos|Fale com sotaque até à sua próxima vez|Elogie cada jogador|Faça mímica de um filme até alguém adivinhar"
+  "challengeStarters": "Conte uma piada|Cante o refrão de uma música|Faça dez polichinelos|Fale com sotaque até à sua próxima vez|Elogie cada jogador|Faça mímica de um filme até alguém adivinhar",
+  "toolMetronomeTitle": "Metrónomo",
+  "toolMetronomeSubtitle": "Uma pulsação constante para marcar os turnos, com o primeiro tempo acentuado.",
+  "metronomeBpm": "{count} BPM",
+  "metronomeBeats": "{count} tempos"
 }

@@ -32,6 +32,7 @@ Color toolColor(String id) => switch (id) {
   'journal' => const Color(0xffC9A56B),
   'ambience' => const Color(0xff5BAE9C),
   'phases' => const Color(0xff9B8FD8),
+  'metronome' => const Color(0xff4FB89B),
   'teams' => const Color(0xff668FCB),
   'wheel' => const Color(0xffCB78A8),
   'roles' => const Color(0xff8A65D8),
@@ -215,7 +216,7 @@ class _GameArtPainter extends CustomPainter {
       pawn(canvas, 165, 99, purple);
       pawn(canvas, 228, 132, mint);
       disk(canvas, const Offset(163, 36), 6, yellow);
-    } else if (tool == 'timer' || tool == 'hourglass' || tool == 'stopwatch' || tool == 'chess-clock' || tool == 'countdown' || tool == 'turn-timer' || tool == 'phases') {
+    } else if (tool == 'timer' || tool == 'hourglass' || tool == 'stopwatch' || tool == 'chess-clock' || tool == 'countdown' || tool == 'turn-timer' || tool == 'phases' || tool == 'metronome') {
       _timer(canvas);
     } else if (tool == 'wheel') {
       _wheel(canvas);

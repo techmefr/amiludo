@@ -9,6 +9,7 @@ import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_page.
 import 'package:amiludo/layers/functional/Companion/presentation/countdown_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/hourglass_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/turn_timer_tool.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/metronome_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/phases_tool.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 import 'package:amiludo/layers/technical/Motion/shake_source.dart';
@@ -77,6 +78,11 @@ Widget countdownWithFeedback(BuildContext context) {
 Widget turnTimerWithFeedback(BuildContext context) {
   final appearance = context.read<AppearanceCubit>().state.appearance;
   return TurnTimerTool(sound: appearance.sound, haptics: appearance.haptics);
+}
+
+Widget metronomeWithFeedback(BuildContext context) {
+  final appearance = context.read<AppearanceCubit>().state.appearance;
+  return MetronomeTool(sound: appearance.sound, haptics: appearance.haptics);
 }
 
 Widget phasesWithFeedback(BuildContext context) {
