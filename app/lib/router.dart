@@ -19,7 +19,10 @@ import 'package:amiludo/layers/functional/Companion/presentation/chess_clock_too
 import 'package:amiludo/rules_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/deck_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/vote_tool.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/life_tool.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/ranking_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/stopwatch_tool.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/tally_tool.dart';
 import 'package:amiludo/sensor_tools.dart';
 import 'package:amiludo/layers/functional/Account/presentation/account_screen.dart';
 import 'package:amiludo/layers/functional/Admin/presentation/admin_screen.dart';
@@ -83,6 +86,19 @@ Widget _chessClock(BuildContext context) => const ChessClockTool();
 Widget _deck(BuildContext context) => const DeckTool();
 
 Widget _vote(BuildContext context) => const VoteTool();
+List<String> _names(BuildContext context) {
+  final workspace = context.read<RandomCubit>().state;
+  final names =
+      workspace.current?.players.map((p) => p.name).toList() ??
+      workspace.playerNames;
+  return names.isEmpty ? const ['1', '2'] : names;
+}
+
+Widget _life(BuildContext context) => LifeTool(names: _names(context));
+
+Widget _tally(BuildContext context) => TallyTool(names: _names(context));
+
+Widget _ranking(BuildContext context) => RankingTool(names: _names(context));
 
 Widget _heroes(BuildContext context) => const HeroesTool();
 
@@ -226,6 +242,9 @@ final router = GoRouter(
           'rules': rulesWithStorage,
           'vote': _vote,
           'countdown': countdownWithFeedback,
+          'life': _life,
+          'tally': _tally,
+          'ranking': _ranking,
           'dice-tray': diceTrayWithSensors,
           'hourglass': hourglassWithSensors,
           'map': mapWithStorage,

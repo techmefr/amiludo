@@ -164,7 +164,11 @@ class _ToolPageState extends State<ToolPage> {
         : packs.where((p) => p.id == selected).firstOrNull;
     final choose = ['dice', 'roles', 'character'].contains(widget.id);
     final child = toolFor(ws, current, names);
+<<<<<<< HEAD
     if (const {'picker', 'map', 'hourglass', 'chess-clock'}.contains(widget.id)) {
+=======
+    if (const {'picker', 'map', 'hourglass', 'life'}.contains(widget.id)) {
+>>>>>>> 69c98f1 (Scores tools: full-screen life counter, free counters and ranking)
       return FullPage(
         title: title,
         tool: widget.id,

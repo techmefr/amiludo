@@ -4417,4 +4417,86 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get toolCountdownSubtitle => 'Set a duration, watch the ring empty, get alerted at zero.';
+
+  @override
+  String get toolLifeTitle => 'Life counter';
+
+  @override
+  String get toolLifeSubtitle => 'Full-screen life for 2 to 6 players, with poison, commander damage and energy.';
+
+  @override
+  String get lifePoison => 'Poison';
+
+  @override
+  String get lifeEnergy => 'Energy';
+
+  @override
+  String get lifeCommander => 'Commander damage';
+
+  @override
+  String lifeFromPlayer(String name) {
+    return 'From $name';
+  }
+
+  @override
+  String lifeDetailsFor(String name) {
+    return 'Details for $name';
+  }
+
+  @override
+  String get lifePlayers => 'Players';
+
+  @override
+  String get lifeStartingLife => 'Starting life';
+
+  @override
+  String get toolTallyTitle => 'Free counters';
+
+  @override
+  String get toolTallySubtitle => 'Name your own counters and track them for every player.';
+
+  @override
+  String get tallyResources => 'Resources';
+
+  @override
+  String get tallyAddCounter => 'Add a counter';
+
+  @override
+  String get tallyCounterName => 'Counter name';
+
+  @override
+  String tallyRemoveCounter(String name) {
+    return 'Remove $name';
+  }
+
+  @override
+  String get tallyEmpty => 'Add a counter to start tracking.';
+
+  @override
+  String get toolRankingTitle => 'Ranking';
+
+  @override
+  String get toolRankingSubtitle => 'Enter the final scores, get the podium and settle the ties.';
+
+  @override
+  String rankingScoreFor(String name) {
+    return 'Score for $name';
+  }
+
+  @override
+  String get rankingLowestWins => 'Lowest score wins';
+
+  @override
+  String get rankingEmpty => 'Enter at least one score to see the ranking.';
+
+  @override
+  String get rankingStamp => 'Winner';
+
+  @override
+  String get rankingTie => 'Tie';
+
+  @override
+  String rankingPosition(int position) {
+    return 'Rank $position';
+  }
 }
