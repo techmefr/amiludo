@@ -42,9 +42,17 @@ class ToolTheme {
         ToolMotion.flow || ToolMotion.drift => Motion.slow,
       });
 
-  Future<void> signal() => switch (haptic) {
-    ToolHaptic.selection => DeckHaptics.selection(),
-    ToolHaptic.impact => DeckHaptics.impact(),
+  Future<void> signal() => switch ((haptic, texture)) {
+    (ToolHaptic.selection, _) => DeckHaptics.selection(),
+    (ToolHaptic.impact, ToolTexture.felt) => DeckHaptics.heavy(),
+    (ToolHaptic.impact, ToolTexture.tactile || ToolTexture.frame) =>
+      DeckHaptics.knock(),
+    (
+      ToolHaptic.impact,
+      ToolTexture.parchment || ToolTexture.paper || ToolTexture.deck,
+    ) =>
+      DeckHaptics.ripple(),
+    (ToolHaptic.impact, _) => DeckHaptics.impact(),
   };
 
   Color surface(BuildContext context, {double? mix}) {
