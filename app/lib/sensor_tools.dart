@@ -77,6 +77,8 @@ Widget countdownWithFeedback(BuildContext context) {
 Widget turnTimerWithFeedback(BuildContext context) {
   final appearance = context.read<AppearanceCubit>().state.appearance;
   return TurnTimerTool(sound: appearance.sound, haptics: appearance.haptics);
+}
+
 Widget phasesWithFeedback(BuildContext context) {
   final appearance = context.read<AppearanceCubit>().state.appearance;
   return PhasesTool(sound: appearance.sound, haptics: appearance.haptics);
