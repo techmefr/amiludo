@@ -14,6 +14,8 @@ enum DrawTool {
   room(ElementKind.room, Icons.crop_square),
   door(ElementKind.door, Icons.sensor_door_outlined),
   stairs(ElementKind.stairs, Icons.stairs_outlined),
+  pin(null, Icons.place_outlined),
+  measure(null, Icons.straighten),
   erase(null, Icons.cleaning_services_outlined);
 
   const DrawTool(this.kind, this.icon);

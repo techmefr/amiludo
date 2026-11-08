@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/World/domain/entities/map_element.dart';
 import 'package:amiludo/layers/functional/World/domain/entities/world_atlas.dart';
+import 'package:amiludo/layers/functional/World/domain/entities/map_pin.dart';
 import 'package:amiludo/layers/functional/World/domain/entities/world_map.dart';
+import 'package:amiludo/layers/functional/World/domain/entities/world_map_pins.dart';
 import 'package:amiludo/layers/functional/World/presentation/draw_tool.dart';
 import 'package:amiludo/layers/functional/World/presentation/floor_bar.dart';
+import 'package:amiludo/layers/functional/World/presentation/mini_map.dart';
 import 'package:amiludo/layers/functional/World/presentation/new_map_sheet.dart';
+import 'package:amiludo/layers/functional/World/presentation/pin_sheet.dart';
 import 'package:amiludo/layers/functional/World/presentation/world_canvas.dart';
 import 'package:amiludo/layers/functional/World/presentation/world_header.dart';
+import 'package:amiludo/layers/functional/World/presentation/world_search_sheet.dart';
 import 'package:amiludo/layers/functional/World/presentation/world_toolbar.dart';
 import 'package:amiludo/layers/functional/World/presentation/world_transfer.dart';
 import 'package:amiludo/layers/functional/World/presentation/world_viewport.dart';
@@ -18,9 +23,16 @@ import 'package:amiludo/layers/technical/Theme/text_input_dialog.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class WorldTool extends StatefulWidget {
-  const WorldTool({super.key, this.initial = const WorldAtlas(), this.onChanged});
+  const WorldTool({
+    super.key,
+    this.initial = const WorldAtlas(),
+    this.onChanged,
+    this.creatureNames = const {},
+    this.sceneNames = const {},
+  });
   final WorldAtlas initial;
   final ValueChanged<WorldAtlas>? onChanged;
+  final Map<String, String> creatureNames, sceneNames;
 
   @override
   State<WorldTool> createState() => _WorldToolState();
@@ -33,6 +45,7 @@ class _WorldToolState extends State<WorldTool> {
   String? floorId;
   DrawTool tool = DrawTool.move;
   double brush = brushSizes[1];
+  String? measured;
 
   WorldMap? get map => atlas.of(mapId ?? '') ?? atlas.maps.firstOrNull;
 
@@ -55,6 +68,74 @@ class _WorldToolState extends State<WorldTool> {
 
   void _edit(WorldMap Function(WorldMap) change) =>
       _commit(atlas.put(change(map!)));
+
+  void _openMap(String id) {
+    if (atlas.of(id) == null) return;
+    setState(() {
+      mapId = id;
+      floorId = null;
+    });
+    controller.reset();
+  }
+
+  Future<void> _placePin(WorldPoint at) async {
+    final fresh = MapPin(
+      id: newElementId(),
+      kind: PinKind.place,
+      point: at,
+      title: '',
+    );
+    final target = floor;
+    final made = await showPinSheet(
+      context,
+      pin: fresh,
+      isNew: true,
+      creatures: widget.creatureNames,
+      scenes: widget.sceneNames,
+      maps: _otherMaps(),
+    );
+    if (made == null) return;
+    _edit((m) => m.addPin(target, made));
+  }
+
+  Future<void> _openPin(MapPin pin) async {
+    final made = await showPinSheet(
+      context,
+      pin: pin,
+      isNew: false,
+      creatures: widget.creatureNames,
+      scenes: widget.sceneNames,
+      maps: _otherMaps(),
+      onDelete: () => _edit((m) => m.removePin(pin.id)),
+      onOpenMap: _openMap,
+    );
+    if (made == null) return;
+    _edit((m) => m.updatePin(made));
+  }
+
+  Map<String, String> _otherMaps() => {
+    for (final m in atlas.maps)
+      if (m.id != map!.id) m.id: m.name,
+  };
+
+  void _movePin(String id, Offset delta) {
+    final pin = map!.floor(floor)!.pins.where((p) => p.id == id).firstOrNull;
+    if (pin == null) return;
+    final to = WorldPoint(pin.point.x + delta.dx, pin.point.y + delta.dy);
+    _edit((m) => m.updatePin(pin.copyWith(point: to)));
+  }
+
+  Future<void> _search() async {
+    final hit = await showWorldSearch(context, atlas);
+    if (hit == null) return;
+    setState(() {
+      mapId = hit.map.id;
+      floorId = hit.floor.id;
+    });
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => controller.centerOn(hit.pin.point),
+    );
+  }
 
   Future<void> _newMap() async {
     final made = await showNewMapSheet(context);
@@ -165,6 +246,7 @@ class _WorldToolState extends State<WorldTool> {
             if (merged != null) _commit(merged);
           },
           onDelete: _deleteMap,
+          onSearch: _search,
         ),
         WorldToolbar(
           tool: tool,
@@ -190,14 +272,32 @@ class _WorldToolState extends State<WorldTool> {
                     controller: controller,
                     onAdd: (MapElement e) => _edit((m) => m.addElement(active, e)),
                     onErase: (id) => _edit((m) => m.removeElement(id)),
+                    onPlacePin: _placePin,
+                    onOpenPin: _openPin,
+                    onMovePin: _movePin,
+                    onMeasure: (text) => setState(() => measured = text),
                   ),
                 ),
               ),
               Positioned(
                 left: Space.sm,
                 bottom: Space.sm,
-                child: Chip(
-                  label: Text(l.worldCell(current.level.cellLabel)),
+                child: Wrap(
+                  spacing: Space.xs,
+                  children: [
+                    Chip(label: Text(l.worldCell(current.level.cellLabel))),
+                    if (measured != null)
+                      Chip(label: Text(l.worldMeasured(measured!))),
+                  ],
+                ),
+              ),
+              Positioned(
+                right: Space.sm,
+                top: Space.sm,
+                child: MiniMap(
+                  floor: current.floor(active)!,
+                  controller: controller,
+                  onJump: controller.centerOn,
                 ),
               ),
               Positioned(

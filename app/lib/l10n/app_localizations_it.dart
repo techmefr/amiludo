@@ -5771,4 +5771,70 @@ class AppLocalizationsIt extends AppLocalizations {
   String worldCanvasLabel(String map, String floor) {
     return 'Mappa $map, piano $floor';
   }
+
+  @override
+  String get worldToolPin => 'Segnaposto';
+
+  @override
+  String get worldToolMeasure => 'Misura';
+
+  @override
+  String get worldPinPlace => 'Luogo';
+
+  @override
+  String get worldPinNpc => 'Personaggio';
+
+  @override
+  String get worldPinScene => 'Scena';
+
+  @override
+  String get worldPinDanger => 'Pericolo';
+
+  @override
+  String get worldPinTitle => 'Nome';
+
+  @override
+  String get worldPinNote => 'Note';
+
+  @override
+  String get worldPinLinkNpc => 'Creatura collegata';
+
+  @override
+  String get worldPinLinkScene => 'Scena collegata';
+
+  @override
+  String get worldPinOpensMap => 'Apre la mappa';
+
+  @override
+  String get worldPinOpenMap => 'Apri la mappa';
+
+  @override
+  String get worldPinDelete => 'Elimina segnaposto';
+
+  @override
+  String worldPinLabel(String title, String kind) {
+    return '$title, $kind';
+  }
+
+  @override
+  String worldMeasured(String distance) {
+    return 'Distanza: $distance';
+  }
+
+  @override
+  String get worldSearch => 'Cerca luoghi';
+
+  @override
+  String get worldSearchHint => 'Nome di un luogo o segnaposto';
+
+  @override
+  String get worldSearchEmpty => 'Nessun segnaposto trovato.';
+
+  @override
+  String get worldMiniMap => 'Minimappa';
+
+  @override
+  String scenesPlace(String name) {
+    return 'A $name';
+  }
 }

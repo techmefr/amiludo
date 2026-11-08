@@ -2596,5 +2596,49 @@
         "type": "String"
       }
     }
+  },
+  "worldToolPin": "Pin",
+  "worldToolMeasure": "Measure",
+  "worldPinPlace": "Place",
+  "worldPinNpc": "Character",
+  "worldPinScene": "Scene",
+  "worldPinDanger": "Danger",
+  "worldPinTitle": "Name",
+  "worldPinNote": "Notes",
+  "worldPinLinkNpc": "Linked creature",
+  "worldPinLinkScene": "Linked scene",
+  "worldPinOpensMap": "Opens map",
+  "worldPinOpenMap": "Open the map",
+  "worldPinDelete": "Delete pin",
+  "worldPinLabel": "{title}, {kind}",
+  "@worldPinLabel": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "kind": {
+        "type": "String"
+      }
+    }
+  },
+  "worldMeasured": "Distance: {distance}",
+  "@worldMeasured": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "worldSearch": "Search places",
+  "worldSearchHint": "Name of a place or pin",
+  "worldSearchEmpty": "No pin found.",
+  "worldMiniMap": "Mini-map",
+  "scenesPlace": "At {name}",
+  "@scenesPlace": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   }
 }

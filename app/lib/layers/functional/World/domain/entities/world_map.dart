@@ -1,6 +1,9 @@
 import 'dart:math';
 
 import 'package:amiludo/layers/functional/World/domain/entities/map_element.dart';
+import 'package:amiludo/layers/functional/World/domain/entities/map_floor.dart';
+
+export 'package:amiludo/layers/functional/World/domain/entities/map_floor.dart';
 
 enum ScaleLevel { world, region, city, building, room }
 
@@ -22,51 +25,6 @@ extension ScaleLevelCell on ScaleLevel {
 const gridCell = 50.0;
 
 String newWorldId() => DateTime.now().microsecondsSinceEpoch.toString();
-
-class MapFloor {
-  const MapFloor({
-    required this.id,
-    required this.name,
-    this.elements = const [],
-  });
-
-  factory MapFloor.fromJson(Map<String, dynamic> j) => MapFloor(
-    id: j['id'] as String? ?? newWorldId(),
-    name: j['name'] as String? ?? '',
-    elements: [
-      for (final e in j['elements'] as List? ?? const [])
-        MapElement.fromJson(Map<String, dynamic>.from(e as Map)),
-    ],
-  );
-
-  final String id, name;
-  final List<MapElement> elements;
-
-  MapFloor copyWith({String? name, List<MapElement>? elements}) => MapFloor(
-    id: id,
-    name: name ?? this.name,
-    elements: elements ?? this.elements,
-  );
-
-  MapElement? nearest(WorldPoint p, double tolerance) {
-    MapElement? best;
-    var bestDistance = tolerance;
-    for (final e in elements.reversed) {
-      final d = e.distanceTo(p);
-      if (d <= bestDistance) {
-        best = e;
-        bestDistance = d;
-      }
-    }
-    return best;
-  }
-
-  Map<String, Object?> toJson() => {
-    'id': id,
-    'name': name,
-    'elements': [for (final e in elements) e.toJson()],
-  };
-}
 
 class WorldMap {
   const WorldMap({
