@@ -139,6 +139,7 @@ class _ToolPageState extends State<ToolPage> {
     if (const {
       'picker',
       'map',
+      'worldmap',
       'hourglass',
       'chess-clock',
       'life',

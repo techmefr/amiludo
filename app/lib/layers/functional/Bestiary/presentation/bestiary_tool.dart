@@ -6,9 +6,9 @@ import 'package:amiludo/layers/functional/Bestiary/domain/entities/creature.dart
 import 'package:amiludo/layers/functional/Bestiary/presentation/bestiary_texts.dart';
 import 'package:amiludo/layers/functional/Bestiary/presentation/creature_card.dart';
 import 'package:amiludo/layers/functional/Bestiary/presentation/creature_editor.dart';
-import 'package:amiludo/layers/functional/Bestiary/presentation/import_dialog.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
+import 'package:amiludo/layers/technical/Theme/text_input_dialog.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
 
@@ -58,7 +58,13 @@ class _BestiaryToolState extends State<BestiaryTool> {
   }
 
   Future<void> _import() async {
-    final text = await showImportDialog(context);
+    final text = await showTextInputDialog(
+      context,
+      title: context.l10n.bestiaryImport,
+      label: context.l10n.bestiaryImportHint,
+      confirm: context.l10n.bestiaryImport,
+      multiline: true,
+    );
     if (text == null || !mounted) return;
     final l = context.l10n;
     final result = bestiary.import(text);

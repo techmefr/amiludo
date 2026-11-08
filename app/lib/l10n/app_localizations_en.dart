@@ -5572,4 +5572,173 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get scenesStopAmbience => 'Stop the ambience';
+
+  @override
+  String get toolWorldmapTitle => 'World map';
+
+  @override
+  String get toolWorldmapSubtitle => 'Draw worlds, regions, towns and dungeons, floor by floor.';
+
+  @override
+  String get worldEmpty => 'No map yet. Create your first map.';
+
+  @override
+  String get worldNewMap => 'New map';
+
+  @override
+  String get worldMapName => 'Map name';
+
+  @override
+  String get worldCreate => 'Create map';
+
+  @override
+  String get worldLevel => 'Scale';
+
+  @override
+  String get worldLevelWorld => 'World';
+
+  @override
+  String get worldLevelRegion => 'Region';
+
+  @override
+  String get worldLevelCity => 'Town';
+
+  @override
+  String get worldLevelBuilding => 'Building';
+
+  @override
+  String get worldLevelRoom => 'Room';
+
+  @override
+  String get worldToolMove => 'Move';
+
+  @override
+  String get worldToolLand => 'Land';
+
+  @override
+  String get worldToolWater => 'Water';
+
+  @override
+  String get worldToolForest => 'Forest';
+
+  @override
+  String get worldToolMountain => 'Mountains';
+
+  @override
+  String get worldToolRoad => 'Road';
+
+  @override
+  String get worldToolRiver => 'River';
+
+  @override
+  String get worldToolWall => 'Wall';
+
+  @override
+  String get worldToolRoom => 'Room';
+
+  @override
+  String get worldToolDoor => 'Door';
+
+  @override
+  String get worldToolStairs => 'Stairs';
+
+  @override
+  String get worldToolErase => 'Erase';
+
+  @override
+  String get worldUndo => 'Undo the last stroke';
+
+  @override
+  String get worldBrushSize => 'Brush size';
+
+  @override
+  String get worldSizeSmall => 'Small';
+
+  @override
+  String get worldSizeMedium => 'Medium';
+
+  @override
+  String get worldSizeLarge => 'Large';
+
+  @override
+  String get worldZoomIn => 'Zoom in';
+
+  @override
+  String get worldZoomOut => 'Zoom out';
+
+  @override
+  String get worldZoomReset => 'Fit the view';
+
+  @override
+  String get worldGridOn => 'Show the grid';
+
+  @override
+  String get worldGridOff => 'Hide the grid';
+
+  @override
+  String worldCell(String size) {
+    return '1 cell = $size';
+  }
+
+  @override
+  String worldFloor(String name) {
+    return 'Floor $name';
+  }
+
+  @override
+  String get worldFloorOptions => 'Floor options';
+
+  @override
+  String get worldAddFloorAbove => 'Add a floor above';
+
+  @override
+  String get worldAddFloorBelow => 'Add a basement';
+
+  @override
+  String get worldRenameFloor => 'Rename the floor';
+
+  @override
+  String get worldDeleteFloor => 'Delete the floor';
+
+  @override
+  String get worldFloorName => 'Floor name';
+
+  @override
+  String get worldSave => 'Save';
+
+  @override
+  String get worldMapOptions => 'Map options';
+
+  @override
+  String get worldDeleteMap => 'Delete this map';
+
+  @override
+  String worldDeleteMapTitle(String name) {
+    return 'Delete the map $name?';
+  }
+
+  @override
+  String get worldExport => 'Copy as JSON';
+
+  @override
+  String get worldImport => 'Import JSON';
+
+  @override
+  String get worldImportHint => 'Paste the exported JSON';
+
+  @override
+  String worldImported(int count) {
+    return '$count maps imported';
+  }
+
+  @override
+  String get worldImportFailed => 'This text is not a valid world export.';
+
+  @override
+  String get worldCopied => 'Copied to the clipboard';
+
+  @override
+  String worldCanvasLabel(String map, String floor) {
+    return 'Map $map, floor $floor';
+  }
 }

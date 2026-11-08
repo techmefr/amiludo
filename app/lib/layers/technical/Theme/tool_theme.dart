@@ -379,6 +379,7 @@ const toolThemes = <String, ToolTheme>{
   'bestiary': ToolTheme(accent: Color(0xff2F6B4F), texture: ToolTexture.parchment),
   'scenes': ToolTheme(accent: Color(0xff8A4B2A), texture: ToolTexture.paper),
   'gmtables': ToolTheme(accent: Color(0xff3A5BA0), texture: ToolTexture.deck),
+  'worldmap': ToolTheme(accent: Color(0xff6B4E2E), texture: ToolTexture.parchment),
   'combat': ToolTheme(
     accent: Color(0xffB4232F),
     texture: ToolTexture.frame,

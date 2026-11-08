@@ -16,6 +16,7 @@ void main() {
         'auction',
         'clocks',
         'combat',
+        'worldmap',
         'gmtables',
         'scenes',
         'bestiary',

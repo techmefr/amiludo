@@ -10451,6 +10451,324 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Stop the ambience'**
   String get scenesStopAmbience;
+
+  /// No description provided for @toolWorldmapTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'World map'**
+  String get toolWorldmapTitle;
+
+  /// No description provided for @toolWorldmapSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw worlds, regions, towns and dungeons, floor by floor.'**
+  String get toolWorldmapSubtitle;
+
+  /// No description provided for @worldEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No map yet. Create your first map.'**
+  String get worldEmpty;
+
+  /// No description provided for @worldNewMap.
+  ///
+  /// In en, this message translates to:
+  /// **'New map'**
+  String get worldNewMap;
+
+  /// No description provided for @worldMapName.
+  ///
+  /// In en, this message translates to:
+  /// **'Map name'**
+  String get worldMapName;
+
+  /// No description provided for @worldCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Create map'**
+  String get worldCreate;
+
+  /// No description provided for @worldLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Scale'**
+  String get worldLevel;
+
+  /// No description provided for @worldLevelWorld.
+  ///
+  /// In en, this message translates to:
+  /// **'World'**
+  String get worldLevelWorld;
+
+  /// No description provided for @worldLevelRegion.
+  ///
+  /// In en, this message translates to:
+  /// **'Region'**
+  String get worldLevelRegion;
+
+  /// No description provided for @worldLevelCity.
+  ///
+  /// In en, this message translates to:
+  /// **'Town'**
+  String get worldLevelCity;
+
+  /// No description provided for @worldLevelBuilding.
+  ///
+  /// In en, this message translates to:
+  /// **'Building'**
+  String get worldLevelBuilding;
+
+  /// No description provided for @worldLevelRoom.
+  ///
+  /// In en, this message translates to:
+  /// **'Room'**
+  String get worldLevelRoom;
+
+  /// No description provided for @worldToolMove.
+  ///
+  /// In en, this message translates to:
+  /// **'Move'**
+  String get worldToolMove;
+
+  /// No description provided for @worldToolLand.
+  ///
+  /// In en, this message translates to:
+  /// **'Land'**
+  String get worldToolLand;
+
+  /// No description provided for @worldToolWater.
+  ///
+  /// In en, this message translates to:
+  /// **'Water'**
+  String get worldToolWater;
+
+  /// No description provided for @worldToolForest.
+  ///
+  /// In en, this message translates to:
+  /// **'Forest'**
+  String get worldToolForest;
+
+  /// No description provided for @worldToolMountain.
+  ///
+  /// In en, this message translates to:
+  /// **'Mountains'**
+  String get worldToolMountain;
+
+  /// No description provided for @worldToolRoad.
+  ///
+  /// In en, this message translates to:
+  /// **'Road'**
+  String get worldToolRoad;
+
+  /// No description provided for @worldToolRiver.
+  ///
+  /// In en, this message translates to:
+  /// **'River'**
+  String get worldToolRiver;
+
+  /// No description provided for @worldToolWall.
+  ///
+  /// In en, this message translates to:
+  /// **'Wall'**
+  String get worldToolWall;
+
+  /// No description provided for @worldToolRoom.
+  ///
+  /// In en, this message translates to:
+  /// **'Room'**
+  String get worldToolRoom;
+
+  /// No description provided for @worldToolDoor.
+  ///
+  /// In en, this message translates to:
+  /// **'Door'**
+  String get worldToolDoor;
+
+  /// No description provided for @worldToolStairs.
+  ///
+  /// In en, this message translates to:
+  /// **'Stairs'**
+  String get worldToolStairs;
+
+  /// No description provided for @worldToolErase.
+  ///
+  /// In en, this message translates to:
+  /// **'Erase'**
+  String get worldToolErase;
+
+  /// No description provided for @worldUndo.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo the last stroke'**
+  String get worldUndo;
+
+  /// No description provided for @worldBrushSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Brush size'**
+  String get worldBrushSize;
+
+  /// No description provided for @worldSizeSmall.
+  ///
+  /// In en, this message translates to:
+  /// **'Small'**
+  String get worldSizeSmall;
+
+  /// No description provided for @worldSizeMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get worldSizeMedium;
+
+  /// No description provided for @worldSizeLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'Large'**
+  String get worldSizeLarge;
+
+  /// No description provided for @worldZoomIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Zoom in'**
+  String get worldZoomIn;
+
+  /// No description provided for @worldZoomOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Zoom out'**
+  String get worldZoomOut;
+
+  /// No description provided for @worldZoomReset.
+  ///
+  /// In en, this message translates to:
+  /// **'Fit the view'**
+  String get worldZoomReset;
+
+  /// No description provided for @worldGridOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Show the grid'**
+  String get worldGridOn;
+
+  /// No description provided for @worldGridOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide the grid'**
+  String get worldGridOff;
+
+  /// No description provided for @worldCell.
+  ///
+  /// In en, this message translates to:
+  /// **'1 cell = {size}'**
+  String worldCell(String size);
+
+  /// No description provided for @worldFloor.
+  ///
+  /// In en, this message translates to:
+  /// **'Floor {name}'**
+  String worldFloor(String name);
+
+  /// No description provided for @worldFloorOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'Floor options'**
+  String get worldFloorOptions;
+
+  /// No description provided for @worldAddFloorAbove.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a floor above'**
+  String get worldAddFloorAbove;
+
+  /// No description provided for @worldAddFloorBelow.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a basement'**
+  String get worldAddFloorBelow;
+
+  /// No description provided for @worldRenameFloor.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename the floor'**
+  String get worldRenameFloor;
+
+  /// No description provided for @worldDeleteFloor.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete the floor'**
+  String get worldDeleteFloor;
+
+  /// No description provided for @worldFloorName.
+  ///
+  /// In en, this message translates to:
+  /// **'Floor name'**
+  String get worldFloorName;
+
+  /// No description provided for @worldSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get worldSave;
+
+  /// No description provided for @worldMapOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'Map options'**
+  String get worldMapOptions;
+
+  /// No description provided for @worldDeleteMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this map'**
+  String get worldDeleteMap;
+
+  /// No description provided for @worldDeleteMapTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete the map {name}?'**
+  String worldDeleteMapTitle(String name);
+
+  /// No description provided for @worldExport.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy as JSON'**
+  String get worldExport;
+
+  /// No description provided for @worldImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Import JSON'**
+  String get worldImport;
+
+  /// No description provided for @worldImportHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Paste the exported JSON'**
+  String get worldImportHint;
+
+  /// No description provided for @worldImported.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} maps imported'**
+  String worldImported(int count);
+
+  /// No description provided for @worldImportFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'This text is not a valid world export.'**
+  String get worldImportFailed;
+
+  /// No description provided for @worldCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied to the clipboard'**
+  String get worldCopied;
+
+  /// No description provided for @worldCanvasLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Map {map}, floor {floor}'**
+  String worldCanvasLabel(String map, String floor);
 }
 
 class _AppLocalizationsDelegate
