@@ -57,11 +57,13 @@ class _CompanionBuilderState extends State<CompanionBuilder> {
 
   Future<GameTemplate> _save() async {
     final base = existing ?? GameTemplate(id: id, name: name.text);
+    final title = name.text.trim().isEmpty
+        ? context.l10n.buildTitle
+        : name.text.trim();
     final template = GameTemplate.fromJson({
       ...base.toJson(),
-      'name': name.text.trim().isEmpty
-          ? context.l10n.buildTitle
-          : name.text.trim(),
+      'name': title,
+      'englishName': title,
       'bricks': [for (final b in draft.bricks) b.toJson()],
     });
     await context.read<TemplatesCubit>().addTemplate(template);
