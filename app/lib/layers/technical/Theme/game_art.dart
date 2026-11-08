@@ -10,6 +10,7 @@ Color toolColor(String id) => switch (id) {
   'life' => const Color(0xffD2603F),
   'tally' => const Color(0xff668FCB),
   'ranking' => const Color(0xffE0AE42),
+  'sheet' => const Color(0xff59BBAA),
   'turns' => const Color(0xff8A65D8),
   'first-player' => const Color(0xffED8D70),
   'timer' || 'hourglass' => const Color(0xffE0AE42),

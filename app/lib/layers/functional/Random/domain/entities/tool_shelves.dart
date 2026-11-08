@@ -14,6 +14,7 @@ const toolShelves = [
     'life',
     'tally',
     'ranking',
+    'sheet',
     'counter-life',
     'counter-points',
     'counter-chips',
