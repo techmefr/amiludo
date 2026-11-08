@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/deck_tile.dart';
+import 'package:amiludo/layers/technical/Theme/components/entrance.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icons.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 
@@ -17,6 +18,12 @@ class HomeWaysToPlay extends StatelessWidget {
   Widget build(BuildContext context) => ResponsiveGrid(
     minimumWidth: tileWidth(context),
     children: [
+      for (final (i, tile) in _tiles(context).indexed)
+        Entrance(index: i + 1, child: tile),
+    ],
+  );
+
+  List<Widget> _tiles(BuildContext context) => [
       DeckTile(
         icon: Icons.casino_outlined,
         title: context.l10n.workspaceFreeMode,
@@ -58,8 +65,7 @@ class HomeWaysToPlay extends StatelessWidget {
         title: context.l10n.notebookHomeTile,
         onTap: () => context.push('/notebook'),
       ),
-    ],
-  );
+  ];
 }
 
 class HomeFavoriteTools extends StatelessWidget {
