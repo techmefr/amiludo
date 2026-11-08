@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/dice_scene.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_gestures.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_sprite.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_table.dart';
@@ -170,6 +171,22 @@ class _DiceTraySurfaceState extends State<DiceTraySurface>
     final reduced = MediaQuery.disableAnimationsOf(context);
     final session = widget.session;
     widget.feedback?.material = material;
+    if (widget.solid) {
+      return DiceScene(
+        session: session,
+        throwId: widget.throwId,
+        seed: widget.seed,
+        skin: widget.skin,
+        table: widget.table,
+        power: widget.power,
+        aim: widget.aim,
+        onOutcome: widget.onOutcome,
+        onFlick: widget.onFlick,
+        onTapTable: widget.onTapTable,
+        onLongPressDie: widget.onLongPressDie,
+        feedback: widget.feedback,
+      );
+    }
     return LayoutBuilder(
       builder: (context, box) {
         final p = bodyFor(box);

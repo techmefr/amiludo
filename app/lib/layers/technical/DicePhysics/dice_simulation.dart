@@ -13,8 +13,8 @@ class DiceSimulation {
     required this.seed,
     this.power = 1,
     this.aim = const Vec3(0, 0, -1),
-    double halfWidth = 7,
-    double halfDepth = 4.8,
+    double halfWidth = 6,
+    double halfDepth = 4.2,
   }) : world = DiceWorld(halfWidth: halfWidth, halfDepth: halfDepth) {
     _launch();
   }
@@ -34,8 +34,22 @@ class DiceSimulation {
 
   List<int> get values => [for (final b in bodies) b.value];
 
-  static List<int> roll(List<int> sides, int seed, {double power = 1}) {
-    final run = DiceSimulation(sides: sides, seed: seed, power: power);
+  static List<int> roll(
+    List<int> sides,
+    int seed, {
+    double power = 1,
+    Vec3 aim = const Vec3(0, 0, -1),
+    double halfWidth = 6,
+    double halfDepth = 4.2,
+  }) {
+    final run = DiceSimulation(
+      sides: sides,
+      seed: seed,
+      power: power,
+      aim: aim,
+      halfWidth: halfWidth,
+      halfDepth: halfDepth,
+    );
     run.settle();
     return run.values;
   }
@@ -75,7 +89,7 @@ class DiceSimulation {
         0,
         heading.x * sin(turn) + heading.z * cos(turn),
       );
-      final speed = (11 + 10 * p) * rng.range(0.85, 1.15);
+      final speed = (5.5 + 6.5 * p) * rng.range(0.85, 1.15);
       world.add(
         DieBody(
           shape: ConvexShape.forSides(sides[i]),
