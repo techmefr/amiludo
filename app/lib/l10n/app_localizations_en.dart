@@ -4982,4 +4982,81 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String metronomeBeats(int count) {
     return '$count beats';
+
+  @override
+  String get toolBankTitle => 'Bank';
+
+  @override
+  String get toolBankSubtitle => 'Balances for every player and transfers between players and the bank.';
+
+  @override
+  String get bankName => 'Bank';
+
+  @override
+  String get bankFrom => 'From';
+
+  @override
+  String get bankTo => 'To';
+
+  @override
+  String get bankAmount => 'Amount';
+
+  @override
+  String get bankTransfer => 'Transfer';
+
+  @override
+  String get toolAuctionTitle => 'Auction';
+
+  @override
+  String get toolAuctionSubtitle => 'Raise the bid; the hammer falls when the countdown runs out.';
+
+  @override
+  String get auctionPickBidder => 'Pick who bids';
+
+  @override
+  String auctionLeft(int seconds) {
+    return '$seconds s left';
+  }
+
+  @override
+  String auctionSold(String name, int price) {
+    return 'Sold to $name for $price';
+  }
+
+  @override
+  String get toolTournamentTitle => 'Tournament';
+
+  @override
+  String get toolTournamentSubtitle => 'A knockout bracket: tap the winner of each match.';
+
+  @override
+  String tournamentRound(int number) {
+    return 'Round $number';
+  }
+
+  @override
+  String tournamentChampion(String name) {
+    return '$name wins the tournament';
+  }
+
+  @override
+  String get toolBalanceTitle => 'Balanced teams';
+
+  @override
+  String get toolBalanceSubtitle => 'Rate each player and get fair teams.';
+
+  @override
+  String balanceLevel(String name, int level) {
+    return '$name, level $level';
+  }
+
+  @override
+  String balanceTeams(int count) {
+    return '$count teams';
+  }
+
+  @override
+  String balanceTeamTotal(int number, int total) {
+    return 'Team $number, total $total';
+  }
 }

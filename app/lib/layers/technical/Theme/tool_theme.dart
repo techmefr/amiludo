@@ -204,6 +204,24 @@ const toolThemes = <String, ToolTheme>{
     texture: ToolTexture.deck,
     motion: ToolMotion.flip,
   ),
+  'bank': ToolTheme(
+    accent: Color(0xffB5762A),
+    texture: ToolTexture.paper,
+    weight: 1.4,
+  ),
+  'auction': ToolTheme(
+    accent: Color(0xffC2493D),
+    texture: ToolTexture.tactile,
+    haptic: ToolHaptic.impact,
+    weight: 1.4,
+  ),
+  'tournament': ToolTheme(
+    accent: Color(0xff3F6FB0),
+    texture: ToolTexture.parchment,
+    header: ToolHeader.ribbon,
+    motion: ToolMotion.flow,
+  ),
+  'balance': ToolTheme(accent: Color(0xff2F8F83), motion: ToolMotion.flow),
   'turns': ToolTheme(
     accent: Color(0xff5A4FB0),
     texture: ToolTexture.frame,
