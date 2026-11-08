@@ -1613,5 +1613,9 @@
   "buildSizeMedium": "Mittel",
   "buildSizeLarge": "Groß",
   "buildRemove": "Baustein entfernen",
-  "buildSaved": "Begleiter gespeichert."
+  "buildSaved": "Begleiter gespeichert.",
+  "buildLabel": "Name auf der Kachel",
+  "buildImport": "Importieren",
+  "buildExport": "Exportieren",
+  "buildMine": "Meine Begleiter"
 }

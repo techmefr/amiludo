@@ -5221,4 +5221,16 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get buildSaved => 'Compagno salvato.';
+
+  @override
+  String get buildLabel => 'Nome sulla tessera';
+
+  @override
+  String get buildImport => 'Importa';
+
+  @override
+  String get buildExport => 'Esporta';
+
+  @override
+  String get buildMine => 'I miei compagni';
 }

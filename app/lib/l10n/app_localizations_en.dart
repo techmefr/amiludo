@@ -5191,4 +5191,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get buildSaved => 'Companion saved.';
+
+  @override
+  String get buildLabel => 'Name on the tile';
+
+  @override
+  String get buildImport => 'Import';
+
+  @override
+  String get buildExport => 'Export';
+
+  @override
+  String get buildMine => 'My companions';
 }

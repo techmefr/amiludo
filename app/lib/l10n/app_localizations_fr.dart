@@ -5224,4 +5224,16 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get buildSaved => 'Compagnon enregistré.';
+
+  @override
+  String get buildLabel => 'Nom sur la tuile';
+
+  @override
+  String get buildImport => 'Importer';
+
+  @override
+  String get buildExport => 'Exporter';
+
+  @override
+  String get buildMine => 'Mes compagnons';
 }

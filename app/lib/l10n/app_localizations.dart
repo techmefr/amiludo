@@ -8449,6 +8449,30 @@ abstract class AppLocalizations {
   /// **'Companion saved.'**
   String get buildSaved;
 
+  /// No description provided for @buildLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Name on the tile'**
+  String get buildLabel;
+
+  /// No description provided for @buildImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Import'**
+  String get buildImport;
+
+  /// No description provided for @buildExport.
+  ///
+  /// In en, this message translates to:
+  /// **'Export'**
+  String get buildExport;
+
+  /// No description provided for @buildMine.
+  ///
+  /// In en, this message translates to:
+  /// **'My companions'**
+  String get buildMine;
+
   /// No description provided for @toolMetronomeTitle.
   ///
   /// In en, this message translates to:

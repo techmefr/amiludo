@@ -1613,5 +1613,9 @@
   "buildSizeMedium": "Gemiddeld",
   "buildSizeLarge": "Groot",
   "buildRemove": "Blok verwijderen",
-  "buildSaved": "Spelgenoot opgeslagen."
+  "buildSaved": "Spelgenoot opgeslagen.",
+  "buildLabel": "Naam op de tegel",
+  "buildImport": "Importeren",
+  "buildExport": "Exporteren",
+  "buildMine": "Mijn spelgenoten"
 }

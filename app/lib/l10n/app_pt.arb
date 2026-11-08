@@ -1613,5 +1613,9 @@
   "buildSizeMedium": "Média",
   "buildSizeLarge": "Grande",
   "buildRemove": "Remover o bloco",
-  "buildSaved": "Companheiro guardado."
+  "buildSaved": "Companheiro guardado.",
+  "buildLabel": "Nome no mosaico",
+  "buildImport": "Importar",
+  "buildExport": "Exportar",
+  "buildMine": "Os meus companheiros"
 }

@@ -5228,4 +5228,16 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get buildSaved => 'Begleiter gespeichert.';
+
+  @override
+  String get buildLabel => 'Name auf der Kachel';
+
+  @override
+  String get buildImport => 'Importieren';
+
+  @override
+  String get buildExport => 'Exportieren';
+
+  @override
+  String get buildMine => 'Meine Begleiter';
 }

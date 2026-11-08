@@ -2274,5 +2274,9 @@
   "buildSizeMedium": "Medium",
   "buildSizeLarge": "Large",
   "buildRemove": "Remove the brick",
-  "buildSaved": "Companion saved."
+  "buildSaved": "Companion saved.",
+  "buildLabel": "Name on the tile",
+  "buildImport": "Import",
+  "buildExport": "Export",
+  "buildMine": "My companions"
 }

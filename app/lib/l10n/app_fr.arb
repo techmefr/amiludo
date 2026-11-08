@@ -1613,5 +1613,9 @@
   "buildSizeMedium": "Moyenne",
   "buildSizeLarge": "Grande",
   "buildRemove": "Retirer la brique",
-  "buildSaved": "Compagnon enregistré."
+  "buildSaved": "Compagnon enregistré.",
+  "buildLabel": "Nom sur la tuile",
+  "buildImport": "Importer",
+  "buildExport": "Exporter",
+  "buildMine": "Mes compagnons"
 }

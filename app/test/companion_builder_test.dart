@@ -20,6 +20,21 @@ void main() {
     expect(const Brick(id: 'x', type: 'hourglass').toolId, 'hourglass');
   });
 
+  test('a brick label and merged settings survive a round trip', () {
+    const brick = Brick(id: 'a', type: 'hourglass');
+    expect(brick.label, isNull);
+    final named = brick.labelled('  Sand  ');
+    expect(named.label, 'Sand');
+    expect(Brick.fromJson(named.toJson()).label, 'Sand');
+    expect(named.labelled(' ').label, isNull);
+    final merged = named
+        .resized(TileSize.small)
+        .withSettings({'start': 3});
+    expect(merged.size, TileSize.small);
+    expect(merged.label, 'Sand');
+    expect(merged.settings['start'], 3);
+  });
+
   testWidgets('build a companion, add a brick and start the session', (
     tester,
   ) async {
