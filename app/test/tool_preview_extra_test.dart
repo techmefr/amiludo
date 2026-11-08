@@ -15,6 +15,7 @@ void main() {
         'bank',
         'auction',
         'clocks',
+        'combat',
         'sport',
       ]) {
         await tester.pumpWidget(
