@@ -67,7 +67,7 @@ class _CombatantSheetState extends State<CombatantSheet> {
     final result = await widget.roller!(context, shown.name);
     if (!mounted || result == null) return;
     final total = result + shown.bonus;
-    initiative.text = ;
+    initiative.text = '$total';
     _apply((c) => c.copyWith(initiative: total));
   }
 
