@@ -1821,5 +1821,7 @@
   "rulesDecisionRuling": "Cosa è stato deciso",
   "rulesDecisionAdd": "Annota la decisione",
   "rulesDecisionsEmpty": "Nessuna decisione annotata.",
-  "rulesDecisionDelete": "Elimina decisione"
+  "rulesDecisionDelete": "Elimina decisione",
+  "rulesCommon": "Regole comuni",
+  "rulesCommonCount": "Regole comuni ({count})"
 }

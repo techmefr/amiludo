@@ -92,6 +92,12 @@ class _RulesToolState extends State<RulesTool> {
           selected: g.id == current?.id,
           onSelected: (_) => setState(() => selectedId = g.id),
         ),
+      ChoiceChip(
+        avatar: const DeckIcon(Icons.public),
+        label: Text(context.l10n.rulesCommon),
+        selected: current?.id == commonRuleId,
+        onSelected: (_) => setState(() => selectedId = commonRuleId),
+      ),
       ActionChip(
         avatar: const DeckIcon(Icons.add),
         label: Text(context.l10n.rulesNewGame),
@@ -143,6 +149,30 @@ class _RulesToolState extends State<RulesTool> {
     ];
   }
 
+  Widget _commonSections(RuleGame current) {
+    final shown = book.commonGame.search(query);
+    if (current.id == commonRuleId || shown.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    return ExpansionTile(
+      title: Text(context.l10n.rulesCommonCount(shown.length)),
+      initiallyExpanded: query.isNotEmpty,
+      children: [
+        for (final i in shown)
+          Padding(
+            padding: const EdgeInsets.only(bottom: Space.md),
+            child: RuleSectionCard(
+              section: book.common[i],
+              table: table,
+              onEdit: () => setState(() => selectedId = commonRuleId),
+              onDelete: () =>
+                  _commit(book.put(book.commonGame.withoutSection(i))),
+            ),
+          ),
+      ],
+    );
+  }
+
   Widget _actions(RuleGame current) => Wrap(
     spacing: Space.md,
     runSpacing: Space.md,
@@ -152,7 +182,8 @@ class _RulesToolState extends State<RulesTool> {
         icon: const DeckIcon(Icons.add),
         label: Text(context.l10n.rulesAddSection),
       ),
-      OutlinedButton.icon(
+      if (current.id != commonRuleId)
+        OutlinedButton.icon(
         onPressed: () => showRuleDecisions(
           context,
           game: current,
@@ -161,7 +192,8 @@ class _RulesToolState extends State<RulesTool> {
         icon: const DeckIcon(Icons.gavel_outlined),
         label: Text(context.l10n.rulesDecisions(current.decisions.length)),
       ),
-      TextButton.icon(
+      if (current.id != commonRuleId)
+        TextButton.icon(
         onPressed: () => _deleteGame(current),
         icon: const DeckIcon(Icons.delete_outline),
         label: Text(context.l10n.rulesDeleteGame),
@@ -189,6 +221,7 @@ class _RulesToolState extends State<RulesTool> {
               _toolbar(),
               const SizedBox(height: Space.lg),
               ..._sections(current),
+              _commonSections(current),
               if (!table) ...[const SizedBox(height: Space.md), _actions(current)],
             ],
           ],

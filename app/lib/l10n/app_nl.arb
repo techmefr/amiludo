@@ -1821,5 +1821,7 @@
   "rulesDecisionRuling": "Wat is besloten",
   "rulesDecisionAdd": "Beslissing noteren",
   "rulesDecisionsEmpty": "Nog geen beslissingen genoteerd.",
-  "rulesDecisionDelete": "Beslissing verwijderen"
+  "rulesDecisionDelete": "Beslissing verwijderen",
+  "rulesCommon": "Gemeenschappelijke regels",
+  "rulesCommonCount": "Gemeenschappelijke regels ({count})"
 }

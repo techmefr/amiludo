@@ -5865,4 +5865,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get rulesDecisionDelete => 'Delete ruling';
+
+  @override
+  String get rulesCommon => 'Common rules';
+
+  @override
+  String rulesCommonCount(int count) {
+    return 'Common rules ($count)';
+  }
 }

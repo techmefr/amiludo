@@ -5902,4 +5902,12 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get rulesDecisionDelete => 'Entscheidung löschen';
+
+  @override
+  String get rulesCommon => 'Gemeinsame Regeln';
+
+  @override
+  String rulesCommonCount(int count) {
+    return 'Gemeinsame Regeln ($count)';
+  }
 }
