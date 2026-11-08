@@ -4864,4 +4864,72 @@ class AppLocalizationsFr extends AppLocalizations {
   String buzzerFirst(String name) {
     return '$name a appuyé en premier';
   }
+
+  @override
+  String get toolClocksTitle => 'Horloges de progression';
+
+  @override
+  String get toolClocksSubtitle => 'Des horloges en quartiers pour les menaces, projets et comptes à rebours du récit.';
+
+  @override
+  String clocksSegments(int count) {
+    return '$count quartiers';
+  }
+
+  @override
+  String get clocksAdd => 'Ajouter une horloge';
+
+  @override
+  String get clocksName => 'Nom de l\'horloge';
+
+  @override
+  String get clocksEmpty => 'Ajoutez une horloge pour suivre une menace ou un projet.';
+
+  @override
+  String clocksRemove(String name) {
+    return 'Retirer $name';
+  }
+
+  @override
+  String get toolSportTitle => 'Sports de table';
+
+  @override
+  String get toolSportSubtitle => 'Comptez le Mölkky, les fléchettes et la pétanque avec les bonnes règles.';
+
+  @override
+  String get sportMolkky => 'Mölkky';
+
+  @override
+  String get sportDarts => 'Fléchettes 501';
+
+  @override
+  String get sportPetanque => 'Pétanque';
+
+  @override
+  String sportGoal(int target) {
+    return 'Objectif : $target';
+  }
+
+  @override
+  String get sportPoints => 'Points';
+
+  @override
+  String sportAddPoints(String name) {
+    return 'Ajouter des points à $name';
+  }
+
+  @override
+  String get toolMarkersTitle => 'Marqueurs de statut';
+
+  @override
+  String get toolMarkersSubtitle => 'Remettez les jetons de monarque, de premier joueur et d\'initiative à un joueur.';
+
+  @override
+  String get markerMonarch => 'Monarque';
+
+  @override
+  String get markerFirst => 'Premier joueur';
+
+  @override
+  String get markerInitiative => 'Initiative';
 }

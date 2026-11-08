@@ -9101,6 +9101,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{name} pressed first'**
   String buzzerFirst(String name);
+
+  /// No description provided for @toolClocksTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress clocks'**
+  String get toolClocksTitle;
+
+  /// No description provided for @toolClocksSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Slice-by-slice clocks for threats, projects and countdowns in the story.'**
+  String get toolClocksSubtitle;
+
+  /// No description provided for @clocksSegments.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} segments'**
+  String clocksSegments(int count);
+
+  /// No description provided for @clocksAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a clock'**
+  String get clocksAdd;
+
+  /// No description provided for @clocksName.
+  ///
+  /// In en, this message translates to:
+  /// **'Clock name'**
+  String get clocksName;
+
+  /// No description provided for @clocksEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a clock to start tracking a threat or a project.'**
+  String get clocksEmpty;
+
+  /// No description provided for @clocksRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove {name}'**
+  String clocksRemove(String name);
+
+  /// No description provided for @toolSportTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Table sports'**
+  String get toolSportTitle;
+
+  /// No description provided for @toolSportSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Score Mölkky, darts and pétanque with the right rules.'**
+  String get toolSportSubtitle;
+
+  /// No description provided for @sportMolkky.
+  ///
+  /// In en, this message translates to:
+  /// **'Mölkky'**
+  String get sportMolkky;
+
+  /// No description provided for @sportDarts.
+  ///
+  /// In en, this message translates to:
+  /// **'Darts 501'**
+  String get sportDarts;
+
+  /// No description provided for @sportPetanque.
+  ///
+  /// In en, this message translates to:
+  /// **'Pétanque'**
+  String get sportPetanque;
+
+  /// No description provided for @sportGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal: {target}'**
+  String sportGoal(int target);
+
+  /// No description provided for @sportPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Points'**
+  String get sportPoints;
+
+  /// No description provided for @sportAddPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Add points for {name}'**
+  String sportAddPoints(String name);
+
+  /// No description provided for @toolMarkersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Status markers'**
+  String get toolMarkersTitle;
+
+  /// No description provided for @toolMarkersSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hand the monarch, first player and initiative tokens to a player.'**
+  String get toolMarkersSubtitle;
+
+  /// No description provided for @markerMonarch.
+  ///
+  /// In en, this message translates to:
+  /// **'Monarch'**
+  String get markerMonarch;
+
+  /// No description provided for @markerFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'First player'**
+  String get markerFirst;
+
+  /// No description provided for @markerInitiative.
+  ///
+  /// In en, this message translates to:
+  /// **'Initiative'**
+  String get markerInitiative;
 }
 
 class _AppLocalizationsDelegate

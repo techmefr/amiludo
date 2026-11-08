@@ -4862,4 +4862,72 @@ class AppLocalizationsNl extends AppLocalizations {
   String buzzerFirst(String name) {
     return '$name drukte als eerste';
   }
+
+  @override
+  String get toolClocksTitle => 'Voortgangsklokken';
+
+  @override
+  String get toolClocksSubtitle => 'Klokken in taartpunten voor dreigingen, projecten en aftellingen in het verhaal.';
+
+  @override
+  String clocksSegments(int count) {
+    return '$count stukken';
+  }
+
+  @override
+  String get clocksAdd => 'Klok toevoegen';
+
+  @override
+  String get clocksName => 'Naam van de klok';
+
+  @override
+  String get clocksEmpty => 'Voeg een klok toe om een dreiging of project te volgen.';
+
+  @override
+  String clocksRemove(String name) {
+    return '$name verwijderen';
+  }
+
+  @override
+  String get toolSportTitle => 'Tafelsporten';
+
+  @override
+  String get toolSportSubtitle => 'Tel Mölkky, darts en petanque met de juiste regels.';
+
+  @override
+  String get sportMolkky => 'Mölkky';
+
+  @override
+  String get sportDarts => 'Darts 501';
+
+  @override
+  String get sportPetanque => 'Petanque';
+
+  @override
+  String sportGoal(int target) {
+    return 'Doel: $target';
+  }
+
+  @override
+  String get sportPoints => 'Punten';
+
+  @override
+  String sportAddPoints(String name) {
+    return 'Punten toevoegen voor $name';
+  }
+
+  @override
+  String get toolMarkersTitle => 'Statusmarkeringen';
+
+  @override
+  String get toolMarkersSubtitle => 'Geef de pionnen van monarch, startspeler en initiatief aan een speler.';
+
+  @override
+  String get markerMonarch => 'Monarch';
+
+  @override
+  String get markerFirst => 'Startspeler';
+
+  @override
+  String get markerInitiative => 'Initiatief';
 }

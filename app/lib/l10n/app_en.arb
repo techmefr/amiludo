@@ -2015,5 +2015,53 @@
         "type": "String"
       }
     }
-  }
+  },
+  "toolClocksTitle": "Progress clocks",
+  "toolClocksSubtitle": "Slice-by-slice clocks for threats, projects and countdowns in the story.",
+  "clocksSegments": "{count} segments",
+  "@clocksSegments": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "clocksAdd": "Add a clock",
+  "clocksName": "Clock name",
+  "clocksEmpty": "Add a clock to start tracking a threat or a project.",
+  "clocksRemove": "Remove {name}",
+  "@clocksRemove": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "toolSportTitle": "Table sports",
+  "toolSportSubtitle": "Score Mölkky, darts and pétanque with the right rules.",
+  "sportMolkky": "Mölkky",
+  "sportDarts": "Darts 501",
+  "sportPetanque": "Pétanque",
+  "sportGoal": "Goal: {target}",
+  "@sportGoal": {
+    "placeholders": {
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "sportPoints": "Points",
+  "sportAddPoints": "Add points for {name}",
+  "@sportAddPoints": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "toolMarkersTitle": "Status markers",
+  "toolMarkersSubtitle": "Hand the monarch, first player and initiative tokens to a player.",
+  "markerMonarch": "Monarch",
+  "markerFirst": "First player",
+  "markerInitiative": "Initiative"
 }
