@@ -33,45 +33,45 @@ class TrayBottomBar extends StatelessWidget {
         style: IconButton.styleFrom(visualDensity: VisualDensity.compact),
       ),
       child: Row(
-      children: [
-        IconButton(
-          tooltip: l.diceLook,
-          onPressed: onLook,
-          icon: const Icon(Icons.tune),
-        ),
-        Flexible(
-          child: TextButton.icon(
-            onPressed: onAdd,
-            icon: const Icon(Icons.add),
-            label: Text(l.diceTrayAddDie, overflow: TextOverflow.ellipsis),
+        children: [
+          IconButton(
+            tooltip: l.diceLook,
+            onPressed: onLook,
+            icon: const Icon(Icons.tune),
           ),
-        ),
-        Expanded(
-          child: Text(
-            l.diceTrayCount(session.settings.dice.length),
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodySmall,
+          Flexible(
+            child: TextButton.icon(
+              onPressed: onAdd,
+              icon: const Icon(Icons.add),
+              label: Text(l.diceTrayAddDie, overflow: TextOverflow.ellipsis),
+            ),
           ),
-        ),
-        IconButton(
-          tooltip: l.diceTrayErase,
-          onPressed: thrown ? onClear : null,
-          icon: const Icon(Icons.backspace_outlined),
-        ),
-        IconButton(
-          tooltip: l.diceTrayShareResult,
-          onPressed: thrown ? () => shareLink(shareText) : null,
-          icon: const Icon(Icons.ios_share),
-        ),
-        IconButton(
-          tooltip: l.diceTrayHistory,
-          onPressed: session.history.isEmpty
-              ? null
-              : () => showTrayHistorySheet(context, session),
-          icon: const Icon(Icons.history),
-        ),
-      ],
-    ),
+          Expanded(
+            child: Text(
+              l.diceTrayCount(session.settings.dice.length),
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+          ),
+          IconButton(
+            tooltip: l.diceTrayErase,
+            onPressed: thrown ? onClear : null,
+            icon: const Icon(Icons.backspace_outlined),
+          ),
+          IconButton(
+            tooltip: l.diceTrayShareResult,
+            onPressed: thrown ? () => shareLink(shareText) : null,
+            icon: const Icon(Icons.ios_share),
+          ),
+          IconButton(
+            tooltip: l.diceTrayHistory,
+            onPressed: session.history.isEmpty
+                ? null
+                : () => showTrayHistorySheet(context, session),
+            icon: const Icon(Icons.history),
+          ),
+        ],
+      ),
     );
   }
 }

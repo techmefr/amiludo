@@ -58,7 +58,11 @@ class Die3dView extends StatelessWidget {
             ),
             for (final f in shown)
               if (f.facing > _contentVisibleFrom && f.index < mesh.faces.length)
-                _content(f, base, f.index == face ? value : mesh.valueOf(f.index)),
+                _content(
+                  f,
+                  base,
+                  f.index == face ? value : mesh.valueOf(f.index),
+                ),
           ],
         ),
       ),
