@@ -227,6 +227,11 @@ const toolThemes = <String, ToolTheme>{
     texture: ToolTexture.paper,
     motion: ToolMotion.flow,
   ),
+  'solo': ToolTheme(
+    accent: Color(0xff8A65D8),
+    texture: ToolTexture.deck,
+    motion: ToolMotion.flow,
+  ),
   'turns': ToolTheme(
     accent: Color(0xff5A4FB0),
     texture: ToolTexture.frame,

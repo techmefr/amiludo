@@ -9545,6 +9545,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{rank}. {name}, {points} points in {played} matches'**
   String leagueRow(int rank, String name, int points, int played);
+
+  /// No description provided for @toolSoloTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Solo mode'**
+  String get toolSoloTitle;
+
+  /// No description provided for @toolSoloSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'An opponent deck that decides what the automaton does each turn.'**
+  String get toolSoloSubtitle;
+
+  /// No description provided for @soloGather.
+  ///
+  /// In en, this message translates to:
+  /// **'Gather'**
+  String get soloGather;
+
+  /// No description provided for @soloAttack.
+  ///
+  /// In en, this message translates to:
+  /// **'Attack'**
+  String get soloAttack;
+
+  /// No description provided for @soloBuild.
+  ///
+  /// In en, this message translates to:
+  /// **'Build'**
+  String get soloBuild;
+
+  /// No description provided for @soloDefend.
+  ///
+  /// In en, this message translates to:
+  /// **'Defend'**
+  String get soloDefend;
+
+  /// No description provided for @soloExpand.
+  ///
+  /// In en, this message translates to:
+  /// **'Expand'**
+  String get soloExpand;
+
+  /// No description provided for @soloTrade.
+  ///
+  /// In en, this message translates to:
+  /// **'Trade'**
+  String get soloTrade;
+
+  /// No description provided for @soloLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Level {level}'**
+  String soloLevel(int level);
+
+  /// No description provided for @soloBonus.
+  ///
+  /// In en, this message translates to:
+  /// **'+{bonus} for the automaton'**
+  String soloBonus(int bonus);
+
+  /// No description provided for @soloRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} cards left'**
+  String soloRemaining(int count);
+
+  /// No description provided for @soloDraw.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw an action'**
+  String get soloDraw;
 }
 
 class _AppLocalizationsDelegate
