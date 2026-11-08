@@ -10,6 +10,8 @@ import 'package:amiludo/scenes_registry.dart';
 import 'package:amiludo/layers/functional/Scenes/data/gateways/storyline_gateway_impl.dart';
 import 'package:amiludo/tables_registry.dart';
 import 'package:amiludo/layers/functional/Tables/data/gateways/roll_tables_gateway_impl.dart';
+import 'package:amiludo/world_registry.dart';
+import 'package:amiludo/layers/functional/World/data/gateways/world_atlas_gateway_impl.dart';
 import 'package:amiludo/rules_registry.dart';
 import 'package:amiludo/journal_registry.dart';
 import 'package:amiludo/layers/functional/Journal/data/gateways/game_log_gateway_impl.dart';
@@ -263,6 +265,7 @@ void configureDependencies(StoreDatabase database) {
         getIt<MapBoardsGatewayImpl>(),
         getIt<NotebookGatewayImpl>(),
         getIt<RuleBookGatewayImpl>(),
+        getIt<WorldAtlasGatewayImpl>(),
         getIt<RollTablesGatewayImpl>(),
         getIt<StorylineGatewayImpl>(),
         getIt<BestiaryGatewayImpl>(),
@@ -289,6 +292,7 @@ void configureDependencies(StoreDatabase database) {
   _registerMaps();
   registerNotebook();
   registerRules();
+  registerWorld();
   registerTables();
   registerScenes();
   registerBestiary();

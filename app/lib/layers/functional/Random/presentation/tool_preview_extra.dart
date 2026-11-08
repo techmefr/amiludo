@@ -117,6 +117,46 @@ Widget _chain(Color accent, Color ink, double t) {
   );
 }
 
+Widget _land(Color accent, Color ink, double t) => Center(
+  child: SizedBox(
+    width: 120,
+    height: 80,
+    child: Stack(
+      children: [
+        Positioned(
+          left: 6,
+          top: 10,
+          child: Container(
+            width: 56 + 14 * t,
+            height: 40,
+            decoration: BoxDecoration(
+              color: accent,
+              borderRadius: BorderRadius.circular(Radii.lg),
+            ),
+          ),
+        ),
+        Positioned(
+          right: 10,
+          bottom: 8,
+          child: Container(
+            width: 44,
+            height: 30,
+            decoration: BoxDecoration(
+              color: ink.withValues(alpha: .3),
+              borderRadius: BorderRadius.circular(Radii.md),
+            ),
+          ),
+        ),
+        Positioned(
+          left: 50,
+          top: 26 - 8 * t,
+          child: Icon(Icons.place, color: ink, size: 22),
+        ),
+      ],
+    ),
+  ),
+);
+
 Widget? extraPreview(
   BuildContext context,
   String id,
@@ -130,6 +170,7 @@ Widget? extraPreview(
   'bank' => _count(context, ink, '${1500 + (200 * t).round()}'),
   'auction' => _count(context, ink, '${(35 * t).round()}'),
   'combat' => _order(accent, ink, t),
+  'worldmap' => _land(accent, ink, t),
   'gmtables' => _bars(accent, ink, t, const [.5, 1, .7, .35]),
   'scenes' => _chain(accent, ink, t),
   'bestiary' => _stack(accent, ink, t),

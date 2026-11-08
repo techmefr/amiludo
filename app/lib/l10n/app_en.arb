@@ -2505,5 +2505,96 @@
       }
     }
   },
-  "scenesStopAmbience": "Stop the ambience"
+  "scenesStopAmbience": "Stop the ambience",
+  "toolWorldmapTitle": "World map",
+  "toolWorldmapSubtitle": "Draw worlds, regions, towns and dungeons, floor by floor.",
+  "worldEmpty": "No map yet. Create your first map.",
+  "worldNewMap": "New map",
+  "worldMapName": "Map name",
+  "worldCreate": "Create map",
+  "worldLevel": "Scale",
+  "worldLevelWorld": "World",
+  "worldLevelRegion": "Region",
+  "worldLevelCity": "Town",
+  "worldLevelBuilding": "Building",
+  "worldLevelRoom": "Room",
+  "worldToolMove": "Move",
+  "worldToolLand": "Land",
+  "worldToolWater": "Water",
+  "worldToolForest": "Forest",
+  "worldToolMountain": "Mountains",
+  "worldToolRoad": "Road",
+  "worldToolRiver": "River",
+  "worldToolWall": "Wall",
+  "worldToolRoom": "Room",
+  "worldToolDoor": "Door",
+  "worldToolStairs": "Stairs",
+  "worldToolErase": "Erase",
+  "worldUndo": "Undo the last stroke",
+  "worldBrushSize": "Brush size",
+  "worldSizeSmall": "Small",
+  "worldSizeMedium": "Medium",
+  "worldSizeLarge": "Large",
+  "worldZoomIn": "Zoom in",
+  "worldZoomOut": "Zoom out",
+  "worldZoomReset": "Fit the view",
+  "worldGridOn": "Show the grid",
+  "worldGridOff": "Hide the grid",
+  "worldCell": "1 cell = {size}",
+  "@worldCell": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "worldFloor": "Floor {name}",
+  "@worldFloor": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "worldFloorOptions": "Floor options",
+  "worldAddFloorAbove": "Add a floor above",
+  "worldAddFloorBelow": "Add a basement",
+  "worldRenameFloor": "Rename the floor",
+  "worldDeleteFloor": "Delete the floor",
+  "worldFloorName": "Floor name",
+  "worldSave": "Save",
+  "worldMapOptions": "Map options",
+  "worldDeleteMap": "Delete this map",
+  "worldDeleteMapTitle": "Delete the map {name}?",
+  "@worldDeleteMapTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "worldExport": "Copy as JSON",
+  "worldImport": "Import JSON",
+  "worldImportHint": "Paste the exported JSON",
+  "worldImported": "{count} maps imported",
+  "@worldImported": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "worldImportFailed": "This text is not a valid world export.",
+  "worldCopied": "Copied to the clipboard",
+  "worldCanvasLabel": "Map {map}, floor {floor}",
+  "@worldCanvasLabel": {
+    "placeholders": {
+      "map": {
+        "type": "String"
+      },
+      "floor": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -69,6 +69,7 @@ const toolDefinitions = [
   ToolDefinition('trait', 'story'),
   ToolDefinition('twist', 'story'),
   ToolDefinition('combat', 'story'),
+  ToolDefinition('worldmap', 'story'),
   ToolDefinition('gmtables', 'story'),
   ToolDefinition('scenes', 'story'),
   ToolDefinition('bestiary', 'story'),

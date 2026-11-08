@@ -5603,4 +5603,173 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get scenesStopAmbience => 'Sfeer stoppen';
+
+  @override
+  String get toolWorldmapTitle => 'Wereldkaart';
+
+  @override
+  String get toolWorldmapSubtitle => 'Teken werelden, regio’s, steden en kerkers, verdieping voor verdieping.';
+
+  @override
+  String get worldEmpty => 'Nog geen kaart. Maak je eerste kaart.';
+
+  @override
+  String get worldNewMap => 'Nieuwe kaart';
+
+  @override
+  String get worldMapName => 'Naam van de kaart';
+
+  @override
+  String get worldCreate => 'Kaart maken';
+
+  @override
+  String get worldLevel => 'Schaal';
+
+  @override
+  String get worldLevelWorld => 'Wereld';
+
+  @override
+  String get worldLevelRegion => 'Regio';
+
+  @override
+  String get worldLevelCity => 'Stad';
+
+  @override
+  String get worldLevelBuilding => 'Gebouw';
+
+  @override
+  String get worldLevelRoom => 'Zaal';
+
+  @override
+  String get worldToolMove => 'Verplaatsen';
+
+  @override
+  String get worldToolLand => 'Land';
+
+  @override
+  String get worldToolWater => 'Water';
+
+  @override
+  String get worldToolForest => 'Bos';
+
+  @override
+  String get worldToolMountain => 'Bergen';
+
+  @override
+  String get worldToolRoad => 'Weg';
+
+  @override
+  String get worldToolRiver => 'Rivier';
+
+  @override
+  String get worldToolWall => 'Muur';
+
+  @override
+  String get worldToolRoom => 'Kamer';
+
+  @override
+  String get worldToolDoor => 'Deur';
+
+  @override
+  String get worldToolStairs => 'Trap';
+
+  @override
+  String get worldToolErase => 'Wissen';
+
+  @override
+  String get worldUndo => 'Laatste streek ongedaan maken';
+
+  @override
+  String get worldBrushSize => 'Penseelgrootte';
+
+  @override
+  String get worldSizeSmall => 'Klein';
+
+  @override
+  String get worldSizeMedium => 'Middel';
+
+  @override
+  String get worldSizeLarge => 'Groot';
+
+  @override
+  String get worldZoomIn => 'Inzoomen';
+
+  @override
+  String get worldZoomOut => 'Uitzoomen';
+
+  @override
+  String get worldZoomReset => 'Weergave centreren';
+
+  @override
+  String get worldGridOn => 'Raster tonen';
+
+  @override
+  String get worldGridOff => 'Raster verbergen';
+
+  @override
+  String worldCell(String size) {
+    return '1 vak = $size';
+  }
+
+  @override
+  String worldFloor(String name) {
+    return 'Verdieping $name';
+  }
+
+  @override
+  String get worldFloorOptions => 'Verdiepingsopties';
+
+  @override
+  String get worldAddFloorAbove => 'Verdieping erboven toevoegen';
+
+  @override
+  String get worldAddFloorBelow => 'Kelder toevoegen';
+
+  @override
+  String get worldRenameFloor => 'Verdieping hernoemen';
+
+  @override
+  String get worldDeleteFloor => 'Verdieping verwijderen';
+
+  @override
+  String get worldFloorName => 'Naam van de verdieping';
+
+  @override
+  String get worldSave => 'Opslaan';
+
+  @override
+  String get worldMapOptions => 'Kaartopties';
+
+  @override
+  String get worldDeleteMap => 'Deze kaart verwijderen';
+
+  @override
+  String worldDeleteMapTitle(String name) {
+    return 'Kaart $name verwijderen?';
+  }
+
+  @override
+  String get worldExport => 'Kopiëren als JSON';
+
+  @override
+  String get worldImport => 'JSON importeren';
+
+  @override
+  String get worldImportHint => 'Plak de geëxporteerde JSON';
+
+  @override
+  String worldImported(int count) {
+    return '$count kaarten geïmporteerd';
+  }
+
+  @override
+  String get worldImportFailed => 'Deze tekst is geen geldige wereld-export.';
+
+  @override
+  String get worldCopied => 'Gekopieerd naar het klembord';
+
+  @override
+  String worldCanvasLabel(String map, String floor) {
+    return 'Kaart $map, verdieping $floor';
+  }
 }

@@ -5601,4 +5601,173 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get scenesStopAmbience => 'Parar o ambiente';
+
+  @override
+  String get toolWorldmapTitle => 'Mapa do mundo';
+
+  @override
+  String get toolWorldmapSubtitle => 'Desenhe mundos, regiões, cidades e masmorras, andar por andar.';
+
+  @override
+  String get worldEmpty => 'Ainda não há mapas. Crie seu primeiro mapa.';
+
+  @override
+  String get worldNewMap => 'Novo mapa';
+
+  @override
+  String get worldMapName => 'Nome do mapa';
+
+  @override
+  String get worldCreate => 'Criar o mapa';
+
+  @override
+  String get worldLevel => 'Escala';
+
+  @override
+  String get worldLevelWorld => 'Mundo';
+
+  @override
+  String get worldLevelRegion => 'Região';
+
+  @override
+  String get worldLevelCity => 'Cidade';
+
+  @override
+  String get worldLevelBuilding => 'Edifício';
+
+  @override
+  String get worldLevelRoom => 'Sala';
+
+  @override
+  String get worldToolMove => 'Mover';
+
+  @override
+  String get worldToolLand => 'Terra';
+
+  @override
+  String get worldToolWater => 'Água';
+
+  @override
+  String get worldToolForest => 'Floresta';
+
+  @override
+  String get worldToolMountain => 'Montanhas';
+
+  @override
+  String get worldToolRoad => 'Estrada';
+
+  @override
+  String get worldToolRiver => 'Rio';
+
+  @override
+  String get worldToolWall => 'Muro';
+
+  @override
+  String get worldToolRoom => 'Cômodo';
+
+  @override
+  String get worldToolDoor => 'Porta';
+
+  @override
+  String get worldToolStairs => 'Escada';
+
+  @override
+  String get worldToolErase => 'Apagar';
+
+  @override
+  String get worldUndo => 'Desfazer o último traço';
+
+  @override
+  String get worldBrushSize => 'Tamanho do pincel';
+
+  @override
+  String get worldSizeSmall => 'Pequeno';
+
+  @override
+  String get worldSizeMedium => 'Médio';
+
+  @override
+  String get worldSizeLarge => 'Grande';
+
+  @override
+  String get worldZoomIn => 'Ampliar';
+
+  @override
+  String get worldZoomOut => 'Reduzir';
+
+  @override
+  String get worldZoomReset => 'Recentrar a vista';
+
+  @override
+  String get worldGridOn => 'Mostrar a grade';
+
+  @override
+  String get worldGridOff => 'Ocultar a grade';
+
+  @override
+  String worldCell(String size) {
+    return '1 casa = $size';
+  }
+
+  @override
+  String worldFloor(String name) {
+    return 'Andar $name';
+  }
+
+  @override
+  String get worldFloorOptions => 'Opções do andar';
+
+  @override
+  String get worldAddFloorAbove => 'Adicionar um andar acima';
+
+  @override
+  String get worldAddFloorBelow => 'Adicionar um subsolo';
+
+  @override
+  String get worldRenameFloor => 'Renomear o andar';
+
+  @override
+  String get worldDeleteFloor => 'Excluir o andar';
+
+  @override
+  String get worldFloorName => 'Nome do andar';
+
+  @override
+  String get worldSave => 'Salvar';
+
+  @override
+  String get worldMapOptions => 'Opções do mapa';
+
+  @override
+  String get worldDeleteMap => 'Excluir este mapa';
+
+  @override
+  String worldDeleteMapTitle(String name) {
+    return 'Excluir o mapa $name?';
+  }
+
+  @override
+  String get worldExport => 'Copiar como JSON';
+
+  @override
+  String get worldImport => 'Importar JSON';
+
+  @override
+  String get worldImportHint => 'Cole o JSON exportado';
+
+  @override
+  String worldImported(int count) {
+    return '$count mapas importados';
+  }
+
+  @override
+  String get worldImportFailed => 'Este texto não é uma exportação de mundo válida.';
+
+  @override
+  String get worldCopied => 'Copiado para a área de transferência';
+
+  @override
+  String worldCanvasLabel(String map, String floor) {
+    return 'Mapa $map, andar $floor';
+  }
 }

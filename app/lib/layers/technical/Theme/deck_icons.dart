@@ -63,6 +63,7 @@ IconData toolIcon(String id) => switch (id) {
   'trait' => Icons.psychology_alt_outlined,
   'twist' => Icons.shuffle,
   'combat' => Icons.shield_outlined,
+  'worldmap' => Icons.public,
   'gmtables' => Icons.format_list_numbered,
   'scenes' => Icons.account_tree_outlined,
   'bestiary' => Icons.menu_book_outlined,
