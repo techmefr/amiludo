@@ -12,6 +12,7 @@ const pinColors = {
   PinKind.danger: Color(0xffB4232F),
 };
 
+const _labelWidth = 140.0;
 const pinInk = Color(0xffFFFFFF);
 
 IconData pinIcon(PinKind kind) => switch (kind) {
@@ -43,9 +44,9 @@ class PinMarker extends StatelessWidget {
     final l = context.l10n;
     final color = pinColors[pin.kind]!;
     return Positioned(
-      left: center.dx - Targets.minimum / 2,
+      left: center.dx - _labelWidth / 2,
       top: center.dy - Targets.minimum / 2,
-      width: Targets.minimum,
+      width: _labelWidth,
       child: Semantics(
         button: true,
         label: l.worldPinLabel(pin.title, context.pinKindLabel(pin.kind)),
@@ -69,9 +70,7 @@ class PinMarker extends StatelessWidget {
                 ),
                 child: Icon(pinIcon(pin.kind), color: pinInk, size: 20),
               ),
-              OverflowBox(
-                maxWidth: 140,
-                child: Container(
+              Container(
                   padding: const EdgeInsets.symmetric(horizontal: 6),
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.surface.withValues(
@@ -86,7 +85,6 @@ class PinMarker extends StatelessWidget {
                     style: Theme.of(context).textTheme.labelSmall,
                   ),
                 ),
-              ),
             ],
           ),
         ),
