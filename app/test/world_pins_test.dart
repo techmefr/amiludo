@@ -145,6 +145,7 @@ void _widgetTests() {
         ),
       ),
     );
+    await tester.ensureVisible(find.widgetWithText(ChoiceChip, 'Pin'));
     await tester.tap(find.widgetWithText(ChoiceChip, 'Pin'));
     await tester.pump();
     await tester.tapAt(const Offset(200, 250));

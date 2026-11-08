@@ -12,6 +12,8 @@ const pinColors = {
   PinKind.danger: Color(0xffB4232F),
 };
 
+const pinInk = Color(0xffFFFFFF);
+
 IconData pinIcon(PinKind kind) => switch (kind) {
   PinKind.place => Icons.place,
   PinKind.npc => Icons.person,
@@ -60,12 +62,12 @@ class PinMarker extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: color,
                   shape: BoxShape.circle,
-                  border: Border.all(color: Colors.white, width: 2),
+                  border: Border.all(color: pinInk, width: 2),
                   boxShadow: const [
                     BoxShadow(blurRadius: 4, color: Color(0x66000000)),
                   ],
                 ),
-                child: Icon(pinIcon(pin.kind), color: Colors.white, size: 20),
+                child: Icon(pinIcon(pin.kind), color: pinInk, size: 20),
               ),
               OverflowBox(
                 maxWidth: 140,
