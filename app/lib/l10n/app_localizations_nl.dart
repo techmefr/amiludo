@@ -2062,7 +2062,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get libraryImportDone => 'Collectie geïmporteerd. Kijk in je kast.';
 
   @override
-  String get libraryImportFailed => 'Import mislukt. Controleer de naam en probeer het zo opnieuw.';
+  String get libraryImportFailed =>
+      'Import mislukt. Controleer de naam en probeer het zo opnieuw.';
 
   @override
   String get libraryStatsPlayed => 'Gespeeld';
@@ -2086,10 +2087,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get libraryScanTitle => 'Streepjescode scannen';
 
   @override
-  String get libraryScanHint => 'Richt de camera op de streepjescode van de doos of typ het nummer hieronder.';
+  String get libraryScanHint =>
+      'Richt de camera op de streepjescode van de doos of typ het nummer hieronder.';
 
   @override
-  String get libraryScanUnavailable => 'Camera niet beschikbaar. Typ de code in.';
+  String get libraryScanUnavailable =>
+      'Camera niet beschikbaar. Typ de code in.';
 
   @override
   String get libraryScanCodeField => 'Nummer van de streepjescode';
@@ -2104,13 +2107,16 @@ class AppLocalizationsNl extends AppLocalizations {
   String get libraryScanOpen => 'Openen';
 
   @override
-  String get libraryScanFound => 'Spel gevonden. Controleer het en zet het in de kast.';
+  String get libraryScanFound =>
+      'Spel gevonden. Controleer het en zet het in de kast.';
 
   @override
-  String get libraryScanUnknown => 'Onbekende code. Vul het spel in, de code wordt onthouden.';
+  String get libraryScanUnknown =>
+      'Onbekende code. Vul het spel in, de code wordt onthouden.';
 
   @override
-  String get libraryScanOffline => 'Zoekdienst niet bereikbaar. Vul het spel handmatig in.';
+  String get libraryScanOffline =>
+      'Zoekdienst niet bereikbaar. Vul het spel handmatig in.';
 
   @override
   String get libraryScanCodeInvalid => 'Voer 8 tot 14 cijfers in.';
@@ -4281,7 +4287,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolStopwatchTitle => 'Stopwatch';
 
   @override
-  String get toolStopwatchSubtitle => 'Tel tot op de honderdste en markeer elke ronde.';
+  String get toolStopwatchSubtitle =>
+      'Tel tot op de honderdste en markeer elke ronde.';
 
   @override
   String get stopwatchLap => 'Ronde';
@@ -4295,7 +4302,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolChessClockTitle => 'Schaakklok';
 
   @override
-  String get toolChessClockSubtitle => 'Twee klokken, één tik geeft de beurt door, met increment.';
+  String get toolChessClockSubtitle =>
+      'Twee klokken, één tik geeft de beurt door, met increment.';
 
   @override
   String get toolShelfRules => 'Regels';
@@ -4319,7 +4327,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get deckCustomLabel => 'Je kaarten, één per regel';
 
   @override
-  String get deckCustomHelper => 'Voeg x3 toe achter een naam voor drie exemplaren.';
+  String get deckCustomHelper =>
+      'Voeg x3 toe achter een naam voor drie exemplaren.';
 
   @override
   String get deckDraw => 'Trek een kaart';
@@ -4361,7 +4370,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolRulesTitle => 'Regelkaart';
 
   @override
-  String get toolRulesSubtitle => 'Schrijf de regels van een spel en vind ze midden in het spel.';
+  String get toolRulesSubtitle =>
+      'Schrijf de regels van een spel en vind ze midden in het spel.';
 
   @override
   String get rulesNewGame => 'Nieuw spel';
@@ -4406,7 +4416,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolVoteTitle => 'Geheime stemming';
 
   @override
-  String get toolVoteSubtitle => 'Geef de telefoon door, stem geheim, onthul samen.';
+  String get toolVoteSubtitle =>
+      'Geef de telefoon door, stem geheim, onthul samen.';
 
   @override
   String get voteQuestion => 'Vraag';
@@ -4462,16 +4473,20 @@ class AppLocalizationsNl extends AppLocalizations {
   String voteCount(int count) {
     return '$count stemmen';
   }
+
+  @override
   String get toolCountdownTitle => 'Aftellen';
 
   @override
-  String get toolCountdownSubtitle => 'Stel een duur in, zie de ring leeglopen en krijg een melding bij nul.';
+  String get toolCountdownSubtitle =>
+      'Stel een duur in, zie de ring leeglopen en krijg een melding bij nul.';
 
   @override
   String get toolLifeTitle => 'Levensteller';
 
   @override
-  String get toolLifeSubtitle => 'Levenspunten op volledig scherm voor 2 tot 6 spelers, met gif, commandantschade en energie.';
+  String get toolLifeSubtitle =>
+      'Levenspunten op volledig scherm voor 2 tot 6 spelers, met gif, commandantschade en energie.';
 
   @override
   String get lifePoison => 'Gif';
@@ -4502,7 +4517,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolTallyTitle => 'Vrije tellers';
 
   @override
-  String get toolTallySubtitle => 'Geef je eigen tellers een naam en volg ze voor elke speler.';
+  String get toolTallySubtitle =>
+      'Geef je eigen tellers een naam en volg ze voor elke speler.';
 
   @override
   String get tallyResources => 'Grondstoffen';
@@ -4525,7 +4541,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolRankingTitle => 'Ranglijst';
 
   @override
-  String get toolRankingSubtitle => 'Voer de eindscores in, krijg het podium en regel de gelijke standen.';
+  String get toolRankingSubtitle =>
+      'Voer de eindscores in, krijg het podium en regel de gelijke standen.';
 
   @override
   String rankingScoreFor(String name) {
@@ -4536,7 +4553,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get rankingLowestWins => 'Laagste score wint';
 
   @override
-  String get rankingEmpty => 'Voer minstens één score in om de ranglijst te zien.';
+  String get rankingEmpty =>
+      'Voer minstens één score in om de ranglijst te zien.';
 
   @override
   String get rankingStamp => 'Winnaar';
@@ -4547,10 +4565,14 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String rankingPosition(int position) {
     return 'Plaats $position';
+  }
+
+  @override
   String get toolTurnTimerTitle => 'Beurttimer';
 
   @override
-  String get toolTurnTimerSubtitle => 'Eén ring per beurt, een kleur per speler, één tik om door te geven.';
+  String get toolTurnTimerSubtitle =>
+      'Eén ring per beurt, een kleur per speler, één tik om door te geven.';
 
   @override
   String get turnTimerNext => 'Volgende speler';
@@ -4564,7 +4586,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolTurnsTitle => 'Beurten en fases';
 
   @override
-  String get toolTurnsSubtitle => 'Volg de ronde, wie aan de beurt is en de lopende fase.';
+  String get toolTurnsSubtitle =>
+      'Volg de ronde, wie aan de beurt is en de lopende fase.';
 
   @override
   String turnRound(int number) {
@@ -4604,7 +4627,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolFirstPlayerTitle => 'Startspeler';
 
   @override
-  String get toolFirstPlayerSubtitle => 'Een pion rolt rond de tafel en stopt bij wie begint.';
+  String get toolFirstPlayerSubtitle =>
+      'Een pion rolt rond de tafel en stopt bij wie begint.';
 
   @override
   String get firstPlayerDraw => 'Startspeler loten';
@@ -4621,7 +4645,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolSheetTitle => 'Scoreformulieren';
 
   @override
-  String get toolSheetSubtitle => 'Kant-en-klare scores voor Yahtzee, Catan en Skyjo, met totalen en bonussen.';
+  String get toolSheetSubtitle =>
+      'Kant-en-klare scores voor Yahtzee, Catan en Skyjo, met totalen en bonussen.';
 
   @override
   String get sheetPresetYams => 'Yahtzee';
@@ -4688,18 +4713,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String sheetRound(int number) {
-  String get toolPhasesTitle => 'Aaneengeschakelde fases';
-
-  @override
-  String get toolPhasesSubtitle => 'Getimede fases die op elkaar volgen, ronde na ronde.';
-
-  @override
-  String phasesPhase(int number) {
-    return 'Fase $number';
-  }
-
-  @override
-  String phasesRound(int number) {
     return 'Ronde $number';
   }
 
@@ -4721,7 +4734,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolAmbienceTitle => 'Omgevingsgeluiden';
 
   @override
-  String get toolAmbienceSubtitle => 'Mix regen, wind, vuur en storm onder je spel.';
+  String get toolAmbienceSubtitle =>
+      'Mix regen, wind, vuur en storm onder je spel.';
 
   @override
   String get ambienceRain => 'Regen';
@@ -4748,7 +4762,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get impostorWord => 'Geheim woord';
 
   @override
-  String get impostorHint => 'Iedereen geeft een hint over het woord. De bedrieger moet bluffen.';
+  String get impostorHint =>
+      'Iedereen geeft een hint over het woord. De bedrieger moet bluffen.';
 
   @override
   String get impostorPlayers => 'Spelers';
@@ -4816,6 +4831,25 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get journalDelete => 'Notitie verwijderen';
+
+  @override
+  String get toolPhasesTitle => 'Aaneengeschakelde fases';
+
+  @override
+  String get toolPhasesSubtitle =>
+      'Getimede fases die op elkaar volgen, ronde na ronde.';
+
+  @override
+  String phasesPhase(int number) {
+    return 'Fase $number';
+  }
+
+  @override
+  String phasesRound(int number) {
+    return 'Ronde $number';
+  }
+
+  @override
   String get phasesAdd => 'Een fase toevoegen';
 
   @override
@@ -4825,7 +4859,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolStatsTitle => 'Spelersstatistieken';
 
   @override
-  String get toolStatsSubtitle => 'Overwinningen en gespeelde potjes per speler en per spel, uit je geschiedenis.';
+  String get toolStatsSubtitle =>
+      'Overwinningen en gespeelde potjes per speler en per spel, uit je geschiedenis.';
 
   @override
   String get statsEmpty => 'Rond een spel af om hier statistieken te zien.';
@@ -4853,7 +4888,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolBuzzerTitle => 'Buzzer';
 
   @override
-  String get toolBuzzerSubtitle => 'Eén grote knop per speler: wie het eerst drukt wint.';
+  String get toolBuzzerSubtitle =>
+      'Eén grote knop per speler: wie het eerst drukt wint.';
 
   @override
   String get buzzerReady => 'Klaar, druk op je knop';
@@ -4867,7 +4903,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolClocksTitle => 'Voortgangsklokken';
 
   @override
-  String get toolClocksSubtitle => 'Klokken in taartpunten voor dreigingen, projecten en aftellingen in het verhaal.';
+  String get toolClocksSubtitle =>
+      'Klokken in taartpunten voor dreigingen, projecten en aftellingen in het verhaal.';
 
   @override
   String clocksSegments(int count) {
@@ -4881,7 +4918,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get clocksName => 'Naam van de klok';
 
   @override
-  String get clocksEmpty => 'Voeg een klok toe om een dreiging of project te volgen.';
+  String get clocksEmpty =>
+      'Voeg een klok toe om een dreiging of project te volgen.';
 
   @override
   String clocksRemove(String name) {
@@ -4892,7 +4930,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolSportTitle => 'Tafelsporten';
 
   @override
-  String get toolSportSubtitle => 'Tel Mölkky, darts en petanque met de juiste regels.';
+  String get toolSportSubtitle =>
+      'Tel Mölkky, darts en petanque met de juiste regels.';
 
   @override
   String get sportMolkky => 'Mölkky';
@@ -4920,7 +4959,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolMarkersTitle => 'Statusmarkeringen';
 
   @override
-  String get toolMarkersSubtitle => 'Geef de pionnen van monarch, startspeler en initiatief aan een speler.';
+  String get toolMarkersSubtitle =>
+      'Geef de pionnen van monarch, startspeler en initiatief aan een speler.';
 
   @override
   String get markerMonarch => 'Monarch';
@@ -4938,7 +4978,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolOracleTitle => 'Orakel';
 
   @override
-  String get toolOracleSubtitle => 'Stel een ja-neevraag en laat de chaos zijn gang gaan.';
+  String get toolOracleSubtitle =>
+      'Stel een ja-neevraag en laat de chaos zijn gang gaan.';
 
   @override
   String get oracleLikelihood => 'Hoe waarschijnlijk is het?';
@@ -4995,30 +5036,36 @@ class AppLocalizationsNl extends AppLocalizations {
   String get challengeEdit => 'Je opdrachten, één per regel';
 
   @override
-  String get challengeEditHelper => 'Pas regels vrij aan, voeg ze toe of verwijder ze.';
+  String get challengeEditHelper =>
+      'Pas regels vrij aan, voeg ze toe of verwijder ze.';
 
   @override
-  String get challengeStarters => 'Vertel een mop|Zing het refrein van een liedje|Doe tien jumping jacks|Praat met een accent tot je volgende beurt|Geef elke speler een compliment|Mime een film tot iemand hem raadt';
+  String get challengeStarters =>
+      'Vertel een mop|Zing het refrein van een liedje|Doe tien jumping jacks|Praat met een accent tot je volgende beurt|Geef elke speler een compliment|Mime een film tot iemand hem raadt';
 
   @override
   String get toolMetronomeTitle => 'Metronoom';
 
   @override
-  String get toolMetronomeSubtitle => 'Een vaste puls om de beurten te tempoën, met geaccentueerde eerste tel.';
+  String get toolMetronomeSubtitle =>
+      'Een vaste puls om de beurten te tempoën, met geaccentueerde eerste tel.';
 
   @override
   String metronomeBpm(int count) {
     return '$count BPM';
+  }
 
   @override
   String metronomeBeats(int count) {
     return '$count tellen';
+  }
 
   @override
   String get toolBankTitle => 'Bank';
 
   @override
-  String get toolBankSubtitle => 'Saldo\'s van elke speler en overboekingen tussen spelers en bank.';
+  String get toolBankSubtitle =>
+      'Saldo\'s van elke speler en overboekingen tussen spelers en bank.';
 
   @override
   String get bankName => 'Bank';
@@ -5039,7 +5086,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolAuctionTitle => 'Veiling';
 
   @override
-  String get toolAuctionSubtitle => 'Verhoog het bod; de hamer valt als de aftelling afloopt.';
+  String get toolAuctionSubtitle =>
+      'Verhoog het bod; de hamer valt als de aftelling afloopt.';
 
   @override
   String get auctionPickBidder => 'Kies wie biedt';
@@ -5058,7 +5106,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolTournamentTitle => 'Toernooi';
 
   @override
-  String get toolTournamentSubtitle => 'Een knock-outschema: tik op de winnaar van elke wedstrijd.';
+  String get toolTournamentSubtitle =>
+      'Een knock-outschema: tik op de winnaar van elke wedstrijd.';
 
   @override
   String tournamentRound(int number) {
@@ -5074,7 +5123,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolBalanceTitle => 'Evenwichtige teams';
 
   @override
-  String get toolBalanceSubtitle => 'Beoordeel elke speler en krijg eerlijke teams.';
+  String get toolBalanceSubtitle =>
+      'Beoordeel elke speler en krijg eerlijke teams.';
 
   @override
   String balanceLevel(String name, int level) {
@@ -5095,7 +5145,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolLeagueTitle => 'Competitie';
 
   @override
-  String get toolLeagueSubtitle => 'Noteer de wedstrijden van een seizoen onder vrienden en volg de stand.';
+  String get toolLeagueSubtitle =>
+      'Noteer de wedstrijden van een seizoen onder vrienden en volg de stand.';
 
   @override
   String get leagueAddMatch => 'Wedstrijd toevoegen';
@@ -5115,7 +5166,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolSoloTitle => 'Solomodus';
 
   @override
-  String get toolSoloSubtitle => 'Een tegenstanderstapel die bepaalt wat de automaat elke beurt doet.';
+  String get toolSoloSubtitle =>
+      'Een tegenstanderstapel die bepaalt wat de automaat elke beurt doet.';
 
   @override
   String get soloGather => 'Verzamelen';
@@ -5157,7 +5209,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolUnitsTitle => 'Eenhedenactivatie';
 
   @override
-  String get toolUnitsSubtitle => 'Houd bij welke eenheden deze ronde hebben gehandeld en trek de volgende willekeurig.';
+  String get toolUnitsSubtitle =>
+      'Houd bij welke eenheden deze ronde hebben gehandeld en trek de volgende willekeurig.';
 
   @override
   String get unitsAdd => 'Eenheid toevoegen';
@@ -5191,7 +5244,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get buildTitle => 'Bouwen';
 
   @override
-  String get buildSubtitle => 'Stel je eigen spelgenoot samen uit hulpmiddelen.';
+  String get buildSubtitle =>
+      'Stel je eigen spelgenoot samen uit hulpmiddelen.';
 
   @override
   String get buildName => 'Naam van de spelgenoot';
@@ -5248,7 +5302,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolCombatTitle => 'Gevechtsvolgorde';
 
   @override
-  String get toolCombatSubtitle => 'Initiatief, rondes, levenspunten en toestanden.';
+  String get toolCombatSubtitle =>
+      'Initiatief, rondes, levenspunten en toestanden.';
 
   @override
   String get combatEmpty => 'Nog geen strijders. Voeg helden en monsters toe.';
@@ -5379,10 +5434,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolBestiaryTitle => 'Bestiarium';
 
   @override
-  String get toolBestiarySubtitle => 'NSP’s, monsters en schatten met vrije stat blocks.';
+  String get toolBestiarySubtitle =>
+      'NSP’s, monsters en schatten met vrije stat blocks.';
 
   @override
-  String get bestiaryEmpty => 'Je bestiarium is leeg. Voeg een eerste item toe.';
+  String get bestiaryEmpty =>
+      'Je bestiarium is leeg. Voeg een eerste item toe.';
 
   @override
   String get bestiaryNoMatch => 'Geen resultaten.';
@@ -5461,7 +5518,8 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get bestiaryImportFailed => 'Deze tekst is geen geldige bestiarium-export.';
+  String get bestiaryImportFailed =>
+      'Deze tekst is geen geldige bestiarium-export.';
 
   @override
   String get bestiaryCopied => 'Gekopieerd naar het klembord';
@@ -5470,10 +5528,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolScenesTitle => 'Scènes van het verhaal';
 
   @override
-  String get toolScenesSubtitle => 'Plan scènes, koppel ze en toon handouts aan de spelers.';
+  String get toolScenesSubtitle =>
+      'Plan scènes, koppel ze en toon handouts aan de spelers.';
 
   @override
-  String get scenesEmpty => 'Nog geen scènes. Voeg de eerste scène van je verhaal toe.';
+  String get scenesEmpty =>
+      'Nog geen scènes. Voeg de eerste scène van je verhaal toe.';
 
   @override
   String get scenesAdd => 'Nieuwe scène';
@@ -5519,10 +5579,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolGmtablesTitle => 'Willekeurige tabellen';
 
   @override
-  String get toolGmtablesSubtitle => 'Je eigen tabellen met namen, herbergen, buit, geruchten en ontmoetingen.';
+  String get toolGmtablesSubtitle =>
+      'Je eigen tabellen met namen, herbergen, buit, geruchten en ontmoetingen.';
 
   @override
-  String get gmtablesEmpty => 'Nog geen tabellen. Maak er een of begin met de starttabellen.';
+  String get gmtablesEmpty =>
+      'Nog geen tabellen. Maak er een of begin met de starttabellen.';
 
   @override
   String get gmtablesAdd => 'Nieuwe tabel';
@@ -5564,31 +5626,36 @@ class AppLocalizationsNl extends AppLocalizations {
   String get gmtablesStarterNames => 'Namen';
 
   @override
-  String get gmtablesStarterNamesEntries => 'Aldric|Brenna|Corvin|Delia|Edric|Fenna|Garrick|Helga';
+  String get gmtablesStarterNamesEntries =>
+      'Aldric|Brenna|Corvin|Delia|Edric|Fenna|Garrick|Helga';
 
   @override
   String get gmtablesStarterTaverns => 'Herbergen';
 
   @override
-  String get gmtablesStarterTavernsEntries => 'Het Gouden Everzwijn|De Wenende Lantaarn|De Slaperige Vos|Het Roestige Anker|De Scheve Kroon|De Laatste Haard';
+  String get gmtablesStarterTavernsEntries =>
+      'Het Gouden Everzwijn|De Wenende Lantaarn|De Slaperige Vos|Het Roestige Anker|De Scheve Kroon|De Laatste Haard';
 
   @override
   String get gmtablesStarterLoot => 'Buit';
 
   @override
-  String get gmtablesStarterLootEntries => 'Een zilveren ring met onleesbare inscriptie|Een buidel met dertig gemengde munten|Een verzegelde brief met een gebroken wapen|Een flesje troebele groene vloeistof|Een dolk met een edelsteen in het gevest|Een kaartfragment met een rood kruis';
+  String get gmtablesStarterLootEntries =>
+      'Een zilveren ring met onleesbare inscriptie|Een buidel met dertig gemengde munten|Een verzegelde brief met een gebroken wapen|Een flesje troebele groene vloeistof|Een dolk met een edelsteen in het gevest|Een kaartfragment met een rood kruis';
 
   @override
   String get gmtablesStarterRumours => 'Geruchten';
 
   @override
-  String get gmtablesStarterRumoursEntries => 'De kelder van de molenaar verbergt een geheime deur|Een vreemdeling betaalt met zeer oude munten|In de verlaten toren zijn lichten gezien|De baron komt zijn huis niet meer uit|Wolven verlaten ’s nachts het bos|Iemand koopt alle inktflessen van de stad op';
+  String get gmtablesStarterRumoursEntries =>
+      'De kelder van de molenaar verbergt een geheime deur|Een vreemdeling betaalt met zeer oude munten|In de verlaten toren zijn lichten gezien|De baron komt zijn huis niet meer uit|Wolven verlaten ’s nachts het bos|Iemand koopt alle inktflessen van de stad op';
 
   @override
   String get gmtablesStarterEncounters => 'Ontmoetingen';
 
   @override
-  String get gmtablesStarterEncountersEntries => 'Een gewonde reiziger vraagt om hulp|Twee bandieten versperren de brug|De kar van een koopman zit vast in de modder|Een zwijgend kind volgt de groep|Verse sporen verlaten de weg|Een klok luidt uit het niets';
+  String get gmtablesStarterEncountersEntries =>
+      'Een gewonde reiziger vraagt om hulp|Twee bandieten versperren de brug|De kar van een koopman zit vast in de modder|Een zwijgend kind volgt de groep|Verse sporen verlaten de weg|Een klok luidt uit het niets';
 
   @override
   String get scenesAmbience => 'Geluidssfeer';
@@ -5608,7 +5675,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolWorldmapTitle => 'Wereldkaart';
 
   @override
-  String get toolWorldmapSubtitle => 'Teken werelden, regio’s, steden en kerkers, verdieping voor verdieping.';
+  String get toolWorldmapSubtitle =>
+      'Teken werelden, regio’s, steden en kerkers, verdieping voor verdieping.';
 
   @override
   String get worldEmpty => 'Nog geen kaart. Maak je eerste kaart.';
@@ -5896,14 +5964,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get rulesDecisionDelete => 'Beslissing verwijderen';
-
-  @override
-  String get rulesCommon => 'Gemeenschappelijke regels';
-
-  @override
-  String rulesCommonCount(int count) {
-    return 'Gemeenschappelijke regels ($count)';
-  }
 
   @override
   String get rulesCommon => 'Gemeenschappelijke regels';
