@@ -109,6 +109,13 @@ const toolThemes = <String, ToolTheme>{
     haptic: ToolHaptic.impact,
     weight: .8,
   ),
+  'chess-clock': ToolTheme(
+    accent: Color(0xff4A5D73),
+    texture: ToolTexture.tactile,
+    motion: ToolMotion.snap,
+    haptic: ToolHaptic.impact,
+    weight: 1.2,
+  ),
   'timer': ToolTheme(
     accent: Color(0xffC48A1A),
     texture: ToolTexture.glass,

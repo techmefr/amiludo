@@ -4263,4 +4263,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String stopwatchLapNumber(int number) {
     return 'Ronde $number';
   }
+
+  @override
+  String get toolChessClockTitle => 'Schaakklok';
+
+  @override
+  String get toolChessClockSubtitle => 'Twee klokken, één tik geeft de beurt door, met increment.';
 }

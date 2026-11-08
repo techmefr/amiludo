@@ -1317,5 +1317,7 @@
   "toolStopwatchTitle": "Cronómetro",
   "toolStopwatchSubtitle": "Conte até ao centésimo e marque cada volta.",
   "stopwatchLap": "Volta",
-  "stopwatchLapNumber": "Volta {number}"
+  "stopwatchLapNumber": "Volta {number}",
+  "toolChessClockTitle": "Relógio de xadrez",
+  "toolChessClockSubtitle": "Dois relógios, um toque passa a vez, com incremento."
 }

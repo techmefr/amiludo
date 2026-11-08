@@ -1317,5 +1317,7 @@
   "toolStopwatchTitle": "Stopwatch",
   "toolStopwatchSubtitle": "Tel tot op de honderdste en markeer elke ronde.",
   "stopwatchLap": "Ronde",
-  "stopwatchLapNumber": "Ronde {number}"
+  "stopwatchLapNumber": "Ronde {number}",
+  "toolChessClockTitle": "Schaakklok",
+  "toolChessClockSubtitle": "Twee klokken, één tik geeft de beurt door, met increment."
 }

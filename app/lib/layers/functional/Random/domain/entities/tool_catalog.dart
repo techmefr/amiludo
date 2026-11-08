@@ -11,6 +11,7 @@ const toolDefinitions = [
   ToolDefinition('dice-tray', 'chance'),
   ToolDefinition('scores', 'match'),
   ToolDefinition('stopwatch', 'time'),
+  ToolDefinition('chess-clock', 'time'),
   ToolDefinition('timer', 'time'),
   ToolDefinition('hourglass', 'time'),
   ToolDefinition('map', 'story'),
