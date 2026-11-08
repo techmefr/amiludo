@@ -8353,6 +8353,7 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} votes'**
   String voteCount(int count);
+
   /// No description provided for @toolCountdownTitle.
   ///
   /// In en, this message translates to:
@@ -8364,174 +8365,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Set a duration, watch the ring empty, get alerted at zero.'**
   String get toolCountdownSubtitle;
-
-  /// No description provided for @toolPhasesTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Chained phases'**
-  String get toolPhasesTitle;
-
-  /// No description provided for @toolPhasesSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Timed phases that follow one another, round after round.'**
-  String get toolPhasesSubtitle;
-
-  /// No description provided for @buildTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Build'**
-  String get buildTitle;
-
-  /// No description provided for @buildSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Assemble your own game companion from tools.'**
-  String get buildSubtitle;
-
-  /// No description provided for @buildName.
-  ///
-  /// In en, this message translates to:
-  /// **'Companion name'**
-  String get buildName;
-
-  /// No description provided for @buildAdd.
-  ///
-  /// In en, this message translates to:
-  /// **'Add a brick'**
-  String get buildAdd;
-
-  /// No description provided for @buildSave.
-  ///
-  /// In en, this message translates to:
-  /// **'Save'**
-  String get buildSave;
-
-  /// No description provided for @buildLaunch.
-  ///
-  /// In en, this message translates to:
-  /// **'Start the session'**
-  String get buildLaunch;
-
-  /// No description provided for @buildEmpty.
-  ///
-  /// In en, this message translates to:
-  /// **'Add your first brick to begin.'**
-  String get buildEmpty;
-
-  /// No description provided for @buildSizeSmall.
-  ///
-  /// In en, this message translates to:
-  /// **'Small'**
-  String get buildSizeSmall;
-
-  /// No description provided for @buildSizeMedium.
-  ///
-  /// In en, this message translates to:
-  /// **'Medium'**
-  String get buildSizeMedium;
-
-  /// No description provided for @buildSizeLarge.
-  ///
-  /// In en, this message translates to:
-  /// **'Large'**
-  String get buildSizeLarge;
-
-  /// No description provided for @buildRemove.
-  ///
-  /// In en, this message translates to:
-  /// **'Remove the brick'**
-  String get buildRemove;
-
-  /// No description provided for @buildSaved.
-  ///
-  /// In en, this message translates to:
-  /// **'Companion saved.'**
-  String get buildSaved;
-
-  /// No description provided for @buildArrange.
-  ///
-  /// In en, this message translates to:
-  /// **'Arrange'**
-  String get buildArrange;
-
-  /// No description provided for @buildArrangeDone.
-  ///
-  /// In en, this message translates to:
-  /// **'Done'**
-  String get buildArrangeDone;
-
-  /// No description provided for @buildLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Name on the tile'**
-  String get buildLabel;
-
-  /// No description provided for @buildImport.
-  ///
-  /// In en, this message translates to:
-  /// **'Import'**
-  String get buildImport;
-
-  /// No description provided for @buildExport.
-  ///
-  /// In en, this message translates to:
-  /// **'Export'**
-  String get buildExport;
-
-  /// No description provided for @buildMine.
-  ///
-  /// In en, this message translates to:
-  /// **'My companions'**
-  String get buildMine;
-
-  /// No description provided for @toolMetronomeTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Metronome'**
-  String get toolMetronomeTitle;
-
-  /// No description provided for @toolMetronomeSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'A steady pulse to pace the turns, with an accented first beat.'**
-  String get toolMetronomeSubtitle;
-
-  /// No description provided for @metronomeBpm.
-  ///
-  /// In en, this message translates to:
-  /// **'{count} BPM'**
-  String metronomeBpm(int count);
-
-  /// No description provided for @metronomeBeats.
-  ///
-  /// In en, this message translates to:
-  /// **'{count} beats'**
-  String metronomeBeats(int count);
-
-  /// No description provided for @phasesPhase.
-  ///
-  /// In en, this message translates to:
-  /// **'Phase {number}'**
-  String phasesPhase(int number);
-
-  /// No description provided for @phasesRound.
-  ///
-  /// In en, this message translates to:
-  /// **'Round {number}'**
-  String phasesRound(int number);
-
-  /// No description provided for @phasesAdd.
-  ///
-  /// In en, this message translates to:
-  /// **'Add a phase'**
-  String get phasesAdd;
-
-  /// No description provided for @phasesRemove.
-  ///
-  /// In en, this message translates to:
-  /// **'Remove the phase'**
-  String get phasesRemove;
 
   /// No description provided for @toolLifeTitle.
   ///
@@ -8676,6 +8509,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rank {position}'**
   String rankingPosition(int position);
+
+  /// No description provided for @toolTurnTimerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn timer'**
+  String get toolTurnTimerTitle;
+
+  /// No description provided for @toolTurnTimerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'One ring per turn, a colour per player, one tap to pass on.'**
+  String get toolTurnTimerSubtitle;
+
+  /// No description provided for @turnTimerNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next player'**
+  String get turnTimerNext;
+
+  /// No description provided for @turnTimerPlayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Player {number}'**
+  String turnTimerPlayer(int number);
 
   /// No description provided for @toolTurnsTitle.
   ///
@@ -8940,29 +8797,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Total'**
   String get sheetTotal;
-  /// No description provided for @toolTurnTimerTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Turn timer'**
-  String get toolTurnTimerTitle;
-
-  /// No description provided for @toolTurnTimerSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'One ring per turn, a colour per player, one tap to pass on.'**
-  String get toolTurnTimerSubtitle;
-
-  /// No description provided for @turnTimerNext.
-  ///
-  /// In en, this message translates to:
-  /// **'Next player'**
-  String get turnTimerNext;
-
-  /// No description provided for @turnTimerPlayer.
-  ///
-  /// In en, this message translates to:
-  /// **'Player {number}'**
-  String turnTimerPlayer(int number);
 
   /// No description provided for @toolShelfAmbience.
   ///
@@ -9161,6 +8995,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete entry'**
   String get journalDelete;
+
+  /// No description provided for @toolPhasesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Chained phases'**
+  String get toolPhasesTitle;
+
+  /// No description provided for @toolPhasesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Timed phases that follow one another, round after round.'**
+  String get toolPhasesSubtitle;
+
+  /// No description provided for @phasesPhase.
+  ///
+  /// In en, this message translates to:
+  /// **'Phase {number}'**
+  String phasesPhase(int number);
+
+  /// No description provided for @phasesRound.
+  ///
+  /// In en, this message translates to:
+  /// **'Round {number}'**
+  String phasesRound(int number);
+
+  /// No description provided for @phasesAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a phase'**
+  String get phasesAdd;
+
+  /// No description provided for @phasesRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove the phase'**
+  String get phasesRemove;
 
   /// No description provided for @toolStatsTitle.
   ///
@@ -9492,6 +9362,30 @@ abstract class AppLocalizations {
   /// **'Tell a joke|Sing the chorus of a song|Do ten jumping jacks|Speak in an accent until your next turn|Compliment every player|Mime a movie until someone guesses it'**
   String get challengeStarters;
 
+  /// No description provided for @toolMetronomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Metronome'**
+  String get toolMetronomeTitle;
+
+  /// No description provided for @toolMetronomeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A steady pulse to pace the turns, with an accented first beat.'**
+  String get toolMetronomeSubtitle;
+
+  /// No description provided for @metronomeBpm.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} BPM'**
+  String metronomeBpm(int count);
+
+  /// No description provided for @metronomeBeats.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} beats'**
+  String metronomeBeats(int count);
+
   /// No description provided for @toolBankTitle.
   ///
   /// In en, this message translates to:
@@ -9785,6 +9679,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Every unit has acted'**
   String get unitsAllDone;
+
+  /// No description provided for @buildTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Build'**
+  String get buildTitle;
+
+  /// No description provided for @buildSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Assemble your own game companion from tools.'**
+  String get buildSubtitle;
+
+  /// No description provided for @buildName.
+  ///
+  /// In en, this message translates to:
+  /// **'Companion name'**
+  String get buildName;
+
+  /// No description provided for @buildAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a brick'**
+  String get buildAdd;
+
+  /// No description provided for @buildSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get buildSave;
+
+  /// No description provided for @buildLaunch.
+  ///
+  /// In en, this message translates to:
+  /// **'Start the session'**
+  String get buildLaunch;
+
+  /// No description provided for @buildEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your first brick to begin.'**
+  String get buildEmpty;
+
+  /// No description provided for @buildSizeSmall.
+  ///
+  /// In en, this message translates to:
+  /// **'Small'**
+  String get buildSizeSmall;
+
+  /// No description provided for @buildSizeMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get buildSizeMedium;
+
+  /// No description provided for @buildSizeLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'Large'**
+  String get buildSizeLarge;
+
+  /// No description provided for @buildRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove the brick'**
+  String get buildRemove;
+
+  /// No description provided for @buildSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Companion saved.'**
+  String get buildSaved;
+
+  /// No description provided for @buildLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Name on the tile'**
+  String get buildLabel;
+
+  /// No description provided for @buildImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Import'**
+  String get buildImport;
+
+  /// No description provided for @buildExport.
+  ///
+  /// In en, this message translates to:
+  /// **'Export'**
+  String get buildExport;
+
+  /// No description provided for @buildMine.
+  ///
+  /// In en, this message translates to:
+  /// **'My companions'**
+  String get buildMine;
+
+  /// No description provided for @buildArrange.
+  ///
+  /// In en, this message translates to:
+  /// **'Arrange'**
+  String get buildArrange;
+
+  /// No description provided for @buildArrangeDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get buildArrangeDone;
 
   /// No description provided for @toolShelfGm.
   ///
@@ -10997,18 +10999,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete ruling'**
   String get rulesDecisionDelete;
-
-  /// No description provided for @rulesCommon.
-  ///
-  /// In en, this message translates to:
-  /// **'Common rules'**
-  String get rulesCommon;
-
-  /// No description provided for @rulesCommonCount.
-  ///
-  /// In en, this message translates to:
-  /// **'Common rules ({count})'**
-  String rulesCommonCount(int count);
 
   /// No description provided for @rulesCommon.
   ///

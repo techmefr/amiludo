@@ -2045,7 +2045,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get libraryImportDone => 'Collection imported. Check your shelf.';
 
   @override
-  String get libraryImportFailed => 'Import failed. Check the username and try again in a moment.';
+  String get libraryImportFailed =>
+      'Import failed. Check the username and try again in a moment.';
 
   @override
   String get libraryStatsPlayed => 'Played';
@@ -2069,10 +2070,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get libraryScanTitle => 'Scan a barcode';
 
   @override
-  String get libraryScanHint => 'Point the camera at the barcode on the box, or type the number below.';
+  String get libraryScanHint =>
+      'Point the camera at the barcode on the box, or type the number below.';
 
   @override
-  String get libraryScanUnavailable => 'Camera unavailable. Type the code instead.';
+  String get libraryScanUnavailable =>
+      'Camera unavailable. Type the code instead.';
 
   @override
   String get libraryScanCodeField => 'Barcode number';
@@ -2087,13 +2090,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get libraryScanOpen => 'Open';
 
   @override
-  String get libraryScanFound => 'Game found. Check it and put it on the shelf.';
+  String get libraryScanFound =>
+      'Game found. Check it and put it on the shelf.';
 
   @override
-  String get libraryScanUnknown => 'Unknown code. Fill in the game, the code will be remembered.';
+  String get libraryScanUnknown =>
+      'Unknown code. Fill in the game, the code will be remembered.';
 
   @override
-  String get libraryScanOffline => 'Could not reach the lookup service. Fill in the game by hand.';
+  String get libraryScanOffline =>
+      'Could not reach the lookup service. Fill in the game by hand.';
 
   @override
   String get libraryScanCodeInvalid => 'Enter 8 to 14 digits.';
@@ -4250,7 +4256,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolStopwatchTitle => 'Stopwatch';
 
   @override
-  String get toolStopwatchSubtitle => 'Count up to the hundredth and mark every lap.';
+  String get toolStopwatchSubtitle =>
+      'Count up to the hundredth and mark every lap.';
 
   @override
   String get stopwatchLap => 'Lap';
@@ -4264,7 +4271,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolChessClockTitle => 'Chess clock';
 
   @override
-  String get toolChessClockSubtitle => 'Two clocks, one tap to pass the turn, with increment.';
+  String get toolChessClockSubtitle =>
+      'Two clocks, one tap to pass the turn, with increment.';
 
   @override
   String get toolShelfRules => 'Rules';
@@ -4330,7 +4338,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolRulesTitle => 'Rules memo';
 
   @override
-  String get toolRulesSubtitle => 'Write the rules of a game once, find them mid-game.';
+  String get toolRulesSubtitle =>
+      'Write the rules of a game once, find them mid-game.';
 
   @override
   String get rulesNewGame => 'New game';
@@ -4375,7 +4384,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolVoteTitle => 'Secret vote';
 
   @override
-  String get toolVoteSubtitle => 'Pass the phone, vote in secret, reveal together.';
+  String get toolVoteSubtitle =>
+      'Pass the phone, vote in secret, reveal together.';
 
   @override
   String get voteQuestion => 'Question';
@@ -4431,16 +4441,20 @@ class AppLocalizationsEn extends AppLocalizations {
   String voteCount(int count) {
     return '$count votes';
   }
+
+  @override
   String get toolCountdownTitle => 'Countdown';
 
   @override
-  String get toolCountdownSubtitle => 'Set a duration, watch the ring empty, get alerted at zero.';
+  String get toolCountdownSubtitle =>
+      'Set a duration, watch the ring empty, get alerted at zero.';
 
   @override
   String get toolLifeTitle => 'Life counter';
 
   @override
-  String get toolLifeSubtitle => 'Full-screen life for 2 to 6 players, with poison, commander damage and energy.';
+  String get toolLifeSubtitle =>
+      'Full-screen life for 2 to 6 players, with poison, commander damage and energy.';
 
   @override
   String get lifePoison => 'Poison';
@@ -4471,7 +4485,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolTallyTitle => 'Free counters';
 
   @override
-  String get toolTallySubtitle => 'Name your own counters and track them for every player.';
+  String get toolTallySubtitle =>
+      'Name your own counters and track them for every player.';
 
   @override
   String get tallyResources => 'Resources';
@@ -4494,7 +4509,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolRankingTitle => 'Ranking';
 
   @override
-  String get toolRankingSubtitle => 'Enter the final scores, get the podium and settle the ties.';
+  String get toolRankingSubtitle =>
+      'Enter the final scores, get the podium and settle the ties.';
 
   @override
   String rankingScoreFor(String name) {
@@ -4516,10 +4532,14 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String rankingPosition(int position) {
     return 'Rank $position';
+  }
+
+  @override
   String get toolTurnTimerTitle => 'Turn timer';
 
   @override
-  String get toolTurnTimerSubtitle => 'One ring per turn, a colour per player, one tap to pass on.';
+  String get toolTurnTimerSubtitle =>
+      'One ring per turn, a colour per player, one tap to pass on.';
 
   @override
   String get turnTimerNext => 'Next player';
@@ -4533,7 +4553,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolTurnsTitle => 'Turns and phases';
 
   @override
-  String get toolTurnsSubtitle => 'Follow the round, whose turn it is and the phase in progress.';
+  String get toolTurnsSubtitle =>
+      'Follow the round, whose turn it is and the phase in progress.';
 
   @override
   String turnRound(int number) {
@@ -4573,7 +4594,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolFirstPlayerTitle => 'First player';
 
   @override
-  String get toolFirstPlayerSubtitle => 'A token rolls around the table and lands on whoever starts.';
+  String get toolFirstPlayerSubtitle =>
+      'A token rolls around the table and lands on whoever starts.';
 
   @override
   String get firstPlayerDraw => 'Draw the first player';
@@ -4590,7 +4612,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolSheetTitle => 'Score sheets';
 
   @override
-  String get toolSheetSubtitle => 'Ready-made scoring for Yahtzee, Catan and Skyjo, with totals and bonuses.';
+  String get toolSheetSubtitle =>
+      'Ready-made scoring for Yahtzee, Catan and Skyjo, with totals and bonuses.';
 
   @override
   String get sheetPresetYams => 'Yahtzee';
@@ -4657,18 +4680,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String sheetRound(int number) {
-  String get toolPhasesTitle => 'Chained phases';
-
-  @override
-  String get toolPhasesSubtitle => 'Timed phases that follow one another, round after round.';
-
-  @override
-  String phasesPhase(int number) {
-    return 'Phase $number';
-  }
-
-  @override
-  String phasesRound(int number) {
     return 'Round $number';
   }
 
@@ -4690,7 +4701,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolAmbienceTitle => 'Ambient sounds';
 
   @override
-  String get toolAmbienceSubtitle => 'Mix rain, wind, fire and storm under your game.';
+  String get toolAmbienceSubtitle =>
+      'Mix rain, wind, fire and storm under your game.';
 
   @override
   String get ambienceRain => 'Rain';
@@ -4711,13 +4723,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolImpostorTitle => 'Impostor';
 
   @override
-  String get toolImpostorSubtitle => 'One player does not know the secret word.';
+  String get toolImpostorSubtitle =>
+      'One player does not know the secret word.';
 
   @override
   String get impostorWord => 'Secret word';
 
   @override
-  String get impostorHint => 'Everyone gives one clue about the word. The impostor must bluff.';
+  String get impostorHint =>
+      'Everyone gives one clue about the word. The impostor must bluff.';
 
   @override
   String get impostorPlayers => 'Players';
@@ -4785,6 +4799,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get journalDelete => 'Delete entry';
+
+  @override
+  String get toolPhasesTitle => 'Chained phases';
+
+  @override
+  String get toolPhasesSubtitle =>
+      'Timed phases that follow one another, round after round.';
+
+  @override
+  String phasesPhase(int number) {
+    return 'Phase $number';
+  }
+
+  @override
+  String phasesRound(int number) {
+    return 'Round $number';
+  }
+
+  @override
   String get phasesAdd => 'Add a phase';
 
   @override
@@ -4794,7 +4827,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolStatsTitle => 'Player statistics';
 
   @override
-  String get toolStatsSubtitle => 'Wins and games played for each player and each game, from your history.';
+  String get toolStatsSubtitle =>
+      'Wins and games played for each player and each game, from your history.';
 
   @override
   String get statsEmpty => 'Finish a game to see statistics here.';
@@ -4822,7 +4856,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolBuzzerTitle => 'Buzzer';
 
   @override
-  String get toolBuzzerSubtitle => 'One big button per player: the first to press wins.';
+  String get toolBuzzerSubtitle =>
+      'One big button per player: the first to press wins.';
 
   @override
   String get buzzerReady => 'Ready, press your button';
@@ -4836,7 +4871,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolClocksTitle => 'Progress clocks';
 
   @override
-  String get toolClocksSubtitle => 'Slice-by-slice clocks for threats, projects and countdowns in the story.';
+  String get toolClocksSubtitle =>
+      'Slice-by-slice clocks for threats, projects and countdowns in the story.';
 
   @override
   String clocksSegments(int count) {
@@ -4850,7 +4886,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get clocksName => 'Clock name';
 
   @override
-  String get clocksEmpty => 'Add a clock to start tracking a threat or a project.';
+  String get clocksEmpty =>
+      'Add a clock to start tracking a threat or a project.';
 
   @override
   String clocksRemove(String name) {
@@ -4861,7 +4898,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolSportTitle => 'Table sports';
 
   @override
-  String get toolSportSubtitle => 'Score Mölkky, darts and pétanque with the right rules.';
+  String get toolSportSubtitle =>
+      'Score Mölkky, darts and pétanque with the right rules.';
 
   @override
   String get sportMolkky => 'Mölkky';
@@ -4889,7 +4927,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolMarkersTitle => 'Status markers';
 
   @override
-  String get toolMarkersSubtitle => 'Hand the monarch, first player and initiative tokens to a player.';
+  String get toolMarkersSubtitle =>
+      'Hand the monarch, first player and initiative tokens to a player.';
 
   @override
   String get markerMonarch => 'Monarch';
@@ -4907,7 +4946,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolOracleTitle => 'Oracle';
 
   @override
-  String get toolOracleSubtitle => 'Ask a yes or no question, and let chaos meddle.';
+  String get toolOracleSubtitle =>
+      'Ask a yes or no question, and let chaos meddle.';
 
   @override
   String get oracleLikelihood => 'How likely is it?';
@@ -4967,27 +5007,32 @@ class AppLocalizationsEn extends AppLocalizations {
   String get challengeEditHelper => 'Edit, add or remove lines freely.';
 
   @override
-  String get challengeStarters => 'Tell a joke|Sing the chorus of a song|Do ten jumping jacks|Speak in an accent until your next turn|Compliment every player|Mime a movie until someone guesses it';
+  String get challengeStarters =>
+      'Tell a joke|Sing the chorus of a song|Do ten jumping jacks|Speak in an accent until your next turn|Compliment every player|Mime a movie until someone guesses it';
 
   @override
   String get toolMetronomeTitle => 'Metronome';
 
   @override
-  String get toolMetronomeSubtitle => 'A steady pulse to pace the turns, with an accented first beat.';
+  String get toolMetronomeSubtitle =>
+      'A steady pulse to pace the turns, with an accented first beat.';
 
   @override
   String metronomeBpm(int count) {
     return '$count BPM';
+  }
 
   @override
   String metronomeBeats(int count) {
     return '$count beats';
+  }
 
   @override
   String get toolBankTitle => 'Bank';
 
   @override
-  String get toolBankSubtitle => 'Balances for every player and transfers between players and the bank.';
+  String get toolBankSubtitle =>
+      'Balances for every player and transfers between players and the bank.';
 
   @override
   String get bankName => 'Bank';
@@ -5008,7 +5053,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolAuctionTitle => 'Auction';
 
   @override
-  String get toolAuctionSubtitle => 'Raise the bid; the hammer falls when the countdown runs out.';
+  String get toolAuctionSubtitle =>
+      'Raise the bid; the hammer falls when the countdown runs out.';
 
   @override
   String get auctionPickBidder => 'Pick who bids';
@@ -5027,7 +5073,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolTournamentTitle => 'Tournament';
 
   @override
-  String get toolTournamentSubtitle => 'A knockout bracket: tap the winner of each match.';
+  String get toolTournamentSubtitle =>
+      'A knockout bracket: tap the winner of each match.';
 
   @override
   String tournamentRound(int number) {
@@ -5064,7 +5111,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolLeagueTitle => 'League';
 
   @override
-  String get toolLeagueSubtitle => 'Record the matches of a season between friends and follow the table.';
+  String get toolLeagueSubtitle =>
+      'Record the matches of a season between friends and follow the table.';
 
   @override
   String get leagueAddMatch => 'Add the match';
@@ -5084,7 +5132,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolSoloTitle => 'Solo mode';
 
   @override
-  String get toolSoloSubtitle => 'An opponent deck that decides what the automaton does each turn.';
+  String get toolSoloSubtitle =>
+      'An opponent deck that decides what the automaton does each turn.';
 
   @override
   String get soloGather => 'Gather';
@@ -5126,7 +5175,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolUnitsTitle => 'Unit activation';
 
   @override
-  String get toolUnitsSubtitle => 'Track which units have acted this round and draw the next one at random.';
+  String get toolUnitsSubtitle =>
+      'Track which units have acted this round and draw the next one at random.';
 
   @override
   String get unitsAdd => 'Add a unit';
@@ -5217,10 +5267,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolCombatTitle => 'Combat tracker';
 
   @override
-  String get toolCombatSubtitle => 'Initiative, rounds, hit points and conditions.';
+  String get toolCombatSubtitle =>
+      'Initiative, rounds, hit points and conditions.';
 
   @override
-  String get combatEmpty => 'No combatants yet. Add the heroes and the monsters.';
+  String get combatEmpty =>
+      'No combatants yet. Add the heroes and the monsters.';
 
   @override
   String get combatAdd => 'Add';
@@ -5348,7 +5400,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolBestiaryTitle => 'Bestiary';
 
   @override
-  String get toolBestiarySubtitle => 'NPCs, monsters and treasures with free stat blocks.';
+  String get toolBestiarySubtitle =>
+      'NPCs, monsters and treasures with free stat blocks.';
 
   @override
   String get bestiaryEmpty => 'Your bestiary is empty. Add a first entry.';
@@ -5430,7 +5483,8 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get bestiaryImportFailed => 'This text is not a valid bestiary export.';
+  String get bestiaryImportFailed =>
+      'This text is not a valid bestiary export.';
 
   @override
   String get bestiaryCopied => 'Copied to the clipboard';
@@ -5439,7 +5493,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolScenesTitle => 'Story scenes';
 
   @override
-  String get toolScenesSubtitle => 'Plan scenes, link them and show handouts to the players.';
+  String get toolScenesSubtitle =>
+      'Plan scenes, link them and show handouts to the players.';
 
   @override
   String get scenesEmpty => 'No scenes yet. Add the first scene of your story.';
@@ -5488,10 +5543,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolGmtablesTitle => 'Random tables';
 
   @override
-  String get toolGmtablesSubtitle => 'Your own tables of names, taverns, loot, rumours and encounters.';
+  String get toolGmtablesSubtitle =>
+      'Your own tables of names, taverns, loot, rumours and encounters.';
 
   @override
-  String get gmtablesEmpty => 'No tables yet. Create one or start from the starter tables.';
+  String get gmtablesEmpty =>
+      'No tables yet. Create one or start from the starter tables.';
 
   @override
   String get gmtablesAdd => 'New table';
@@ -5533,31 +5590,36 @@ class AppLocalizationsEn extends AppLocalizations {
   String get gmtablesStarterNames => 'Names';
 
   @override
-  String get gmtablesStarterNamesEntries => 'Aldric|Brenna|Corvin|Delia|Edric|Fenna|Garrick|Helga';
+  String get gmtablesStarterNamesEntries =>
+      'Aldric|Brenna|Corvin|Delia|Edric|Fenna|Garrick|Helga';
 
   @override
   String get gmtablesStarterTaverns => 'Taverns';
 
   @override
-  String get gmtablesStarterTavernsEntries => 'The Gilded Boar|The Weeping Lantern|The Drowsy Fox|The Rusty Anchor|The Crooked Crown|The Last Hearth';
+  String get gmtablesStarterTavernsEntries =>
+      'The Gilded Boar|The Weeping Lantern|The Drowsy Fox|The Rusty Anchor|The Crooked Crown|The Last Hearth';
 
   @override
   String get gmtablesStarterLoot => 'Loot';
 
   @override
-  String get gmtablesStarterLootEntries => 'A silver ring with an unreadable inscription|A pouch of thirty mixed coins|A sealed letter marked with a broken crest|A vial of cloudy green liquid|A dagger with a gem in the hilt|A map fragment with a red cross';
+  String get gmtablesStarterLootEntries =>
+      'A silver ring with an unreadable inscription|A pouch of thirty mixed coins|A sealed letter marked with a broken crest|A vial of cloudy green liquid|A dagger with a gem in the hilt|A map fragment with a red cross';
 
   @override
   String get gmtablesStarterRumours => 'Rumours';
 
   @override
-  String get gmtablesStarterRumoursEntries => 'The miller’s cellar hides a secret door|A stranger pays with very old coins|Lights were seen in the abandoned tower|The baron has stopped leaving his house|Wolves leave the forest at night|Someone is buying every bottle of ink in town';
+  String get gmtablesStarterRumoursEntries =>
+      'The miller’s cellar hides a secret door|A stranger pays with very old coins|Lights were seen in the abandoned tower|The baron has stopped leaving his house|Wolves leave the forest at night|Someone is buying every bottle of ink in town';
 
   @override
   String get gmtablesStarterEncounters => 'Encounters';
 
   @override
-  String get gmtablesStarterEncountersEntries => 'A wounded traveller asks for help|Two bandits block the bridge|A merchant’s cart is stuck in the mud|A silent child follows the party|Fresh tracks leave the road|A bell rings from nowhere';
+  String get gmtablesStarterEncountersEntries =>
+      'A wounded traveller asks for help|Two bandits block the bridge|A merchant’s cart is stuck in the mud|A silent child follows the party|Fresh tracks leave the road|A bell rings from nowhere';
 
   @override
   String get scenesAmbience => 'Sound ambience';
@@ -5577,7 +5639,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolWorldmapTitle => 'World map';
 
   @override
-  String get toolWorldmapSubtitle => 'Draw worlds, regions, towns and dungeons, floor by floor.';
+  String get toolWorldmapSubtitle =>
+      'Draw worlds, regions, towns and dungeons, floor by floor.';
 
   @override
   String get worldEmpty => 'No map yet. Create your first map.';
@@ -5865,14 +5928,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get rulesDecisionDelete => 'Delete ruling';
-
-  @override
-  String get rulesCommon => 'Common rules';
-
-  @override
-  String rulesCommonCount(int count) {
-    return 'Common rules ($count)';
-  }
 
   @override
   String get rulesCommon => 'Common rules';
