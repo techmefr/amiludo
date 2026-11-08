@@ -5220,4 +5220,16 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get buildSaved => 'Companheiro guardado.';
+
+  @override
+  String get buildLabel => 'Nome no mosaico';
+
+  @override
+  String get buildImport => 'Importar';
+
+  @override
+  String get buildExport => 'Exportar';
+
+  @override
+  String get buildMine => 'Os meus companheiros';
 }

@@ -6,7 +6,12 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/brick_ids.da
 import 'package:amiludo/layers/functional/Companion/domain/entities/brick_layout.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/counter.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/add_brick_picker.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/brick_label_dialog.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/brick_settings_sheet.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/companion_file_actions.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/saved_companions.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/companion_brick_row.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
@@ -53,6 +58,24 @@ class _CompanionBuilderState extends State<CompanionBuilder> {
     final picked = await pickBrick(context);
     if (picked == null) return;
     _change(draft.add(draft.bricks.withFreeId(picked)));
+  }
+
+  Future<void> _settings(Brick brick) async {
+    if (brick.type == 'counter') {
+      final next = await showBrickSettings(
+        context,
+        CounterSettings.fromJson(brick.settings),
+      );
+      if (next != null) _change(draft.replace(brick.withSettings(next.toJson())));
+      return;
+    }
+    final label = await askBrickLabel(context, brick.label ?? '');
+    if (label != null) _change(draft.replace(brick.labelled(label)));
+  }
+
+  Future<void> _export() async {
+    final template = await _save();
+    await shareCompanionFile(template);
   }
 
   Future<GameTemplate> _save() async {
@@ -116,6 +139,7 @@ class _CompanionBuilderState extends State<CompanionBuilder> {
                       brick: bricks[i],
                       onResize: (size) =>
                           _change(draft.replace(bricks[i].resized(size))),
+                      onSettings: () => _settings(bricks[i]),
                       onRemove: () => _change(draft.remove(bricks[i].id)),
                       onEarlier: i == 0
                           ? null
@@ -147,7 +171,25 @@ class _CompanionBuilderState extends State<CompanionBuilder> {
                 icon: const DeckIcon(Icons.play_arrow),
                 label: Text(l.buildLaunch),
               ),
+              TextButton.icon(
+                onPressed: bricks.isEmpty ? null : _export,
+                icon: const DeckIcon(Icons.ios_share_outlined),
+                label: Text(l.buildExport),
+              ),
+              TextButton.icon(
+                onPressed: () => importCompanionFile(context),
+                icon: const DeckIcon(Icons.file_download_outlined),
+                label: Text(l.buildImport),
+              ),
             ],
+          ),
+          SavedCompanions(
+            companions: [
+              for (final t in context.watch<TemplatesCubit>().state.templates)
+                if (t.bricks.isNotEmpty && t.id != id) t,
+            ],
+            onEdit: (t) => context.pushReplacement('/build/${t.id}'),
+            onPlay: (t) => context.push('/play/${t.id}'),
           ),
         ],
       ),

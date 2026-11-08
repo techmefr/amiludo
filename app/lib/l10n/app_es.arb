@@ -1613,5 +1613,9 @@
   "buildSizeMedium": "Mediana",
   "buildSizeLarge": "Grande",
   "buildRemove": "Quitar el bloque",
-  "buildSaved": "Compañero guardado."
+  "buildSaved": "Compañero guardado.",
+  "buildLabel": "Nombre en la ficha",
+  "buildImport": "Importar",
+  "buildExport": "Exportar",
+  "buildMine": "Mis compañeros"
 }

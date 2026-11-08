@@ -5217,4 +5217,16 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get buildSaved => 'Compañero guardado.';
+
+  @override
+  String get buildLabel => 'Nombre en la ficha';
+
+  @override
+  String get buildImport => 'Importar';
+
+  @override
+  String get buildExport => 'Exportar';
+
+  @override
+  String get buildMine => 'Mis compañeros';
 }

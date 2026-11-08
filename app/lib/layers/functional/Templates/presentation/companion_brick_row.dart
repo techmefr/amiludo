@@ -11,20 +11,21 @@ import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
 
 String brickTitle(BuildContext context, Brick brick) =>
-    context.toolTitle(brick.toolId);
+    brick.label ?? context.toolTitle(brick.toolId);
 
 class CompanionBrickRow extends StatelessWidget {
   const CompanionBrickRow({
     super.key,
     required this.brick,
     required this.onResize,
+    required this.onSettings,
     required this.onRemove,
     this.onEarlier,
     this.onLater,
   });
   final Brick brick;
   final ValueChanged<TileSize> onResize;
-  final VoidCallback onRemove;
+  final VoidCallback onRemove, onSettings;
   final VoidCallback? onEarlier, onLater;
 
   String _size(BuildContext context, TileSize size) {
@@ -73,6 +74,11 @@ class CompanionBrickRow extends StatelessWidget {
                   for (final size in TileSize.values)
                     PopupMenuItem(value: size, child: Text(_size(context, size))),
                 ],
+              ),
+              IconButton(
+                tooltip: l.brickSettings,
+                onPressed: onSettings,
+                icon: const DeckIcon(Icons.tune),
               ),
               IconButton(
                 tooltip: l.buildRemove,

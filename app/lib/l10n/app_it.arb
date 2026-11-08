@@ -1613,5 +1613,9 @@
   "buildSizeMedium": "Media",
   "buildSizeLarge": "Grande",
   "buildRemove": "Rimuovi il blocco",
-  "buildSaved": "Compagno salvato."
+  "buildSaved": "Compagno salvato.",
+  "buildLabel": "Nome sulla tessera",
+  "buildImport": "Importa",
+  "buildExport": "Esporta",
+  "buildMine": "I miei compagni"
 }

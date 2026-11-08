@@ -5222,4 +5222,16 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get buildSaved => 'Spelgenoot opgeslagen.';
+
+  @override
+  String get buildLabel => 'Naam op de tegel';
+
+  @override
+  String get buildImport => 'Importeren';
+
+  @override
+  String get buildExport => 'Exporteren';
+
+  @override
+  String get buildMine => 'Mijn spelgenoten';
 }
