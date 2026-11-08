@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Scenes/domain/entities/scene.dart';
+import 'package:amiludo/layers/functional/Scenes/presentation/scene_ambience.dart';
+import 'package:amiludo/layers/technical/Sound/ambient_sounds.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -45,6 +47,7 @@ class _SceneEditorState extends State<SceneEditor> {
   late final handout = TextEditingController(text: widget.scene?.handout);
   late final Set<String> next = {...?widget.scene?.nextIds};
   late final Set<String> creatures = {...?widget.scene?.creatureIds};
+  late String? ambience = widget.scene?.ambience;
 
   @override
   void dispose() {
@@ -66,6 +69,7 @@ class _SceneEditorState extends State<SceneEditor> {
         handout: handout.text.trim(),
         nextIds: next.toList(),
         creatureIds: creatures.toList(),
+        ambience: ambience,
       ),
     );
   }
@@ -135,6 +139,30 @@ class _SceneEditorState extends State<SceneEditor> {
               for (final s in widget.others) s.id: s.title,
             }, next),
             _chips(l.scenesCreatures, widget.creatureNames, creatures),
+            const SizedBox(height: Space.lg),
+            Text(
+              l.scenesAmbience,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: Space.sm),
+            Wrap(
+              spacing: Space.sm,
+              runSpacing: Space.sm,
+              children: [
+                ChoiceChip(
+                  label: Text(l.scenesAmbienceNone),
+                  selected: ambience == null,
+                  onSelected: (_) => setState(() => ambience = null),
+                ),
+                for (final kind in AmbientKind.values)
+                  ChoiceChip(
+                    avatar: Icon(ambienceIcon(kind), size: 18),
+                    label: Text(ambienceLabel(context, kind)),
+                    selected: ambience == kind.name,
+                    onSelected: (_) => setState(() => ambience = kind.name),
+                  ),
+              ],
+            ),
             const SizedBox(height: Space.lg),
             FilledButton(onPressed: _save, child: Text(l.scenesSave)),
             if (widget.onDelete != null)

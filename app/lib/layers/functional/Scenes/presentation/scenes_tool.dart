@@ -5,7 +5,10 @@ import 'package:amiludo/layers/functional/Scenes/domain/entities/storyline.dart'
 import 'package:amiludo/layers/functional/Scenes/presentation/handout_page.dart';
 import 'package:amiludo/layers/functional/Scenes/presentation/scene_card.dart';
 import 'package:amiludo/layers/functional/Scenes/presentation/scene_editor.dart';
+import 'package:amiludo/layers/functional/Scenes/presentation/scene_ambience.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Sound/ambient_output.dart';
+import 'package:amiludo/layers/technical/Sound/ambient_sounds.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
@@ -16,10 +19,12 @@ class ScenesTool extends StatefulWidget {
     this.initial = const Storyline(),
     this.onChanged,
     this.creatureNames = const {},
+    this.ambient = const SilentAmbientOutput(),
   });
   final Storyline initial;
   final ValueChanged<Storyline>? onChanged;
   final Map<String, String> creatureNames;
+  final AmbientOutput ambient;
 
   @override
   State<ScenesTool> createState() => _ScenesToolState();
@@ -28,6 +33,24 @@ class ScenesTool extends StatefulWidget {
 class _ScenesToolState extends State<ScenesTool> {
   late Storyline storyline = widget.initial;
   final tool = toolThemeFor('scenes');
+  String? playingId;
+
+  @override
+  void dispose() {
+    widget.ambient.stopAll();
+    super.dispose();
+  }
+
+  Future<void> _ambience(Scene scene) async {
+    final kind = ambienceKind(scene.ambience);
+    await widget.ambient.stopAll();
+    if (kind == null || playingId == scene.id) {
+      if (mounted) setState(() => playingId = null);
+      return;
+    }
+    await widget.ambient.start(kind.name, ambientLoop(kind), .6);
+    if (mounted) setState(() => playingId = scene.id);
+  }
 
   void _commit(Storyline next) {
     setState(() => storyline = next);
@@ -85,6 +108,8 @@ class _ScenesToolState extends State<ScenesTool> {
               ],
               onOpen: () => _edit(s),
               onShow: () => showHandout(context, s),
+              playing: playingId == s.id,
+              onAmbience: () => _ambience(s),
               onUp: i == 0 ? null : () => _commit(storyline.move(s.id, -1)),
               onDown: i == scenes.length - 1
                   ? null

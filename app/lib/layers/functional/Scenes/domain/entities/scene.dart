@@ -13,6 +13,7 @@ class Scene {
     this.handout = '',
     this.nextIds = const [],
     this.creatureIds = const [],
+    this.ambience,
   });
 
   factory Scene.fromJson(Map<String, dynamic> j) => Scene(
@@ -22,10 +23,22 @@ class Scene {
     handout: j['handout'] as String? ?? '',
     nextIds: _strings(j['nextIds']),
     creatureIds: _strings(j['creatureIds']),
+    ambience: j['ambience'] as String?,
   );
 
   final String id, title, notes, handout;
   final List<String> nextIds, creatureIds;
+  final String? ambience;
+
+  Scene copyWith({List<String>? nextIds, List<String>? creatureIds}) => Scene(
+    id: id,
+    title: title,
+    notes: notes,
+    handout: handout,
+    nextIds: nextIds ?? this.nextIds,
+    creatureIds: creatureIds ?? this.creatureIds,
+    ambience: ambience,
+  );
 
   bool get hasHandout => handout.trim().isNotEmpty;
 
@@ -36,5 +49,6 @@ class Scene {
     'handout': handout,
     'nextIds': nextIds,
     'creatureIds': creatureIds,
+    'ambience': ambience,
   };
 }

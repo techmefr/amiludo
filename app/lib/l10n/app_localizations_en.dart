@@ -5483,4 +5483,93 @@ class AppLocalizationsEn extends AppLocalizations {
   String scenesMoveDown(String title) {
     return 'Move $title down';
   }
+
+  @override
+  String get toolGmtablesTitle => 'Random tables';
+
+  @override
+  String get toolGmtablesSubtitle => 'Your own tables of names, taverns, loot, rumours and encounters.';
+
+  @override
+  String get gmtablesEmpty => 'No tables yet. Create one or start from the starter tables.';
+
+  @override
+  String get gmtablesAdd => 'New table';
+
+  @override
+  String get gmtablesStarter => 'Add starter tables';
+
+  @override
+  String gmtablesRoll(String name) {
+    return 'Roll $name';
+  }
+
+  @override
+  String gmtablesEdit(String name) {
+    return 'Edit $name';
+  }
+
+  @override
+  String get gmtablesName => 'Table name';
+
+  @override
+  String get gmtablesEntries => 'Entries, one per line';
+
+  @override
+  String get gmtablesSave => 'Save table';
+
+  @override
+  String get gmtablesDelete => 'Delete this table';
+
+  @override
+  String gmtablesCount(int count) {
+    return '$count entries';
+  }
+
+  @override
+  String get gmtablesNoEntries => 'Add entries to roll on this table.';
+
+  @override
+  String get gmtablesStarterNames => 'Names';
+
+  @override
+  String get gmtablesStarterNamesEntries => 'Aldric|Brenna|Corvin|Delia|Edric|Fenna|Garrick|Helga';
+
+  @override
+  String get gmtablesStarterTaverns => 'Taverns';
+
+  @override
+  String get gmtablesStarterTavernsEntries => 'The Gilded Boar|The Weeping Lantern|The Drowsy Fox|The Rusty Anchor|The Crooked Crown|The Last Hearth';
+
+  @override
+  String get gmtablesStarterLoot => 'Loot';
+
+  @override
+  String get gmtablesStarterLootEntries => 'A silver ring with an unreadable inscription|A pouch of thirty mixed coins|A sealed letter marked with a broken crest|A vial of cloudy green liquid|A dagger with a gem in the hilt|A map fragment with a red cross';
+
+  @override
+  String get gmtablesStarterRumours => 'Rumours';
+
+  @override
+  String get gmtablesStarterRumoursEntries => 'The miller’s cellar hides a secret door|A stranger pays with very old coins|Lights were seen in the abandoned tower|The baron has stopped leaving his house|Wolves leave the forest at night|Someone is buying every bottle of ink in town';
+
+  @override
+  String get gmtablesStarterEncounters => 'Encounters';
+
+  @override
+  String get gmtablesStarterEncountersEntries => 'A wounded traveller asks for help|Two bandits block the bridge|A merchant’s cart is stuck in the mud|A silent child follows the party|Fresh tracks leave the road|A bell rings from nowhere';
+
+  @override
+  String get scenesAmbience => 'Sound ambience';
+
+  @override
+  String get scenesAmbienceNone => 'None';
+
+  @override
+  String scenesPlayAmbience(String name) {
+    return 'Play ambience: $name';
+  }
+
+  @override
+  String get scenesStopAmbience => 'Stop the ambience';
 }

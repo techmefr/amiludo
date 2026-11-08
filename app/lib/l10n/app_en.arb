@@ -2450,5 +2450,60 @@
         "type": "String"
       }
     }
-  }
+  },
+  "toolGmtablesTitle": "Random tables",
+  "toolGmtablesSubtitle": "Your own tables of names, taverns, loot, rumours and encounters.",
+  "gmtablesEmpty": "No tables yet. Create one or start from the starter tables.",
+  "gmtablesAdd": "New table",
+  "gmtablesStarter": "Add starter tables",
+  "gmtablesRoll": "Roll {name}",
+  "@gmtablesRoll": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "gmtablesEdit": "Edit {name}",
+  "@gmtablesEdit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "gmtablesName": "Table name",
+  "gmtablesEntries": "Entries, one per line",
+  "gmtablesSave": "Save table",
+  "gmtablesDelete": "Delete this table",
+  "gmtablesCount": "{count} entries",
+  "@gmtablesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "gmtablesNoEntries": "Add entries to roll on this table.",
+  "gmtablesStarterNames": "Names",
+  "gmtablesStarterNamesEntries": "Aldric|Brenna|Corvin|Delia|Edric|Fenna|Garrick|Helga",
+  "gmtablesStarterTaverns": "Taverns",
+  "gmtablesStarterTavernsEntries": "The Gilded Boar|The Weeping Lantern|The Drowsy Fox|The Rusty Anchor|The Crooked Crown|The Last Hearth",
+  "gmtablesStarterLoot": "Loot",
+  "gmtablesStarterLootEntries": "A silver ring with an unreadable inscription|A pouch of thirty mixed coins|A sealed letter marked with a broken crest|A vial of cloudy green liquid|A dagger with a gem in the hilt|A map fragment with a red cross",
+  "gmtablesStarterRumours": "Rumours",
+  "gmtablesStarterRumoursEntries": "The miller’s cellar hides a secret door|A stranger pays with very old coins|Lights were seen in the abandoned tower|The baron has stopped leaving his house|Wolves leave the forest at night|Someone is buying every bottle of ink in town",
+  "gmtablesStarterEncounters": "Encounters",
+  "gmtablesStarterEncountersEntries": "A wounded traveller asks for help|Two bandits block the bridge|A merchant’s cart is stuck in the mud|A silent child follows the party|Fresh tracks leave the road|A bell rings from nowhere",
+  "scenesAmbience": "Sound ambience",
+  "scenesAmbienceNone": "None",
+  "scenesPlayAmbience": "Play ambience: {name}",
+  "@scenesPlayAmbience": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "scenesStopAmbience": "Stop the ambience"
 }
