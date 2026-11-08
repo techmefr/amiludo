@@ -5243,4 +5243,122 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get toolShelfGm => 'Spelleider';
+
+  @override
+  String get toolCombatTitle => 'Gevechtsvolgorde';
+
+  @override
+  String get toolCombatSubtitle => 'Initiatief, rondes, levenspunten en toestanden.';
+
+  @override
+  String get combatEmpty => 'Nog geen strijders. Voeg helden en monsters toe.';
+
+  @override
+  String get combatAdd => 'Toevoegen';
+
+  @override
+  String combatRound(int round) {
+    return 'Ronde $round';
+  }
+
+  @override
+  String get combatStart => 'Gevecht starten';
+
+  @override
+  String get combatNext => 'Volgende beurt';
+
+  @override
+  String get combatReset => 'Gevecht beëindigen';
+
+  @override
+  String get combatRoll => 'Initiatief gooien';
+
+  @override
+  String get combatInitiative => 'Initiatief';
+
+  @override
+  String get combatBonus => 'Initiatiefbonus';
+
+  @override
+  String get combatName => 'Naam';
+
+  @override
+  String get combatHp => 'Levenspunten';
+
+  @override
+  String get combatCount => 'Identieke monsters';
+
+  @override
+  String get combatFewer => 'Minder monsters';
+
+  @override
+  String get combatMore => 'Meer monsters';
+
+  @override
+  String get combatPlayer => 'Spelerpersonage';
+
+  @override
+  String get combatFromNpcs => 'Uit je NSP’s';
+
+  @override
+  String combatTurnOf(String name) {
+    return '$name is aan de beurt';
+  }
+
+  @override
+  String get combatDown => 'Uitgeschakeld';
+
+  @override
+  String get combatRemove => 'Uit het gevecht halen';
+
+  @override
+  String get combatAmount => 'Aantal';
+
+  @override
+  String get combatDamage => 'Schade';
+
+  @override
+  String get combatHeal => 'Genezing';
+
+  @override
+  String get combatConditions => 'Toestanden';
+
+  @override
+  String combatHpMinus(String name) {
+    return '1 levenspunt van $name afhalen';
+  }
+
+  @override
+  String combatHpPlus(String name) {
+    return '1 levenspunt aan $name geven';
+  }
+
+  @override
+  String combatCardLabel(String name, int initiative, int hp, int maxHp) {
+    return '$name, initiatief $initiative, $hp van $maxHp levenspunten';
+  }
+
+  @override
+  String get combatCondBlinded => 'Verblind';
+
+  @override
+  String get combatCondCharmed => 'Betoverd';
+
+  @override
+  String get combatCondFrightened => 'Bang';
+
+  @override
+  String get combatCondHidden => 'Verborgen';
+
+  @override
+  String get combatCondParalyzed => 'Verlamd';
+
+  @override
+  String get combatCondPoisoned => 'Vergiftigd';
+
+  @override
+  String get combatCondProne => 'Liggend';
+
+  @override
+  String get combatCondStunned => 'Verdoofd';
 }

@@ -5212,4 +5212,122 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get toolShelfGm => 'Game master';
+
+  @override
+  String get toolCombatTitle => 'Combat tracker';
+
+  @override
+  String get toolCombatSubtitle => 'Initiative, rounds, hit points and conditions.';
+
+  @override
+  String get combatEmpty => 'No combatants yet. Add the heroes and the monsters.';
+
+  @override
+  String get combatAdd => 'Add';
+
+  @override
+  String combatRound(int round) {
+    return 'Round $round';
+  }
+
+  @override
+  String get combatStart => 'Start combat';
+
+  @override
+  String get combatNext => 'Next turn';
+
+  @override
+  String get combatReset => 'End combat';
+
+  @override
+  String get combatRoll => 'Roll initiative';
+
+  @override
+  String get combatInitiative => 'Initiative';
+
+  @override
+  String get combatBonus => 'Initiative bonus';
+
+  @override
+  String get combatName => 'Name';
+
+  @override
+  String get combatHp => 'Hit points';
+
+  @override
+  String get combatCount => 'Identical monsters';
+
+  @override
+  String get combatFewer => 'Fewer monsters';
+
+  @override
+  String get combatMore => 'More monsters';
+
+  @override
+  String get combatPlayer => 'Player character';
+
+  @override
+  String get combatFromNpcs => 'From your NPCs';
+
+  @override
+  String combatTurnOf(String name) {
+    return '$name is playing';
+  }
+
+  @override
+  String get combatDown => 'Down';
+
+  @override
+  String get combatRemove => 'Remove from combat';
+
+  @override
+  String get combatAmount => 'Amount';
+
+  @override
+  String get combatDamage => 'Damage';
+
+  @override
+  String get combatHeal => 'Heal';
+
+  @override
+  String get combatConditions => 'Conditions';
+
+  @override
+  String combatHpMinus(String name) {
+    return 'Remove 1 hit point from $name';
+  }
+
+  @override
+  String combatHpPlus(String name) {
+    return 'Give 1 hit point to $name';
+  }
+
+  @override
+  String combatCardLabel(String name, int initiative, int hp, int maxHp) {
+    return '$name, initiative $initiative, $hp of $maxHp hit points';
+  }
+
+  @override
+  String get combatCondBlinded => 'Blinded';
+
+  @override
+  String get combatCondCharmed => 'Charmed';
+
+  @override
+  String get combatCondFrightened => 'Frightened';
+
+  @override
+  String get combatCondHidden => 'Hidden';
+
+  @override
+  String get combatCondParalyzed => 'Paralyzed';
+
+  @override
+  String get combatCondPoisoned => 'Poisoned';
+
+  @override
+  String get combatCondProne => 'Prone';
+
+  @override
+  String get combatCondStunned => 'Stunned';
 }

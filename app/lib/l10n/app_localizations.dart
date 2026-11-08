@@ -9791,6 +9791,222 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Game master'**
   String get toolShelfGm;
+
+  /// No description provided for @toolCombatTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Combat tracker'**
+  String get toolCombatTitle;
+
+  /// No description provided for @toolCombatSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Initiative, rounds, hit points and conditions.'**
+  String get toolCombatSubtitle;
+
+  /// No description provided for @combatEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No combatants yet. Add the heroes and the monsters.'**
+  String get combatEmpty;
+
+  /// No description provided for @combatAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get combatAdd;
+
+  /// No description provided for @combatRound.
+  ///
+  /// In en, this message translates to:
+  /// **'Round {round}'**
+  String combatRound(int round);
+
+  /// No description provided for @combatStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start combat'**
+  String get combatStart;
+
+  /// No description provided for @combatNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next turn'**
+  String get combatNext;
+
+  /// No description provided for @combatReset.
+  ///
+  /// In en, this message translates to:
+  /// **'End combat'**
+  String get combatReset;
+
+  /// No description provided for @combatRoll.
+  ///
+  /// In en, this message translates to:
+  /// **'Roll initiative'**
+  String get combatRoll;
+
+  /// No description provided for @combatInitiative.
+  ///
+  /// In en, this message translates to:
+  /// **'Initiative'**
+  String get combatInitiative;
+
+  /// No description provided for @combatBonus.
+  ///
+  /// In en, this message translates to:
+  /// **'Initiative bonus'**
+  String get combatBonus;
+
+  /// No description provided for @combatName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get combatName;
+
+  /// No description provided for @combatHp.
+  ///
+  /// In en, this message translates to:
+  /// **'Hit points'**
+  String get combatHp;
+
+  /// No description provided for @combatCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Identical monsters'**
+  String get combatCount;
+
+  /// No description provided for @combatFewer.
+  ///
+  /// In en, this message translates to:
+  /// **'Fewer monsters'**
+  String get combatFewer;
+
+  /// No description provided for @combatMore.
+  ///
+  /// In en, this message translates to:
+  /// **'More monsters'**
+  String get combatMore;
+
+  /// No description provided for @combatPlayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Player character'**
+  String get combatPlayer;
+
+  /// No description provided for @combatFromNpcs.
+  ///
+  /// In en, this message translates to:
+  /// **'From your NPCs'**
+  String get combatFromNpcs;
+
+  /// No description provided for @combatTurnOf.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} is playing'**
+  String combatTurnOf(String name);
+
+  /// No description provided for @combatDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Down'**
+  String get combatDown;
+
+  /// No description provided for @combatRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from combat'**
+  String get combatRemove;
+
+  /// No description provided for @combatAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount'**
+  String get combatAmount;
+
+  /// No description provided for @combatDamage.
+  ///
+  /// In en, this message translates to:
+  /// **'Damage'**
+  String get combatDamage;
+
+  /// No description provided for @combatHeal.
+  ///
+  /// In en, this message translates to:
+  /// **'Heal'**
+  String get combatHeal;
+
+  /// No description provided for @combatConditions.
+  ///
+  /// In en, this message translates to:
+  /// **'Conditions'**
+  String get combatConditions;
+
+  /// No description provided for @combatHpMinus.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove 1 hit point from {name}'**
+  String combatHpMinus(String name);
+
+  /// No description provided for @combatHpPlus.
+  ///
+  /// In en, this message translates to:
+  /// **'Give 1 hit point to {name}'**
+  String combatHpPlus(String name);
+
+  /// No description provided for @combatCardLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}, initiative {initiative}, {hp} of {maxHp} hit points'**
+  String combatCardLabel(String name, int initiative, int hp, int maxHp);
+
+  /// No description provided for @combatCondBlinded.
+  ///
+  /// In en, this message translates to:
+  /// **'Blinded'**
+  String get combatCondBlinded;
+
+  /// No description provided for @combatCondCharmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Charmed'**
+  String get combatCondCharmed;
+
+  /// No description provided for @combatCondFrightened.
+  ///
+  /// In en, this message translates to:
+  /// **'Frightened'**
+  String get combatCondFrightened;
+
+  /// No description provided for @combatCondHidden.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden'**
+  String get combatCondHidden;
+
+  /// No description provided for @combatCondParalyzed.
+  ///
+  /// In en, this message translates to:
+  /// **'Paralyzed'**
+  String get combatCondParalyzed;
+
+  /// No description provided for @combatCondPoisoned.
+  ///
+  /// In en, this message translates to:
+  /// **'Poisoned'**
+  String get combatCondPoisoned;
+
+  /// No description provided for @combatCondProne.
+  ///
+  /// In en, this message translates to:
+  /// **'Prone'**
+  String get combatCondProne;
+
+  /// No description provided for @combatCondStunned.
+  ///
+  /// In en, this message translates to:
+  /// **'Stunned'**
+  String get combatCondStunned;
 }
 
 class _AppLocalizationsDelegate

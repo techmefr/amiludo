@@ -2,6 +2,8 @@ import 'package:get_it/get_it.dart';
 
 import 'package:amiludo/layers/functional/Notebook/data/gateways/notebook_gateways_impl.dart';
 import 'package:amiludo/notebook_registry.dart';
+import 'package:amiludo/combat_registry.dart';
+import 'package:amiludo/layers/functional/Combat/data/gateways/encounter_gateway_impl.dart';
 import 'package:amiludo/rules_registry.dart';
 import 'package:amiludo/journal_registry.dart';
 import 'package:amiludo/layers/functional/Journal/data/gateways/game_log_gateway_impl.dart';
@@ -255,6 +257,7 @@ void configureDependencies(StoreDatabase database) {
         getIt<MapBoardsGatewayImpl>(),
         getIt<NotebookGatewayImpl>(),
         getIt<RuleBookGatewayImpl>(),
+        getIt<EncounterGatewayImpl>(),
         getIt<GameLogGatewayImpl>(),
       ],
     )
@@ -277,6 +280,7 @@ void configureDependencies(StoreDatabase database) {
   _registerMaps();
   registerNotebook();
   registerRules();
+  registerCombat();
   registerJournal();
 }
 

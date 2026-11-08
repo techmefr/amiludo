@@ -5242,4 +5242,122 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get toolShelfGm => 'Master';
+
+  @override
+  String get toolCombatTitle => 'Gestione del combattimento';
+
+  @override
+  String get toolCombatSubtitle => 'Iniziativa, round, punti ferita e condizioni.';
+
+  @override
+  String get combatEmpty => 'Nessun combattente per ora. Aggiungi eroi e mostri.';
+
+  @override
+  String get combatAdd => 'Aggiungi';
+
+  @override
+  String combatRound(int round) {
+    return 'Round $round';
+  }
+
+  @override
+  String get combatStart => 'Inizia il combattimento';
+
+  @override
+  String get combatNext => 'Turno successivo';
+
+  @override
+  String get combatReset => 'Termina il combattimento';
+
+  @override
+  String get combatRoll => 'Tira l’iniziativa';
+
+  @override
+  String get combatInitiative => 'Iniziativa';
+
+  @override
+  String get combatBonus => 'Bonus di iniziativa';
+
+  @override
+  String get combatName => 'Nome';
+
+  @override
+  String get combatHp => 'Punti ferita';
+
+  @override
+  String get combatCount => 'Mostri identici';
+
+  @override
+  String get combatFewer => 'Meno mostri';
+
+  @override
+  String get combatMore => 'Più mostri';
+
+  @override
+  String get combatPlayer => 'Personaggio giocante';
+
+  @override
+  String get combatFromNpcs => 'Dai tuoi PNG';
+
+  @override
+  String combatTurnOf(String name) {
+    return 'Tocca a $name';
+  }
+
+  @override
+  String get combatDown => 'Fuori combattimento';
+
+  @override
+  String get combatRemove => 'Rimuovi dal combattimento';
+
+  @override
+  String get combatAmount => 'Quantità';
+
+  @override
+  String get combatDamage => 'Danno';
+
+  @override
+  String get combatHeal => 'Cura';
+
+  @override
+  String get combatConditions => 'Condizioni';
+
+  @override
+  String combatHpMinus(String name) {
+    return 'Togli 1 punto ferita a $name';
+  }
+
+  @override
+  String combatHpPlus(String name) {
+    return 'Dai 1 punto ferita a $name';
+  }
+
+  @override
+  String combatCardLabel(String name, int initiative, int hp, int maxHp) {
+    return '$name, iniziativa $initiative, $hp punti ferita su $maxHp';
+  }
+
+  @override
+  String get combatCondBlinded => 'Accecato';
+
+  @override
+  String get combatCondCharmed => 'Affascinato';
+
+  @override
+  String get combatCondFrightened => 'Spaventato';
+
+  @override
+  String get combatCondHidden => 'Nascosto';
+
+  @override
+  String get combatCondParalyzed => 'Paralizzato';
+
+  @override
+  String get combatCondPoisoned => 'Avvelenato';
+
+  @override
+  String get combatCondProne => 'Prono';
+
+  @override
+  String get combatCondStunned => 'Stordito';
 }

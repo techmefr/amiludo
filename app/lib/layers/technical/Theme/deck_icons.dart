@@ -62,5 +62,6 @@ IconData toolIcon(String id) => switch (id) {
   'rumour' => Icons.hearing_outlined,
   'trait' => Icons.psychology_alt_outlined,
   'twist' => Icons.shuffle,
+  'combat' => Icons.shield_outlined,
   _ => Icons.extension_outlined,
 };

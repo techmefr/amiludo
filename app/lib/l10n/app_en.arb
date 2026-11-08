@@ -2281,5 +2281,85 @@
   "buildMine": "My companions",
   "buildArrange": "Arrange",
   "buildArrangeDone": "Done",
-  "toolShelfGm": "Game master"
+  "toolShelfGm": "Game master",
+  "toolCombatTitle": "Combat tracker",
+  "toolCombatSubtitle": "Initiative, rounds, hit points and conditions.",
+  "combatEmpty": "No combatants yet. Add the heroes and the monsters.",
+  "combatAdd": "Add",
+  "combatRound": "Round {round}",
+  "@combatRound": {
+    "placeholders": {
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "combatStart": "Start combat",
+  "combatNext": "Next turn",
+  "combatReset": "End combat",
+  "combatRoll": "Roll initiative",
+  "combatInitiative": "Initiative",
+  "combatBonus": "Initiative bonus",
+  "combatName": "Name",
+  "combatHp": "Hit points",
+  "combatCount": "Identical monsters",
+  "combatFewer": "Fewer monsters",
+  "combatMore": "More monsters",
+  "combatPlayer": "Player character",
+  "combatFromNpcs": "From your NPCs",
+  "combatTurnOf": "{name} is playing",
+  "@combatTurnOf": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "combatDown": "Down",
+  "combatRemove": "Remove from combat",
+  "combatAmount": "Amount",
+  "combatDamage": "Damage",
+  "combatHeal": "Heal",
+  "combatConditions": "Conditions",
+  "combatHpMinus": "Remove 1 hit point from {name}",
+  "@combatHpMinus": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "combatHpPlus": "Give 1 hit point to {name}",
+  "@combatHpPlus": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "combatCardLabel": "{name}, initiative {initiative}, {hp} of {maxHp} hit points",
+  "@combatCardLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "initiative": {
+        "type": "int"
+      },
+      "hp": {
+        "type": "int"
+      },
+      "maxHp": {
+        "type": "int"
+      }
+    }
+  },
+  "combatCondBlinded": "Blinded",
+  "combatCondCharmed": "Charmed",
+  "combatCondFrightened": "Frightened",
+  "combatCondHidden": "Hidden",
+  "combatCondParalyzed": "Paralyzed",
+  "combatCondPoisoned": "Poisoned",
+  "combatCondProne": "Prone",
+  "combatCondStunned": "Stunned"
 }

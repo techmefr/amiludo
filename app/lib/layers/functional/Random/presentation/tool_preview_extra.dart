@@ -49,6 +49,28 @@ Widget _dots(Color accent, Color ink, double t) => Row(
   ],
 );
 
+Widget _order(Color accent, Color ink, double t) {
+  final turn = (t * 3).floor().clamp(0, 2);
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      for (var i = 0; i < 3; i++)
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: Space.xs),
+          child: AnimatedContainer(
+            duration: Motion.fast,
+            width: i == turn ? 110 : 90,
+            height: 18,
+            decoration: BoxDecoration(
+              color: i == turn ? accent : ink.withValues(alpha: .22),
+              borderRadius: BorderRadius.circular(Radii.sm),
+            ),
+          ),
+        ),
+    ],
+  );
+}
+
 Widget? extraPreview(
   BuildContext context,
   String id,
@@ -61,6 +83,7 @@ Widget? extraPreview(
   'turns' => _dots(accent, ink, t),
   'bank' => _count(context, ink, '${1500 + (200 * t).round()}'),
   'auction' => _count(context, ink, '${(35 * t).round()}'),
+  'combat' => _order(accent, ink, t),
   'clocks' => Center(
     child: SizedBox.square(
       dimension: 76,
