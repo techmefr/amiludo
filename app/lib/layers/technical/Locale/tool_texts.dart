@@ -19,7 +19,11 @@ extension ToolTexts on BuildContext {
       'stopwatch' => l.toolStopwatchTitle,
       'chess-clock' => l.toolChessClockTitle,
       'countdown' => l.toolCountdownTitle,
+<<<<<<< HEAD
       'turn-timer' => l.toolTurnTimerTitle,
+=======
+      'phases' => l.toolPhasesTitle,
+>>>>>>> 2bf2b91 (Add chained phases tool in the time category)
       'timer' => l.toolTimerTitle,
       'hourglass' => l.toolHourglassTitle,
       'map' => l.toolMapTitle,
@@ -76,7 +80,11 @@ extension ToolTexts on BuildContext {
       'stopwatch' => l.toolStopwatchSubtitle,
       'chess-clock' => l.toolChessClockSubtitle,
       'countdown' => l.toolCountdownSubtitle,
+<<<<<<< HEAD
       'turn-timer' => l.toolTurnTimerSubtitle,
+=======
+      'phases' => l.toolPhasesSubtitle,
+>>>>>>> 2bf2b91 (Add chained phases tool in the time category)
       'timer' => l.toolTimerSubtitle,
       'hourglass' => l.toolHourglassSubtitle,
       'map' => l.toolMapSubtitle,

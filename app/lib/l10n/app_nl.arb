@@ -1487,5 +1487,11 @@
   "journalWrite": "Wat is er net gebeurd?",
   "journalAdd": "Aan het logboek toevoegen",
   "journalEmpty": "Het logboek is leeg.",
-  "journalDelete": "Notitie verwijderen"
+  "journalDelete": "Notitie verwijderen",
+  "toolPhasesTitle": "Aaneengeschakelde fases",
+  "toolPhasesSubtitle": "Getimede fases die op elkaar volgen, ronde na ronde.",
+  "phasesPhase": "Fase {number}",
+  "phasesRound": "Ronde {number}",
+  "phasesAdd": "Een fase toevoegen",
+  "phasesRemove": "De fase verwijderen"
 }

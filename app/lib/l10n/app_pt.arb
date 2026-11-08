@@ -1487,5 +1487,11 @@
   "journalWrite": "O que acabou de acontecer?",
   "journalAdd": "Adicionar ao diário",
   "journalEmpty": "O diário está vazio.",
-  "journalDelete": "Excluir nota"
+  "journalDelete": "Excluir nota",
+  "toolPhasesTitle": "Fases encadeadas",
+  "toolPhasesSubtitle": "Fases cronometradas que se seguem, ronda após ronda.",
+  "phasesPhase": "Fase {number}",
+  "phasesRound": "Ronda {number}",
+  "phasesAdd": "Adicionar uma fase",
+  "phasesRemove": "Remover a fase"
 }

@@ -257,6 +257,7 @@ final router = GoRouter(
           'rules': rulesWithStorage,
           'vote': _vote,
           'countdown': countdownWithFeedback,
+          'phases': phasesWithFeedback,
           'life': _life,
           'tally': _tally,
           'ranking': _ranking,

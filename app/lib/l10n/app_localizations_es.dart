@@ -4683,6 +4683,18 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String sheetRound(int number) {
+  String get toolPhasesTitle => 'Fases encadenadas';
+
+  @override
+  String get toolPhasesSubtitle => 'Fases cronometradas que se encadenan, ronda tras ronda.';
+
+  @override
+  String phasesPhase(int number) {
+    return 'Fase $number';
+  }
+
+  @override
+  String phasesRound(int number) {
     return 'Ronda $number';
   }
 
@@ -4799,4 +4811,8 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get journalDelete => 'Eliminar nota';
+  String get phasesAdd => 'Añadir una fase';
+
+  @override
+  String get phasesRemove => 'Quitar la fase';
 }

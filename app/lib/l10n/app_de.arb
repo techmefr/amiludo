@@ -1487,5 +1487,11 @@
   "journalWrite": "Was ist gerade passiert?",
   "journalAdd": "Zum Protokoll hinzufügen",
   "journalEmpty": "Das Protokoll ist leer.",
-  "journalDelete": "Eintrag löschen"
+  "journalDelete": "Eintrag löschen",
+  "toolPhasesTitle": "Verkettete Phasen",
+  "toolPhasesSubtitle": "Zeitlich begrenzte Phasen, die aufeinander folgen, Runde für Runde.",
+  "phasesPhase": "Phase {number}",
+  "phasesRound": "Runde {number}",
+  "phasesAdd": "Phase hinzufügen",
+  "phasesRemove": "Phase entfernen"
 }

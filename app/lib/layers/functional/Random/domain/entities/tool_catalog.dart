@@ -18,7 +18,11 @@ const toolDefinitions = [
   ToolDefinition('first-player', 'match'),
   ToolDefinition('stopwatch', 'time'),
   ToolDefinition('countdown', 'time'),
+<<<<<<< HEAD
   ToolDefinition('turn-timer', 'time'),
+=======
+  ToolDefinition('phases', 'time'),
+>>>>>>> 2bf2b91 (Add chained phases tool in the time category)
   ToolDefinition('chess-clock', 'time'),
   ToolDefinition('timer', 'time'),
   ToolDefinition('hourglass', 'time'),
