@@ -5973,4 +5973,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String rulesCommonCount(int count) {
     return 'Regras comuns ($count)';
   }
+
+  @override
+  String get sessionFullscreen => 'Ecrã inteiro';
+
+  @override
+  String get sessionGridView => 'Ver todas as ferramentas';
+
+  @override
+  String get sessionSwitchTool => 'Mudar de ferramenta';
 }

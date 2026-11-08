@@ -11011,6 +11011,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Common rules ({count})'**
   String rulesCommonCount(int count);
+
+  /// No description provided for @sessionFullscreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Full screen'**
+  String get sessionFullscreen;
+
+  /// No description provided for @sessionGridView.
+  ///
+  /// In en, this message translates to:
+  /// **'Show all tools'**
+  String get sessionGridView;
+
+  /// No description provided for @sessionSwitchTool.
+  ///
+  /// In en, this message translates to:
+  /// **'Switch tool'**
+  String get sessionSwitchTool;
 }
 
 class _AppLocalizationsDelegate

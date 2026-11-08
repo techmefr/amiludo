@@ -5,6 +5,7 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/brick_layout
 import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/companion_brick_row.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icons.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
@@ -17,7 +18,9 @@ class SessionTile extends StatelessWidget {
     required this.brick,
     required this.builder,
     this.frozen = false,
+    this.onOpen,
   });
+  final VoidCallback? onOpen;
   final Brick brick;
   final BrickWidgetBuilder builder;
   final bool frozen;
@@ -45,7 +48,22 @@ class SessionTile extends StatelessWidget {
                     Space.lg,
                     0,
                   ),
-                  child: _Caption(brick: brick, ink: ink),
+                  child: Row(
+                    children: [
+                      Expanded(child: _Caption(brick: brick, ink: ink)),
+                      if (onOpen != null)
+                        IconButton(
+                          tooltip: context.l10n.sessionFullscreen,
+                          constraints: const BoxConstraints.tightFor(
+                            width: Targets.minimum + Space.xs,
+                            height: Targets.minimum + Space.xs,
+                          ),
+                          color: ink,
+                          onPressed: onOpen,
+                          icon: const DeckIcon(Icons.open_in_full),
+                        ),
+                    ],
+                  ),
                 ),
                 Expanded(
                   child:

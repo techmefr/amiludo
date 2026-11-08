@@ -30,7 +30,9 @@ class SessionGrid extends StatelessWidget {
     required this.builder,
     required this.arrange,
     required this.onMove,
+    this.onOpen,
   });
+  final void Function(int index)? onOpen;
   final List<Brick> bricks;
   final BrickWidgetBuilder builder;
   final bool arrange;
@@ -67,7 +69,12 @@ class SessionGrid extends StatelessWidget {
         child: SizedBox(
           width: width,
           height: sessionTileHeight(brick.size),
-          child: SessionTile(brick: brick, builder: builder, frozen: arrange),
+          child: SessionTile(
+            brick: brick,
+            builder: builder,
+            frozen: arrange,
+            onOpen: onOpen == null ? null : () => onOpen!(index),
+          ),
         ),
       ),
     );
