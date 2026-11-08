@@ -5,7 +5,7 @@ import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 
 class ZoomButtons extends StatelessWidget {
-  const ZoomButtons({required this.controller});
+  const ZoomButtons({super.key, required this.controller});
   final WorldViewportController controller;
 
   @override

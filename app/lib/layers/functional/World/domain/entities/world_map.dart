@@ -179,12 +179,14 @@ class WorldMap {
     MapFloor? partner;
     if (element.kind == ElementKind.stairs) {
       partner = at + 1 < floors.length ? floors[at + 1] : below(floorId);
-      if (partner != null) next = MapElement(
-        id: element.id,
-        kind: element.kind,
-        points: element.points,
-        target: partner.id,
-      );
+      if (partner != null) {
+        next = MapElement(
+          id: element.id,
+          kind: element.kind,
+          points: element.points,
+          target: partner.id,
+        );
+      }
     }
     var result = _onFloor(
       floorId,
