@@ -4,12 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/session_grid.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/session_tile.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
-export 'package:amiludo/layers/functional/Templates/presentation/session_grid.dart'
+export 'package:amiludo/layers/functional/Templates/presentation/session_tile.dart'
     show BrickWidgetBuilder;
 
 class CompanionSession extends StatefulWidget {
@@ -58,10 +59,14 @@ class _CompanionSessionState extends State<CompanionSession> {
         children: [
           Align(
             alignment: Alignment.centerRight,
-            child: TextButton.icon(
-              onPressed: () => setState(() => arrange = !arrange),
-              icon: DeckIcon(arrange ? Icons.check : Icons.swap_vert),
-              label: Text(arrange ? l.buildArrangeDone : l.buildArrange),
+            child: AnimatedSwitcher(
+              duration: Motion.of(context, Motion.fast),
+              child: TextButton.icon(
+                key: ValueKey(arrange),
+                onPressed: () => setState(() => arrange = !arrange),
+                icon: DeckIcon(arrange ? Icons.check : Icons.swap_vert),
+                label: Text(arrange ? l.buildArrangeDone : l.buildArrange),
+              ),
             ),
           ),
           const SizedBox(height: Space.sm),

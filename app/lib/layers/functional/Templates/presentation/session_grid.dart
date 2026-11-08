@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/brick_layout.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
-import 'package:amiludo/layers/functional/Templates/presentation/companion_brick_row.dart';
-import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
-import 'package:amiludo/layers/technical/Theme/deck_icons.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/session_tile.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
-import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
-
-typedef BrickWidgetBuilder = Widget? Function(BuildContext, Brick);
 
 double sessionTileHeight(TileSize size) => switch (size) {
   TileSize.small => 240,
@@ -62,11 +56,19 @@ class SessionGrid extends StatelessWidget {
 
   Widget _slot(BuildContext context, int index, double width) {
     final brick = bricks[index];
-    final tile = SizedBox(
+    final tile = _Entrance(
       key: ValueKey(brick.id),
-      width: width,
-      height: sessionTileHeight(brick.size),
-      child: SessionTile(brick: brick, builder: builder, frozen: arrange),
+      delay: Motion.fast * (index > 6 ? 6 : index) ~/ 3,
+      child: AnimatedScale(
+        scale: arrange ? .97 : 1,
+        duration: Motion.of(context, Motion.base),
+        curve: Motion.spring,
+        child: SizedBox(
+          width: width,
+          height: sessionTileHeight(brick.size),
+          child: SessionTile(brick: brick, builder: builder, frozen: arrange),
+        ),
+      ),
     );
     if (!arrange) return tile;
     return DragTarget<int>(
@@ -93,81 +95,25 @@ class SessionGrid extends StatelessWidget {
   }
 }
 
-class SessionTile extends StatelessWidget {
-  const SessionTile({
-    super.key,
-    required this.brick,
-    required this.builder,
-    this.frozen = false,
-  });
-  final Brick brick;
-  final BrickWidgetBuilder builder;
-  final bool frozen;
+class _Entrance extends StatelessWidget {
+  const _Entrance({super.key, required this.delay, required this.child});
+  final Duration delay;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    final tool = toolThemeFor(brick.toolId);
-    final surface = tool.surface(context);
-    final ink = tool.ink(surface);
-    final body = frozen ? null : builder(context, brick);
-    return Material(
-      color: surface,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(Radii.lg),
+    final total = Motion.of(context, Motion.slow + delay);
+    if (total == Duration.zero) return child;
+    final start = delay.inMilliseconds / total.inMilliseconds;
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: 0, end: 1),
+      duration: total,
+      curve: Interval(start, 1, curve: Motion.curve),
+      builder: (context, t, child) => Opacity(
+        opacity: t,
+        child: Transform.translate(offset: Offset(0, (1 - t) * 16), child: child),
       ),
-      clipBehavior: Clip.antiAlias,
-      child: frozen
-          ? Center(child: _Caption(brick: brick, ink: ink, large: true))
-          : Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(
-                    Space.lg,
-                    Space.md,
-                    Space.lg,
-                    0,
-                  ),
-                  child: _Caption(brick: brick, ink: ink),
-                ),
-                Expanded(
-                  child:
-                      body ??
-                      Center(
-                        child: FilledButton(
-                          onPressed: () =>
-                              context.push('/tools/${brick.type}'),
-                          child: Text(brickTitle(context, brick)),
-                        ),
-                      ),
-                ),
-              ],
-            ),
+      child: child,
     );
   }
-}
-
-class _Caption extends StatelessWidget {
-  const _Caption({required this.brick, required this.ink, this.large = false});
-  final Brick brick;
-  final Color ink;
-  final bool large;
-
-  @override
-  Widget build(BuildContext context) => Row(
-    mainAxisSize: large ? MainAxisSize.min : MainAxisSize.max,
-    children: [
-      DeckIcon(toolIcon(brick.toolId), size: large ? 40 : 20, color: ink),
-      const SizedBox(width: Space.sm),
-      Flexible(
-        child: Text(
-          brickTitle(context, brick),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          style: large
-              ? Theme.of(context).textTheme.titleLarge
-              : Theme.of(context).textTheme.labelLarge,
-        ),
-      ),
-    ],
-  );
 }
