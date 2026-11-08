@@ -1814,5 +1814,12 @@
   "journalRecapTitle": "Récapitulatif de la séance",
   "journalRecapEmpty": "Rien à résumer pour l’instant.",
   "journalRecapCopy": "Copier le récap",
-  "journalRecapCopied": "Récap copié"
+  "journalRecapCopied": "Récap copié",
+  "rulesDecisions": "Décisions ({count})",
+  "rulesDecisionsTitle": "Décisions pour {game}",
+  "rulesDecisionQuestion": "Situation ou question",
+  "rulesDecisionRuling": "Ce qui a été décidé",
+  "rulesDecisionAdd": "Noter la décision",
+  "rulesDecisionsEmpty": "Aucune décision notée pour l’instant.",
+  "rulesDecisionDelete": "Supprimer la décision"
 }

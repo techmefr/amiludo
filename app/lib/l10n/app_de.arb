@@ -1814,5 +1814,12 @@
   "journalRecapTitle": "Rückblick auf die Sitzung",
   "journalRecapEmpty": "Noch nichts zusammenzufassen.",
   "journalRecapCopy": "Rückblick kopieren",
-  "journalRecapCopied": "Rückblick kopiert"
+  "journalRecapCopied": "Rückblick kopiert",
+  "rulesDecisions": "Entscheidungen ({count})",
+  "rulesDecisionsTitle": "Entscheidungen für {game}",
+  "rulesDecisionQuestion": "Situation oder Frage",
+  "rulesDecisionRuling": "Was entschieden wurde",
+  "rulesDecisionAdd": "Entscheidung festhalten",
+  "rulesDecisionsEmpty": "Noch keine Entscheidung festgehalten.",
+  "rulesDecisionDelete": "Entscheidung löschen"
 }

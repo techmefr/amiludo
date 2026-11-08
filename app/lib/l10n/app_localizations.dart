@@ -10955,6 +10955,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Recap copied'**
   String get journalRecapCopied;
+
+  /// No description provided for @rulesDecisions.
+  ///
+  /// In en, this message translates to:
+  /// **'Rulings ({count})'**
+  String rulesDecisions(int count);
+
+  /// No description provided for @rulesDecisionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rulings for {game}'**
+  String rulesDecisionsTitle(String game);
+
+  /// No description provided for @rulesDecisionQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Situation or question'**
+  String get rulesDecisionQuestion;
+
+  /// No description provided for @rulesDecisionRuling.
+  ///
+  /// In en, this message translates to:
+  /// **'What was decided'**
+  String get rulesDecisionRuling;
+
+  /// No description provided for @rulesDecisionAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Record the ruling'**
+  String get rulesDecisionAdd;
+
+  /// No description provided for @rulesDecisionsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No ruling recorded yet.'**
+  String get rulesDecisionsEmpty;
+
+  /// No description provided for @rulesDecisionDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete ruling'**
+  String get rulesDecisionDelete;
 }
 
 class _AppLocalizationsDelegate

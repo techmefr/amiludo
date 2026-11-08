@@ -1814,5 +1814,12 @@
   "journalRecapTitle": "Resumo da sessão",
   "journalRecapEmpty": "Ainda nada para resumir.",
   "journalRecapCopy": "Copiar o resumo",
-  "journalRecapCopied": "Resumo copiado"
+  "journalRecapCopied": "Resumo copiado",
+  "rulesDecisions": "Decisões ({count})",
+  "rulesDecisionsTitle": "Decisões para {game}",
+  "rulesDecisionQuestion": "Situação ou pergunta",
+  "rulesDecisionRuling": "O que foi decidido",
+  "rulesDecisionAdd": "Anotar a decisão",
+  "rulesDecisionsEmpty": "Nenhuma decisão anotada ainda.",
+  "rulesDecisionDelete": "Excluir decisão"
 }

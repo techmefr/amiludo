@@ -5871,4 +5871,29 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get journalRecapCopied => 'Overzicht gekopieerd';
+
+  @override
+  String rulesDecisions(int count) {
+    return 'Beslissingen ($count)';
+  }
+
+  @override
+  String rulesDecisionsTitle(String game) {
+    return 'Beslissingen voor $game';
+  }
+
+  @override
+  String get rulesDecisionQuestion => 'Situatie of vraag';
+
+  @override
+  String get rulesDecisionRuling => 'Wat is besloten';
+
+  @override
+  String get rulesDecisionAdd => 'Beslissing noteren';
+
+  @override
+  String get rulesDecisionsEmpty => 'Nog geen beslissingen genoteerd.';
+
+  @override
+  String get rulesDecisionDelete => 'Beslissing verwijderen';
 }

@@ -1814,5 +1814,12 @@
   "journalRecapTitle": "Overzicht van de sessie",
   "journalRecapEmpty": "Nog niets om samen te vatten.",
   "journalRecapCopy": "Overzicht kopiëren",
-  "journalRecapCopied": "Overzicht gekopieerd"
+  "journalRecapCopied": "Overzicht gekopieerd",
+  "rulesDecisions": "Beslissingen ({count})",
+  "rulesDecisionsTitle": "Beslissingen voor {game}",
+  "rulesDecisionQuestion": "Situatie of vraag",
+  "rulesDecisionRuling": "Wat is besloten",
+  "rulesDecisionAdd": "Beslissing noteren",
+  "rulesDecisionsEmpty": "Nog geen beslissingen genoteerd.",
+  "rulesDecisionDelete": "Beslissing verwijderen"
 }
