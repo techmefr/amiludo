@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Bestiary/domain/entities/bestiary.dart';
 import 'package:amiludo/layers/functional/Bestiary/domain/entities/creature.dart';
 import 'package:amiludo/layers/functional/Bestiary/presentation/bestiary_texts.dart';
@@ -155,16 +156,19 @@ class _BestiaryToolState extends State<BestiaryTool> {
               textAlign: TextAlign.center,
             ),
           ),
-        for (final c in shown)
-          Padding(
-            key: ValueKey(c.id),
-            padding: const EdgeInsets.only(bottom: Space.sm),
-            child: CreatureCard(
-              creature: c,
-              tool: tool,
-              onOpen: () => _edit(c),
-            ),
-          ),
+        ResponsiveGrid(
+          minimumWidth: 360,
+          gap: Space.sm,
+          children: [
+            for (final c in shown)
+              CreatureCard(
+                key: ValueKey(c.id),
+                creature: c,
+                tool: tool,
+                onOpen: () => _edit(c),
+              ),
+          ],
+        ),
       ],
     );
   }

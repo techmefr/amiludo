@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Rules/domain/entities/rule_book.dart';
 import 'package:amiludo/layers/functional/Rules/presentation/rule_decisions_sheet.dart';
 import 'package:amiludo/layers/functional/Rules/presentation/rule_section_card.dart';
@@ -136,16 +137,19 @@ class _RulesToolState extends State<RulesTool> {
     }
     if (shown.isEmpty) return [Text(l.rulesNoMatch)];
     return [
-      for (final i in shown)
-        Padding(
-          padding: const EdgeInsets.only(bottom: Space.md),
-          child: RuleSectionCard(
-            section: current.sections[i],
-            table: table,
-            onEdit: () => _editSection(current, i),
-            onDelete: () => _commit(book.put(current.withoutSection(i))),
-          ),
-        ),
+      ResponsiveGrid(
+        minimumWidth: 420,
+        gap: Space.md,
+        children: [
+          for (final i in shown)
+            RuleSectionCard(
+              section: current.sections[i],
+              table: table,
+              onEdit: () => _editSection(current, i),
+              onDelete: () => _commit(book.put(current.withoutSection(i))),
+            ),
+        ],
+      ),
     ];
   }
 
