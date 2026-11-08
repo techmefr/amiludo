@@ -4994,4 +4994,18 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get challengeStarters => 'Cuenta un chiste|Canta el estribillo de una canción|Haz diez saltos de tijera|Habla con acento hasta tu próximo turno|Dile un cumplido a cada jugador|Representa una película hasta que la adivinen';
+
+  @override
+  String get toolMetronomeTitle => 'Metrónomo';
+
+  @override
+  String get toolMetronomeSubtitle => 'Un pulso constante para marcar los turnos, con el primer tiempo acentuado.';
+
+  @override
+  String metronomeBpm(int count) {
+    return '$count BPM';
+
+  @override
+  String metronomeBeats(int count) {
+    return '$count tiempos';
 }

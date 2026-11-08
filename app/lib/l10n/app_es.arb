@@ -1548,5 +1548,9 @@
   "challengeFaceDown": "Reto boca abajo",
   "challengeEdit": "Tus retos, uno por línea",
   "challengeEditHelper": "Edita, añade o quita líneas libremente.",
-  "challengeStarters": "Cuenta un chiste|Canta el estribillo de una canción|Haz diez saltos de tijera|Habla con acento hasta tu próximo turno|Dile un cumplido a cada jugador|Representa una película hasta que la adivinen"
+  "challengeStarters": "Cuenta un chiste|Canta el estribillo de una canción|Haz diez saltos de tijera|Habla con acento hasta tu próximo turno|Dile un cumplido a cada jugador|Representa una película hasta que la adivinen",
+  "toolMetronomeTitle": "Metrónomo",
+  "toolMetronomeSubtitle": "Un pulso constante para marcar los turnos, con el primer tiempo acentuado.",
+  "metronomeBpm": "{count} BPM",
+  "metronomeBeats": "{count} tiempos"
 }

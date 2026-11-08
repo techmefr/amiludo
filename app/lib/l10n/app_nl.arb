@@ -1548,5 +1548,9 @@
   "challengeFaceDown": "Gedekte opdracht",
   "challengeEdit": "Je opdrachten, één per regel",
   "challengeEditHelper": "Pas regels vrij aan, voeg ze toe of verwijder ze.",
-  "challengeStarters": "Vertel een mop|Zing het refrein van een liedje|Doe tien jumping jacks|Praat met een accent tot je volgende beurt|Geef elke speler een compliment|Mime een film tot iemand hem raadt"
+  "challengeStarters": "Vertel een mop|Zing het refrein van een liedje|Doe tien jumping jacks|Praat met een accent tot je volgende beurt|Geef elke speler een compliment|Mime een film tot iemand hem raadt",
+  "toolMetronomeTitle": "Metronoom",
+  "toolMetronomeSubtitle": "Een vaste puls om de beurten te tempoën, met geaccentueerde eerste tel.",
+  "metronomeBpm": "{count} BPM",
+  "metronomeBeats": "{count} tellen"
 }

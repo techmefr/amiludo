@@ -2086,5 +2086,23 @@
   "challengeFaceDown": "Face-down dare",
   "challengeEdit": "Your dares, one per line",
   "challengeEditHelper": "Edit, add or remove lines freely.",
-  "challengeStarters": "Tell a joke|Sing the chorus of a song|Do ten jumping jacks|Speak in an accent until your next turn|Compliment every player|Mime a movie until someone guesses it"
+  "challengeStarters": "Tell a joke|Sing the chorus of a song|Do ten jumping jacks|Speak in an accent until your next turn|Compliment every player|Mime a movie until someone guesses it",
+  "toolMetronomeTitle": "Metronome",
+  "toolMetronomeSubtitle": "A steady pulse to pace the turns, with an accented first beat.",
+  "metronomeBpm": "{count} BPM",
+  "@metronomeBpm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "metronomeBeats": "{count} beats",
+  "@metronomeBeats": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

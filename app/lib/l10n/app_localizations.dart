@@ -8377,6 +8377,30 @@ abstract class AppLocalizations {
   /// **'Timed phases that follow one another, round after round.'**
   String get toolPhasesSubtitle;
 
+  /// No description provided for @toolMetronomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Metronome'**
+  String get toolMetronomeTitle;
+
+  /// No description provided for @toolMetronomeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A steady pulse to pace the turns, with an accented first beat.'**
+  String get toolMetronomeSubtitle;
+
+  /// No description provided for @metronomeBpm.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} BPM'**
+  String metronomeBpm(int count);
+
+  /// No description provided for @metronomeBeats.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} beats'**
+  String metronomeBeats(int count);
+
   /// No description provided for @phasesPhase.
   ///
   /// In en, this message translates to:

@@ -19,6 +19,7 @@ IconData toolIcon(String id) => switch (id) {
   'first-player' => Icons.flag_circle_outlined,
   'stopwatch' => Icons.av_timer,
   'turn-timer' => Icons.groups_outlined,
+  'metronome' => Icons.graphic_eq,
   'phases' => Icons.view_module_outlined,
   'countdown' => Icons.hourglass_top_outlined,
   'chess-clock' => Icons.hourglass_bottom_outlined,

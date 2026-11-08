@@ -1548,5 +1548,9 @@
   "challengeFaceDown": "Défi face cachée",
   "challengeEdit": "Vos défis, un par ligne",
   "challengeEditHelper": "Modifiez, ajoutez ou retirez des lignes librement.",
-  "challengeStarters": "Racontez une blague|Chantez le refrain d’une chanson|Faites dix sauts écartés|Parlez avec un accent jusqu’à votre prochain tour|Faites un compliment à chaque joueur|Mimez un film jusqu’à ce qu’on le devine"
+  "challengeStarters": "Racontez une blague|Chantez le refrain d’une chanson|Faites dix sauts écartés|Parlez avec un accent jusqu’à votre prochain tour|Faites un compliment à chaque joueur|Mimez un film jusqu’à ce qu’on le devine",
+  "toolMetronomeTitle": "Métronome",
+  "toolMetronomeSubtitle": "Une pulsation régulière pour rythmer les tours, premier temps accentué.",
+  "metronomeBpm": "{count} BPM",
+  "metronomeBeats": "{count} temps"
 }

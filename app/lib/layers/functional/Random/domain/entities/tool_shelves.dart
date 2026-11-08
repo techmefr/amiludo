@@ -12,6 +12,7 @@ const toolShelves = [
     'countdown',
     'turn-timer',
     'phases',
+    'metronome',
     'timer',
     'chess-clock',
     'hourglass',
