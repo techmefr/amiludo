@@ -68,6 +68,8 @@ const toolShelfStyles = {
   ),
 };
 
+ToolShelfStyle styleOfShelf(String id) => toolShelfStyles[id] ?? _fallbackStyle;
+
 const _fallbackStyle = ToolShelfStyle(
   Icons.extension_outlined,
   ToolTheme(accent: Color(0xff52606D)),
@@ -84,9 +86,10 @@ class ToolCategoryTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = toolShelfStyles[shelf.id] ?? _fallbackStyle;
+    final style = styleOfShelf(shelf.id);
     final tool = style.theme;
-    final surface = tool.surface(context);
+    final surface = tool.surface(context, mix: .18);
+    final ink = tool.ink(surface);
     final text = Theme.of(context).textTheme;
     return Material(
       color: surface,
@@ -101,41 +104,31 @@ class ToolCategoryTile extends StatelessWidget {
         },
         child: Stack(
           children: [
-            ToolTextureLayer(texture: tool.texture, opacity: .09),
+            ToolTextureLayer(texture: tool.texture, opacity: .1),
             Padding(
               padding: const EdgeInsets.all(Space.lg),
-              child: Row(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Hero(
                     tag: 'shelf-${shelf.id}',
-                    child: DeckIcon(
-                      style.icon,
-                      size: 36,
-                      color: tool.ink(surface),
-                    ),
+                    child: DeckIcon(style.icon, size: 40, color: ink),
                   ),
-                  const SizedBox(width: Space.lg),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          context.toolShelfLabel(shelf.id),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: text.titleMedium,
-                        ),
-                        const SizedBox(height: Space.xs),
-                        Text(
-                          [
-                            for (final id in shelf.tools) context.toolTitle(id),
-                          ].join(', '),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: text.bodySmall,
-                        ),
-                      ],
-                    ),
+                  const SizedBox(height: Space.lg),
+                  Text(
+                    context.toolShelfLabel(shelf.id),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: text.titleLarge?.copyWith(color: ink),
+                  ),
+                  const SizedBox(height: Space.xs),
+                  Text(
+                    [for (final id in shelf.tools) context.toolTitle(id)]
+                        .join(', '),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: text.bodySmall,
                   ),
                 ],
               ),

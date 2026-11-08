@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Random/domain/entities/brick_catalog.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/tool_shelves.dart';
+import 'package:amiludo/layers/functional/Random/presentation/category_banner.dart';
 import 'package:amiludo/layers/functional/Random/presentation/tool_card.dart';
+import 'package:amiludo/layers/technical/Theme/components/entrance.dart';
 import 'package:amiludo/layers/functional/Random/presentation/tool_category_tile.dart';
 import 'package:amiludo/layers/functional/Random/presentation/tool_hero_card.dart';
 import 'package:amiludo/layers/technical/Locale/tool_texts.dart';
@@ -115,23 +117,43 @@ class ToolsHome extends StatelessWidget {
     ),
   );
 
-  Widget _menu(BuildContext context) => ResponsiveGrid(
-    minimumWidth: 280,
-    children: [
+  Widget _menu(BuildContext context) {
+    final shelves = [
       for (final shelf in toolShelves)
-        if (shelf.tools.isNotEmpty)
-          ToolCategoryTile(shelf: shelf, onOpen: () => onCategory(shelf.id)),
-    ],
-  );
+        if (shelf.tools.isNotEmpty) shelf,
+    ];
+    return ResponsiveGrid(
+      minimumWidth: 240,
+      children: [
+        for (var i = 0; i < shelves.length; i++)
+          Entrance(
+            index: i,
+            child: ToolCategoryTile(
+              shelf: shelves[i],
+              onOpen: () => onCategory(shelves[i].id),
+            ),
+          ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final open = category == null ? null : toolShelf(category!);
     if (open != null) {
-      return Wrap(
-        spacing: Space.md,
-        runSpacing: Space.md,
-        children: [for (final id in open.tools) _card(context, id)],
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CategoryBanner(shelf: open),
+          Wrap(
+            spacing: Space.md,
+            runSpacing: Space.md,
+            children: [
+              for (var i = 0; i < open.tools.length; i++)
+                Entrance(index: i, child: _card(context, open.tools[i])),
+            ],
+          ),
+        ],
       );
     }
     final hero = _hero, pinned = _pinned;
@@ -142,6 +164,8 @@ class ToolsHome extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        _menu(context),
+        const SizedBox(height: Space.xl),
         ToolHeroCard(
           id: hero,
           resume: lastTool == hero,
@@ -151,8 +175,6 @@ class ToolsHome extends StatelessWidget {
           _title(context, context.toolShelfLabel('pinned')),
           _row(context, inner, reorder: true),
         ],
-        const SizedBox(height: Space.xl),
-        _menu(context),
       ],
     );
   }
