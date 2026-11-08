@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const lifeColors = [
+const playerTints = [
   Color(0xffC2493D),
   Color(0xff3F6FB0),
   Color(0xff2F8F83),

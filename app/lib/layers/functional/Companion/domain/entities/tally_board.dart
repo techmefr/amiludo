@@ -34,7 +34,8 @@ class TallyBoard {
 
   TallyBoard add(String name) {
     final clean = name.trim();
-    if (clean.isEmpty || counters.contains(clean)) return this;
+    final known = counters.map((c) => c.toLowerCase());
+    if (clean.isEmpty || known.contains(clean.toLowerCase())) return this;
     return TallyBoard(
       players: players,
       counters: [...counters, clean],

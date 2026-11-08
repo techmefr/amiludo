@@ -32,7 +32,7 @@ class _LifeToolState extends State<LifeTool> {
     final player = controller.match.players[index];
     final panel = LifePanel(
       player: player,
-      accent: lifeColors[index % lifeColors.length],
+      accent: playerTints[index % playerTints.length],
       onChange: (delta) {
         tool.signal();
         controller.life(index, delta);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/tally_board.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/name_dialog.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tally_card.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
@@ -40,30 +41,11 @@ class _TallyToolState extends State<TallyTool> {
 
   Future<void> _add() async {
     final l = context.l10n;
-    final controller = TextEditingController();
-    final name = await showDialog<String>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(l.tallyAddCounter),
-        content: TextField(
-          controller: controller,
-          autofocus: true,
-          decoration: InputDecoration(labelText: l.tallyCounterName),
-          onSubmitted: (value) => Navigator.pop(context, value),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(MaterialLocalizations.of(context).cancelButtonLabel),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(context, controller.text),
-            child: Text(l.tallyAddCounter),
-          ),
-        ],
-      ),
+    final name = await showNameDialog(
+      context,
+      title: l.tallyAddCounter,
+      label: l.tallyCounterName,
     );
-    controller.dispose();
     if (name != null) _apply(current.add(name));
   }
 

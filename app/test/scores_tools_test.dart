@@ -18,6 +18,7 @@ Widget host(Widget child) => MaterialApp(
 );
 
 const names = ['Ana', 'Ben', 'Cy'];
+const four = ['Ana', 'Ben', 'Cy', 'Di'];
 
 void main() {
   test('life drops with commander damage and ends on poison or damage', () {
@@ -69,7 +70,7 @@ void main() {
         locale: const Locale('en'),
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
-        home: const Scaffold(body: LifeTool(names: names)),
+        home: const Scaffold(body: LifeTool(names: four)),
       ),
     );
     expect(find.text('40'), findsNWidgets(4));
