@@ -4261,4 +4261,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String stopwatchLapNumber(int number) {
     return 'Volta $number';
   }
+
+  @override
+  String get toolChessClockTitle => 'Relógio de xadrez';
+
+  @override
+  String get toolChessClockSubtitle => 'Dois relógios, um toque passa a vez, com incremento.';
 }

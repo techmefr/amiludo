@@ -1657,5 +1657,7 @@
         "type": "int"
       }
     }
-  }
+  },
+  "toolChessClockTitle": "Chess clock",
+  "toolChessClockSubtitle": "Two clocks, one tap to pass the turn, with increment."
 }

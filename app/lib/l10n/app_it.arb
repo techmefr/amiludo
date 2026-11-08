@@ -1317,5 +1317,7 @@
   "toolStopwatchTitle": "Cronometro",
   "toolStopwatchSubtitle": "Conta al centesimo e segna ogni giro.",
   "stopwatchLap": "Giro",
-  "stopwatchLapNumber": "Giro {number}"
+  "stopwatchLapNumber": "Giro {number}",
+  "toolChessClockTitle": "Orologio da scacchi",
+  "toolChessClockSubtitle": "Due orologi, un tocco passa il turno, con incremento."
 }

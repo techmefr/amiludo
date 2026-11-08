@@ -4232,4 +4232,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String stopwatchLapNumber(int number) {
     return 'Lap $number';
   }
+
+  @override
+  String get toolChessClockTitle => 'Chess clock';
+
+  @override
+  String get toolChessClockSubtitle => 'Two clocks, one tap to pass the turn, with increment.';
 }

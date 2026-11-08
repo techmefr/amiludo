@@ -1317,5 +1317,7 @@
   "toolStopwatchTitle": "Cronómetro",
   "toolStopwatchSubtitle": "Cuenta hasta la centésima y marca cada vuelta.",
   "stopwatchLap": "Vuelta",
-  "stopwatchLapNumber": "Vuelta {number}"
+  "stopwatchLapNumber": "Vuelta {number}",
+  "toolChessClockTitle": "Reloj de ajedrez",
+  "toolChessClockSubtitle": "Dos relojes, un toque pasa el turno, con incremento."
 }

@@ -4269,4 +4269,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String stopwatchLapNumber(int number) {
     return 'Runde $number';
   }
+
+  @override
+  String get toolChessClockTitle => 'Schachuhr';
+
+  @override
+  String get toolChessClockSubtitle => 'Zwei Uhren, ein Tipp gibt den Zug weiter, mit Zeitbonus.';
 }

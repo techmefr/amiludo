@@ -4258,4 +4258,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String stopwatchLapNumber(int number) {
     return 'Vuelta $number';
   }
+
+  @override
+  String get toolChessClockTitle => 'Reloj de ajedrez';
+
+  @override
+  String get toolChessClockSubtitle => 'Dos relojes, un toque pasa el turno, con incremento.';
 }

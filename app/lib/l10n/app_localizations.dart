@@ -7975,6 +7975,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Lap {number}'**
   String stopwatchLapNumber(int number);
+
+  /// No description provided for @toolChessClockTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Chess clock'**
+  String get toolChessClockTitle;
+
+  /// No description provided for @toolChessClockSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Two clocks, one tap to pass the turn, with increment.'**
+  String get toolChessClockSubtitle;
 }
 
 class _AppLocalizationsDelegate

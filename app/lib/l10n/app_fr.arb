@@ -1317,5 +1317,7 @@
   "toolStopwatchTitle": "Chronomètre",
   "toolStopwatchSubtitle": "Comptez au centième et marquez chaque tour.",
   "stopwatchLap": "Tour",
-  "stopwatchLapNumber": "Tour {number}"
+  "stopwatchLapNumber": "Tour {number}",
+  "toolChessClockTitle": "Horloge d’échecs",
+  "toolChessClockSubtitle": "Deux horloges, un tap pour passer la main, avec incrément."
 }
