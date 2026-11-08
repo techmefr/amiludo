@@ -9785,6 +9785,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Every unit has acted'**
   String get unitsAllDone;
+
+  /// No description provided for @toolShelfGm.
+  ///
+  /// In en, this message translates to:
+  /// **'Game master'**
+  String get toolShelfGm;
 }
 
 class _AppLocalizationsDelegate

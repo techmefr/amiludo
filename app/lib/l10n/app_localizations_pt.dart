@@ -5238,4 +5238,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get buildArrangeDone => 'Concluído';
+
+  @override
+  String get toolShelfGm => 'Mestre de jogo';
 }

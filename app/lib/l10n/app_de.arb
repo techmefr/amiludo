@@ -1619,5 +1619,6 @@
   "buildExport": "Exportieren",
   "buildMine": "Meine Begleiter",
   "buildArrange": "Anordnen",
-  "buildArrangeDone": "Fertig"
+  "buildArrangeDone": "Fertig",
+  "toolShelfGm": "Spielleitung"
 }

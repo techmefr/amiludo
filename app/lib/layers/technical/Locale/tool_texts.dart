@@ -178,6 +178,7 @@ extension ToolTexts on BuildContext {
       'story' => l.toolShelfStory,
       'generators' => l.toolShelfGenerators,
       'characters' => l.toolShelfCharacters,
+      'gm' => l.toolShelfGm,
       _ => l.toolShelfPlayers,
     };
   }

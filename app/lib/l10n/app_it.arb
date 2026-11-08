@@ -1619,5 +1619,6 @@
   "buildExport": "Esporta",
   "buildMine": "I miei compagni",
   "buildArrange": "Riordina",
-  "buildArrangeDone": "Fatto"
+  "buildArrangeDone": "Fatto",
+  "toolShelfGm": "Master"
 }

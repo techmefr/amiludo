@@ -2280,5 +2280,6 @@
   "buildExport": "Export",
   "buildMine": "My companions",
   "buildArrange": "Arrange",
-  "buildArrangeDone": "Done"
+  "buildArrangeDone": "Done",
+  "toolShelfGm": "Game master"
 }

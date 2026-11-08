@@ -5209,4 +5209,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get buildArrangeDone => 'Done';
+
+  @override
+  String get toolShelfGm => 'Game master';
 }

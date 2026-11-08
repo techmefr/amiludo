@@ -5246,4 +5246,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get buildArrangeDone => 'Fertig';
+
+  @override
+  String get toolShelfGm => 'Spielleitung';
 }

@@ -17,6 +17,7 @@ import 'package:amiludo/layers/functional/Random/domain/entities/tool_shelves.da
 import 'package:amiludo/layers/functional/Random/domain/use_cases/remember_tool_use_case.dart';
 import 'package:amiludo/layers/functional/Random/domain/use_cases/reorder_favorite_tools_use_case.dart';
 import 'package:amiludo/layers/functional/Random/presentation/tool_card.dart';
+import 'package:amiludo/layers/functional/Random/presentation/tool_category_tile.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 import 'package:amiludo/layers/technical/Storage/store_database.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
@@ -77,6 +78,15 @@ void _modelTests() {
       expect(toolShelf(shelf.id), same(shelf));
     }
     expect(toolShelf('unknown'), isNull);
+  });
+
+  test('the game master shelf gathers the behind the screen tools', () {
+    final shelf = toolShelf('gm')!;
+    expect(
+      shelf.tools,
+      containsAll(['npc', 'encounter', 'treasure', 'tavern', 'rumour']),
+    );
+    expect(toolShelfStyles.containsKey('gm'), isTrue);
   });
 
   test('the hero resumes the last tool or features an unpinned one', () {
