@@ -81,11 +81,7 @@ class _ToolPreviewState extends State<ToolPreview>
   Widget _stopwatch(BuildContext context, ToolTheme tool, double t) => Center(
     child: Text(
       formatStopwatch(Duration(milliseconds: (t * 83450).round())),
-      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-        fontFamily: 'Rajdhani',
-        fontWeight: FontWeight.w600,
-        fontFeatures: Numerals.tabular,
-      ),
+      style: Numerals.instrument(Theme.of(context).textTheme.headlineMedium),
     ),
   );
 

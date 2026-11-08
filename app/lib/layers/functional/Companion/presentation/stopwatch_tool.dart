@@ -93,10 +93,8 @@ class _StopwatchToolState extends State<StopwatchTool> {
                       child: ExcludeSemantics(
                         child: Text(
                           time,
-                          style: theme.textTheme.displayMedium?.copyWith(
-                            fontFamily: 'Rajdhani',
-                            fontWeight: FontWeight.w600,
-                            fontFeatures: Numerals.tabular,
+                          style: Numerals.instrument(
+                            theme.textTheme.displayMedium,
                           ),
                         ),
                       ),
