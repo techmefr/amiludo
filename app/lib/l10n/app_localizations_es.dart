@@ -2053,6 +2053,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get libraryColour => 'Color';
 
   @override
+  String get libraryViewShelf => 'Estantería';
+
+  @override
+  String get libraryViewCards => 'Tarjetas';
+
+  @override
+  String get libraryScanLookingUp => 'Buscando…';
+
+  @override
   String get libraryScanBox => 'Escanear una caja';
 
   @override

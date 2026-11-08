@@ -164,8 +164,10 @@ class EmptyPanel extends StatelessWidget {
     required this.message,
     this.action,
     this.icon = Icons.table_restaurant_outlined,
+    this.illustration,
   });
   final String title, message;
+  final String? illustration;
   final Widget? action;
   final IconData icon;
   @override
@@ -175,11 +177,23 @@ class EmptyPanel extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 24),
         child: Column(
           children: [
-            DeckIcon(
-              icon,
-              size: 48,
-              color: Theme.of(context).colorScheme.primary,
-            ),
+            if (illustration == null)
+              DeckIcon(
+                icon,
+                size: 48,
+                color: Theme.of(context).colorScheme.primary,
+              )
+            else
+              Image.asset(
+                illustration!,
+                height: 132,
+                excludeFromSemantics: true,
+                errorBuilder: (context, error, stack) => DeckIcon(
+                  icon,
+                  size: 48,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
             const SizedBox(height: 20),
             Text(
               title,

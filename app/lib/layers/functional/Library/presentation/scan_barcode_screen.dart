@@ -8,8 +8,10 @@ import 'package:amiludo/layers/functional/Library/domain/entities/barcode_match.
 import 'package:amiludo/layers/functional/Library/domain/entities/barcode_product.dart';
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
 import 'package:amiludo/layers/functional/Library/presentation/cubit/barcode_scan_cubit.dart';
-import 'package:amiludo/layers/functional/Library/presentation/shelf_game_sheet.dart';
+import 'package:amiludo/layers/functional/Library/presentation/scan_result_widgets.dart';
 import 'package:amiludo/layers/technical/Barcode/barcode_scanner_view.dart';
+import 'package:amiludo/layers/technical/Barcode/scan_frame.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
@@ -86,97 +88,82 @@ class _ScanBarcodeScreenState extends State<ScanBarcodeScreen> {
     if (mounted) setState(() => results = found);
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final l10n = context.l10n;
-    return FullPage(
-      title: l10n.libraryScanTitle,
-      fallback: '/library',
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(l10n.libraryScanHint),
-          const SizedBox(height: 16),
-          if (cameraScanSupported)
-            SizedBox(
-              height: 260,
-              child: widget.scanner(_resolve, l10n.libraryScanUnavailable),
-            ),
-          BlocBuilder<BarcodeScanCubit, bool>(
-            builder: (context, busy) =>
-                busy ? const LinearProgressIndicator() : const SizedBox(),
-          ),
-          const SizedBox(height: 16),
-          TextField(
-            controller: code,
-            keyboardType: TextInputType.number,
-            textInputAction: TextInputAction.search,
-            onSubmitted: (_) => _submit(),
-            decoration: InputDecoration(labelText: l10n.libraryScanCodeField),
-          ),
-          const SizedBox(height: 12),
-          FilledButton(onPressed: _submit, child: Text(l10n.libraryScanLookUp)),
-          if (owned case final game?) _OwnedCard(game: game),
-          if (context.read<BarcodeScanCubit>().canSearchOnline)
-            _OnlineSearch(
-              controller: name,
-              results: results,
-              onSearch: _search,
-              onPick: _draft,
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-class _OwnedCard extends StatelessWidget {
-  const _OwnedCard({required this.game});
-
-  final ShelfGame game;
-
-  @override
-  Widget build(BuildContext context) => Card(
-    margin: const EdgeInsets.only(top: 16),
-    child: ListTile(
-      title: Text(game.name),
-      subtitle: Text(context.l10n.libraryScanOwned),
-      trailing: TextButton(
-        onPressed: () => showShelfGameSheet(context, game),
-        child: Text(context.l10n.libraryScanOpen),
+  Widget _camera(BuildContext context) => ConstrainedBox(
+    constraints: const BoxConstraints(maxWidth: 560),
+    child: AspectRatio(
+      aspectRatio: 4 / 3,
+      child: BlocBuilder<BarcodeScanCubit, bool>(
+        builder: (context, busy) => ScanFrame(
+          busy: busy,
+          label: busy
+              ? context.l10n.libraryScanLookingUp
+              : context.l10n.libraryScanTitle,
+          child: widget.scanner(_resolve, context.l10n.libraryScanUnavailable),
+        ),
       ),
     ),
   );
-}
 
-class _OnlineSearch extends StatelessWidget {
-  const _OnlineSearch({
-    required this.controller,
-    required this.results,
-    required this.onSearch,
-    required this.onPick,
-  });
-
-  final TextEditingController controller;
-  final List<BarcodeProduct> results;
-  final VoidCallback onSearch;
-  final ValueChanged<BarcodeProduct> onPick;
+  Widget _form(BuildContext context) {
+    final l10n = context.l10n;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(l10n.libraryScanHint),
+        const SizedBox(height: 16),
+        TextField(
+          controller: code,
+          keyboardType: TextInputType.number,
+          textInputAction: TextInputAction.search,
+          onSubmitted: (_) => _submit(),
+          decoration: InputDecoration(labelText: l10n.libraryScanCodeField),
+        ),
+        const SizedBox(height: 12),
+        FilledButton(onPressed: _submit, child: Text(l10n.libraryScanLookUp)),
+        AnimatedSize(
+          duration: Motion.of(context, Motion.base),
+          curve: Motion.curve,
+          alignment: Alignment.topCenter,
+          child: owned == null ? const SizedBox() : OwnedCard(game: owned!),
+        ),
+        if (context.read<BarcodeScanCubit>().canSearchOnline)
+          OnlineSearch(
+            controller: name,
+            results: results,
+            onSearch: _search,
+            onPick: _draft,
+          ),
+      ],
+    );
+  }
 
   @override
-  Widget build(BuildContext context) => Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      const SizedBox(height: 24),
-      TextField(
-        controller: controller,
-        textInputAction: TextInputAction.search,
-        onSubmitted: (_) => onSearch(),
-        decoration: InputDecoration(
-          labelText: context.l10n.librarySearchOnline,
-        ),
-      ),
-      for (final r in results)
-        ListTile(title: Text(r.title), onTap: () => onPick(r)),
-    ],
+  Widget build(BuildContext context) => FullPage(
+    title: context.l10n.libraryScanTitle,
+    fallback: '/library',
+    child: LayoutBuilder(
+      builder: (context, c) {
+        final camera = cameraScanSupported;
+        if (!camera) return _form(context);
+        if (c.maxWidth < 900) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _camera(context),
+              const SizedBox(height: 16),
+              _form(context),
+            ],
+          );
+        }
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(child: _camera(context)),
+            const SizedBox(width: 32),
+            Expanded(child: _form(context)),
+          ],
+        );
+      },
+    ),
   );
 }

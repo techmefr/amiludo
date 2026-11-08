@@ -3,10 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
 
 class GameCover extends StatelessWidget {
-  const GameCover({super.key, required this.game, this.size = 96});
+  const GameCover({
+    super.key,
+    required this.game,
+    this.size = 96,
+    this.rounded = true,
+  });
 
   final ShelfGame game;
   final double size;
+  final bool rounded;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +32,7 @@ class GameCover extends StatelessWidget {
     );
     return ExcludeSemantics(
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(rounded ? 12 : 0),
         child: SizedBox(
           width: size,
           height: size,

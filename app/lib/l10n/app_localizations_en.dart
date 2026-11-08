@@ -2036,6 +2036,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get libraryColour => 'Colour';
 
   @override
+  String get libraryViewShelf => 'Shelf';
+
+  @override
+  String get libraryViewCards => 'Cards';
+
+  @override
+  String get libraryScanLookingUp => 'Looking up…';
+
+  @override
   String get libraryScanBox => 'Scan a box';
 
   @override

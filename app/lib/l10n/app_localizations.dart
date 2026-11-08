@@ -3857,6 +3857,24 @@ abstract class AppLocalizations {
   /// **'Colour'**
   String get libraryColour;
 
+  /// No description provided for @libraryViewShelf.
+  ///
+  /// In en, this message translates to:
+  /// **'Shelf'**
+  String get libraryViewShelf;
+
+  /// No description provided for @libraryViewCards.
+  ///
+  /// In en, this message translates to:
+  /// **'Cards'**
+  String get libraryViewCards;
+
+  /// No description provided for @libraryScanLookingUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Looking up…'**
+  String get libraryScanLookingUp;
+
   /// No description provided for @libraryScanBox.
   ///
   /// In en, this message translates to:

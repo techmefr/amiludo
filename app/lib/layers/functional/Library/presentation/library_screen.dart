@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
 import 'package:amiludo/layers/functional/Library/presentation/bookshelf.dart';
+import 'package:amiludo/layers/functional/Library/presentation/game_cards.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/functional/Library/presentation/cubit/library_cubit.dart';
 import 'package:amiludo/layers/functional/Library/presentation/shelf_game_sheet.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
@@ -19,6 +21,7 @@ class LibraryScreen extends StatefulWidget {
 class _LibraryScreenState extends State<LibraryScreen> {
   String query = '';
   String? genre;
+  bool cards = false;
 
   bool _matches(ShelfGame game) =>
       game.name.toLowerCase().contains(query.toLowerCase()) &&
@@ -49,20 +52,51 @@ class _LibraryScreenState extends State<LibraryScreen> {
             onQuery: (v) => setState(() => query = v),
             onGenre: (v) => setState(() => genre = v),
           ),
+          const SizedBox(height: 16),
+          SegmentedButton<bool>(
+            showSelectedIcon: false,
+            segments: [
+              ButtonSegment(
+                value: false,
+                icon: const Icon(Icons.view_week_outlined),
+                label: Text(context.l10n.libraryViewShelf),
+              ),
+              ButtonSegment(
+                value: true,
+                icon: const Icon(Icons.grid_view_outlined),
+                label: Text(context.l10n.libraryViewCards),
+              ),
+            ],
+            selected: {cards},
+            onSelectionChanged: (v) => setState(() => cards = v.first),
+          ),
           const SizedBox(height: 24),
         ],
         if (games.isEmpty)
           EmptyPanel(
             icon: Icons.collections_bookmark_outlined,
+            illustration: shelf.isEmpty
+                ? 'assets/illustrations/shelf-empty.png'
+                : 'assets/illustrations/no-game.png',
             title: shelf.isEmpty
                 ? context.l10n.libraryEmptyShelves
                 : context.l10n.libraryNoGameFound,
             message: context.l10n.libraryStoreYourBoxesHereTo,
           )
         else
-          Bookshelf(
-            games: games,
-            onOpen: (game) => showShelfGameSheet(context, game),
+          AnimatedSwitcher(
+            duration: Motion.of(context, Motion.base),
+            child: cards
+                ? GameCards(
+                    key: const ValueKey('cards'),
+                    games: games,
+                    onOpen: (game) => showShelfGameSheet(context, game),
+                  )
+                : Bookshelf(
+                    key: const ValueKey('shelf'),
+                    games: games,
+                    onOpen: (game) => showShelfGameSheet(context, game),
+                  ),
           ),
       ],
     );
