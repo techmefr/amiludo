@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/life_match.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/life_panel_parts.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
-import 'package:amiludo/layers/technical/Theme/components/stone_slab.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/counter_numeral.dart';
+import 'package:amiludo/layers/technical/Theme/components/color_slab.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -16,11 +17,12 @@ class LifePanel extends StatelessWidget {
     required this.accent,
     required this.onChange,
     required this.onDetails,
+    required this.onReset,
   });
   final LifePlayer player;
   final Color accent;
   final void Function(int delta) onChange;
-  final VoidCallback onDetails;
+  final VoidCallback onDetails, onReset;
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +30,13 @@ class LifePanel extends StatelessWidget {
     final theme = Theme.of(context);
     final out = player.out;
     final halo = out
-        ? StonePalette.danger
-        : (player.life <= _lowLife ? StonePalette.ember : null);
+        ? const Color(0xffff3b30)
+        : (player.life <= _lowLife ? const Color(0xffff9f0a) : null);
     return Padding(
       padding: const EdgeInsets.all(Space.xs),
-      child: StoneSlab(
-        accent: accent,
-        halo: halo,
+      child: ColorSlab(
+        color: accent,
+        glow: halo,
         child: Stack(
           fit: StackFit.expand,
           children: [
@@ -66,26 +68,17 @@ class LifePanel extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Flexible(
-                            child: FittedBox(
-                              fit: BoxFit.scaleDown,
-                              child: Text(
-                                '${player.life}',
-                                style: stoneNumerals(TypeScale.display * 3)
-                                    .copyWith(
-                                      color: out
-                                          ? StonePalette.cream.withValues(
-                                              alpha: .45,
-                                            )
-                                          : StonePalette.cream,
-                                    ),
-                              ),
+                            child: CounterNumeral(
+                              text: '${player.life}',
+                              value: player.life.toDouble(),
+                              size: TypeScale.display * 3,
                             ),
                           ),
                           if (out)
                             Text(
                               l.counterEliminated,
                               style: theme.textTheme.labelLarge?.copyWith(
-                                color: StonePalette.cream,
+                                color: slabInk,
                               ),
                             )
                           else
@@ -107,9 +100,22 @@ class LifePanel extends StatelessWidget {
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                   style: theme.textTheme.titleMedium?.copyWith(
-                    color: StonePalette.cream,
+                    color: slabInk,
                   ),
                 ),
+              ),
+            ),
+            Positioned(
+              top: 0,
+              left: 0,
+              child: IconButton(
+                tooltip: '${l.appearanceReset} ${player.name}',
+                constraints: const BoxConstraints(
+                  minWidth: Targets.minimum,
+                  minHeight: Targets.minimum,
+                ),
+                onPressed: onReset,
+                icon: const DeckIcon(Icons.restart_alt),
               ),
             ),
             Positioned(

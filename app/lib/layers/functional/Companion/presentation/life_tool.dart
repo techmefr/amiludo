@@ -32,12 +32,13 @@ class _LifeToolState extends State<LifeTool> {
     final player = controller.match.players[index];
     final panel = LifePanel(
       player: player,
-      accent: playerTints[index % playerTints.length],
+      accent: panelTints[index % panelTints.length],
       onChange: (delta) {
         tool.signal();
         controller.life(index, delta);
       },
       onDetails: () => showLifeDetails(context, controller, index),
+      onReset: () => controller.resetPlayer(index),
     );
     return Expanded(
       child: controller.match.players.length == 2 && index == 0

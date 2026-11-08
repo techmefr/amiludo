@@ -23,6 +23,8 @@ class LifeController extends ChangeNotifier {
     notifyListeners();
   }
 
+  void resetPlayer(int index) => _apply(match.resetPlayer(index));
+
   void life(int index, int delta) => _apply(match.life(index, delta));
 
   void poison(int index, int delta) => _apply(match.poison(index, delta));

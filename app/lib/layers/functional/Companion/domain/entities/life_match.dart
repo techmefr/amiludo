@@ -50,6 +50,11 @@ class LifeMatch {
     for (final (i, p) in players.indexed) i == index ? player : p,
   ], start: start);
 
+  LifeMatch resetPlayer(int index) => _with(
+    index,
+    LifePlayer(name: players[index].name, life: start),
+  );
+
   LifeMatch life(int index, int delta) =>
       _with(index, players[index].copy(life: players[index].life + delta));
 

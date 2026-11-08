@@ -37,8 +37,8 @@ class LifeHalf extends StatelessWidget {
             child: ExcludeSemantics(
               child: DeckIcon(
                 icon,
-                size: 28,
-                color: StonePalette.cream.withValues(alpha: .6),
+                size: 36,
+                color: const Color(0xffffffff).withValues(alpha: .8),
               ),
             ),
           ),
