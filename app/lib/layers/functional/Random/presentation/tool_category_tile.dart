@@ -85,9 +85,7 @@ class ToolCategoryTile extends StatelessWidget {
         },
         child: Stack(
           children: [
-            Positioned.fill(
-              child: ToolTextureLayer(texture: tool.texture, opacity: .09),
-            ),
+            ToolTextureLayer(texture: tool.texture, opacity: .09),
             Padding(
               padding: const EdgeInsets.all(Space.lg),
               child: Row(
