@@ -77,6 +77,10 @@ class _LibraryActions extends StatelessWidget {
     spacing: 12,
     runSpacing: 12,
     children: [
+      FilledButton.tonal(
+        onPressed: () => context.push('/library/scan'),
+        child: Text(context.l10n.libraryScanBox),
+      ),
       OutlinedButton(
         onPressed: () => context.push('/library/tonight'),
         child: Text(context.l10n.libraryWhatToPlay),

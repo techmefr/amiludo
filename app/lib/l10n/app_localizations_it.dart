@@ -2055,6 +2055,45 @@ class AppLocalizationsIt extends AppLocalizations {
   String get libraryColour => 'Colore';
 
   @override
+  String get libraryScanBox => 'Scansiona una scatola';
+
+  @override
+  String get libraryScanTitle => 'Scansiona un codice a barre';
+
+  @override
+  String get libraryScanHint => 'Inquadra il codice a barre della scatola o digita il numero qui sotto.';
+
+  @override
+  String get libraryScanUnavailable => 'Fotocamera non disponibile. Digita il codice.';
+
+  @override
+  String get libraryScanCodeField => 'Numero del codice a barre';
+
+  @override
+  String get libraryScanLookUp => 'Cerca';
+
+  @override
+  String get libraryScanOwned => 'Già nella tua libreria';
+
+  @override
+  String get libraryScanOpen => 'Apri';
+
+  @override
+  String get libraryScanFound => 'Gioco trovato. Controllalo e mettilo in libreria.';
+
+  @override
+  String get libraryScanUnknown => 'Codice sconosciuto. Compila il gioco, il codice verrà ricordato.';
+
+  @override
+  String get libraryScanOffline => 'Servizio di ricerca non raggiungibile. Compila il gioco a mano.';
+
+  @override
+  String get libraryScanCodeInvalid => 'Inserisci da 8 a 14 cifre.';
+
+  @override
+  String get librarySearchOnline => 'Cerca online per nome';
+
+  @override
   String get libraryBarcode => 'Codice a barre (EAN/UPC)';
 
   @override
