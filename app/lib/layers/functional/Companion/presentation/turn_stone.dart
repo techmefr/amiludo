@@ -29,7 +29,7 @@ class TurnStone extends StatelessWidget {
       child: ExcludeSemantics(
         child: AnimatedContainer(
           duration: Motion.of(context, Motion.base),
-          curve: Motion.spring,
+          curve: Motion.curve,
           padding: EdgeInsets.symmetric(
             horizontal: active ? Space.xl : Space.lg,
             vertical: active ? Space.md : Space.sm,
