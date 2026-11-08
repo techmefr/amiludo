@@ -4936,4 +4936,73 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get markerInitiative => 'Initiative';
+
+  @override
+  String get toolShelfParty => 'Party';
+
+  @override
+  String get toolOracleTitle => 'Orakel';
+
+  @override
+  String get toolOracleSubtitle => 'Stell eine Ja-Nein-Frage und lass das Chaos mitmischen.';
+
+  @override
+  String get oracleLikelihood => 'Wie wahrscheinlich ist es?';
+
+  @override
+  String get oracleUnlikely => 'Unwahrscheinlich';
+
+  @override
+  String get oracleEven => 'Fifty-fifty';
+
+  @override
+  String get oracleLikely => 'Wahrscheinlich';
+
+  @override
+  String get oracleChaos => 'Chaos';
+
+  @override
+  String get oracleChaosLess => 'Weniger Chaos';
+
+  @override
+  String get oracleChaosMore => 'Mehr Chaos';
+
+  @override
+  String get oracleAsk => 'Das Orakel befragen';
+
+  @override
+  String get oracleYes => 'Ja';
+
+  @override
+  String get oracleNo => 'Nein';
+
+  @override
+  String get oracleExceptionalYes => 'Ja, und mehr';
+
+  @override
+  String get oracleExceptionalNo => 'Nein, und schlimmer';
+
+  @override
+  String get oracleEvent => 'Ein Zufallsereignis tritt ein!';
+
+  @override
+  String get toolChallengesTitle => 'Mutproben';
+
+  @override
+  String get toolChallengesSubtitle => 'Zieh eine Mutprobe aus deiner eigenen Liste.';
+
+  @override
+  String get challengeDraw => 'Mutprobe ziehen';
+
+  @override
+  String get challengeFaceDown => 'Verdeckte Mutprobe';
+
+  @override
+  String get challengeEdit => 'Deine Mutproben, eine pro Zeile';
+
+  @override
+  String get challengeEditHelper => 'Zeilen frei ändern, hinzufügen oder entfernen.';
+
+  @override
+  String get challengeStarters => 'Erzähle einen Witz|Sing den Refrain eines Liedes|Mach zehn Hampelmänner|Sprich mit Akzent bis zu deiner nächsten Runde|Mach jedem Spieler ein Kompliment|Mime einen Film, bis jemand ihn errät';
 }

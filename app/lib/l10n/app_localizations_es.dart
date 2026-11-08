@@ -4925,4 +4925,73 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get markerInitiative => 'Iniciativa';
+
+  @override
+  String get toolShelfParty => 'Fiesta';
+
+  @override
+  String get toolOracleTitle => 'Oráculo';
+
+  @override
+  String get toolOracleSubtitle => 'Haz una pregunta de sí o no y deja que el caos intervenga.';
+
+  @override
+  String get oracleLikelihood => '¿Qué probabilidad hay?';
+
+  @override
+  String get oracleUnlikely => 'Improbable';
+
+  @override
+  String get oracleEven => 'Cincuenta-cincuenta';
+
+  @override
+  String get oracleLikely => 'Probable';
+
+  @override
+  String get oracleChaos => 'Caos';
+
+  @override
+  String get oracleChaosLess => 'Menos caos';
+
+  @override
+  String get oracleChaosMore => 'Más caos';
+
+  @override
+  String get oracleAsk => 'Consultar el oráculo';
+
+  @override
+  String get oracleYes => 'Sí';
+
+  @override
+  String get oracleNo => 'No';
+
+  @override
+  String get oracleExceptionalYes => 'Sí, y más';
+
+  @override
+  String get oracleExceptionalNo => 'No, y peor';
+
+  @override
+  String get oracleEvent => '¡Ocurre un evento aleatorio!';
+
+  @override
+  String get toolChallengesTitle => 'Retos y prendas';
+
+  @override
+  String get toolChallengesSubtitle => 'Roba un reto de tu propia lista.';
+
+  @override
+  String get challengeDraw => 'Robar un reto';
+
+  @override
+  String get challengeFaceDown => 'Reto boca abajo';
+
+  @override
+  String get challengeEdit => 'Tus retos, uno por línea';
+
+  @override
+  String get challengeEditHelper => 'Edita, añade o quita líneas libremente.';
+
+  @override
+  String get challengeStarters => 'Cuenta un chiste|Canta el estribillo de una canción|Haz diez saltos de tijera|Habla con acento hasta tu próximo turno|Dile un cumplido a cada jugador|Representa una película hasta que la adivinen';
 }

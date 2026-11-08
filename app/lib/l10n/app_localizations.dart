@@ -9221,6 +9221,144 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Initiative'**
   String get markerInitiative;
+
+  /// No description provided for @toolShelfParty.
+  ///
+  /// In en, this message translates to:
+  /// **'Party'**
+  String get toolShelfParty;
+
+  /// No description provided for @toolOracleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Oracle'**
+  String get toolOracleTitle;
+
+  /// No description provided for @toolOracleSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask a yes or no question, and let chaos meddle.'**
+  String get toolOracleSubtitle;
+
+  /// No description provided for @oracleLikelihood.
+  ///
+  /// In en, this message translates to:
+  /// **'How likely is it?'**
+  String get oracleLikelihood;
+
+  /// No description provided for @oracleUnlikely.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlikely'**
+  String get oracleUnlikely;
+
+  /// No description provided for @oracleEven.
+  ///
+  /// In en, this message translates to:
+  /// **'Fifty-fifty'**
+  String get oracleEven;
+
+  /// No description provided for @oracleLikely.
+  ///
+  /// In en, this message translates to:
+  /// **'Likely'**
+  String get oracleLikely;
+
+  /// No description provided for @oracleChaos.
+  ///
+  /// In en, this message translates to:
+  /// **'Chaos'**
+  String get oracleChaos;
+
+  /// No description provided for @oracleChaosLess.
+  ///
+  /// In en, this message translates to:
+  /// **'Less chaos'**
+  String get oracleChaosLess;
+
+  /// No description provided for @oracleChaosMore.
+  ///
+  /// In en, this message translates to:
+  /// **'More chaos'**
+  String get oracleChaosMore;
+
+  /// No description provided for @oracleAsk.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask the oracle'**
+  String get oracleAsk;
+
+  /// No description provided for @oracleYes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get oracleYes;
+
+  /// No description provided for @oracleNo.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get oracleNo;
+
+  /// No description provided for @oracleExceptionalYes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes, and more'**
+  String get oracleExceptionalYes;
+
+  /// No description provided for @oracleExceptionalNo.
+  ///
+  /// In en, this message translates to:
+  /// **'No, and worse'**
+  String get oracleExceptionalNo;
+
+  /// No description provided for @oracleEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'A random event occurs!'**
+  String get oracleEvent;
+
+  /// No description provided for @toolChallengesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Dares'**
+  String get toolChallengesTitle;
+
+  /// No description provided for @toolChallengesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw a dare from your own list.'**
+  String get toolChallengesSubtitle;
+
+  /// No description provided for @challengeDraw.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw a dare'**
+  String get challengeDraw;
+
+  /// No description provided for @challengeFaceDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Face-down dare'**
+  String get challengeFaceDown;
+
+  /// No description provided for @challengeEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Your dares, one per line'**
+  String get challengeEdit;
+
+  /// No description provided for @challengeEditHelper.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit, add or remove lines freely.'**
+  String get challengeEditHelper;
+
+  /// No description provided for @challengeStarters.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell a joke|Sing the chorus of a song|Do ten jumping jacks|Speak in an accent until your next turn|Compliment every player|Mime a movie until someone guesses it'**
+  String get challengeStarters;
 }
 
 class _AppLocalizationsDelegate

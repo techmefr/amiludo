@@ -4930,4 +4930,73 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get markerInitiative => 'Initiatief';
+
+  @override
+  String get toolShelfParty => 'Feest';
+
+  @override
+  String get toolOracleTitle => 'Orakel';
+
+  @override
+  String get toolOracleSubtitle => 'Stel een ja-neevraag en laat de chaos zijn gang gaan.';
+
+  @override
+  String get oracleLikelihood => 'Hoe waarschijnlijk is het?';
+
+  @override
+  String get oracleUnlikely => 'Onwaarschijnlijk';
+
+  @override
+  String get oracleEven => 'Fiftyfifty';
+
+  @override
+  String get oracleLikely => 'Waarschijnlijk';
+
+  @override
+  String get oracleChaos => 'Chaos';
+
+  @override
+  String get oracleChaosLess => 'Minder chaos';
+
+  @override
+  String get oracleChaosMore => 'Meer chaos';
+
+  @override
+  String get oracleAsk => 'Het orakel raadplegen';
+
+  @override
+  String get oracleYes => 'Ja';
+
+  @override
+  String get oracleNo => 'Nee';
+
+  @override
+  String get oracleExceptionalYes => 'Ja, en meer';
+
+  @override
+  String get oracleExceptionalNo => 'Nee, en erger';
+
+  @override
+  String get oracleEvent => 'Er gebeurt iets onverwachts!';
+
+  @override
+  String get toolChallengesTitle => 'Opdrachten';
+
+  @override
+  String get toolChallengesSubtitle => 'Trek een opdracht uit je eigen lijst.';
+
+  @override
+  String get challengeDraw => 'Trek een opdracht';
+
+  @override
+  String get challengeFaceDown => 'Gedekte opdracht';
+
+  @override
+  String get challengeEdit => 'Je opdrachten, één per regel';
+
+  @override
+  String get challengeEditHelper => 'Pas regels vrij aan, voeg ze toe of verwijder ze.';
+
+  @override
+  String get challengeStarters => 'Vertel een mop|Zing het refrein van een liedje|Doe tien jumping jacks|Praat met een accent tot je volgende beurt|Geef elke speler een compliment|Mime een film tot iemand hem raadt';
 }

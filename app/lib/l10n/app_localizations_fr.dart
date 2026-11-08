@@ -4932,4 +4932,73 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get markerInitiative => 'Initiative';
+
+  @override
+  String get toolShelfParty => 'Soirée';
+
+  @override
+  String get toolOracleTitle => 'Oracle';
+
+  @override
+  String get toolOracleSubtitle => 'Posez une question oui ou non et laissez le chaos s’en mêler.';
+
+  @override
+  String get oracleLikelihood => 'Quelle probabilité ?';
+
+  @override
+  String get oracleUnlikely => 'Peu probable';
+
+  @override
+  String get oracleEven => 'Cinquante-cinquante';
+
+  @override
+  String get oracleLikely => 'Probable';
+
+  @override
+  String get oracleChaos => 'Chaos';
+
+  @override
+  String get oracleChaosLess => 'Moins de chaos';
+
+  @override
+  String get oracleChaosMore => 'Plus de chaos';
+
+  @override
+  String get oracleAsk => 'Interroger l’oracle';
+
+  @override
+  String get oracleYes => 'Oui';
+
+  @override
+  String get oracleNo => 'Non';
+
+  @override
+  String get oracleExceptionalYes => 'Oui, et même plus';
+
+  @override
+  String get oracleExceptionalNo => 'Non, et pire';
+
+  @override
+  String get oracleEvent => 'Un événement aléatoire survient !';
+
+  @override
+  String get toolChallengesTitle => 'Défis et gages';
+
+  @override
+  String get toolChallengesSubtitle => 'Piochez un défi dans votre propre liste.';
+
+  @override
+  String get challengeDraw => 'Piocher un défi';
+
+  @override
+  String get challengeFaceDown => 'Défi face cachée';
+
+  @override
+  String get challengeEdit => 'Vos défis, un par ligne';
+
+  @override
+  String get challengeEditHelper => 'Modifiez, ajoutez ou retirez des lignes librement.';
+
+  @override
+  String get challengeStarters => 'Racontez une blague|Chantez le refrain d’une chanson|Faites dix sauts écartés|Parlez avec un accent jusqu’à votre prochain tour|Faites un compliment à chaque joueur|Mimez un film jusqu’à ce qu’on le devine';
 }

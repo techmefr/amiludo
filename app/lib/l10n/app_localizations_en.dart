@@ -4899,4 +4899,73 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get markerInitiative => 'Initiative';
+
+  @override
+  String get toolShelfParty => 'Party';
+
+  @override
+  String get toolOracleTitle => 'Oracle';
+
+  @override
+  String get toolOracleSubtitle => 'Ask a yes or no question, and let chaos meddle.';
+
+  @override
+  String get oracleLikelihood => 'How likely is it?';
+
+  @override
+  String get oracleUnlikely => 'Unlikely';
+
+  @override
+  String get oracleEven => 'Fifty-fifty';
+
+  @override
+  String get oracleLikely => 'Likely';
+
+  @override
+  String get oracleChaos => 'Chaos';
+
+  @override
+  String get oracleChaosLess => 'Less chaos';
+
+  @override
+  String get oracleChaosMore => 'More chaos';
+
+  @override
+  String get oracleAsk => 'Ask the oracle';
+
+  @override
+  String get oracleYes => 'Yes';
+
+  @override
+  String get oracleNo => 'No';
+
+  @override
+  String get oracleExceptionalYes => 'Yes, and more';
+
+  @override
+  String get oracleExceptionalNo => 'No, and worse';
+
+  @override
+  String get oracleEvent => 'A random event occurs!';
+
+  @override
+  String get toolChallengesTitle => 'Dares';
+
+  @override
+  String get toolChallengesSubtitle => 'Draw a dare from your own list.';
+
+  @override
+  String get challengeDraw => 'Draw a dare';
+
+  @override
+  String get challengeFaceDown => 'Face-down dare';
+
+  @override
+  String get challengeEdit => 'Your dares, one per line';
+
+  @override
+  String get challengeEditHelper => 'Edit, add or remove lines freely.';
+
+  @override
+  String get challengeStarters => 'Tell a joke|Sing the chorus of a song|Do ten jumping jacks|Speak in an accent until your next turn|Compliment every player|Mime a movie until someone guesses it';
 }

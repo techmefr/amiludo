@@ -4929,4 +4929,73 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get markerInitiative => 'Iniziativa';
+
+  @override
+  String get toolShelfParty => 'Festa';
+
+  @override
+  String get toolOracleTitle => 'Oracolo';
+
+  @override
+  String get toolOracleSubtitle => 'Fai una domanda sì o no e lascia intervenire il caos.';
+
+  @override
+  String get oracleLikelihood => 'Quanto è probabile?';
+
+  @override
+  String get oracleUnlikely => 'Improbabile';
+
+  @override
+  String get oracleEven => 'Cinquanta e cinquanta';
+
+  @override
+  String get oracleLikely => 'Probabile';
+
+  @override
+  String get oracleChaos => 'Caos';
+
+  @override
+  String get oracleChaosLess => 'Meno caos';
+
+  @override
+  String get oracleChaosMore => 'Più caos';
+
+  @override
+  String get oracleAsk => 'Interroga l’oracolo';
+
+  @override
+  String get oracleYes => 'Sì';
+
+  @override
+  String get oracleNo => 'No';
+
+  @override
+  String get oracleExceptionalYes => 'Sì, e anche di più';
+
+  @override
+  String get oracleExceptionalNo => 'No, e peggio';
+
+  @override
+  String get oracleEvent => 'Accade un evento casuale!';
+
+  @override
+  String get toolChallengesTitle => 'Sfide e penitenze';
+
+  @override
+  String get toolChallengesSubtitle => 'Pesca una sfida dalla tua lista.';
+
+  @override
+  String get challengeDraw => 'Pesca una sfida';
+
+  @override
+  String get challengeFaceDown => 'Sfida coperta';
+
+  @override
+  String get challengeEdit => 'Le tue sfide, una per riga';
+
+  @override
+  String get challengeEditHelper => 'Modifica, aggiungi o rimuovi righe liberamente.';
+
+  @override
+  String get challengeStarters => 'Racconta una barzelletta|Canta il ritornello di una canzone|Fai dieci salti a gambe divaricate|Parla con un accento fino al tuo prossimo turno|Fai un complimento a ogni giocatore|Mima un film finché qualcuno lo indovina';
 }
