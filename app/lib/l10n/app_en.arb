@@ -2205,5 +2205,38 @@
         "type": "int"
       }
     }
-  }
+  },
+  "toolSoloTitle": "Solo mode",
+  "toolSoloSubtitle": "An opponent deck that decides what the automaton does each turn.",
+  "soloGather": "Gather",
+  "soloAttack": "Attack",
+  "soloBuild": "Build",
+  "soloDefend": "Defend",
+  "soloExpand": "Expand",
+  "soloTrade": "Trade",
+  "soloLevel": "Level {level}",
+  "@soloLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "soloBonus": "+{bonus} for the automaton",
+  "@soloBonus": {
+    "placeholders": {
+      "bonus": {
+        "type": "int"
+      }
+    }
+  },
+  "soloRemaining": "{count} cards left",
+  "@soloRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "soloDraw": "Draw an action"
 }

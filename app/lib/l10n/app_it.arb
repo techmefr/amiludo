@@ -1579,5 +1579,17 @@
   "leagueAddMatch": "Aggiungi la partita",
   "leagueTable": "Classifica",
   "leagueRemoveMatch": "Rimuovi la partita",
-  "leagueRow": "{rank}. {name}, {points} punti in {played} partite"
+  "leagueRow": "{rank}. {name}, {points} punti in {played} partite",
+  "toolSoloTitle": "Modalità solo",
+  "toolSoloSubtitle": "Un mazzo avversario che decide cosa fa l'automa a ogni turno.",
+  "soloGather": "Raccogliere",
+  "soloAttack": "Attaccare",
+  "soloBuild": "Costruire",
+  "soloDefend": "Difendere",
+  "soloExpand": "Espandere",
+  "soloTrade": "Commerciare",
+  "soloLevel": "Livello {level}",
+  "soloBonus": "+{bonus} per l'automa",
+  "soloRemaining": "Restano {count} carte",
+  "soloDraw": "Pesca un'azione"
 }

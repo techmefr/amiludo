@@ -1579,5 +1579,17 @@
   "leagueAddMatch": "Wedstrijd toevoegen",
   "leagueTable": "Stand",
   "leagueRemoveMatch": "Wedstrijd verwijderen",
-  "leagueRow": "{rank}. {name}, {points} punten in {played} wedstrijden"
+  "leagueRow": "{rank}. {name}, {points} punten in {played} wedstrijden",
+  "toolSoloTitle": "Solomodus",
+  "toolSoloSubtitle": "Een tegenstanderstapel die bepaalt wat de automaat elke beurt doet.",
+  "soloGather": "Verzamelen",
+  "soloAttack": "Aanvallen",
+  "soloBuild": "Bouwen",
+  "soloDefend": "Verdedigen",
+  "soloExpand": "Uitbreiden",
+  "soloTrade": "Handelen",
+  "soloLevel": "Niveau {level}",
+  "soloBonus": "+{bonus} voor de automaat",
+  "soloRemaining": "Nog {count} kaarten",
+  "soloDraw": "Actie trekken"
 }

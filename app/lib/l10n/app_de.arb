@@ -1579,5 +1579,17 @@
   "leagueAddMatch": "Spiel hinzufügen",
   "leagueTable": "Tabelle",
   "leagueRemoveMatch": "Spiel entfernen",
-  "leagueRow": "{rank}. {name}, {points} Punkte aus {played} Spielen"
+  "leagueRow": "{rank}. {name}, {points} Punkte aus {played} Spielen",
+  "toolSoloTitle": "Solomodus",
+  "toolSoloSubtitle": "Ein Gegnerstapel, der entscheidet, was der Automat jede Runde tut.",
+  "soloGather": "Sammeln",
+  "soloAttack": "Angreifen",
+  "soloBuild": "Bauen",
+  "soloDefend": "Verteidigen",
+  "soloExpand": "Ausbreiten",
+  "soloTrade": "Handeln",
+  "soloLevel": "Stufe {level}",
+  "soloBonus": "+{bonus} für den Automaten",
+  "soloRemaining": "Noch {count} Karten",
+  "soloDraw": "Aktion ziehen"
 }

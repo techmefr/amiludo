@@ -1579,5 +1579,17 @@
   "leagueAddMatch": "Añadir el partido",
   "leagueTable": "Tabla",
   "leagueRemoveMatch": "Quitar el partido",
-  "leagueRow": "{rank}. {name}, {points} puntos en {played} partidos"
+  "leagueRow": "{rank}. {name}, {points} puntos en {played} partidos",
+  "toolSoloTitle": "Modo solitario",
+  "toolSoloSubtitle": "Un mazo rival que decide lo que hace el autómata cada turno.",
+  "soloGather": "Recolectar",
+  "soloAttack": "Atacar",
+  "soloBuild": "Construir",
+  "soloDefend": "Defender",
+  "soloExpand": "Expandir",
+  "soloTrade": "Comerciar",
+  "soloLevel": "Nivel {level}",
+  "soloBonus": "+{bonus} para el autómata",
+  "soloRemaining": "Quedan {count} cartas",
+  "soloDraw": "Robar una acción"
 }

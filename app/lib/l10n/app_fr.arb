@@ -1579,5 +1579,17 @@
   "leagueAddMatch": "Ajouter le match",
   "leagueTable": "Classement",
   "leagueRemoveMatch": "Retirer le match",
-  "leagueRow": "{rank}. {name}, {points} points en {played} matchs"
+  "leagueRow": "{rank}. {name}, {points} points en {played} matchs",
+  "toolSoloTitle": "Mode solo",
+  "toolSoloSubtitle": "Un paquet adverse qui décide de l'action de l'automate à chaque tour.",
+  "soloGather": "Récolter",
+  "soloAttack": "Attaquer",
+  "soloBuild": "Construire",
+  "soloDefend": "Défendre",
+  "soloExpand": "Étendre",
+  "soloTrade": "Commercer",
+  "soloLevel": "Niveau {level}",
+  "soloBonus": "+{bonus} pour l'automate",
+  "soloRemaining": "{count} cartes restantes",
+  "soloDraw": "Tirer une action"
 }

@@ -5105,4 +5105,46 @@ class AppLocalizationsEs extends AppLocalizations {
   String leagueRow(int rank, String name, int points, int played) {
     return '$rank. $name, $points puntos en $played partidos';
   }
+
+  @override
+  String get toolSoloTitle => 'Modo solitario';
+
+  @override
+  String get toolSoloSubtitle => 'Un mazo rival que decide lo que hace el autómata cada turno.';
+
+  @override
+  String get soloGather => 'Recolectar';
+
+  @override
+  String get soloAttack => 'Atacar';
+
+  @override
+  String get soloBuild => 'Construir';
+
+  @override
+  String get soloDefend => 'Defender';
+
+  @override
+  String get soloExpand => 'Expandir';
+
+  @override
+  String get soloTrade => 'Comerciar';
+
+  @override
+  String soloLevel(int level) {
+    return 'Nivel $level';
+  }
+
+  @override
+  String soloBonus(int bonus) {
+    return '+$bonus para el autómata';
+  }
+
+  @override
+  String soloRemaining(int count) {
+    return 'Quedan $count cartas';
+  }
+
+  @override
+  String get soloDraw => 'Robar una acción';
 }
