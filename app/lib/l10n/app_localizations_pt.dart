@@ -4699,4 +4699,107 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get sheetTotal => 'Total';
+
+  @override
+  String get toolShelfAmbience => 'Ambiente';
+
+  @override
+  String get toolAmbienceTitle => 'Sons ambiente';
+
+  @override
+  String get toolAmbienceSubtitle => 'Misture chuva, vento, fogo e tempestade sob o seu jogo.';
+
+  @override
+  String get ambienceRain => 'Chuva';
+
+  @override
+  String get ambienceWind => 'Vento';
+
+  @override
+  String get ambienceFire => 'Fogo';
+
+  @override
+  String get ambienceStorm => 'Tempestade';
+
+  @override
+  String get ambienceSilence => 'Silenciar tudo';
+
+  @override
+  String get toolImpostorTitle => 'Impostor';
+
+  @override
+  String get toolImpostorSubtitle => 'Um jogador não conhece a palavra secreta.';
+
+  @override
+  String get impostorWord => 'Palavra secreta';
+
+  @override
+  String get impostorHint => 'Cada um dá uma pista sobre a palavra. O impostor tem de disfarçar.';
+
+  @override
+  String get impostorPlayers => 'Jogadores';
+
+  @override
+  String get impostorFewer => 'Menos jogadores';
+
+  @override
+  String get impostorMore => 'Mais jogadores';
+
+  @override
+  String get impostorStart => 'Distribuir os papéis';
+
+  @override
+  String get impostorNeedWord => 'Escreva uma palavra secreta.';
+
+  @override
+  String impostorTurn(int number, int total) {
+    return 'Jogador $number de $total';
+  }
+
+  @override
+  String get impostorPass => 'Passe o telemóvel ao próximo jogador.';
+
+  @override
+  String get impostorShow => 'Ver o meu papel';
+
+  @override
+  String get impostorYouAre => 'Você é o impostor';
+
+  @override
+  String get impostorWordIs => 'A palavra é';
+
+  @override
+  String get impostorHide => 'Esconder e passar';
+
+  @override
+  String get impostorAllSeen => 'Todos conhecem o seu papel.';
+
+  @override
+  String get impostorReveal => 'Revelar o impostor';
+
+  @override
+  String impostorWas(int number) {
+    return 'O impostor era o jogador $number';
+  }
+
+  @override
+  String get impostorAgain => 'Nova ronda';
+
+  @override
+  String get toolJournalTitle => 'Diário de jogo';
+
+  @override
+  String get toolJournalSubtitle => 'Anote o que acontece, do mais recente.';
+
+  @override
+  String get journalWrite => 'O que acabou de acontecer?';
+
+  @override
+  String get journalAdd => 'Adicionar ao diário';
+
+  @override
+  String get journalEmpty => 'O diário está vazio.';
+
+  @override
+  String get journalDelete => 'Excluir nota';
 }

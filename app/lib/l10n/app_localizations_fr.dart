@@ -4703,4 +4703,107 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get sheetTotal => 'Total';
+
+  @override
+  String get toolShelfAmbience => 'Ambiance';
+
+  @override
+  String get toolAmbienceTitle => 'Sons d’ambiance';
+
+  @override
+  String get toolAmbienceSubtitle => 'Mélangez pluie, vent, feu et orage sous votre partie.';
+
+  @override
+  String get ambienceRain => 'Pluie';
+
+  @override
+  String get ambienceWind => 'Vent';
+
+  @override
+  String get ambienceFire => 'Feu';
+
+  @override
+  String get ambienceStorm => 'Orage';
+
+  @override
+  String get ambienceSilence => 'Tout couper';
+
+  @override
+  String get toolImpostorTitle => 'Imposteur';
+
+  @override
+  String get toolImpostorSubtitle => 'Un joueur ne connaît pas le mot secret.';
+
+  @override
+  String get impostorWord => 'Mot secret';
+
+  @override
+  String get impostorHint => 'Chacun donne un indice sur le mot. L’imposteur doit bluffer.';
+
+  @override
+  String get impostorPlayers => 'Joueurs';
+
+  @override
+  String get impostorFewer => 'Moins de joueurs';
+
+  @override
+  String get impostorMore => 'Plus de joueurs';
+
+  @override
+  String get impostorStart => 'Distribuer les rôles';
+
+  @override
+  String get impostorNeedWord => 'Saisissez un mot secret.';
+
+  @override
+  String impostorTurn(int number, int total) {
+    return 'Joueur $number sur $total';
+  }
+
+  @override
+  String get impostorPass => 'Passez le téléphone au joueur suivant.';
+
+  @override
+  String get impostorShow => 'Voir mon rôle';
+
+  @override
+  String get impostorYouAre => 'Vous êtes l’imposteur';
+
+  @override
+  String get impostorWordIs => 'Le mot est';
+
+  @override
+  String get impostorHide => 'Cacher et passer';
+
+  @override
+  String get impostorAllSeen => 'Chacun connaît son rôle.';
+
+  @override
+  String get impostorReveal => 'Révéler l’imposteur';
+
+  @override
+  String impostorWas(int number) {
+    return 'L’imposteur était le joueur $number';
+  }
+
+  @override
+  String get impostorAgain => 'Nouvelle manche';
+
+  @override
+  String get toolJournalTitle => 'Journal de partie';
+
+  @override
+  String get toolJournalSubtitle => 'Notez ce qui se passe, le plus récent en premier.';
+
+  @override
+  String get journalWrite => 'Que vient-il de se passer ?';
+
+  @override
+  String get journalAdd => 'Ajouter au journal';
+
+  @override
+  String get journalEmpty => 'Le journal est vide.';
+
+  @override
+  String get journalDelete => 'Supprimer la note';
 }

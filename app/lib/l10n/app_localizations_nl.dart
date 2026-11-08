@@ -4701,4 +4701,107 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get sheetTotal => 'Totaal';
+
+  @override
+  String get toolShelfAmbience => 'Sfeer';
+
+  @override
+  String get toolAmbienceTitle => 'Omgevingsgeluiden';
+
+  @override
+  String get toolAmbienceSubtitle => 'Mix regen, wind, vuur en storm onder je spel.';
+
+  @override
+  String get ambienceRain => 'Regen';
+
+  @override
+  String get ambienceWind => 'Wind';
+
+  @override
+  String get ambienceFire => 'Vuur';
+
+  @override
+  String get ambienceStorm => 'Onweer';
+
+  @override
+  String get ambienceSilence => 'Alles stil';
+
+  @override
+  String get toolImpostorTitle => 'Bedrieger';
+
+  @override
+  String get toolImpostorSubtitle => 'Eén speler kent het geheime woord niet.';
+
+  @override
+  String get impostorWord => 'Geheim woord';
+
+  @override
+  String get impostorHint => 'Iedereen geeft een hint over het woord. De bedrieger moet bluffen.';
+
+  @override
+  String get impostorPlayers => 'Spelers';
+
+  @override
+  String get impostorFewer => 'Minder spelers';
+
+  @override
+  String get impostorMore => 'Meer spelers';
+
+  @override
+  String get impostorStart => 'Rollen uitdelen';
+
+  @override
+  String get impostorNeedWord => 'Voer een geheim woord in.';
+
+  @override
+  String impostorTurn(int number, int total) {
+    return 'Speler $number van $total';
+  }
+
+  @override
+  String get impostorPass => 'Geef de telefoon aan de volgende speler.';
+
+  @override
+  String get impostorShow => 'Mijn rol tonen';
+
+  @override
+  String get impostorYouAre => 'Jij bent de bedrieger';
+
+  @override
+  String get impostorWordIs => 'Het woord is';
+
+  @override
+  String get impostorHide => 'Verbergen en doorgeven';
+
+  @override
+  String get impostorAllSeen => 'Iedereen kent zijn rol.';
+
+  @override
+  String get impostorReveal => 'Bedrieger onthullen';
+
+  @override
+  String impostorWas(int number) {
+    return 'De bedrieger was speler $number';
+  }
+
+  @override
+  String get impostorAgain => 'Nieuwe ronde';
+
+  @override
+  String get toolJournalTitle => 'Spellogboek';
+
+  @override
+  String get toolJournalSubtitle => 'Noteer wat er gebeurt, nieuwste eerst.';
+
+  @override
+  String get journalWrite => 'Wat is er net gebeurd?';
+
+  @override
+  String get journalAdd => 'Aan het logboek toevoegen';
+
+  @override
+  String get journalEmpty => 'Het logboek is leeg.';
+
+  @override
+  String get journalDelete => 'Notitie verwijderen';
 }
