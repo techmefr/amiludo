@@ -10025,6 +10025,180 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Use {total}'**
   String combatUseRoll(int total);
+
+  /// No description provided for @toolBestiaryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Bestiary'**
+  String get toolBestiaryTitle;
+
+  /// No description provided for @toolBestiarySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'NPCs, monsters and treasures with free stat blocks.'**
+  String get toolBestiarySubtitle;
+
+  /// No description provided for @bestiaryEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Your bestiary is empty. Add a first entry.'**
+  String get bestiaryEmpty;
+
+  /// No description provided for @bestiaryNoMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing matches.'**
+  String get bestiaryNoMatch;
+
+  /// No description provided for @bestiaryAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'New entry'**
+  String get bestiaryAdd;
+
+  /// No description provided for @bestiarySearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get bestiarySearch;
+
+  /// No description provided for @bestiaryAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get bestiaryAll;
+
+  /// No description provided for @bestiaryNpc.
+  ///
+  /// In en, this message translates to:
+  /// **'NPC'**
+  String get bestiaryNpc;
+
+  /// No description provided for @bestiaryMonster.
+  ///
+  /// In en, this message translates to:
+  /// **'Monster'**
+  String get bestiaryMonster;
+
+  /// No description provided for @bestiaryTreasure.
+  ///
+  /// In en, this message translates to:
+  /// **'Treasure'**
+  String get bestiaryTreasure;
+
+  /// No description provided for @bestiaryTags.
+  ///
+  /// In en, this message translates to:
+  /// **'Tags, separated by commas'**
+  String get bestiaryTags;
+
+  /// No description provided for @bestiaryNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get bestiaryNotes;
+
+  /// No description provided for @bestiaryFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Stat block'**
+  String get bestiaryFields;
+
+  /// No description provided for @bestiaryFieldLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Label'**
+  String get bestiaryFieldLabel;
+
+  /// No description provided for @bestiaryFieldValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Value'**
+  String get bestiaryFieldValue;
+
+  /// No description provided for @bestiaryAddField.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a field'**
+  String get bestiaryAddField;
+
+  /// No description provided for @bestiaryRemoveField.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove the field {label}'**
+  String bestiaryRemoveField(String label);
+
+  /// No description provided for @bestiaryFieldDefense.
+  ///
+  /// In en, this message translates to:
+  /// **'Defense'**
+  String get bestiaryFieldDefense;
+
+  /// No description provided for @bestiaryFieldAttack.
+  ///
+  /// In en, this message translates to:
+  /// **'Attack'**
+  String get bestiaryFieldAttack;
+
+  /// No description provided for @bestiaryFieldSpeed.
+  ///
+  /// In en, this message translates to:
+  /// **'Speed'**
+  String get bestiaryFieldSpeed;
+
+  /// No description provided for @bestiaryFieldSpecial.
+  ///
+  /// In en, this message translates to:
+  /// **'Special'**
+  String get bestiaryFieldSpecial;
+
+  /// No description provided for @bestiarySave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get bestiarySave;
+
+  /// No description provided for @bestiaryDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this entry'**
+  String get bestiaryDelete;
+
+  /// No description provided for @bestiaryExport.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy as JSON'**
+  String get bestiaryExport;
+
+  /// No description provided for @bestiaryImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Import JSON'**
+  String get bestiaryImport;
+
+  /// No description provided for @bestiaryImportHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Paste the exported JSON'**
+  String get bestiaryImportHint;
+
+  /// No description provided for @bestiaryImported.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} entries imported'**
+  String bestiaryImported(int count);
+
+  /// No description provided for @bestiaryImportFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'This text is not a valid bestiary export.'**
+  String get bestiaryImportFailed;
+
+  /// No description provided for @bestiaryCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied to the clipboard'**
+  String get bestiaryCopied;
 }
 
 class _AppLocalizationsDelegate

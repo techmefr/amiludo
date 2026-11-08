@@ -376,6 +376,7 @@ const toolThemes = <String, ToolTheme>{
   'rumour': ToolTheme(accent: Color(0xff8A5A2B), texture: ToolTexture.deck),
   'trait': ToolTheme(accent: Color(0xff5A4FB0), texture: ToolTexture.deck),
   'twist': ToolTheme(accent: Color(0xffD2603F), texture: ToolTexture.deck),
+  'bestiary': ToolTheme(accent: Color(0xff2F6B4F), texture: ToolTexture.parchment),
   'combat': ToolTheme(
     accent: Color(0xffB4232F),
     texture: ToolTexture.frame,

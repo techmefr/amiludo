@@ -5374,4 +5374,95 @@ class AppLocalizationsNl extends AppLocalizations {
   String combatUseRoll(int total) {
     return '$total gebruiken';
   }
+
+  @override
+  String get toolBestiaryTitle => 'Bestiarium';
+
+  @override
+  String get toolBestiarySubtitle => 'NSP’s, monsters en schatten met vrije stat blocks.';
+
+  @override
+  String get bestiaryEmpty => 'Je bestiarium is leeg. Voeg een eerste item toe.';
+
+  @override
+  String get bestiaryNoMatch => 'Geen resultaten.';
+
+  @override
+  String get bestiaryAdd => 'Nieuw item';
+
+  @override
+  String get bestiarySearch => 'Zoeken';
+
+  @override
+  String get bestiaryAll => 'Alles';
+
+  @override
+  String get bestiaryNpc => 'NSP';
+
+  @override
+  String get bestiaryMonster => 'Monster';
+
+  @override
+  String get bestiaryTreasure => 'Schat';
+
+  @override
+  String get bestiaryTags => 'Labels, gescheiden door komma’s';
+
+  @override
+  String get bestiaryNotes => 'Notities';
+
+  @override
+  String get bestiaryFields => 'Stat block';
+
+  @override
+  String get bestiaryFieldLabel => 'Label';
+
+  @override
+  String get bestiaryFieldValue => 'Waarde';
+
+  @override
+  String get bestiaryAddField => 'Veld toevoegen';
+
+  @override
+  String bestiaryRemoveField(String label) {
+    return 'Veld $label verwijderen';
+  }
+
+  @override
+  String get bestiaryFieldDefense => 'Verdediging';
+
+  @override
+  String get bestiaryFieldAttack => 'Aanval';
+
+  @override
+  String get bestiaryFieldSpeed => 'Snelheid';
+
+  @override
+  String get bestiaryFieldSpecial => 'Speciaal';
+
+  @override
+  String get bestiarySave => 'Opslaan';
+
+  @override
+  String get bestiaryDelete => 'Dit item verwijderen';
+
+  @override
+  String get bestiaryExport => 'Kopiëren als JSON';
+
+  @override
+  String get bestiaryImport => 'JSON importeren';
+
+  @override
+  String get bestiaryImportHint => 'Plak de geëxporteerde JSON';
+
+  @override
+  String bestiaryImported(int count) {
+    return '$count items geïmporteerd';
+  }
+
+  @override
+  String get bestiaryImportFailed => 'Deze tekst is geen geldige bestiarium-export.';
+
+  @override
+  String get bestiaryCopied => 'Gekopieerd naar het klembord';
 }
