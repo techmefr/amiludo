@@ -39,7 +39,7 @@ class WorldPainter extends CustomPainter {
     final d = draft;
     if (d != null) _element(canvas, d, .8);
     final m = measure;
-    if (m != null) _measure(canvas, m., m.);
+    if (m != null) _measure(canvas, m.$1, m.$2);
   }
 
   void _measure(Canvas canvas, WorldPoint a, WorldPoint b) {
