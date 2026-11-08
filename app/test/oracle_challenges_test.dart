@@ -57,6 +57,7 @@ void main() {
   testWidgets('a dare is drawn from the list', (tester) async {
     await tester.pumpWidget(_host(ChallengesTool(random: Random(1))));
     await tester.enterText(find.byType(TextField), 'Dance\nSing');
+    await tester.ensureVisible(find.text('Draw a dare'));
     await tester.tap(find.text('Draw a dare'));
     await tester.pumpAndSettle();
     final card = tester.widget<PlayingCard>(find.byType(PlayingCard));
