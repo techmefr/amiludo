@@ -230,6 +230,9 @@ const toolThemes = <String, ToolTheme>{
   'solo': ToolTheme(
     accent: Color(0xff8A65D8),
     texture: ToolTexture.deck,
+  'units': ToolTheme(
+    accent: Color(0xff5A4FB0),
+    texture: ToolTexture.frame,
     motion: ToolMotion.flow,
   ),
   'turns': ToolTheme(

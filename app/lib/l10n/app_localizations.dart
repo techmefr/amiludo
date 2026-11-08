@@ -9617,6 +9617,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Draw an action'**
   String get soloDraw;
+
+  /// No description provided for @toolUnitsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Unit activation'**
+  String get toolUnitsTitle;
+
+  /// No description provided for @toolUnitsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Track which units have acted this round and draw the next one at random.'**
+  String get toolUnitsSubtitle;
+
+  /// No description provided for @unitsAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a unit'**
+  String get unitsAdd;
+
+  /// No description provided for @unitsName.
+  ///
+  /// In en, this message translates to:
+  /// **'Unit name'**
+  String get unitsName;
+
+  /// No description provided for @unitsRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove {name}'**
+  String unitsRemove(String name);
+
+  /// No description provided for @unitsDraw.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw the next unit'**
+  String get unitsDraw;
+
+  /// No description provided for @unitsNewRound.
+  ///
+  /// In en, this message translates to:
+  /// **'New round'**
+  String get unitsNewRound;
+
+  /// No description provided for @unitsDrawHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw to see who acts next'**
+  String get unitsDrawHint;
+
+  /// No description provided for @unitsNext.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} acts next'**
+  String unitsNext(String name);
+
+  /// No description provided for @unitsAllDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Every unit has acted'**
+  String get unitsAllDone;
 }
 
 class _AppLocalizationsDelegate

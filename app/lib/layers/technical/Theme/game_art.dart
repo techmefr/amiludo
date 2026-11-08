@@ -21,6 +21,7 @@ Color toolColor(String id) => switch (id) {
   'balance' => const Color(0xff59BBAA),
   'league' => const Color(0xffB38A1D),
   'solo' => const Color(0xff8A65D8),
+  'units' => const Color(0xff5A4FB0),
   'sheet' => const Color(0xff59BBAA),
   'turns' => const Color(0xff8A65D8),
   'first-player' => const Color(0xffED8D70),

@@ -2238,5 +2238,29 @@
       }
     }
   },
-  "soloDraw": "Draw an action"
+  "soloDraw": "Draw an action",
+  "toolUnitsTitle": "Unit activation",
+  "toolUnitsSubtitle": "Track which units have acted this round and draw the next one at random.",
+  "unitsAdd": "Add a unit",
+  "unitsName": "Unit name",
+  "unitsRemove": "Remove {name}",
+  "@unitsRemove": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "unitsDraw": "Draw the next unit",
+  "unitsNewRound": "New round",
+  "unitsDrawHint": "Draw to see who acts next",
+  "unitsNext": "{name} acts next",
+  "@unitsNext": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "unitsAllDone": "Every unit has acted"
 }

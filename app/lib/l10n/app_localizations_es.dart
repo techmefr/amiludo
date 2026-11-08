@@ -5147,4 +5147,38 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get soloDraw => 'Robar una acción';
+
+  @override
+  String get toolUnitsTitle => 'Activación de unidades';
+
+  @override
+  String get toolUnitsSubtitle => 'Sigue qué unidades han actuado esta ronda y saca la siguiente al azar.';
+
+  @override
+  String get unitsAdd => 'Añadir una unidad';
+
+  @override
+  String get unitsName => 'Nombre de la unidad';
+
+  @override
+  String unitsRemove(String name) {
+    return 'Quitar $name';
+  }
+
+  @override
+  String get unitsDraw => 'Sacar la siguiente unidad';
+
+  @override
+  String get unitsNewRound => 'Nueva ronda';
+
+  @override
+  String get unitsDrawHint => 'Saca para ver quién actúa a continuación';
+
+  @override
+  String unitsNext(String name) {
+    return 'Actúa $name';
+  }
+
+  @override
+  String get unitsAllDone => 'Todas las unidades han actuado';
 }

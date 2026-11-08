@@ -5158,4 +5158,38 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get soloDraw => 'Aktion ziehen';
+
+  @override
+  String get toolUnitsTitle => 'Einheitenaktivierung';
+
+  @override
+  String get toolUnitsSubtitle => 'Verfolge, welche Einheiten in dieser Runde gehandelt haben, und ziehe die nächste zufällig.';
+
+  @override
+  String get unitsAdd => 'Einheit hinzufügen';
+
+  @override
+  String get unitsName => 'Name der Einheit';
+
+  @override
+  String unitsRemove(String name) {
+    return '$name entfernen';
+  }
+
+  @override
+  String get unitsDraw => 'Nächste Einheit ziehen';
+
+  @override
+  String get unitsNewRound => 'Neue Runde';
+
+  @override
+  String get unitsDrawHint => 'Ziehe, um zu sehen, wer als Nächstes handelt';
+
+  @override
+  String unitsNext(String name) {
+    return '$name handelt als Nächstes';
+  }
+
+  @override
+  String get unitsAllDone => 'Alle Einheiten haben gehandelt';
 }

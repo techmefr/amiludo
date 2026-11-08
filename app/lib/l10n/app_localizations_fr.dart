@@ -5154,4 +5154,38 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get soloDraw => 'Tirer une action';
+
+  @override
+  String get toolUnitsTitle => 'Activation d\'unités';
+
+  @override
+  String get toolUnitsSubtitle => 'Suivez les unités qui ont agi ce tour et tirez la suivante au hasard.';
+
+  @override
+  String get unitsAdd => 'Ajouter une unité';
+
+  @override
+  String get unitsName => 'Nom de l\'unité';
+
+  @override
+  String unitsRemove(String name) {
+    return 'Retirer $name';
+  }
+
+  @override
+  String get unitsDraw => 'Tirer l\'unité suivante';
+
+  @override
+  String get unitsNewRound => 'Nouveau tour';
+
+  @override
+  String get unitsDrawHint => 'Tirez pour voir qui agit ensuite';
+
+  @override
+  String unitsNext(String name) {
+    return '$name agit ensuite';
+  }
+
+  @override
+  String get unitsAllDone => 'Toutes les unités ont agi';
 }

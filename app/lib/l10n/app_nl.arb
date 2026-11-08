@@ -1591,5 +1591,15 @@
   "soloLevel": "Niveau {level}",
   "soloBonus": "+{bonus} voor de automaat",
   "soloRemaining": "Nog {count} kaarten",
-  "soloDraw": "Actie trekken"
+  "soloDraw": "Actie trekken",
+  "toolUnitsTitle": "Eenhedenactivatie",
+  "toolUnitsSubtitle": "Houd bij welke eenheden deze ronde hebben gehandeld en trek de volgende willekeurig.",
+  "unitsAdd": "Eenheid toevoegen",
+  "unitsName": "Naam van de eenheid",
+  "unitsRemove": "{name} verwijderen",
+  "unitsDraw": "Volgende eenheid trekken",
+  "unitsNewRound": "Nieuwe ronde",
+  "unitsDrawHint": "Trek om te zien wie hierna handelt",
+  "unitsNext": "{name} is aan de beurt",
+  "unitsAllDone": "Alle eenheden hebben gehandeld"
 }

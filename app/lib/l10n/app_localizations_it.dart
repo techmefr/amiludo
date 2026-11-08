@@ -5151,4 +5151,38 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get soloDraw => 'Pesca un\'azione';
+
+  @override
+  String get toolUnitsTitle => 'Attivazione unità';
+
+  @override
+  String get toolUnitsSubtitle => 'Segui quali unità hanno agito in questo round e pesca la prossima a caso.';
+
+  @override
+  String get unitsAdd => 'Aggiungi un\'unità';
+
+  @override
+  String get unitsName => 'Nome dell\'unità';
+
+  @override
+  String unitsRemove(String name) {
+    return 'Rimuovi $name';
+  }
+
+  @override
+  String get unitsDraw => 'Pesca la prossima unità';
+
+  @override
+  String get unitsNewRound => 'Nuovo round';
+
+  @override
+  String get unitsDrawHint => 'Pesca per vedere chi agisce dopo';
+
+  @override
+  String unitsNext(String name) {
+    return 'Agisce $name';
+  }
+
+  @override
+  String get unitsAllDone => 'Tutte le unità hanno agito';
 }

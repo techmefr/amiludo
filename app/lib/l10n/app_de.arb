@@ -1591,5 +1591,15 @@
   "soloLevel": "Stufe {level}",
   "soloBonus": "+{bonus} für den Automaten",
   "soloRemaining": "Noch {count} Karten",
-  "soloDraw": "Aktion ziehen"
+  "soloDraw": "Aktion ziehen",
+  "toolUnitsTitle": "Einheitenaktivierung",
+  "toolUnitsSubtitle": "Verfolge, welche Einheiten in dieser Runde gehandelt haben, und ziehe die nächste zufällig.",
+  "unitsAdd": "Einheit hinzufügen",
+  "unitsName": "Name der Einheit",
+  "unitsRemove": "{name} entfernen",
+  "unitsDraw": "Nächste Einheit ziehen",
+  "unitsNewRound": "Neue Runde",
+  "unitsDrawHint": "Ziehe, um zu sehen, wer als Nächstes handelt",
+  "unitsNext": "{name} handelt als Nächstes",
+  "unitsAllDone": "Alle Einheiten haben gehandelt"
 }

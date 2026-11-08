@@ -1591,5 +1591,15 @@
   "soloLevel": "Livello {level}",
   "soloBonus": "+{bonus} per l'automa",
   "soloRemaining": "Restano {count} carte",
-  "soloDraw": "Pesca un'azione"
+  "soloDraw": "Pesca un'azione",
+  "toolUnitsTitle": "Attivazione unità",
+  "toolUnitsSubtitle": "Segui quali unità hanno agito in questo round e pesca la prossima a caso.",
+  "unitsAdd": "Aggiungi un'unità",
+  "unitsName": "Nome dell'unità",
+  "unitsRemove": "Rimuovi {name}",
+  "unitsDraw": "Pesca la prossima unità",
+  "unitsNewRound": "Nuovo round",
+  "unitsDrawHint": "Pesca per vedere chi agisce dopo",
+  "unitsNext": "Agisce {name}",
+  "unitsAllDone": "Tutte le unità hanno agito"
 }
