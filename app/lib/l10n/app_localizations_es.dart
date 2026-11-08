@@ -5181,4 +5181,40 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get unitsAllDone => 'Todas las unidades han actuado';
+
+  @override
+  String get buildTitle => 'Construir';
+
+  @override
+  String get buildSubtitle => 'Monta tu propio compañero de juego con herramientas.';
+
+  @override
+  String get buildName => 'Nombre del compañero';
+
+  @override
+  String get buildAdd => 'Añadir un bloque';
+
+  @override
+  String get buildSave => 'Guardar';
+
+  @override
+  String get buildLaunch => 'Iniciar la sesión';
+
+  @override
+  String get buildEmpty => 'Añade tu primer bloque para empezar.';
+
+  @override
+  String get buildSizeSmall => 'Pequeña';
+
+  @override
+  String get buildSizeMedium => 'Mediana';
+
+  @override
+  String get buildSizeLarge => 'Grande';
+
+  @override
+  String get buildRemove => 'Quitar el bloque';
+
+  @override
+  String get buildSaved => 'Compañero guardado.';
 }

@@ -2262,5 +2262,17 @@
       }
     }
   },
-  "unitsAllDone": "Every unit has acted"
+  "unitsAllDone": "Every unit has acted",
+  "buildTitle": "Build",
+  "buildSubtitle": "Assemble your own game companion from tools.",
+  "buildName": "Companion name",
+  "buildAdd": "Add a brick",
+  "buildSave": "Save",
+  "buildLaunch": "Start the session",
+  "buildEmpty": "Add your first brick to begin.",
+  "buildSizeSmall": "Small",
+  "buildSizeMedium": "Medium",
+  "buildSizeLarge": "Large",
+  "buildRemove": "Remove the brick",
+  "buildSaved": "Companion saved."
 }

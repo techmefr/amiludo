@@ -5186,4 +5186,40 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get unitsAllDone => 'Alle eenheden hebben gehandeld';
+
+  @override
+  String get buildTitle => 'Bouwen';
+
+  @override
+  String get buildSubtitle => 'Stel je eigen spelgenoot samen uit hulpmiddelen.';
+
+  @override
+  String get buildName => 'Naam van de spelgenoot';
+
+  @override
+  String get buildAdd => 'Blok toevoegen';
+
+  @override
+  String get buildSave => 'Opslaan';
+
+  @override
+  String get buildLaunch => 'Sessie starten';
+
+  @override
+  String get buildEmpty => 'Voeg je eerste blok toe om te beginnen.';
+
+  @override
+  String get buildSizeSmall => 'Klein';
+
+  @override
+  String get buildSizeMedium => 'Gemiddeld';
+
+  @override
+  String get buildSizeLarge => 'Groot';
+
+  @override
+  String get buildRemove => 'Blok verwijderen';
+
+  @override
+  String get buildSaved => 'Spelgenoot opgeslagen.';
 }

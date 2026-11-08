@@ -84,7 +84,12 @@ import 'package:amiludo/sheet_avatar.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/character_draft.dart';
 import 'package:amiludo/layers/functional/Random/presentation/tool_page.dart';
 import 'package:amiludo/layers/functional/Random/presentation/tools_screen.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/brick_layout.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/builder_entry.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/companion_builder.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/companion_session.dart';
+import 'package:amiludo/layers/technical/Locale/tool_texts.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/marketplace_cubit.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/marketplace_screen.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/pack_builder.dart';
@@ -276,24 +281,7 @@ class _SheetRoute extends StatelessWidget {
   }
 }
 
-final router = GoRouter(
-  routes: [
-    ...notebookRoutes,
-    _page('/chronicles', (state) => const _ChroniclesRoute()),
-    _page(
-      '/character-sheet',
-      (state) => _SheetRoute(
-        state.extra is SheetSeed ? state.extra as SheetSeed : null,
-        state.uri.queryParameters['pack'],
-      ),
-    ),
-    _page(
-      '/tools/:id',
-      (state) => ToolPage(
-        id: state.pathParameters['id']!,
-        packId: state.uri.queryParameters['pack'],
-        snapshot: state.uri.queryParameters['session'] == '1',
-        embeddedTools: const {
+const Map<String, WidgetBuilder> embeddedToolBuilders = {
           'scores': _scores,
           'timer': _timer,
           'stopwatch': _stopwatch,
@@ -336,7 +324,48 @@ final router = GoRouter(
           'counter-points': _counterPoints,
           'counter-chips': _counterChips,
           'counter-pot': _counterPot,
-        },
+};
+
+Widget? _brickWidget(BuildContext context, Brick brick) {
+  if (brick.type == 'counter') {
+    return CounterTool(
+      settings: CounterSettings.fromJson(brick.settings),
+      name: context.toolTitle(brick.toolId),
+    );
+  }
+  return embeddedToolBuilders[brick.type]?.call(context);
+}
+
+final router = GoRouter(
+  routes: [
+    ...notebookRoutes,
+    _page('/chronicles', (state) => const _ChroniclesRoute()),
+    _page('/build', (state) => const CompanionBuilder()),
+    _page(
+      '/build/:id',
+      (state) => CompanionBuilder(id: state.pathParameters['id']),
+    ),
+    _page(
+      '/play/:id',
+      (state) => CompanionSession(
+        id: state.pathParameters['id']!,
+        builder: _brickWidget,
+      ),
+    ),
+    _page(
+      '/character-sheet',
+      (state) => _SheetRoute(
+        state.extra is SheetSeed ? state.extra as SheetSeed : null,
+        state.uri.queryParameters['pack'],
+      ),
+    ),
+    _page(
+      '/tools/:id',
+      (state) => ToolPage(
+        id: state.pathParameters['id']!,
+        packId: state.uri.queryParameters['pack'],
+        snapshot: state.uri.queryParameters['session'] == '1',
+        embeddedTools: embeddedToolBuilders,
       ),
     ),
     GoRoute(path: '/timer', redirect: (context, state) => '/tools/timer'),

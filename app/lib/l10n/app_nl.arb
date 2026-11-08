@@ -1601,5 +1601,17 @@
   "unitsNewRound": "Nieuwe ronde",
   "unitsDrawHint": "Trek om te zien wie hierna handelt",
   "unitsNext": "{name} is aan de beurt",
-  "unitsAllDone": "Alle eenheden hebben gehandeld"
+  "unitsAllDone": "Alle eenheden hebben gehandeld",
+  "buildTitle": "Bouwen",
+  "buildSubtitle": "Stel je eigen spelgenoot samen uit hulpmiddelen.",
+  "buildName": "Naam van de spelgenoot",
+  "buildAdd": "Blok toevoegen",
+  "buildSave": "Opslaan",
+  "buildLaunch": "Sessie starten",
+  "buildEmpty": "Voeg je eerste blok toe om te beginnen.",
+  "buildSizeSmall": "Klein",
+  "buildSizeMedium": "Gemiddeld",
+  "buildSizeLarge": "Groot",
+  "buildRemove": "Blok verwijderen",
+  "buildSaved": "Spelgenoot opgeslagen."
 }

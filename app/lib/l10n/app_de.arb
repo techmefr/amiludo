@@ -1601,5 +1601,17 @@
   "unitsNewRound": "Neue Runde",
   "unitsDrawHint": "Ziehe, um zu sehen, wer als Nächstes handelt",
   "unitsNext": "{name} handelt als Nächstes",
-  "unitsAllDone": "Alle Einheiten haben gehandelt"
+  "unitsAllDone": "Alle Einheiten haben gehandelt",
+  "buildTitle": "Bauen",
+  "buildSubtitle": "Baue deinen eigenen Spielbegleiter aus Werkzeugen.",
+  "buildName": "Name des Begleiters",
+  "buildAdd": "Baustein hinzufügen",
+  "buildSave": "Speichern",
+  "buildLaunch": "Sitzung starten",
+  "buildEmpty": "Füge deinen ersten Baustein hinzu.",
+  "buildSizeSmall": "Klein",
+  "buildSizeMedium": "Mittel",
+  "buildSizeLarge": "Groß",
+  "buildRemove": "Baustein entfernen",
+  "buildSaved": "Begleiter gespeichert."
 }

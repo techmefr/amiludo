@@ -8377,6 +8377,78 @@ abstract class AppLocalizations {
   /// **'Timed phases that follow one another, round after round.'**
   String get toolPhasesSubtitle;
 
+  /// No description provided for @buildTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Build'**
+  String get buildTitle;
+
+  /// No description provided for @buildSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Assemble your own game companion from tools.'**
+  String get buildSubtitle;
+
+  /// No description provided for @buildName.
+  ///
+  /// In en, this message translates to:
+  /// **'Companion name'**
+  String get buildName;
+
+  /// No description provided for @buildAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a brick'**
+  String get buildAdd;
+
+  /// No description provided for @buildSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get buildSave;
+
+  /// No description provided for @buildLaunch.
+  ///
+  /// In en, this message translates to:
+  /// **'Start the session'**
+  String get buildLaunch;
+
+  /// No description provided for @buildEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your first brick to begin.'**
+  String get buildEmpty;
+
+  /// No description provided for @buildSizeSmall.
+  ///
+  /// In en, this message translates to:
+  /// **'Small'**
+  String get buildSizeSmall;
+
+  /// No description provided for @buildSizeMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get buildSizeMedium;
+
+  /// No description provided for @buildSizeLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'Large'**
+  String get buildSizeLarge;
+
+  /// No description provided for @buildRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove the brick'**
+  String get buildRemove;
+
+  /// No description provided for @buildSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Companion saved.'**
+  String get buildSaved;
+
   /// No description provided for @toolMetronomeTitle.
   ///
   /// In en, this message translates to:
