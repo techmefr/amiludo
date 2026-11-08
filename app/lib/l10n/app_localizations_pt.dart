@@ -5854,4 +5854,19 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get worldGmView => 'Visão do mestre';
+
+  @override
+  String get journalRecap => 'Resumo da sessão';
+
+  @override
+  String get journalRecapTitle => 'Resumo da sessão';
+
+  @override
+  String get journalRecapEmpty => 'Ainda nada para resumir.';
+
+  @override
+  String get journalRecapCopy => 'Copiar o resumo';
+
+  @override
+  String get journalRecapCopied => 'Resumo copiado';
 }

@@ -10925,6 +10925,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Game master view'**
   String get worldGmView;
+
+  /// No description provided for @journalRecap.
+  ///
+  /// In en, this message translates to:
+  /// **'Session recap'**
+  String get journalRecap;
+
+  /// No description provided for @journalRecapTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Recap of the session'**
+  String get journalRecapTitle;
+
+  /// No description provided for @journalRecapEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing to recap yet.'**
+  String get journalRecapEmpty;
+
+  /// No description provided for @journalRecapCopy.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy the recap'**
+  String get journalRecapCopy;
+
+  /// No description provided for @journalRecapCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Recap copied'**
+  String get journalRecapCopied;
 }
 
 class _AppLocalizationsDelegate

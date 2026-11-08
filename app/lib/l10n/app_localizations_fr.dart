@@ -5858,4 +5858,19 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get worldGmView => 'Vue meneur';
+
+  @override
+  String get journalRecap => 'Récap de séance';
+
+  @override
+  String get journalRecapTitle => 'Récapitulatif de la séance';
+
+  @override
+  String get journalRecapEmpty => 'Rien à résumer pour l’instant.';
+
+  @override
+  String get journalRecapCopy => 'Copier le récap';
+
+  @override
+  String get journalRecapCopied => 'Récap copié';
 }

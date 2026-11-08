@@ -5856,4 +5856,19 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get worldGmView => 'Spelleiderweergave';
+
+  @override
+  String get journalRecap => 'Sessieoverzicht';
+
+  @override
+  String get journalRecapTitle => 'Overzicht van de sessie';
+
+  @override
+  String get journalRecapEmpty => 'Nog niets om samen te vatten.';
+
+  @override
+  String get journalRecapCopy => 'Overzicht kopiëren';
+
+  @override
+  String get journalRecapCopied => 'Overzicht gekopieerd';
 }

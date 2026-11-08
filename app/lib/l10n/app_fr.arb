@@ -1809,5 +1809,10 @@
   "worldFogOn": "Activer le brouillard",
   "worldFogOff": "Désactiver le brouillard",
   "worldPlayerView": "Vue joueurs",
-  "worldGmView": "Vue meneur"
+  "worldGmView": "Vue meneur",
+  "journalRecap": "Récap de séance",
+  "journalRecapTitle": "Récapitulatif de la séance",
+  "journalRecapEmpty": "Rien à résumer pour l’instant.",
+  "journalRecapCopy": "Copier le récap",
+  "journalRecapCopied": "Récap copié"
 }

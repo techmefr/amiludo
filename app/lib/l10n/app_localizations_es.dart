@@ -5851,4 +5851,19 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get worldGmView => 'Vista del director';
+
+  @override
+  String get journalRecap => 'Resumen de sesión';
+
+  @override
+  String get journalRecapTitle => 'Resumen de la sesión';
+
+  @override
+  String get journalRecapEmpty => 'Aún no hay nada que resumir.';
+
+  @override
+  String get journalRecapCopy => 'Copiar el resumen';
+
+  @override
+  String get journalRecapCopied => 'Resumen copiado';
 }

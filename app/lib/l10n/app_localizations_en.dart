@@ -5825,4 +5825,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get worldGmView => 'Game master view';
+
+  @override
+  String get journalRecap => 'Session recap';
+
+  @override
+  String get journalRecapTitle => 'Recap of the session';
+
+  @override
+  String get journalRecapEmpty => 'Nothing to recap yet.';
+
+  @override
+  String get journalRecapCopy => 'Copy the recap';
+
+  @override
+  String get journalRecapCopied => 'Recap copied';
 }

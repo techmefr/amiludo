@@ -2646,5 +2646,10 @@
   "worldFogOn": "Turn on fog of war",
   "worldFogOff": "Turn off fog of war",
   "worldPlayerView": "Player view",
-  "worldGmView": "Game master view"
+  "worldGmView": "Game master view",
+  "journalRecap": "Session recap",
+  "journalRecapTitle": "Recap of the session",
+  "journalRecapEmpty": "Nothing to recap yet.",
+  "journalRecapCopy": "Copy the recap",
+  "journalRecapCopied": "Recap copied"
 }

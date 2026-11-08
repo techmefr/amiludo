@@ -1809,5 +1809,10 @@
   "worldFogOn": "Ativar a névoa",
   "worldFogOff": "Desativar a névoa",
   "worldPlayerView": "Visão dos jogadores",
-  "worldGmView": "Visão do mestre"
+  "worldGmView": "Visão do mestre",
+  "journalRecap": "Resumo da sessão",
+  "journalRecapTitle": "Resumo da sessão",
+  "journalRecapEmpty": "Ainda nada para resumir.",
+  "journalRecapCopy": "Copiar o resumo",
+  "journalRecapCopied": "Resumo copiado"
 }
