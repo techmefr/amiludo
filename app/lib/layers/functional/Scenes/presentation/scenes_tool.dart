@@ -32,7 +32,7 @@ class ScenesTool extends StatefulWidget {
 
 class _ScenesToolState extends State<ScenesTool> {
   late Storyline storyline = widget.initial;
-  final tool = toolThemeFor(scenes);
+  final tool = toolThemeFor('scenes');
   String? playingId;
 
   @override
