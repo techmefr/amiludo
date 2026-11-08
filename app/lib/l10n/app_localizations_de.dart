@@ -5380,4 +5380,95 @@ class AppLocalizationsDe extends AppLocalizations {
   String combatUseRoll(int total) {
     return '$total übernehmen';
   }
+
+  @override
+  String get toolBestiaryTitle => 'Bestiarium';
+
+  @override
+  String get toolBestiarySubtitle => 'NSC, Monster und Schätze mit freien Werteblöcken.';
+
+  @override
+  String get bestiaryEmpty => 'Dein Bestiarium ist leer. Füge einen ersten Eintrag hinzu.';
+
+  @override
+  String get bestiaryNoMatch => 'Nichts passt.';
+
+  @override
+  String get bestiaryAdd => 'Neuer Eintrag';
+
+  @override
+  String get bestiarySearch => 'Suchen';
+
+  @override
+  String get bestiaryAll => 'Alle';
+
+  @override
+  String get bestiaryNpc => 'NSC';
+
+  @override
+  String get bestiaryMonster => 'Monster';
+
+  @override
+  String get bestiaryTreasure => 'Schatz';
+
+  @override
+  String get bestiaryTags => 'Tags, durch Kommas getrennt';
+
+  @override
+  String get bestiaryNotes => 'Notizen';
+
+  @override
+  String get bestiaryFields => 'Werteblock';
+
+  @override
+  String get bestiaryFieldLabel => 'Bezeichnung';
+
+  @override
+  String get bestiaryFieldValue => 'Wert';
+
+  @override
+  String get bestiaryAddField => 'Feld hinzufügen';
+
+  @override
+  String bestiaryRemoveField(String label) {
+    return 'Feld $label entfernen';
+  }
+
+  @override
+  String get bestiaryFieldDefense => 'Verteidigung';
+
+  @override
+  String get bestiaryFieldAttack => 'Angriff';
+
+  @override
+  String get bestiaryFieldSpeed => 'Tempo';
+
+  @override
+  String get bestiaryFieldSpecial => 'Besonderes';
+
+  @override
+  String get bestiarySave => 'Speichern';
+
+  @override
+  String get bestiaryDelete => 'Diesen Eintrag löschen';
+
+  @override
+  String get bestiaryExport => 'Als JSON kopieren';
+
+  @override
+  String get bestiaryImport => 'JSON importieren';
+
+  @override
+  String get bestiaryImportHint => 'Exportiertes JSON einfügen';
+
+  @override
+  String bestiaryImported(int count) {
+    return '$count Einträge importiert';
+  }
+
+  @override
+  String get bestiaryImportFailed => 'Dieser Text ist kein gültiger Bestiarium-Export.';
+
+  @override
+  String get bestiaryCopied => 'In die Zwischenablage kopiert';
 }

@@ -5343,4 +5343,95 @@ class AppLocalizationsEn extends AppLocalizations {
   String combatUseRoll(int total) {
     return 'Use $total';
   }
+
+  @override
+  String get toolBestiaryTitle => 'Bestiary';
+
+  @override
+  String get toolBestiarySubtitle => 'NPCs, monsters and treasures with free stat blocks.';
+
+  @override
+  String get bestiaryEmpty => 'Your bestiary is empty. Add a first entry.';
+
+  @override
+  String get bestiaryNoMatch => 'Nothing matches.';
+
+  @override
+  String get bestiaryAdd => 'New entry';
+
+  @override
+  String get bestiarySearch => 'Search';
+
+  @override
+  String get bestiaryAll => 'All';
+
+  @override
+  String get bestiaryNpc => 'NPC';
+
+  @override
+  String get bestiaryMonster => 'Monster';
+
+  @override
+  String get bestiaryTreasure => 'Treasure';
+
+  @override
+  String get bestiaryTags => 'Tags, separated by commas';
+
+  @override
+  String get bestiaryNotes => 'Notes';
+
+  @override
+  String get bestiaryFields => 'Stat block';
+
+  @override
+  String get bestiaryFieldLabel => 'Label';
+
+  @override
+  String get bestiaryFieldValue => 'Value';
+
+  @override
+  String get bestiaryAddField => 'Add a field';
+
+  @override
+  String bestiaryRemoveField(String label) {
+    return 'Remove the field $label';
+  }
+
+  @override
+  String get bestiaryFieldDefense => 'Defense';
+
+  @override
+  String get bestiaryFieldAttack => 'Attack';
+
+  @override
+  String get bestiaryFieldSpeed => 'Speed';
+
+  @override
+  String get bestiaryFieldSpecial => 'Special';
+
+  @override
+  String get bestiarySave => 'Save';
+
+  @override
+  String get bestiaryDelete => 'Delete this entry';
+
+  @override
+  String get bestiaryExport => 'Copy as JSON';
+
+  @override
+  String get bestiaryImport => 'Import JSON';
+
+  @override
+  String get bestiaryImportHint => 'Paste the exported JSON';
+
+  @override
+  String bestiaryImported(int count) {
+    return '$count entries imported';
+  }
+
+  @override
+  String get bestiaryImportFailed => 'This text is not a valid bestiary export.';
+
+  @override
+  String get bestiaryCopied => 'Copied to the clipboard';
 }

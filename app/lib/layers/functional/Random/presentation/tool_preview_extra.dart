@@ -71,6 +71,30 @@ Widget _order(Color accent, Color ink, double t) {
   );
 }
 
+Widget _stack(Color accent, Color ink, double t) => Center(
+  child: SizedBox(
+    width: 120,
+    height: 90,
+    child: Stack(
+      alignment: Alignment.center,
+      children: [
+        for (var i = 2; i >= 0; i--)
+          Transform.translate(
+            offset: Offset(i * 10.0 * t, -i * 8.0 * t),
+            child: Container(
+              width: 70,
+              height: 56,
+              decoration: BoxDecoration(
+                color: i == 0 ? accent : ink.withValues(alpha: .25),
+                borderRadius: BorderRadius.circular(Radii.sm),
+              ),
+            ),
+          ),
+      ],
+    ),
+  ),
+);
+
 Widget? extraPreview(
   BuildContext context,
   String id,
@@ -84,6 +108,7 @@ Widget? extraPreview(
   'bank' => _count(context, ink, '${1500 + (200 * t).round()}'),
   'auction' => _count(context, ink, '${(35 * t).round()}'),
   'combat' => _order(accent, ink, t),
+  'bestiary' => _stack(accent, ink, t),
   'clocks' => Center(
     child: SizedBox.square(
       dimension: 76,

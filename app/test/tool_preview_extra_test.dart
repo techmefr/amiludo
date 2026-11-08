@@ -16,6 +16,7 @@ void main() {
         'auction',
         'clocks',
         'combat',
+        'bestiary',
         'sport',
       ]) {
         await tester.pumpWidget(

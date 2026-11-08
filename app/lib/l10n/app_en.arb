@@ -2378,5 +2378,48 @@
         "type": "int"
       }
     }
-  }
+  },
+  "toolBestiaryTitle": "Bestiary",
+  "toolBestiarySubtitle": "NPCs, monsters and treasures with free stat blocks.",
+  "bestiaryEmpty": "Your bestiary is empty. Add a first entry.",
+  "bestiaryNoMatch": "Nothing matches.",
+  "bestiaryAdd": "New entry",
+  "bestiarySearch": "Search",
+  "bestiaryAll": "All",
+  "bestiaryNpc": "NPC",
+  "bestiaryMonster": "Monster",
+  "bestiaryTreasure": "Treasure",
+  "bestiaryTags": "Tags, separated by commas",
+  "bestiaryNotes": "Notes",
+  "bestiaryFields": "Stat block",
+  "bestiaryFieldLabel": "Label",
+  "bestiaryFieldValue": "Value",
+  "bestiaryAddField": "Add a field",
+  "bestiaryRemoveField": "Remove the field {label}",
+  "@bestiaryRemoveField": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "bestiaryFieldDefense": "Defense",
+  "bestiaryFieldAttack": "Attack",
+  "bestiaryFieldSpeed": "Speed",
+  "bestiaryFieldSpecial": "Special",
+  "bestiarySave": "Save",
+  "bestiaryDelete": "Delete this entry",
+  "bestiaryExport": "Copy as JSON",
+  "bestiaryImport": "Import JSON",
+  "bestiaryImportHint": "Paste the exported JSON",
+  "bestiaryImported": "{count} entries imported",
+  "@bestiaryImported": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "bestiaryImportFailed": "This text is not a valid bestiary export.",
+  "bestiaryCopied": "Copied to the clipboard"
 }

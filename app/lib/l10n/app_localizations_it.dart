@@ -5373,4 +5373,95 @@ class AppLocalizationsIt extends AppLocalizations {
   String combatUseRoll(int total) {
     return 'Usa $total';
   }
+
+  @override
+  String get toolBestiaryTitle => 'Bestiario';
+
+  @override
+  String get toolBestiarySubtitle => 'PNG, mostri e tesori con schede libere.';
+
+  @override
+  String get bestiaryEmpty => 'Il tuo bestiario è vuoto. Aggiungi una prima scheda.';
+
+  @override
+  String get bestiaryNoMatch => 'Nessun risultato.';
+
+  @override
+  String get bestiaryAdd => 'Nuova scheda';
+
+  @override
+  String get bestiarySearch => 'Cerca';
+
+  @override
+  String get bestiaryAll => 'Tutto';
+
+  @override
+  String get bestiaryNpc => 'PNG';
+
+  @override
+  String get bestiaryMonster => 'Mostro';
+
+  @override
+  String get bestiaryTreasure => 'Tesoro';
+
+  @override
+  String get bestiaryTags => 'Etichette, separate da virgole';
+
+  @override
+  String get bestiaryNotes => 'Note';
+
+  @override
+  String get bestiaryFields => 'Scheda delle statistiche';
+
+  @override
+  String get bestiaryFieldLabel => 'Etichetta';
+
+  @override
+  String get bestiaryFieldValue => 'Valore';
+
+  @override
+  String get bestiaryAddField => 'Aggiungi un campo';
+
+  @override
+  String bestiaryRemoveField(String label) {
+    return 'Rimuovi il campo $label';
+  }
+
+  @override
+  String get bestiaryFieldDefense => 'Difesa';
+
+  @override
+  String get bestiaryFieldAttack => 'Attacco';
+
+  @override
+  String get bestiaryFieldSpeed => 'Velocità';
+
+  @override
+  String get bestiaryFieldSpecial => 'Speciale';
+
+  @override
+  String get bestiarySave => 'Salva';
+
+  @override
+  String get bestiaryDelete => 'Elimina questa scheda';
+
+  @override
+  String get bestiaryExport => 'Copia come JSON';
+
+  @override
+  String get bestiaryImport => 'Importa JSON';
+
+  @override
+  String get bestiaryImportHint => 'Incolla il JSON esportato';
+
+  @override
+  String bestiaryImported(int count) {
+    return '$count schede importate';
+  }
+
+  @override
+  String get bestiaryImportFailed => 'Questo testo non è un’esportazione di bestiario valida.';
+
+  @override
+  String get bestiaryCopied => 'Copiato negli appunti';
 }

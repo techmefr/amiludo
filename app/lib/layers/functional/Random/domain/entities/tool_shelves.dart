@@ -55,6 +55,7 @@ const toolShelves = [
     'twist',
   ]),
   ToolShelf('gm', [
+    'bestiary',
     'combat',
     'npc',
     'encounter',

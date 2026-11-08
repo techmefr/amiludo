@@ -5369,4 +5369,95 @@ class AppLocalizationsEs extends AppLocalizations {
   String combatUseRoll(int total) {
     return 'Usar $total';
   }
+
+  @override
+  String get toolBestiaryTitle => 'Bestiario';
+
+  @override
+  String get toolBestiarySubtitle => 'PNJ, monstruos y tesoros con fichas libres.';
+
+  @override
+  String get bestiaryEmpty => 'Tu bestiario está vacío. Añade una primera ficha.';
+
+  @override
+  String get bestiaryNoMatch => 'Sin resultados.';
+
+  @override
+  String get bestiaryAdd => 'Nueva ficha';
+
+  @override
+  String get bestiarySearch => 'Buscar';
+
+  @override
+  String get bestiaryAll => 'Todo';
+
+  @override
+  String get bestiaryNpc => 'PNJ';
+
+  @override
+  String get bestiaryMonster => 'Monstruo';
+
+  @override
+  String get bestiaryTreasure => 'Tesoro';
+
+  @override
+  String get bestiaryTags => 'Etiquetas, separadas por comas';
+
+  @override
+  String get bestiaryNotes => 'Notas';
+
+  @override
+  String get bestiaryFields => 'Ficha de estadísticas';
+
+  @override
+  String get bestiaryFieldLabel => 'Etiqueta';
+
+  @override
+  String get bestiaryFieldValue => 'Valor';
+
+  @override
+  String get bestiaryAddField => 'Añadir un campo';
+
+  @override
+  String bestiaryRemoveField(String label) {
+    return 'Quitar el campo $label';
+  }
+
+  @override
+  String get bestiaryFieldDefense => 'Defensa';
+
+  @override
+  String get bestiaryFieldAttack => 'Ataque';
+
+  @override
+  String get bestiaryFieldSpeed => 'Velocidad';
+
+  @override
+  String get bestiaryFieldSpecial => 'Especial';
+
+  @override
+  String get bestiarySave => 'Guardar';
+
+  @override
+  String get bestiaryDelete => 'Eliminar esta ficha';
+
+  @override
+  String get bestiaryExport => 'Copiar como JSON';
+
+  @override
+  String get bestiaryImport => 'Importar JSON';
+
+  @override
+  String get bestiaryImportHint => 'Pega el JSON exportado';
+
+  @override
+  String bestiaryImported(int count) {
+    return '$count fichas importadas';
+  }
+
+  @override
+  String get bestiaryImportFailed => 'Este texto no es una exportación de bestiario válida.';
+
+  @override
+  String get bestiaryCopied => 'Copiado al portapapeles';
 }
