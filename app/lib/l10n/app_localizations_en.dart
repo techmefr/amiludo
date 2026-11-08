@@ -5203,4 +5203,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get buildMine => 'My companions';
+
+  @override
+  String get buildArrange => 'Arrange';
+
+  @override
+  String get buildArrangeDone => 'Done';
 }

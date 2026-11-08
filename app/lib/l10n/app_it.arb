@@ -1617,5 +1617,7 @@
   "buildLabel": "Nome sulla tessera",
   "buildImport": "Importa",
   "buildExport": "Esporta",
-  "buildMine": "I miei compagni"
+  "buildMine": "I miei compagni",
+  "buildArrange": "Riordina",
+  "buildArrangeDone": "Fatto"
 }

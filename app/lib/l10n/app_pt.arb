@@ -1617,5 +1617,7 @@
   "buildLabel": "Nome no mosaico",
   "buildImport": "Importar",
   "buildExport": "Exportar",
-  "buildMine": "Os meus companheiros"
+  "buildMine": "Os meus companheiros",
+  "buildArrange": "Reorganizar",
+  "buildArrangeDone": "Concluído"
 }

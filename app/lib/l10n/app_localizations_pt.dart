@@ -5232,4 +5232,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get buildMine => 'Os meus companheiros';
+
+  @override
+  String get buildArrange => 'Reorganizar';
+
+  @override
+  String get buildArrangeDone => 'Concluído';
 }

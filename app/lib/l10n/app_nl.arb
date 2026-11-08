@@ -1617,5 +1617,7 @@
   "buildLabel": "Naam op de tegel",
   "buildImport": "Importeren",
   "buildExport": "Exporteren",
-  "buildMine": "Mijn spelgenoten"
+  "buildMine": "Mijn spelgenoten",
+  "buildArrange": "Herschikken",
+  "buildArrangeDone": "Klaar"
 }

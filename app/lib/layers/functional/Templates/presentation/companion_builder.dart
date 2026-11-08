@@ -12,7 +12,7 @@ import 'package:amiludo/layers/functional/Templates/presentation/brick_label_dia
 import 'package:amiludo/layers/functional/Templates/presentation/brick_settings_sheet.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/companion_file_actions.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/saved_companions.dart';
-import 'package:amiludo/layers/functional/Templates/presentation/companion_brick_row.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/companion_brick_list.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
@@ -120,37 +120,11 @@ class _CompanionBuilderState extends State<CompanionBuilder> {
             textInputAction: TextInputAction.done,
           ),
           const SizedBox(height: Space.xl),
-          if (bricks.isEmpty)
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: Space.xl),
-              child: Text(l.buildEmpty),
-            )
-          else
-            ReorderableListView(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              onReorderItem: (from, to) => _change(draft.move(from, to)),
-              children: [
-                for (var i = 0; i < bricks.length; i++)
-                  Padding(
-                    key: ValueKey(bricks[i].id),
-                    padding: const EdgeInsets.only(bottom: Space.sm),
-                    child: CompanionBrickRow(
-                      brick: bricks[i],
-                      onResize: (size) =>
-                          _change(draft.replace(bricks[i].resized(size))),
-                      onSettings: () => _settings(bricks[i]),
-                      onRemove: () => _change(draft.remove(bricks[i].id)),
-                      onEarlier: i == 0
-                          ? null
-                          : () => _change(draft.move(i, i - 1)),
-                      onLater: i == bricks.length - 1
-                          ? null
-                          : () => _change(draft.move(i, i + 1)),
-                    ),
-                  ),
-              ],
-            ),
+          CompanionBrickList(
+            draft: draft,
+            onChanged: _change,
+            onSettings: _settings,
+          ),
           const SizedBox(height: Space.lg),
           Wrap(
             spacing: Space.md,

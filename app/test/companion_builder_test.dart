@@ -5,6 +5,7 @@ import 'package:amiludo/dependencies.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/brick_layout.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/companion_session.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/session_grid.dart';
 import 'package:amiludo/layers/technical/Storage/store_database.dart';
 import 'package:amiludo/main.dart';
 import 'package:amiludo/router.dart';
@@ -33,6 +34,19 @@ void main() {
     expect(merged.size, TileSize.small);
     expect(merged.label, 'Sand');
     expect(merged.settings['start'], 3);
+  });
+
+  test('the session grid adapts columns and spans to the width', () {
+    expect(sessionColumns(390), 1);
+    expect(sessionColumns(844), 2);
+    expect(sessionColumns(1920), 5);
+    expect(sessionTileWidth(844, 2, 1), lessThan(sessionTileWidth(844, 2, 2)));
+    expect(sessionTileWidth(390, 1, 2), 390);
+    expect(
+      const Brick(id: 'a', type: 'dice').resized(TileSize.large).span,
+      2,
+    );
+    expect(const Brick(id: 'a', type: 'dice').span, 1);
   });
 
   testWidgets('build a companion, add a brick and start the session', (
@@ -64,6 +78,9 @@ void main() {
     await tester.tap(find.text('Lancer la session'));
     await tester.pumpAndSettle();
     expect(find.byType(CompanionSession), findsOneWidget);
+    await tester.tap(find.text('Réorganiser'));
+    await tester.pumpAndSettle();
+    expect(find.text('Terminé'), findsOneWidget);
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox());
     await db.close();

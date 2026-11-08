@@ -1617,5 +1617,7 @@
   "buildLabel": "Name auf der Kachel",
   "buildImport": "Importieren",
   "buildExport": "Exportieren",
-  "buildMine": "Meine Begleiter"
+  "buildMine": "Meine Begleiter",
+  "buildArrange": "Anordnen",
+  "buildArrangeDone": "Fertig"
 }

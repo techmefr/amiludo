@@ -1617,5 +1617,7 @@
   "buildLabel": "Nom sur la tuile",
   "buildImport": "Importer",
   "buildExport": "Exporter",
-  "buildMine": "Mes compagnons"
+  "buildMine": "Mes compagnons",
+  "buildArrange": "Réorganiser",
+  "buildArrangeDone": "Terminé"
 }

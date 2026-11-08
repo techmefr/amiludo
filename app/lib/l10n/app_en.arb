@@ -2278,5 +2278,7 @@
   "buildLabel": "Name on the tile",
   "buildImport": "Import",
   "buildExport": "Export",
-  "buildMine": "My companions"
+  "buildMine": "My companions",
+  "buildArrange": "Arrange",
+  "buildArrangeDone": "Done"
 }

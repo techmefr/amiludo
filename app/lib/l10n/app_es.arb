@@ -1617,5 +1617,7 @@
   "buildLabel": "Nombre en la ficha",
   "buildImport": "Importar",
   "buildExport": "Exportar",
-  "buildMine": "Mis compañeros"
+  "buildMine": "Mis compañeros",
+  "buildArrange": "Reorganizar",
+  "buildArrangeDone": "Listo"
 }
