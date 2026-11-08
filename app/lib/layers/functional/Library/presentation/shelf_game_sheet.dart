@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:amiludo/layers/functional/Friends/domain/entities/game_review.dart';
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
 import 'package:amiludo/layers/functional/Library/presentation/cubit/library_cubit.dart';
+import 'package:amiludo/layers/functional/Library/presentation/game_cover.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
@@ -57,7 +58,15 @@ class _ShelfGameSheet extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(game.name, style: theme.textTheme.headlineMedium),
+            Row(
+              children: [
+                GameCover(game: game),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Text(game.name, style: theme.textTheme.headlineMedium),
+                ),
+              ],
+            ),
             const SizedBox(height: 8),
             Text(
               '${game.minPlayers}-${game.maxPlayers} ${context.l10n.gamePlayers} · ${game.minutes} min · $plays ${context.l10n.libraryPlays}${stars == null ? '' : ' · ${stars.toStringAsFixed(1)} ★'}',

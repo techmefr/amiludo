@@ -2056,6 +2056,21 @@ class AppLocalizationsDe extends AppLocalizations {
   String get libraryColour => 'Farbe';
 
   @override
+  String get libraryBarcode => 'Strichcode (EAN/UPC)';
+
+  @override
+  String get libraryStatus => 'Status';
+
+  @override
+  String get libraryStatusOwned => 'Besitze ich';
+
+  @override
+  String get libraryStatusWishlist => 'Wunschliste';
+
+  @override
+  String get libraryStatusLent => 'Verliehen';
+
+  @override
   String get libraryPlays => 'Partien';
 
   @override

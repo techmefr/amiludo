@@ -2053,6 +2053,21 @@ class AppLocalizationsEs extends AppLocalizations {
   String get libraryColour => 'Color';
 
   @override
+  String get libraryBarcode => 'Código de barras (EAN/UPC)';
+
+  @override
+  String get libraryStatus => 'Estado';
+
+  @override
+  String get libraryStatusOwned => 'Lo tengo';
+
+  @override
+  String get libraryStatusWishlist => 'Lista de deseos';
+
+  @override
+  String get libraryStatusLent => 'Prestado';
+
+  @override
   String get libraryPlays => 'partidas';
 
   @override

@@ -21,7 +21,7 @@ class ShelfGameForm extends StatefulWidget {
 
 class _ShelfGameFormState extends State<ShelfGameForm> {
   late ShelfGame game;
-  late final TextEditingController name;
+  late final TextEditingController name, barcode;
 
   @override
   void initState() {
@@ -35,11 +35,13 @@ class _ShelfGameFormState extends State<ShelfGameForm> {
           addedAt: DateTime.now().millisecondsSinceEpoch,
         );
     name = TextEditingController(text: game.name);
+    barcode = TextEditingController(text: game.barcode);
   }
 
   @override
   void dispose() {
     name.dispose();
+    barcode.dispose();
     super.dispose();
   }
 
@@ -58,7 +60,12 @@ class _ShelfGameFormState extends State<ShelfGameForm> {
       notify(context, context.l10n.libraryNameTheGame);
       return;
     }
-    await context.read<LibraryCubit>().save(game.copyWith(name: value));
+    await context.read<LibraryCubit>().save(
+      game.copyWith(
+        name: value,
+        barcode: barcode.text.replaceAll(RegExp(r'\D'), ''),
+      ),
+    );
     if (mounted) context.go('/library');
   }
 
@@ -80,6 +87,22 @@ class _ShelfGameFormState extends State<ShelfGameForm> {
             decoration: InputDecoration(
               labelText: context.l10n.libraryGameName,
             ),
+          ),
+          TextField(
+            controller: barcode,
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+              labelText: context.l10n.libraryBarcode,
+            ),
+          ),
+          SectionHeading(context.l10n.libraryStatus),
+          _ChoiceChips(
+            values: shelfStatuses,
+            label: (v) => _statusLabel(context, v),
+            selected: [game.status],
+            onToggle: (v, on) {
+              if (on) setState(() => game = game.copyWith(status: v));
+            },
           ),
           _ShelfNumbers(game: game, onChanged: (g) => setState(() => game = g)),
           SectionHeading(context.l10n.libraryGenres),
@@ -221,3 +244,9 @@ class _ColorPicker extends StatelessWidget {
     ],
   );
 }
+
+String _statusLabel(BuildContext context, String status) => switch (status) {
+  'wishlist' => context.l10n.libraryStatusWishlist,
+  'lent' => context.l10n.libraryStatusLent,
+  _ => context.l10n.libraryStatusOwned,
+};

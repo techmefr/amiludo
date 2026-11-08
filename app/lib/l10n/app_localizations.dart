@@ -3857,6 +3857,36 @@ abstract class AppLocalizations {
   /// **'Colour'**
   String get libraryColour;
 
+  /// No description provided for @libraryBarcode.
+  ///
+  /// In en, this message translates to:
+  /// **'Barcode (EAN/UPC)'**
+  String get libraryBarcode;
+
+  /// No description provided for @libraryStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get libraryStatus;
+
+  /// No description provided for @libraryStatusOwned.
+  ///
+  /// In en, this message translates to:
+  /// **'Owned'**
+  String get libraryStatusOwned;
+
+  /// No description provided for @libraryStatusWishlist.
+  ///
+  /// In en, this message translates to:
+  /// **'Wishlist'**
+  String get libraryStatusWishlist;
+
+  /// No description provided for @libraryStatusLent.
+  ///
+  /// In en, this message translates to:
+  /// **'Lent out'**
+  String get libraryStatusLent;
+
   /// No description provided for @libraryPlays.
   ///
   /// In en, this message translates to:
