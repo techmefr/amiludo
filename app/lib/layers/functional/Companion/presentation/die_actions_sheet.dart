@@ -12,8 +12,10 @@ Future<void> openDieEditor(BuildContext context, DieDesign design) {
   if (cubit == null) return Future.value();
   return Navigator.of(context).push(
     MaterialPageRoute<void>(
-      builder: (_) =>
-          DieStudio(cubit: cubit, child: DieEditorScreen(initial: design)),
+      builder: (_) => DieStudio(
+        cubit: cubit,
+        child: DieEditorScreen(initial: design),
+      ),
     ),
   );
 }

@@ -24,10 +24,7 @@ Future<void> showTrayHistorySheet(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       for (final roll in session.history)
-        ListTile(
-          dense: true,
-          title: Text(trayRollLine(session, roll)),
-        ),
+        ListTile(dense: true, title: Text(trayRollLine(session, roll))),
     ],
   ),
 );

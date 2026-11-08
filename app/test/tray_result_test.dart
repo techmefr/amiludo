@@ -10,11 +10,8 @@ DiceTraySession session(List<int> values) => DiceTraySession(
   values: values,
 );
 
-String show(TrayResultMode mode, List<int> values) => trayResultText(
-  mode,
-  session(values),
-  oddEven: (odd, even) => '$odd/$even',
-);
+String show(TrayResultMode mode, List<int> values) =>
+    trayResultText(mode, session(values), oddEven: (odd, even) => '$odd/$even');
 
 void main() {
   test('each display mode reads the thrown values', () {
@@ -32,20 +29,19 @@ void main() {
     expect(show(TrayResultMode.oddEven, v), '2/2');
   });
 
-  test('a single die keeps its value when dropping and odd counts pick the middle', () {
-    expect(show(TrayResultMode.dropWorst, [7]), '7');
-    expect(show(TrayResultMode.dropBest, [7]), '7');
-    expect(show(TrayResultMode.middle, [9, 1, 4]), '4');
-  });
+  test(
+    'a single die keeps its value when dropping and odd counts pick the middle',
+    () {
+      expect(show(TrayResultMode.dropWorst, [7]), '7');
+      expect(show(TrayResultMode.dropBest, [7]), '7');
+      expect(show(TrayResultMode.middle, [9, 1, 4]), '4');
+    },
+  );
 
   test('nothing is shown before the first throw', () {
     final empty = DiceTraySession(settings: const DiceTraySettings());
     expect(
-      trayResultText(
-        TrayResultMode.sum,
-        empty,
-        oddEven: (odd, even) => '',
-      ),
+      trayResultText(TrayResultMode.sum, empty, oddEven: (odd, even) => ''),
       '',
     );
   });

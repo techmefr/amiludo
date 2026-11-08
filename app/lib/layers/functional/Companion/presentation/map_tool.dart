@@ -2,6 +2,7 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:amiludo/layers/technical/Theme/components/parchment_sheet.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/map_board.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/map_board_state.dart';
@@ -90,13 +91,15 @@ class _MapBoardToolState extends State<MapBoardTool> {
   @override
   Widget build(BuildContext context) => Column(
     children: [
-      MapToolbar(
-        controller: controller,
-        onBackground: background,
-        onIcon: () => showIconSheet(
-          context,
-          selected: controller.icon,
-          onPick: controller.setIcon,
+      _ParchmentStrip(
+        child: MapToolbar(
+          controller: controller,
+          onBackground: background,
+          onIcon: () => showIconSheet(
+            context,
+            selected: controller.icon,
+            onPick: controller.setIcon,
+          ),
         ),
       ),
       Expanded(
@@ -112,5 +115,28 @@ class _MapBoardToolState extends State<MapBoardTool> {
         ),
       ),
     ],
+  );
+}
+
+class _ParchmentStrip extends StatelessWidget {
+  const _ParchmentStrip({required this.child});
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => Material(
+    color: Color.lerp(ParchmentPalette.land, ParchmentPalette.relief, .35),
+    shape: const Border(
+      bottom: BorderSide(color: ParchmentPalette.ink, width: 2),
+    ),
+    child: Theme(
+      data: Theme.of(context).copyWith(
+        colorScheme: Theme.of(context).colorScheme.copyWith(
+          onSurface: ParchmentPalette.ink,
+          onSurfaceVariant: ParchmentPalette.ink,
+        ),
+        iconTheme: const IconThemeData(color: ParchmentPalette.ink),
+      ),
+      child: child,
+    ),
   );
 }

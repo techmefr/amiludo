@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:amiludo/layers/technical/Theme/components/parchment_sheet.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/map_board.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/map_controller.dart';
@@ -45,7 +46,6 @@ class MapToolbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
-    final scheme = Theme.of(context).colorScheme;
     return ListenableBuilder(
       listenable: controller,
       builder: (context, _) => SingleChildScrollView(
@@ -59,7 +59,7 @@ class MapToolbar extends StatelessWidget {
                 isSelected: controller.tool == tool,
                 style: IconButton.styleFrom(
                   backgroundColor: controller.tool == tool
-                      ? scheme.primaryContainer
+                      ? ParchmentPalette.gold.withValues(alpha: .55)
                       : null,
                 ),
                 onPressed: () => controller.select(tool),

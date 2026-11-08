@@ -127,7 +127,9 @@ class _DiceAddListState extends State<DiceAddList> {
               ),
             for (final d in dice.where(
               (d) =>
-                  diceMoreSides.contains(d.sides) && !d.custom && d.design == null,
+                  diceMoreSides.contains(d.sides) &&
+                  !d.custom &&
+                  d.design == null,
             ))
               InputChip(
                 label: Text(d.name),

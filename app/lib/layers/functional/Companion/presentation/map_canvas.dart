@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:amiludo/layers/technical/Theme/components/parchment_sheet.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/map_board.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/map_board_state.dart';
@@ -140,7 +141,6 @@ class _MapCanvasState extends State<MapCanvas> {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
     return LayoutBuilder(
       builder: (context, box) {
         size = box.biggest;
@@ -164,13 +164,13 @@ class _MapCanvasState extends State<MapCanvas> {
                   return Stack(
                     fit: StackFit.expand,
                     children: [
-                      ColoredBox(color: scheme.surfaceContainerHighest),
+                      const ColoredBox(color: ParchmentPalette.sea),
                       CustomPaint(
                         painter: MapPainter(
                           board: c.board,
                           view: v,
-                          paper: scheme.surface,
-                          ink: scheme.onSurface,
+                          paper: ParchmentPalette.land,
+                          ink: ParchmentPalette.ink,
                           draft: c.draft,
                           draftKind: c.tool == MapTool.zone
                               ? MapStrokeKind.zone

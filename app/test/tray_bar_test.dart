@@ -14,21 +14,26 @@ Widget host(Widget child) => MaterialApp(
 );
 
 void main() {
-  test('the display mode survives json and a cleared session keeps history', () {
-    const settings = DiceTraySettings(resultMode: 'best');
-    expect(DiceTraySettings.fromJson(settings.toJson()).resultMode, 'best');
-    expect(const DiceTraySettings().toJson().containsKey('result'), isFalse);
-    final session = DiceTraySession(
-      settings: settings,
-      values: const [3, 4],
-      history: const [TrayRoll([3, 4], 7)],
-    );
-    expect(session.withMode('worst').values, [3, 4]);
-    expect(session.withMode('worst').settings.resultMode, 'worst');
-    final cleared = session.cleared();
-    expect(cleared.thrown, isFalse);
-    expect(cleared.history, isNotEmpty);
-  });
+  test(
+    'the display mode survives json and a cleared session keeps history',
+    () {
+      const settings = DiceTraySettings(resultMode: 'best');
+      expect(DiceTraySettings.fromJson(settings.toJson()).resultMode, 'best');
+      expect(const DiceTraySettings().toJson().containsKey('result'), isFalse);
+      final session = DiceTraySession(
+        settings: settings,
+        values: const [3, 4],
+        history: const [
+          TrayRoll([3, 4], 7),
+        ],
+      );
+      expect(session.withMode('worst').values, [3, 4]);
+      expect(session.withMode('worst').settings.resultMode, 'worst');
+      final cleared = session.cleared();
+      expect(cleared.thrown, isFalse);
+      expect(cleared.history, isNotEmpty);
+    },
+  );
 
   testWidgets('the bar picks a display mode and erases the result', (
     tester,
@@ -38,9 +43,7 @@ void main() {
     addTearDown(tester.view.reset);
     DiceTraySettings? saved;
     await tester.pumpWidget(
-      host(
-        DiceTrayPage(seed: 5, solid: true, onChanged: (s) => saved = s),
-      ),
+      host(DiceTrayPage(seed: 5, solid: true, onChanged: (s) => saved = s)),
     );
     await tester.tap(find.text('Throw'));
     await tester.pump();
