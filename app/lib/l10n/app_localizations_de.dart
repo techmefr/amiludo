@@ -2056,6 +2056,24 @@ class AppLocalizationsDe extends AppLocalizations {
   String get libraryColour => 'Farbe';
 
   @override
+  String get libraryImportBgg => 'Meine BoardGameGeek-Sammlung importieren';
+
+  @override
+  String get libraryImportUsername => 'BoardGameGeek-Benutzername';
+
+  @override
+  String get libraryImportDone => 'Sammlung importiert. Sieh in deinem Regal nach.';
+
+  @override
+  String get libraryImportFailed => 'Import fehlgeschlagen. Prüfe den Namen und versuche es gleich noch einmal.';
+
+  @override
+  String get libraryStatsPlayed => 'Gespielt';
+
+  @override
+  String get libraryStatsNever => 'Nie gespielt';
+
+  @override
   String get libraryViewShelf => 'Regal';
 
   @override

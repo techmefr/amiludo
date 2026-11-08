@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:amiludo/layers/functional/Friends/domain/entities/friend_circle.dart';
 import 'package:amiludo/layers/functional/Friends/domain/use_cases/read_friends_use_case.dart';
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
+import 'package:amiludo/layers/functional/Library/domain/entities/library_stats.dart';
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf.dart';
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
 import 'package:amiludo/layers/functional/Library/domain/use_cases/read_shelf_use_case.dart';
@@ -40,6 +41,10 @@ class LibraryCubit extends Cubit<Shelf> {
   List<GameTemplate> get templates => _readWorkspace().templates;
 
   List<GameSession> get sessions => _readWorkspace().games;
+
+  LibraryStats statsFor(Shelf shelf) => LibraryStats.of(shelf.games, [
+    for (final g in sessions) (title: g.title, packId: g.pack?.id),
+  ]);
 
   Future<void> save(ShelfGame game) => _saveGame(game);
 

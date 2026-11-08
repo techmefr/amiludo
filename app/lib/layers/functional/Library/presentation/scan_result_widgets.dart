@@ -56,3 +56,60 @@ class OnlineSearch extends StatelessWidget {
     ],
   );
 }
+
+class CollectionImport extends StatefulWidget {
+  const CollectionImport({super.key, required this.onImport});
+
+  final Future<int?> Function(String username) onImport;
+
+  @override
+  State<CollectionImport> createState() => _CollectionImportState();
+}
+
+class _CollectionImportState extends State<CollectionImport> {
+  final username = TextEditingController();
+  String? message;
+
+  @override
+  void dispose() {
+    username.dispose();
+    super.dispose();
+  }
+
+  Future<void> _import() async {
+    final l10n = context.l10n;
+    final added = await widget.onImport(username.text);
+    if (!mounted) return;
+    setState(
+      () => message = added == null
+          ? l10n.libraryImportFailed
+          : l10n.libraryImportDone,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      const SizedBox(height: 24),
+      TextField(
+        controller: username,
+        textInputAction: TextInputAction.done,
+        onSubmitted: (_) => _import(),
+        decoration: InputDecoration(
+          labelText: context.l10n.libraryImportUsername,
+        ),
+      ),
+      const SizedBox(height: 12),
+      OutlinedButton(
+        onPressed: _import,
+        child: Text(context.l10n.libraryImportBgg),
+      ),
+      if (message case final text?)
+        Padding(
+          padding: const EdgeInsets.only(top: 12),
+          child: Text(text, key: const ValueKey('import-message')),
+        ),
+    ],
+  );
+}
