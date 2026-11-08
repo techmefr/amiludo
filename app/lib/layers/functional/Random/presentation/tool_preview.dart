@@ -7,6 +7,7 @@ import 'package:amiludo/layers/technical/Theme/components/playing_card.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/stopwatch_state.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/brick_catalog.dart';
 import 'package:amiludo/layers/functional/Random/presentation/map_sketch_painter.dart';
+import 'package:amiludo/layers/functional/Random/presentation/tool_preview_extra.dart';
 import 'package:amiludo/layers/technical/Theme/game_art.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
@@ -150,10 +151,12 @@ class _ToolPreviewState extends State<ToolPreview>
       'life' => _reading(context, ink, '${40 - (t * 3).round()}'),
       'tally' => _reading(context, ink, '${(t * 12).round()}'),
       'coin' || 'wheel' => _spin(t),
-      _ => Opacity(
-        opacity: .4 + .6 * t,
-        child: GameArt(tool: widget.id, height: widget.height),
-      ),
+      _ =>
+          extraPreview(context, widget.id, tool.accent, ink, t) ??
+          Opacity(
+            opacity: .4 + .6 * t,
+            child: GameArt(tool: widget.id, height: widget.height),
+          ),
     };
   }
 
