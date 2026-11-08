@@ -86,7 +86,6 @@ class _ToolPreviewState extends State<ToolPreview>
     ),
   );
 
-<<<<<<< HEAD
   Widget _fanCard(int i, String rank, String suit, bool red, double t) =>
       Transform.translate(
         offset: Offset((i - 1) * widget.height * .3 * t, 0),
@@ -109,14 +108,15 @@ class _ToolPreviewState extends State<ToolPreview>
         _fanCard(2, 'A', '♦', true, t),
         _fanCard(1, 'Q', '♥', true, t),
       ],
-=======
+    ),
+  );
+
   Widget _reading(BuildContext context, Color ink, String text) => Center(
     child: Text(
       text,
       style: Numerals.instrument(
         Theme.of(context).textTheme.displaySmall,
       )?.copyWith(color: ink),
->>>>>>> 69c98f1 (Scores tools: full-screen life counter, free counters and ranking)
     ),
   );
 
