@@ -4611,4 +4611,89 @@ class AppLocalizationsDe extends AppLocalizations {
   String firstPlayerStarts(String name) {
     return '$name beginnt';
   }
+
+  @override
+  String get toolSheetTitle => 'Punktetafeln';
+
+  @override
+  String get toolSheetSubtitle => 'Fertige Wertungen für Kniffel, Catan und Skyjo, mit Summen und Boni.';
+
+  @override
+  String get sheetPresetYams => 'Kniffel';
+
+  @override
+  String get sheetPresetCatan => 'Catan';
+
+  @override
+  String get sheetPresetSkyjo => 'Skyjo';
+
+  @override
+  String get sheetRowOnes => 'Einser';
+
+  @override
+  String get sheetRowTwos => 'Zweier';
+
+  @override
+  String get sheetRowThrees => 'Dreier';
+
+  @override
+  String get sheetRowFours => 'Vierer';
+
+  @override
+  String get sheetRowFives => 'Fünfer';
+
+  @override
+  String get sheetRowSixes => 'Sechser';
+
+  @override
+  String get sheetRowThreeKind => 'Dreierpasch';
+
+  @override
+  String get sheetRowFourKind => 'Viererpasch';
+
+  @override
+  String get sheetRowFullHouse => 'Full House';
+
+  @override
+  String get sheetRowSmallStraight => 'Kleine Straße';
+
+  @override
+  String get sheetRowLargeStraight => 'Große Straße';
+
+  @override
+  String get sheetRowYams => 'Kniffel';
+
+  @override
+  String get sheetRowChance => 'Chance';
+
+  @override
+  String get sheetRowSettlements => 'Siedlungen (1 Punkt)';
+
+  @override
+  String get sheetRowCities => 'Städte (2 Punkte)';
+
+  @override
+  String get sheetRowLongestRoad => 'Längste Handelsstraße (2)';
+
+  @override
+  String get sheetRowLargestArmy => 'Größte Rittermacht (2)';
+
+  @override
+  String get sheetRowVictoryCards => 'Siegpunktkarten (1)';
+
+  @override
+  String sheetRound(int number) {
+    return 'Runde $number';
+  }
+
+  @override
+  String get sheetAddRound => 'Runde hinzufügen';
+
+  @override
+  String sheetBonus(int threshold) {
+    return 'Bonus (ab $threshold)';
+  }
+
+  @override
+  String get sheetTotal => 'Summe';
 }

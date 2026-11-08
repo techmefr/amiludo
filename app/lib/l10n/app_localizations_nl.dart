@@ -4605,4 +4605,89 @@ class AppLocalizationsNl extends AppLocalizations {
   String firstPlayerStarts(String name) {
     return '$name begint';
   }
+
+  @override
+  String get toolSheetTitle => 'Scoreformulieren';
+
+  @override
+  String get toolSheetSubtitle => 'Kant-en-klare scores voor Yahtzee, Catan en Skyjo, met totalen en bonussen.';
+
+  @override
+  String get sheetPresetYams => 'Yahtzee';
+
+  @override
+  String get sheetPresetCatan => 'Catan';
+
+  @override
+  String get sheetPresetSkyjo => 'Skyjo';
+
+  @override
+  String get sheetRowOnes => 'Enen';
+
+  @override
+  String get sheetRowTwos => 'Tweeën';
+
+  @override
+  String get sheetRowThrees => 'Drieën';
+
+  @override
+  String get sheetRowFours => 'Vieren';
+
+  @override
+  String get sheetRowFives => 'Vijven';
+
+  @override
+  String get sheetRowSixes => 'Zessen';
+
+  @override
+  String get sheetRowThreeKind => 'Three of a kind';
+
+  @override
+  String get sheetRowFourKind => 'Four of a kind';
+
+  @override
+  String get sheetRowFullHouse => 'Full house';
+
+  @override
+  String get sheetRowSmallStraight => 'Kleine straat';
+
+  @override
+  String get sheetRowLargeStraight => 'Grote straat';
+
+  @override
+  String get sheetRowYams => 'Yahtzee';
+
+  @override
+  String get sheetRowChance => 'Chance';
+
+  @override
+  String get sheetRowSettlements => 'Dorpen (1 punt)';
+
+  @override
+  String get sheetRowCities => 'Steden (2 punten)';
+
+  @override
+  String get sheetRowLongestRoad => 'Langste handelsroute (2)';
+
+  @override
+  String get sheetRowLargestArmy => 'Grootste ridderleger (2)';
+
+  @override
+  String get sheetRowVictoryCards => 'Overwinningspuntkaarten (1)';
+
+  @override
+  String sheetRound(int number) {
+    return 'Ronde $number';
+  }
+
+  @override
+  String get sheetAddRound => 'Ronde toevoegen';
+
+  @override
+  String sheetBonus(int threshold) {
+    return 'Bonus (vanaf $threshold)';
+  }
+
+  @override
+  String get sheetTotal => 'Totaal';
 }

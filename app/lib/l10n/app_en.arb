@@ -1857,5 +1857,46 @@
         "type": "String"
       }
     }
-  }
+  },
+  "toolSheetTitle": "Score sheets",
+  "toolSheetSubtitle": "Ready-made scoring for Yahtzee, Catan and Skyjo, with totals and bonuses.",
+  "sheetPresetYams": "Yahtzee",
+  "sheetPresetCatan": "Catan",
+  "sheetPresetSkyjo": "Skyjo",
+  "sheetRowOnes": "Ones",
+  "sheetRowTwos": "Twos",
+  "sheetRowThrees": "Threes",
+  "sheetRowFours": "Fours",
+  "sheetRowFives": "Fives",
+  "sheetRowSixes": "Sixes",
+  "sheetRowThreeKind": "Three of a kind",
+  "sheetRowFourKind": "Four of a kind",
+  "sheetRowFullHouse": "Full house",
+  "sheetRowSmallStraight": "Small straight",
+  "sheetRowLargeStraight": "Large straight",
+  "sheetRowYams": "Yahtzee",
+  "sheetRowChance": "Chance",
+  "sheetRowSettlements": "Settlements (1 point)",
+  "sheetRowCities": "Cities (2 points)",
+  "sheetRowLongestRoad": "Longest road (2)",
+  "sheetRowLargestArmy": "Largest army (2)",
+  "sheetRowVictoryCards": "Victory point cards (1)",
+  "sheetRound": "Round {number}",
+  "@sheetRound": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "sheetAddRound": "Add a round",
+  "sheetBonus": "Bonus (from {threshold})",
+  "@sheetBonus": {
+    "placeholders": {
+      "threshold": {
+        "type": "int"
+      }
+    }
+  },
+  "sheetTotal": "Total"
 }

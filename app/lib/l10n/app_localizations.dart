@@ -8610,6 +8610,168 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{name} starts'**
   String firstPlayerStarts(String name);
+
+  /// No description provided for @toolSheetTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Score sheets'**
+  String get toolSheetTitle;
+
+  /// No description provided for @toolSheetSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready-made scoring for Yahtzee, Catan and Skyjo, with totals and bonuses.'**
+  String get toolSheetSubtitle;
+
+  /// No description provided for @sheetPresetYams.
+  ///
+  /// In en, this message translates to:
+  /// **'Yahtzee'**
+  String get sheetPresetYams;
+
+  /// No description provided for @sheetPresetCatan.
+  ///
+  /// In en, this message translates to:
+  /// **'Catan'**
+  String get sheetPresetCatan;
+
+  /// No description provided for @sheetPresetSkyjo.
+  ///
+  /// In en, this message translates to:
+  /// **'Skyjo'**
+  String get sheetPresetSkyjo;
+
+  /// No description provided for @sheetRowOnes.
+  ///
+  /// In en, this message translates to:
+  /// **'Ones'**
+  String get sheetRowOnes;
+
+  /// No description provided for @sheetRowTwos.
+  ///
+  /// In en, this message translates to:
+  /// **'Twos'**
+  String get sheetRowTwos;
+
+  /// No description provided for @sheetRowThrees.
+  ///
+  /// In en, this message translates to:
+  /// **'Threes'**
+  String get sheetRowThrees;
+
+  /// No description provided for @sheetRowFours.
+  ///
+  /// In en, this message translates to:
+  /// **'Fours'**
+  String get sheetRowFours;
+
+  /// No description provided for @sheetRowFives.
+  ///
+  /// In en, this message translates to:
+  /// **'Fives'**
+  String get sheetRowFives;
+
+  /// No description provided for @sheetRowSixes.
+  ///
+  /// In en, this message translates to:
+  /// **'Sixes'**
+  String get sheetRowSixes;
+
+  /// No description provided for @sheetRowThreeKind.
+  ///
+  /// In en, this message translates to:
+  /// **'Three of a kind'**
+  String get sheetRowThreeKind;
+
+  /// No description provided for @sheetRowFourKind.
+  ///
+  /// In en, this message translates to:
+  /// **'Four of a kind'**
+  String get sheetRowFourKind;
+
+  /// No description provided for @sheetRowFullHouse.
+  ///
+  /// In en, this message translates to:
+  /// **'Full house'**
+  String get sheetRowFullHouse;
+
+  /// No description provided for @sheetRowSmallStraight.
+  ///
+  /// In en, this message translates to:
+  /// **'Small straight'**
+  String get sheetRowSmallStraight;
+
+  /// No description provided for @sheetRowLargeStraight.
+  ///
+  /// In en, this message translates to:
+  /// **'Large straight'**
+  String get sheetRowLargeStraight;
+
+  /// No description provided for @sheetRowYams.
+  ///
+  /// In en, this message translates to:
+  /// **'Yahtzee'**
+  String get sheetRowYams;
+
+  /// No description provided for @sheetRowChance.
+  ///
+  /// In en, this message translates to:
+  /// **'Chance'**
+  String get sheetRowChance;
+
+  /// No description provided for @sheetRowSettlements.
+  ///
+  /// In en, this message translates to:
+  /// **'Settlements (1 point)'**
+  String get sheetRowSettlements;
+
+  /// No description provided for @sheetRowCities.
+  ///
+  /// In en, this message translates to:
+  /// **'Cities (2 points)'**
+  String get sheetRowCities;
+
+  /// No description provided for @sheetRowLongestRoad.
+  ///
+  /// In en, this message translates to:
+  /// **'Longest road (2)'**
+  String get sheetRowLongestRoad;
+
+  /// No description provided for @sheetRowLargestArmy.
+  ///
+  /// In en, this message translates to:
+  /// **'Largest army (2)'**
+  String get sheetRowLargestArmy;
+
+  /// No description provided for @sheetRowVictoryCards.
+  ///
+  /// In en, this message translates to:
+  /// **'Victory point cards (1)'**
+  String get sheetRowVictoryCards;
+
+  /// No description provided for @sheetRound.
+  ///
+  /// In en, this message translates to:
+  /// **'Round {number}'**
+  String sheetRound(int number);
+
+  /// No description provided for @sheetAddRound.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a round'**
+  String get sheetAddRound;
+
+  /// No description provided for @sheetBonus.
+  ///
+  /// In en, this message translates to:
+  /// **'Bonus (from {threshold})'**
+  String sheetBonus(int threshold);
+
+  /// No description provided for @sheetTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get sheetTotal;
 }
 
 class _AppLocalizationsDelegate

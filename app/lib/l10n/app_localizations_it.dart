@@ -4604,4 +4604,89 @@ class AppLocalizationsIt extends AppLocalizations {
   String firstPlayerStarts(String name) {
     return 'Comincia $name';
   }
+
+  @override
+  String get toolSheetTitle => 'Schede punteggio';
+
+  @override
+  String get toolSheetSubtitle => 'Punteggi pronti per Yahtzee, Catan e Skyjo, con totali e bonus.';
+
+  @override
+  String get sheetPresetYams => 'Yahtzee';
+
+  @override
+  String get sheetPresetCatan => 'Catan';
+
+  @override
+  String get sheetPresetSkyjo => 'Skyjo';
+
+  @override
+  String get sheetRowOnes => 'Uno';
+
+  @override
+  String get sheetRowTwos => 'Due';
+
+  @override
+  String get sheetRowThrees => 'Tre';
+
+  @override
+  String get sheetRowFours => 'Quattro';
+
+  @override
+  String get sheetRowFives => 'Cinque';
+
+  @override
+  String get sheetRowSixes => 'Sei';
+
+  @override
+  String get sheetRowThreeKind => 'Tris';
+
+  @override
+  String get sheetRowFourKind => 'Poker';
+
+  @override
+  String get sheetRowFullHouse => 'Full';
+
+  @override
+  String get sheetRowSmallStraight => 'Scala piccola';
+
+  @override
+  String get sheetRowLargeStraight => 'Scala grande';
+
+  @override
+  String get sheetRowYams => 'Yahtzee';
+
+  @override
+  String get sheetRowChance => 'Chance';
+
+  @override
+  String get sheetRowSettlements => 'Insediamenti (1 punto)';
+
+  @override
+  String get sheetRowCities => 'Città (2 punti)';
+
+  @override
+  String get sheetRowLongestRoad => 'Strada più lunga (2)';
+
+  @override
+  String get sheetRowLargestArmy => 'Esercito più grande (2)';
+
+  @override
+  String get sheetRowVictoryCards => 'Carte punto vittoria (1)';
+
+  @override
+  String sheetRound(int number) {
+    return 'Round $number';
+  }
+
+  @override
+  String get sheetAddRound => 'Aggiungi un round';
+
+  @override
+  String sheetBonus(int threshold) {
+    return 'Bonus (da $threshold)';
+  }
+
+  @override
+  String get sheetTotal => 'Totale';
 }

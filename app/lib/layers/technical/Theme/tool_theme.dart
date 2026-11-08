@@ -151,6 +151,12 @@ const toolThemes = <String, ToolTheme>{
     texture: ToolTexture.paper,
     motion: ToolMotion.flip,
   ),
+  'sheet': ToolTheme(
+    accent: Color(0xff2F8F83),
+    texture: ToolTexture.paper,
+    header: ToolHeader.ribbon,
+    motion: ToolMotion.flow,
+  ),
   'turns': ToolTheme(
     accent: Color(0xff5A4FB0),
     texture: ToolTexture.frame,
