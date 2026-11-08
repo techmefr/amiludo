@@ -8772,6 +8772,29 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Total'**
   String get sheetTotal;
+  /// No description provided for @toolTurnTimerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn timer'**
+  String get toolTurnTimerTitle;
+
+  /// No description provided for @toolTurnTimerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'One ring per turn, a colour per player, one tap to pass on.'**
+  String get toolTurnTimerSubtitle;
+
+  /// No description provided for @turnTimerNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next player'**
+  String get turnTimerNext;
+
+  /// No description provided for @turnTimerPlayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Player {number}'**
+  String turnTimerPlayer(int number);
 }
 
 class _AppLocalizationsDelegate

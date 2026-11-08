@@ -1450,5 +1450,9 @@
   "sheetRound": "Ronde {number}",
   "sheetAddRound": "Ronde toevoegen",
   "sheetBonus": "Bonus (vanaf {threshold})",
-  "sheetTotal": "Totaal"
+  "sheetTotal": "Totaal",
+  "toolTurnTimerTitle": "Beurttimer",
+  "toolTurnTimerSubtitle": "Eén ring per beurt, een kleur per speler, één tik om door te geven.",
+  "turnTimerNext": "Volgende speler",
+  "turnTimerPlayer": "Speler {number}"
 }

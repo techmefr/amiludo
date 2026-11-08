@@ -1450,5 +1450,9 @@
   "sheetRound": "Round {number}",
   "sheetAddRound": "Aggiungi un round",
   "sheetBonus": "Bonus (da {threshold})",
-  "sheetTotal": "Totale"
+  "sheetTotal": "Totale",
+  "toolTurnTimerTitle": "Timer di turno",
+  "toolTurnTimerSubtitle": "Un anello per turno, un colore per giocatore, un tocco per passare.",
+  "turnTimerNext": "Giocatore successivo",
+  "turnTimerPlayer": "Giocatore {number}"
 }

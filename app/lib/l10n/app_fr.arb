@@ -1450,5 +1450,9 @@
   "sheetRound": "Manche {number}",
   "sheetAddRound": "Ajouter une manche",
   "sheetBonus": "Bonus (dès {threshold})",
-  "sheetTotal": "Total"
+  "sheetTotal": "Total",
+  "toolTurnTimerTitle": "Minuteur de tour",
+  "toolTurnTimerSubtitle": "Un anneau par tour, une couleur par joueur, un tap pour passer.",
+  "turnTimerNext": "Joueur suivant",
+  "turnTimerPlayer": "Joueur {number}"
 }

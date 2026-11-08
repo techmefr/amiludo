@@ -4545,6 +4545,17 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String rankingPosition(int position) {
     return 'Posição $position';
+  String get toolTurnTimerTitle => 'Temporizador de turno';
+
+  @override
+  String get toolTurnTimerSubtitle => 'Um anel por turno, uma cor por jogador, um toque para passar.';
+
+  @override
+  String get turnTimerNext => 'Jogador seguinte';
+
+  @override
+  String turnTimerPlayer(int number) {
+    return 'Jogador $number';
   }
 
   @override
