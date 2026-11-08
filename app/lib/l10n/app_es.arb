@@ -1809,5 +1809,10 @@
   "worldFogOn": "Activar la niebla",
   "worldFogOff": "Desactivar la niebla",
   "worldPlayerView": "Vista de jugadores",
-  "worldGmView": "Vista del director"
+  "worldGmView": "Vista del director",
+  "journalRecap": "Resumen de sesión",
+  "journalRecapTitle": "Resumen de la sesión",
+  "journalRecapEmpty": "Aún no hay nada que resumir.",
+  "journalRecapCopy": "Copiar el resumen",
+  "journalRecapCopied": "Resumen copiado"
 }

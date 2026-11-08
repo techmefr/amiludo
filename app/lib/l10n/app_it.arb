@@ -1809,5 +1809,10 @@
   "worldFogOn": "Attiva la nebbia",
   "worldFogOff": "Disattiva la nebbia",
   "worldPlayerView": "Vista giocatori",
-  "worldGmView": "Vista del master"
+  "worldGmView": "Vista del master",
+  "journalRecap": "Riepilogo della sessione",
+  "journalRecapTitle": "Riepilogo della sessione",
+  "journalRecapEmpty": "Ancora niente da riassumere.",
+  "journalRecapCopy": "Copia il riepilogo",
+  "journalRecapCopied": "Riepilogo copiato"
 }

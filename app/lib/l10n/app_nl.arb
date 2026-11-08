@@ -1809,5 +1809,10 @@
   "worldFogOn": "Mist inschakelen",
   "worldFogOff": "Mist uitschakelen",
   "worldPlayerView": "Spelersweergave",
-  "worldGmView": "Spelleiderweergave"
+  "worldGmView": "Spelleiderweergave",
+  "journalRecap": "Sessieoverzicht",
+  "journalRecapTitle": "Overzicht van de sessie",
+  "journalRecapEmpty": "Nog niets om samen te vatten.",
+  "journalRecapCopy": "Overzicht kopiëren",
+  "journalRecapCopied": "Overzicht gekopieerd"
 }

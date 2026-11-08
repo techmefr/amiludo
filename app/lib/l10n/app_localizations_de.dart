@@ -5862,4 +5862,19 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get worldGmView => 'Spielleitersicht';
+
+  @override
+  String get journalRecap => 'Sitzungsrückblick';
+
+  @override
+  String get journalRecapTitle => 'Rückblick auf die Sitzung';
+
+  @override
+  String get journalRecapEmpty => 'Noch nichts zusammenzufassen.';
+
+  @override
+  String get journalRecapCopy => 'Rückblick kopieren';
+
+  @override
+  String get journalRecapCopied => 'Rückblick kopiert';
 }

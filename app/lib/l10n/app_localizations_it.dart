@@ -5855,4 +5855,19 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get worldGmView => 'Vista del master';
+
+  @override
+  String get journalRecap => 'Riepilogo della sessione';
+
+  @override
+  String get journalRecapTitle => 'Riepilogo della sessione';
+
+  @override
+  String get journalRecapEmpty => 'Ancora niente da riassumere.';
+
+  @override
+  String get journalRecapCopy => 'Copia il riepilogo';
+
+  @override
+  String get journalRecapCopied => 'Riepilogo copiato';
 }

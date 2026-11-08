@@ -1809,5 +1809,10 @@
   "worldFogOn": "Nebel aktivieren",
   "worldFogOff": "Nebel deaktivieren",
   "worldPlayerView": "Spielersicht",
-  "worldGmView": "Spielleitersicht"
+  "worldGmView": "Spielleitersicht",
+  "journalRecap": "Sitzungsrückblick",
+  "journalRecapTitle": "Rückblick auf die Sitzung",
+  "journalRecapEmpty": "Noch nichts zusammenzufassen.",
+  "journalRecapCopy": "Rückblick kopieren",
+  "journalRecapCopied": "Rückblick kopiert"
 }

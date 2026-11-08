@@ -52,3 +52,29 @@ class GameLog {
     'journal': [for (final e in entries) e.toJson()],
   };
 }
+
+class LogSession {
+  const LogSession(this.entries);
+
+  final List<LogEntry> entries;
+
+  DateTime get start => entries.first.at;
+  DateTime get end => entries.last.at;
+}
+
+const sessionGap = Duration(hours: 5);
+
+extension GameLogSessions on GameLog {
+  List<LogSession> sessions({Duration gap = sessionGap}) {
+    final sorted = [...entries]..sort((a, b) => a.at.compareTo(b.at));
+    final groups = <List<LogEntry>>[];
+    for (final e in sorted) {
+      if (groups.isEmpty || e.at.difference(groups.last.last.at) > gap) {
+        groups.add([e]);
+      } else {
+        groups.last.add(e);
+      }
+    }
+    return [for (final g in groups.reversed) LogSession(g)];
+  }
+}

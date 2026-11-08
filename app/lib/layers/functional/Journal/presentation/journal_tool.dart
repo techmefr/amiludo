@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import 'package:amiludo/layers/functional/Journal/domain/entities/game_log.dart';
+import 'package:amiludo/layers/functional/Journal/presentation/journal_recap.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/tool_texture.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
@@ -116,10 +117,22 @@ class _JournalToolState extends State<JournalTool> {
             const SizedBox(height: Space.md),
             Align(
               alignment: Alignment.centerLeft,
-              child: FilledButton.icon(
-                onPressed: _add,
-                icon: const DeckIcon(Icons.add),
-                label: Text(l.journalAdd),
+              child: Wrap(
+                spacing: Space.sm,
+                children: [
+                  FilledButton.icon(
+                    onPressed: _add,
+                    icon: const DeckIcon(Icons.add),
+                    label: Text(l.journalAdd),
+                  ),
+                  OutlinedButton.icon(
+                    onPressed: log.isEmpty
+                        ? null
+                        : () => showJournalRecap(context, log),
+                    icon: const DeckIcon(Icons.summarize_outlined),
+                    label: Text(l.journalRecap),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: Space.xl),
