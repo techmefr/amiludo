@@ -46,10 +46,21 @@ class TrayResultView extends StatelessWidget {
       children: [
         Semantics(
           liveRegion: true,
-          child: Text(
-            session.thrown ? text : '–',
-            style: theme.textTheme.displayMedium,
-            textAlign: TextAlign.center,
+          child: TweenAnimationBuilder<double>(
+            key: ValueKey(text),
+            tween: Tween(
+              begin: MediaQuery.disableAnimationsOf(context) ? 1 : 0.8,
+              end: 1,
+            ),
+            duration: Motion.slow,
+            curve: Curves.easeOutBack,
+            builder: (_, scale, child) =>
+                Transform.scale(scale: scale, child: child),
+            child: Text(
+              session.thrown ? text : '–',
+              style: theme.textTheme.displayMedium,
+              textAlign: TextAlign.center,
+            ),
           ),
         ),
         if (session.thrown && listed)
