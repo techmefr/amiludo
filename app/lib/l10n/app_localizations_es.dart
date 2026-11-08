@@ -4153,7 +4153,22 @@ class AppLocalizationsEs extends AppLocalizations {
   String get toolShelfPinned => 'Fijadas';
 
   @override
-  String get toolShelfPlay => 'Jugar';
+  String get toolShelfTime => 'Tiempo';
+
+  @override
+  String get toolShelfChance => 'Dados y azar';
+
+  @override
+  String get toolShelfScores => 'Puntos y contadores';
+
+  @override
+  String get toolShelfCards => 'Cartas y robo';
+
+  @override
+  String get toolShelfMap => 'Mapa y tablero';
+
+  @override
+  String get toolShelfPlayers => 'Jugadores y turnos';
 
   @override
   String get toolShelfStory => 'Historia';
@@ -4163,9 +4178,6 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get toolShelfCharacters => 'Personajes';
-
-  @override
-  String get toolShelfUtilities => 'Utilidades';
 
   @override
   String get toolHeroResume => 'Continúa donde lo dejaste';

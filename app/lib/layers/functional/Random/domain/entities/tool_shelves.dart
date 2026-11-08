@@ -7,18 +7,18 @@ class ToolShelf {
 }
 
 const toolShelves = [
-  ToolShelf('play', [
-    'picker',
-    'dice-tray',
-    'dice',
-    'wheel',
-    'coin',
-    'teams',
-    'order',
-    'number',
-    'bag',
+  ToolShelf('time', ['hourglass', 'timer']),
+  ToolShelf('chance', ['dice-tray', 'dice', 'wheel', 'coin', 'number']),
+  ToolShelf('scores', [
+    'scores',
+    'counter-life',
+    'counter-points',
+    'counter-chips',
+    'counter-pot',
   ]),
-  ToolShelf('story', ['map', 'tavern', 'town', 'place', 'weather']),
+  ToolShelf('cards', ['bag']),
+  ToolShelf('map', ['map']),
+  ToolShelf('story', ['tavern', 'town', 'place', 'weather']),
   ToolShelf('generators', [
     'npc',
     'encounter',
@@ -31,17 +31,12 @@ const toolShelves = [
     'trait',
     'twist',
   ]),
-  ToolShelf('characters', ['character', 'heroes', 'roles']),
-  ToolShelf('utilities', [
-    'scores',
-    'hourglass',
-    'timer',
-    'counter-life',
-    'counter-points',
-    'counter-chips',
-    'counter-pot',
-  ]),
+  ToolShelf('characters', ['character', 'heroes']),
+  ToolShelf('players', ['picker', 'teams', 'order', 'roles']),
 ];
+
+ToolShelf? toolShelf(String id) =>
+    toolShelves.where((shelf) => shelf.id == id).firstOrNull;
 
 const _featuredOrder = ['dice-tray', 'hourglass', 'map', 'wheel', 'coin'];
 

@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/brick_catalog.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/tool_shelves.dart';
 import 'package:amiludo/layers/functional/Random/presentation/tool_card.dart';
+import 'package:amiludo/layers/functional/Random/presentation/tool_category_tile.dart';
 import 'package:amiludo/layers/functional/Random/presentation/tool_hero_card.dart';
 import 'package:amiludo/layers/technical/Locale/tool_texts.dart';
+import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class ToolsHome extends StatelessWidget {
@@ -17,11 +19,14 @@ class ToolsHome extends StatelessWidget {
     required this.onOpen,
     required this.onFavorite,
     required this.onMove,
+    required this.onCategory,
+    this.category,
     this.onAdd,
   });
   final List<String> favorites;
   final String? lastTool;
-  final void Function(String id) onOpen, onFavorite;
+  final void Function(String id) onOpen, onFavorite, onCategory;
+  final String? category;
   final void Function(String tool, String before) onMove;
   final void Function(BrickEntry entry)? onAdd;
 
@@ -110,10 +115,26 @@ class ToolsHome extends StatelessWidget {
     ),
   );
 
+  Widget _menu(BuildContext context) => ResponsiveGrid(
+    minimumWidth: 280,
+    children: [
+      for (final shelf in toolShelves)
+        if (shelf.tools.isNotEmpty)
+          ToolCategoryTile(shelf: shelf, onOpen: () => onCategory(shelf.id)),
+    ],
+  );
+
   @override
   Widget build(BuildContext context) {
+    final open = category == null ? null : toolShelf(category!);
+    if (open != null) {
+      return Wrap(
+        spacing: Space.md,
+        runSpacing: Space.md,
+        children: [for (final id in open.tools) _card(context, id)],
+      );
+    }
     final hero = _hero, pinned = _pinned;
-    final shelves = arrangeShelves(favorites: favorites, hero: hero);
     final inner = [
       for (var i = 0; i < pinned.length; i++)
         _card(context, pinned[i], slot: i),
@@ -130,11 +151,8 @@ class ToolsHome extends StatelessWidget {
           _title(context, context.toolShelfLabel('pinned')),
           _row(context, inner, reorder: true),
         ],
-        for (final shelf in shelves)
-          if (shelf.tools.isNotEmpty) ...[
-            _title(context, context.toolShelfLabel(shelf.id)),
-            _row(context, [for (final id in shelf.tools) _card(context, id)]),
-          ],
+        const SizedBox(height: Space.xl),
+        _menu(context),
       ],
     );
   }

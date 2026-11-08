@@ -85,13 +85,14 @@ Widget _counterPot(BuildContext context) =>
     CounterTool(settings: potPreset, name: context.l10n.brickPot);
 
 class _ToolsPage extends StatelessWidget {
-  const _ToolsPage({this.initialTool});
-  final String? initialTool;
+  const _ToolsPage({this.initialTool, this.initialCategory});
+  final String? initialTool, initialCategory;
 
   @override
   Widget build(BuildContext context) => ToolsScreen(
-    key: ValueKey(initialTool),
+    key: ValueKey('$initialTool$initialCategory'),
     initialTool: initialTool,
+    initialCategory: initialCategory,
     addBrick: context.read<TemplatesCubit>().addBrick,
   );
 }
@@ -316,7 +317,10 @@ final router = GoRouter(
       ('/game', (state) => const GameScreen(timer: _timer)),
       (
         '/tools',
-        (state) => _ToolsPage(initialTool: state.uri.queryParameters['tool']),
+        (state) => _ToolsPage(
+          initialTool: state.uri.queryParameters['tool'],
+          initialCategory: state.uri.queryParameters['category'],
+        ),
       ),
       ('/templates', (state) => const TemplatesScreen()),
       ('/library', (state) => const LibraryScreen()),

@@ -102,11 +102,15 @@ extension ToolTexts on BuildContext {
     final l = l10n;
     return switch (id) {
       'pinned' => l.toolShelfPinned,
-      'play' => l.toolShelfPlay,
+      'time' => l.toolShelfTime,
+      'chance' => l.toolShelfChance,
+      'scores' => l.toolShelfScores,
+      'cards' => l.toolShelfCards,
+      'map' => l.toolShelfMap,
       'story' => l.toolShelfStory,
       'generators' => l.toolShelfGenerators,
       'characters' => l.toolShelfCharacters,
-      _ => l.toolShelfUtilities,
+      _ => l.toolShelfPlayers,
     };
   }
 }

@@ -4158,7 +4158,22 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolShelfPinned => 'Vastgezet';
 
   @override
-  String get toolShelfPlay => 'Spelen';
+  String get toolShelfTime => 'Tijd';
+
+  @override
+  String get toolShelfChance => 'Dobbelstenen & kans';
+
+  @override
+  String get toolShelfScores => 'Scores & tellers';
+
+  @override
+  String get toolShelfCards => 'Kaarten & trekken';
+
+  @override
+  String get toolShelfMap => 'Kaart & bord';
+
+  @override
+  String get toolShelfPlayers => 'Spelers & beurten';
 
   @override
   String get toolShelfStory => 'Verhaal';
@@ -4168,9 +4183,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get toolShelfCharacters => 'Personages';
-
-  @override
-  String get toolShelfUtilities => 'Hulpmiddelen';
 
   @override
   String get toolHeroResume => 'Ga verder waar je gebleven was';

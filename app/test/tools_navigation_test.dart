@@ -21,6 +21,9 @@ void main() {
       router.go('/tools');
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
+      await tester.ensureVisible(find.text('Joueurs & tours'));
+      await tester.tap(find.text('Joueurs & tours'));
+      await tester.pumpAndSettle();
       await tester.ensureVisible(find.text('Qui commence ?'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Qui commence ?'));
