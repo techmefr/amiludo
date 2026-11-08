@@ -8,6 +8,7 @@ import 'package:amiludo/layers/functional/Workspace/presentation/workspace_gate.
 import 'package:amiludo/layers/technical/About/app_info.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/components/blur_bar.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/breakpoints.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
@@ -42,8 +43,10 @@ class AppShell extends StatelessWidget {
     final index = navIndex(items, path);
     final size = MediaQuery.sizeOf(context);
     final largeText = MediaQuery.textScalerOf(context).scale(16) > 20;
-    final desktop = size.width >= 1000 && !largeText;
-    final rail = !desktop && size.width > size.height;
+    final desktop = size.width >= Breakpoints.expanded && !largeText;
+    final rail =
+        !desktop &&
+        (size.width >= Breakpoints.medium || size.width > size.height);
     final compact = size.height < 500;
     return Scaffold(
       body: SafeArea(
@@ -81,6 +84,10 @@ class AppShell extends StatelessWidget {
   }
 }
 
+double _gutter(BuildContext context, bool desktop) => desktop
+    ? 48
+    : (Breakpoints.atLeast(context, WindowClass.medium) ? 32 : Space.lg);
+
 class _Page extends StatelessWidget {
   const _Page({
     required this.path,
@@ -96,15 +103,17 @@ class _Page extends StatelessWidget {
     child: SingleChildScrollView(
       key: PageStorageKey(path),
       padding: EdgeInsets.fromLTRB(
-        desktop ? 48 : 20,
+        _gutter(context, desktop),
         desktop ? 40 : (compact ? 16 : 28),
-        desktop ? 48 : 20,
+        _gutter(context, desktop),
         48,
       ),
       child: Align(
         alignment: Alignment.topCenter,
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 1320),
+          constraints: BoxConstraints(
+            maxWidth: Breakpoints.pageWidth(Breakpoints.of(context)),
+          ),
           child: SizedBox(width: double.infinity, child: child),
         ),
       ),
@@ -237,18 +246,27 @@ class _Rail extends StatelessWidget {
         right: BorderSide(color: Theme.of(context).colorScheme.outline),
       ),
     ),
-    child: NavigationRail(
-      selectedIndex: index < 0 ? null : index,
-      labelType: NavigationRailLabelType.none,
-      groupAlignment: 0,
-      onDestinationSelected: (i) => context.go(items[i].$1),
-      destinations: [
-        for (final (_, icon, label) in items)
-          NavigationRailDestination(
-            icon: Tooltip(message: label, child: DeckIcon(icon)),
-            label: Text(label),
+    child: LayoutBuilder(
+      builder: (context, c) => SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(minHeight: c.maxHeight),
+          child: IntrinsicHeight(
+            child: NavigationRail(
+              selectedIndex: index < 0 ? null : index,
+              labelType: NavigationRailLabelType.none,
+              groupAlignment: 0,
+              onDestinationSelected: (i) => context.go(items[i].$1),
+              destinations: [
+                for (final (_, icon, label) in items)
+                  NavigationRailDestination(
+                    icon: Tooltip(message: label, child: DeckIcon(icon)),
+                    label: Text(label),
+                  ),
+              ],
+            ),
           ),
-      ],
+        ),
+      ),
     ),
   );
 }
@@ -266,7 +284,7 @@ class _Header extends StatelessWidget {
     final theme = Theme.of(context);
     return Container(
       height: desktop ? 80 : (compact ? 52 : 64),
-      padding: EdgeInsets.symmetric(horizontal: desktop ? 48 : 20),
+      padding: EdgeInsets.symmetric(horizontal: _gutter(context, desktop)),
       decoration: BoxDecoration(
         border: Border(bottom: BorderSide(color: theme.colorScheme.outline)),
       ),

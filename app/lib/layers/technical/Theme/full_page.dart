@@ -43,7 +43,14 @@ class FullPage extends StatelessWidget {
   }
 
   Widget _body(BuildContext context) {
-    if (!scroll) return child;
+    if (!scroll) {
+      return immersive && tool != null
+          ? Padding(
+              padding: const EdgeInsets.only(top: _backClearance),
+              child: child,
+            )
+          : child;
+    }
     final top = immersive ? _backClearance : _padding;
     return LayoutBuilder(
       builder: (context, constraints) => SingleChildScrollView(
