@@ -1823,5 +1823,7 @@
   "rulesDecisionsEmpty": "Nessuna decisione annotata.",
   "rulesDecisionDelete": "Elimina decisione",
   "rulesCommon": "Regole comuni",
+  "rulesCommonCount": "Regole comuni ({count})",
+  "rulesCommon": "Regole comuni",
   "rulesCommonCount": "Regole comuni ({count})"
 }

@@ -1823,5 +1823,7 @@
   "rulesDecisionsEmpty": "Noch keine Entscheidung festgehalten.",
   "rulesDecisionDelete": "Entscheidung löschen",
   "rulesCommon": "Gemeinsame Regeln",
+  "rulesCommonCount": "Gemeinsame Regeln ({count})",
+  "rulesCommon": "Gemeinsame Regeln",
   "rulesCommonCount": "Gemeinsame Regeln ({count})"
 }

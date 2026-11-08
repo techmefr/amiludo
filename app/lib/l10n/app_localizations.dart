@@ -11009,6 +11009,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Common rules ({count})'**
   String rulesCommonCount(int count);
+
+  /// No description provided for @rulesCommon.
+  ///
+  /// In en, this message translates to:
+  /// **'Common rules'**
+  String get rulesCommon;
+
+  /// No description provided for @rulesCommonCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Common rules ({count})'**
+  String rulesCommonCount(int count);
 }
 
 class _AppLocalizationsDelegate

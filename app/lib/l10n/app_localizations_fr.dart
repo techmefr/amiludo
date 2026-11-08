@@ -5906,4 +5906,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String rulesCommonCount(int count) {
     return 'Règles communes ($count)';
   }
+
+  @override
+  String get rulesCommon => 'Règles communes';
+
+  @override
+  String rulesCommonCount(int count) {
+    return 'Règles communes ($count)';
+  }
 }

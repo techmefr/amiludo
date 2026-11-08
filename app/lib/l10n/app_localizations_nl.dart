@@ -5904,4 +5904,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String rulesCommonCount(int count) {
     return 'Gemeenschappelijke regels ($count)';
   }
+
+  @override
+  String get rulesCommon => 'Gemeenschappelijke regels';
+
+  @override
+  String rulesCommonCount(int count) {
+    return 'Gemeenschappelijke regels ($count)';
+  }
 }

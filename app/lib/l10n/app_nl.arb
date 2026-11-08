@@ -1823,5 +1823,7 @@
   "rulesDecisionsEmpty": "Nog geen beslissingen genoteerd.",
   "rulesDecisionDelete": "Beslissing verwijderen",
   "rulesCommon": "Gemeenschappelijke regels",
+  "rulesCommonCount": "Gemeenschappelijke regels ({count})",
+  "rulesCommon": "Gemeenschappelijke regels",
   "rulesCommonCount": "Gemeenschappelijke regels ({count})"
 }

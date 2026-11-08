@@ -5899,4 +5899,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String rulesCommonCount(int count) {
     return 'Reglas comunes ($count)';
   }
+
+  @override
+  String get rulesCommon => 'Reglas comunes';
+
+  @override
+  String rulesCommonCount(int count) {
+    return 'Reglas comunes ($count)';
+  }
 }

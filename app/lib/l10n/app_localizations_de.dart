@@ -5910,4 +5910,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String rulesCommonCount(int count) {
     return 'Gemeinsame Regeln ($count)';
   }
+
+  @override
+  String get rulesCommon => 'Gemeinsame Regeln';
+
+  @override
+  String rulesCommonCount(int count) {
+    return 'Gemeinsame Regeln ($count)';
+  }
 }

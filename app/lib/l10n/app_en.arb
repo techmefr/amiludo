@@ -2681,5 +2681,14 @@
         "type": "int"
       }
     }
+  },
+  "rulesCommon": "Common rules",
+  "rulesCommonCount": "Common rules ({count})",
+  "@rulesCommonCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   }
 }

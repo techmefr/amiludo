@@ -1823,5 +1823,7 @@
   "rulesDecisionsEmpty": "Aucune décision notée pour l’instant.",
   "rulesDecisionDelete": "Supprimer la décision",
   "rulesCommon": "Règles communes",
+  "rulesCommonCount": "Règles communes ({count})",
+  "rulesCommon": "Règles communes",
   "rulesCommonCount": "Règles communes ({count})"
 }
