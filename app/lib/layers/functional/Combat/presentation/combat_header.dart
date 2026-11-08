@@ -42,11 +42,14 @@ class CombatHeader extends StatelessWidget {
             container: true,
             child: Row(
               children: [
-                Text(
-                  l.combatRound(encounter.round),
-                  style: Numerals.instrument(
-                    text.headlineMedium,
-                  )?.copyWith(color: ink),
+                Flexible(
+                  child: Text(
+                    l.combatRound(encounter.round),
+                    overflow: TextOverflow.ellipsis,
+                    style: Numerals.instrument(
+                      text.headlineMedium,
+                    )?.copyWith(color: ink),
+                  ),
                 ),
                 const SizedBox(width: Space.md),
                 if (turn != null)

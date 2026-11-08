@@ -8,7 +8,6 @@ import 'package:amiludo/layers/functional/Random/presentation/finger_name_picker
 import 'package:amiludo/layers/technical/Feedback/device_feedback.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/finger_ring.dart';
-import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class FingerTool extends StatefulWidget {
@@ -183,9 +182,8 @@ class _FingerToolState extends State<FingerTool> {
 
   @override
   Widget build(BuildContext context) {
-    final top = widget.fullscreen ? fullPageBackClearance : 0.0;
-    return Padding(
-      padding: EdgeInsets.fromLTRB(Space.lg, top, Space.lg, Space.lg),
+        return Padding(
+      padding: const EdgeInsets.all(Space.lg),
       child: Column(
         mainAxisSize: widget.fullscreen ? MainAxisSize.max : MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,

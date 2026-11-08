@@ -3,6 +3,7 @@ import 'package:amiludo/layers/technical/Locale/tool_texts.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/breakpoints.dart';
 import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
@@ -157,7 +158,7 @@ class _ToolPageState extends State<ToolPage> {
       title: title,
       tool: widget.id,
       immersive: true,
-      maxWidth: double.infinity,
+      maxWidth: Breakpoints.contentWidth(WindowClass.large),
       fillHeight: true,
       actions: [if (choose) menu(current, packs)],
       child: Column(
