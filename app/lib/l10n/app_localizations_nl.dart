@@ -2053,6 +2053,15 @@ class AppLocalizationsNl extends AppLocalizations {
   String get libraryColour => 'Kleur';
 
   @override
+  String get libraryViewShelf => 'Kast';
+
+  @override
+  String get libraryViewCards => 'Kaarten';
+
+  @override
+  String get libraryScanLookingUp => 'Zoeken…';
+
+  @override
   String get libraryScanBox => 'Doos scannen';
 
   @override
