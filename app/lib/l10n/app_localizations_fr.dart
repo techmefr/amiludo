@@ -5840,4 +5840,22 @@ class AppLocalizationsFr extends AppLocalizations {
   String scenesPlace(String name) {
     return 'À $name';
   }
+
+  @override
+  String get worldToolReveal => 'Révéler';
+
+  @override
+  String get worldPinSecret => 'Caché aux joueurs';
+
+  @override
+  String get worldFogOn => 'Activer le brouillard';
+
+  @override
+  String get worldFogOff => 'Désactiver le brouillard';
+
+  @override
+  String get worldPlayerView => 'Vue joueurs';
+
+  @override
+  String get worldGmView => 'Vue meneur';
 }

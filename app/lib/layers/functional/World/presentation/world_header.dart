@@ -6,7 +6,7 @@ import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
-enum _MapAction { grid, export, import, delete }
+enum _MapAction { grid, fog, player, export, import, delete }
 
 class WorldHeader extends StatelessWidget {
   const WorldHeader({
@@ -21,12 +21,16 @@ class WorldHeader extends StatelessWidget {
     required this.onImport,
     required this.onDelete,
     required this.onSearch,
+    required this.fog,
+    required this.playerView,
+    required this.onFog,
+    required this.onPlayerView,
   });
   final WorldAtlas atlas;
   final String selected;
-  final bool grid;
+  final bool grid, fog, playerView;
   final ValueChanged<String> onSelect;
-  final VoidCallback onNew, onGrid, onExport, onImport, onDelete, onSearch;
+  final VoidCallback onNew, onGrid, onExport, onImport, onDelete, onSearch, onFog, onPlayerView;
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +72,8 @@ class WorldHeader extends StatelessWidget {
           tooltip: l.worldMapOptions,
           onSelected: (a) => switch (a) {
             _MapAction.grid => onGrid(),
+            _MapAction.fog => onFog(),
+            _MapAction.player => onPlayerView(),
             _MapAction.export => onExport(),
             _MapAction.import => onImport(),
             _MapAction.delete => onDelete(),
@@ -76,6 +82,14 @@ class WorldHeader extends StatelessWidget {
             PopupMenuItem(
               value: _MapAction.grid,
               child: Text(grid ? l.worldGridOff : l.worldGridOn),
+            ),
+            PopupMenuItem(
+              value: _MapAction.fog,
+              child: Text(fog ? l.worldFogOff : l.worldFogOn),
+            ),
+            PopupMenuItem(
+              value: _MapAction.player,
+              child: Text(playerView ? l.worldGmView : l.worldPlayerView),
             ),
             PopupMenuItem(value: _MapAction.export, child: Text(l.worldExport)),
             PopupMenuItem(value: _MapAction.import, child: Text(l.worldImport)),

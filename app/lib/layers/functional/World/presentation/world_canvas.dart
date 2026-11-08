@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/World/domain/entities/map_element.dart';
 import 'package:amiludo/layers/functional/World/domain/entities/map_pin.dart';
 import 'package:amiludo/layers/functional/World/domain/entities/world_map.dart';
+import 'package:amiludo/layers/functional/World/domain/entities/world_map_fog.dart';
 import 'package:amiludo/layers/functional/World/domain/entities/world_map_pins.dart';
 import 'package:amiludo/layers/functional/World/presentation/draw_tool.dart';
 import 'package:amiludo/layers/functional/World/presentation/pin_marker.dart';
@@ -32,6 +33,8 @@ class WorldCanvas extends StatefulWidget {
     required this.onOpenPin,
     required this.onMovePin,
     required this.onMeasure,
+    required this.onReveal,
+    this.playerView = false,
   });
   final WorldMap map;
   final String floorId;
@@ -44,6 +47,8 @@ class WorldCanvas extends StatefulWidget {
   final ValueChanged<MapPin> onOpenPin;
   final void Function(String id, Offset delta) onMovePin;
   final ValueChanged<String?> onMeasure;
+  final ValueChanged<WorldPoint> onReveal;
+  final bool playerView;
 
   @override
   State<WorldCanvas> createState() => _WorldCanvasState();
@@ -195,6 +200,8 @@ class _WorldCanvasState extends State<WorldCanvas>
       );
     } else if (tool == DrawTool.pin) {
       widget.onPlacePin(world);
+    } else if (tool == DrawTool.reveal) {
+      widget.onReveal(world);
     } else if (tool == DrawTool.erase) {
       final floor = widget.map.floor(widget.floorId);
       final hit = floor?.nearest(world, _eraseReach / c.viewport.scale);
@@ -250,9 +257,15 @@ class _WorldCanvasState extends State<WorldCanvas>
                           grid: widget.map.grid,
                           draft: draft,
                           measure: ruler,
+                          reveals: floor?.reveals ?? const [],
+                          fog: widget.map.fog,
+                          playerView: widget.playerView,
                         ),
                       ),
-                      for (final p in floor?.pins ?? const <MapPin>[])
+                      for (final p in widget.map.visiblePins(
+                        widget.floorId,
+                        player: widget.playerView,
+                      ))
                         PinMarker(
                           key: ValueKey(p.id),
                           pin: p,

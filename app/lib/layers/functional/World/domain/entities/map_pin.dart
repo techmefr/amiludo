@@ -11,6 +11,7 @@ class MapPin {
     this.note = '',
     this.refId,
     this.childMapId,
+    this.secret = false,
   });
 
   factory MapPin.fromJson(Map<String, dynamic> j) => MapPin(
@@ -24,12 +25,14 @@ class MapPin {
     note: j['note'] as String? ?? '',
     refId: j['refId'] as String?,
     childMapId: j['childMapId'] as String?,
+    secret: j['secret'] == true,
   );
 
   final String id, title, note;
   final PinKind kind;
   final WorldPoint point;
   final String? refId, childMapId;
+  final bool secret;
 
   MapPin copyWith({
     PinKind? kind,
@@ -38,6 +41,7 @@ class MapPin {
     String? note,
     String? refId,
     String? childMapId,
+    bool? secret,
     bool clearRef = false,
     bool clearChild = false,
   }) => MapPin(
@@ -48,6 +52,7 @@ class MapPin {
     note: note ?? this.note,
     refId: clearRef ? null : refId ?? this.refId,
     childMapId: clearChild ? null : childMapId ?? this.childMapId,
+    secret: secret ?? this.secret,
   );
 
   Map<String, Object?> toJson() => {
@@ -58,5 +63,6 @@ class MapPin {
     'note': note,
     'refId': refId,
     'childMapId': childMapId,
+    'secret': secret,
   };
 }

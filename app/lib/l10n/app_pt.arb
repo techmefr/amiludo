@@ -1803,5 +1803,11 @@
   "worldSearchHint": "Nome de um lugar ou marcador",
   "worldSearchEmpty": "Nenhum marcador encontrado.",
   "worldMiniMap": "Minimapa",
-  "scenesPlace": "Em {name}"
+  "scenesPlace": "Em {name}",
+  "worldToolReveal": "Revelar",
+  "worldPinSecret": "Oculto dos jogadores",
+  "worldFogOn": "Ativar a névoa",
+  "worldFogOff": "Desativar a névoa",
+  "worldPlayerView": "Visão dos jogadores",
+  "worldGmView": "Visão do mestre"
 }

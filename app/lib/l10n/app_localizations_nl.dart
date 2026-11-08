@@ -5838,4 +5838,22 @@ class AppLocalizationsNl extends AppLocalizations {
   String scenesPlace(String name) {
     return 'In $name';
   }
+
+  @override
+  String get worldToolReveal => 'Onthullen';
+
+  @override
+  String get worldPinSecret => 'Verborgen voor spelers';
+
+  @override
+  String get worldFogOn => 'Mist inschakelen';
+
+  @override
+  String get worldFogOff => 'Mist uitschakelen';
+
+  @override
+  String get worldPlayerView => 'Spelersweergave';
+
+  @override
+  String get worldGmView => 'Spelleiderweergave';
 }
