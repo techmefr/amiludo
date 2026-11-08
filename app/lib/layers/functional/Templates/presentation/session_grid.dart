@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/brick_layout.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/session_tile.dart';
+import 'package:amiludo/layers/technical/Theme/components/entrance.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 double sessionTileHeight(TileSize size) => switch (size) {
@@ -56,9 +57,9 @@ class SessionGrid extends StatelessWidget {
 
   Widget _slot(BuildContext context, int index, double width) {
     final brick = bricks[index];
-    final tile = _Entrance(
+    final tile = Entrance(
       key: ValueKey(brick.id),
-      delay: Motion.fast * (index > 6 ? 6 : index) ~/ 3,
+      index: index,
       child: AnimatedScale(
         scale: arrange ? .97 : 1,
         duration: Motion.of(context, Motion.base),
@@ -91,29 +92,6 @@ class SessionGrid extends StatelessWidget {
           child: tile,
         ),
       ),
-    );
-  }
-}
-
-class _Entrance extends StatelessWidget {
-  const _Entrance({super.key, required this.delay, required this.child});
-  final Duration delay;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    final total = Motion.of(context, Motion.slow + delay);
-    if (total == Duration.zero) return child;
-    final start = delay.inMilliseconds / total.inMilliseconds;
-    return TweenAnimationBuilder<double>(
-      tween: Tween(begin: 0, end: 1),
-      duration: total,
-      curve: Interval(start, 1, curve: Motion.curve),
-      builder: (context, t, child) => Opacity(
-        opacity: t,
-        child: Transform.translate(offset: Offset(0, (1 - t) * 16), child: child),
-      ),
-      child: child,
     );
   }
 }

@@ -29,7 +29,7 @@ class ToolsScreen extends StatefulWidget {
 }
 
 class _ToolsScreenState extends State<ToolsScreen> {
-  String category = 'all', query = '';
+  String query = '';
 
   @override
   void initState() {
@@ -64,7 +64,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
     final favorites = state.favorites;
     final shown = filterBricks(
       brickEntries,
-      category: category,
+      category: 'all',
       favorites: favorites.toSet(),
       query: query,
       title: context.toolTitle,
@@ -73,53 +73,24 @@ class _ToolsScreenState extends State<ToolsScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (inCategory)
-          Row(
-            children: [
-              IconButton(
-                tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-                onPressed: () => context.pop(),
-                icon: const DeckIcon(Icons.arrow_back),
-              ),
-              Expanded(
-                child: Text(
-                  context.toolShelfLabel(widget.initialCategory!),
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
-              ),
-            ],
-          )
-        else
+        if (!inCategory)
           DeckHeading(
             eyebrow: context.l10n.randomYourToolboxWithinReach,
             title: context.l10n.randomOneToolReadyToPlay,
             subtitle: context.l10n.randomPlayersAreSharedAcrossTools,
           ),
         if (!inCategory) ...[
-        TextField(
-          onChanged: (v) => setState(() => query = v),
-          textInputAction: TextInputAction.search,
-          decoration: InputDecoration(
-            hintText: context.l10n.brickLibrarySearch,
-            prefixIcon: const DeckIcon(Icons.search),
+          TextField(
+            onChanged: (v) => setState(() => query = v),
+            textInputAction: TextInputAction.search,
+            decoration: InputDecoration(
+              hintText: context.l10n.brickLibrarySearch,
+              prefixIcon: const DeckIcon(Icons.search),
+            ),
           ),
-        ),
-        const SizedBox(height: Space.lg),
-        Wrap(
-          spacing: Space.sm,
-          runSpacing: Space.sm,
-          children: [
-            for (final c in brickCategories)
-              ChoiceChip(
-                label: Text(context.toolCategoryLabel(c)),
-                selected: category == c,
-                onSelected: (_) => setState(() => category = c),
-              ),
-          ],
-        ),
         ],
         const SizedBox(height: Space.xl),
-        if (inCategory || (category == 'all' && query.trim().isEmpty))
+        if (inCategory || query.trim().isEmpty)
           RevealMargin(
             top: Targets.minimum * 3,
             child: ToolsHome(

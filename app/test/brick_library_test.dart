@@ -1,6 +1,7 @@
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:amiludo/layers/functional/Random/presentation/tool_card.dart';
 
 import 'package:amiludo/dependencies.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/brick_ids.dart';
@@ -129,23 +130,30 @@ void _screenTests(Size size) {
     await _close(tester);
   });
 
-  testWidgets('favorites and counters categories filter at $size', (
+  testWidgets('pinned tools and the scores category show at $size', (
     tester,
   ) async {
     await _boot(tester, size);
-    await tester.tap(find.text('Favoris'));
-    await tester.pumpAndSettle();
     expect(find.text('Qui commence ?'), findsOneWidget);
     expect(find.text('Cagnotte'), findsNothing);
-    await tester.tap(find.text('Compteurs'));
+    await tester.ensureVisible(find.text('Scores & compteurs'));
+    await tester.tap(find.text('Scores & compteurs'));
     await tester.pumpAndSettle();
-    expect(find.byType(BrickTile), findsNWidgets(4));
     expect(find.text('Qui commence ?'), findsNothing);
-    await tester.ensureVisible(find.byTooltip('Favori').first);
-    await tester.tap(find.byTooltip('Favori').first);
+    expect(find.text('Cagnotte'), findsOneWidget);
+    final card = find.ancestor(
+      of: find.text('Cagnotte'),
+      matching: find.byType(ToolCard),
+    );
+    final favorite = find.descendant(
+      of: card,
+      matching: find.byTooltip('Favori'),
+    );
+    await tester.ensureVisible(favorite);
+    await tester.tap(favorite);
     await tester.pumpAndSettle();
     final favorites = getIt<ReadWorkspaceUseCase>()().favorites;
-    expect(favorites, contains('counter-life'));
+    expect(favorites, contains('counter-pot'));
     expect(tester.takeException(), isNull);
     await _close(tester);
   });
