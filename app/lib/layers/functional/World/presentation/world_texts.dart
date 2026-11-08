@@ -22,6 +22,7 @@ extension WorldTexts on BuildContext {
       DrawTool.stairs => l.worldToolStairs,
       DrawTool.pin => l.worldToolPin,
       DrawTool.measure => l.worldToolMeasure,
+      DrawTool.reveal => l.worldToolReveal,
       DrawTool.erase => l.worldToolErase,
     };
   }

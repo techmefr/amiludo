@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/World/domain/entities/map_element.dart';
 import 'package:amiludo/layers/functional/World/domain/entities/world_map.dart';
+import 'package:amiludo/layers/functional/World/domain/entities/world_map_fog.dart';
 import 'package:amiludo/layers/functional/World/presentation/world_palette.dart';
 import 'package:amiludo/layers/functional/World/presentation/world_viewport.dart';
 
@@ -16,13 +17,17 @@ class WorldPainter extends CustomPainter {
     required this.grid,
     this.draft,
     this.measure,
+    this.reveals = const [],
+    this.fog = false,
+    this.playerView = false,
     super.repaint,
   });
 
   final List<MapElement> elements, ghost;
   final WorldViewport viewport;
   final WorldPalette palette;
-  final bool grid;
+  final bool grid, fog, playerView;
+  final List<WorldPoint> reveals;
   final MapElement? draft;
   final (WorldPoint, WorldPoint)? measure;
 
@@ -38,8 +43,26 @@ class WorldPainter extends CustomPainter {
     }
     final d = draft;
     if (d != null) _element(canvas, d, .8);
+    if (fog) _fog(canvas, size);
     final m = measure;
     if (m != null) _measure(canvas, m.$1, m.$2);
+  }
+
+  void _fog(Canvas canvas, Size size) {
+    canvas.saveLayer(Offset.zero & size, Paint());
+    canvas.drawRect(
+      Offset.zero & size,
+      Paint()..color = palette.paper.withValues(alpha: playerView ? 1 : .6),
+    );
+    final clear = Paint()..blendMode = BlendMode.clear;
+    for (final r in reveals) {
+      canvas.drawCircle(
+        viewport.toScreen(r),
+        revealRadius * viewport.scale,
+        clear,
+      );
+    }
+    canvas.restore();
   }
 
   void _measure(Canvas canvas, WorldPoint a, WorldPoint b) {

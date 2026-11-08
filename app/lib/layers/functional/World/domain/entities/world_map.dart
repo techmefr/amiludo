@@ -33,6 +33,7 @@ class WorldMap {
     this.level = ScaleLevel.region,
     this.floors = const [],
     this.grid = false,
+    this.fog = false,
     this.parentId,
   });
 
@@ -59,6 +60,7 @@ class WorldMap {
       ),
       floors: floors.isEmpty ? [MapFloor(id: '${newWorldId()}f', name: '0')] : floors,
       grid: j['grid'] == true,
+      fog: j['fog'] == true,
       parentId: j['parentId'] as String?,
     );
   }
@@ -66,7 +68,7 @@ class WorldMap {
   final String id, name;
   final ScaleLevel level;
   final List<MapFloor> floors;
-  final bool grid;
+  final bool grid, fog;
   final String? parentId;
 
   MapFloor? floor(String id) => floors.where((f) => f.id == id).firstOrNull;
@@ -81,12 +83,14 @@ class WorldMap {
     ScaleLevel? level,
     List<MapFloor>? floors,
     bool? grid,
+    bool? fog,
   }) => WorldMap(
     id: id,
     name: name ?? this.name,
     level: level ?? this.level,
     floors: floors ?? this.floors,
     grid: grid ?? this.grid,
+    fog: fog ?? this.fog,
     parentId: parentId,
   );
 
@@ -198,6 +202,7 @@ class WorldMap {
     'level': level.name,
     'floors': [for (final f in floors) f.toJson()],
     'grid': grid,
+    'fog': fog,
     'parentId': parentId,
   };
 }

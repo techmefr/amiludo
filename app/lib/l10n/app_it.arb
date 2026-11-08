@@ -1803,5 +1803,11 @@
   "worldSearchHint": "Nome di un luogo o segnaposto",
   "worldSearchEmpty": "Nessun segnaposto trovato.",
   "worldMiniMap": "Minimappa",
-  "scenesPlace": "A {name}"
+  "scenesPlace": "A {name}",
+  "worldToolReveal": "Rivela",
+  "worldPinSecret": "Nascosto ai giocatori",
+  "worldFogOn": "Attiva la nebbia",
+  "worldFogOff": "Disattiva la nebbia",
+  "worldPlayerView": "Vista giocatori",
+  "worldGmView": "Vista del master"
 }

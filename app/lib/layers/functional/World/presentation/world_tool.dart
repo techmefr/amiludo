@@ -4,6 +4,7 @@ import 'package:amiludo/layers/functional/World/domain/entities/map_element.dart
 import 'package:amiludo/layers/functional/World/domain/entities/world_atlas.dart';
 import 'package:amiludo/layers/functional/World/domain/entities/map_pin.dart';
 import 'package:amiludo/layers/functional/World/domain/entities/world_map.dart';
+import 'package:amiludo/layers/functional/World/domain/entities/world_map_fog.dart';
 import 'package:amiludo/layers/functional/World/domain/entities/world_map_pins.dart';
 import 'package:amiludo/layers/functional/World/presentation/draw_tool.dart';
 import 'package:amiludo/layers/functional/World/presentation/floor_bar.dart';
@@ -46,6 +47,7 @@ class _WorldToolState extends State<WorldTool> {
   DrawTool tool = DrawTool.move;
   double brush = brushSizes[1];
   String? measured;
+  bool playerView = false;
 
   WorldMap? get map => atlas.of(mapId ?? '') ?? atlas.maps.firstOrNull;
 
@@ -247,8 +249,16 @@ class _WorldToolState extends State<WorldTool> {
           },
           onDelete: _deleteMap,
           onSearch: _search,
+          fog: current.fog,
+          playerView: playerView,
+          onFog: () => _edit((m) => m.copyWith(fog: !m.fog)),
+          onPlayerView: () => setState(() {
+            playerView = !playerView;
+            tool = DrawTool.move;
+          }),
         ),
-        WorldToolbar(
+        if (!playerView)
+          WorldToolbar(
           tool: tool,
           brush: brush,
           onTool: (t) => setState(() => tool = t),
@@ -272,8 +282,12 @@ class _WorldToolState extends State<WorldTool> {
                     controller: controller,
                     onAdd: (MapElement e) => _edit((m) => m.addElement(active, e)),
                     onErase: (id) => _edit((m) => m.removeElement(id)),
+                    playerView: playerView,
+                    onReveal: (p) => _edit((m) => m.toggleReveal(active, p)),
                     onPlacePin: _placePin,
-                    onOpenPin: _openPin,
+                    onOpenPin: (p) {
+                      if (!playerView) _openPin(p);
+                    },
                     onMovePin: _movePin,
                     onMeasure: (text) => setState(() => measured = text),
                   ),
@@ -294,7 +308,9 @@ class _WorldToolState extends State<WorldTool> {
               Positioned(
                 right: Space.sm,
                 top: Space.sm,
-                child: MiniMap(
+                child: playerView
+                    ? const SizedBox.shrink()
+                    : MiniMap(
                   floor: current.floor(active)!,
                   controller: controller,
                   onJump: controller.centerOn,

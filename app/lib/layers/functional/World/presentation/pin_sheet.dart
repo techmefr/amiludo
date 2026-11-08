@@ -58,6 +58,7 @@ class _PinSheetState extends State<PinSheet> {
   late PinKind kind = widget.pin.kind;
   late String? refId = widget.pin.refId;
   late String? childId = widget.pin.childMapId;
+  late bool secret = widget.pin.secret;
 
   @override
   void dispose() {
@@ -90,6 +91,7 @@ class _PinSheetState extends State<PinSheet> {
         clearRef: !linked,
         childMapId: childId,
         clearChild: childId == null,
+        secret: secret,
       ),
     );
   }
@@ -166,7 +168,12 @@ class _PinSheetState extends State<PinSheet> {
               (id) => refId = id,
             ),
             _picker(l.worldPinOpensMap, widget.maps, childId, (id) => childId = id),
-            const SizedBox(height: Space.md),
+            SwitchListTile(
+              contentPadding: EdgeInsets.zero,
+              title: Text(l.worldPinSecret),
+              value: secret,
+              onChanged: (v) => setState(() => secret = v),
+            ),
             TextField(
               controller: note,
               minLines: 2,

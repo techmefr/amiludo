@@ -1803,5 +1803,11 @@
   "worldSearchHint": "Naam van een plaats of markering",
   "worldSearchEmpty": "Geen markering gevonden.",
   "worldMiniMap": "Minikaart",
-  "scenesPlace": "In {name}"
+  "scenesPlace": "In {name}",
+  "worldToolReveal": "Onthullen",
+  "worldPinSecret": "Verborgen voor spelers",
+  "worldFogOn": "Mist inschakelen",
+  "worldFogOff": "Mist uitschakelen",
+  "worldPlayerView": "Spelersweergave",
+  "worldGmView": "Spelleiderweergave"
 }

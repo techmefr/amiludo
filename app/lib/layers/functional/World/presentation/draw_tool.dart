@@ -16,6 +16,7 @@ enum DrawTool {
   stairs(ElementKind.stairs, Icons.stairs_outlined),
   pin(null, Icons.place_outlined),
   measure(null, Icons.straighten),
+  reveal(null, Icons.flashlight_on_outlined),
   erase(null, Icons.cleaning_services_outlined);
 
   const DrawTool(this.kind, this.icon);

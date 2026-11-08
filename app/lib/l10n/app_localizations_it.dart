@@ -5837,4 +5837,22 @@ class AppLocalizationsIt extends AppLocalizations {
   String scenesPlace(String name) {
     return 'A $name';
   }
+
+  @override
+  String get worldToolReveal => 'Rivela';
+
+  @override
+  String get worldPinSecret => 'Nascosto ai giocatori';
+
+  @override
+  String get worldFogOn => 'Attiva la nebbia';
+
+  @override
+  String get worldFogOff => 'Disattiva la nebbia';
+
+  @override
+  String get worldPlayerView => 'Vista giocatori';
+
+  @override
+  String get worldGmView => 'Vista del master';
 }

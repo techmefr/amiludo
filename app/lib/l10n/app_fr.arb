@@ -1803,5 +1803,11 @@
   "worldSearchHint": "Nom d’un lieu ou repère",
   "worldSearchEmpty": "Aucun repère trouvé.",
   "worldMiniMap": "Mini-carte",
-  "scenesPlace": "À {name}"
+  "scenesPlace": "À {name}",
+  "worldToolReveal": "Révéler",
+  "worldPinSecret": "Caché aux joueurs",
+  "worldFogOn": "Activer le brouillard",
+  "worldFogOff": "Désactiver le brouillard",
+  "worldPlayerView": "Vue joueurs",
+  "worldGmView": "Vue meneur"
 }

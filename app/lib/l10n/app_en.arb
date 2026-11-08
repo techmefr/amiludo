@@ -2640,5 +2640,11 @@
         "type": "String"
       }
     }
-  }
+  },
+  "worldToolReveal": "Reveal",
+  "worldPinSecret": "Hidden from players",
+  "worldFogOn": "Turn on fog of war",
+  "worldFogOff": "Turn off fog of war",
+  "worldPlayerView": "Player view",
+  "worldGmView": "Game master view"
 }

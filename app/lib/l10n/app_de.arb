@@ -1803,5 +1803,11 @@
   "worldSearchHint": "Name eines Ortes oder einer Markierung",
   "worldSearchEmpty": "Keine Markierung gefunden.",
   "worldMiniMap": "Minikarte",
-  "scenesPlace": "In {name}"
+  "scenesPlace": "In {name}",
+  "worldToolReveal": "Aufdecken",
+  "worldPinSecret": "Vor Spielern verborgen",
+  "worldFogOn": "Nebel aktivieren",
+  "worldFogOff": "Nebel deaktivieren",
+  "worldPlayerView": "Spielersicht",
+  "worldGmView": "Spielleitersicht"
 }

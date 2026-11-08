@@ -10889,6 +10889,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'At {name}'**
   String scenesPlace(String name);
+
+  /// No description provided for @worldToolReveal.
+  ///
+  /// In en, this message translates to:
+  /// **'Reveal'**
+  String get worldToolReveal;
+
+  /// No description provided for @worldPinSecret.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden from players'**
+  String get worldPinSecret;
+
+  /// No description provided for @worldFogOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn on fog of war'**
+  String get worldFogOn;
+
+  /// No description provided for @worldFogOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn off fog of war'**
+  String get worldFogOff;
+
+  /// No description provided for @worldPlayerView.
+  ///
+  /// In en, this message translates to:
+  /// **'Player view'**
+  String get worldPlayerView;
+
+  /// No description provided for @worldGmView.
+  ///
+  /// In en, this message translates to:
+  /// **'Game master view'**
+  String get worldGmView;
 }
 
 class _AppLocalizationsDelegate
