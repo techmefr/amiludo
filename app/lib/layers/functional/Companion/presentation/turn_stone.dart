@@ -64,11 +64,13 @@ class TurnStone extends StatelessWidget {
                   ),
                 ),
               const SizedBox(width: Space.sm),
-              Text(
-                label,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: StonePalette.cream.withValues(
-                    alpha: past ? .6 : 1,
+              Flexible(
+                child: Text(
+                  label,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: StonePalette.cream.withValues(
+                      alpha: past ? .6 : 1,
+                    ),
                   ),
                 ),
               ),

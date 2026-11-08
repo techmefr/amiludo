@@ -33,13 +33,23 @@ Future<void> expectRoutesFit(
   addTearDown(getIt.reset);
   await tester.pumpWidget(const AmiludoApp());
   await tester.pumpAndSettle();
+  final failures = <String>[];
   for (final route in routes) {
     router.go('/');
     await tester.pumpAndSettle();
     router.push(route);
     await tester.pumpAndSettle();
-    expect(tester.takeException(), isNull, reason: '$route at $size x$scale');
+    final error = tester.takeException();
+    if (error != null) failures.add('$route: ${_summary(error)}');
   }
   await tester.pumpWidget(const SizedBox());
   await db.close();
+  expect(failures, isEmpty, reason: 'at $size x$scale');
+}
+
+String _summary(Object error) {
+  final text = error is FlutterError ? error.toStringDeep() : '$error';
+  final first = text.trim().split('\n').first;
+  final where = RegExp(r'[\w/]+\.dart:\d+').allMatches(text).map((m) => m[0]);
+  return '$first ${where.take(2).join(' ')}';
 }

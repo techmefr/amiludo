@@ -163,7 +163,7 @@ class _TurnsToolState extends State<TurnsTool> {
                         children: [
                           const DeckIcon(Icons.remove),
                           const SizedBox(width: Space.sm),
-                          Text(l.turnRemovePhase),
+                          Flexible(child: Text(l.turnRemovePhase)),
                         ],
                       ),
                     ),
