@@ -5234,4 +5234,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get buildMine => 'Mijn spelgenoten';
+
+  @override
+  String get buildArrange => 'Herschikken';
+
+  @override
+  String get buildArrangeDone => 'Klaar';
 }

@@ -5240,4 +5240,10 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get buildMine => 'Meine Begleiter';
+
+  @override
+  String get buildArrange => 'Anordnen';
+
+  @override
+  String get buildArrangeDone => 'Fertig';
 }

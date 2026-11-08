@@ -8449,6 +8449,18 @@ abstract class AppLocalizations {
   /// **'Companion saved.'**
   String get buildSaved;
 
+  /// No description provided for @buildArrange.
+  ///
+  /// In en, this message translates to:
+  /// **'Arrange'**
+  String get buildArrange;
+
+  /// No description provided for @buildArrangeDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get buildArrangeDone;
+
   /// No description provided for @buildLabel.
   ///
   /// In en, this message translates to:

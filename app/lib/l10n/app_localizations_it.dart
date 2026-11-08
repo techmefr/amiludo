@@ -5233,4 +5233,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get buildMine => 'I miei compagni';
+
+  @override
+  String get buildArrange => 'Riordina';
+
+  @override
+  String get buildArrangeDone => 'Fatto';
 }

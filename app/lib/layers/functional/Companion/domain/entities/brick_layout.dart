@@ -25,6 +25,8 @@ extension BrickLayout on Brick {
   Brick withSettings(Map<String, dynamic> values) =>
       copyWith(settings: {...settings, ...values});
 
+  int get span => size == TileSize.large ? 2 : 1;
+
   String get toolId =>
       type == 'counter' ? 'counter-${id.split('-').first}' : type;
 }

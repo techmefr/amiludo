@@ -1,43 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
-import 'package:amiludo/layers/functional/Companion/domain/entities/brick_layout.dart';
-import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
-import 'package:amiludo/layers/functional/Templates/presentation/companion_brick_row.dart';
+import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/session_grid.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
-import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
-import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
 
-typedef BrickWidgetBuilder = Widget? Function(BuildContext, Brick);
+export 'package:amiludo/layers/functional/Templates/presentation/session_grid.dart'
+    show BrickWidgetBuilder;
 
-double sessionTileHeight(TileSize size) => switch (size) {
-  TileSize.small => 240,
-  TileSize.medium => 380,
-  TileSize.large => 560,
-};
-
-class CompanionSession extends StatelessWidget {
+class CompanionSession extends StatefulWidget {
   const CompanionSession({super.key, required this.id, required this.builder});
   final String id;
   final BrickWidgetBuilder builder;
 
   @override
+  State<CompanionSession> createState() => _CompanionSessionState();
+}
+
+class _CompanionSessionState extends State<CompanionSession> {
+  bool arrange = false;
+
+  Future<void> _move(GameTemplate template, int from, int to) {
+    final next = [...template.bricks];
+    next.insert(to, next.removeAt(from));
+    return context.read<TemplatesCubit>().addTemplate(
+      template.withBricks(next),
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final l = context.l10n;
     final template = context
         .watch<TemplatesCubit>()
         .state
         .templates
-        .where((t) => t.id == id)
+        .where((t) => t.id == widget.id)
         .firstOrNull;
     if (template == null) {
       return FullPage(
-        title: context.l10n.templatesPackNotFound,
+        title: l.templatesPackNotFound,
         fallback: '/',
-        child: Text(context.l10n.templatesThisPackIsNoLonger),
+        child: Text(l.templatesThisPackIsNoLonger),
       );
     }
     return FullPage(
@@ -45,41 +53,25 @@ class CompanionSession extends StatelessWidget {
       fallback: '/',
       immersive: true,
       maxWidth: 1400,
-      child: ResponsiveGrid(
-        minimumWidth: 340,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          for (final brick in template.bricks)
-            _SessionTile(key: ValueKey(brick.id), brick: brick, builder: builder),
-        ],
-      ),
-    );
-  }
-}
-
-class _SessionTile extends StatelessWidget {
-  const _SessionTile({super.key, required this.brick, required this.builder});
-  final Brick brick;
-  final BrickWidgetBuilder builder;
-
-  @override
-  Widget build(BuildContext context) {
-    final tool = toolThemeFor(brick.toolId);
-    final body = builder(context, brick);
-    return SizedBox(
-      height: sessionTileHeight(brick.size),
-      child: Material(
-        color: tool.surface(context),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(Radii.lg),
-        ),
-        clipBehavior: Clip.antiAlias,
-        child: body ??
-            Center(
-              child: FilledButton(
-                onPressed: () => context.push('/tools/${brick.type}'),
-                child: Text(brickTitle(context, brick)),
-              ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: TextButton.icon(
+              onPressed: () => setState(() => arrange = !arrange),
+              icon: DeckIcon(arrange ? Icons.check : Icons.swap_vert),
+              label: Text(arrange ? l.buildArrangeDone : l.buildArrange),
             ),
+          ),
+          const SizedBox(height: Space.sm),
+          SessionGrid(
+            bricks: template.bricks,
+            builder: widget.builder,
+            arrange: arrange,
+            onMove: (from, to) => _move(template, from, to),
+          ),
+        ],
       ),
     );
   }
