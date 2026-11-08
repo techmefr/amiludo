@@ -37,7 +37,14 @@ const toolShelves = [
     'twist',
   ]),
   ToolShelf('characters', ['character', 'heroes']),
-  ToolShelf('players', ['picker', 'teams', 'order', 'roles']),
+  ToolShelf('players', [
+    'picker',
+    'first-player',
+    'turns',
+    'teams',
+    'order',
+    'roles',
+  ]),
 ];
 
 ToolShelf? toolShelf(String id) =>

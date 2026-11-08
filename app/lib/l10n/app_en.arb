@@ -1819,5 +1819,43 @@
         "type": "int"
       }
     }
+  },
+  "toolTurnsTitle": "Turns and phases",
+  "toolTurnsSubtitle": "Follow the round, whose turn it is and the phase in progress.",
+  "turnRound": "Round {number}",
+  "@turnRound": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "turnPlays": "{name} is playing",
+  "@turnPlays": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "turnNextPhase": "Next phase",
+  "turnSkipPlayer": "Skip player",
+  "turnPhaseDraw": "Draw",
+  "turnPhaseMain": "Main",
+  "turnPhaseEnd": "End",
+  "turnAddPhase": "Add a phase",
+  "turnPhaseName": "Phase name",
+  "turnRemovePhase": "Remove a phase",
+  "toolFirstPlayerTitle": "First player",
+  "toolFirstPlayerSubtitle": "A token rolls around the table and lands on whoever starts.",
+  "firstPlayerDraw": "Draw the first player",
+  "firstPlayerAgain": "Draw again",
+  "firstPlayerStarts": "{name} starts",
+  "@firstPlayerStarts": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   }
 }

@@ -1406,5 +1406,22 @@
   "rankingEmpty": "Saisissez au moins un score pour voir le classement.",
   "rankingStamp": "Gagnant",
   "rankingTie": "Égalité",
-  "rankingPosition": "Rang {position}"
+  "rankingPosition": "Rang {position}",
+  "toolTurnsTitle": "Tours et phases",
+  "toolTurnsSubtitle": "Suivez la manche, le joueur actif et la phase en cours.",
+  "turnRound": "Manche {number}",
+  "turnPlays": "{name} joue",
+  "turnNextPhase": "Phase suivante",
+  "turnSkipPlayer": "Passer le joueur",
+  "turnPhaseDraw": "Pioche",
+  "turnPhaseMain": "Principale",
+  "turnPhaseEnd": "Fin",
+  "turnAddPhase": "Ajouter une phase",
+  "turnPhaseName": "Nom de la phase",
+  "turnRemovePhase": "Retirer une phase",
+  "toolFirstPlayerTitle": "Premier joueur",
+  "toolFirstPlayerSubtitle": "Un jeton fait le tour de la table et s'arrête sur celui qui commence.",
+  "firstPlayerDraw": "Tirer le premier joueur",
+  "firstPlayerAgain": "Tirer à nouveau",
+  "firstPlayerStarts": "{name} commence"
 }

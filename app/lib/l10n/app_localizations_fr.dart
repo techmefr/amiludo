@@ -4550,4 +4550,61 @@ class AppLocalizationsFr extends AppLocalizations {
   String rankingPosition(int position) {
     return 'Rang $position';
   }
+
+  @override
+  String get toolTurnsTitle => 'Tours et phases';
+
+  @override
+  String get toolTurnsSubtitle => 'Suivez la manche, le joueur actif et la phase en cours.';
+
+  @override
+  String turnRound(int number) {
+    return 'Manche $number';
+  }
+
+  @override
+  String turnPlays(String name) {
+    return '$name joue';
+  }
+
+  @override
+  String get turnNextPhase => 'Phase suivante';
+
+  @override
+  String get turnSkipPlayer => 'Passer le joueur';
+
+  @override
+  String get turnPhaseDraw => 'Pioche';
+
+  @override
+  String get turnPhaseMain => 'Principale';
+
+  @override
+  String get turnPhaseEnd => 'Fin';
+
+  @override
+  String get turnAddPhase => 'Ajouter une phase';
+
+  @override
+  String get turnPhaseName => 'Nom de la phase';
+
+  @override
+  String get turnRemovePhase => 'Retirer une phase';
+
+  @override
+  String get toolFirstPlayerTitle => 'Premier joueur';
+
+  @override
+  String get toolFirstPlayerSubtitle => 'Un jeton fait le tour de la table et s\'arrête sur celui qui commence.';
+
+  @override
+  String get firstPlayerDraw => 'Tirer le premier joueur';
+
+  @override
+  String get firstPlayerAgain => 'Tirer à nouveau';
+
+  @override
+  String firstPlayerStarts(String name) {
+    return '$name commence';
+  }
 }

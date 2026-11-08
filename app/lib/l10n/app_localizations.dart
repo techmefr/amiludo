@@ -8508,6 +8508,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rank {position}'**
   String rankingPosition(int position);
+
+  /// No description provided for @toolTurnsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Turns and phases'**
+  String get toolTurnsTitle;
+
+  /// No description provided for @toolTurnsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Follow the round, whose turn it is and the phase in progress.'**
+  String get toolTurnsSubtitle;
+
+  /// No description provided for @turnRound.
+  ///
+  /// In en, this message translates to:
+  /// **'Round {number}'**
+  String turnRound(int number);
+
+  /// No description provided for @turnPlays.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} is playing'**
+  String turnPlays(String name);
+
+  /// No description provided for @turnNextPhase.
+  ///
+  /// In en, this message translates to:
+  /// **'Next phase'**
+  String get turnNextPhase;
+
+  /// No description provided for @turnSkipPlayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip player'**
+  String get turnSkipPlayer;
+
+  /// No description provided for @turnPhaseDraw.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw'**
+  String get turnPhaseDraw;
+
+  /// No description provided for @turnPhaseMain.
+  ///
+  /// In en, this message translates to:
+  /// **'Main'**
+  String get turnPhaseMain;
+
+  /// No description provided for @turnPhaseEnd.
+  ///
+  /// In en, this message translates to:
+  /// **'End'**
+  String get turnPhaseEnd;
+
+  /// No description provided for @turnAddPhase.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a phase'**
+  String get turnAddPhase;
+
+  /// No description provided for @turnPhaseName.
+  ///
+  /// In en, this message translates to:
+  /// **'Phase name'**
+  String get turnPhaseName;
+
+  /// No description provided for @turnRemovePhase.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove a phase'**
+  String get turnRemovePhase;
+
+  /// No description provided for @toolFirstPlayerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'First player'**
+  String get toolFirstPlayerTitle;
+
+  /// No description provided for @toolFirstPlayerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A token rolls around the table and lands on whoever starts.'**
+  String get toolFirstPlayerSubtitle;
+
+  /// No description provided for @firstPlayerDraw.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw the first player'**
+  String get firstPlayerDraw;
+
+  /// No description provided for @firstPlayerAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw again'**
+  String get firstPlayerAgain;
+
+  /// No description provided for @firstPlayerStarts.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} starts'**
+  String firstPlayerStarts(String name);
 }
 
 class _AppLocalizationsDelegate

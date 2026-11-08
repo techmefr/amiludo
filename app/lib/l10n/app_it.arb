@@ -1406,5 +1406,22 @@
   "rankingEmpty": "Inserisci almeno un punteggio per vedere la classifica.",
   "rankingStamp": "Vincitore",
   "rankingTie": "Pareggio",
-  "rankingPosition": "Posizione {position}"
+  "rankingPosition": "Posizione {position}",
+  "toolTurnsTitle": "Turni e fasi",
+  "toolTurnsSubtitle": "Segui il round, di chi è il turno e la fase in corso.",
+  "turnRound": "Round {number}",
+  "turnPlays": "Gioca {name}",
+  "turnNextPhase": "Fase successiva",
+  "turnSkipPlayer": "Salta giocatore",
+  "turnPhaseDraw": "Pesca",
+  "turnPhaseMain": "Principale",
+  "turnPhaseEnd": "Fine",
+  "turnAddPhase": "Aggiungi una fase",
+  "turnPhaseName": "Nome della fase",
+  "turnRemovePhase": "Rimuovi una fase",
+  "toolFirstPlayerTitle": "Primo giocatore",
+  "toolFirstPlayerSubtitle": "Un segnalino gira attorno al tavolo e si ferma su chi comincia.",
+  "firstPlayerDraw": "Estrai il primo giocatore",
+  "firstPlayerAgain": "Estrai di nuovo",
+  "firstPlayerStarts": "Comincia {name}"
 }

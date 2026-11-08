@@ -13,6 +13,8 @@ const toolDefinitions = [
   ToolDefinition('life', 'match'),
   ToolDefinition('tally', 'match'),
   ToolDefinition('ranking', 'match'),
+  ToolDefinition('turns', 'match'),
+  ToolDefinition('first-player', 'match'),
   ToolDefinition('stopwatch', 'time'),
   ToolDefinition('countdown', 'time'),
   ToolDefinition('chess-clock', 'time'),

@@ -1406,5 +1406,22 @@
   "rankingEmpty": "Voer minstens één score in om de ranglijst te zien.",
   "rankingStamp": "Winnaar",
   "rankingTie": "Gelijkspel",
-  "rankingPosition": "Plaats {position}"
+  "rankingPosition": "Plaats {position}",
+  "toolTurnsTitle": "Beurten en fases",
+  "toolTurnsSubtitle": "Volg de ronde, wie aan de beurt is en de lopende fase.",
+  "turnRound": "Ronde {number}",
+  "turnPlays": "{name} is aan de beurt",
+  "turnNextPhase": "Volgende fase",
+  "turnSkipPlayer": "Speler overslaan",
+  "turnPhaseDraw": "Trekken",
+  "turnPhaseMain": "Hoofdfase",
+  "turnPhaseEnd": "Einde",
+  "turnAddPhase": "Fase toevoegen",
+  "turnPhaseName": "Naam van de fase",
+  "turnRemovePhase": "Fase verwijderen",
+  "toolFirstPlayerTitle": "Startspeler",
+  "toolFirstPlayerSubtitle": "Een pion rolt rond de tafel en stopt bij wie begint.",
+  "firstPlayerDraw": "Startspeler loten",
+  "firstPlayerAgain": "Opnieuw loten",
+  "firstPlayerStarts": "{name} begint"
 }
