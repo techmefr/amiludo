@@ -4444,4 +4444,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String voteCount(int count) {
     return '$count stemmen';
   }
+  String get toolCountdownTitle => 'Aftellen';
+
+  @override
+  String get toolCountdownSubtitle => 'Stel een duur in, zie de ring leeglopen en krijg een melding bij nul.';
 }

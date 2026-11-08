@@ -4443,4 +4443,8 @@ class AppLocalizationsIt extends AppLocalizations {
   String voteCount(int count) {
     return '$count voti';
   }
+  String get toolCountdownTitle => 'Conto alla rovescia';
+
+  @override
+  String get toolCountdownSubtitle => 'Imposta una durata, guarda l’anello svuotarsi e ricevi un avviso a zero.';
 }

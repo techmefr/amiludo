@@ -1374,5 +1374,7 @@
   "voteTie": "Parità",
   "voteAgain": "Vota di nuovo",
   "voteNeedTwo": "Aggiungi una domanda e almeno due scelte.",
-  "voteCount": "{count} voti"
+  "voteCount": "{count} voti",
+  "toolCountdownTitle": "Conto alla rovescia",
+  "toolCountdownSubtitle": "Imposta una durata, guarda l’anello svuotarsi e ricevi un avviso a zero."
 }

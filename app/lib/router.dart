@@ -225,6 +225,7 @@ final router = GoRouter(
           'deck': _deck,
           'rules': rulesWithStorage,
           'vote': _vote,
+          'countdown': countdownWithFeedback,
           'dice-tray': diceTrayWithSensors,
           'hourglass': hourglassWithSensors,
           'map': mapWithStorage,

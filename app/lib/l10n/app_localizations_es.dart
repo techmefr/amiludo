@@ -4439,4 +4439,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String voteCount(int count) {
     return '$count votos';
   }
+  String get toolCountdownTitle => 'Cuenta atrás';
+
+  @override
+  String get toolCountdownSubtitle => 'Fija una duración, mira vaciarse el anillo y recibe un aviso al llegar a cero.';
 }

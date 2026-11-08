@@ -4442,4 +4442,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String voteCount(int count) {
     return '$count votos';
   }
+  String get toolCountdownTitle => 'Contagem decrescente';
+
+  @override
+  String get toolCountdownSubtitle => 'Defina uma duração, veja o anel esvaziar e receba um aviso a zero.';
 }
