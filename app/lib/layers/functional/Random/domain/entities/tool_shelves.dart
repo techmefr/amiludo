@@ -16,7 +16,9 @@ const toolShelves = [
     'counter-chips',
     'counter-pot',
   ]),
-  ToolShelf('cards', ['bag']),
+  ToolShelf('cards', ['deck', 'bag']),
+  ToolShelf('rules', ['rules']),
+  ToolShelf('votes', ['vote']),
   ToolShelf('map', ['map']),
   ToolShelf('story', ['tavern', 'town', 'place', 'weather']),
   ToolShelf('generators', [

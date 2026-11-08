@@ -2,6 +2,8 @@ import 'package:get_it/get_it.dart';
 
 import 'package:amiludo/layers/functional/Notebook/data/gateways/notebook_gateways_impl.dart';
 import 'package:amiludo/notebook_registry.dart';
+import 'package:amiludo/rules_registry.dart';
+import 'package:amiludo/layers/functional/Rules/data/gateways/rule_book_gateway_impl.dart';
 
 import 'package:amiludo/layers/functional/Campaign/data/gateways/campaign_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Campaign/domain/gateways/campaign_gateway.dart';
@@ -241,6 +243,7 @@ void configureDependencies(StoreDatabase database) {
         getIt<DieLibraryGatewayImpl>(),
         getIt<MapBoardsGatewayImpl>(),
         getIt<NotebookGatewayImpl>(),
+        getIt<RuleBookGatewayImpl>(),
       ],
     )
     ..registerLazySingleton<EveningsGatewayImpl>(
@@ -261,6 +264,7 @@ void configureDependencies(StoreDatabase database) {
   _registerDice();
   _registerMaps();
   registerNotebook();
+  registerRules();
 }
 
 void _registerSensors() {

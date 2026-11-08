@@ -30,6 +30,14 @@ const toolShelfStyles = {
     Icons.style_outlined,
     ToolTheme(accent: Color(0xffA3274B), texture: ToolTexture.deck),
   ),
+  'rules': ToolShelfStyle(
+    Icons.menu_book_outlined,
+    ToolTheme(accent: Color(0xff8A5A2B), texture: ToolTexture.parchment),
+  ),
+  'votes': ToolShelfStyle(
+    Icons.how_to_vote_outlined,
+    ToolTheme(accent: Color(0xff2F5D8C), texture: ToolTexture.paper),
+  ),
   'map': ToolShelfStyle(
     Icons.flag_outlined,
     ToolTheme(accent: Color(0xff3F7D4E), texture: ToolTexture.paper),

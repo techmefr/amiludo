@@ -8005,6 +8005,318 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Two clocks, one tap to pass the turn, with increment.'**
   String get toolChessClockSubtitle;
+
+  /// No description provided for @toolShelfRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Rules'**
+  String get toolShelfRules;
+
+  /// No description provided for @toolShelfVotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Votes and secrets'**
+  String get toolShelfVotes;
+
+  /// No description provided for @toolDeckTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Card deck'**
+  String get toolDeckTitle;
+
+  /// No description provided for @toolDeckSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw from 52 cards or from your own deck.'**
+  String get toolDeckSubtitle;
+
+  /// No description provided for @deckStandard.
+  ///
+  /// In en, this message translates to:
+  /// **'52 cards'**
+  String get deckStandard;
+
+  /// No description provided for @deckCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'My cards'**
+  String get deckCustom;
+
+  /// No description provided for @deckCustomLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Your cards, one per line'**
+  String get deckCustomLabel;
+
+  /// No description provided for @deckCustomHelper.
+  ///
+  /// In en, this message translates to:
+  /// **'Add x3 after a name for three copies.'**
+  String get deckCustomHelper;
+
+  /// No description provided for @deckDraw.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw a card'**
+  String get deckDraw;
+
+  /// No description provided for @deckShuffle.
+  ///
+  /// In en, this message translates to:
+  /// **'Shuffle'**
+  String get deckShuffle;
+
+  /// No description provided for @deckRecycle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reshuffle the discard'**
+  String get deckRecycle;
+
+  /// No description provided for @deckDiscardHand.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard the hand'**
+  String get deckDiscardHand;
+
+  /// No description provided for @deckRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} in the deck'**
+  String deckRemaining(int count);
+
+  /// No description provided for @deckDiscardCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} discarded'**
+  String deckDiscardCount(int count);
+
+  /// No description provided for @deckEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'The deck is empty.'**
+  String get deckEmpty;
+
+  /// No description provided for @deckHandTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'In hand'**
+  String get deckHandTitle;
+
+  /// No description provided for @deckDiscardCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard {card}'**
+  String deckDiscardCard(String card);
+
+  /// No description provided for @deckFaceDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Face-down deck'**
+  String get deckFaceDown;
+
+  /// No description provided for @toolRulesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rules memo'**
+  String get toolRulesTitle;
+
+  /// No description provided for @toolRulesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Write the rules of a game once, find them mid-game.'**
+  String get toolRulesSubtitle;
+
+  /// No description provided for @rulesNewGame.
+  ///
+  /// In en, this message translates to:
+  /// **'New game'**
+  String get rulesNewGame;
+
+  /// No description provided for @rulesGameName.
+  ///
+  /// In en, this message translates to:
+  /// **'Game name'**
+  String get rulesGameName;
+
+  /// No description provided for @rulesSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search the rules'**
+  String get rulesSearch;
+
+  /// No description provided for @rulesNoMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'No rule matches.'**
+  String get rulesNoMatch;
+
+  /// No description provided for @rulesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No rules yet. Add a game to start.'**
+  String get rulesEmpty;
+
+  /// No description provided for @rulesNoSection.
+  ///
+  /// In en, this message translates to:
+  /// **'This game has no rule yet.'**
+  String get rulesNoSection;
+
+  /// No description provided for @rulesAddSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a rule'**
+  String get rulesAddSection;
+
+  /// No description provided for @rulesSectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule title'**
+  String get rulesSectionTitle;
+
+  /// No description provided for @rulesSectionBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule text'**
+  String get rulesSectionBody;
+
+  /// No description provided for @rulesDeleteGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this game'**
+  String get rulesDeleteGame;
+
+  /// No description provided for @rulesDeleteRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete rule'**
+  String get rulesDeleteRule;
+
+  /// No description provided for @rulesEditRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit rule'**
+  String get rulesEditRule;
+
+  /// No description provided for @rulesTableMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Table view'**
+  String get rulesTableMode;
+
+  /// No description provided for @toolVoteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Secret vote'**
+  String get toolVoteTitle;
+
+  /// No description provided for @toolVoteSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pass the phone, vote in secret, reveal together.'**
+  String get toolVoteSubtitle;
+
+  /// No description provided for @voteQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Question'**
+  String get voteQuestion;
+
+  /// No description provided for @voteChoices.
+  ///
+  /// In en, this message translates to:
+  /// **'Choices, separated by commas'**
+  String get voteChoices;
+
+  /// No description provided for @voteVoters.
+  ///
+  /// In en, this message translates to:
+  /// **'Voters'**
+  String get voteVoters;
+
+  /// No description provided for @voteFewer.
+  ///
+  /// In en, this message translates to:
+  /// **'Fewer voters'**
+  String get voteFewer;
+
+  /// No description provided for @voteMore.
+  ///
+  /// In en, this message translates to:
+  /// **'More voters'**
+  String get voteMore;
+
+  /// No description provided for @voteStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start the vote'**
+  String get voteStart;
+
+  /// No description provided for @voteTurn.
+  ///
+  /// In en, this message translates to:
+  /// **'Voter {number} of {total}'**
+  String voteTurn(int number, int total);
+
+  /// No description provided for @votePass.
+  ///
+  /// In en, this message translates to:
+  /// **'Hand the phone to the next voter.'**
+  String get votePass;
+
+  /// No description provided for @voteDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Everyone has voted.'**
+  String get voteDone;
+
+  /// No description provided for @voteReady.
+  ///
+  /// In en, this message translates to:
+  /// **'I am ready'**
+  String get voteReady;
+
+  /// No description provided for @voteCast.
+  ///
+  /// In en, this message translates to:
+  /// **'Cast my vote'**
+  String get voteCast;
+
+  /// No description provided for @voteReveal.
+  ///
+  /// In en, this message translates to:
+  /// **'Reveal the result'**
+  String get voteReveal;
+
+  /// No description provided for @voteResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Result'**
+  String get voteResult;
+
+  /// No description provided for @voteTie.
+  ///
+  /// In en, this message translates to:
+  /// **'Tie'**
+  String get voteTie;
+
+  /// No description provided for @voteAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Vote again'**
+  String get voteAgain;
+
+  /// No description provided for @voteNeedTwo.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a question and at least two choices.'**
+  String get voteNeedTwo;
+
+  /// No description provided for @voteCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} votes'**
+  String voteCount(int count);
 }
 
 class _AppLocalizationsDelegate
