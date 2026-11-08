@@ -1815,7 +1815,11 @@
   "rankingPosition": "Rank {position}",
   "@rankingPosition": {
     "placeholders": {
-      "position": {,
+      "position": {
+        "type": "int"
+      }
+    }
+  },
   "toolTurnTimerTitle": "Turn timer",
   "toolTurnTimerSubtitle": "One ring per turn, a colour per player, one tap to pass on.",
   "turnTimerNext": "Next player",
