@@ -17,7 +17,7 @@ const toolShelves = [
     'chess-clock',
     'hourglass',
   ]),
-  ToolShelf('chance', ['dice-tray', 'dice', 'wheel', 'coin', 'number']),
+  ToolShelf('chance', ['dice-tray', 'wheel', 'coin', 'number']),
   ToolShelf('scores', [
     'scores',
     'life',
@@ -41,7 +41,14 @@ const toolShelves = [
   ToolShelf('ambience', ['ambience']),
   ToolShelf('party', ['challenges']),
   ToolShelf('map', ['map']),
-  ToolShelf('story', ['journal', 'oracle', 'tavern', 'town', 'place', 'weather']),
+  ToolShelf('story', [
+    'journal',
+    'oracle',
+    'tavern',
+    'town',
+    'place',
+    'weather',
+  ]),
   ToolShelf('generators', [
     'npc',
     'encounter',

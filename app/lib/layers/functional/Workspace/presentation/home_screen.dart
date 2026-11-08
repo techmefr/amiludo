@@ -47,7 +47,7 @@ class HomeScreen extends StatelessWidget {
         ),
         HomeFavoriteTools(
           tools: toolDefinitions
-              .where((t) => ws.favorites.contains(t.id))
+              .where((t) => t.id != 'dice' && ws.favorites.contains(t.id))
               .toList(),
         ),
         SectionHeading(

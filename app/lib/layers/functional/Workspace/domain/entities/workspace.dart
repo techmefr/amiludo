@@ -15,7 +15,7 @@ class Workspace {
     this.characters = const [],
     this.playerNames = const ['Camille', 'Alex', 'Léa', 'Sam'],
     this.favorites = const [
-      'dice',
+      'dice-tray',
       'picker',
       'scores',
       'timer',

@@ -7,6 +7,8 @@ import 'package:amiludo/layers/technical/Theme/components/tool_frame.dart';
 import 'package:amiludo/layers/technical/Theme/deck_style.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
+const double fullPageBackClearance = 56;
+
 class FullPage extends StatelessWidget {
   const FullPage({
     super.key,
@@ -30,7 +32,7 @@ class FullPage extends StatelessWidget {
   final List<Widget> actions;
 
   static const double _padding = 20;
-  static const double _backClearance = 56;
+  static const double _backClearance = fullPageBackClearance;
 
   void _back(BuildContext context) {
     if (context.canPop()) {
@@ -110,6 +112,12 @@ class FullPage extends StatelessWidget {
                   _discreetBack(context)
                 else
                   ToolHeaderPill(id: tool!, onBack: () => _back(context)),
+                if (actions.isNotEmpty)
+                  Positioned(
+                    top: Space.xs,
+                    right: Space.xs,
+                    child: Row(children: actions),
+                  ),
               ],
             ),
           ),
