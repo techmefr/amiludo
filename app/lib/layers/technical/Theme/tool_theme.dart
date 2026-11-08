@@ -170,6 +170,18 @@ const toolThemes = <String, ToolTheme>{
     header: ToolHeader.ribbon,
     motion: ToolMotion.flow,
   ),
+  'stats': ToolTheme(
+    accent: Color(0xff3F6FB0),
+    texture: ToolTexture.paper,
+    header: ToolHeader.ribbon,
+    motion: ToolMotion.flow,
+  ),
+  'buzzer': ToolTheme(
+    accent: Color(0xffD2603F),
+    texture: ToolTexture.tactile,
+    haptic: ToolHaptic.impact,
+    weight: 1.4,
+  ),
   'turns': ToolTheme(
     accent: Color(0xff5A4FB0),
     texture: ToolTexture.frame,

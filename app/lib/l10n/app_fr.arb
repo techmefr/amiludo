@@ -1493,5 +1493,17 @@
   "phasesPhase": "Phase {number}",
   "phasesRound": "Manche {number}",
   "phasesAdd": "Ajouter une phase",
-  "phasesRemove": "Retirer la phase"
+  "phasesRemove": "Retirer la phase",
+  "toolStatsTitle": "Statistiques des joueurs",
+  "toolStatsSubtitle": "Victoires et parties jouées par joueur et par jeu, d'après votre historique.",
+  "statsEmpty": "Terminez une partie pour voir les statistiques ici.",
+  "statsGamesPlayed": "parties jouées",
+  "statsPlayers": "Joueurs",
+  "statsGames": "Jeux",
+  "statsRecord": "{wins} victoires sur {played}",
+  "statsPlays": "{count} parties",
+  "toolBuzzerTitle": "Buzzer",
+  "toolBuzzerSubtitle": "Un gros bouton par joueur : le premier à appuyer gagne.",
+  "buzzerReady": "Prêts, appuyez sur votre bouton",
+  "buzzerFirst": "{name} a appuyé en premier"
 }

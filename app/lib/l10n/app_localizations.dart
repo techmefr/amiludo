@@ -9029,6 +9029,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete entry'**
   String get journalDelete;
+
+  /// No description provided for @toolStatsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Player statistics'**
+  String get toolStatsTitle;
+
+  /// No description provided for @toolStatsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Wins and games played for each player and each game, from your history.'**
+  String get toolStatsSubtitle;
+
+  /// No description provided for @statsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish a game to see statistics here.'**
+  String get statsEmpty;
+
+  /// No description provided for @statsGamesPlayed.
+  ///
+  /// In en, this message translates to:
+  /// **'games played'**
+  String get statsGamesPlayed;
+
+  /// No description provided for @statsPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Players'**
+  String get statsPlayers;
+
+  /// No description provided for @statsGames.
+  ///
+  /// In en, this message translates to:
+  /// **'Games'**
+  String get statsGames;
+
+  /// No description provided for @statsRecord.
+  ///
+  /// In en, this message translates to:
+  /// **'{wins} wins of {played}'**
+  String statsRecord(int wins, int played);
+
+  /// No description provided for @statsPlays.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} plays'**
+  String statsPlays(int count);
+
+  /// No description provided for @toolBuzzerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Buzzer'**
+  String get toolBuzzerTitle;
+
+  /// No description provided for @toolBuzzerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'One big button per player: the first to press wins.'**
+  String get toolBuzzerSubtitle;
+
+  /// No description provided for @buzzerReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready, press your button'**
+  String get buzzerReady;
+
+  /// No description provided for @buzzerFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} pressed first'**
+  String buzzerFirst(String name);
 }
 
 class _AppLocalizationsDelegate

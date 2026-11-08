@@ -13,6 +13,8 @@ const toolDefinitions = [
   ToolDefinition('life', 'match'),
   ToolDefinition('tally', 'match'),
   ToolDefinition('ranking', 'match'),
+  ToolDefinition('stats', 'match'),
+  ToolDefinition('buzzer', 'match'),
   ToolDefinition('sheet', 'match'),
   ToolDefinition('turns', 'match'),
   ToolDefinition('first-player', 'match'),

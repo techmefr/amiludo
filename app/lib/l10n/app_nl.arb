@@ -1493,5 +1493,17 @@
   "phasesPhase": "Fase {number}",
   "phasesRound": "Ronde {number}",
   "phasesAdd": "Een fase toevoegen",
-  "phasesRemove": "De fase verwijderen"
+  "phasesRemove": "De fase verwijderen",
+  "toolStatsTitle": "Spelersstatistieken",
+  "toolStatsSubtitle": "Overwinningen en gespeelde potjes per speler en per spel, uit je geschiedenis.",
+  "statsEmpty": "Rond een spel af om hier statistieken te zien.",
+  "statsGamesPlayed": "gespeelde potjes",
+  "statsPlayers": "Spelers",
+  "statsGames": "Spellen",
+  "statsRecord": "{wins} winsten van {played}",
+  "statsPlays": "{count} potjes",
+  "toolBuzzerTitle": "Buzzer",
+  "toolBuzzerSubtitle": "Eén grote knop per speler: wie het eerst drukt wint.",
+  "buzzerReady": "Klaar, druk op je knop",
+  "buzzerFirst": "{name} drukte als eerste"
 }

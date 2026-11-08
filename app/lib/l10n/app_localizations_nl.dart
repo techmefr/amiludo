@@ -4820,4 +4820,46 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get phasesRemove => 'De fase verwijderen';
+
+  @override
+  String get toolStatsTitle => 'Spelersstatistieken';
+
+  @override
+  String get toolStatsSubtitle => 'Overwinningen en gespeelde potjes per speler en per spel, uit je geschiedenis.';
+
+  @override
+  String get statsEmpty => 'Rond een spel af om hier statistieken te zien.';
+
+  @override
+  String get statsGamesPlayed => 'gespeelde potjes';
+
+  @override
+  String get statsPlayers => 'Spelers';
+
+  @override
+  String get statsGames => 'Spellen';
+
+  @override
+  String statsRecord(int wins, int played) {
+    return '$wins winsten van $played';
+  }
+
+  @override
+  String statsPlays(int count) {
+    return '$count potjes';
+  }
+
+  @override
+  String get toolBuzzerTitle => 'Buzzer';
+
+  @override
+  String get toolBuzzerSubtitle => 'Eén grote knop per speler: wie het eerst drukt wint.';
+
+  @override
+  String get buzzerReady => 'Klaar, druk op je knop';
+
+  @override
+  String buzzerFirst(String name) {
+    return '$name drukte als eerste';
+  }
 }

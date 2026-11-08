@@ -1493,5 +1493,17 @@
   "phasesPhase": "Fase {number}",
   "phasesRound": "Ronda {number}",
   "phasesAdd": "Adicionar uma fase",
-  "phasesRemove": "Remover a fase"
+  "phasesRemove": "Remover a fase",
+  "toolStatsTitle": "Estatísticas dos jogadores",
+  "toolStatsSubtitle": "Vitórias e partidas por jogador e por jogo, a partir do seu histórico.",
+  "statsEmpty": "Termine uma partida para ver estatísticas aqui.",
+  "statsGamesPlayed": "partidas jogadas",
+  "statsPlayers": "Jogadores",
+  "statsGames": "Jogos",
+  "statsRecord": "{wins} vitórias em {played}",
+  "statsPlays": "{count} partidas",
+  "toolBuzzerTitle": "Buzzer",
+  "toolBuzzerSubtitle": "Um botão grande por jogador: ganha quem premir primeiro.",
+  "buzzerReady": "Prontos, premam o vosso botão",
+  "buzzerFirst": "{name} premiu primeiro"
 }

@@ -1979,5 +1979,41 @@
     }
   },
   "phasesAdd": "Add a phase",
-  "phasesRemove": "Remove the phase"
+  "phasesRemove": "Remove the phase",
+  "toolStatsTitle": "Player statistics",
+  "toolStatsSubtitle": "Wins and games played for each player and each game, from your history.",
+  "statsEmpty": "Finish a game to see statistics here.",
+  "statsGamesPlayed": "games played",
+  "statsPlayers": "Players",
+  "statsGames": "Games",
+  "statsRecord": "{wins} wins of {played}",
+  "@statsRecord": {
+    "placeholders": {
+      "wins": {
+        "type": "int"
+      },
+      "played": {
+        "type": "int"
+      }
+    }
+  },
+  "statsPlays": "{count} plays",
+  "@statsPlays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolBuzzerTitle": "Buzzer",
+  "toolBuzzerSubtitle": "One big button per player: the first to press wins.",
+  "buzzerReady": "Ready, press your button",
+  "buzzerFirst": "{name} pressed first",
+  "@buzzerFirst": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }

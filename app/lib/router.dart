@@ -23,9 +23,11 @@ import 'package:amiludo/layers/functional/Random/presentation/impostor_tool.dart
 import 'package:amiludo/layers/functional/Random/presentation/deck_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/vote_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/first_player_tool.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/buzzer_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/life_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/ranking_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/sheet_tool.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/stats_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/stopwatch_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tally_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/turns_tool.dart';
@@ -107,6 +109,11 @@ Widget _tally(BuildContext context) => TallyTool(names: _names(context));
 Widget _ranking(BuildContext context) => RankingTool(names: _names(context));
 
 Widget _sheet(BuildContext context) => SheetTool(names: _names(context));
+
+Widget _buzzer(BuildContext context) => BuzzerTool(names: _names(context));
+
+Widget _stats(BuildContext context) =>
+    StatsTool(games: context.read<RandomCubit>().state.games);
 
 Widget _turns(BuildContext context) => TurnsTool(names: _names(context));
 
@@ -261,6 +268,8 @@ final router = GoRouter(
           'life': _life,
           'tally': _tally,
           'ranking': _ranking,
+          'buzzer': _buzzer,
+          'stats': _stats,
           'sheet': _sheet,
           'turns': _turns,
           'first-player': _firstPlayer,
