@@ -4818,4 +4818,46 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get phasesRemove => 'Remover a fase';
+
+  @override
+  String get toolStatsTitle => 'Estatísticas dos jogadores';
+
+  @override
+  String get toolStatsSubtitle => 'Vitórias e partidas por jogador e por jogo, a partir do seu histórico.';
+
+  @override
+  String get statsEmpty => 'Termine uma partida para ver estatísticas aqui.';
+
+  @override
+  String get statsGamesPlayed => 'partidas jogadas';
+
+  @override
+  String get statsPlayers => 'Jogadores';
+
+  @override
+  String get statsGames => 'Jogos';
+
+  @override
+  String statsRecord(int wins, int played) {
+    return '$wins vitórias em $played';
+  }
+
+  @override
+  String statsPlays(int count) {
+    return '$count partidas';
+  }
+
+  @override
+  String get toolBuzzerTitle => 'Buzzer';
+
+  @override
+  String get toolBuzzerSubtitle => 'Um botão grande por jogador: ganha quem premir primeiro.';
+
+  @override
+  String get buzzerReady => 'Prontos, premam o vosso botão';
+
+  @override
+  String buzzerFirst(String name) {
+    return '$name premiu primeiro';
+  }
 }

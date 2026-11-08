@@ -22,6 +22,7 @@ const toolShelves = [
     'life',
     'tally',
     'ranking',
+    'stats',
     'sheet',
     'counter-life',
     'counter-points',
@@ -50,6 +51,7 @@ const toolShelves = [
   ToolShelf('players', [
     'picker',
     'first-player',
+    'buzzer',
     'turns',
     'teams',
     'order',

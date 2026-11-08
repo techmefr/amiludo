@@ -4789,4 +4789,46 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get phasesRemove => 'Remove the phase';
+
+  @override
+  String get toolStatsTitle => 'Player statistics';
+
+  @override
+  String get toolStatsSubtitle => 'Wins and games played for each player and each game, from your history.';
+
+  @override
+  String get statsEmpty => 'Finish a game to see statistics here.';
+
+  @override
+  String get statsGamesPlayed => 'games played';
+
+  @override
+  String get statsPlayers => 'Players';
+
+  @override
+  String get statsGames => 'Games';
+
+  @override
+  String statsRecord(int wins, int played) {
+    return '$wins wins of $played';
+  }
+
+  @override
+  String statsPlays(int count) {
+    return '$count plays';
+  }
+
+  @override
+  String get toolBuzzerTitle => 'Buzzer';
+
+  @override
+  String get toolBuzzerSubtitle => 'One big button per player: the first to press wins.';
+
+  @override
+  String get buzzerReady => 'Ready, press your button';
+
+  @override
+  String buzzerFirst(String name) {
+    return '$name pressed first';
+  }
 }
