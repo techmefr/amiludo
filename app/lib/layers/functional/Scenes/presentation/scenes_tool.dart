@@ -19,11 +19,13 @@ class ScenesTool extends StatefulWidget {
     this.initial = const Storyline(),
     this.onChanged,
     this.creatureNames = const {},
+    this.placeNames = const {},
     this.ambient = const SilentAmbientOutput(),
   });
   final Storyline initial;
   final ValueChanged<Storyline>? onChanged;
   final Map<String, String> creatureNames;
+  final Map<String, String> placeNames;
   final AmbientOutput ambient;
 
   @override
@@ -101,6 +103,7 @@ class _ScenesToolState extends State<ScenesTool> {
               number: i + 1,
               tool: tool,
               followers: storyline.followers(s),
+              placeName: widget.placeNames[s.id],
               creatureNames: [
                 for (final id in s.creatureIds)
                   if (widget.creatureNames[id] != null)

@@ -37,7 +37,18 @@ class WorldAtlas {
   WorldAtlas remove(String id) => WorldAtlas(
     maps: [
       for (final m in maps)
-        if (m.id != id) m,
+        if (m.id != id)
+          m.copyWith(
+            floors: [
+              for (final f in m.floors)
+                f.copyWith(
+                  pins: [
+                    for (final p in f.pins)
+                      p.childMapId == id ? p.copyWith(clearChild: true) : p,
+                  ],
+                ),
+            ],
+          ),
     ],
   );
 

@@ -68,6 +68,16 @@ class WorldViewportController extends ChangeNotifier {
 
   void reset() => _go(WorldViewport.centered(size));
 
+  void centerOn(WorldPoint p) => _go(
+    WorldViewport(
+      scale: _viewport.scale,
+      offset: Offset(
+        size.width / 2 - p.x * _viewport.scale,
+        size.height / 2 - p.y * _viewport.scale,
+      ),
+    ),
+  );
+
   void zoomBy(double factor) => _go(
     _viewport.zoomedBy(factor, Offset(size.width / 2, size.height / 2)),
   );

@@ -20,12 +20,13 @@ class WorldHeader extends StatelessWidget {
     required this.onExport,
     required this.onImport,
     required this.onDelete,
+    required this.onSearch,
   });
   final WorldAtlas atlas;
   final String selected;
   final bool grid;
   final ValueChanged<String> onSelect;
-  final VoidCallback onNew, onGrid, onExport, onImport, onDelete;
+  final VoidCallback onNew, onGrid, onExport, onImport, onDelete, onSearch;
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +53,11 @@ class WorldHeader extends StatelessWidget {
               ],
             ),
           ),
+        ),
+        IconButton(
+          tooltip: l.worldSearch,
+          onPressed: onSearch,
+          icon: const DeckIcon(Icons.search),
         ),
         IconButton(
           tooltip: l.worldNewMap,

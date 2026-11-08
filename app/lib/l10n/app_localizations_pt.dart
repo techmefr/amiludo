@@ -5770,4 +5770,70 @@ class AppLocalizationsPt extends AppLocalizations {
   String worldCanvasLabel(String map, String floor) {
     return 'Mapa $map, andar $floor';
   }
+
+  @override
+  String get worldToolPin => 'Marcador';
+
+  @override
+  String get worldToolMeasure => 'Medir';
+
+  @override
+  String get worldPinPlace => 'Lugar';
+
+  @override
+  String get worldPinNpc => 'Personagem';
+
+  @override
+  String get worldPinScene => 'Cena';
+
+  @override
+  String get worldPinDanger => 'Perigo';
+
+  @override
+  String get worldPinTitle => 'Nome';
+
+  @override
+  String get worldPinNote => 'Notas';
+
+  @override
+  String get worldPinLinkNpc => 'Criatura vinculada';
+
+  @override
+  String get worldPinLinkScene => 'Cena vinculada';
+
+  @override
+  String get worldPinOpensMap => 'Abre o mapa';
+
+  @override
+  String get worldPinOpenMap => 'Abrir o mapa';
+
+  @override
+  String get worldPinDelete => 'Excluir marcador';
+
+  @override
+  String worldPinLabel(String title, String kind) {
+    return '$title, $kind';
+  }
+
+  @override
+  String worldMeasured(String distance) {
+    return 'Distância: $distance';
+  }
+
+  @override
+  String get worldSearch => 'Buscar lugares';
+
+  @override
+  String get worldSearchHint => 'Nome de um lugar ou marcador';
+
+  @override
+  String get worldSearchEmpty => 'Nenhum marcador encontrado.';
+
+  @override
+  String get worldMiniMap => 'Minimapa';
+
+  @override
+  String scenesPlace(String name) {
+    return 'Em $name';
+  }
 }

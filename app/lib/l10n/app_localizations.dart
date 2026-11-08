@@ -10769,6 +10769,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Map {map}, floor {floor}'**
   String worldCanvasLabel(String map, String floor);
+
+  /// No description provided for @worldToolPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Pin'**
+  String get worldToolPin;
+
+  /// No description provided for @worldToolMeasure.
+  ///
+  /// In en, this message translates to:
+  /// **'Measure'**
+  String get worldToolMeasure;
+
+  /// No description provided for @worldPinPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Place'**
+  String get worldPinPlace;
+
+  /// No description provided for @worldPinNpc.
+  ///
+  /// In en, this message translates to:
+  /// **'Character'**
+  String get worldPinNpc;
+
+  /// No description provided for @worldPinScene.
+  ///
+  /// In en, this message translates to:
+  /// **'Scene'**
+  String get worldPinScene;
+
+  /// No description provided for @worldPinDanger.
+  ///
+  /// In en, this message translates to:
+  /// **'Danger'**
+  String get worldPinDanger;
+
+  /// No description provided for @worldPinTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get worldPinTitle;
+
+  /// No description provided for @worldPinNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get worldPinNote;
+
+  /// No description provided for @worldPinLinkNpc.
+  ///
+  /// In en, this message translates to:
+  /// **'Linked creature'**
+  String get worldPinLinkNpc;
+
+  /// No description provided for @worldPinLinkScene.
+  ///
+  /// In en, this message translates to:
+  /// **'Linked scene'**
+  String get worldPinLinkScene;
+
+  /// No description provided for @worldPinOpensMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Opens map'**
+  String get worldPinOpensMap;
+
+  /// No description provided for @worldPinOpenMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the map'**
+  String get worldPinOpenMap;
+
+  /// No description provided for @worldPinDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete pin'**
+  String get worldPinDelete;
+
+  /// No description provided for @worldPinLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'{title}, {kind}'**
+  String worldPinLabel(String title, String kind);
+
+  /// No description provided for @worldMeasured.
+  ///
+  /// In en, this message translates to:
+  /// **'Distance: {distance}'**
+  String worldMeasured(String distance);
+
+  /// No description provided for @worldSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search places'**
+  String get worldSearch;
+
+  /// No description provided for @worldSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Name of a place or pin'**
+  String get worldSearchHint;
+
+  /// No description provided for @worldSearchEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No pin found.'**
+  String get worldSearchEmpty;
+
+  /// No description provided for @worldMiniMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Mini-map'**
+  String get worldMiniMap;
+
+  /// No description provided for @scenesPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'At {name}'**
+  String scenesPlace(String name);
 }
 
 class _AppLocalizationsDelegate

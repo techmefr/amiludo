@@ -14,6 +14,7 @@ class SceneCard extends StatelessWidget {
     required this.number,
     required this.followers,
     required this.creatureNames,
+    this.placeName,
     required this.tool,
     required this.onOpen,
     required this.onShow,
@@ -26,6 +27,7 @@ class SceneCard extends StatelessWidget {
   final int number;
   final List<Scene> followers;
   final List<String> creatureNames;
+  final String? placeName;
   final ToolTheme tool;
   final VoidCallback onOpen, onShow, onAmbience;
   final bool playing;
@@ -84,6 +86,12 @@ class SceneCard extends StatelessWidget {
                             visualDensity: VisualDensity.compact,
                             avatar: const DeckIcon(Icons.chevron_right),
                             label: Text(s.title),
+                          ),
+                        if (placeName != null)
+                          Chip(
+                            visualDensity: VisualDensity.compact,
+                            avatar: const DeckIcon(Icons.place_outlined),
+                            label: Text(l.scenesPlace(placeName!)),
                           ),
                         for (final name in creatureNames)
                           Chip(

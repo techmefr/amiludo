@@ -15,6 +15,7 @@ class WorldPainter extends CustomPainter {
     required this.palette,
     required this.grid,
     this.draft,
+    this.measure,
     super.repaint,
   });
 
@@ -23,6 +24,7 @@ class WorldPainter extends CustomPainter {
   final WorldPalette palette;
   final bool grid;
   final MapElement? draft;
+  final (WorldPoint, WorldPoint)? measure;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -36,6 +38,20 @@ class WorldPainter extends CustomPainter {
     }
     final d = draft;
     if (d != null) _element(canvas, d, .8);
+    final m = measure;
+    if (m != null) _measure(canvas, m.$1, m.$2);
+  }
+
+  void _measure(Canvas canvas, WorldPoint a, WorldPoint b) {
+    final from = viewport.toScreen(a), to = viewport.toScreen(b);
+    final paint = Paint()
+      ..color = const Color(0xffD2603F)
+      ..strokeWidth = 3
+      ..strokeCap = StrokeCap.round;
+    canvas
+      ..drawLine(from, to, paint)
+      ..drawCircle(from, 6, paint)
+      ..drawCircle(to, 6, paint);
   }
 
   void _grid(Canvas canvas, Size size) {

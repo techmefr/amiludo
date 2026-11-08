@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 
+import 'package:amiludo/layers/functional/World/domain/entities/map_pin.dart';
 import 'package:amiludo/layers/functional/World/domain/entities/world_map.dart';
 import 'package:amiludo/layers/functional/World/presentation/draw_tool.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
@@ -19,7 +20,19 @@ extension WorldTexts on BuildContext {
       DrawTool.room => l.worldToolRoom,
       DrawTool.door => l.worldToolDoor,
       DrawTool.stairs => l.worldToolStairs,
+      DrawTool.pin => l.worldToolPin,
+      DrawTool.measure => l.worldToolMeasure,
       DrawTool.erase => l.worldToolErase,
+    };
+  }
+
+  String pinKindLabel(PinKind kind) {
+    final l = l10n;
+    return switch (kind) {
+      PinKind.place => l.worldPinPlace,
+      PinKind.npc => l.worldPinNpc,
+      PinKind.scene => l.worldPinScene,
+      PinKind.danger => l.worldPinDanger,
     };
   }
 
