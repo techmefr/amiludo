@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/secret_vote.dart';
 import 'package:amiludo/layers/functional/Random/presentation/vote_phases.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
-import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
