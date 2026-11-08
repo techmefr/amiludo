@@ -6,7 +6,6 @@ import 'package:amiludo/layers/functional/Rules/presentation/rule_decisions_shee
 import 'package:amiludo/layers/functional/Rules/presentation/rule_section_card.dart';
 import 'package:amiludo/layers/functional/Rules/presentation/rule_section_dialog.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
-import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/text_prompt.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 

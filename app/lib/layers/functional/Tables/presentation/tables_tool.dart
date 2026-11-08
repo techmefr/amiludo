@@ -6,7 +6,6 @@ import 'package:amiludo/layers/functional/Tables/domain/entities/roll_table.dart
 import 'package:amiludo/layers/functional/Tables/presentation/table_card.dart';
 import 'package:amiludo/layers/functional/Tables/presentation/table_editor.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
-import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
 

@@ -8,7 +8,6 @@ import 'package:amiludo/layers/functional/Bestiary/presentation/bestiary_texts.d
 import 'package:amiludo/layers/functional/Bestiary/presentation/creature_card.dart';
 import 'package:amiludo/layers/functional/Bestiary/presentation/creature_editor.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
-import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/text_input_dialog.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
