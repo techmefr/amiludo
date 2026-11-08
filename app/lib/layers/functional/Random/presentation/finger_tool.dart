@@ -8,6 +8,7 @@ import 'package:amiludo/layers/functional/Random/presentation/finger_name_picker
 import 'package:amiludo/layers/technical/Feedback/device_feedback.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/finger_ring.dart';
+import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class FingerTool extends StatefulWidget {
@@ -29,6 +30,7 @@ class _FingerToolState extends State<FingerTool> {
   final contacts = <int, Offset>{};
   final colors = <int, int>{};
   final ranks = <int, int>{};
+  final frozen = <int, Offset>{};
   final random = RandomTools();
   Timer? countdown;
   FingerMode mode = FingerMode.first;
@@ -53,6 +55,9 @@ class _FingerToolState extends State<FingerTool> {
             ranks[pointer] = rank + 1;
           }
         }
+        frozen
+          ..clear()
+          ..addAll(contacts);
         drawn = true;
       });
       widget.onTint?.call(winnerColor());
@@ -69,6 +74,7 @@ class _FingerToolState extends State<FingerTool> {
   void reset() {
     drawn = false;
     winner = null;
+    frozen.clear();
     ranks.clear();
     widget.onTint?.call(null);
   }
@@ -105,9 +111,7 @@ class _FingerToolState extends State<FingerTool> {
   });
 
   String hint() => drawn
-      ? (mode == FingerMode.first
-            ? context.l10n.randomTheChosenContactIsHighlighted
-            : context.l10n.randomRankingDone)
+      ? ''
       : contacts.isEmpty
       ? context.l10n.randomPlaceYourFingersHere
       : context.l10n.randomChoosing;
@@ -133,7 +137,9 @@ class _FingerToolState extends State<FingerTool> {
       ? fingerColors[colors[winner] ?? 0]
       : null;
 
-  Widget area() => Listener(
+  Widget area() {
+    final shown = {...frozen, ...contacts};
+    return Listener(
     onPointerDown: onDown,
     onPointerMove: onMove,
     onPointerUp: onUp,
@@ -151,7 +157,8 @@ class _FingerToolState extends State<FingerTool> {
         borderRadius: BorderRadius.circular(Radii.pill),
         child: Stack(
           children: [
-            Center(
+            Align(
+              alignment: Alignment.bottomCenter,
               child: Semantics(
                 liveRegion: true,
                 child: Padding(
@@ -159,40 +166,43 @@ class _FingerToolState extends State<FingerTool> {
                   child: Text(
                     hint(),
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: winnerColor() == null
-                          ? fingerHintColor
-                          : fingerWinnerDiscColor,
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: fingerHintColor,
                     ),
                   ),
                 ),
               ),
             ),
-            for (final entry in contacts.entries) contact(entry),
+            for (final entry in shown.entries) contact(entry),
           ],
         ),
       ),
     ),
   );
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: widget.fullscreen ? MainAxisSize.max : MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        FingerModeSelector(mode: mode, onChanged: changeMode),
-        const SizedBox(height: Space.lg),
-        if (widget.fullscreen) Expanded(child: area()) else area(),
-        FingerNamePicker(
-          names: widget.names,
-          chosen: chosen,
-          onPick: () => setState(
-            () => chosen =
-                widget.names[random.integer(0, widget.names.length - 1)],
+    final top = widget.fullscreen ? fullPageBackClearance : 0.0;
+    return Padding(
+      padding: EdgeInsets.fromLTRB(Space.lg, top, Space.lg, Space.lg),
+      child: Column(
+        mainAxisSize: widget.fullscreen ? MainAxisSize.max : MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          FingerModeSelector(mode: mode, onChanged: changeMode),
+          const SizedBox(height: Space.lg),
+          if (widget.fullscreen) Expanded(child: area()) else area(),
+          FingerNamePicker(
+            names: widget.names,
+            chosen: chosen,
+            onPick: () => setState(
+              () => chosen =
+                  widget.names[random.integer(0, widget.names.length - 1)],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

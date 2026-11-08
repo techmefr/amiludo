@@ -40,7 +40,8 @@ const counterEntries = [
 ];
 
 final brickEntries = [
-  for (final t in toolDefinitions) BrickEntry(t.id, t.category),
+  for (final t in toolDefinitions)
+    if (t.id != 'dice') BrickEntry(t.id, t.category),
   ...counterEntries,
 ];
 

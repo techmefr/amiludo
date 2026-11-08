@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:amiludo/layers/technical/Locale/tool_texts.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
-import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
@@ -14,6 +12,7 @@ import 'package:amiludo/layers/functional/Random/presentation/finger_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/random_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/teams_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/pack_tools.dart';
+import 'package:amiludo/layers/functional/Random/presentation/tool_config_menu.dart';
 import 'package:amiludo/layers/functional/Random/presentation/character_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/character_library.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
@@ -80,9 +79,10 @@ class _ToolPageState extends State<ToolPage> {
                 )
               : CharacterTool(key: ValueKey(current.id), pack: current),
         'dice' =>
-          current == null
-              ? const DiceTool()
-              : PackDiceTool(key: ValueKey(current.id), pack: current),
+          current != null
+              ? PackDiceTool(key: ValueKey(current.id), pack: current)
+              : widget.embeddedTools['dice-tray']?.call(context) ??
+                    const DiceTool(),
         'roles' =>
           current == null
               ? RandomTool(id: 'roles', names: names)
@@ -107,40 +107,12 @@ class _ToolPageState extends State<ToolPage> {
         _ => RandomTool(id: widget.id, names: names),
       };
 
-  List<Widget> packChooser(GameTemplate? current, List<GameTemplate> packs) => [
-    DropdownButtonFormField<String>(
-      style: Theme.of(context).textTheme.bodyLarge,
-      key: ValueKey(current?.id ?? ''),
-      initialValue: current?.id ?? '',
-      isExpanded: true,
-      decoration: InputDecoration(labelText: context.l10n.randomGameSetup),
-      items: [
-        DropdownMenuItem(value: '', child: Text(context.l10n.randomFreeTool)),
-        for (final p in packs)
-          DropdownMenuItem(value: p.id, child: Text(p.name)),
-      ],
-      onChanged: (v) => setState(() => selected = v),
-    ),
-    const SizedBox(height: 12),
-    Wrap(
-      spacing: 12,
-      runSpacing: 8,
-      children: [
-        OutlinedButton.icon(
-          onPressed: () => context.push(
-            current == null ? '/builder/new' : '/builder/${current.id}',
-          ),
-          icon: const DeckIcon(Icons.build_outlined),
-          label: Text(context.l10n.randomOpenTheBuilder),
-        ),
-        TextButton(
-          onPressed: () => context.push('/marketplace'),
-          child: Text(context.l10n.randomFindAPack),
-        ),
-      ],
-    ),
-    const SizedBox(height: 24),
-  ];
+  Widget menu(GameTemplate? current, List<GameTemplate> packs) =>
+      ToolConfigMenu(
+        current: current,
+        packs: packs,
+        onSelect: (id) => setState(() => selected = id),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -186,9 +158,10 @@ class _ToolPageState extends State<ToolPage> {
       immersive: true,
       maxWidth: double.infinity,
       fillHeight: true,
+      actions: [if (choose) menu(current, packs)],
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [if (choose) ...packChooser(current, packs), child],
+        children: [child],
       ),
     );
   }
