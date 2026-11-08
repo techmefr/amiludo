@@ -1313,5 +1313,9 @@
   "toolHeroResume": "Weiter, wo du aufgehört hast",
   "toolHeroFeatured": "Empfohlenes Werkzeug",
   "toolMoveEarlier": "Früher einordnen",
-  "toolMoveLater": "Später einordnen"
+  "toolMoveLater": "Später einordnen",
+  "toolStopwatchTitle": "Stoppuhr",
+  "toolStopwatchSubtitle": "Zähle auf die Hundertstel und markiere jede Runde.",
+  "stopwatchLap": "Runde",
+  "stopwatchLapNumber": "Runde {number}"
 }

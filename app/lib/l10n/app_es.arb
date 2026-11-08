@@ -1313,5 +1313,9 @@
   "toolHeroResume": "Continúa donde lo dejaste",
   "toolHeroFeatured": "Herramienta destacada",
   "toolMoveEarlier": "Mover antes",
-  "toolMoveLater": "Mover después"
+  "toolMoveLater": "Mover después",
+  "toolStopwatchTitle": "Cronómetro",
+  "toolStopwatchSubtitle": "Cuenta hasta la centésima y marca cada vuelta.",
+  "stopwatchLap": "Vuelta",
+  "stopwatchLapNumber": "Vuelta {number}"
 }

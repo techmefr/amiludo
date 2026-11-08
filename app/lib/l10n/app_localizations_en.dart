@@ -4218,4 +4218,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get toolMoveLater => 'Move later';
+
+  @override
+  String get toolStopwatchTitle => 'Stopwatch';
+
+  @override
+  String get toolStopwatchSubtitle => 'Count up to the hundredth and mark every lap.';
+
+  @override
+  String get stopwatchLap => 'Lap';
+
+  @override
+  String stopwatchLapNumber(int number) {
+    return 'Lap $number';
+  }
 }

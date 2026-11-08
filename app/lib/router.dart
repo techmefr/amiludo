@@ -15,6 +15,7 @@ import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates
 import 'package:amiludo/dice_studio.dart';
 import 'package:amiludo/map_tool.dart';
 import 'package:amiludo/notebook_routes.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/stopwatch_tool.dart';
 import 'package:amiludo/sensor_tools.dart';
 import 'package:amiludo/layers/functional/Account/presentation/account_screen.dart';
 import 'package:amiludo/layers/functional/Admin/presentation/admin_screen.dart';
@@ -71,6 +72,8 @@ import 'package:amiludo/layers/functional/Workspace/presentation/workspace_gate.
 
 Widget _timer(BuildContext context) =>
     const SizedBox(width: double.infinity, child: TimerPanel());
+
+Widget _stopwatch(BuildContext context) => const StopwatchTool();
 
 Widget _heroes(BuildContext context) => const HeroesTool();
 
@@ -208,6 +211,7 @@ final router = GoRouter(
         embeddedTools: const {
           'scores': _scores,
           'timer': _timer,
+          'stopwatch': _stopwatch,
           'dice-tray': diceTrayWithSensors,
           'hourglass': hourglassWithSensors,
           'map': mapWithStorage,

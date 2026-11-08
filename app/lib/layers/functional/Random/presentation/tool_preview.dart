@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Theme/components/hourglass_painter.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/stopwatch_state.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/brick_catalog.dart';
 import 'package:amiludo/layers/functional/Random/presentation/map_sketch_painter.dart';
 import 'package:amiludo/layers/technical/Theme/game_art.dart';
@@ -77,6 +78,13 @@ class _ToolPreviewState extends State<ToolPreview>
     ),
   );
 
+  Widget _stopwatch(BuildContext context, ToolTheme tool, double t) => Center(
+    child: Text(
+      formatStopwatch(Duration(milliseconds: (t * 83450).round())),
+      style: Numerals.instrument(Theme.of(context).textTheme.headlineMedium),
+    ),
+  );
+
   Widget _spin(double t) => Transform(
     alignment: Alignment.center,
     transform: Matrix4.identity()
@@ -91,6 +99,7 @@ class _ToolPreviewState extends State<ToolPreview>
     if (widget.id.startsWith(counterBrickPrefix)) return _counter(context, t);
     return switch (widget.id) {
       'hourglass' || 'timer' => _hourglass(tool, ink, t),
+      'stopwatch' => _stopwatch(context, tool, t),
       'dice' || 'dice-tray' => Center(
         child: Transform.rotate(
           angle: (1 - t) * pi * 2,

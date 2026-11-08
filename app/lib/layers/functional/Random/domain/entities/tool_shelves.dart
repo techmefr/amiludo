@@ -7,7 +7,7 @@ class ToolShelf {
 }
 
 const toolShelves = [
-  ToolShelf('time', ['hourglass', 'timer']),
+  ToolShelf('time', ['stopwatch', 'timer', 'hourglass']),
   ToolShelf('chance', ['dice-tray', 'dice', 'wheel', 'coin', 'number']),
   ToolShelf('scores', [
     'scores',

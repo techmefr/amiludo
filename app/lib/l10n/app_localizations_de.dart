@@ -4255,4 +4255,18 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get toolMoveLater => 'Später einordnen';
+
+  @override
+  String get toolStopwatchTitle => 'Stoppuhr';
+
+  @override
+  String get toolStopwatchSubtitle => 'Zähle auf die Hundertstel und markiere jede Runde.';
+
+  @override
+  String get stopwatchLap => 'Runde';
+
+  @override
+  String stopwatchLapNumber(int number) {
+    return 'Runde $number';
+  }
 }

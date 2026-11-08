@@ -95,6 +95,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
             title: context.l10n.randomOneToolReadyToPlay,
             subtitle: context.l10n.randomPlayersAreSharedAcrossTools,
           ),
+        if (!inCategory) ...[
         TextField(
           onChanged: (v) => setState(() => query = v),
           textInputAction: TextInputAction.search,
@@ -116,6 +117,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
               ),
           ],
         ),
+        ],
         const SizedBox(height: Space.xl),
         if (inCategory || (category == 'all' && query.trim().isEmpty))
           RevealMargin(

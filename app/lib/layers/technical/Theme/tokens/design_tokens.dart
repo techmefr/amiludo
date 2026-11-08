@@ -27,6 +27,12 @@ abstract final class Hairline {
 
 abstract final class Numerals {
   static const List<FontFeature> tabular = [FontFeature.tabularFigures()];
+
+  static TextStyle? instrument(TextStyle? base) => base?.copyWith(
+    fontFamily: 'Rajdhani',
+    fontWeight: FontWeight.w600,
+    fontFeatures: tabular,
+  );
 }
 
 abstract final class Elevation {
