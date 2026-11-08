@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/oracle.dart';
 import 'package:amiludo/layers/functional/Random/presentation/count_stepper.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
-import 'package:amiludo/layers/technical/Theme/components/tool_texture.dart';
+import 'package:amiludo/layers/technical/Theme/components/tarot_back.dart';
+import 'package:amiludo/layers/technical/Theme/components/tarot_face.dart';
+import 'package:amiludo/layers/technical/Theme/components/tarot_flip.dart';
+import 'package:amiludo/layers/technical/Theme/components/tarot_style.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
 
@@ -23,10 +26,14 @@ class _OracleToolState extends State<OracleTool> {
   OracleLikelihood likelihood = OracleLikelihood.even;
   int chaos = defaultChaos;
   OracleVerdict? verdict;
+  int _asked = 0;
 
   void _ask() {
     tool.signal();
-    setState(() => verdict = askOracle(_random, likelihood, chaos));
+    setState(() {
+      _asked++;
+      verdict = askOracle(_random, likelihood, chaos);
+    });
   }
 
   String _label(OracleLikelihood value) {
@@ -48,44 +55,29 @@ class _OracleToolState extends State<OracleTool> {
     };
   }
 
+  TarotStyle _style(OracleAnswer answer) => switch (answer) {
+    OracleAnswer.yes => TarotStyle.forestGreen,
+    OracleAnswer.no => TarotStyle.bloodRed,
+    _ => TarotStyle.nightGold,
+  };
+
   Widget _result(OracleVerdict value) {
-    final surface = tool.surface(context);
-    final text = Theme.of(context).textTheme;
-    return Material(
-      color: surface,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(Radii.lg),
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: Stack(
-        children: [
-          ToolTextureLayer(texture: tool.texture, opacity: .08),
-          Padding(
-            padding: const EdgeInsets.all(Space.xl),
-            child: Semantics(
-              liveRegion: true,
-              child: Column(
-                children: [
-                  Text(
-                    _answer(value.answer),
-                    textAlign: TextAlign.center,
-                    style: text.headlineMedium?.copyWith(
-                      color: tool.ink(surface),
-                    ),
-                  ),
-                  if (value.event) ...[
-                    const SizedBox(height: Space.md),
-                    Text(
-                      context.l10n.oracleEvent,
-                      textAlign: TextAlign.center,
-                      style: text.titleMedium,
-                    ),
-                  ],
-                ],
-              ),
-            ),
+    final style = _style(value.answer);
+    return Center(
+      child: Semantics(
+        liveRegion: true,
+        child: TarotFlip(
+          key: ValueKey(_asked),
+          flipped: true,
+          sheen: style.glow,
+          back: TarotBack(style: style, width: 190),
+          front: TarotFace(
+            title: _answer(value.answer),
+            description: value.event ? context.l10n.oracleEvent : null,
+            style: style,
+            width: 190,
           ),
-        ],
+        ),
       ),
     );
   }

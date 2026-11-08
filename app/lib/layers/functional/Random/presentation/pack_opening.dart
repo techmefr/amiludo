@@ -4,7 +4,11 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Random/presentation/card_face.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
+import 'package:amiludo/layers/technical/Theme/components/pack_burst.dart';
+import 'package:amiludo/layers/technical/Theme/components/tarot_back.dart';
+import 'package:amiludo/layers/technical/Theme/components/tarot_face.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class ClosedPack extends StatelessWidget {
@@ -18,16 +22,16 @@ class ClosedPack extends StatelessWidget {
     highlight: true,
     child: Column(
       children: [
-        const DeckIcon(Icons.style_outlined, size: 72),
-        const SizedBox(height: 12),
+        const TarotBack(width: 96),
+        const SizedBox(height: Space.md),
         Text(
           category.name,
           style: Theme.of(context).textTheme.headlineSmall,
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: Space.sm),
         Text(context.l10n.randomCardsToReveal(category.draw)),
-        const SizedBox(height: 20),
+        const SizedBox(height: Space.xl),
         FilledButton(
           onPressed: onOpen,
           child: Text(context.l10n.randomOpenThePack(category.name)),
@@ -64,6 +68,7 @@ class _PackRevealState extends State<PackReveal>
     duration: Duration(milliseconds: 450 * widget.cards.length),
   );
   bool started = false;
+  bool ceremony = true;
 
   @override
   void didChangeDependencies() {
@@ -132,8 +137,27 @@ class _PackRevealState extends State<PackReveal>
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-              onPressed: () => controller.value = 1,
+              onPressed: () => setState(() {
+                ceremony = false;
+                controller.value = 1;
+              }),
               child: Text(context.l10n.randomRevealAll),
+            ),
+          ),
+        if (ceremony && !MediaQuery.disableAnimationsOf(context))
+          Padding(
+            padding: const EdgeInsets.only(bottom: Space.lg),
+            child: PackBurst(
+              count: widget.cards.length.clamp(1, 5),
+              rareIndex: widget.cards.length.clamp(1, 5) ~/ 2,
+              cardWidth: 96,
+              onDone: () => setState(() => ceremony = false),
+              faceBuilder: (i, width) => TarotFace(
+                title: widget.cards[i].name,
+                description: widget.cards[i].description,
+                number: i + 1,
+                width: width,
+              ),
             ),
           ),
         ResponsiveGrid(
@@ -149,16 +173,8 @@ class _CardBack extends StatelessWidget {
   const _CardBack();
 
   @override
-  Widget build(BuildContext context) => ExcludeSemantics(
-    child: AspectRatio(
-      aspectRatio: 5 / 7,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.primaryContainer,
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: const Center(child: DeckIcon(Icons.style_outlined, size: 56)),
-      ),
-    ),
+  Widget build(BuildContext context) => const AspectRatio(
+    aspectRatio: 5 / 7,
+    child: FittedBox(child: TarotBack(width: 100)),
   );
 }

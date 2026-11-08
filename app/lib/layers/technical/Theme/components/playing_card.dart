@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/technical/Theme/components/tarot_back.dart';
+import 'package:amiludo/layers/technical/Theme/components/tarot_style.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 abstract final class CardPalette {
@@ -19,11 +21,13 @@ class PlayingCard extends StatelessWidget {
     this.red = false,
     this.faceDown = false,
     this.width = 160,
+    this.backStyle = TarotStyle.nightGold,
   });
 
   final String? rank, suit, label;
   final bool red, faceDown;
   final double width;
+  final TarotStyle backStyle;
 
   double get height => width * 1.4;
 
@@ -82,12 +86,21 @@ class PlayingCard extends StatelessWidget {
       height: 1.05,
     );
     final front = suit != null && rank != null;
+    if (faceDown) {
+      return SizedBox(
+        width: width,
+        height: height,
+        child: Center(
+          child: TarotBack(style: backStyle, width: height * tarotRatio),
+        ),
+      );
+    }
     return SizedBox(
       width: width,
       height: height,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: faceDown ? CardPalette.back : CardPalette.paper,
+          color: CardPalette.paper,
           borderRadius: BorderRadius.circular(Radii.md),
           border: Border.all(color: CardPalette.gold, width: 2),
           boxShadow: const [
@@ -98,52 +111,8 @@ class PlayingCard extends StatelessWidget {
             ),
           ],
         ),
-        child: faceDown
-            ? ClipRRect(
-                borderRadius: BorderRadius.circular(Radii.md),
-                child: CustomPaint(painter: const _LatticePainter()),
-              )
-            : front
-            ? _pips(base)
-            : _written(base),
+        child: front ? _pips(base) : _written(base),
       ),
     );
   }
-}
-
-class _LatticePainter extends CustomPainter {
-  const _LatticePainter();
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final line = Paint()
-      ..color = CardPalette.gold.withValues(alpha: .55)
-      ..strokeWidth = Hairline.width * 2;
-    const step = Space.xl;
-    for (var d = -size.height; d < size.width; d += step) {
-      canvas.drawLine(Offset(d, 0), Offset(d + size.height, size.height), line);
-      canvas.drawLine(
-        Offset(d + size.height, 0),
-        Offset(d, size.height),
-        line,
-      );
-    }
-    canvas.drawRRect(
-      RRect.fromRectAndRadius(
-        Rect.fromLTWH(
-          Space.md,
-          Space.md,
-          size.width - Space.xl,
-          size.height - Space.xl,
-        ),
-        const Radius.circular(Radii.sm),
-      ),
-      line
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 2,
-    );
-  }
-
-  @override
-  bool shouldRepaint(_LatticePainter old) => false;
 }
