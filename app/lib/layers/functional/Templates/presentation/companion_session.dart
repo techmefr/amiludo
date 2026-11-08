@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/session_grid.dart';
+import 'package:amiludo/layers/functional/Templates/presentation/session_stage.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/session_tile.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
@@ -24,6 +26,13 @@ class CompanionSession extends StatefulWidget {
 
 class _CompanionSessionState extends State<CompanionSession> {
   bool arrange = false;
+  int? focused;
+
+  int _resume(List<Brick> bricks) {
+    final last = lastSessionTool(widget.id);
+    final index = bricks.indexWhere((b) => b.id == last);
+    return index < 0 ? 0 : index;
+  }
 
   Future<void> _move(GameTemplate template, int from, int to) {
     final next = [...template.bricks];
@@ -49,6 +58,18 @@ class _CompanionSessionState extends State<CompanionSession> {
         child: Text(l.templatesThisPackIsNoLonger),
       );
     }
+    final bricks = template.bricks;
+    if (focused != null && bricks.isNotEmpty) {
+      return SessionStage(
+        key: ValueKey(widget.id),
+        sessionId: widget.id,
+        title: template.name,
+        bricks: bricks,
+        builder: widget.builder,
+        initial: focused!,
+        onGrid: () => setState(() => focused = null),
+      );
+    }
     return FullPage(
       title: template.name,
       fallback: '/',
@@ -59,7 +80,19 @@ class _CompanionSessionState extends State<CompanionSession> {
         children: [
           Align(
             alignment: Alignment.centerRight,
-            child: AnimatedSwitcher(
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextButton.icon(
+                  onPressed: template.bricks.isEmpty
+                      ? null
+                      : () => setState(
+                          () => focused = _resume(template.bricks),
+                        ),
+                  icon: const DeckIcon(Icons.open_in_full),
+                  label: Text(l.sessionFullscreen),
+                ),
+                AnimatedSwitcher(
               duration: Motion.of(context, Motion.fast),
               child: TextButton.icon(
                 key: ValueKey(arrange),
@@ -68,6 +101,8 @@ class _CompanionSessionState extends State<CompanionSession> {
                 label: Text(arrange ? l.buildArrangeDone : l.buildArrange),
               ),
             ),
+              ],
+            ),
           ),
           const SizedBox(height: Space.sm),
           SessionGrid(
@@ -75,6 +110,7 @@ class _CompanionSessionState extends State<CompanionSession> {
             builder: widget.builder,
             arrange: arrange,
             onMove: (from, to) => _move(template, from, to),
+            onOpen: (index) => setState(() => focused = index),
           ),
         ],
       ),

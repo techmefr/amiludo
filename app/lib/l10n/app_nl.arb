@@ -1825,5 +1825,8 @@
   "rulesCommon": "Gemeenschappelijke regels",
   "rulesCommonCount": "Gemeenschappelijke regels ({count})",
   "rulesCommon": "Gemeenschappelijke regels",
-  "rulesCommonCount": "Gemeenschappelijke regels ({count})"
+  "rulesCommonCount": "Gemeenschappelijke regels ({count})",
+  "sessionFullscreen": "Volledig scherm",
+  "sessionGridView": "Alle hulpmiddelen tonen",
+  "sessionSwitchTool": "Van hulpmiddel wisselen"
 }

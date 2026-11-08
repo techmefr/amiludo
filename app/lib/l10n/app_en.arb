@@ -2690,5 +2690,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "sessionFullscreen": "Full screen",
+  "sessionGridView": "Show all tools",
+  "sessionSwitchTool": "Switch tool"
 }

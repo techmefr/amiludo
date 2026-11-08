@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class ImmersiveChrome extends StatefulWidget {
-  const ImmersiveChrome({super.key, required this.onBack, required this.child});
+  const ImmersiveChrome({super.key, required this.onBack, required this.child, this.bindings = const {}});
   final VoidCallback onBack;
+  final Map<ShortcutActivator, VoidCallback> bindings;
   final Widget child;
 
   @override
@@ -46,6 +47,7 @@ class _ImmersiveChromeState extends State<ImmersiveChrome> {
       const SingleActivator(LogicalKeyboardKey.escape): _escape,
       const SingleActivator(LogicalKeyboardKey.arrowLeft, alt: true):
           widget.onBack,
+      ...widget.bindings,
     },
     child: Focus(autofocus: true, child: widget.child),
   );

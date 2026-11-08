@@ -5972,4 +5972,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String rulesCommonCount(int count) {
     return 'Gemeenschappelijke regels ($count)';
   }
+
+  @override
+  String get sessionFullscreen => 'Volledig scherm';
+
+  @override
+  String get sessionGridView => 'Alle hulpmiddelen tonen';
+
+  @override
+  String get sessionSwitchTool => 'Van hulpmiddel wisselen';
 }

@@ -1825,5 +1825,8 @@
   "rulesCommon": "Gemeinsame Regeln",
   "rulesCommonCount": "Gemeinsame Regeln ({count})",
   "rulesCommon": "Gemeinsame Regeln",
-  "rulesCommonCount": "Gemeinsame Regeln ({count})"
+  "rulesCommonCount": "Gemeinsame Regeln ({count})",
+  "sessionFullscreen": "Vollbild",
+  "sessionGridView": "Alle Werkzeuge zeigen",
+  "sessionSwitchTool": "Werkzeug wechseln"
 }

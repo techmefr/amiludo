@@ -1825,5 +1825,8 @@
   "rulesCommon": "Règles communes",
   "rulesCommonCount": "Règles communes ({count})",
   "rulesCommon": "Règles communes",
-  "rulesCommonCount": "Règles communes ({count})"
+  "rulesCommonCount": "Règles communes ({count})",
+  "sessionFullscreen": "Plein écran",
+  "sessionGridView": "Voir tous les outils",
+  "sessionSwitchTool": "Changer d'outil"
 }

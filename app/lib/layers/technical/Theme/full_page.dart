@@ -23,12 +23,16 @@ class FullPage extends StatelessWidget {
     this.immersive = false,
     this.tool,
     this.background,
+    this.onBack,
+    this.bindings = const {},
   });
   final String title, fallback;
   final String? tool;
   final Widget child;
   final Color? background;
   final bool scroll, fillHeight, immersive;
+  final VoidCallback? onBack;
+  final Map<ShortcutActivator, VoidCallback> bindings;
   final double maxWidth;
   final List<Widget> actions;
 
@@ -36,6 +40,10 @@ class FullPage extends StatelessWidget {
   static const double _backClearance = fullPageBackClearance;
 
   void _back(BuildContext context) {
+    if (onBack != null) {
+      onBack!();
+      return;
+    }
     if (context.canPop()) {
       context.pop();
     } else {
@@ -102,6 +110,7 @@ class FullPage extends StatelessWidget {
     if (immersive) {
       return ImmersiveChrome(
         onBack: () => _back(context),
+        bindings: bindings,
         child: AnimatedContainer(
         duration: Motion.of(context, Motion.slow),
         curve: Motion.curve,
