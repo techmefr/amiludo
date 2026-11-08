@@ -9509,6 +9509,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Team {number}, total {total}'**
   String balanceTeamTotal(int number, int total);
+
+  /// No description provided for @toolLeagueTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'League'**
+  String get toolLeagueTitle;
+
+  /// No description provided for @toolLeagueSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Record the matches of a season between friends and follow the table.'**
+  String get toolLeagueSubtitle;
+
+  /// No description provided for @leagueAddMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Add the match'**
+  String get leagueAddMatch;
+
+  /// No description provided for @leagueTable.
+  ///
+  /// In en, this message translates to:
+  /// **'Table'**
+  String get leagueTable;
+
+  /// No description provided for @leagueRemoveMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove the match'**
+  String get leagueRemoveMatch;
+
+  /// No description provided for @leagueRow.
+  ///
+  /// In en, this message translates to:
+  /// **'{rank}. {name}, {points} points in {played} matches'**
+  String leagueRow(int rank, String name, int points, int played);
 }
 
 class _AppLocalizationsDelegate

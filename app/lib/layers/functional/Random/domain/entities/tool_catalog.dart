@@ -22,6 +22,7 @@ const toolDefinitions = [
   ToolDefinition('auction', 'match'),
   ToolDefinition('tournament', 'match'),
   ToolDefinition('balance', 'match'),
+  ToolDefinition('league', 'match'),
   ToolDefinition('sheet', 'match'),
   ToolDefinition('turns', 'match'),
   ToolDefinition('first-player', 'match'),

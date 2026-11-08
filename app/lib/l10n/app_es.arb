@@ -1573,5 +1573,11 @@
   "toolBalanceSubtitle": "Puntúa a cada jugador y obtén equipos justos.",
   "balanceLevel": "{name}, nivel {level}",
   "balanceTeams": "{count} equipos",
-  "balanceTeamTotal": "Equipo {number}, total {total}"
+  "balanceTeamTotal": "Equipo {number}, total {total}",
+  "toolLeagueTitle": "Liga",
+  "toolLeagueSubtitle": "Registra los partidos de una temporada entre amigos y sigue la tabla.",
+  "leagueAddMatch": "Añadir el partido",
+  "leagueTable": "Tabla",
+  "leagueRemoveMatch": "Quitar el partido",
+  "leagueRow": "{rank}. {name}, {points} puntos en {played} partidos"
 }

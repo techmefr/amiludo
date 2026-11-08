@@ -27,6 +27,7 @@ const toolShelves = [
     'clocks',
     'sport',
     'bank',
+    'league',
     'auction',
     'sheet',
     'counter-life',

@@ -2183,5 +2183,27 @@
         "type": "int"
       }
     }
+  },
+  "toolLeagueTitle": "League",
+  "toolLeagueSubtitle": "Record the matches of a season between friends and follow the table.",
+  "leagueAddMatch": "Add the match",
+  "leagueTable": "Table",
+  "leagueRemoveMatch": "Remove the match",
+  "leagueRow": "{rank}. {name}, {points} points in {played} matches",
+  "@leagueRow": {
+    "placeholders": {
+      "rank": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "played": {
+        "type": "int"
+      }
+    }
   }
 }

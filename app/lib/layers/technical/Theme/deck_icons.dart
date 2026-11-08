@@ -18,6 +18,7 @@ IconData toolIcon(String id) => switch (id) {
   'auction' => Icons.gavel_outlined,
   'tournament' => Icons.account_tree_outlined,
   'balance' => Icons.balance_outlined,
+  'league' => Icons.leaderboard_outlined,
   'sheet' => Icons.table_chart_outlined,
   'turns' => Icons.linear_scale,
   'first-player' => Icons.flag_circle_outlined,
