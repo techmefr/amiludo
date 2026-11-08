@@ -2,7 +2,7 @@
 
 Méthode : union des fonctions relevées chez les concurrents (design/competitor-audit.md ; fiches App Store trouvées par recherche web le 08/11/2026 : Scory, Board Game Now, Board Game Kit, RoundsKeeper, Gamer Uncle, ScoreMaster, TableTop Tool, Time for Settlers) et d'apps connues de mémoire, non revérifiées, marquées * (Life Counter, Lifetap, Dice by PCalc, D&D Beyond, Mythic GME, Kanka, BGG, Board Game Stats, Shelfie, Roll20, Tabletop Audio, Spyfall). Descriptions paraphrasées.
 
-**État du code** (rapproché de origin/main, 08/11/2026) : le registre  déclare neuf catégories (Temps, Dés & hasard, Scores & compteurs, Cartes & pioche, Carte & plateau, Récit, Générateurs, Personnages, Joueurs & tours) ; les outils sont dans , les thèmes dans , la route est . Ajouter un outil = une ligne de catalogue, une de registre, un thème, des textes l10n.
+**État du code** (rapproché de origin/main, 08/11/2026) : le registre `app/lib/layers/functional/Random/domain/entities/tool_shelves.dart` déclare neuf catégories (Temps, Dés & hasard, Scores & compteurs, Cartes & pioche, Carte & plateau, Récit, Générateurs, Personnages, Joueurs & tours) ; les outils sont dans `tool_catalog.dart`, les thèmes dans `tool_theme.dart`, la route est `/tools/:id`. Ajouter un outil = une ligne de catalogue, une de registre, un thème, des textes l10n.
 
 ## 1. Existant : 32 outils enregistrés + fonctions voisines
 
