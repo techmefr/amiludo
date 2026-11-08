@@ -81,7 +81,7 @@ class _Label extends StatelessWidget {
         children: [
           DeckIcon(icon),
           const SizedBox(width: Space.sm),
-          Text(text),
+          Flexible(child: Text(text)),
         ],
       ),
     ),

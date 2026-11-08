@@ -161,7 +161,8 @@ class _TeamCount extends StatelessWidget {
   final ValueChanged<int> onChanged;
 
   @override
-  Widget build(BuildContext context) => Row(
+  Widget build(BuildContext context) => Wrap(
+    crossAxisAlignment: WrapCrossAlignment.center,
     children: [
       Text(context.l10n.randomTeams),
       const SizedBox(width: 12),
