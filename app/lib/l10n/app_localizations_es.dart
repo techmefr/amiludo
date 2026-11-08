@@ -5356,4 +5356,17 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get combatCondStunned => 'Aturdido';
+
+  @override
+  String get combatRollDie => 'Lanzar el dado 3D';
+
+  @override
+  String combatRollTitle(String name) {
+    return 'Iniciativa de $name';
+  }
+
+  @override
+  String combatUseRoll(int total) {
+    return 'Usar $total';
+  }
 }

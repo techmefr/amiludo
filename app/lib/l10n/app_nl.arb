@@ -1656,5 +1656,8 @@
   "combatCondParalyzed": "Verlamd",
   "combatCondPoisoned": "Vergiftigd",
   "combatCondProne": "Liggend",
-  "combatCondStunned": "Verdoofd"
+  "combatCondStunned": "Verdoofd",
+  "combatRollDie": "3D-dobbelsteen gooien",
+  "combatRollTitle": "Initiatief van {name}",
+  "combatUseRoll": "{total} gebruiken"
 }

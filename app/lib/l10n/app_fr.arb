@@ -1656,5 +1656,8 @@
   "combatCondParalyzed": "Paralysé",
   "combatCondPoisoned": "Empoisonné",
   "combatCondProne": "Couché",
-  "combatCondStunned": "Étourdi"
+  "combatCondStunned": "Étourdi",
+  "combatRollDie": "Lancer le dé 3D",
+  "combatRollTitle": "Initiative de {name}",
+  "combatUseRoll": "Utiliser {total}"
 }

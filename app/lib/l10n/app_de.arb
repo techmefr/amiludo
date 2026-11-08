@@ -1656,5 +1656,8 @@
   "combatCondParalyzed": "Gelähmt",
   "combatCondPoisoned": "Vergiftet",
   "combatCondProne": "Liegend",
-  "combatCondStunned": "Betäubt"
+  "combatCondStunned": "Betäubt",
+  "combatRollDie": "3D-Würfel werfen",
+  "combatRollTitle": "Initiative von {name}",
+  "combatUseRoll": "{total} übernehmen"
 }

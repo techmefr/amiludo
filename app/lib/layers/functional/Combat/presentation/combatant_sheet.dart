@@ -9,15 +9,22 @@ import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 typedef CombatantChange = void Function(Combatant Function(Combatant));
 
+typedef DieRoller = Future<int?> Function(BuildContext context, String name);
+
 Future<bool?> showCombatantSheet(
   BuildContext context, {
   required Combatant combatant,
   required CombatantChange onChange,
+  DieRoller? roller,
 }) => showModalBottomSheet<bool>(
   context: context,
   isScrollControlled: true,
   useSafeArea: true,
-  builder: (_) => CombatantSheet(combatant: combatant, onChange: onChange),
+  builder: (_) => CombatantSheet(
+    combatant: combatant,
+    onChange: onChange,
+    roller: roller,
+  ),
 );
 
 class CombatantSheet extends StatefulWidget {
@@ -25,9 +32,11 @@ class CombatantSheet extends StatefulWidget {
     super.key,
     required this.combatant,
     required this.onChange,
+    this.roller,
   });
   final Combatant combatant;
   final CombatantChange onChange;
+  final DieRoller? roller;
 
   @override
   State<CombatantSheet> createState() => _CombatantSheetState();
@@ -52,6 +61,14 @@ class _CombatantSheetState extends State<CombatantSheet> {
   void _apply(Combatant Function(Combatant) change) {
     widget.onChange(change);
     setState(() => shown = change(shown));
+  }
+
+  Future<void> _roll() async {
+    final result = await widget.roller!(context, shown.name);
+    if (!mounted || result == null) return;
+    final total = result + shown.bonus;
+    initiative.text = ;
+    _apply((c) => c.copyWith(initiative: total));
   }
 
   int get _amount => (int.tryParse(amount.text) ?? 0).abs();
@@ -90,6 +107,14 @@ class _CombatantSheetState extends State<CombatantSheet> {
                 if (value != null) _apply((c) => c.copyWith(initiative: value));
               },
             ),
+            if (widget.roller != null) ...[
+              const SizedBox(height: Space.sm),
+              OutlinedButton.icon(
+                onPressed: _roll,
+                icon: const DeckIcon(Icons.casino_outlined),
+                label: Text(l.combatRollDie),
+              ),
+            ],
             if (shown.tracksHp) ...[
               const SizedBox(height: Space.lg),
               Text(

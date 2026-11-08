@@ -18,11 +18,13 @@ class CombatTool extends StatefulWidget {
     this.onChanged,
     this.npcNames = const [],
     this.random,
+    this.roller,
   });
   final Encounter initial;
   final ValueChanged<Encounter>? onChanged;
   final List<String> npcNames;
   final RandomTools? random;
+  final DieRoller? roller;
 
   @override
   State<CombatTool> createState() => _CombatToolState();
@@ -60,6 +62,7 @@ class _CombatToolState extends State<CombatTool> {
     final remove = await showCombatantSheet(
       context,
       combatant: combatant,
+      roller: widget.roller,
       onChange: (change) => _commit(encounter.update(combatant.id, change)),
     );
     if (remove == true) _commit(encounter.remove(combatant.id));

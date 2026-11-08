@@ -34,6 +34,7 @@ class DiceTrayPage extends StatefulWidget {
     this.table = 'felt',
     this.onSkinChanged,
     this.onTableChanged,
+    this.onSettled,
   });
   final DiceTraySettings initial;
   final ShakeSource shakeSource;
@@ -45,6 +46,7 @@ class DiceTrayPage extends StatefulWidget {
   final String skin, table;
   final ValueChanged<bool>? onSolidChanged;
   final ValueChanged<String>? onSkinChanged, onTableChanged;
+  final ValueChanged<int>? onSettled;
 
   @override
   State<DiceTrayPage> createState() => _DiceTrayPageState();
@@ -156,7 +158,10 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
     solid: solid,
     skin: DieSkin.byId(skin),
     table: TableTheme.byId(table),
-    onOutcome: (v) => setState(() => session = session.withOutcome(v)),
+    onOutcome: (v) {
+      setState(() => session = session.withOutcome(v));
+      widget.onSettled?.call(session.total);
+    },
     onTapDie: (i) =>
         solid ? throwDice() : setState(() => session = session.toggleKeep(i)),
     onView: changeView,
