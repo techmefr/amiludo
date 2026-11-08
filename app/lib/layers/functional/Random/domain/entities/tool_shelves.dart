@@ -62,6 +62,7 @@ const toolShelves = [
     'markers',
     'tournament',
     'solo',
+    'units',
     'balance',
     'turns',
     'teams',

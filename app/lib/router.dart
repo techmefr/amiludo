@@ -29,6 +29,7 @@ import 'package:amiludo/layers/functional/Companion/presentation/buzzer_tool.dar
 import 'package:amiludo/layers/functional/Companion/presentation/auction_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/league_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/solo_tool.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/units_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/balance_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/bank_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/clocks_tool.dart';
@@ -145,6 +146,8 @@ Widget _league(BuildContext context) =>
     LeagueTool(names: _names(context));
 Widget _solo(BuildContext context) =>
     const SoloTool();
+Widget _units(BuildContext context) =>
+    const UnitsTool();
 
 Widget _turns(BuildContext context) => TurnsTool(names: _names(context));
 
@@ -314,6 +317,7 @@ final router = GoRouter(
           'balance': _balance,
           'league': _league,
           'solo': _solo,
+          'units': _units,
           'stats': _stats,
           'sheet': _sheet,
           'turns': _turns,

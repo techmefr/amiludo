@@ -232,6 +232,11 @@ const toolThemes = <String, ToolTheme>{
     texture: ToolTexture.deck,
     motion: ToolMotion.flow,
   ),
+  'units': ToolTheme(
+    accent: Color(0xff5A4FB0),
+    texture: ToolTexture.frame,
+    motion: ToolMotion.flow,
+  ),
   'turns': ToolTheme(
     accent: Color(0xff5A4FB0),
     texture: ToolTexture.frame,

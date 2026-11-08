@@ -5152,4 +5152,38 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get soloDraw => 'Actie trekken';
+
+  @override
+  String get toolUnitsTitle => 'Eenhedenactivatie';
+
+  @override
+  String get toolUnitsSubtitle => 'Houd bij welke eenheden deze ronde hebben gehandeld en trek de volgende willekeurig.';
+
+  @override
+  String get unitsAdd => 'Eenheid toevoegen';
+
+  @override
+  String get unitsName => 'Naam van de eenheid';
+
+  @override
+  String unitsRemove(String name) {
+    return '$name verwijderen';
+  }
+
+  @override
+  String get unitsDraw => 'Volgende eenheid trekken';
+
+  @override
+  String get unitsNewRound => 'Nieuwe ronde';
+
+  @override
+  String get unitsDrawHint => 'Trek om te zien wie hierna handelt';
+
+  @override
+  String unitsNext(String name) {
+    return '$name is aan de beurt';
+  }
+
+  @override
+  String get unitsAllDone => 'Alle eenheden hebben gehandeld';
 }

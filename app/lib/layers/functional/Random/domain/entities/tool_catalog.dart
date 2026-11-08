@@ -24,6 +24,7 @@ const toolDefinitions = [
   ToolDefinition('balance', 'match'),
   ToolDefinition('league', 'match'),
   ToolDefinition('solo', 'match'),
+  ToolDefinition('units', 'match'),
   ToolDefinition('sheet', 'match'),
   ToolDefinition('turns', 'match'),
   ToolDefinition('first-player', 'match'),

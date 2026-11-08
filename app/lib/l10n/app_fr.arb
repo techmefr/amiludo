@@ -1591,5 +1591,15 @@
   "soloLevel": "Niveau {level}",
   "soloBonus": "+{bonus} pour l'automate",
   "soloRemaining": "{count} cartes restantes",
-  "soloDraw": "Tirer une action"
+  "soloDraw": "Tirer une action",
+  "toolUnitsTitle": "Activation d'unités",
+  "toolUnitsSubtitle": "Suivez les unités qui ont agi ce tour et tirez la suivante au hasard.",
+  "unitsAdd": "Ajouter une unité",
+  "unitsName": "Nom de l'unité",
+  "unitsRemove": "Retirer {name}",
+  "unitsDraw": "Tirer l'unité suivante",
+  "unitsNewRound": "Nouveau tour",
+  "unitsDrawHint": "Tirez pour voir qui agit ensuite",
+  "unitsNext": "{name} agit ensuite",
+  "unitsAllDone": "Toutes les unités ont agi"
 }
