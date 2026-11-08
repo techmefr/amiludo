@@ -120,6 +120,8 @@ const toolThemes = <String, ToolTheme>{
     accent: Color(0xff2E7D6B),
     texture: ToolTexture.plain,
     motion: ToolMotion.snap,
+    weight: .9,
+  ),
   'phases': ToolTheme(
     accent: Color(0xff6A5BB0),
     texture: ToolTexture.glass,
