@@ -1752,5 +1752,7 @@
         "type": "int"
       }
     }
-  }
+  },
+  "toolCountdownTitle": "Countdown",
+  "toolCountdownSubtitle": "Set a duration, watch the ring empty, get alerted at zero."
 }

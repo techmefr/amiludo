@@ -1374,5 +1374,7 @@
   "voteTie": "Gleichstand",
   "voteAgain": "Erneut abstimmen",
   "voteNeedTwo": "Füge eine Frage und mindestens zwei Auswahlmöglichkeiten hinzu.",
-  "voteCount": "{count} Stimmen"
+  "voteCount": "{count} Stimmen",
+  "toolCountdownTitle": "Countdown",
+  "toolCountdownSubtitle": "Dauer einstellen, den Ring leerlaufen sehen, bei null gewarnt werden."
 }

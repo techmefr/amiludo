@@ -1374,5 +1374,7 @@
   "voteTie": "Empate",
   "voteAgain": "Votar de nuevo",
   "voteNeedTwo": "Añade una pregunta y al menos dos opciones.",
-  "voteCount": "{count} votos"
+  "voteCount": "{count} votos",
+  "toolCountdownTitle": "Cuenta atrás",
+  "toolCountdownSubtitle": "Fija una duración, mira vaciarse el anillo y recibe un aviso al llegar a cero."
 }

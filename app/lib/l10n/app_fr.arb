@@ -1374,5 +1374,7 @@
   "voteTie": "Égalité",
   "voteAgain": "Revoter",
   "voteNeedTwo": "Ajoutez une question et au moins deux choix.",
-  "voteCount": "{count} voix"
+  "voteCount": "{count} voix",
+  "toolCountdownTitle": "Compte à rebours",
+  "toolCountdownSubtitle": "Réglez une durée, regardez l’anneau se vider, alerte à zéro."
 }

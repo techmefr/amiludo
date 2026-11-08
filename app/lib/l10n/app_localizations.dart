@@ -8317,6 +8317,17 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} votes'**
   String voteCount(int count);
+  /// No description provided for @toolCountdownTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Countdown'**
+  String get toolCountdownTitle;
+
+  /// No description provided for @toolCountdownSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Set a duration, watch the ring empty, get alerted at zero.'**
+  String get toolCountdownSubtitle;
 }
 
 class _AppLocalizationsDelegate

@@ -4446,4 +4446,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String voteCount(int count) {
     return '$count voix';
   }
+  String get toolCountdownTitle => 'Compte à rebours';
+
+  @override
+  String get toolCountdownSubtitle => 'Réglez une durée, regardez l’anneau se vider, alerte à zéro.';
 }

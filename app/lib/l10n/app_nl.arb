@@ -1374,5 +1374,7 @@
   "voteTie": "Gelijkspel",
   "voteAgain": "Opnieuw stemmen",
   "voteNeedTwo": "Voeg een vraag en minstens twee keuzes toe.",
-  "voteCount": "{count} stemmen"
+  "voteCount": "{count} stemmen",
+  "toolCountdownTitle": "Aftellen",
+  "toolCountdownSubtitle": "Stel een duur in, zie de ring leeglopen en krijg een melding bij nul."
 }

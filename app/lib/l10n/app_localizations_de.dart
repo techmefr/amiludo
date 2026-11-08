@@ -4450,4 +4450,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String voteCount(int count) {
     return '$count Stimmen';
   }
+  String get toolCountdownTitle => 'Countdown';
+
+  @override
+  String get toolCountdownSubtitle => 'Dauer einstellen, den Ring leerlaufen sehen, bei null gewarnt werden.';
 }

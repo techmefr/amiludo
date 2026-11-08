@@ -4413,4 +4413,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String voteCount(int count) {
     return '$count votes';
   }
+  String get toolCountdownTitle => 'Countdown';
+
+  @override
+  String get toolCountdownSubtitle => 'Set a duration, watch the ring empty, get alerted at zero.';
 }

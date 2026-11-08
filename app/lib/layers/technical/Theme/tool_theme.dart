@@ -116,6 +116,13 @@ const toolThemes = <String, ToolTheme>{
     haptic: ToolHaptic.impact,
     weight: 1.2,
   ),
+  'countdown': ToolTheme(
+    accent: Color(0xffB5532B),
+    texture: ToolTexture.glass,
+    motion: ToolMotion.flow,
+    haptic: ToolHaptic.impact,
+    weight: .9,
+  ),
   'timer': ToolTheme(
     accent: Color(0xffC48A1A),
     texture: ToolTexture.glass,

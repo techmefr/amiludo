@@ -13,6 +13,7 @@ Color toolColor(String id) => switch (id) {
   'deck' => const Color(0xffC25B7A),
   'rules' => const Color(0xffC9A56B),
   'vote' => const Color(0xff5B8FC2),
+  'countdown' => const Color(0xffE08A5F),
   'teams' => const Color(0xff668FCB),
   'wheel' => const Color(0xffCB78A8),
   'roles' => const Color(0xff8A65D8),
@@ -196,7 +197,7 @@ class _GameArtPainter extends CustomPainter {
       pawn(canvas, 165, 99, purple);
       pawn(canvas, 228, 132, mint);
       disk(canvas, const Offset(163, 36), 6, yellow);
-    } else if (tool == 'timer' || tool == 'hourglass' || tool == 'stopwatch' || tool == 'chess-clock') {
+    } else if (tool == 'timer' || tool == 'hourglass' || tool == 'stopwatch' || tool == 'chess-clock' || tool == 'countdown') {
       _timer(canvas);
     } else if (tool == 'wheel') {
       _wheel(canvas);

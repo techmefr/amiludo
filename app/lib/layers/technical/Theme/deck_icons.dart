@@ -7,6 +7,7 @@ IconData toolIcon(String id) => switch (id) {
   'picker' => Icons.touch_app_outlined,
   'scores' => Icons.add_chart_outlined,
   'stopwatch' => Icons.av_timer,
+  'countdown' => Icons.hourglass_top_outlined,
   'chess-clock' => Icons.hourglass_bottom_outlined,
   'timer' => Icons.timer_outlined,
   'map' => Icons.map_outlined,
