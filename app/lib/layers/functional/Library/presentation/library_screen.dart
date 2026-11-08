@@ -4,7 +4,9 @@ import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
 import 'package:amiludo/layers/functional/Library/presentation/bookshelf.dart';
+import 'package:amiludo/layers/functional/Library/domain/entities/library_stats.dart';
 import 'package:amiludo/layers/functional/Library/presentation/game_cards.dart';
+import 'package:amiludo/layers/functional/Library/presentation/library_stats_bar.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/functional/Library/presentation/cubit/library_cubit.dart';
 import 'package:amiludo/layers/functional/Library/presentation/shelf_game_sheet.dart';
@@ -22,15 +24,18 @@ class _LibraryScreenState extends State<LibraryScreen> {
   String query = '';
   String? genre;
   bool cards = false;
+  bool neverPlayed = false;
 
-  bool _matches(ShelfGame game) =>
+  bool _matches(ShelfGame game, LibraryStats stats) =>
       game.name.toLowerCase().contains(query.toLowerCase()) &&
-      (genre == null || game.genres.contains(genre));
+      (genre == null || game.genres.contains(genre)) &&
+      (!neverPlayed || stats.neverPlayed.contains(game.id));
 
   @override
   Widget build(BuildContext context) {
     final shelf = context.watch<LibraryCubit>().state.games;
-    final games = shelf.where(_matches).toList()
+    final stats = context.read<LibraryCubit>().statsFor(context.watch<LibraryCubit>().state);
+    final games = shelf.where((g) => _matches(g, stats)).toList()
       ..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,6 +56,12 @@ class _LibraryScreenState extends State<LibraryScreen> {
             genre: genre,
             onQuery: (v) => setState(() => query = v),
             onGenre: (v) => setState(() => genre = v),
+          ),
+          const SizedBox(height: 16),
+          LibraryStatsBar(
+            stats: stats,
+            neverPlayedOnly: neverPlayed,
+            onToggle: (v) => setState(() => neverPlayed = v),
           ),
           const SizedBox(height: 16),
           SegmentedButton<bool>(

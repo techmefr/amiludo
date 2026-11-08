@@ -3857,6 +3857,42 @@ abstract class AppLocalizations {
   /// **'Colour'**
   String get libraryColour;
 
+  /// No description provided for @libraryImportBgg.
+  ///
+  /// In en, this message translates to:
+  /// **'Import my BoardGameGeek collection'**
+  String get libraryImportBgg;
+
+  /// No description provided for @libraryImportUsername.
+  ///
+  /// In en, this message translates to:
+  /// **'BoardGameGeek username'**
+  String get libraryImportUsername;
+
+  /// No description provided for @libraryImportDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Collection imported. Check your shelf.'**
+  String get libraryImportDone;
+
+  /// No description provided for @libraryImportFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Import failed. Check the username and try again in a moment.'**
+  String get libraryImportFailed;
+
+  /// No description provided for @libraryStatsPlayed.
+  ///
+  /// In en, this message translates to:
+  /// **'Played'**
+  String get libraryStatsPlayed;
+
+  /// No description provided for @libraryStatsNever.
+  ///
+  /// In en, this message translates to:
+  /// **'Never played'**
+  String get libraryStatsNever;
+
   /// No description provided for @libraryViewShelf.
   ///
   /// In en, this message translates to:

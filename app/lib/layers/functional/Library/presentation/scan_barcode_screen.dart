@@ -127,6 +127,10 @@ class _ScanBarcodeScreenState extends State<ScanBarcodeScreen> {
           child: owned == null ? const SizedBox() : OwnedCard(game: owned!),
         ),
         if (context.read<BarcodeScanCubit>().canSearchOnline)
+          CollectionImport(
+            onImport: context.read<BarcodeScanCubit>().importCollection,
+          ),
+        if (context.read<BarcodeScanCubit>().canSearchOnline)
           OnlineSearch(
             controller: name,
             results: results,
