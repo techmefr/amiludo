@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:amiludo/layers/technical/Theme/components/paper_look.dart';
 
 import 'package:amiludo/layers/functional/Notebook/domain/entities/notebook_campaign.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/cubit/notebook_cubit.dart';
+
+ThemeData campaignTheme(ThemeData base, NotebookCampaign campaign) =>
+    paperTheme(base, Color(campaign.palette ?? 0xFFA3342B));
 
 const notebookPalettes = [
   0xFF8B3A3A,
@@ -14,22 +18,6 @@ const notebookPalettes = [
   0xFF6B4A9E,
   0xFF9E4A7B,
 ];
-
-ThemeData campaignTheme(ThemeData base, NotebookCampaign campaign) {
-  final seed = campaign.palette;
-  if (seed == null) return base;
-  final scheme = ColorScheme.fromSeed(
-    seedColor: Color(seed),
-    brightness: base.brightness,
-  );
-  return base.copyWith(
-    colorScheme: scheme,
-    appBarTheme: base.appBarTheme.copyWith(
-      backgroundColor: scheme.primaryContainer,
-      foregroundColor: scheme.onPrimaryContainer,
-    ),
-  );
-}
 
 class CampaignScope extends StatelessWidget {
   const CampaignScope({super.key, required this.id, required this.builder});
@@ -45,8 +33,13 @@ class CampaignScope extends StatelessWidget {
     );
     if (campaign == null) return const SizedBox.shrink();
     return Theme(
-      data: campaignTheme(Theme.of(context), campaign),
-      child: Builder(builder: (context) => builder(context, campaign)),
+      data: campaignTheme(
+        Theme.of(context),
+        campaign,
+      ).copyWith(scaffoldBackgroundColor: const Color(0x00000000)),
+      child: PaperBackdrop(
+        child: Builder(builder: (context) => builder(context, campaign)),
+      ),
     );
   }
 }

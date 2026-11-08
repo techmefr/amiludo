@@ -10,6 +10,7 @@ import 'package:amiludo/layers/functional/Notebook/presentation/entries_tab.dart
 import 'package:amiludo/layers/functional/Notebook/presentation/journal_tab.dart';
 import 'package:amiludo/layers/functional/Notebook/presentation/oracle_panel.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/paper_look.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class CampaignScreen extends StatelessWidget {
@@ -41,6 +42,7 @@ class _CampaignView extends StatelessWidget {
           ),
           title: Text(campaign.title, overflow: TextOverflow.ellipsis),
           actions: [
+            RibbonBookmark(color: Color(campaign.palette ?? 0xFFA3342B)),
             IconButton(
               tooltip: l.notebookFavorite,
               onPressed: () => cubit.toggleFavorite(campaign.id),
