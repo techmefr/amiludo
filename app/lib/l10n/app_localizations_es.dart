@@ -4857,4 +4857,72 @@ class AppLocalizationsEs extends AppLocalizations {
   String buzzerFirst(String name) {
     return '$name pulsó primero';
   }
+
+  @override
+  String get toolClocksTitle => 'Relojes de progreso';
+
+  @override
+  String get toolClocksSubtitle => 'Relojes por porciones para amenazas, proyectos y cuentas atrás de la historia.';
+
+  @override
+  String clocksSegments(int count) {
+    return '$count porciones';
+  }
+
+  @override
+  String get clocksAdd => 'Añadir un reloj';
+
+  @override
+  String get clocksName => 'Nombre del reloj';
+
+  @override
+  String get clocksEmpty => 'Añade un reloj para seguir una amenaza o un proyecto.';
+
+  @override
+  String clocksRemove(String name) {
+    return 'Quitar $name';
+  }
+
+  @override
+  String get toolSportTitle => 'Deportes de mesa';
+
+  @override
+  String get toolSportSubtitle => 'Puntúa Mölkky, dardos y petanca con las reglas correctas.';
+
+  @override
+  String get sportMolkky => 'Mölkky';
+
+  @override
+  String get sportDarts => 'Dardos 501';
+
+  @override
+  String get sportPetanque => 'Petanca';
+
+  @override
+  String sportGoal(int target) {
+    return 'Objetivo: $target';
+  }
+
+  @override
+  String get sportPoints => 'Puntos';
+
+  @override
+  String sportAddPoints(String name) {
+    return 'Añadir puntos a $name';
+  }
+
+  @override
+  String get toolMarkersTitle => 'Marcadores de estado';
+
+  @override
+  String get toolMarkersSubtitle => 'Entrega las fichas de monarca, primer jugador e iniciativa a un jugador.';
+
+  @override
+  String get markerMonarch => 'Monarca';
+
+  @override
+  String get markerFirst => 'Primer jugador';
+
+  @override
+  String get markerInitiative => 'Iniciativa';
 }

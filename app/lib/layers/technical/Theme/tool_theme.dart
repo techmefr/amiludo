@@ -182,6 +182,21 @@ const toolThemes = <String, ToolTheme>{
     haptic: ToolHaptic.impact,
     weight: 1.4,
   ),
+  'clocks': ToolTheme(
+    accent: Color(0xffB5762A),
+    texture: ToolTexture.paper,
+    motion: ToolMotion.flow,
+  ),
+  'sport': ToolTheme(
+    accent: Color(0xff2F8F83),
+    texture: ToolTexture.tactile,
+    weight: 1.4,
+  ),
+  'markers': ToolTheme(
+    accent: Color(0xff6F4FB0),
+    texture: ToolTexture.deck,
+    motion: ToolMotion.flip,
+  ),
   'turns': ToolTheme(
     accent: Color(0xff5A4FB0),
     texture: ToolTexture.frame,
