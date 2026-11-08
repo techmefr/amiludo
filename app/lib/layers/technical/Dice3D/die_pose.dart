@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:amiludo/layers/technical/Dice3D/die_mesh.dart';
+import 'package:amiludo/layers/technical/Dice3D/die_orient.dart';
 import 'package:amiludo/layers/technical/Dice3D/vec3.dart';
 
 class DiePose {
@@ -33,6 +34,19 @@ class DiePose {
 
   static Mat3 resting(DieMesh mesh, int face) =>
       view(mesh, face) * facing(mesh, face);
+
+  static Mat3 spinning(
+    DieMesh mesh,
+    int face,
+    double flipX,
+    double flipY,
+    Mat3 orientation,
+    double settle,
+  ) =>
+      Mat3.rotationX(flipX * pi) *
+      Mat3.rotationY(flipY * pi) *
+      view(mesh, face) *
+      settleToward(orientation, facing(mesh, face), settle);
 
   static Mat3 tumbling(DieMesh mesh, int face, double flipX, double flipY) =>
       Mat3.rotationX(flipX * pi) *

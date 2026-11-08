@@ -1,5 +1,8 @@
 import 'dart:math';
 
+import 'package:amiludo/layers/technical/Dice3D/die_orient.dart';
+import 'package:amiludo/layers/technical/Dice3D/vec3.dart';
+
 enum ImpactKind { wall, floor, die }
 
 class TrayImpact {
@@ -23,6 +26,8 @@ class TrayBody {
   double z = 0, vz = 0, phase = 0, tumble = 0, roundness = 0;
   int offset = 0, sides = 6;
   bool asleep = true, rolling = false;
+  Mat3 rot = Mat3.identity;
+  Vec3 axis = const Vec3(0, 1, 0);
 
   static double roundnessFor(int sides) => ((sides - 6) / 40).clamp(0.0, 1.0);
 
@@ -37,6 +42,17 @@ class TrayBody {
   double get flipX => spinX * (1 - roundness);
 
   double get flipY => spinY * (1 - roundness);
+
+  double get settled => 1 - min(1.0, tumble / 5);
+
+  void spinStep(double dt) {
+    if (tumble > 0) rot = turnAbout(axis, tumble * 0.55 * dt) * rot;
+  }
+
+  void kick() {
+    final heading = Vec3(vy, -vx, 0);
+    if (heading.length > 1) axis = (axis + heading.unit * 0.9).unit;
+  }
 
   void sleep() {
     vx = 0;
@@ -59,5 +75,7 @@ class TrayBody {
         ..offset = offset
         ..sides = sides
         ..asleep = asleep
-        ..rolling = rolling;
+        ..rolling = rolling
+        ..rot = rot
+        ..axis = axis;
 }

@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:amiludo/layers/technical/Dice3D/die_orient.dart';
+import 'package:amiludo/layers/technical/Dice3D/vec3.dart';
 import 'package:amiludo/layers/technical/Physics/seeded_random.dart';
 import 'package:amiludo/layers/technical/Physics/tray_body.dart';
 
@@ -41,5 +43,11 @@ void launchBody(
     ..roundness = round
     ..tumble = rng.range(14, 24) * (0.4 + 0.6 * power) * (1 + round)
     ..asleep = false
-    ..rolling = true;
+    ..rolling = true
+    ..axis = Vec3(
+      sin(body.phase),
+      cos(body.phase * 0.7 + 1),
+      sin(body.offset * 2.1 + 0.3),
+    ).unit
+    ..rot = turnAbout(const Vec3(0.3, 1, 0.5), body.phase * 1.7);
 }

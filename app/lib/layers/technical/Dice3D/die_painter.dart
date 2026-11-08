@@ -38,6 +38,16 @@ class DiePainter extends CustomPainter {
       final tinted = faceted ? tintFacet(base, face.index) : base;
       final color = DieProjection.shade(tinted, face.light);
       paintFacet(canvas, path, color, skin);
+      if (soft) {
+        canvas.drawPath(
+          path,
+          Paint()
+            ..style = PaintingStyle.stroke
+            ..strokeJoin = StrokeJoin.round
+            ..strokeWidth = radius * 0.12
+            ..color = color,
+        );
+      }
       paintBevel(canvas, path, color, radius * (soft ? 0.12 : 0.07));
       if (face.light == brightest) paintSpecular(canvas, path, skin);
       if (soft) continue;
