@@ -192,7 +192,9 @@ class _WorldCanvasState extends State<WorldCanvas>
             onScaleUpdate: _update,
             onScaleEnd: _end,
             onTapUp: _tap,
-            onDoubleTapDown: (d) => doubleAt = d.localPosition,
+            onDoubleTapDown: widget.tool == DrawTool.move
+                ? (d) => doubleAt = d.localPosition
+                : null,
             onDoubleTap: widget.tool == DrawTool.move ? _doubleTap : null,
             child: ClipRect(
               child: ListenableBuilder(

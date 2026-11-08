@@ -167,6 +167,7 @@ void _widgetTests() {
     await tester.pump();
     final floor = saved!.maps.single.floors.last;
     expect(floor.elements.single.kind, ElementKind.land);
+    await tester.pumpAndSettle(const Duration(seconds: 1));
   });
 
   testWidgets('the grid toggles and the zoom buttons respond', (tester) async {
