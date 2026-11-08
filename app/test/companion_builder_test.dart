@@ -35,6 +35,14 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Ajouter une brique'));
     await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(
+      find.text('Qui commence ?'),
+      300,
+      scrollable: find.descendant(
+        of: find.byType(DraggableScrollableSheet),
+        matching: find.byType(Scrollable),
+      ),
+    );
     await tester.tap(find.text('Qui commence ?'));
     await tester.pumpAndSettle();
     expect(find.text('Qui commence ?'), findsOneWidget);
