@@ -225,6 +225,8 @@ const toolThemes = <String, ToolTheme>{
   'league': ToolTheme(
     accent: Color(0xffB38A1D),
     texture: ToolTexture.paper,
+    motion: ToolMotion.flow,
+  ),
   'solo': ToolTheme(
     accent: Color(0xff8A65D8),
     texture: ToolTexture.deck,
