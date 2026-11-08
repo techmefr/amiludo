@@ -5361,4 +5361,17 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get combatCondStunned => 'Verdoofd';
+
+  @override
+  String get combatRollDie => '3D-dobbelsteen gooien';
+
+  @override
+  String combatRollTitle(String name) {
+    return 'Initiatief van $name';
+  }
+
+  @override
+  String combatUseRoll(int total) {
+    return '$total gebruiken';
+  }
 }

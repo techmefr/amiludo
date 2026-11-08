@@ -169,6 +169,39 @@ void _widgetTests() {
     expect(find.text('5 / 6'), findsOneWidget);
   });
 
+  testWidgets('the 3D die sets the initiative with the bonus', (tester) async {
+    Encounter? saved;
+    await tester.pumpWidget(
+      host(
+        CombatTool(
+          initial: Encounter(
+            combatants: [
+              Combatant(id: 'a', name: 'Ana', initiative: 1, bonus: 2),
+            ],
+          ),
+          onChanged: (e) => saved = e,
+          roller: (context, name) async => 14,
+        ),
+      ),
+    );
+    await tester.tap(find.text('Ana'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Roll the 3D die'));
+    await tester.pumpAndSettle();
+    expect(saved!.combatants.single.initiative, 16);
+  });
+
+  testWidgets('without a roller the sheet offers no 3D die', (tester) async {
+    await tester.pumpWidget(
+      host(
+        CombatTool(initial: Encounter(combatants: [fighter('a', 'Ana', 1)])),
+      ),
+    );
+    await tester.tap(find.text('Ana'));
+    await tester.pumpAndSettle();
+    expect(find.text('Roll the 3D die'), findsNothing);
+  });
+
   testWidgets('a group of monsters is added from the sheet', (tester) async {
     Encounter? saved;
     await tester.pumpWidget(

@@ -2361,5 +2361,22 @@
   "combatCondParalyzed": "Paralyzed",
   "combatCondPoisoned": "Poisoned",
   "combatCondProne": "Prone",
-  "combatCondStunned": "Stunned"
+  "combatCondStunned": "Stunned",
+  "combatRollDie": "Roll the 3D die",
+  "combatRollTitle": "Initiative of {name}",
+  "@combatRollTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "combatUseRoll": "Use {total}",
+  "@combatUseRoll": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  }
 }

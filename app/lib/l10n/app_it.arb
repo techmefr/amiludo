@@ -1656,5 +1656,8 @@
   "combatCondParalyzed": "Paralizzato",
   "combatCondPoisoned": "Avvelenato",
   "combatCondProne": "Prono",
-  "combatCondStunned": "Stordito"
+  "combatCondStunned": "Stordito",
+  "combatRollDie": "Lancia il dado 3D",
+  "combatRollTitle": "Iniziativa di {name}",
+  "combatUseRoll": "Usa {total}"
 }

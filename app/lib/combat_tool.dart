@@ -6,6 +6,7 @@ import 'package:amiludo/layers/functional/Combat/domain/use_cases/encounter_use_
 import 'package:amiludo/layers/functional/Combat/presentation/combat_tool.dart';
 import 'package:amiludo/layers/functional/Notebook/domain/entities/notebook_entry.dart';
 import 'package:amiludo/layers/functional/Notebook/domain/gateways/notebook_gateways.dart';
+import 'package:amiludo/initiative_roll.dart';
 
 List<String> _npcNames() {
   if (!getIt.isRegistered<NotebookGateway>()) return const [];
@@ -24,5 +25,6 @@ Widget combatWithStorage(BuildContext context) {
     initial: getIt<ReadEncounterUseCase>()(),
     onChanged: getIt<SaveEncounterUseCase>().call,
     npcNames: _npcNames(),
+    roller: rollInitiativeIn3d,
   );
 }

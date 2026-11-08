@@ -5359,4 +5359,17 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get combatCondStunned => 'Atordoado';
+
+  @override
+  String get combatRollDie => 'Lançar o dado 3D';
+
+  @override
+  String combatRollTitle(String name) {
+    return 'Iniciativa de $name';
+  }
+
+  @override
+  String combatUseRoll(int total) {
+    return 'Usar $total';
+  }
 }

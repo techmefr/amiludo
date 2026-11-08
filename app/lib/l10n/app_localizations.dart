@@ -10007,6 +10007,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Stunned'**
   String get combatCondStunned;
+
+  /// No description provided for @combatRollDie.
+  ///
+  /// In en, this message translates to:
+  /// **'Roll the 3D die'**
+  String get combatRollDie;
+
+  /// No description provided for @combatRollTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Initiative of {name}'**
+  String combatRollTitle(String name);
+
+  /// No description provided for @combatUseRoll.
+  ///
+  /// In en, this message translates to:
+  /// **'Use {total}'**
+  String combatUseRoll(int total);
 }
 
 class _AppLocalizationsDelegate
