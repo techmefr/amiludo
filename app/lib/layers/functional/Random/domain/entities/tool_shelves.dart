@@ -35,8 +35,9 @@ const toolShelves = [
   ToolShelf('rules', ['rules']),
   ToolShelf('votes', ['vote', 'impostor']),
   ToolShelf('ambience', ['ambience']),
+  ToolShelf('party', ['challenges']),
   ToolShelf('map', ['map']),
-  ToolShelf('story', ['journal', 'tavern', 'town', 'place', 'weather']),
+  ToolShelf('story', ['journal', 'oracle', 'tavern', 'town', 'place', 'weather']),
   ToolShelf('generators', [
     'npc',
     'encounter',

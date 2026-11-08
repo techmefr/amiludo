@@ -39,6 +39,8 @@ const toolDefinitions = [
   ToolDefinition('rules', 'match'),
   ToolDefinition('vote', 'match'),
   ToolDefinition('impostor', 'match'),
+  ToolDefinition('oracle', 'story'),
+  ToolDefinition('challenges', 'match'),
   ToolDefinition('journal', 'story'),
   ToolDefinition('ambience', 'story'),
   ToolDefinition('roles', 'match'),

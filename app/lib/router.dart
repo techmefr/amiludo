@@ -18,6 +18,8 @@ import 'package:amiludo/notebook_routes.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/chess_clock_tool.dart';
 import 'package:amiludo/rules_tool.dart';
 import 'package:amiludo/journal_tool.dart';
+import 'package:amiludo/layers/functional/Random/presentation/oracle_tool.dart';
+import 'package:amiludo/layers/functional/Random/presentation/challenges_tool.dart';
 import 'package:amiludo/ambience_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/impostor_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/deck_tool.dart';
@@ -130,6 +132,10 @@ Widget _firstPlayer(BuildContext context) =>
     FirstPlayerTool(names: _names(context));
 
 Widget _impostor(BuildContext context) => const ImpostorTool();
+
+Widget _oracle(BuildContext context) => const OracleTool();
+
+Widget _challenges(BuildContext context) => const ChallengesTool();
 
 Widget _heroes(BuildContext context) => const HeroesTool();
 
@@ -287,6 +293,8 @@ final router = GoRouter(
           'first-player': _firstPlayer,
           'turn-timer': turnTimerWithFeedback,
           'impostor': _impostor,
+          'oracle': _oracle,
+          'challenges': _challenges,
           'journal': journalWithStorage,
           'ambience': ambienceWithSound,
           'dice-tray': diceTrayWithSensors,

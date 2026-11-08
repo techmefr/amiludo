@@ -4928,4 +4928,73 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get markerInitiative => 'Iniciativa';
+
+  @override
+  String get toolShelfParty => 'Festa';
+
+  @override
+  String get toolOracleTitle => 'Oráculo';
+
+  @override
+  String get toolOracleSubtitle => 'Faça uma pergunta de sim ou não e deixe o caos intervir.';
+
+  @override
+  String get oracleLikelihood => 'Qual a probabilidade?';
+
+  @override
+  String get oracleUnlikely => 'Improvável';
+
+  @override
+  String get oracleEven => 'Meio a meio';
+
+  @override
+  String get oracleLikely => 'Provável';
+
+  @override
+  String get oracleChaos => 'Caos';
+
+  @override
+  String get oracleChaosLess => 'Menos caos';
+
+  @override
+  String get oracleChaosMore => 'Mais caos';
+
+  @override
+  String get oracleAsk => 'Consultar o oráculo';
+
+  @override
+  String get oracleYes => 'Sim';
+
+  @override
+  String get oracleNo => 'Não';
+
+  @override
+  String get oracleExceptionalYes => 'Sim, e mais';
+
+  @override
+  String get oracleExceptionalNo => 'Não, e pior';
+
+  @override
+  String get oracleEvent => 'Ocorre um evento aleatório!';
+
+  @override
+  String get toolChallengesTitle => 'Desafios e prendas';
+
+  @override
+  String get toolChallengesSubtitle => 'Tire um desafio da sua própria lista.';
+
+  @override
+  String get challengeDraw => 'Tirar um desafio';
+
+  @override
+  String get challengeFaceDown => 'Desafio virado';
+
+  @override
+  String get challengeEdit => 'Seus desafios, um por linha';
+
+  @override
+  String get challengeEditHelper => 'Edite, adicione ou remova linhas livremente.';
+
+  @override
+  String get challengeStarters => 'Conte uma piada|Cante o refrão de uma música|Faça dez polichinelos|Fale com sotaque até à sua próxima vez|Elogie cada jogador|Faça mímica de um filme até alguém adivinhar';
 }

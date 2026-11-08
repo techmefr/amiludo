@@ -298,6 +298,18 @@ const toolThemes = <String, ToolTheme>{
     motion: ToolMotion.flip,
     haptic: ToolHaptic.impact,
   ),
+  'oracle': ToolTheme(
+    accent: Color(0xff7B4B94),
+    texture: ToolTexture.parchment,
+    motion: ToolMotion.flip,
+    haptic: ToolHaptic.impact,
+  ),
+  'challenges': ToolTheme(
+    accent: Color(0xffC2493D),
+    texture: ToolTexture.deck,
+    motion: ToolMotion.flip,
+    haptic: ToolHaptic.impact,
+  ),
   'journal': ToolTheme(
     accent: Color(0xff8A5A2B),
     texture: ToolTexture.paper,
