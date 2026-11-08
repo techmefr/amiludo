@@ -4,8 +4,14 @@ import 'package:amiludo/layers/technical/Theme/components/stone_slab.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class CounterNumeral extends StatefulWidget {
-  const CounterNumeral({super.key, required this.text, required this.value});
+  const CounterNumeral({
+    super.key,
+    required this.text,
+    required this.value,
+    this.size = TypeScale.display * 2,
+  });
   final String text;
+  final double size;
   final double value;
 
   @override
@@ -50,7 +56,7 @@ class _CounterNumeralState extends State<CounterNumeral>
           ),
         );
       },
-      child: Text(widget.text, style: stoneNumerals(TypeScale.display * 2)),
+      child: Text(widget.text, style: stoneNumerals(widget.size)),
     ),
   );
 }
