@@ -28,6 +28,9 @@ void main() {
   testWidgets('a preset sets the duration and start flips to pause', (
     tester,
   ) async {
+    tester.view.physicalSize = const Size(800, 1400);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
     await tester.pumpWidget(
       const MaterialApp(
         locale: Locale('en'),
