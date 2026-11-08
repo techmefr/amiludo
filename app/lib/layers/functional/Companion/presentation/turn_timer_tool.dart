@@ -11,7 +11,7 @@ import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
 
-const turnPlayerColors = [
+const turnPalette = [
   Color(0xffC2493D),
   Color(0xff3F6FB0),
   Color(0xff2F8F83),
@@ -79,7 +79,7 @@ class _TurnTimerToolState extends State<TurnTimerTool> {
     final l = context.l10n;
     final theme = Theme.of(context);
     final accent = ToolTheme(
-      accent: turnPlayerColors[state.current % turnPlayerColors.length],
+      accent: turnPalette[state.current % turnPalette.length],
     );
     final surface = accent.surface(context, mix: .22);
     final ink = accent.ink(surface);
