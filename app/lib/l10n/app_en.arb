@@ -2651,5 +2651,26 @@
   "journalRecapTitle": "Recap of the session",
   "journalRecapEmpty": "Nothing to recap yet.",
   "journalRecapCopy": "Copy the recap",
-  "journalRecapCopied": "Recap copied"
+  "journalRecapCopied": "Recap copied",
+  "rulesDecisions": "Rulings ({count})",
+  "@rulesDecisions": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "rulesDecisionsTitle": "Rulings for {game}",
+  "@rulesDecisionsTitle": {
+    "placeholders": {
+      "game": {
+        "type": "String"
+      }
+    }
+  },
+  "rulesDecisionQuestion": "Situation or question",
+  "rulesDecisionRuling": "What was decided",
+  "rulesDecisionAdd": "Record the ruling",
+  "rulesDecisionsEmpty": "No ruling recorded yet.",
+  "rulesDecisionDelete": "Delete ruling"
 }

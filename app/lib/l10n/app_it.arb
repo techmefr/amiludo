@@ -1814,5 +1814,12 @@
   "journalRecapTitle": "Riepilogo della sessione",
   "journalRecapEmpty": "Ancora niente da riassumere.",
   "journalRecapCopy": "Copia il riepilogo",
-  "journalRecapCopied": "Riepilogo copiato"
+  "journalRecapCopied": "Riepilogo copiato",
+  "rulesDecisions": "Decisioni ({count})",
+  "rulesDecisionsTitle": "Decisioni per {game}",
+  "rulesDecisionQuestion": "Situazione o domanda",
+  "rulesDecisionRuling": "Cosa è stato deciso",
+  "rulesDecisionAdd": "Annota la decisione",
+  "rulesDecisionsEmpty": "Nessuna decisione annotata.",
+  "rulesDecisionDelete": "Elimina decisione"
 }

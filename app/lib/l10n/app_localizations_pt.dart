@@ -5869,4 +5869,29 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get journalRecapCopied => 'Resumo copiado';
+
+  @override
+  String rulesDecisions(int count) {
+    return 'Decisões ($count)';
+  }
+
+  @override
+  String rulesDecisionsTitle(String game) {
+    return 'Decisões para $game';
+  }
+
+  @override
+  String get rulesDecisionQuestion => 'Situação ou pergunta';
+
+  @override
+  String get rulesDecisionRuling => 'O que foi decidido';
+
+  @override
+  String get rulesDecisionAdd => 'Anotar a decisão';
+
+  @override
+  String get rulesDecisionsEmpty => 'Nenhuma decisão anotada ainda.';
+
+  @override
+  String get rulesDecisionDelete => 'Excluir decisão';
 }

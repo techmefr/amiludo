@@ -5877,4 +5877,29 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get journalRecapCopied => 'Rückblick kopiert';
+
+  @override
+  String rulesDecisions(int count) {
+    return 'Entscheidungen ($count)';
+  }
+
+  @override
+  String rulesDecisionsTitle(String game) {
+    return 'Entscheidungen für $game';
+  }
+
+  @override
+  String get rulesDecisionQuestion => 'Situation oder Frage';
+
+  @override
+  String get rulesDecisionRuling => 'Was entschieden wurde';
+
+  @override
+  String get rulesDecisionAdd => 'Entscheidung festhalten';
+
+  @override
+  String get rulesDecisionsEmpty => 'Noch keine Entscheidung festgehalten.';
+
+  @override
+  String get rulesDecisionDelete => 'Entscheidung löschen';
 }

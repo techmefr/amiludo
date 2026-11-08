@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Rules/domain/entities/rule_book.dart';
+import 'package:amiludo/layers/functional/Rules/presentation/rule_decisions_sheet.dart';
 import 'package:amiludo/layers/functional/Rules/presentation/rule_section_card.dart';
 import 'package:amiludo/layers/functional/Rules/presentation/rule_section_dialog.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
@@ -150,6 +151,15 @@ class _RulesToolState extends State<RulesTool> {
         onPressed: () => _editSection(current, current.sections.length),
         icon: const DeckIcon(Icons.add),
         label: Text(context.l10n.rulesAddSection),
+      ),
+      OutlinedButton.icon(
+        onPressed: () => showRuleDecisions(
+          context,
+          game: current,
+          onChanged: (next) => _commit(book.put(next)),
+        ),
+        icon: const DeckIcon(Icons.gavel_outlined),
+        label: Text(context.l10n.rulesDecisions(current.decisions.length)),
       ),
       TextButton.icon(
         onPressed: () => _deleteGame(current),

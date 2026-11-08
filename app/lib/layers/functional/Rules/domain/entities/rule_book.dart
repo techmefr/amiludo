@@ -33,11 +33,45 @@ class RuleSection {
   Map<String, Object?> toJson() => {'title': title, 'body': body};
 }
 
+class RuleDecision {
+  const RuleDecision({
+    required this.id,
+    required this.question,
+    required this.ruling,
+    required this.at,
+  });
+
+  factory RuleDecision.fromJson(Map<String, dynamic> j) => RuleDecision(
+    id: j['id'] as String? ?? newRuleId(),
+    question: j['question'] as String? ?? '',
+    ruling: j['ruling'] as String? ?? '',
+    at: DateTime.fromMillisecondsSinceEpoch(j['at'] as int? ?? 0, isUtc: true),
+  );
+
+  final String id, question, ruling;
+  final DateTime at;
+
+  bool matches(String query) {
+    final needle = foldText(query.trim());
+    return needle.isEmpty ||
+        foldText(question).contains(needle) ||
+        foldText(ruling).contains(needle);
+  }
+
+  Map<String, Object?> toJson() => {
+    'id': id,
+    'question': question,
+    'ruling': ruling,
+    'at': at.millisecondsSinceEpoch,
+  };
+}
+
 class RuleGame {
   const RuleGame({
     required this.id,
     required this.name,
     this.sections = const [],
+    this.decisions = const [],
   });
 
   factory RuleGame.fromJson(Map<String, dynamic> j) => RuleGame(
@@ -47,13 +81,18 @@ class RuleGame {
       for (final s in j['sections'] as List? ?? const [])
         RuleSection.fromJson(Map<String, dynamic>.from(s as Map)),
     ],
+    decisions: [
+      for (final d in j['decisions'] as List? ?? const [])
+        RuleDecision.fromJson(Map<String, dynamic>.from(d as Map)),
+    ],
   );
 
   final String id, name;
   final List<RuleSection> sections;
+  final List<RuleDecision> decisions;
 
   RuleGame withSections(List<RuleSection> next) =>
-      RuleGame(id: id, name: name, sections: next);
+      RuleGame(id: id, name: name, sections: next, decisions: decisions);
 
   RuleGame withSection(int index, RuleSection section) {
     final next = [...sections];
@@ -70,6 +109,33 @@ class RuleGame {
       if (i != index) sections[i],
   ]);
 
+  RuleGame addDecision(String question, String ruling, DateTime at) {
+    final q = question.trim(), r = ruling.trim();
+    if (q.isEmpty && r.isEmpty) return this;
+    final entry = RuleDecision(
+      id: '${at.microsecondsSinceEpoch}-${decisions.length}',
+      question: q,
+      ruling: r,
+      at: at.toUtc(),
+    );
+    return RuleGame(
+      id: id,
+      name: name,
+      sections: sections,
+      decisions: [entry, ...decisions],
+    );
+  }
+
+  RuleGame removeDecision(String decisionId) => RuleGame(
+    id: id,
+    name: name,
+    sections: sections,
+    decisions: [
+      for (final d in decisions)
+        if (d.id != decisionId) d,
+    ],
+  );
+
   List<int> search(String query) => [
     for (var i = 0; i < sections.length; i++)
       if (sections[i].matches(query)) i,
@@ -79,6 +145,7 @@ class RuleGame {
     'id': id,
     'name': name,
     'sections': [for (final s in sections) s.toJson()],
+    'decisions': [for (final d in decisions) d.toJson()],
   };
 }
 
