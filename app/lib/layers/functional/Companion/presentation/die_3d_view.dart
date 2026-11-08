@@ -7,6 +7,7 @@ import 'package:amiludo/layers/technical/Dice3D/die_painter.dart';
 import 'package:amiludo/layers/technical/Dice3D/die_pose.dart';
 import 'package:amiludo/layers/technical/Dice3D/die_projection.dart';
 import 'package:amiludo/layers/technical/Dice3D/die_skin.dart';
+import 'package:amiludo/layers/technical/Dice3D/vec3.dart';
 
 const double _contentVisibleFrom = 0.25;
 
@@ -19,12 +20,16 @@ class Die3dView extends StatelessWidget {
     this.flipY = 0,
     this.size = 56,
     this.skin = DieSkin.classic,
+    this.orientation,
+    this.settle = 1,
   });
   final DiceSpec spec;
   final int value;
   final double flipX, flipY;
   final double size;
   final DieSkin skin;
+  final Mat3? orientation;
+  final double settle;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +38,9 @@ class Die3dView extends StatelessWidget {
     final radius = size * 0.5;
     final shown = DieProjection.faces(
       mesh,
-      DiePose.tumbling(mesh, face, flipX, flipY),
+      orientation == null
+          ? DiePose.tumbling(mesh, face, flipX, flipY)
+          : DiePose.spinning(mesh, face, flipX, flipY, orientation!, settle),
       radius,
     );
     final base = usesSkinColors(spec) ? skin.base : Color(spec.color);

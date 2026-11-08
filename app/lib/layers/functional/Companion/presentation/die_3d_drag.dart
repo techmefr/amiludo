@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/die_3d_view.dart';
 import 'package:amiludo/layers/technical/Dice3D/die_skin.dart';
+import 'package:amiludo/layers/technical/Dice3D/vec3.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class Die3dDrag extends StatefulWidget {
@@ -14,11 +15,14 @@ class Die3dDrag extends StatefulWidget {
     this.flipX = 0,
     this.flipY = 0,
     this.size = 56,
+    this.orientation,
+    this.settle = 1,
   });
   final DiceSpec spec;
   final int value;
   final DieSkin skin;
-  final double flipX, flipY, size;
+  final double flipX, flipY, size, settle;
+  final Mat3? orientation;
 
   @override
   State<Die3dDrag> createState() => _Die3dDragState();
@@ -63,6 +67,8 @@ class _Die3dDragState extends State<Die3dDrag>
       value: widget.value,
       skin: widget.skin,
       size: widget.size,
+      orientation: widget.orientation,
+      settle: widget.settle,
       flipX: widget.flipX - turn.dy,
       flipY: widget.flipY + turn.dx,
     ),

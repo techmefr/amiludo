@@ -143,7 +143,8 @@ class TrayPhysics {
       final slow = b.z > 0 ? 0.35 : grip * 0.9;
       b
         ..tumble *= max(0.0, 1 - slow * dt)
-        ..phase += b.tumble * dt;
+        ..phase += b.tumble * dt
+        ..spinStep(dt);
     }
     _walls(b);
     final still = b.z == 0 && b.vz == 0 && b.speed <= _rest;
@@ -163,6 +164,7 @@ class TrayPhysics {
       ..z = 0
       ..vz = hit > 60 ? hit * bounce : 0
       ..tumble *= 0.8
+      ..kick()
       ..vx *= 0.92
       ..vy *= 0.92;
     if (hit > _hitMin) onImpact?.call(TrayImpact(ImpactKind.floor, hit));

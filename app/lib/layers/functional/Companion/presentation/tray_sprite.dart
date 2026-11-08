@@ -38,7 +38,7 @@ List<Widget> traySprite({
       left: body.x - size / 2 + body.z * 0.25,
       top: body.y - size / 2 + body.z * 0.4,
       child: Opacity(
-        opacity: 0.25 / (1 + lift),
+        opacity: 0.34 / (1 + lift),
         child: Container(
           width: size,
           height: solid ? size * 0.55 : size,
@@ -78,8 +78,8 @@ List<Widget> traySprite({
                     spec: spec,
                     value: value,
                     skin: skin,
-                    flipX: body.spinX,
-                    flipY: body.spinY,
+                    orientation: body.rolling ? body.rot : null,
+                    settle: body.settled,
                   )
                 : ClipRRect(
                     borderRadius: BorderRadius.circular(round * size / 2),
