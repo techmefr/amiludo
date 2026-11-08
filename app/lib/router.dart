@@ -258,6 +258,7 @@ final router = GoRouter(
           'sheet': _sheet,
           'turns': _turns,
           'first-player': _firstPlayer,
+          'turn-timer': turnTimerWithFeedback,
           'dice-tray': diceTrayWithSensors,
           'hourglass': hourglassWithSensors,
           'map': mapWithStorage,

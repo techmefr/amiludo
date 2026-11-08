@@ -8,6 +8,7 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/turn_sensor.
 import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_page.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/countdown_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/hourglass_tool.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/turn_timer_tool.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 import 'package:amiludo/layers/technical/Motion/shake_source.dart';
 import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
@@ -70,6 +71,11 @@ Widget diceTrayWithSensors(BuildContext context) {
 Widget countdownWithFeedback(BuildContext context) {
   final appearance = context.read<AppearanceCubit>().state.appearance;
   return CountdownTool(sound: appearance.sound, haptics: appearance.haptics);
+}
+
+Widget turnTimerWithFeedback(BuildContext context) {
+  final appearance = context.read<AppearanceCubit>().state.appearance;
+  return TurnTimerTool(sound: appearance.sound, haptics: appearance.haptics);
 }
 
 Widget hourglassWithSensors(BuildContext context) =>

@@ -4547,6 +4547,17 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String rankingPosition(int position) {
     return 'Plaats $position';
+  String get toolTurnTimerTitle => 'Beurttimer';
+
+  @override
+  String get toolTurnTimerSubtitle => 'Eén ring per beurt, een kleur per speler, één tik om door te geven.';
+
+  @override
+  String get turnTimerNext => 'Volgende speler';
+
+  @override
+  String turnTimerPlayer(int number) {
+    return 'Speler $number';
   }
 
   @override

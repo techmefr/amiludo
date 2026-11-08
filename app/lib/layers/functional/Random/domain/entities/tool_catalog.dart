@@ -18,6 +18,7 @@ const toolDefinitions = [
   ToolDefinition('first-player', 'match'),
   ToolDefinition('stopwatch', 'time'),
   ToolDefinition('countdown', 'time'),
+  ToolDefinition('turn-timer', 'time'),
   ToolDefinition('chess-clock', 'time'),
   ToolDefinition('timer', 'time'),
   ToolDefinition('hourglass', 'time'),

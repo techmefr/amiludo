@@ -1450,5 +1450,9 @@
   "sheetRound": "Runde {number}",
   "sheetAddRound": "Runde hinzufügen",
   "sheetBonus": "Bonus (ab {threshold})",
-  "sheetTotal": "Summe"
+  "sheetTotal": "Summe",
+  "toolTurnTimerTitle": "Zugtimer",
+  "toolTurnTimerSubtitle": "Ein Ring pro Zug, eine Farbe pro Spieler, ein Tipp zum Weitergeben.",
+  "turnTimerNext": "Nächster Spieler",
+  "turnTimerPlayer": "Spieler {number}"
 }

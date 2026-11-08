@@ -1820,6 +1820,17 @@
       }
     }
   },
+  "toolTurnTimerTitle": "Turn timer",
+  "toolTurnTimerSubtitle": "One ring per turn, a colour per player, one tap to pass on.",
+  "turnTimerNext": "Next player",
+  "turnTimerPlayer": "Player {number}",
+  "@turnTimerPlayer": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "toolTurnsTitle": "Turns and phases",
   "toolTurnsSubtitle": "Follow the round, whose turn it is and the phase in progress.",
   "turnRound": "Round {number}",
