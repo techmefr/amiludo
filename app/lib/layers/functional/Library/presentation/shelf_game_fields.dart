@@ -4,7 +4,7 @@ import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dar
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class ShelfNumbers extends StatelessWidget {
-  const ShelfNumbers({required this.game, required this.onChanged});
+  const ShelfNumbers({super.key, required this.game, required this.onChanged});
 
   final ShelfGame game;
   final ValueChanged<ShelfGame> onChanged;
@@ -54,6 +54,7 @@ class ShelfNumbers extends StatelessWidget {
 
 class ShelfChoiceChips extends StatelessWidget {
   const ShelfChoiceChips({
+    super.key,
     required this.values,
     required this.label,
     required this.selected,
@@ -80,7 +81,7 @@ class ShelfChoiceChips extends StatelessWidget {
 }
 
 class ShelfColorPicker extends StatelessWidget {
-  const ShelfColorPicker({required this.value, required this.onChanged});
+  const ShelfColorPicker({super.key, required this.value, required this.onChanged});
 
   final int value;
   final ValueChanged<int> onChanged;
