@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:amiludo/layers/technical/Locale/supported_languages.dart';
 import 'package:amiludo/layers/technical/Appearance/appearance.dart';
 import 'package:amiludo/layers/technical/Theme/components/deck_segmented.dart';
+import 'package:amiludo/layers/technical/Theme/components/entrance.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Files/file_transfer.dart';
 import 'package:amiludo/layers/functional/Appearance/presentation/cubit/appearance_cubit.dart';
@@ -48,9 +49,7 @@ class AppearanceScreen extends StatelessWidget {
         a = ws.appearance,
         controller = context.read<AppearanceCubit>(),
         theme = Theme.of(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+    final sections = <Widget>[
         _AppearanceHeading(controller: controller),
         SectionHeading(context.l10n.appearance01YourWorld),
         AppearanceSkinGrid(appearance: a, controller: controller),
@@ -110,6 +109,12 @@ class AppearanceScreen extends StatelessWidget {
           context.l10n.appearanceFontsAreBundledProfilesBelong,
           style: theme.textTheme.bodySmall,
         ),
+    ];
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        for (final (i, section) in sections.indexed)
+          Entrance(index: i, child: section),
       ],
     );
   }
