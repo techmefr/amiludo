@@ -1300,5 +1300,9 @@
   "toolHeroResume": "Reprenez où vous en étiez",
   "toolHeroFeatured": "Outil à découvrir",
   "toolMoveEarlier": "Déplacer avant",
-  "toolMoveLater": "Déplacer après"
+  "toolMoveLater": "Déplacer après",
+  "toolStopwatchTitle": "Chronomètre",
+  "toolStopwatchSubtitle": "Comptez au centième et marquez chaque tour.",
+  "stopwatchLap": "Tour",
+  "stopwatchLapNumber": "Tour {number}"
 }

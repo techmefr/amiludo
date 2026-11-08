@@ -1633,5 +1633,16 @@
   "toolHeroResume": "Pick up where you left off",
   "toolHeroFeatured": "Featured tool",
   "toolMoveEarlier": "Move earlier",
-  "toolMoveLater": "Move later"
+  "toolMoveLater": "Move later",
+  "toolStopwatchTitle": "Stopwatch",
+  "toolStopwatchSubtitle": "Count up to the hundredth and mark every lap.",
+  "stopwatchLap": "Lap",
+  "stopwatchLapNumber": "Lap {number}",
+  "@stopwatchLapNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  }
 }

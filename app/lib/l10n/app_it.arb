@@ -1300,5 +1300,9 @@
   "toolHeroResume": "Riprendi da dove eri rimasto",
   "toolHeroFeatured": "Strumento in evidenza",
   "toolMoveEarlier": "Sposta prima",
-  "toolMoveLater": "Sposta dopo"
+  "toolMoveLater": "Sposta dopo",
+  "toolStopwatchTitle": "Cronometro",
+  "toolStopwatchSubtitle": "Conta al centesimo e segna ogni giro.",
+  "stopwatchLap": "Giro",
+  "stopwatchLapNumber": "Giro {number}"
 }

@@ -4205,4 +4205,18 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get toolMoveLater => 'Mover después';
+
+  @override
+  String get toolStopwatchTitle => 'Cronómetro';
+
+  @override
+  String get toolStopwatchSubtitle => 'Cuenta hasta la centésima y marca cada vuelta.';
+
+  @override
+  String get stopwatchLap => 'Vuelta';
+
+  @override
+  String stopwatchLapNumber(int number) {
+    return 'Vuelta $number';
+  }
 }

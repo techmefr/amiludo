@@ -1300,5 +1300,9 @@
   "toolHeroResume": "Ga verder waar je gebleven was",
   "toolHeroFeatured": "Uitgelicht hulpmiddel",
   "toolMoveEarlier": "Eerder zetten",
-  "toolMoveLater": "Later zetten"
+  "toolMoveLater": "Later zetten",
+  "toolStopwatchTitle": "Stopwatch",
+  "toolStopwatchSubtitle": "Tel tot op de honderdste en markeer elke ronde.",
+  "stopwatchLap": "Ronde",
+  "stopwatchLapNumber": "Ronde {number}"
 }

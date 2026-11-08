@@ -7873,6 +7873,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Move later'**
   String get toolMoveLater;
+
+  /// No description provided for @toolStopwatchTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Stopwatch'**
+  String get toolStopwatchTitle;
+
+  /// No description provided for @toolStopwatchSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Count up to the hundredth and mark every lap.'**
+  String get toolStopwatchSubtitle;
+
+  /// No description provided for @stopwatchLap.
+  ///
+  /// In en, this message translates to:
+  /// **'Lap'**
+  String get stopwatchLap;
+
+  /// No description provided for @stopwatchLapNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Lap {number}'**
+  String stopwatchLapNumber(int number);
 }
 
 class _AppLocalizationsDelegate

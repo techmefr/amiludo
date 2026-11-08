@@ -4212,4 +4212,18 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get toolMoveLater => 'Déplacer après';
+
+  @override
+  String get toolStopwatchTitle => 'Chronomètre';
+
+  @override
+  String get toolStopwatchSubtitle => 'Comptez au centième et marquez chaque tour.';
+
+  @override
+  String get stopwatchLap => 'Tour';
+
+  @override
+  String stopwatchLapNumber(int number) {
+    return 'Tour $number';
+  }
 }

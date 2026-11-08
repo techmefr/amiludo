@@ -6,6 +6,7 @@ IconData toolIcon(String id) => switch (id) {
   'dice-tray' => Icons.casino_outlined,
   'picker' => Icons.touch_app_outlined,
   'scores' => Icons.add_chart_outlined,
+  'stopwatch' => Icons.av_timer,
   'timer' => Icons.timer_outlined,
   'map' => Icons.map_outlined,
   'teams' => Icons.groups_outlined,

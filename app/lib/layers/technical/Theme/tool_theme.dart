@@ -102,6 +102,13 @@ const toolThemes = <String, ToolTheme>{
     motion: ToolMotion.drift,
     weight: .8,
   ),
+  'stopwatch': ToolTheme(
+    accent: Color(0xff2F7D8C),
+    texture: ToolTexture.glass,
+    motion: ToolMotion.snap,
+    haptic: ToolHaptic.impact,
+    weight: .8,
+  ),
   'timer': ToolTheme(
     accent: Color(0xffC48A1A),
     texture: ToolTexture.glass,

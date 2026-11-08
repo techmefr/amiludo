@@ -4210,4 +4210,18 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get toolMoveLater => 'Later zetten';
+
+  @override
+  String get toolStopwatchTitle => 'Stopwatch';
+
+  @override
+  String get toolStopwatchSubtitle => 'Tel tot op de honderdste en markeer elke ronde.';
+
+  @override
+  String get stopwatchLap => 'Ronde';
+
+  @override
+  String stopwatchLapNumber(int number) {
+    return 'Ronde $number';
+  }
 }
