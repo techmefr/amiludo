@@ -88,6 +88,18 @@ import 'package:amiludo/layers/functional/Game/domain/use_cases/set_resource_use
 import 'package:amiludo/layers/functional/Game/domain/use_cases/set_status_use_case.dart';
 import 'package:amiludo/layers/functional/Game/domain/use_cases/start_game_use_case.dart';
 import 'package:amiludo/layers/functional/Game/domain/use_cases/undo_score_use_case.dart';
+import 'package:amiludo/layers/functional/Library/data/gateways/barcode_cache_gateway_impl.dart';
+import 'package:amiludo/layers/functional/Library/data/gateways/bgg_game_search_gateway.dart';
+import 'package:amiludo/layers/functional/Library/data/gateways/upc_item_db_lookup_gateway.dart';
+import 'package:amiludo/layers/functional/Library/domain/gateways/barcode_cache_gateway.dart';
+import 'package:amiludo/layers/functional/Library/domain/gateways/barcode_lookup_gateway.dart';
+import 'package:amiludo/layers/functional/Library/domain/gateways/game_search_gateway.dart';
+import 'package:amiludo/layers/functional/Library/domain/use_cases/resolve_barcode_use_case.dart';
+import 'package:amiludo/layers/functional/Library/domain/use_cases/search_games_online_use_case.dart';
+import 'package:amiludo/layers/functional/Library/presentation/cubit/barcode_scan_cubit.dart';
+import 'package:amiludo/layers/technical/Barcode/barcode_scanner_view.dart';
+import 'package:amiludo/layers/technical/Barcode/bgg_client.dart';
+import 'package:amiludo/layers/technical/Barcode/upc_item_db_client.dart';
 import 'package:amiludo/layers/functional/Library/data/gateways/library_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Library/domain/gateways/library_gateway.dart';
 import 'package:amiludo/layers/functional/Library/domain/use_cases/read_shelf_use_case.dart';
@@ -173,6 +185,18 @@ void configureDependencies(StoreDatabase database) {
       () => LibraryGatewayImpl(getIt()),
     )
     ..registerLazySingleton<LibraryGateway>(() => getIt<LibraryGatewayImpl>())
+    ..registerLazySingleton<UpcItemDbClient>(UpcItemDbClient.new)
+    ..registerLazySingleton<BggClient>(BggClient.new)
+    ..registerLazySingleton<BarcodeLookupGateway>(
+      () => UpcItemDbLookupGateway(getIt()),
+    )
+    ..registerLazySingleton<BarcodeCacheGateway>(
+      () => BarcodeCacheGatewayImpl(getIt()),
+    )
+    ..registerLazySingleton<GameSearchGateway>(
+      () => BggGameSearchGateway(getIt()),
+    )
+    ..registerLazySingleton<BarcodeScannerBuilder>(() => defaultBarcodeScanner)
     ..registerLazySingleton<MemoriesGatewayImpl>(
       () => MemoriesGatewayImpl(getIt()),
     )
@@ -302,6 +326,9 @@ void _registerCollections() {
     ..registerFactory(() => LoadChroniclesUseCase(getIt(), getIt()))
     ..registerFactory(() => SaveChroniclesRunUseCase(getIt()))
     ..registerFactory(() => LoadSheetGeneratorUseCase(getIt()))
+    ..registerFactory(() => ResolveBarcodeUseCase(getIt(), getIt(), getIt()))
+    ..registerFactory(() => SearchGamesOnlineUseCase(getIt()))
+    ..registerFactory(() => BarcodeScanCubit(getIt(), getIt()))
     ..registerFactory(() => SaveShelfGameUseCase(getIt()))
     ..registerFactory(() => RemoveShelfGameUseCase(getIt(), getIt()))
     ..registerFactory(() => SuggestGamesUseCase(getIt(), getIt()))

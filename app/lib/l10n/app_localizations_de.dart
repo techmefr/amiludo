@@ -2056,6 +2056,45 @@ class AppLocalizationsDe extends AppLocalizations {
   String get libraryColour => 'Farbe';
 
   @override
+  String get libraryScanBox => 'Schachtel scannen';
+
+  @override
+  String get libraryScanTitle => 'Strichcode scannen';
+
+  @override
+  String get libraryScanHint => 'Richte die Kamera auf den Strichcode der Schachtel oder gib die Nummer unten ein.';
+
+  @override
+  String get libraryScanUnavailable => 'Kamera nicht verfügbar. Gib stattdessen den Code ein.';
+
+  @override
+  String get libraryScanCodeField => 'Strichcode-Nummer';
+
+  @override
+  String get libraryScanLookUp => 'Suchen';
+
+  @override
+  String get libraryScanOwned => 'Schon in deinem Regal';
+
+  @override
+  String get libraryScanOpen => 'Öffnen';
+
+  @override
+  String get libraryScanFound => 'Spiel gefunden. Prüfe es und stelle es ins Regal.';
+
+  @override
+  String get libraryScanUnknown => 'Unbekannter Code. Trage das Spiel ein, der Code wird gemerkt.';
+
+  @override
+  String get libraryScanOffline => 'Suchdienst nicht erreichbar. Trage das Spiel von Hand ein.';
+
+  @override
+  String get libraryScanCodeInvalid => 'Gib 8 bis 14 Ziffern ein.';
+
+  @override
+  String get librarySearchOnline => 'Online nach Name suchen';
+
+  @override
   String get libraryBarcode => 'Strichcode (EAN/UPC)';
 
   @override

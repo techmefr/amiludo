@@ -3857,6 +3857,84 @@ abstract class AppLocalizations {
   /// **'Colour'**
   String get libraryColour;
 
+  /// No description provided for @libraryScanBox.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan a box'**
+  String get libraryScanBox;
+
+  /// No description provided for @libraryScanTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan a barcode'**
+  String get libraryScanTitle;
+
+  /// No description provided for @libraryScanHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Point the camera at the barcode on the box, or type the number below.'**
+  String get libraryScanHint;
+
+  /// No description provided for @libraryScanUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera unavailable. Type the code instead.'**
+  String get libraryScanUnavailable;
+
+  /// No description provided for @libraryScanCodeField.
+  ///
+  /// In en, this message translates to:
+  /// **'Barcode number'**
+  String get libraryScanCodeField;
+
+  /// No description provided for @libraryScanLookUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Look up'**
+  String get libraryScanLookUp;
+
+  /// No description provided for @libraryScanOwned.
+  ///
+  /// In en, this message translates to:
+  /// **'Already on your shelf'**
+  String get libraryScanOwned;
+
+  /// No description provided for @libraryScanOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Open'**
+  String get libraryScanOpen;
+
+  /// No description provided for @libraryScanFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Game found. Check it and put it on the shelf.'**
+  String get libraryScanFound;
+
+  /// No description provided for @libraryScanUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown code. Fill in the game, the code will be remembered.'**
+  String get libraryScanUnknown;
+
+  /// No description provided for @libraryScanOffline.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not reach the lookup service. Fill in the game by hand.'**
+  String get libraryScanOffline;
+
+  /// No description provided for @libraryScanCodeInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter 8 to 14 digits.'**
+  String get libraryScanCodeInvalid;
+
+  /// No description provided for @librarySearchOnline.
+  ///
+  /// In en, this message translates to:
+  /// **'Search online by name'**
+  String get librarySearchOnline;
+
   /// No description provided for @libraryBarcode.
   ///
   /// In en, this message translates to:

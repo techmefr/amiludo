@@ -34,7 +34,11 @@ import 'package:amiludo/layers/functional/Companion/presentation/heroes_tool.dar
 import 'package:amiludo/layers/functional/Game/presentation/game_screen.dart';
 import 'package:amiludo/layers/functional/Game/presentation/score_sheet.dart';
 import 'package:amiludo/layers/functional/History/presentation/history_screen.dart';
+import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
+import 'package:amiludo/layers/functional/Library/presentation/cubit/barcode_scan_cubit.dart';
 import 'package:amiludo/layers/functional/Library/presentation/library_screen.dart';
+import 'package:amiludo/layers/functional/Library/presentation/scan_barcode_screen.dart';
+import 'package:amiludo/layers/technical/Barcode/barcode_scanner_view.dart';
 import 'package:amiludo/layers/functional/Library/presentation/shelf_game_form.dart';
 import 'package:amiludo/layers/functional/Library/presentation/tonight_screen.dart';
 import 'package:amiludo/layers/functional/Memories/presentation/gallery_import_screen.dart';
@@ -250,10 +254,20 @@ final router = GoRouter(
             : MissionScreen(mission: mission, actions: campaignActions),
       );
     }),
+    _page(
+      '/library/scan',
+      (state) => BlocProvider(
+        create: (_) => getIt<BarcodeScanCubit>(),
+        child: ScanBarcodeScreen(scanner: getIt<BarcodeScannerBuilder>()),
+      ),
+    ),
     _page('/library/tonight', (state) => const TonightScreen()),
     _page(
       '/library/edit/:id',
-      (state) => ShelfGameForm(id: state.pathParameters['id']!),
+      (state) => ShelfGameForm(
+        id: state.pathParameters['id']!,
+        draft: state.extra is ShelfGame ? state.extra as ShelfGame : null,
+      ),
     ),
     _page(
       '/friends/edit/:id',

@@ -2053,6 +2053,45 @@ class AppLocalizationsNl extends AppLocalizations {
   String get libraryColour => 'Kleur';
 
   @override
+  String get libraryScanBox => 'Doos scannen';
+
+  @override
+  String get libraryScanTitle => 'Streepjescode scannen';
+
+  @override
+  String get libraryScanHint => 'Richt de camera op de streepjescode van de doos of typ het nummer hieronder.';
+
+  @override
+  String get libraryScanUnavailable => 'Camera niet beschikbaar. Typ de code in.';
+
+  @override
+  String get libraryScanCodeField => 'Nummer van de streepjescode';
+
+  @override
+  String get libraryScanLookUp => 'Opzoeken';
+
+  @override
+  String get libraryScanOwned => 'Staat al in je kast';
+
+  @override
+  String get libraryScanOpen => 'Openen';
+
+  @override
+  String get libraryScanFound => 'Spel gevonden. Controleer het en zet het in de kast.';
+
+  @override
+  String get libraryScanUnknown => 'Onbekende code. Vul het spel in, de code wordt onthouden.';
+
+  @override
+  String get libraryScanOffline => 'Zoekdienst niet bereikbaar. Vul het spel handmatig in.';
+
+  @override
+  String get libraryScanCodeInvalid => 'Voer 8 tot 14 cijfers in.';
+
+  @override
+  String get librarySearchOnline => 'Online zoeken op naam';
+
+  @override
   String get libraryBarcode => 'Streepjescode (EAN/UPC)';
 
   @override

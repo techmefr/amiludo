@@ -2036,6 +2036,45 @@ class AppLocalizationsEn extends AppLocalizations {
   String get libraryColour => 'Colour';
 
   @override
+  String get libraryScanBox => 'Scan a box';
+
+  @override
+  String get libraryScanTitle => 'Scan a barcode';
+
+  @override
+  String get libraryScanHint => 'Point the camera at the barcode on the box, or type the number below.';
+
+  @override
+  String get libraryScanUnavailable => 'Camera unavailable. Type the code instead.';
+
+  @override
+  String get libraryScanCodeField => 'Barcode number';
+
+  @override
+  String get libraryScanLookUp => 'Look up';
+
+  @override
+  String get libraryScanOwned => 'Already on your shelf';
+
+  @override
+  String get libraryScanOpen => 'Open';
+
+  @override
+  String get libraryScanFound => 'Game found. Check it and put it on the shelf.';
+
+  @override
+  String get libraryScanUnknown => 'Unknown code. Fill in the game, the code will be remembered.';
+
+  @override
+  String get libraryScanOffline => 'Could not reach the lookup service. Fill in the game by hand.';
+
+  @override
+  String get libraryScanCodeInvalid => 'Enter 8 to 14 digits.';
+
+  @override
+  String get librarySearchOnline => 'Search online by name';
+
+  @override
   String get libraryBarcode => 'Barcode (EAN/UPC)';
 
   @override
