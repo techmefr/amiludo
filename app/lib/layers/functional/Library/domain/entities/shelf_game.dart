@@ -95,9 +95,9 @@ class ShelfGame {
     'color': color,
     'templateIds': templateIds,
     'addedAt': addedAt,
-    'barcode': barcode,
-    'imageUrl': imageUrl,
-    'status': status,
+    if (barcode.isNotEmpty) 'barcode': barcode,
+    if (imageUrl.isNotEmpty) 'imageUrl': imageUrl,
+    if (status != 'owned') 'status': status,
   };
 
   factory ShelfGame.fromJson(Map<String, dynamic> j) {

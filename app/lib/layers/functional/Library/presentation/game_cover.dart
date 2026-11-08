@@ -11,7 +11,8 @@ class GameCover extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = Color(game.color);
-    final ink = color.computeLuminance() > .45 ? Colors.black : Colors.white;
+    final ink = color.computeLuminance() > .45 ? const Color(0xff000000)
+        : const Color(0xffffffff);
     final fallback = ColoredBox(
       color: color,
       child: Center(
