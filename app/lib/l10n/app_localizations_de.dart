@@ -5192,4 +5192,40 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get unitsAllDone => 'Alle Einheiten haben gehandelt';
+
+  @override
+  String get buildTitle => 'Bauen';
+
+  @override
+  String get buildSubtitle => 'Baue deinen eigenen Spielbegleiter aus Werkzeugen.';
+
+  @override
+  String get buildName => 'Name des Begleiters';
+
+  @override
+  String get buildAdd => 'Baustein hinzufügen';
+
+  @override
+  String get buildSave => 'Speichern';
+
+  @override
+  String get buildLaunch => 'Sitzung starten';
+
+  @override
+  String get buildEmpty => 'Füge deinen ersten Baustein hinzu.';
+
+  @override
+  String get buildSizeSmall => 'Klein';
+
+  @override
+  String get buildSizeMedium => 'Mittel';
+
+  @override
+  String get buildSizeLarge => 'Groß';
+
+  @override
+  String get buildRemove => 'Baustein entfernen';
+
+  @override
+  String get buildSaved => 'Begleiter gespeichert.';
 }

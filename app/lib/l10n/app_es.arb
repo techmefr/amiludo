@@ -1601,5 +1601,17 @@
   "unitsNewRound": "Nueva ronda",
   "unitsDrawHint": "Saca para ver quién actúa a continuación",
   "unitsNext": "Actúa {name}",
-  "unitsAllDone": "Todas las unidades han actuado"
+  "unitsAllDone": "Todas las unidades han actuado",
+  "buildTitle": "Construir",
+  "buildSubtitle": "Monta tu propio compañero de juego con herramientas.",
+  "buildName": "Nombre del compañero",
+  "buildAdd": "Añadir un bloque",
+  "buildSave": "Guardar",
+  "buildLaunch": "Iniciar la sesión",
+  "buildEmpty": "Añade tu primer bloque para empezar.",
+  "buildSizeSmall": "Pequeña",
+  "buildSizeMedium": "Mediana",
+  "buildSizeLarge": "Grande",
+  "buildRemove": "Quitar el bloque",
+  "buildSaved": "Compañero guardado."
 }

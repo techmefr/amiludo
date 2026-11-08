@@ -1601,5 +1601,17 @@
   "unitsNewRound": "Nouveau tour",
   "unitsDrawHint": "Tirez pour voir qui agit ensuite",
   "unitsNext": "{name} agit ensuite",
-  "unitsAllDone": "Toutes les unités ont agi"
+  "unitsAllDone": "Toutes les unités ont agi",
+  "buildTitle": "Construire",
+  "buildSubtitle": "Assemblez votre propre compagnon de jeu avec les outils.",
+  "buildName": "Nom du compagnon",
+  "buildAdd": "Ajouter une brique",
+  "buildSave": "Enregistrer",
+  "buildLaunch": "Lancer la session",
+  "buildEmpty": "Ajoutez votre première brique pour commencer.",
+  "buildSizeSmall": "Petite",
+  "buildSizeMedium": "Moyenne",
+  "buildSizeLarge": "Grande",
+  "buildRemove": "Retirer la brique",
+  "buildSaved": "Compagnon enregistré."
 }
