@@ -4517,4 +4517,61 @@ class AppLocalizationsEn extends AppLocalizations {
   String rankingPosition(int position) {
     return 'Rank $position';
   }
+
+  @override
+  String get toolTurnsTitle => 'Turns and phases';
+
+  @override
+  String get toolTurnsSubtitle => 'Follow the round, whose turn it is and the phase in progress.';
+
+  @override
+  String turnRound(int number) {
+    return 'Round $number';
+  }
+
+  @override
+  String turnPlays(String name) {
+    return '$name is playing';
+  }
+
+  @override
+  String get turnNextPhase => 'Next phase';
+
+  @override
+  String get turnSkipPlayer => 'Skip player';
+
+  @override
+  String get turnPhaseDraw => 'Draw';
+
+  @override
+  String get turnPhaseMain => 'Main';
+
+  @override
+  String get turnPhaseEnd => 'End';
+
+  @override
+  String get turnAddPhase => 'Add a phase';
+
+  @override
+  String get turnPhaseName => 'Phase name';
+
+  @override
+  String get turnRemovePhase => 'Remove a phase';
+
+  @override
+  String get toolFirstPlayerTitle => 'First player';
+
+  @override
+  String get toolFirstPlayerSubtitle => 'A token rolls around the table and lands on whoever starts.';
+
+  @override
+  String get firstPlayerDraw => 'Draw the first player';
+
+  @override
+  String get firstPlayerAgain => 'Draw again';
+
+  @override
+  String firstPlayerStarts(String name) {
+    return '$name starts';
+  }
 }

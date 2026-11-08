@@ -1406,5 +1406,22 @@
   "rankingEmpty": "Introduza pelo menos uma pontuação para ver a classificação.",
   "rankingStamp": "Vencedor",
   "rankingTie": "Empate",
-  "rankingPosition": "Posição {position}"
+  "rankingPosition": "Posição {position}",
+  "toolTurnsTitle": "Turnos e fases",
+  "toolTurnsSubtitle": "Acompanhe a ronda, de quem é a vez e a fase em curso.",
+  "turnRound": "Ronda {number}",
+  "turnPlays": "{name} está a jogar",
+  "turnNextPhase": "Fase seguinte",
+  "turnSkipPlayer": "Saltar jogador",
+  "turnPhaseDraw": "Comprar",
+  "turnPhaseMain": "Principal",
+  "turnPhaseEnd": "Fim",
+  "turnAddPhase": "Adicionar uma fase",
+  "turnPhaseName": "Nome da fase",
+  "turnRemovePhase": "Remover uma fase",
+  "toolFirstPlayerTitle": "Primeiro jogador",
+  "toolFirstPlayerSubtitle": "Uma peça rola à volta da mesa e pára em quem começa.",
+  "firstPlayerDraw": "Sortear o primeiro jogador",
+  "firstPlayerAgain": "Sortear de novo",
+  "firstPlayerStarts": "{name} começa"
 }

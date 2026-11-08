@@ -151,6 +151,17 @@ const toolThemes = <String, ToolTheme>{
     texture: ToolTexture.paper,
     motion: ToolMotion.flip,
   ),
+  'turns': ToolTheme(
+    accent: Color(0xff5A4FB0),
+    texture: ToolTexture.frame,
+    header: ToolHeader.ribbon,
+    motion: ToolMotion.flow,
+  ),
+  'first-player': ToolTheme(
+    accent: Color(0xffD2603F),
+    motion: ToolMotion.flow,
+    haptic: ToolHaptic.impact,
+  ),
   'counter-life': ToolTheme(
     accent: Color(0xffC2493D),
     texture: ToolTexture.tactile,

@@ -4548,4 +4548,61 @@ class AppLocalizationsNl extends AppLocalizations {
   String rankingPosition(int position) {
     return 'Plaats $position';
   }
+
+  @override
+  String get toolTurnsTitle => 'Beurten en fases';
+
+  @override
+  String get toolTurnsSubtitle => 'Volg de ronde, wie aan de beurt is en de lopende fase.';
+
+  @override
+  String turnRound(int number) {
+    return 'Ronde $number';
+  }
+
+  @override
+  String turnPlays(String name) {
+    return '$name is aan de beurt';
+  }
+
+  @override
+  String get turnNextPhase => 'Volgende fase';
+
+  @override
+  String get turnSkipPlayer => 'Speler overslaan';
+
+  @override
+  String get turnPhaseDraw => 'Trekken';
+
+  @override
+  String get turnPhaseMain => 'Hoofdfase';
+
+  @override
+  String get turnPhaseEnd => 'Einde';
+
+  @override
+  String get turnAddPhase => 'Fase toevoegen';
+
+  @override
+  String get turnPhaseName => 'Naam van de fase';
+
+  @override
+  String get turnRemovePhase => 'Fase verwijderen';
+
+  @override
+  String get toolFirstPlayerTitle => 'Startspeler';
+
+  @override
+  String get toolFirstPlayerSubtitle => 'Een pion rolt rond de tafel en stopt bij wie begint.';
+
+  @override
+  String get firstPlayerDraw => 'Startspeler loten';
+
+  @override
+  String get firstPlayerAgain => 'Opnieuw loten';
+
+  @override
+  String firstPlayerStarts(String name) {
+    return '$name begint';
+  }
 }

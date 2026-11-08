@@ -1406,5 +1406,22 @@
   "rankingEmpty": "Gib mindestens eine Punktzahl ein, um die Rangliste zu sehen.",
   "rankingStamp": "Sieger",
   "rankingTie": "Gleichstand",
-  "rankingPosition": "Platz {position}"
+  "rankingPosition": "Platz {position}",
+  "toolTurnsTitle": "Züge und Phasen",
+  "toolTurnsSubtitle": "Verfolge die Runde, wer am Zug ist und die laufende Phase.",
+  "turnRound": "Runde {number}",
+  "turnPlays": "{name} ist am Zug",
+  "turnNextPhase": "Nächste Phase",
+  "turnSkipPlayer": "Spieler überspringen",
+  "turnPhaseDraw": "Ziehen",
+  "turnPhaseMain": "Hauptphase",
+  "turnPhaseEnd": "Ende",
+  "turnAddPhase": "Phase hinzufügen",
+  "turnPhaseName": "Name der Phase",
+  "turnRemovePhase": "Phase entfernen",
+  "toolFirstPlayerTitle": "Startspieler",
+  "toolFirstPlayerSubtitle": "Ein Spielstein rollt um den Tisch und bleibt bei dem liegen, der beginnt.",
+  "firstPlayerDraw": "Startspieler auslosen",
+  "firstPlayerAgain": "Erneut auslosen",
+  "firstPlayerStarts": "{name} beginnt"
 }
