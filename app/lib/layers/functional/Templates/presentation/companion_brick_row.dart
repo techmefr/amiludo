@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/brick_layout.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
