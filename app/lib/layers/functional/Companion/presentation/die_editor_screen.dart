@@ -9,6 +9,7 @@ import 'package:amiludo/layers/functional/Companion/presentation/die_face_sheet.
 import 'package:amiludo/layers/functional/Companion/presentation/die_preview.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/die_studio.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/immersive_page.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class DieEditorScreen extends StatefulWidget {
@@ -60,9 +61,9 @@ class _DieEditorScreenState extends State<DieEditorScreen> {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
-    return Scaffold(
-      appBar: AppBar(title: Text(l.diceEditorTitle)),
-      body: ListView(
+    return ImmersivePage(
+      title: l.diceEditorTitle,
+      child: ListView(
         padding: const EdgeInsets.all(Space.lg),
         children: [
           Center(
