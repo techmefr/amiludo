@@ -18,6 +18,7 @@ import 'package:amiludo/notebook_routes.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/chess_clock_tool.dart';
 import 'package:amiludo/combat_tool.dart';
 import 'package:amiludo/bestiary_tool.dart';
+import 'package:amiludo/scenes_tool.dart';
 import 'package:amiludo/rules_tool.dart';
 import 'package:amiludo/journal_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/oracle_tool.dart';
@@ -290,6 +291,7 @@ const Map<String, WidgetBuilder> embeddedToolBuilders = {
           'chess-clock': _chessClock,
           'deck': _deck,
           'rules': rulesWithStorage,
+          'scenes': scenesWithStorage,
           'bestiary': bestiaryWithStorage,
           'combat': combatWithStorage,
           'vote': _vote,

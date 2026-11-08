@@ -5465,4 +5465,53 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get bestiaryCopied => 'Gekopieerd naar het klembord';
+
+  @override
+  String get toolScenesTitle => 'Scènes van het verhaal';
+
+  @override
+  String get toolScenesSubtitle => 'Plan scènes, koppel ze en toon handouts aan de spelers.';
+
+  @override
+  String get scenesEmpty => 'Nog geen scènes. Voeg de eerste scène van je verhaal toe.';
+
+  @override
+  String get scenesAdd => 'Nieuwe scène';
+
+  @override
+  String get scenesTitleField => 'Titel van de scène';
+
+  @override
+  String get scenesNotes => 'Notities voor jou';
+
+  @override
+  String get scenesHandout => 'Handout voor de spelers';
+
+  @override
+  String get scenesLeadsTo => 'Leidt naar';
+
+  @override
+  String get scenesCreatures => 'Wezens en schatten';
+
+  @override
+  String get scenesSave => 'Scène opslaan';
+
+  @override
+  String get scenesDelete => 'Deze scène verwijderen';
+
+  @override
+  String get scenesShow => 'Aan de spelers tonen';
+
+  @override
+  String get scenesHide => 'Handout verbergen';
+
+  @override
+  String scenesMoveUp(String title) {
+    return '$title omhoog';
+  }
+
+  @override
+  String scenesMoveDown(String title) {
+    return '$title omlaag';
+  }
 }

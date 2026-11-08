@@ -69,5 +69,6 @@ const toolDefinitions = [
   ToolDefinition('trait', 'story'),
   ToolDefinition('twist', 'story'),
   ToolDefinition('combat', 'story'),
+  ToolDefinition('scenes', 'story'),
   ToolDefinition('bestiary', 'story'),
 ];

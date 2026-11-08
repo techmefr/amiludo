@@ -2421,5 +2421,34 @@
     }
   },
   "bestiaryImportFailed": "This text is not a valid bestiary export.",
-  "bestiaryCopied": "Copied to the clipboard"
+  "bestiaryCopied": "Copied to the clipboard",
+  "toolScenesTitle": "Story scenes",
+  "toolScenesSubtitle": "Plan scenes, link them and show handouts to the players.",
+  "scenesEmpty": "No scenes yet. Add the first scene of your story.",
+  "scenesAdd": "New scene",
+  "scenesTitleField": "Scene title",
+  "scenesNotes": "Notes for you",
+  "scenesHandout": "Handout for the players",
+  "scenesLeadsTo": "Leads to",
+  "scenesCreatures": "Creatures and treasures",
+  "scenesSave": "Save scene",
+  "scenesDelete": "Delete this scene",
+  "scenesShow": "Show to players",
+  "scenesHide": "Hide the handout",
+  "scenesMoveUp": "Move {title} up",
+  "@scenesMoveUp": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "scenesMoveDown": "Move {title} down",
+  "@scenesMoveDown": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }

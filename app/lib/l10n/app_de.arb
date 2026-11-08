@@ -1688,5 +1688,20 @@
   "bestiaryImportHint": "Exportiertes JSON einfügen",
   "bestiaryImported": "{count} Einträge importiert",
   "bestiaryImportFailed": "Dieser Text ist kein gültiger Bestiarium-Export.",
-  "bestiaryCopied": "In die Zwischenablage kopiert"
+  "bestiaryCopied": "In die Zwischenablage kopiert",
+  "toolScenesTitle": "Szenen der Geschichte",
+  "toolScenesSubtitle": "Plane Szenen, verknüpfe sie und zeige den Spielern Handouts.",
+  "scenesEmpty": "Noch keine Szenen. Füge die erste Szene deiner Geschichte hinzu.",
+  "scenesAdd": "Neue Szene",
+  "scenesTitleField": "Titel der Szene",
+  "scenesNotes": "Notizen für dich",
+  "scenesHandout": "Handout für die Spieler",
+  "scenesLeadsTo": "Führt zu",
+  "scenesCreatures": "Kreaturen und Schätze",
+  "scenesSave": "Szene speichern",
+  "scenesDelete": "Diese Szene löschen",
+  "scenesShow": "Den Spielern zeigen",
+  "scenesHide": "Handout ausblenden",
+  "scenesMoveUp": "{title} nach oben",
+  "scenesMoveDown": "{title} nach unten"
 }

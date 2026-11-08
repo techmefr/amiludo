@@ -95,6 +95,28 @@ Widget _stack(Color accent, Color ink, double t) => Center(
   ),
 );
 
+Widget _chain(Color accent, Color ink, double t) {
+  final active = (t * 3).floor().clamp(0, 2);
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      for (var i = 0; i < 3; i++) ...[
+        if (i > 0)
+          Container(width: 22, height: 3, color: ink.withValues(alpha: .35)),
+        AnimatedContainer(
+          duration: Motion.fast,
+          width: i == active ? 34 : 24,
+          height: i == active ? 34 : 24,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: i == active ? accent : ink.withValues(alpha: .25),
+          ),
+        ),
+      ],
+    ],
+  );
+}
+
 Widget? extraPreview(
   BuildContext context,
   String id,
@@ -108,6 +130,7 @@ Widget? extraPreview(
   'bank' => _count(context, ink, '${1500 + (200 * t).round()}'),
   'auction' => _count(context, ink, '${(35 * t).round()}'),
   'combat' => _order(accent, ink, t),
+  'scenes' => _chain(accent, ink, t),
   'bestiary' => _stack(accent, ink, t),
   'clocks' => Center(
     child: SizedBox.square(
