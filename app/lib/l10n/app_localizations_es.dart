@@ -5085,4 +5085,24 @@ class AppLocalizationsEs extends AppLocalizations {
   String balanceTeamTotal(int number, int total) {
     return 'Equipo $number, total $total';
   }
+
+  @override
+  String get toolLeagueTitle => 'Liga';
+
+  @override
+  String get toolLeagueSubtitle => 'Registra los partidos de una temporada entre amigos y sigue la tabla.';
+
+  @override
+  String get leagueAddMatch => 'Añadir el partido';
+
+  @override
+  String get leagueTable => 'Tabla';
+
+  @override
+  String get leagueRemoveMatch => 'Quitar el partido';
+
+  @override
+  String leagueRow(int rank, String name, int points, int played) {
+    return '$rank. $name, $points puntos en $played partidos';
+  }
 }

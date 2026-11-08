@@ -5090,4 +5090,24 @@ class AppLocalizationsNl extends AppLocalizations {
   String balanceTeamTotal(int number, int total) {
     return 'Team $number, totaal $total';
   }
+
+  @override
+  String get toolLeagueTitle => 'Competitie';
+
+  @override
+  String get toolLeagueSubtitle => 'Noteer de wedstrijden van een seizoen onder vrienden en volg de stand.';
+
+  @override
+  String get leagueAddMatch => 'Wedstrijd toevoegen';
+
+  @override
+  String get leagueTable => 'Stand';
+
+  @override
+  String get leagueRemoveMatch => 'Wedstrijd verwijderen';
+
+  @override
+  String leagueRow(int rank, String name, int points, int played) {
+    return '$rank. $name, $points punten in $played wedstrijden';
+  }
 }

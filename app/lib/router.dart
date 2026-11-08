@@ -27,6 +27,7 @@ import 'package:amiludo/layers/functional/Random/presentation/vote_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/first_player_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/buzzer_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/auction_tool.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/league_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/balance_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/bank_tool.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/clocks_tool.dart';
@@ -138,6 +139,9 @@ Widget _tournament(BuildContext context) =>
     TournamentTool(names: _names(context));
 
 Widget _balance(BuildContext context) => BalanceTool(names: _names(context));
+
+Widget _league(BuildContext context) =>
+    LeagueTool(names: _names(context));
 
 Widget _turns(BuildContext context) => TurnsTool(names: _names(context));
 
@@ -305,6 +309,7 @@ final router = GoRouter(
           'auction': _auction,
           'tournament': _tournament,
           'balance': _balance,
+          'league': _league,
           'stats': _stats,
           'sheet': _sheet,
           'turns': _turns,

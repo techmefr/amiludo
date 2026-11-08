@@ -222,6 +222,11 @@ const toolThemes = <String, ToolTheme>{
     motion: ToolMotion.flow,
   ),
   'balance': ToolTheme(accent: Color(0xff2F8F83), motion: ToolMotion.flow),
+  'league': ToolTheme(
+    accent: Color(0xffB38A1D),
+    texture: ToolTexture.paper,
+    motion: ToolMotion.flow,
+  ),
   'turns': ToolTheme(
     accent: Color(0xff5A4FB0),
     texture: ToolTexture.frame,

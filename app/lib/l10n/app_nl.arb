@@ -1573,5 +1573,11 @@
   "toolBalanceSubtitle": "Beoordeel elke speler en krijg eerlijke teams.",
   "balanceLevel": "{name}, niveau {level}",
   "balanceTeams": "{count} teams",
-  "balanceTeamTotal": "Team {number}, totaal {total}"
+  "balanceTeamTotal": "Team {number}, totaal {total}",
+  "toolLeagueTitle": "Competitie",
+  "toolLeagueSubtitle": "Noteer de wedstrijden van een seizoen onder vrienden en volg de stand.",
+  "leagueAddMatch": "Wedstrijd toevoegen",
+  "leagueTable": "Stand",
+  "leagueRemoveMatch": "Wedstrijd verwijderen",
+  "leagueRow": "{rank}. {name}, {points} punten in {played} wedstrijden"
 }
