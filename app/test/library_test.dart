@@ -38,6 +38,30 @@ const epic = ShelfGame(
 );
 
 void main() {
+  test('shelf game keeps barcode, cover and status through json', () {
+    const game = ShelfGame(
+      id: 'x',
+      name: 'Catan',
+      barcode: '3770000000001',
+      imageUrl: 'https://example.com/c.jpg',
+      status: 'wishlist',
+    );
+    final back = ShelfGame.fromJson(
+      jsonDecode(jsonEncode(game.toJson())) as Map<String, dynamic>,
+    );
+    expect(back.barcode, '3770000000001');
+    expect(back.imageUrl, 'https://example.com/c.jpg');
+    expect(back.status, 'wishlist');
+  });
+  test('old shelf data defaults to owned without barcode', () {
+    final old = ShelfGame.fromJson({'id': 'a', 'name': 'Skull'});
+    expect(old.status, 'owned');
+    expect(old.barcode, '');
+    expect(
+      ShelfGame.fromJson({'id': 'a', 'name': 'S', 'status': 'x', 'barcode': '37-7 0'}).barcode,
+      '3770',
+    );
+  });
   _suggestionTests();
   _opinionSuggestionTests();
   _friendTests();

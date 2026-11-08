@@ -2055,6 +2055,21 @@ class AppLocalizationsPt extends AppLocalizations {
   String get libraryColour => 'Cor';
 
   @override
+  String get libraryBarcode => 'Código de barras (EAN/UPC)';
+
+  @override
+  String get libraryStatus => 'Estado';
+
+  @override
+  String get libraryStatusOwned => 'Tenho';
+
+  @override
+  String get libraryStatusWishlist => 'Lista de desejos';
+
+  @override
+  String get libraryStatusLent => 'Emprestado';
+
+  @override
   String get libraryPlays => 'partidas';
 
   @override

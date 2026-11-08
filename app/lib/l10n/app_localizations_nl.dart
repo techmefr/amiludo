@@ -2053,6 +2053,21 @@ class AppLocalizationsNl extends AppLocalizations {
   String get libraryColour => 'Kleur';
 
   @override
+  String get libraryBarcode => 'Streepjescode (EAN/UPC)';
+
+  @override
+  String get libraryStatus => 'Status';
+
+  @override
+  String get libraryStatusOwned => 'In bezit';
+
+  @override
+  String get libraryStatusWishlist => 'Verlanglijst';
+
+  @override
+  String get libraryStatusLent => 'Uitgeleend';
+
+  @override
   String get libraryPlays => 'potjes';
 
   @override

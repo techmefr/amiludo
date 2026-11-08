@@ -24,6 +24,8 @@ const gameGenreLabels = {
   'roleplay': ('Jeu de rôle', 'Roleplay'),
 };
 
+const shelfStatuses = ['owned', 'wishlist', 'lent'];
+
 const shelfColors = [
   0xff6644d6,
   0xffd94f3d,
@@ -46,9 +48,12 @@ class ShelfGame {
     this.color = 0xff6644d6,
     this.templateIds = const [],
     this.addedAt = 0,
+    this.barcode = '',
+    this.imageUrl = '',
+    this.status = 'owned',
   });
 
-  final String id, name;
+  final String id, name, barcode, imageUrl, status;
   final List<String> genres, templateIds;
   final int minPlayers, maxPlayers, minutes, color, addedAt;
 
@@ -62,6 +67,9 @@ class ShelfGame {
     int? minutes,
     int? color,
     List<String>? templateIds,
+    String? barcode,
+    String? imageUrl,
+    String? status,
   }) => ShelfGame(
     id: id,
     name: name ?? this.name,
@@ -72,6 +80,9 @@ class ShelfGame {
     color: color ?? this.color,
     templateIds: templateIds ?? this.templateIds,
     addedAt: addedAt,
+    barcode: barcode ?? this.barcode,
+    imageUrl: imageUrl ?? this.imageUrl,
+    status: status ?? this.status,
   );
 
   Map<String, Object?> toJson() => {
@@ -84,6 +95,9 @@ class ShelfGame {
     'color': color,
     'templateIds': templateIds,
     'addedAt': addedAt,
+    if (barcode.isNotEmpty) 'barcode': barcode,
+    if (imageUrl.isNotEmpty) 'imageUrl': imageUrl,
+    if (status != 'owned') 'status': status,
   };
 
   factory ShelfGame.fromJson(Map<String, dynamic> j) {
@@ -108,6 +122,9 @@ class ShelfGame {
       color: j['color'] as int? ?? 0xff6644d6,
       templateIds: List<String>.from(j['templateIds'] as List? ?? const []),
       addedAt: j['addedAt'] as int? ?? 0,
+      barcode: (j['barcode'] as String? ?? '').replaceAll(RegExp(r'\D'), ''),
+      imageUrl: j['imageUrl'] as String? ?? '',
+      status: shelfStatuses.contains(j['status']) ? j['status'] as String : 'owned',
     );
   }
 }
