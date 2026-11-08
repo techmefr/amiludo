@@ -5463,4 +5463,53 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get bestiaryCopied => 'Copiado para a área de transferência';
+
+  @override
+  String get toolScenesTitle => 'Cenas da história';
+
+  @override
+  String get toolScenesSubtitle => 'Prepare cenas, ligue-as e mostre documentos aos jogadores.';
+
+  @override
+  String get scenesEmpty => 'Ainda não há cenas. Adicione a primeira cena da sua história.';
+
+  @override
+  String get scenesAdd => 'Nova cena';
+
+  @override
+  String get scenesTitleField => 'Título da cena';
+
+  @override
+  String get scenesNotes => 'Notas para você';
+
+  @override
+  String get scenesHandout => 'Documento para os jogadores';
+
+  @override
+  String get scenesLeadsTo => 'Leva a';
+
+  @override
+  String get scenesCreatures => 'Criaturas e tesouros';
+
+  @override
+  String get scenesSave => 'Salvar a cena';
+
+  @override
+  String get scenesDelete => 'Excluir esta cena';
+
+  @override
+  String get scenesShow => 'Mostrar aos jogadores';
+
+  @override
+  String get scenesHide => 'Ocultar o documento';
+
+  @override
+  String scenesMoveUp(String title) {
+    return 'Subir $title';
+  }
+
+  @override
+  String scenesMoveDown(String title) {
+    return 'Descer $title';
+  }
 }

@@ -1688,5 +1688,20 @@
   "bestiaryImportHint": "Plak de geëxporteerde JSON",
   "bestiaryImported": "{count} items geïmporteerd",
   "bestiaryImportFailed": "Deze tekst is geen geldige bestiarium-export.",
-  "bestiaryCopied": "Gekopieerd naar het klembord"
+  "bestiaryCopied": "Gekopieerd naar het klembord",
+  "toolScenesTitle": "Scènes van het verhaal",
+  "toolScenesSubtitle": "Plan scènes, koppel ze en toon handouts aan de spelers.",
+  "scenesEmpty": "Nog geen scènes. Voeg de eerste scène van je verhaal toe.",
+  "scenesAdd": "Nieuwe scène",
+  "scenesTitleField": "Titel van de scène",
+  "scenesNotes": "Notities voor jou",
+  "scenesHandout": "Handout voor de spelers",
+  "scenesLeadsTo": "Leidt naar",
+  "scenesCreatures": "Wezens en schatten",
+  "scenesSave": "Scène opslaan",
+  "scenesDelete": "Deze scène verwijderen",
+  "scenesShow": "Aan de spelers tonen",
+  "scenesHide": "Handout verbergen",
+  "scenesMoveUp": "{title} omhoog",
+  "scenesMoveDown": "{title} omlaag"
 }

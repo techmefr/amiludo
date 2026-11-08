@@ -6,6 +6,8 @@ import 'package:amiludo/combat_registry.dart';
 import 'package:amiludo/layers/functional/Combat/data/gateways/encounter_gateway_impl.dart';
 import 'package:amiludo/bestiary_registry.dart';
 import 'package:amiludo/layers/functional/Bestiary/data/gateways/bestiary_gateway_impl.dart';
+import 'package:amiludo/scenes_registry.dart';
+import 'package:amiludo/layers/functional/Scenes/data/gateways/storyline_gateway_impl.dart';
 import 'package:amiludo/rules_registry.dart';
 import 'package:amiludo/journal_registry.dart';
 import 'package:amiludo/layers/functional/Journal/data/gateways/game_log_gateway_impl.dart';
@@ -259,6 +261,7 @@ void configureDependencies(StoreDatabase database) {
         getIt<MapBoardsGatewayImpl>(),
         getIt<NotebookGatewayImpl>(),
         getIt<RuleBookGatewayImpl>(),
+        getIt<StorylineGatewayImpl>(),
         getIt<BestiaryGatewayImpl>(),
         getIt<EncounterGatewayImpl>(),
         getIt<GameLogGatewayImpl>(),
@@ -283,6 +286,7 @@ void configureDependencies(StoreDatabase database) {
   _registerMaps();
   registerNotebook();
   registerRules();
+  registerScenes();
   registerBestiary();
   registerCombat();
   registerJournal();

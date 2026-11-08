@@ -1688,5 +1688,20 @@
   "bestiaryImportHint": "Collez le JSON exporté",
   "bestiaryImported": "{count} fiches importées",
   "bestiaryImportFailed": "Ce texte n’est pas un export de bestiaire valide.",
-  "bestiaryCopied": "Copié dans le presse-papiers"
+  "bestiaryCopied": "Copié dans le presse-papiers",
+  "toolScenesTitle": "Scènes de l’histoire",
+  "toolScenesSubtitle": "Préparez les scènes, reliez-les et montrez des documents aux joueurs.",
+  "scenesEmpty": "Aucune scène pour l’instant. Ajoutez la première scène de votre histoire.",
+  "scenesAdd": "Nouvelle scène",
+  "scenesTitleField": "Titre de la scène",
+  "scenesNotes": "Notes pour vous",
+  "scenesHandout": "Document pour les joueurs",
+  "scenesLeadsTo": "Mène à",
+  "scenesCreatures": "Créatures et trésors",
+  "scenesSave": "Enregistrer la scène",
+  "scenesDelete": "Supprimer cette scène",
+  "scenesShow": "Montrer aux joueurs",
+  "scenesHide": "Cacher le document",
+  "scenesMoveUp": "Monter {title}",
+  "scenesMoveDown": "Descendre {title}"
 }

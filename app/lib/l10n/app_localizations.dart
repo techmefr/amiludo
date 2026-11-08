@@ -10199,6 +10199,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Copied to the clipboard'**
   String get bestiaryCopied;
+
+  /// No description provided for @toolScenesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Story scenes'**
+  String get toolScenesTitle;
+
+  /// No description provided for @toolScenesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan scenes, link them and show handouts to the players.'**
+  String get toolScenesSubtitle;
+
+  /// No description provided for @scenesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No scenes yet. Add the first scene of your story.'**
+  String get scenesEmpty;
+
+  /// No description provided for @scenesAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'New scene'**
+  String get scenesAdd;
+
+  /// No description provided for @scenesTitleField.
+  ///
+  /// In en, this message translates to:
+  /// **'Scene title'**
+  String get scenesTitleField;
+
+  /// No description provided for @scenesNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes for you'**
+  String get scenesNotes;
+
+  /// No description provided for @scenesHandout.
+  ///
+  /// In en, this message translates to:
+  /// **'Handout for the players'**
+  String get scenesHandout;
+
+  /// No description provided for @scenesLeadsTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Leads to'**
+  String get scenesLeadsTo;
+
+  /// No description provided for @scenesCreatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Creatures and treasures'**
+  String get scenesCreatures;
+
+  /// No description provided for @scenesSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save scene'**
+  String get scenesSave;
+
+  /// No description provided for @scenesDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this scene'**
+  String get scenesDelete;
+
+  /// No description provided for @scenesShow.
+  ///
+  /// In en, this message translates to:
+  /// **'Show to players'**
+  String get scenesShow;
+
+  /// No description provided for @scenesHide.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide the handout'**
+  String get scenesHide;
+
+  /// No description provided for @scenesMoveUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Move {title} up'**
+  String scenesMoveUp(String title);
+
+  /// No description provided for @scenesMoveDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Move {title} down'**
+  String scenesMoveDown(String title);
 }
 
 class _AppLocalizationsDelegate
