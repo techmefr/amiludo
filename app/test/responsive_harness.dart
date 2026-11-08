@@ -34,22 +34,28 @@ Future<void> expectRoutesFit(
   await tester.pumpWidget(const AmiludoApp());
   await tester.pumpAndSettle();
   final failures = <String>[];
+  final previous = FlutterError.onError;
+  var current = '';
+  FlutterError.onError = (details) =>
+      failures.add('$current: ${_summary(details)}');
   for (final route in routes) {
+    current = route;
     router.go('/');
     await tester.pumpAndSettle();
     router.push(route);
     await tester.pumpAndSettle();
-    final error = tester.takeException();
-    if (error != null) failures.add('$route: ${_summary(error)}');
   }
+  FlutterError.onError = previous;
   await tester.pumpWidget(const SizedBox());
   await db.close();
   expect(failures, isEmpty, reason: 'at $size x$scale');
 }
 
-String _summary(Object error) {
-  final text = error is FlutterError ? error.toStringDeep() : '$error';
-  final first = text.trim().split('\n').first;
-  final where = RegExp(r'[\w/]+\.dart:\d+').allMatches(text).map((m) => m[0]);
-  return '$first ${where.take(2).join(' ')}';
+String _summary(FlutterErrorDetails details) {
+  final text = details.toString();
+  final first = '${details.exception}'.split('\n').first;
+  final where = RegExp(
+    r'lib/layers/[\w/]+\.dart:\d+',
+  ).allMatches(text).map((m) => m[0]).toSet();
+  return '$first ${where.take(3).join(' ')}';
 }
