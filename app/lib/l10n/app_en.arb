@@ -1959,5 +1959,25 @@
   "journalWrite": "What just happened?",
   "journalAdd": "Add to the log",
   "journalEmpty": "The log is empty.",
-  "journalDelete": "Delete entry"
+  "journalDelete": "Delete entry",
+  "toolPhasesTitle": "Chained phases",
+  "toolPhasesSubtitle": "Timed phases that follow one another, round after round.",
+  "phasesPhase": "Phase {number}",
+  "@phasesPhase": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "phasesRound": "Round {number}",
+  "@phasesRound": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "phasesAdd": "Add a phase",
+  "phasesRemove": "Remove the phase"
 }

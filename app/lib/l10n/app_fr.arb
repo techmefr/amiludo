@@ -1487,5 +1487,11 @@
   "journalWrite": "Que vient-il de se passer ?",
   "journalAdd": "Ajouter au journal",
   "journalEmpty": "Le journal est vide.",
-  "journalDelete": "Supprimer la note"
+  "journalDelete": "Supprimer la note",
+  "toolPhasesTitle": "Phases enchaînées",
+  "toolPhasesSubtitle": "Des phases chronométrées qui s’enchaînent, manche après manche.",
+  "phasesPhase": "Phase {number}",
+  "phasesRound": "Manche {number}",
+  "phasesAdd": "Ajouter une phase",
+  "phasesRemove": "Retirer la phase"
 }

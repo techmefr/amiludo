@@ -8365,6 +8365,42 @@ abstract class AppLocalizations {
   /// **'Set a duration, watch the ring empty, get alerted at zero.'**
   String get toolCountdownSubtitle;
 
+  /// No description provided for @toolPhasesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Chained phases'**
+  String get toolPhasesTitle;
+
+  /// No description provided for @toolPhasesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Timed phases that follow one another, round after round.'**
+  String get toolPhasesSubtitle;
+
+  /// No description provided for @phasesPhase.
+  ///
+  /// In en, this message translates to:
+  /// **'Phase {number}'**
+  String phasesPhase(int number);
+
+  /// No description provided for @phasesRound.
+  ///
+  /// In en, this message translates to:
+  /// **'Round {number}'**
+  String phasesRound(int number);
+
+  /// No description provided for @phasesAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a phase'**
+  String get phasesAdd;
+
+  /// No description provided for @phasesRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove the phase'**
+  String get phasesRemove;
+
   /// No description provided for @toolLifeTitle.
   ///
   /// In en, this message translates to:

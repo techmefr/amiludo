@@ -122,6 +122,13 @@ const toolThemes = <String, ToolTheme>{
     motion: ToolMotion.snap,
     weight: .9,
   ),
+  'phases': ToolTheme(
+    accent: Color(0xff6A5BB0),
+    texture: ToolTexture.glass,
+    motion: ToolMotion.flow,
+    haptic: ToolHaptic.impact,
+    weight: .9,
+  ),
   'countdown': ToolTheme(
     accent: Color(0xffB5532B),
     texture: ToolTexture.glass,

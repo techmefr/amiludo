@@ -4694,6 +4694,18 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String sheetRound(int number) {
+  String get toolPhasesTitle => 'Verkettete Phasen';
+
+  @override
+  String get toolPhasesSubtitle => 'Zeitlich begrenzte Phasen, die aufeinander folgen, Runde für Runde.';
+
+  @override
+  String phasesPhase(int number) {
+    return 'Phase $number';
+  }
+
+  @override
+  String phasesRound(int number) {
     return 'Runde $number';
   }
 
@@ -4810,4 +4822,8 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get journalDelete => 'Eintrag löschen';
+  String get phasesAdd => 'Phase hinzufügen';
+
+  @override
+  String get phasesRemove => 'Phase entfernen';
 }
