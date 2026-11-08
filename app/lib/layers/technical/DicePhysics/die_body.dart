@@ -20,6 +20,7 @@ class DieBody {
   Quat rot;
   bool asleep = false;
   int still = 0;
+  int leaning = 0;
   bool grounded = false;
 
   double get invMass => 1;

@@ -97,6 +97,9 @@ class DiceWorld {
     if (b.shape.hasStableFaces && b.alignment() < 0.998) {
       b.omega = b.omega + b.tipAxis() * (14 * step);
       b.still = 0;
+      if (++b.leaning % 180 == 0) {
+        b.vel = Vec3(-b.pos.x * 0.5, 4, -b.pos.z * 0.5);
+      }
       return;
     }
     if (b.vel.length < 0.25 && b.omega.length < 0.35 && ++b.still > 30) {
