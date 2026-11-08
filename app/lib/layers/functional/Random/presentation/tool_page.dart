@@ -41,6 +41,14 @@ class _ToolPageState extends State<ToolPage> {
   void initState() {
     super.initState();
     selected = widget.packId;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      try {
+        context.read<RandomCubit>().rememberTool(widget.id);
+      } on ProviderNotFoundException {
+        return;
+      }
+    });
   }
 
   List<GameTemplate> packsFor(Workspace ws) {
