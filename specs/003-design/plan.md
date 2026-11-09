@@ -12,7 +12,7 @@ Introduce design tokens and a small component set in the technical Theme layer, 
 
 **Primary Dependencies**: existing only (flutter_bloc, hugeicons, go_router); no new dependency
 
-**Testing**: widget tests at 390x844, 1280x720, 1920x1080 in light and dark; a test that forbids hard-coded sizes, colours and fonts in presentation code
+**Testing**: extend the responsive harness for the window matrix in FR-009. Exercise populated screens, text scaling, keyboard and sheets, and assert action visibility and reachability. Verify critical flows on the deployed build.
 
 **Constraints**: offline, code files under 200 lines, no comments, English in the repository, existing tests only extended; `deck_theme.dart` (482 lines) is split while touched
 
@@ -37,7 +37,8 @@ app/test/design_*_test.dart
 - **Lot 3 - Home and first launch**: Workspace home, empty states, navigation depth.
 - **Lot 4 - Tools**: Random, Timer, Game, Templates.
 - **Lot 5 - Social and data**: Library, Friends, Evenings, Lobby, Memories, Sharing, History.
-- **Lot 6 - Account, Admin, Appearance**, then accessibility sweep and the visual review at three sizes.
+- **Lot 6 - Account, Admin, Appearance**, then accessibility sweep.
+- **Lot 7 - Responsive coverage**: inventory routes, embedded tools, editors and sheets. Test them with realistic content, then correct each failure where its layout is defined. Review the results on the deployed build.
 
 ## Open Points
 

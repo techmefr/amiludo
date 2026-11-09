@@ -94,17 +94,21 @@ An hourglass brick flows sand with a chosen duration. Turning the phone reverses
 
 ### User Story 5 - Throw dice on a tray (Priority: P1)
 
-The player chooses dice (kind, count, look), then shakes the phone. The dice are thrown on a tray with physics, settle, and the faces are read. Without a sensor a button or a swipe throws.
+The player chooses standard or custom dice, then shakes the phone. The 3D tray is viewed directly from above while the dice roll and settle. The player can create, edit and add a custom die from the tray itself. A button or swipe is available for a manual throw.
 
 **Why this priority**: dice are central to Yahtzee, Dice Throne and role-playing.
 
-**Independent Test**: choose five six-sided dice, shake; the five results are read and shown.
+**Independent Test**: from the 3D tray on a fresh install, create a six-sided die with a text face, an icon and an imported image. Add it with a standard die, roll both, then edit and roll the custom die again. Repeat the throw on a phone with motion enabled.
 
 **Acceptance Scenarios**:
 
 1. **Given** chosen dice, **When** the phone is shaken, **Then** the dice bounce, collide, settle and the total is shown.
 2. **Given** dice kept aside between throws, **When** thrown again, **Then** only the other dice are thrown.
-3. **Given** custom faces, **When** thrown, **Then** the custom face is shown and read.
+3. **Given** an empty custom dice library, **When** the player opens Add die on the 3D tray, **Then** a visible Create custom die action opens an editor and lets the player save and add the die without leaving the tray workflow.
+4. **Given** a standard die or a saved design, **When** the player customizes it, **Then** they can set a different text, icon or image on each face, preview the design, and reuse the saved die in later throws.
+5. **Given** a mixed roll with standard and custom dice, **When** it settles, **Then** the winning custom face appears on the 3D die, in the result and in history. The screen reader announces a meaningful label for icon and image faces. A face without a numeric value is shown as a face result and is excluded from numeric totals.
+6. **Given** a supported mobile browser that requires motion permission, **When** the player grants it and shakes the phone, **Then** one gesture starts one throw. When permission is declined or the sensor is unavailable, the manual controls still work.
+7. **Given** a settled roll, **When** the screen rotates or the window resizes, **Then** the same dice and result remain visible. Reduced motion skips the roll animation and still shows the correct custom faces.
 
 ---
 
@@ -144,7 +148,10 @@ A companion can be exported and shared as one file holding only its bricks and s
 - **FR-005c**: The app MUST NOT ship, require or reproduce the cards, boards, texts or rules of any published game; names, values and pictures are entered by the player.
 - **FR-006**: The hourglass MUST reverse on a physical turn when a sensor exists and offer a button otherwise.
 - **FR-007**: The dice tray MUST use a physics simulation, support the common dice kinds, custom faces and keeping dice aside.
-- **FR-008**: Shake detection MUST have a non-sensor fallback and a sensitivity setting.
+- **FR-007a**: The 3D tray MUST use an overhead camera and preserve the current roll when the layout changes.
+- **FR-007b**: Add die MUST provide a direct entry to create a custom die, including when no custom designs exist. The player MUST be able to add a saved design and edit its faces without leaving the tray workflow.
+- **FR-007c**: Each face MUST support player-defined text, an icon or an image. Saved designs MUST survive reopening the app and work offline. The settled die, result and history MUST use the same face definition, with accessible labels and numeric aggregation only where applicable.
+- **FR-008**: Shake detection MUST work when a device exposes motion data and access is granted, including supported secure mobile browsers. It MUST respect the sensitivity setting and leave manual controls available.
 - **FR-009**: Every change MUST be recorded in a history with undo.
 - **FR-010**: Every brick MUST be usable full screen with a single discreet back button.
 - **FR-011**: Companions MUST be exportable and importable as one versioned file holding bricks and settings only.
@@ -168,12 +175,13 @@ A companion can be exported and shared as one file holding only its bricks and s
 - **SC-001**: A player builds a working Yahtzee companion in under five minutes without help.
 - **SC-002**: Every ready-made example is built only from bricks, with no game-specific screen.
 - **SC-003**: An exported companion reopens identically on a clean install.
-- **SC-004**: Every brick is usable and readable at 1280×720 and 1920×1080 and on a phone in both orientations.
+- **SC-004**: Every brick is usable and readable at the applicable sizes in [design FR-009](../003-design/spec.md#functional-requirements), including a phone in both orientations.
+- **SC-005**: On the deployed app, a player can create, add, roll, read and edit a custom die from the tray on an empty profile. Verify text, icon and image faces in deterministic tests and repeat the flow with a manual throw and a physical shake on a supported phone.
 
 ## Assumptions
 
 - Rules of specific games (Dice Throne, Toy Battle, tag team) are given by the player as settings; the app only provides bricks.
 - The player keeps the physical game (cards, boards, box); the app only counts, rolls, times and tracks, so the app plus the player's own deck is enough to play.
 - Tag Team style games are served by generic bricks: a tile per fighter with its life and power counters and a charge rule the player sets; the app never carries the fighters, cards or rules.
-- The shake sensor is available on phones and absent on web and desktop.
+- Motion access depends on the device, browser and permission state. A manual throw is always available.
 - The video-game look is a style option and is specified separately.
