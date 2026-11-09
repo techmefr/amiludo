@@ -93,3 +93,6 @@ Vec3 headingOf(Offset aim) => aim == Offset.zero
 
 double arenaDepthFor(Size box, double halfWidth) =>
     (halfWidth * box.height / box.width * 1.3).clamp(3.8, 8.0);
+
+double arenaWidthFor(Size box) =>
+    (2.6 + box.width / box.height * 2.6).clamp(4.6, 6.0);
