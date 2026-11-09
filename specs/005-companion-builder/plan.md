@@ -23,15 +23,19 @@ The app already has game templates (`GameTemplate` in `Templates/domain/entities
 2. **Counter brick**: settings, displays (number, bar, hearts, pips), bounds, outcome at a bound, history and undo; life, chips and pot as presets.
 3. **Heroes and powers**: hero tile, teams, active hero, power charge rules and states.
 4. **Hourglass**: flow model with elapsed time kept on turning, sensor interface and button fallback.
-5. **Dice tray**: dice sets, physics simulation, shake, keep aside, custom faces.
+5. **Dice tray**: overhead physics, shake and manual controls, keep aside, and custom faces. Reuse the existing die studio, design model and storage. Connect Add die to creation and editing, refresh the tray after save, and use the saved face definition consistently in the 3D scene, result and history.
 6. **Builder and session**: add, reorder, resize, remove bricks; full-screen session with one discreet back button.
 7. **Share**: export and import of the companion file; generic starting setups.
 
 ## Risks
 
 - Physics must be deterministic enough to test: results are read from a seeded simulation in tests.
-- Sensors differ per platform: every sensor feature has a visible fallback and is tested without it.
+- Sensors differ per platform. Test granted, denied and unavailable motion access and the manual fallback. Verify a physical shake on the deployed mobile web build.
 - Large companions on small screens: layout tests at 390×844, 844×390, 1280×720 and 1920×1080.
+
+## Dice tray verification
+
+Use seeded rolls to cover text, icon and image faces in a mixed set, including reduced motion and numeric results. Exercise the full creation flow from an empty library, then edit the saved die and reopen the app offline. Verify the tray and editor at 320x568 and 568x320, with the keyboard and 200 percent text, and confirm the result survives rotation.
 
 ## Constraints
 

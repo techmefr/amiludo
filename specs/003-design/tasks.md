@@ -31,5 +31,12 @@
 - [ ] T014 Migrate Library, Friends, Evenings, Lobby, Memories, Sharing, History
 - [ ] T015 Migrate Account, Admin, Appearance
 - [x] T016 [US4] Accessibility sweep at 200 percent text and with a screen reader
-- [ ] T017 Visual review at three sizes, validated by the owner
+- [ ] T017 Review representative layouts at the sizes in FR-009
 - [ ] T018 Update `docs/FEATURES.md`
+
+## Lot 7 - Responsive coverage
+
+- [ ] T019 [US5] Inventory shipped routes, tool entries, editors and critical sheets. Record the applicable viewport and populated state for each.
+- [ ] T020 [US5] Extend the existing responsive harness for FR-009 and FR-011. Verify layout, scroll reachability, primary actions, focus and state preservation after rotation or resize.
+- [ ] T021 [US5] Fix the failures recorded in the inventory and review the resulting layout with both short and long content.
+- [ ] T022 [US5] Smoke-test the deployed revision on a real phone in portrait and landscape, and in a desktop browser resized across layout breakpoints.

@@ -72,6 +72,21 @@ Targets are large enough, labels are clear, and the app can be used with a scree
 2. **Given** text scaled to 200 percent, **When** a main screen is shown, **Then** nothing overflows and content scrolls.
 3. **Given** an icon-only button, **When** read by a screen reader, **Then** it has a label in the player language.
 
+---
+
+### User Story 5 - Each page fits the space I have (Priority: P1)
+
+A player can use the app on a small phone, a tablet or a desktop window. When the available space changes, the page rearranges its content and keeps the current session, input and tool state.
+
+**Independent Test**: on the published web app, open the home, a companion session, the tools list, the dice tray and its die editor, and a populated library. Resize or rotate with a tool open and repeat at 200 percent text size.
+
+**Acceptance Scenarios**
+
+1. **Given** a narrow or short window, **When** the player opens a page or a sheet, **Then** the title, navigation and primary action fit or can be reached by scrolling, and controls never overlap or require page-level horizontal scrolling.
+2. **Given** a wide window, **When** the player opens a form, list or tool, **Then** the content stays readable and the main activity uses the available space. A board or map may pan inside its own area while the rest of the page fits the window.
+3. **Given** an open sheet, the keyboard or system insets, **When** the usable space shrinks, **Then** the focused field, confirmation action and back or close action remain reachable.
+4. **Given** a tool or form in progress, **When** the player rotates the phone or resizes the browser, **Then** the tool result, inputs and current route are preserved.
+
 ### Edge Cases
 
 - Long German and Dutch words in tiles and buttons.
@@ -91,8 +106,9 @@ Targets are large enough, labels are clear, and the app can be used with a scree
 - **FR-006**: Motion MUST follow the tokens and honour the reduced motion setting.
 - **FR-007**: Interactive targets MUST be at least 44 by 44 logical pixels.
 - **FR-008**: Existing skins MUST keep working with the same structure.
-- **FR-009**: The result MUST be checked at 390x844, 1280x720 and 1920x1080 in light and dark modes.
+- **FR-009**: Pages MUST adapt to available width and height. Validate at 320x568 and 390x844 in portrait, 568x320 and 844x390 in landscape, 768x1024 on tablet, and 1280x720 and 1920x1080 on desktop, using logical pixels.
 - **FR-010**: No texts are hard-coded; all go through localizations.
+- **FR-011**: The layout check MUST cover all shipped routes and tool entries, plus their critical sheets and forms. It MUST include representative populated data, long translated labels, 100 and 200 percent text, light and dark themes, and mobile keyboard and safe-area constraints.
 
 ### Key Entities
 
@@ -102,12 +118,13 @@ Targets are large enough, labels are clear, and the app can be used with a scree
 ## Success Criteria *(mandatory)*
 
 - **SC-001**: A new player reaches a first dice roll or game in under 30 seconds without help.
-- **SC-002**: All 22 screens pass the layout checks at the three sizes in both modes.
+- **SC-002**: Every inventoried route has a passing layout check at its applicable window sizes, with no overflow, clipped controls or unreachable actions. The check also confirms the primary action and content use the available space.
 - **SC-003**: No hard-coded size, colour or font remains in presentation code, verified by a test.
 - **SC-004**: Main flows work at 200 percent text and with a screen reader.
+- **SC-005**: Before closing the responsive work, repeat the critical flows on the deployed build using a real phone in both orientations and a resized desktop browser. Record the deployed revision, window sizes and any remaining failures.
 
 ## Assumptions
 
 - The design pass follows the order: tokens, component set, home, then each feature.
 - The initiation game, reachable from a Bonus button, comes after this pass and reuses the component set.
-- Visual review is done on screenshots at the three sizes, validated by the owner before merge.
+- Visual review uses representative screenshots from the layout matrix and a smoke test on the deployed build.
