@@ -11077,6 +11077,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Flip'**
   String get coinFlip;
+
+  /// No description provided for @introWordGames.
+  ///
+  /// In en, this message translates to:
+  /// **'Your games.'**
+  String get introWordGames;
+
+  /// No description provided for @introWordFriends.
+  ///
+  /// In en, this message translates to:
+  /// **'Your friends.'**
+  String get introWordFriends;
+
+  /// No description provided for @introWordRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Your rules.'**
+  String get introWordRules;
+
+  /// No description provided for @introSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get introSkip;
+
+  /// No description provided for @demoPause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause the animated demo'**
+  String get demoPause;
+
+  /// No description provided for @demoPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Play'**
+  String get demoPlay;
 }
 
 class _AppLocalizationsDelegate

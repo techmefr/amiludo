@@ -18,9 +18,10 @@ void main() {
   });
 
   test('time running out stops the ring until the turn is passed', () {
-    final state = TurnTimerState.of(2, const Duration(seconds: 15))
-        .pass()
-        .tick(const Duration(minutes: 1));
+    final state = TurnTimerState.of(
+      2,
+      const Duration(seconds: 15),
+    ).pass().tick(const Duration(minutes: 1));
     expect(state.expired, isTrue);
     expect(state.running, isFalse);
     final resumed = state.toggled();

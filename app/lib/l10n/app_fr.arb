@@ -1836,5 +1836,11 @@
   "coinCount": "Pièces",
   "coinFewer": "Moins de pièces",
   "coinMore": "Plus de pièces",
-  "coinFlip": "Lancer la pièce"
+  "coinFlip": "Lancer la pièce",
+  "introWordGames": "Vos jeux.",
+  "introWordFriends": "Vos amis.",
+  "introWordRules": "Vos règles.",
+  "introSkip": "Passer",
+  "demoPause": "Mettre la démo animée en pause",
+  "demoPlay": "Lecture"
 }

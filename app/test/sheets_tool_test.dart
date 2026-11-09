@@ -38,7 +38,10 @@ void main() {
         ),
       ),
     );
-    expect(find.text('Enter at least one score to see the ranking.'), findsNothing);
+    expect(
+      find.text('Enter at least one score to see the ranking.'),
+      findsNothing,
+    );
     await tester.enterText(find.byType(TextField).at(0), '4');
     await tester.pump();
     expect(find.text('Winner'), findsOneWidget);

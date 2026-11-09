@@ -65,9 +65,7 @@ void main() {
     expect(find.text('1500'), findsNWidgets(3));
   });
 
-  testWidgets('the auction raises, then sells when time is up', (
-    tester,
-  ) async {
+  testWidgets('the auction raises, then sells when time is up', (tester) async {
     await tester.pumpWidget(host(const AuctionTool(names: names)));
     await tester.tap(find.text('Ben'));
     await tester.pump();

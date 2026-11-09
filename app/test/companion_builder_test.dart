@@ -28,9 +28,7 @@ void main() {
     expect(named.label, 'Sand');
     expect(Brick.fromJson(named.toJson()).label, 'Sand');
     expect(named.labelled(' ').label, isNull);
-    final merged = named
-        .resized(TileSize.small)
-        .withSettings({'start': 3});
+    final merged = named.resized(TileSize.small).withSettings({'start': 3});
     expect(merged.size, TileSize.small);
     expect(merged.label, 'Sand');
     expect(merged.settings['start'], 3);
@@ -42,10 +40,7 @@ void main() {
     expect(sessionColumns(1920), 5);
     expect(sessionTileWidth(844, 2, 1), lessThan(sessionTileWidth(844, 2, 2)));
     expect(sessionTileWidth(390, 1, 2), 390);
-    expect(
-      const Brick(id: 'a', type: 'dice').resized(TileSize.large).span,
-      2,
-    );
+    expect(const Brick(id: 'a', type: 'dice').resized(TileSize.large).span, 2);
     expect(const Brick(id: 'a', type: 'dice').span, 1);
   });
 

@@ -6006,4 +6006,22 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get coinFlip => 'Munt opgooien';
+
+  @override
+  String get introWordGames => 'Jouw spellen.';
+
+  @override
+  String get introWordFriends => 'Jouw vrienden.';
+
+  @override
+  String get introWordRules => 'Jouw regels.';
+
+  @override
+  String get introSkip => 'Overslaan';
+
+  @override
+  String get demoPause => 'Geanimeerde demo pauzeren';
+
+  @override
+  String get demoPlay => 'Afspelen';
 }

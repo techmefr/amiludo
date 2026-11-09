@@ -6007,4 +6007,22 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get coinFlip => 'Lançar a moeda';
+
+  @override
+  String get introWordGames => 'Os seus jogos.';
+
+  @override
+  String get introWordFriends => 'Os seus amigos.';
+
+  @override
+  String get introWordRules => 'As suas regras.';
+
+  @override
+  String get introSkip => 'Saltar';
+
+  @override
+  String get demoPause => 'Pausar a demonstração animada';
+
+  @override
+  String get demoPlay => 'Reproduzir';
 }

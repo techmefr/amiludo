@@ -6,7 +6,9 @@ import 'package:amiludo/layers/technical/Theme/components/steampunk_face.dart';
 import 'package:amiludo/layers/technical/Theme/components/tarot_face.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
 
-Widget host(Widget child) => MaterialApp(home: Scaffold(body: Center(child: child)));
+Widget host(Widget child) => MaterialApp(
+  home: Scaffold(body: Center(child: child)),
+);
 
 void main() {
   test('steampunk ink is readable on the parchment panel', () {

@@ -58,7 +58,12 @@ void main() {
     expect(old.status, 'owned');
     expect(old.barcode, '');
     expect(
-      ShelfGame.fromJson({'id': 'a', 'name': 'S', 'status': 'x', 'barcode': '37-7 0'}).barcode,
+      ShelfGame.fromJson({
+        'id': 'a',
+        'name': 'S',
+        'status': 'x',
+        'barcode': '37-7 0',
+      }).barcode,
       '3770',
     );
   });

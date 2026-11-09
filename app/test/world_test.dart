@@ -107,10 +107,10 @@ void _domainTests() {
   });
 
   test('an atlas exports, imports and merges', () {
-    final map = WorldMap.create('Realm', ScaleLevel.world).addElement(
-      'x',
-      stroke('a', ElementKind.land, const [WorldPoint(1, 2)]),
-    );
+    final map = WorldMap.create(
+      'Realm',
+      ScaleLevel.world,
+    ).addElement('x', stroke('a', ElementKind.land, const [WorldPoint(1, 2)]));
     final atlas = WorldAtlas(maps: [map]);
     final result = const WorldAtlas().import(atlas.export());
     expect(result!.count, 1);
@@ -175,9 +175,7 @@ void _widgetTests() {
     await tester.pumpWidget(
       host(
         WorldTool(
-          initial: WorldAtlas(
-            maps: [WorldMap.create('Town', ScaleLevel.city)],
-          ),
+          initial: WorldAtlas(maps: [WorldMap.create('Town', ScaleLevel.city)]),
           onChanged: (a) => saved = a,
         ),
       ),

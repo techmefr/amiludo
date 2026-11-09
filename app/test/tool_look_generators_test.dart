@@ -12,7 +12,9 @@ const sheet = GeneratedSheet('Old Bram', [
 Widget host(String id, Brightness brightness) => MaterialApp(
   theme: ThemeData(brightness: brightness),
   home: Scaffold(
-    body: SingleChildScrollView(child: GeneratorCard(id: id, sheet: sheet)),
+    body: SingleChildScrollView(
+      child: GeneratorCard(id: id, sheet: sheet),
+    ),
   ),
 );
 

@@ -13,7 +13,12 @@ import 'package:amiludo/layers/functional/Workspace/domain/use_cases/import_back
 import 'package:amiludo/layers/functional/Workspace/domain/use_cases/load_workspace_use_case.dart';
 import 'package:amiludo/layers/technical/Storage/store_database.dart';
 
-const inn = Scene(id: 'a', title: 'The inn', nextIds: ['b'], creatureIds: ['w']);
+const inn = Scene(
+  id: 'a',
+  title: 'The inn',
+  nextIds: ['b'],
+  creatureIds: ['w'],
+);
 const road = Scene(id: 'b', title: 'The road', handout: 'A torn map');
 const cave = Scene(id: 'c', title: 'The cave', nextIds: ['b']);
 
@@ -47,15 +52,18 @@ void _domainTests() {
     expect(next.of('c')!.nextIds, isEmpty);
   });
 
-  test('putting a scene drops links to unknown scenes and replaces in place', () {
-    final next = story.put(
-      const Scene(id: 'a', title: 'Inn', nextIds: ['b', 'ghost', 'a']),
-    );
-    expect(next.scenes.length, 3);
-    expect(next.scenes.first.title, 'Inn');
-    expect(next.scenes.first.nextIds, ['b']);
-    expect(story.put(const Scene(id: 'd', title: 'New')).scenes.last.id, 'd');
-  });
+  test(
+    'putting a scene drops links to unknown scenes and replaces in place',
+    () {
+      final next = story.put(
+        const Scene(id: 'a', title: 'Inn', nextIds: ['b', 'ghost', 'a']),
+      );
+      expect(next.scenes.length, 3);
+      expect(next.scenes.first.title, 'Inn');
+      expect(next.scenes.first.nextIds, ['b']);
+      expect(story.put(const Scene(id: 'd', title: 'New')).scenes.last.id, 'd');
+    },
+  );
 
   test('a storyline survives a JSON round trip', () {
     final back = Storyline.fromJson(story.toJson());

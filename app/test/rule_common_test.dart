@@ -14,7 +14,10 @@ Widget host(Widget child) => MaterialApp(
 
 const shared = RuleSection(title: 'Flanking', body: 'Advantage when flanked');
 const book = RuleBook(
-  games: [RuleGame(id: 'g1', name: 'Dungeon'), RuleGame(id: 'g2', name: 'Pirates')],
+  games: [
+    RuleGame(id: 'g1', name: 'Dungeon'),
+    RuleGame(id: 'g2', name: 'Pirates'),
+  ],
   common: [shared],
 );
 
