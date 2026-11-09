@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:amiludo/layers/technical/Theme/components/demo/demo_player.dart';
+import 'package:amiludo/layers/technical/Theme/components/demo/demo_tiles.dart';
 import 'package:amiludo/layers/technical/Theme/components/intro/intro_gate.dart';
 import 'package:amiludo/layers/technical/Theme/components/intro/intro_overlay.dart';
 import 'package:amiludo/layers/technical/Theme/components/intro/intro_timeline.dart';
@@ -151,6 +152,29 @@ void main() {
         );
         expect(tester.binding.transientCallbackCount, greaterThan(0));
         semantics.dispose();
+      });
+
+      testWidgets('demo tiles fill their cells', (tester) async {
+        _size(tester, size);
+        await tester.pumpWidget(
+          _host(
+            const SizedBox(
+              width: 300,
+              height: 168,
+              child: DemoPlayer(
+                pauseLabel: 'Pause the animated demo',
+                playLabel: 'Play',
+                color: Colors.white,
+                contrast: Colors.purple,
+              ),
+            ),
+          ),
+        );
+        for (final type in [DemoDieTile, DemoScoreTile, DemoTimerTile]) {
+          final box = tester.getSize(find.byType(type));
+          expect(box.width, greaterThan(60));
+          expect(box.height, greaterThan(40));
+        }
       });
 
       testWidgets('demo is a static frame with reduced motion', (tester) async {

@@ -27,6 +27,8 @@ class IntroOverlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final backdrop = Theme.of(context).scaffoldBackgroundColor
+        .withValues(alpha: 1);
     return Focus(
       autofocus: true,
       onKeyEvent: (node, event) {
@@ -46,7 +48,7 @@ class IntroOverlay extends StatelessWidget {
                   child: AnimatedBuilder(
                     animation: animation,
                     builder: (context, _) => ColoredBox(
-                      color: scheme.surface.withValues(
+                      color: backdrop.withValues(
                         alpha:
                             1 -
                             IntroTimeline.span(
