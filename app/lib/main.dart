@@ -29,6 +29,7 @@ import 'package:amiludo/layers/technical/Appearance/appearance.dart';
 import 'package:amiludo/layers/technical/Storage/store_database.dart';
 import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
 import 'package:amiludo/layers/technical/Feedback/deck_haptics.dart';
+import 'package:amiludo/layers/technical/Sound/tool_sounds.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -230,6 +231,7 @@ class _AmiludoRouter extends StatelessWidget {
       (cubit) => cubit.state.workspace.appearance,
     );
     DeckHaptics.enabled = appearance.haptics;
+    ToolSounds.enabled = appearance.sound;
     return MaterialApp.router(
       title: 'amiLudo',
       debugShowCheckedModeBanner: false,
