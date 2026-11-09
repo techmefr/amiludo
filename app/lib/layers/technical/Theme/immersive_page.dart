@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/technical/Theme/components/aura/aura_background.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/technical/Theme/immersive_chrome.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
@@ -25,7 +26,12 @@ class ImmersivePage extends StatelessWidget {
     final scheme = Theme.of(context).colorScheme;
     return ImmersiveChrome(
       onBack: () => _back(context),
-      child: Scaffold(
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          const Positioned.fill(child: AuraBackground()),
+          Scaffold(
+        backgroundColor: Colors.transparent,
         floatingActionButton: floatingActionButton,
         body: SafeArea(
           child: Stack(
@@ -73,6 +79,8 @@ class ImmersivePage extends StatelessWidget {
             ],
           ),
         ),
+          ),
+        ],
       ),
     );
   }

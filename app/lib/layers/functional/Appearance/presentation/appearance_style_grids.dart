@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Appearance/appearance.dart';
+import 'package:amiludo/layers/technical/Theme/components/aura/aura_preview.dart';
 import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
 import 'package:amiludo/layers/technical/Theme/components/hud_bar.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
@@ -24,6 +25,16 @@ class AppearanceSkinGrid extends StatelessWidget {
     'paper': ('lichen', 'light', 'soft', 'DMSans'),
     'game': ('gold', 'dark', 'square', 'Rajdhani'),
   };
+
+  ThemeData _preview(BuildContext context, String id) {
+    final next = _withSkin(id);
+    final current = Theme.of(context).brightness;
+    return deckTheme(next, switch (next.mode) {
+      'dark' => Brightness.dark,
+      'light' => Brightness.light,
+      _ => current,
+    });
+  }
 
   Appearance _withSkin(String id) {
     final (palette, mode, shape, font) = _presets[id]!;
@@ -65,6 +76,7 @@ class AppearanceSkinGrid extends StatelessWidget {
               onTap: () => controller.change(_withSkin(id)),
               child: _SkinCard(
                 id: id,
+                preview: _preview(context, id),
                 name: name,
                 desc: desc,
                 selected: appearance.skin == id,
@@ -79,11 +91,13 @@ class AppearanceSkinGrid extends StatelessWidget {
 class _SkinCard extends StatelessWidget {
   const _SkinCard({
     required this.id,
+    required this.preview,
     required this.name,
     required this.desc,
     required this.selected,
   });
   final String id, name, desc;
+  final ThemeData preview;
   final bool selected;
   @override
   Widget build(BuildContext context) {
@@ -91,6 +105,8 @@ class _SkinCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        AuraPreview(skin: id, theme: preview),
+        const SizedBox(height: 16),
         DeckIcon(
           id == 'clean'
               ? Icons.contrast

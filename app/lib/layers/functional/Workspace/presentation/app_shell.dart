@@ -6,6 +6,9 @@ import 'package:amiludo/layers/functional/Workspace/presentation/cubit/workspace
 import 'package:amiludo/layers/functional/Workspace/presentation/cubit/workspace_state.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/workspace_gate.dart';
 import 'package:amiludo/layers/technical/About/app_info.dart';
+import 'package:amiludo/layers/technical/Theme/components/aura/aura_background.dart';
+import 'package:amiludo/layers/technical/Theme/components/aura/aura_layer.dart';
+import 'package:amiludo/layers/technical/Theme/components/aura/aura_presets.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/components/blur_bar.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/breakpoints.dart';
@@ -34,8 +37,14 @@ int navIndex(List<NavItem> items, String path) => switch (path) {
 };
 
 class AppShell extends StatelessWidget {
-  const AppShell({super.key, required this.path, required this.child});
+  const AppShell({
+    super.key,
+    required this.path,
+    required this.child,
+    this.shelf,
+  });
   final String path;
+  final String? shelf;
   final Widget child;
   @override
   Widget build(BuildContext context) {
@@ -48,7 +57,16 @@ class AppShell extends StatelessWidget {
         !desktop &&
         (size.width >= Breakpoints.medium || size.width > size.height);
     final compact = size.height < 500;
-    return Scaffold(
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        Positioned.fill(
+          child: AuraBackground(
+            preset: AuraPresets.shelf(path == '/tools' ? shelf : null),
+          ),
+        ),
+        Scaffold(
+      backgroundColor: auraClear,
       body: SafeArea(
         child: Row(
           children: [
@@ -80,6 +98,8 @@ class AppShell extends StatelessWidget {
       bottomNavigationBar: desktop || rail
           ? null
           : _BottomBar(items: items, index: index),
+    ),
+      ],
     );
   }
 }

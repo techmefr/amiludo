@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:amiludo/layers/technical/Theme/components/aura/aura_background.dart';
 import 'package:amiludo/layers/technical/Theme/components/clean_scroll_page.dart';
 import 'package:amiludo/layers/technical/Theme/components/tool_badge.dart';
 import 'package:amiludo/layers/technical/Theme/components/tool_frame.dart';
@@ -112,10 +113,15 @@ class FullPage extends StatelessWidget {
       return ImmersiveChrome(
         onBack: () => _back(context),
         bindings: bindings,
-        child: AnimatedContainer(
+        child: Stack(
+        fit: StackFit.expand,
+        children: [
+        if (tool == null && background == null)
+          const Positioned.fill(child: AuraBackground()),
+        AnimatedContainer(
         duration: Motion.of(context, Motion.slow),
         curve: Motion.curve,
-        color: background ?? Theme.of(context).scaffoldBackgroundColor,
+        color: background ?? Colors.transparent,
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: SafeArea(
@@ -142,6 +148,8 @@ class FullPage extends StatelessWidget {
             ),
           ),
         ),
+        ),
+        ],
         ),
       );
     }
