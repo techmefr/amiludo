@@ -104,10 +104,7 @@ void main() {
 
   testWidgets('the ranking names the winner and flags ties', (tester) async {
     await tester.pumpWidget(host(const RankingTool(names: names)));
-    expect(
-      find.text('Enter at least one score to see the ranking.'),
-      findsOneWidget,
-    );
+    expect(find.text('Enter at least one score to see the ranking.'), findsOneWidget);
     await tester.enterText(find.byType(TextField).at(0), '12');
     await tester.enterText(find.byType(TextField).at(1), '12');
     await tester.enterText(find.byType(TextField).at(2), '3');

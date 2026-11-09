@@ -187,20 +187,20 @@ class _RulesToolState extends State<RulesTool> {
       ),
       if (current.id != commonRuleId)
         OutlinedButton.icon(
-          onPressed: () => showRuleDecisions(
-            context,
-            game: current,
-            onChanged: (next) => _commit(book.put(next)),
-          ),
-          icon: const DeckIcon(Icons.gavel_outlined),
-          label: Text(context.l10n.rulesDecisions(current.decisions.length)),
+        onPressed: () => showRuleDecisions(
+          context,
+          game: current,
+          onChanged: (next) => _commit(book.put(next)),
         ),
+        icon: const DeckIcon(Icons.gavel_outlined),
+        label: Text(context.l10n.rulesDecisions(current.decisions.length)),
+      ),
       if (current.id != commonRuleId)
         TextButton.icon(
-          onPressed: () => _deleteGame(current),
-          icon: const DeckIcon(Icons.delete_outline),
-          label: Text(context.l10n.rulesDeleteGame),
-        ),
+        onPressed: () => _deleteGame(current),
+        icon: const DeckIcon(Icons.delete_outline),
+        label: Text(context.l10n.rulesDeleteGame),
+      ),
     ],
   );
 
@@ -225,10 +225,7 @@ class _RulesToolState extends State<RulesTool> {
               const SizedBox(height: Space.lg),
               ..._sections(current),
               _commonSections(current),
-              if (!table) ...[
-                const SizedBox(height: Space.md),
-                _actions(current),
-              ],
+              if (!table) ...[const SizedBox(height: Space.md), _actions(current)],
             ],
           ],
         ),

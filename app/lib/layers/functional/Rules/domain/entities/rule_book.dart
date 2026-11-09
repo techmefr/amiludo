@@ -1,31 +1,15 @@
 const _accents = {
-  'à': 'a',
-  'â': 'a',
-  'ä': 'a',
-  'á': 'a',
-  'ã': 'a',
-  'ç': 'c',
-  'é': 'e',
-  'è': 'e',
-  'ê': 'e',
-  'ë': 'e',
-  'í': 'i',
-  'î': 'i',
-  'ï': 'i',
-  'ñ': 'n',
-  'ó': 'o',
-  'ô': 'o',
-  'ö': 'o',
-  'õ': 'o',
-  'ú': 'u',
-  'ù': 'u',
-  'û': 'u',
-  'ü': 'u',
-  'ß': 's',
+  'à': 'a', 'â': 'a', 'ä': 'a', 'á': 'a', 'ã': 'a', 'ç': 'c',
+  'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e', 'í': 'i', 'î': 'i', 'ï': 'i',
+  'ñ': 'n', 'ó': 'o', 'ô': 'o', 'ö': 'o', 'õ': 'o',
+  'ú': 'u', 'ù': 'u', 'û': 'u', 'ü': 'u', 'ß': 's',
 };
 
-String foldText(String text) =>
-    text.toLowerCase().split('').map((c) => _accents[c] ?? c).join();
+String foldText(String text) => text
+    .toLowerCase()
+    .split('')
+    .map((c) => _accents[c] ?? c)
+    .join();
 
 String newRuleId() => DateTime.now().microsecondsSinceEpoch.toString();
 
@@ -206,13 +190,11 @@ class RuleBook {
     );
   }
 
-  RuleBook remove(String id) => RuleBook(
-    games: [
-      for (final g in games)
-        if (g.id != id) g,
-    ],
-    common: common,
-  );
+  RuleBook remove(String id) =>
+      RuleBook(
+        games: [for (final g in games) if (g.id != id) g],
+        common: common,
+      );
 
   Map<String, Object?> toJson() => {
     'rules': [for (final g in games) g.toJson()],

@@ -124,9 +124,7 @@ class ShelfGame {
       addedAt: j['addedAt'] as int? ?? 0,
       barcode: (j['barcode'] as String? ?? '').replaceAll(RegExp(r'\D'), ''),
       imageUrl: j['imageUrl'] as String? ?? '',
-      status: shelfStatuses.contains(j['status'])
-          ? j['status'] as String
-          : 'owned',
+      status: shelfStatuses.contains(j['status']) ? j['status'] as String : 'owned',
     );
   }
 }

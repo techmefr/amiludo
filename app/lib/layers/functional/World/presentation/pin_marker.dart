@@ -71,19 +71,20 @@ class PinMarker extends StatelessWidget {
                 child: Icon(pinIcon(pin.kind), color: pinInk, size: 20),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 6),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surface
-                      .withValues(alpha: .85),
-                  borderRadius: BorderRadius.circular(Radii.sm),
+                  padding: const EdgeInsets.symmetric(horizontal: 6),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.surface.withValues(
+                      alpha: .85,
+                    ),
+                    borderRadius: BorderRadius.circular(Radii.sm),
+                  ),
+                  child: Text(
+                    pin.title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.labelSmall,
+                  ),
                 ),
-                child: Text(
-                  pin.title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.labelSmall,
-                ),
-              ),
             ],
           ),
         ),

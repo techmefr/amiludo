@@ -25,7 +25,9 @@ List<ProgressClock> stepClock(
   List<ProgressClock> clocks,
   int index,
   int delta,
-) => [for (final (i, c) in clocks.indexed) i == index ? c.step(delta) : c];
+) => [
+  for (final (i, c) in clocks.indexed) i == index ? c.step(delta) : c,
+];
 
 List<ProgressClock> removeClock(List<ProgressClock> clocks, int index) => [
   for (final (i, c) in clocks.indexed)

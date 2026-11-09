@@ -4,12 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class ImmersiveChrome extends StatefulWidget {
-  const ImmersiveChrome({
-    super.key,
-    required this.onBack,
-    required this.child,
-    this.bindings = const {},
-  });
+  const ImmersiveChrome({super.key, required this.onBack, required this.child, this.bindings = const {}});
   final VoidCallback onBack;
   final Map<ShortcutActivator, VoidCallback> bindings;
   final Widget child;

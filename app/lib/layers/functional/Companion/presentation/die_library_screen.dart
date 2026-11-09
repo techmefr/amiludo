@@ -42,28 +42,28 @@ class _DieLibraryScreenState extends State<DieLibraryScreen> {
     final l = context.l10n;
     return ImmersivePage(
       title: l.diceLibraryTitle,
-      actions: [
-        IconButton(
-          tooltip: l.diceImport,
-          constraints: const BoxConstraints.tightFor(
-            width: Targets.minimum,
-            height: Targets.minimum,
+        actions: [
+          IconButton(
+            tooltip: l.diceImport,
+            constraints: const BoxConstraints.tightFor(
+              width: Targets.minimum,
+              height: Targets.minimum,
+            ),
+            icon: const DeckIcon(Icons.file_open_outlined),
+            onPressed: () => importDice(context, cubit),
           ),
-          icon: const DeckIcon(Icons.file_open_outlined),
-          onPressed: () => importDice(context, cubit),
-        ),
-        IconButton(
-          tooltip: l.diceExportSelection,
-          constraints: const BoxConstraints.tightFor(
-            width: Targets.minimum,
-            height: Targets.minimum,
+          IconButton(
+            tooltip: l.diceExportSelection,
+            constraints: const BoxConstraints.tightFor(
+              width: Targets.minimum,
+              height: Targets.minimum,
+            ),
+            icon: const DeckIcon(Icons.ios_share_outlined),
+            onPressed: selected.isEmpty
+                ? null
+                : () => exportDice(context, cubit, selected.toList()),
           ),
-          icon: const DeckIcon(Icons.ios_share_outlined),
-          onPressed: selected.isEmpty
-              ? null
-              : () => exportDice(context, cubit, selected.toList()),
-        ),
-      ],
+        ],
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => open(cubit, null),
         icon: const DeckIcon(Icons.add),

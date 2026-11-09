@@ -30,9 +30,7 @@ class Bracket {
   Bracket win(int round, int match, int side) {
     final winner = rounds[round][match * 2 + side];
     if (round + 1 >= rounds.length || winner == null) return this;
-    final next = [
-      for (final r in rounds) [...r],
-    ];
+    final next = [for (final r in rounds) [...r]];
     next[round + 1][match] = winner;
     for (var r = round + 2; r < next.length; r++) {
       next[r] = List<String?>.filled(next[r].length, null);

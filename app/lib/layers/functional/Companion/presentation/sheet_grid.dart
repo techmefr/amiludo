@@ -54,9 +54,7 @@ class SheetGrid extends StatelessWidget {
           controller: fields[player],
           textAlign: TextAlign.center,
           keyboardType: const TextInputType.numberWithOptions(signed: true),
-          inputFormatters: [
-            FilteringTextInputFormatter.allow(RegExp('[-0-9]')),
-          ],
+          inputFormatters: [FilteringTextInputFormatter.allow(RegExp('[-0-9]'))],
           decoration: const InputDecoration(
             isDense: true,
             contentPadding: EdgeInsets.symmetric(
@@ -117,8 +115,7 @@ class SheetGrid extends StatelessWidget {
                     style: line.emphasis ? theme.titleMedium : theme.bodyMedium,
                   ),
                 ),
-                for (var p = 0; p < players.length; p++)
-                  _cell(context, line, p),
+                for (var p = 0; p < players.length; p++) _cell(context, line, p),
               ],
             ),
         ],

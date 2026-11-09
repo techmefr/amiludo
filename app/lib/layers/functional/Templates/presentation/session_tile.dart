@@ -38,9 +38,7 @@ class SessionTile extends StatelessWidget {
       ),
       clipBehavior: Clip.antiAlias,
       child: frozen
-          ? Center(
-              child: _Caption(brick: brick, ink: ink, large: true),
-            )
+          ? Center(child: _Caption(brick: brick, ink: ink, large: true))
           : Column(
               children: [
                 Padding(
@@ -52,9 +50,7 @@ class SessionTile extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      Expanded(
-                        child: _Caption(brick: brick, ink: ink),
-                      ),
+                      Expanded(child: _Caption(brick: brick, ink: ink)),
                       if (onOpen != null)
                         IconButton(
                           tooltip: context.l10n.sessionFullscreen,
@@ -74,7 +70,8 @@ class SessionTile extends StatelessWidget {
                       body ??
                       Center(
                         child: FilledButton(
-                          onPressed: () => context.push('/tools/${brick.type}'),
+                          onPressed: () =>
+                              context.push('/tools/${brick.type}'),
                           child: Text(brickTitle(context, brick)),
                         ),
                       ),

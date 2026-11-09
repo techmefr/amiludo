@@ -146,9 +146,7 @@ class _CountdownToolState extends State<CountdownTool> {
                   ),
                   IconButton(
                     tooltip: l.appearanceReset,
-                    onPressed: state.pristine
-                        ? null
-                        : () => _set(state.reset()),
+                    onPressed: state.pristine ? null : () => _set(state.reset()),
                     icon: const DeckIcon(Icons.restart_alt),
                   ),
                 ],

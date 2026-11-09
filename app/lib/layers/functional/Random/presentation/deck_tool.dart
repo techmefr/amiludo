@@ -103,9 +103,7 @@ class _DeckToolState extends State<DeckTool> {
           label: Text(l.deckRecycle),
         ),
         TextButton(
-          onPressed: deck.hand.isEmpty
-              ? null
-              : () => _apply(deck.discardHand()),
+          onPressed: deck.hand.isEmpty ? null : () => _apply(deck.discardHand()),
           child: Text(l.deckDiscardHand),
         ),
       ],

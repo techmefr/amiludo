@@ -56,9 +56,7 @@ void main() {
   testWidgets('the turn tool walks through the phases and players', (
     tester,
   ) async {
-    await tester.pumpWidget(
-      host(const SingleChildScrollView(child: TurnsTool(names: names))),
-    );
+    await tester.pumpWidget(host(const SingleChildScrollView(child: TurnsTool(names: names))));
     expect(find.text('Round 1'), findsOneWidget);
     expect(find.text('Ana'), findsOneWidget);
     await tester.tap(find.text('Next phase'));

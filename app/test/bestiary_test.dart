@@ -49,7 +49,9 @@ void _domainTests() {
   });
 
   test('entries are put, replaced and removed', () {
-    final renamed = book.put(const Creature(id: 'w', name: 'Dire wolf'));
+    final renamed = book.put(
+      const Creature(id: 'w', name: 'Dire wolf'),
+    );
     expect(renamed.creatures.length, 3);
     expect(renamed.of('w')!.name, 'Dire wolf');
     expect(book.remove('w').of('w'), isNull);
@@ -65,12 +67,7 @@ void _domainTests() {
 
   test('a plain list imports and invalid text is refused', () {
     expect(
-      const Bestiary()
-          .import('[{"name": "Bat"}]')!
-          .merged
-          .creatures
-          .single
-          .name,
+      const Bestiary().import('[{"name": "Bat"}]')!.merged.creatures.single.name,
       'Bat',
     );
     expect(const Bestiary().import('not json'), isNull);
@@ -104,10 +101,7 @@ void _widgetTests() {
   testWidgets('an entry is created from the editor', (tester) async {
     Bestiary? saved;
     await tester.pumpWidget(host(BestiaryTool(onChanged: (b) => saved = b)));
-    expect(
-      find.text('Your bestiary is empty. Add a first entry.'),
-      findsOneWidget,
-    );
+    expect(find.text('Your bestiary is empty. Add a first entry.'), findsOneWidget);
     await tester.tap(find.text('New entry'));
     await tester.pumpAndSettle();
     await tester.enterText(find.widgetWithText(TextField, 'Name'), 'Goblin');

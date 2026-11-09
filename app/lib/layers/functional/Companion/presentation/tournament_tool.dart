@@ -87,7 +87,8 @@ class _TournamentToolState extends State<TournamentTool> {
           const SizedBox(height: Space.md),
         ],
         TextButton(
-          onPressed: () => setState(() => bracket = Bracket.seed(widget.names)),
+          onPressed: () =>
+              setState(() => bracket = Bracket.seed(widget.names)),
           child: Text(l.appearanceReset),
         ),
       ],

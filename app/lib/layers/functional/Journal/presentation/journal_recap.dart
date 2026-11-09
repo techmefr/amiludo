@@ -54,10 +54,7 @@ class _JournalRecapState extends State<JournalRecap> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            l.journalRecapTitle,
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
+          Text(l.journalRecapTitle, style: Theme.of(context).textTheme.titleLarge),
           const SizedBox(height: Space.md),
           SizedBox(
             height: Targets.minimum,
@@ -79,15 +76,18 @@ class _JournalRecapState extends State<JournalRecap> {
             ),
           ),
           const SizedBox(height: Space.md),
-          Flexible(child: SingleChildScrollView(child: SelectableText(text))),
+          Flexible(
+            child: SingleChildScrollView(child: SelectableText(text)),
+          ),
           const SizedBox(height: Space.md),
           FilledButton.icon(
             onPressed: () async {
               final done = l.journalRecapCopied;
               await Clipboard.setData(ClipboardData(text: text));
               if (!context.mounted) return;
-              ScaffoldMessenger.maybeOf(context)
-                  ?.showSnackBar(SnackBar(content: Text(done)));
+              ScaffoldMessenger.maybeOf(context)?.showSnackBar(
+                SnackBar(content: Text(done)),
+              );
             },
             icon: const Icon(Icons.copy),
             label: Text(l.journalRecapCopy),

@@ -43,9 +43,7 @@ class PlayingCard extends StatelessWidget {
           ],
         ),
       ),
-      Center(
-        child: Text(suit!, style: base?.copyWith(fontSize: width * .5)),
-      ),
+      Center(child: Text(suit!, style: base?.copyWith(fontSize: width * .5))),
       Positioned(
         bottom: width * .06,
         right: width * .09,
@@ -82,8 +80,11 @@ class PlayingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ink = red ? CardPalette.red : CardPalette.ink;
-    final base = Theme.of(context).textTheme.titleLarge
-        ?.copyWith(color: ink, fontWeight: FontWeight.w700, height: 1.05);
+    final base = Theme.of(context).textTheme.titleLarge?.copyWith(
+      color: ink,
+      fontWeight: FontWeight.w700,
+      height: 1.05,
+    );
     final front = suit != null && rank != null;
     if (faceDown) {
       return SizedBox(

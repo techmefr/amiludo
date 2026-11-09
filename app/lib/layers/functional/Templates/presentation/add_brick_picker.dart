@@ -49,7 +49,9 @@ class _BrickPicker extends StatelessWidget {
         Wrap(
           spacing: Space.sm,
           runSpacing: Space.sm,
-          children: [for (final id in shelf.tools) _choice(context, id)],
+          children: [
+            for (final id in shelf.tools) _choice(context, id),
+          ],
         ),
       ],
     ],

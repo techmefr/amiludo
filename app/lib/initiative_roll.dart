@@ -32,36 +32,38 @@ class _InitiativeRollPageState extends State<InitiativeRollPage> {
     return ImmersivePage(
       title: l.combatRollTitle(widget.name),
       child: Column(
-        children: [
-          Expanded(
-            child: SingleChildScrollView(
-              child: DieStudioHost(
-                child: DiceTrayPage(
-                  initial: const DiceTraySettings(dice: [DiceSpec(sides: 20)]),
-                  solid: true,
-                  haptics: appearance.haptics,
-                  skin: appearance.dieSkin,
-                  table: appearance.table,
-                  onSettled: (total) => setState(() => result = total),
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: DieStudioHost(
+                  child: DiceTrayPage(
+                    initial: const DiceTraySettings(
+                      dice: [DiceSpec(sides: 20)],
+                    ),
+                    solid: true,
+                    haptics: appearance.haptics,
+                    skin: appearance.dieSkin,
+                    table: appearance.table,
+                    onSettled: (total) => setState(() => result = total),
+                  ),
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(Space.lg),
-            child: SizedBox(
-              width: double.infinity,
-              height: Targets.minimum + Space.md,
-              child: FilledButton(
-                onPressed: result == null
-                    ? null
-                    : () => Navigator.pop(context, result),
-                child: Text(l.combatUseRoll(result ?? 0)),
+            Padding(
+              padding: const EdgeInsets.all(Space.lg),
+              child: SizedBox(
+                width: double.infinity,
+                height: Targets.minimum + Space.md,
+                child: FilledButton(
+                  onPressed: result == null
+                      ? null
+                      : () => Navigator.pop(context, result),
+                  child: Text(l.combatUseRoll(result ?? 0)),
+                ),
               ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
     );
   }
 }

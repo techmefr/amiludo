@@ -16,8 +16,11 @@ class RollTable {
     ],
   );
 
-  factory RollTable.fromText(String id, String name, String text) =>
-      RollTable(id: id, name: name, entries: entriesOf(text));
+  factory RollTable.fromText(String id, String name, String text) => RollTable(
+    id: id,
+    name: name,
+    entries: entriesOf(text),
+  );
 
   final String id, name;
   final List<String> entries;
@@ -27,7 +30,11 @@ class RollTable {
   String? roll(int Function(int count) pick) =>
       entries.isEmpty ? null : entries[pick(entries.length)];
 
-  Map<String, Object?> toJson() => {'id': id, 'name': name, 'entries': entries};
+  Map<String, Object?> toJson() => {
+    'id': id,
+    'name': name,
+    'entries': entries,
+  };
 }
 
 List<String> entriesOf(String text) => [

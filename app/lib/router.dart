@@ -152,9 +152,12 @@ Widget _tournament(BuildContext context) =>
 
 Widget _balance(BuildContext context) => BalanceTool(names: _names(context));
 
-Widget _league(BuildContext context) => LeagueTool(names: _names(context));
-Widget _solo(BuildContext context) => const SoloTool();
-Widget _units(BuildContext context) => const UnitsTool();
+Widget _league(BuildContext context) =>
+    LeagueTool(names: _names(context));
+Widget _solo(BuildContext context) =>
+    const SoloTool();
+Widget _units(BuildContext context) =>
+    const UnitsTool();
 
 Widget _turns(BuildContext context) => TurnsTool(names: _names(context));
 
@@ -284,53 +287,53 @@ class _SheetRoute extends StatelessWidget {
 }
 
 const Map<String, WidgetBuilder> embeddedToolBuilders = {
-  'scores': _scores,
-  'timer': _timer,
-  'stopwatch': _stopwatch,
-  'chess-clock': _chessClock,
-  'deck': _deck,
-  'rules': rulesWithStorage,
-  'worldmap': worldWithStorage,
-  'gmtables': tablesWithStorage,
-  'scenes': scenesWithStorage,
-  'bestiary': bestiaryWithStorage,
-  'combat': combatWithStorage,
-  'vote': _vote,
-  'countdown': countdownWithFeedback,
-  'phases': phasesWithFeedback,
-  'metronome': metronomeWithFeedback,
-  'life': _life,
-  'tally': _tally,
-  'ranking': _ranking,
-  'buzzer': _buzzer,
-  'clocks': _clocks,
-  'sport': _sport,
-  'markers': _markers,
-  'bank': _bank,
-  'auction': _auction,
-  'tournament': _tournament,
-  'balance': _balance,
-  'league': _league,
-  'solo': _solo,
-  'units': _units,
-  'stats': _stats,
-  'sheet': _sheet,
-  'turns': _turns,
-  'first-player': _firstPlayer,
-  'turn-timer': turnTimerWithFeedback,
-  'impostor': _impostor,
-  'oracle': _oracle,
-  'challenges': _challenges,
-  'journal': journalWithStorage,
-  'ambience': ambienceWithSound,
-  'dice-tray': diceTrayWithSensors,
-  'hourglass': hourglassWithSensors,
-  'map': mapWithStorage,
-  'heroes': _heroes,
-  'counter-life': _counterLife,
-  'counter-points': _counterPoints,
-  'counter-chips': _counterChips,
-  'counter-pot': _counterPot,
+          'scores': _scores,
+          'timer': _timer,
+          'stopwatch': _stopwatch,
+          'chess-clock': _chessClock,
+          'deck': _deck,
+          'rules': rulesWithStorage,
+          'worldmap': worldWithStorage,
+          'gmtables': tablesWithStorage,
+          'scenes': scenesWithStorage,
+          'bestiary': bestiaryWithStorage,
+          'combat': combatWithStorage,
+          'vote': _vote,
+          'countdown': countdownWithFeedback,
+          'phases': phasesWithFeedback,
+          'metronome': metronomeWithFeedback,
+          'life': _life,
+          'tally': _tally,
+          'ranking': _ranking,
+          'buzzer': _buzzer,
+          'clocks': _clocks,
+          'sport': _sport,
+          'markers': _markers,
+          'bank': _bank,
+          'auction': _auction,
+          'tournament': _tournament,
+          'balance': _balance,
+          'league': _league,
+          'solo': _solo,
+          'units': _units,
+          'stats': _stats,
+          'sheet': _sheet,
+          'turns': _turns,
+          'first-player': _firstPlayer,
+          'turn-timer': turnTimerWithFeedback,
+          'impostor': _impostor,
+          'oracle': _oracle,
+          'challenges': _challenges,
+          'journal': journalWithStorage,
+          'ambience': ambienceWithSound,
+          'dice-tray': diceTrayWithSensors,
+          'hourglass': hourglassWithSensors,
+          'map': mapWithStorage,
+          'heroes': _heroes,
+          'counter-life': _counterLife,
+          'counter-points': _counterPoints,
+          'counter-chips': _counterChips,
+          'counter-pot': _counterPot,
 };
 
 Widget? _brickWidget(BuildContext context, Brick brick) {

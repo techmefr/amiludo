@@ -4,7 +4,10 @@ class LogEntry {
   factory LogEntry.fromJson(Map<String, dynamic> j) => LogEntry(
     id: j['id'] as String? ?? '',
     text: j['text'] as String? ?? '',
-    at: DateTime.fromMillisecondsSinceEpoch(j['at'] as int? ?? 0, isUtc: true),
+    at: DateTime.fromMillisecondsSinceEpoch(
+      j['at'] as int? ?? 0,
+      isUtc: true,
+    ),
   );
 
   final String id, text;
@@ -42,12 +45,8 @@ class GameLog {
     return GameLog(entries: [entry, ...entries]);
   }
 
-  GameLog remove(String id) => GameLog(
-    entries: [
-      for (final e in entries)
-        if (e.id != id) e,
-    ],
-  );
+  GameLog remove(String id) =>
+      GameLog(entries: [for (final e in entries) if (e.id != id) e]);
 
   Map<String, Object?> toJson() => {
     'journal': [for (final e in entries) e.toJson()],

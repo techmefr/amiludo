@@ -94,7 +94,9 @@ class _ShelfGameFormState extends State<ShelfGameForm> {
           TextField(
             controller: barcode,
             keyboardType: TextInputType.number,
-            decoration: InputDecoration(labelText: context.l10n.libraryBarcode),
+            decoration: InputDecoration(
+              labelText: context.l10n.libraryBarcode,
+            ),
           ),
           SectionHeading(context.l10n.libraryStatus),
           ShelfChoiceChips(

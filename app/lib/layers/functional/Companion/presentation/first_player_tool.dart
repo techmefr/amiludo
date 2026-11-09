@@ -94,9 +94,7 @@ class _FirstPlayerToolState extends State<FirstPlayerTool>
               Semantics(
                 liveRegion: true,
                 child: Text(
-                  chosen == null
-                      ? ''
-                      : l.firstPlayerStarts(widget.names[chosen!]),
+                  chosen == null ? '' : l.firstPlayerStarts(widget.names[chosen!]),
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),

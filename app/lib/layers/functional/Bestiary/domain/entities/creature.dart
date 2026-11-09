@@ -7,8 +7,10 @@ String newCreatureId() => DateTime.now().microsecondsSinceEpoch.toString();
 class CreatureField {
   const CreatureField(this.label, this.value);
 
-  factory CreatureField.fromJson(Map<String, dynamic> j) =>
-      CreatureField(j['label'] as String? ?? '', j['value'] as String? ?? '');
+  factory CreatureField.fromJson(Map<String, dynamic> j) => CreatureField(
+    j['label'] as String? ?? '',
+    j['value'] as String? ?? '',
+  );
 
   final String label, value;
 

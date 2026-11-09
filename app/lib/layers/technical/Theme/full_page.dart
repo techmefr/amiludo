@@ -112,35 +112,35 @@ class FullPage extends StatelessWidget {
         onBack: () => _back(context),
         bindings: bindings,
         child: AnimatedContainer(
-          duration: Motion.of(context, Motion.slow),
-          curve: Motion.curve,
-          color: background ?? Theme.of(context).scaffoldBackgroundColor,
-          child: Scaffold(
-            backgroundColor: Colors.transparent,
-            body: SafeArea(
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  Positioned.fill(child: _body(context)),
-                  Semantics(
-                    header: true,
-                    label: title,
-                    child: const SizedBox.shrink(),
+        duration: Motion.of(context, Motion.slow),
+        curve: Motion.curve,
+        color: background ?? Theme.of(context).scaffoldBackgroundColor,
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: SafeArea(
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                Positioned.fill(child: _body(context)),
+                Semantics(
+                  header: true,
+                  label: title,
+                  child: const SizedBox.shrink(),
+                ),
+                if (tool == null)
+                  _discreetBack(context)
+                else
+                  ToolHeaderPill(id: tool!, onBack: () => _back(context)),
+                if (actions.isNotEmpty)
+                  Positioned(
+                    top: Space.xs,
+                    right: Space.xs,
+                    child: Row(children: actions),
                   ),
-                  if (tool == null)
-                    _discreetBack(context)
-                  else
-                    ToolHeaderPill(id: tool!, onBack: () => _back(context)),
-                  if (actions.isNotEmpty)
-                    Positioned(
-                      top: Space.xs,
-                      right: Space.xs,
-                      child: Row(children: actions),
-                    ),
-                ],
-              ),
+              ],
             ),
           ),
+        ),
         ),
       );
     }

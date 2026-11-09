@@ -18,13 +18,15 @@ extension WorldMapPins on WorldMap {
   double metersBetween(WorldPoint a, WorldPoint b) =>
       a.distanceTo(b) / gridCell * level.cellMeters;
 
-  WorldMap _pins(String floorId, List<MapPin> Function(List<MapPin>) change) =>
-      copyWith(
-        floors: [
-          for (final f in floors)
-            f.id == floorId ? f.copyWith(pins: change(f.pins)) : f,
-        ],
-      );
+  WorldMap _pins(
+    String floorId,
+    List<MapPin> Function(List<MapPin>) change,
+  ) => copyWith(
+    floors: [
+      for (final f in floors)
+        f.id == floorId ? f.copyWith(pins: change(f.pins)) : f,
+    ],
+  );
 
   WorldMap addPin(String floorId, MapPin pin) =>
       _pins(floorId, (pins) => [...pins, pin]);
@@ -32,7 +34,9 @@ extension WorldMapPins on WorldMap {
   WorldMap updatePin(MapPin next) => copyWith(
     floors: [
       for (final f in floors)
-        f.copyWith(pins: [for (final p in f.pins) p.id == next.id ? next : p]),
+        f.copyWith(
+          pins: [for (final p in f.pins) p.id == next.id ? next : p],
+        ),
     ],
   );
 

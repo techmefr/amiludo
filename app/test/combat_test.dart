@@ -93,10 +93,11 @@ void _domainTests() {
       Combatant(id: '100', name: 'Goblin', hp: 7, maxHp: 7, bonus: 2),
       3,
     );
-    expect(
-      [for (final c in group.combatants) c.name],
-      ['Goblin 1', 'Goblin 2', 'Goblin 3'],
-    );
+    expect([for (final c in group.combatants) c.name], [
+      'Goblin 1',
+      'Goblin 2',
+      'Goblin 3',
+    ]);
     expect(group.combatants.map((c) => c.id).toSet().length, 3);
     expect(group.combatants.every((c) => c.maxHp == 7 && c.bonus == 2), isTrue);
     expect(const Encounter().addGroup(fighter('1', 'Solo', 1), 1).combatants, [
@@ -148,10 +149,7 @@ void _widgetTests() {
       host(
         CombatTool(
           initial: Encounter(
-            combatants: [
-              fighter('a', 'Ana', 15),
-              fighter('b', 'Orc', 8, hp: 6),
-            ],
+            combatants: [fighter('a', 'Ana', 15), fighter('b', 'Orc', 8, hp: 6)],
           ),
         ),
       ),
@@ -209,10 +207,7 @@ void _widgetTests() {
     await tester.pumpWidget(
       host(CombatTool(onChanged: (e) => saved = e, npcNames: const ['Mira'])),
     );
-    expect(
-      find.text('No combatants yet. Add the heroes and the monsters.'),
-      findsOneWidget,
-    );
+    expect(find.text('No combatants yet. Add the heroes and the monsters.'), findsOneWidget);
     await tester.tap(find.text('Add'));
     await tester.pumpAndSettle();
     expect(find.text('Mira'), findsOneWidget);
@@ -224,10 +219,11 @@ void _widgetTests() {
     await tester.pump();
     await tester.tap(find.widgetWithText(FilledButton, 'Add'));
     await tester.pumpAndSettle();
-    expect(
-      [for (final c in saved!.combatants) c.name],
-      ['Mira 1', 'Mira 2', 'Mira 3'],
-    );
+    expect([for (final c in saved!.combatants) c.name], [
+      'Mira 1',
+      'Mira 2',
+      'Mira 3',
+    ]);
     expect(find.text('Mira 2'), findsOneWidget);
   });
 }

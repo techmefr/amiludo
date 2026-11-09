@@ -2,10 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-typedef BarcodeScannerBuilder = Widget Function(
-  ValueChanged<String> onCode,
-  String unavailable,
-);
+typedef BarcodeScannerBuilder =
+    Widget Function(ValueChanged<String> onCode, String unavailable);
 
 bool get cameraScanSupported =>
     kIsWeb ||

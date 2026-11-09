@@ -34,9 +34,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
   @override
   Widget build(BuildContext context) {
     final shelf = context.watch<LibraryCubit>().state.games;
-    final stats = context.read<LibraryCubit>().statsFor(
-      context.watch<LibraryCubit>().state,
-    );
+    final stats = context.read<LibraryCubit>().statsFor(context.watch<LibraryCubit>().state);
     final games = shelf.where((g) => _matches(g, stats)).toList()
       ..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
     return Column(

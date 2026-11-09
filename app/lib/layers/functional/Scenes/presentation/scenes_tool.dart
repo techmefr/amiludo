@@ -68,9 +68,7 @@ class _ScenesToolState extends State<ScenesTool> {
           if (s.id != scene?.id) s,
       ],
       creatureNames: widget.creatureNames,
-      onDelete: scene == null
-          ? null
-          : () => _commit(storyline.remove(scene.id)),
+      onDelete: scene == null ? null : () => _commit(storyline.remove(scene.id)),
     );
     if (saved != null) _commit(storyline.put(saved));
   }

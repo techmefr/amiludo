@@ -22,9 +22,7 @@ extension WorldMapFog on WorldMap {
           ]
         : [...f.reveals, p];
     return copyWith(
-      floors: [
-        for (final x in floors) x.id == floorId ? x.copyWith(reveals: next) : x,
-      ],
+      floors: [for (final x in floors) x.id == floorId ? x.copyWith(reveals: next) : x],
     );
   }
 

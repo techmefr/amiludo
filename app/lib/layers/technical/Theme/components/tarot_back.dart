@@ -170,12 +170,13 @@ class TarotBackPainter extends CustomPainter {
     final moon = Path.combine(
       PathOperation.difference,
       Path()..addOval(Rect.fromCircle(center: c, radius: radius * .38)),
-      Path()..addOval(
-        Rect.fromCircle(
-          center: c + Offset(radius * .16, -radius * .06),
-          radius: radius * .33,
+      Path()
+        ..addOval(
+          Rect.fromCircle(
+            center: c + Offset(radius * .16, -radius * .06),
+            radius: radius * .33,
+          ),
         ),
-      ),
     );
     canvas.drawPath(moon, Paint()..color = style.line);
     _star(canvas, c + Offset(radius * .17, -radius * .02), radius * .12);

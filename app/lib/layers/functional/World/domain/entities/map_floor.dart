@@ -22,7 +22,8 @@ class MapFloor {
         MapPin.fromJson(Map<String, dynamic>.from(p as Map)),
     ],
     reveals: [
-      for (final r in j['reveals'] as List? ?? const []) WorldPoint.fromJson(r),
+      for (final r in j['reveals'] as List? ?? const [])
+        WorldPoint.fromJson(r),
     ],
   );
 
@@ -65,3 +66,4 @@ class MapFloor {
     'reveals': [for (final r in reveals) r.toJson()],
   };
 }
+

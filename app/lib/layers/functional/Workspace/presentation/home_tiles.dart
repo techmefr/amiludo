@@ -24,47 +24,47 @@ class HomeWaysToPlay extends StatelessWidget {
   );
 
   List<Widget> _tiles(BuildContext context) => [
-    DeckTile(
-      icon: Icons.casino_outlined,
-      title: context.l10n.workspaceFreeMode,
-      onTap: () => context.go('/tools'),
-    ),
-    DeckTile(
-      icon: Icons.build_outlined,
-      title: context.l10n.buildTitle,
-      subtitle: context.l10n.buildSubtitle,
-      onTap: () => context.push('/build'),
-    ),
-    DeckTile(
-      icon: Icons.dashboard_outlined,
-      title: context.l10n.workspaceMyGameCompanions,
-      onTap: () => context.go('/templates'),
-    ),
-    DeckTile(
-      icon: Icons.auto_stories_outlined,
-      title: context.l10n.chroniclesTitle,
-      onTap: () => context.push('/chronicles'),
-    ),
-    DeckTile(
-      icon: Icons.wifi_tethering,
-      title: context.l10n.workspaceOpenALobby,
-      onTap: () => context.go('/lobby'),
-    ),
-    DeckTile(
-      icon: Icons.login,
-      title: context.l10n.workspaceJoinAGame,
-      onTap: () => context.go('/join'),
-    ),
-    DeckTile(
-      icon: Icons.auto_stories_outlined,
-      title: context.l10n.campaignHomeTile,
-      onTap: () => context.go('/campaign'),
-    ),
-    DeckTile(
-      icon: Icons.menu_book_outlined,
-      title: context.l10n.notebookHomeTile,
-      onTap: () => context.push('/notebook'),
-    ),
+      DeckTile(
+        icon: Icons.casino_outlined,
+        title: context.l10n.workspaceFreeMode,
+        onTap: () => context.go('/tools'),
+      ),
+      DeckTile(
+        icon: Icons.build_outlined,
+        title: context.l10n.buildTitle,
+        subtitle: context.l10n.buildSubtitle,
+        onTap: () => context.push('/build'),
+      ),
+      DeckTile(
+        icon: Icons.dashboard_outlined,
+        title: context.l10n.workspaceMyGameCompanions,
+        onTap: () => context.go('/templates'),
+      ),
+      DeckTile(
+        icon: Icons.auto_stories_outlined,
+        title: context.l10n.chroniclesTitle,
+        onTap: () => context.push('/chronicles'),
+      ),
+      DeckTile(
+        icon: Icons.wifi_tethering,
+        title: context.l10n.workspaceOpenALobby,
+        onTap: () => context.go('/lobby'),
+      ),
+      DeckTile(
+        icon: Icons.login,
+        title: context.l10n.workspaceJoinAGame,
+        onTap: () => context.go('/join'),
+      ),
+      DeckTile(
+        icon: Icons.auto_stories_outlined,
+        title: context.l10n.campaignHomeTile,
+        onTap: () => context.go('/campaign'),
+      ),
+      DeckTile(
+        icon: Icons.menu_book_outlined,
+        title: context.l10n.notebookHomeTile,
+        onTap: () => context.push('/notebook'),
+      ),
   ];
 }
 

@@ -39,7 +39,11 @@ class Bestiary {
     ],
   );
 
-  List<Creature> filter({String query = '', CreatureKind? kind, String? tag}) {
+  List<Creature> filter({
+    String query = '',
+    CreatureKind? kind,
+    String? tag,
+  }) {
     final found = [
       for (final c in creatures)
         if ((kind == null || c.kind == kind) &&

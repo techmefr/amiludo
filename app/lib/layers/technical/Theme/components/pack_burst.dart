@@ -155,8 +155,7 @@ class _PackBurstState extends State<PackBurst>
                 Positioned.fill(
                   child: IgnorePointer(
                     child: ColoredBox(
-                      color: const Color(0xffffffff)
-                          .withValues(alpha: flash * .8),
+                      color: const Color(0xffffffff).withValues(alpha: flash * .8),
                     ),
                   ),
                 ),

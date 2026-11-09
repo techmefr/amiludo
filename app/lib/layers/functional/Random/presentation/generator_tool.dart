@@ -83,7 +83,11 @@ class _GeneratorToolState extends State<GeneratorTool> {
                 child: child,
               ),
             ),
-            child: GeneratorCard(key: ValueKey(drawn), id: widget.id, sheet: s),
+            child: GeneratorCard(
+              key: ValueKey(drawn),
+              id: widget.id,
+              sheet: s,
+            ),
           ),
         const SizedBox(height: Space.lg),
         RandomDrawButton(onPressed: engine == null ? null : draw),

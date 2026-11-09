@@ -78,8 +78,9 @@ class WorldViewportController extends ChangeNotifier {
     ),
   );
 
-  void zoomBy(double factor) =>
-      _go(_viewport.zoomedBy(factor, Offset(size.width / 2, size.height / 2)));
+  void zoomBy(double factor) => _go(
+    _viewport.zoomedBy(factor, Offset(size.width / 2, size.height / 2)),
+  );
 
   void _go(WorldViewport target) {
     final run = animator;

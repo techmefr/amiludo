@@ -24,16 +24,17 @@ String _decode(String text) => text
     .replaceAll('&amp;', '&');
 
 int _attribute(String tag, String name) =>
-    int.tryParse(RegExp('$name="(\\d+)"').firstMatch(tag)?.group(1) ?? '') ?? 0;
+    int.tryParse(
+      RegExp('$name="(\\d+)"').firstMatch(tag)?.group(1) ?? '',
+    ) ??
+    0;
 
 List<BggCollectionItem> parseBggCollection(String xml) => [
   for (final match in _item.allMatches(xml))
     if (_title.firstMatch(match.group(1)!)?.group(1) case final title?)
       BggCollectionItem(
         name: _decode(title).trim(),
-        imageUrl: _decode(
-          _thumbnail.firstMatch(match.group(1)!)?.group(1) ?? '',
-        ),
+        imageUrl: _decode(_thumbnail.firstMatch(match.group(1)!)?.group(1) ?? ''),
         minPlayers: _attribute(
           _stats.firstMatch(match.group(1)!)?.group(0) ?? '',
           'minplayers',

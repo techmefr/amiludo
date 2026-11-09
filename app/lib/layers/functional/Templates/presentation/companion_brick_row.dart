@@ -72,10 +72,7 @@ class CompanionBrickRow extends StatelessWidget {
                 icon: const DeckIcon(Icons.view_module_outlined),
                 itemBuilder: (_) => [
                   for (final size in TileSize.values)
-                    PopupMenuItem(
-                      value: size,
-                      child: Text(_size(context, size)),
-                    ),
+                    PopupMenuItem(value: size, child: Text(_size(context, size))),
                 ],
               ),
               IconButton(

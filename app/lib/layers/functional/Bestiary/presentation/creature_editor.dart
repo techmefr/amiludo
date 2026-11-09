@@ -99,8 +99,7 @@ class _CreatureEditorState extends State<CreatureEditor> {
         ],
         fields: [
           for (final f in fields)
-            if (f.label.text.trim().isNotEmpty ||
-                f.value.text.trim().isNotEmpty)
+            if (f.label.text.trim().isNotEmpty || f.value.text.trim().isNotEmpty)
               CreatureField(f.label.text.trim(), f.value.text.trim()),
         ],
         notes: notes.text.trim(),

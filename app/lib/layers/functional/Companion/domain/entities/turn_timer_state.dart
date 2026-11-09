@@ -36,7 +36,8 @@ class TurnTimerState {
     return _with(remaining: next, running: next > Duration.zero);
   }
 
-  TurnTimerState toggled() => expired ? pass() : _with(running: !running);
+  TurnTimerState toggled() =>
+      expired ? pass() : _with(running: !running);
 
   TurnTimerState pass() => _with(
     current: (current + 1) % players,

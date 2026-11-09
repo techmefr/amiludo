@@ -67,8 +67,7 @@ class _CompanionBuilderState extends State<CompanionBuilder> {
         context,
         CounterSettings.fromJson(brick.settings),
       );
-      if (next != null)
-        _change(draft.replace(brick.withSettings(next.toJson())));
+      if (next != null) _change(draft.replace(brick.withSettings(next.toJson())));
       return;
     }
     final label = await askBrickLabel(context, brick.label ?? '');

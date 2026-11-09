@@ -37,9 +37,9 @@ class _BestiaryToolState extends State<BestiaryTool> {
     widget.onChanged?.call(next);
   }
 
-  void _say(String message) =>
-      ScaffoldMessenger.maybeOf(context)
-          ?.showSnackBar(SnackBar(content: Text(message)));
+  void _say(String message) => ScaffoldMessenger.maybeOf(
+    context,
+  )?.showSnackBar(SnackBar(content: Text(message)));
 
   Future<void> _edit([Creature? creature]) async {
     final saved = await showCreatureEditor(

@@ -33,8 +33,9 @@ class CategoryBanner extends StatelessWidget {
               child: Row(
                 children: [
                   IconButton(
-                    tooltip: MaterialLocalizations.of(context)
-                        .backButtonTooltip,
+                    tooltip: MaterialLocalizations.of(
+                      context,
+                    ).backButtonTooltip,
                     onPressed: () => context.pop(),
                     icon: DeckIcon(Icons.arrow_back, color: ink),
                   ),

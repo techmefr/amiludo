@@ -103,8 +103,9 @@ class _Row extends StatelessWidget {
               child: Text(
                 value,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.titleMedium
-                    ?.copyWith(fontFeatures: Numerals.tabular),
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  fontFeatures: Numerals.tabular,
+                ),
               ),
             ),
           ),

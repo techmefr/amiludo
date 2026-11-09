@@ -37,10 +37,7 @@ class RankingPodium extends StatelessWidget {
                         vertical: Space.xs,
                       ),
                       decoration: BoxDecoration(
-                        border: Border.all(
-                          color: StonePalette.danger,
-                          width: 3,
-                        ),
+                        border: Border.all(color: StonePalette.danger, width: 3),
                         borderRadius: BorderRadius.circular(Radii.sm),
                       ),
                       child: Text(

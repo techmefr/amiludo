@@ -223,14 +223,7 @@ class _GameArtPainter extends CustomPainter {
       pawn(canvas, 165, 99, purple);
       pawn(canvas, 228, 132, mint);
       disk(canvas, const Offset(163, 36), 6, yellow);
-    } else if (tool == 'timer' ||
-        tool == 'hourglass' ||
-        tool == 'stopwatch' ||
-        tool == 'chess-clock' ||
-        tool == 'countdown' ||
-        tool == 'turn-timer' ||
-        tool == 'phases' ||
-        tool == 'metronome') {
+    } else if (tool == 'timer' || tool == 'hourglass' || tool == 'stopwatch' || tool == 'chess-clock' || tool == 'countdown' || tool == 'turn-timer' || tool == 'phases' || tool == 'metronome') {
       _timer(canvas);
     } else if (tool == 'wheel') {
       _wheel(canvas);

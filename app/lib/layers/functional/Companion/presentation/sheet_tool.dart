@@ -35,8 +35,10 @@ class _SheetToolState extends State<SheetTool> {
 
   int get rowCount => preset.rounds ? rounds : preset.rows.length;
 
-  TextEditingController _field(int row, int player) =>
-      fields.putIfAbsent('$epoch:$row:$player', TextEditingController.new);
+  TextEditingController _field(int row, int player) => fields.putIfAbsent(
+    '$epoch:$row:$player',
+    TextEditingController.new,
+  );
 
   List<int> _values(int player) => [
     for (var r = 0; r < rowCount; r++)
@@ -73,7 +75,8 @@ class _SheetToolState extends State<SheetTool> {
         SheetLine(
           label: l.sheetBonus(preset.bonusThreshold),
           readings: [
-            for (var p = 0; p < count; p++) '${sheetBonus(preset, _values(p))}',
+            for (var p = 0; p < count; p++)
+              '${sheetBonus(preset, _values(p))}',
           ],
         ),
       SheetLine(

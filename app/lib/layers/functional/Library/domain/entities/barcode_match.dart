@@ -17,4 +17,5 @@ class BarcodeMatch {
 
 String barcodeDigits(String raw) => raw.replaceAll(RegExp(r'\D'), '');
 
-bool isValidBarcode(String digits) => digits.length >= 8 && digits.length <= 14;
+bool isValidBarcode(String digits) =>
+    digits.length >= 8 && digits.length <= 14;

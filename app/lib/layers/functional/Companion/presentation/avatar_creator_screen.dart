@@ -53,12 +53,12 @@ class _AvatarCreatorScreenState extends State<AvatarCreatorScreen> {
     final label = avatarSlotLabel(l10n, slot);
     return ImmersivePage(
       title: l10n.avatarCreatorTitle,
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.pop(context, look),
-          child: Text(l10n.avatarSave),
-        ),
-      ],
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, look),
+            child: Text(l10n.avatarSave),
+          ),
+        ],
       child: ListView(
         padding: const EdgeInsets.all(Space.lg),
         children: [

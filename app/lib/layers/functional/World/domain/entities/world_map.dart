@@ -58,9 +58,7 @@ class WorldMap {
         (l) => l.name == j['level'],
         orElse: () => ScaleLevel.region,
       ),
-      floors: floors.isEmpty
-          ? [MapFloor(id: '${newWorldId()}f', name: '0')]
-          : floors,
+      floors: floors.isEmpty ? [MapFloor(id: '${newWorldId()}f', name: '0')] : floors,
       grid: j['grid'] == true,
       fog: j['fog'] == true,
       parentId: j['parentId'] as String?,
@@ -107,7 +105,9 @@ class WorldMap {
         if (int.tryParse(f.name) != null) int.parse(f.name),
     ];
     if (numbers.isEmpty) return '${floors.length}';
-    return below ? '${numbers.reduce(min) - 1}' : '${numbers.reduce(max) + 1}';
+    return below
+        ? '${numbers.reduce(min) - 1}'
+        : '${numbers.reduce(max) + 1}';
   }
 
   WorldMap addFloor(String name, {bool below = false}) {

@@ -54,10 +54,8 @@ const scorePresets = [
   ScorePreset('skyjo', [], lowestWins: true, rounds: true),
 ];
 
-ScorePreset presetById(String id) => scorePresets.firstWhere(
-  (p) => p.id == id,
-  orElse: () => scorePresets.first,
-);
+ScorePreset presetById(String id) =>
+    scorePresets.firstWhere((p) => p.id == id, orElse: () => scorePresets.first);
 
 int sheetBonus(ScorePreset preset, List<int> values) {
   if (!preset.hasBonus) return 0;
