@@ -5999,4 +5999,10 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get hourglassMotionDenied =>
       'Erlaube Bewegungsdaten im Browser und versuche es erneut.';
+
+  @override
+  String get randomTapPackToOpen => 'Tippe auf das Pack, um es zu öffnen';
+
+  @override
+  String get randomTapCardToReveal => 'Tippe auf die Karte, um sie aufzudecken';
 }

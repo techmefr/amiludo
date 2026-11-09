@@ -5952,4 +5952,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get hourglassMotionDenied =>
       'Allow motion access in your browser, then try again.';
+
+  @override
+  String get randomTapPackToOpen => 'Tap the pack to open it';
+
+  @override
+  String get randomTapCardToReveal => 'Tap the card to reveal it';
 }

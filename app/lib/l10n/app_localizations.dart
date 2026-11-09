@@ -11041,6 +11041,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Allow motion access in your browser, then try again.'**
   String get hourglassMotionDenied;
+
+  /// No description provided for @randomTapPackToOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the pack to open it'**
+  String get randomTapPackToOpen;
+
+  /// No description provided for @randomTapCardToReveal.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the card to reveal it'**
+  String get randomTapCardToReveal;
 }
 
 class _AppLocalizationsDelegate

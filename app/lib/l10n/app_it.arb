@@ -1830,5 +1830,7 @@
   "sessionGridView": "Mostra tutti gli strumenti",
   "sessionSwitchTool": "Cambia strumento",
   "hourglassEnableMotion": "Attiva movimento",
-  "hourglassMotionDenied": "Consenti l’accesso al movimento nel browser e riprova."
+  "hourglassMotionDenied": "Consenti l’accesso al movimento nel browser e riprova.",
+  "randomTapPackToOpen": "Tocca il pacchetto per aprirlo",
+  "randomTapCardToReveal": "Tocca la carta per rivelarla"
 }

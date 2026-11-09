@@ -5988,4 +5988,10 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get hourglassMotionDenied =>
       'Sta bewegingstoegang toe in je browser en probeer opnieuw.';
+
+  @override
+  String get randomTapPackToOpen => 'Tik op het pakje om het te openen';
+
+  @override
+  String get randomTapCardToReveal => 'Tik op de kaart om hem te onthullen';
 }

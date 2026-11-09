@@ -1830,5 +1830,7 @@
   "sessionGridView": "Alle hulpmiddelen tonen",
   "sessionSwitchTool": "Van hulpmiddel wisselen",
   "hourglassEnableMotion": "Beweging inschakelen",
-  "hourglassMotionDenied": "Sta bewegingstoegang toe in je browser en probeer opnieuw."
+  "hourglassMotionDenied": "Sta bewegingstoegang toe in je browser en probeer opnieuw.",
+  "randomTapPackToOpen": "Tik op het pakje om het te openen",
+  "randomTapCardToReveal": "Tik op de kaart om hem te onthullen"
 }
