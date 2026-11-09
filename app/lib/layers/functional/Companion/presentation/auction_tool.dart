@@ -87,9 +87,8 @@ class _AuctionToolState extends State<AuctionTool> {
                               ? l.auctionPickBidder
                               : l.auctionLeft(left)),
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: StonePalette.cream,
-                    ),
+                    style: Theme.of(context).textTheme.titleMedium
+                        ?.copyWith(color: StonePalette.cream),
                   ),
                 ],
               ),

@@ -21,7 +21,11 @@ class BuilderHeader extends StatelessWidget {
             end: Alignment.bottomRight,
             colors: [
               scheme.primaryContainer,
-              Color.lerp(scheme.primaryContainer, scheme.tertiaryContainer, .7)!,
+              Color.lerp(
+                scheme.primaryContainer,
+                scheme.tertiaryContainer,
+                .7,
+              )!,
             ],
           ),
         ),

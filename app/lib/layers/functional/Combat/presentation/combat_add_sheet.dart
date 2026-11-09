@@ -134,9 +134,7 @@ class _CombatAddSheetState extends State<CombatAddSheet> {
                   Expanded(child: Text(l.combatCount)),
                   IconButton(
                     tooltip: l.combatFewer,
-                    onPressed: count > 1
-                        ? () => setState(() => count--)
-                        : null,
+                    onPressed: count > 1 ? () => setState(() => count--) : null,
                     icon: const Icon(Icons.remove),
                   ),
                   Text('$count', style: Theme.of(context).textTheme.titleLarge),

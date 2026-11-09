@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Random/presentation/card_face.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
-import 'package:amiludo/layers/technical/Theme/components/pack_burst.dart';
+import 'package:amiludo/layers/technical/Theme/components/pack/pack_idle.dart';
+import 'package:amiludo/layers/technical/Theme/components/pack/pack_stage.dart';
 import 'package:amiludo/layers/technical/Theme/components/tarot_back.dart';
 import 'package:amiludo/layers/technical/Theme/components/tarot_face.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
@@ -22,7 +23,11 @@ class ClosedPack extends StatelessWidget {
     highlight: true,
     child: Column(
       children: [
-        const TarotBack(width: 96),
+        PackIdle(
+          width: 96,
+          label: context.l10n.randomTapPackToOpen,
+          onTap: onOpen,
+        ),
         const SizedBox(height: Space.md),
         Text(
           category.name,
@@ -40,6 +45,9 @@ class ClosedPack extends StatelessWidget {
     ),
   );
 }
+
+double packRarity(CharacterCard card) =>
+    (card.name.codeUnits.fold<int>(0, (a, b) => a + b) % 100) / 100;
 
 class PackReveal extends StatefulWidget {
   const PackReveal({
@@ -147,10 +155,11 @@ class _PackRevealState extends State<PackReveal>
         if (ceremony && !MediaQuery.disableAnimationsOf(context))
           Padding(
             padding: const EdgeInsets.only(bottom: Space.lg),
-            child: PackBurst(
-              count: widget.cards.length.clamp(1, 5),
-              rareIndex: widget.cards.length.clamp(1, 5) ~/ 2,
-              cardWidth: 96,
+            child: PackStage(
+              autoOpen: true,
+              rarities: [for (final c in widget.cards) packRarity(c)],
+              packLabel: context.l10n.randomTapPackToOpen,
+              cardLabel: context.l10n.randomTapCardToReveal,
               onDone: () => setState(() => ceremony = false),
               faceBuilder: (i, width) => TarotFace(
                 title: widget.cards[i].name,

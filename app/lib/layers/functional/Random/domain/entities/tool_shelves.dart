@@ -41,19 +41,8 @@ const toolShelves = [
   ToolShelf('ambience', ['ambience']),
   ToolShelf('party', ['challenges']),
   ToolShelf('map', ['map']),
-  ToolShelf('story', [
-    'journal',
-    'oracle',
-    'town',
-    'place',
-    'weather',
-  ]),
-  ToolShelf('generators', [
-    'magicitem',
-    'dilemma',
-    'trait',
-    'twist',
-  ]),
+  ToolShelf('story', ['journal', 'oracle', 'town', 'place', 'weather']),
+  ToolShelf('generators', ['magicitem', 'dilemma', 'trait', 'twist']),
   ToolShelf('gm', [
     'worldmap',
     'gmtables',

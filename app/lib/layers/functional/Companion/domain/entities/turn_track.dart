@@ -45,6 +45,5 @@ class TurnTrack {
       if (i != index) name,
   ]);
 
-  TurnTrack restart() =>
-      TurnTrack(players: players, phases: phases);
+  TurnTrack restart() => TurnTrack(players: players, phases: phases);
 }

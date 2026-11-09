@@ -32,9 +32,7 @@ class ActivationRound {
 
   ActivationRound toggle(int index) => ActivationRound(
     units: units,
-    done: done.contains(index)
-        ? ({...done}..remove(index))
-        : {...done, index},
+    done: done.contains(index) ? ({...done}..remove(index)) : {...done, index},
   );
 
   int? draw(Random random) {

@@ -20,9 +20,7 @@ Iterable<GameSession> _finished(Iterable<GameSession> games) =>
 List<PlayerRecord> playerRecords(Iterable<GameSession> games) {
   final played = <String, int>{}, wins = <String, int>{};
   for (final game in _finished(games)) {
-    final winners = game.cooperative
-        ? const <Player>[]
-        : game.winners;
+    final winners = game.cooperative ? const <Player>[] : game.winners;
     for (final player in game.players) {
       played.update(player.name, (n) => n + 1, ifAbsent: () => 1);
     }
@@ -34,9 +32,9 @@ List<PlayerRecord> playerRecords(Iterable<GameSession> games) {
     for (final name in played.keys)
       PlayerRecord(name, played[name]!, wins[name] ?? 0),
   ]..sort((a, b) {
-      final byWins = b.wins.compareTo(a.wins);
-      return byWins != 0 ? byWins : b.played.compareTo(a.played);
-    });
+    final byWins = b.wins.compareTo(a.wins);
+    return byWins != 0 ? byWins : b.played.compareTo(a.played);
+  });
 }
 
 List<GameRecord> gameRecords(Iterable<GameSession> games) {
@@ -44,7 +42,6 @@ List<GameRecord> gameRecords(Iterable<GameSession> games) {
   for (final game in _finished(games)) {
     plays.update(game.title, (n) => n + 1, ifAbsent: () => 1);
   }
-  return [
-    for (final entry in plays.entries) GameRecord(entry.key, entry.value),
-  ]..sort((a, b) => b.plays.compareTo(a.plays));
+  return [for (final entry in plays.entries) GameRecord(entry.key, entry.value)]
+    ..sort((a, b) => b.plays.compareTo(a.plays));
 }

@@ -58,9 +58,8 @@ class SceneCard extends StatelessWidget {
                 child: Text(
                   '$number',
                   textAlign: TextAlign.center,
-                  style: Numerals.instrument(
-                    text.headlineSmall,
-                  )?.copyWith(color: ink),
+                  style: Numerals.instrument(text.headlineSmall)
+                      ?.copyWith(color: ink),
                 ),
               ),
               Expanded(

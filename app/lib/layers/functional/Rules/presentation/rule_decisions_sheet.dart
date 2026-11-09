@@ -14,7 +14,8 @@ Future<void> showRuleDecisions(
   context: context,
   isScrollControlled: true,
   useSafeArea: true,
-  builder: (_) => RuleDecisionsSheet(game: game, onChanged: onChanged, now: now),
+  builder: (_) =>
+      RuleDecisionsSheet(game: game, onChanged: onChanged, now: now),
 );
 
 class RuleDecisionsSheet extends StatefulWidget {

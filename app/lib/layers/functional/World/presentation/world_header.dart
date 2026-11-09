@@ -30,7 +30,14 @@ class WorldHeader extends StatelessWidget {
   final String selected;
   final bool grid, fog, playerView;
   final ValueChanged<String> onSelect;
-  final VoidCallback onNew, onGrid, onExport, onImport, onDelete, onSearch, onFog, onPlayerView;
+  final VoidCallback onNew,
+      onGrid,
+      onExport,
+      onImport,
+      onDelete,
+      onSearch,
+      onFog,
+      onPlayerView;
 
   @override
   Widget build(BuildContext context) {

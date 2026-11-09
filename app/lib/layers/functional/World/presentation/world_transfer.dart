@@ -6,9 +6,8 @@ import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/text_input_dialog.dart';
 
 void _say(BuildContext context, String message) =>
-    ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-      SnackBar(content: Text(message)),
-    );
+    ScaffoldMessenger.maybeOf(context)
+        ?.showSnackBar(SnackBar(content: Text(message)));
 
 Future<void> copyAtlas(BuildContext context, WorldAtlas atlas) async {
   final message = context.l10n.worldCopied;

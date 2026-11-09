@@ -17,9 +17,8 @@ class UpcItemDbClient {
   final String baseUrl;
 
   Future<ProductHit?> lookup(String code) async {
-    final uri = Uri.parse('$baseUrl/lookup').replace(
-      queryParameters: {'upc': code},
-    );
+    final uri = Uri.parse('$baseUrl/lookup')
+        .replace(queryParameters: {'upc': code});
     try {
       final response = await _client
           .get(uri)

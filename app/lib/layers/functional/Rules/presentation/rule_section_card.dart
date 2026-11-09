@@ -48,8 +48,9 @@ class RuleSectionCard extends StatelessWidget {
                           header: true,
                           child: Text(
                             section.title,
-                            style: (table ? text.headlineSmall : text.titleMedium)
-                                ?.copyWith(color: tool.ink(surface)),
+                            style:
+                                (table ? text.headlineSmall : text.titleMedium)
+                                    ?.copyWith(color: tool.ink(surface)),
                           ),
                         ),
                       if (section.body.isNotEmpty) ...[

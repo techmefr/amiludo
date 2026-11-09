@@ -46,9 +46,8 @@ class CombatHeader extends StatelessWidget {
                   child: Text(
                     l.combatRound(encounter.round),
                     overflow: TextOverflow.ellipsis,
-                    style: Numerals.instrument(
-                      text.headlineMedium,
-                    )?.copyWith(color: ink),
+                    style: Numerals.instrument(text.headlineMedium)
+                        ?.copyWith(color: ink),
                   ),
                 ),
                 const SizedBox(width: Space.md),

@@ -9,10 +9,7 @@ import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
 
 class AmbienceTool extends StatefulWidget {
-  const AmbienceTool({
-    super.key,
-    this.output = const SilentAmbientOutput(),
-  });
+  const AmbienceTool({super.key, this.output = const SilentAmbientOutput()});
   final AmbientOutput output;
 
   @override

@@ -2695,5 +2695,7 @@
   "sessionGridView": "Show all tools",
   "sessionSwitchTool": "Switch tool",
   "hourglassEnableMotion": "Enable motion",
-  "hourglassMotionDenied": "Allow motion access in your browser, then try again."
+  "hourglassMotionDenied": "Allow motion access in your browser, then try again.",
+  "randomTapPackToOpen": "Tap the pack to open it",
+  "randomTapCardToReveal": "Tap the card to reveal it"
 }

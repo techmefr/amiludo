@@ -27,7 +27,8 @@ class _LeagueToolState extends State<LeagueTool> {
   }
 
   void _add() {
-    final a = int.tryParse(home.text.trim()), b = int.tryParse(away.text.trim());
+    final a = int.tryParse(home.text.trim()),
+        b = int.tryParse(away.text.trim());
     if (a == null || b == null || homeIndex == awayIndex) return;
     home.clear();
     away.clear();

@@ -113,16 +113,16 @@ class _SessionStageState extends State<SessionStage> {
         fit: StackFit.expand,
         children: [
           IndexedStack(
-              sizing: StackFit.expand,
-              index: current,
-              children: [
-                for (final b in bricks)
-                  visited.contains(b.id)
-                      ? KeyedSubtree(
-                          key: ValueKey(b.id),
-                          child: _body(context, b),
-                        )
-                      : const SizedBox.shrink(),
+            sizing: StackFit.expand,
+            index: current,
+            children: [
+              for (final b in bricks)
+                visited.contains(b.id)
+                    ? KeyedSubtree(
+                        key: ValueKey(b.id),
+                        child: _body(context, b),
+                      )
+                    : const SizedBox.shrink(),
             ],
           ),
           _edgeZone(left: true),

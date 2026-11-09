@@ -68,9 +68,7 @@ class TurnStone extends StatelessWidget {
                 child: Text(
                   label,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    color: StonePalette.cream.withValues(
-                      alpha: past ? .6 : 1,
-                    ),
+                    color: StonePalette.cream.withValues(alpha: past ? .6 : 1),
                   ),
                 ),
               ),

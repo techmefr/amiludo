@@ -167,7 +167,12 @@ class _PinSheetState extends State<PinSheet> {
               refId,
               (id) => refId = id,
             ),
-            _picker(l.worldPinOpensMap, widget.maps, childId, (id) => childId = id),
+            _picker(
+              l.worldPinOpensMap,
+              widget.maps,
+              childId,
+              (id) => childId = id,
+            ),
             SwitchListTile(
               contentPadding: EdgeInsets.zero,
               title: Text(l.worldPinSecret),

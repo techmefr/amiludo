@@ -16,8 +16,9 @@ class CountdownState {
 
   bool get finished => remaining == Duration.zero;
   bool get pristine => !running && remaining == total;
-  double get fraction =>
-      total == Duration.zero ? 0 : remaining.inMilliseconds / total.inMilliseconds;
+  double get fraction => total == Duration.zero
+      ? 0
+      : remaining.inMilliseconds / total.inMilliseconds;
 
   CountdownState tick(Duration elapsed) {
     if (!running) return this;

@@ -28,11 +28,9 @@ class _RankingToolState extends State<RankingTool> {
     super.dispose();
   }
 
-  List<RankedPlayer> get ranking => rankPlayers(
-    widget.names,
-    [for (final f in fields) num.tryParse(f.text.trim().replaceAll(',', '.'))],
-    lowestWins: lowestWins,
-  );
+  List<RankedPlayer> get ranking => rankPlayers(widget.names, [
+    for (final f in fields) num.tryParse(f.text.trim().replaceAll(',', '.')),
+  ], lowestWins: lowestWins);
 
   @override
   Widget build(BuildContext context) {

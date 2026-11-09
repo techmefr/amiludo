@@ -108,9 +108,8 @@ class _ClocksToolState extends State<ClocksTool> {
                           ),
                           IconButton(
                             tooltip: l.clocksRemove(clock.name),
-                            onPressed: () => setState(
-                              () => clocks = removeClock(clocks, i),
-                            ),
+                            onPressed: () =>
+                                setState(() => clocks = removeClock(clocks, i)),
                             icon: const DeckIcon(Icons.close),
                           ),
                         ],

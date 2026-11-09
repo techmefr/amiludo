@@ -41,9 +41,7 @@ class _RuleDialogState extends State<_RuleDialog> {
   Widget build(BuildContext context) {
     final l = context.l10n;
     return AlertDialog(
-      title: Text(
-        widget.initial == null ? l.rulesAddSection : l.rulesEditRule,
-      ),
+      title: Text(widget.initial == null ? l.rulesAddSection : l.rulesEditRule),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,

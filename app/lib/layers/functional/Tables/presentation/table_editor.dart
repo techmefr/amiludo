@@ -40,11 +40,7 @@ class _TableEditorState extends State<TableEditor> {
     if (clean.isEmpty) return;
     Navigator.pop(
       context,
-      RollTable.fromText(
-        widget.table?.id ?? newTableId(),
-        clean,
-        entries.text,
-      ),
+      RollTable.fromText(widget.table?.id ?? newTableId(), clean, entries.text),
     );
   }
 

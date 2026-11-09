@@ -21,7 +21,8 @@ class PhaseSequenceState {
 
   Duration get current => durations[index];
   double get fraction => remaining.inMilliseconds / current.inMilliseconds;
-  bool get pristine => !running && index == 0 && round == 1 && remaining == current;
+  bool get pristine =>
+      !running && index == 0 && round == 1 && remaining == current;
 
   PhaseSequenceState _copy({
     List<Duration>? durations,

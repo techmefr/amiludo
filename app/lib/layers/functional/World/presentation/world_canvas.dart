@@ -153,9 +153,7 @@ class _WorldCanvasState extends State<WorldCanvas>
     final line = ruler;
     if (line != null) {
       setState(() => ruler = (line.$1, world));
-      widget.onMeasure(
-        formatMeters(widget.map.metersBetween(line.$1, world)),
-      );
+      widget.onMeasure(formatMeters(widget.map.metersBetween(line.$1, world)));
       return;
     }
     final current = draft;
@@ -168,12 +166,8 @@ class _WorldCanvasState extends State<WorldCanvas>
     }
   }
 
-  MapElement _with(MapElement e, List<WorldPoint> points) => MapElement(
-    id: e.id,
-    kind: e.kind,
-    points: points,
-    width: e.width,
-  );
+  MapElement _with(MapElement e, List<WorldPoint> points) =>
+      MapElement(id: e.id, kind: e.kind, points: points, width: e.width);
 
   void _end(ScaleEndDetails d) {
     final done = draft;

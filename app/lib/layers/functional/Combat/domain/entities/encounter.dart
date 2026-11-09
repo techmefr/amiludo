@@ -3,11 +3,7 @@ import 'package:amiludo/layers/functional/Combat/domain/entities/combatant.dart'
 const maxGroupSize = 20;
 
 class Encounter {
-  const Encounter({
-    this.combatants = const [],
-    this.round = 1,
-    this.turnId,
-  });
+  const Encounter({this.combatants = const [], this.round = 1, this.turnId});
 
   factory Encounter.fromJson(Map<String, dynamic> j) => Encounter(
     combatants: [
@@ -26,8 +22,7 @@ class Encounter {
 
   bool get started => turnId != null;
 
-  Combatant? get current =>
-      combatants.where((c) => c.id == turnId).firstOrNull;
+  Combatant? get current => combatants.where((c) => c.id == turnId).firstOrNull;
 
   List<Combatant> get ordered {
     final indexed = combatants.indexed.toList()
@@ -74,9 +69,7 @@ class Encounter {
   }
 
   Encounter update(String id, Combatant Function(Combatant) change) =>
-      _with([
-        for (final c in combatants) c.id == id ? change(c) : c,
-      ]);
+      _with([for (final c in combatants) c.id == id ? change(c) : c]);
 
   Encounter remove(String id) {
     final next = [
@@ -94,11 +87,7 @@ class Encounter {
 
   Encounter start() {
     final first = ordered.where((c) => !c.down).firstOrNull;
-    return Encounter(
-      combatants: combatants,
-      round: 1,
-      turnId: first?.id,
-    );
+    return Encounter(combatants: combatants, round: 1, turnId: first?.id);
   }
 
   Encounter reset() => Encounter(combatants: combatants);

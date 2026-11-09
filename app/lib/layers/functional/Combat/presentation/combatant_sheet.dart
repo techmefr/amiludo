@@ -20,11 +20,8 @@ Future<bool?> showCombatantSheet(
   context: context,
   isScrollControlled: true,
   useSafeArea: true,
-  builder: (_) => CombatantSheet(
-    combatant: combatant,
-    onChange: onChange,
-    roller: roller,
-  ),
+  builder: (_) =>
+      CombatantSheet(combatant: combatant, onChange: onChange, roller: roller),
 );
 
 class CombatantSheet extends StatefulWidget {

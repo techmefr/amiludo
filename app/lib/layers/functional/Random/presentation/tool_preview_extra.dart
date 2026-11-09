@@ -5,9 +5,8 @@ import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 Widget _count(BuildContext context, Color ink, String text) => Center(
   child: Text(
     text,
-    style: Numerals.instrument(
-      Theme.of(context).textTheme.displaySmall,
-    )?.copyWith(color: ink),
+    style: Numerals.instrument(Theme.of(context).textTheme.displaySmall)
+        ?.copyWith(color: ink),
   ),
 );
 

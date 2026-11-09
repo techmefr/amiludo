@@ -17,16 +17,16 @@ class GameCover extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = Color(game.color);
-    final ink = color.computeLuminance() > .45 ? const Color(0xff000000)
+    final ink = color.computeLuminance() > .45
+        ? const Color(0xff000000)
         : const Color(0xffffffff);
     final fallback = ColoredBox(
       color: color,
       child: Center(
         child: Text(
           game.name.characters.firstOrNull?.toUpperCase() ?? '',
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-            color: ink,
-          ),
+          style: Theme.of(context).textTheme.headlineMedium
+              ?.copyWith(color: ink),
         ),
       ),
     );

@@ -131,7 +131,9 @@ class _MiniPainter extends CustomPainter {
         ..color = color
         ..style = PaintingStyle.stroke
         ..strokeCap = StrokeCap.round
-        ..strokeWidth = e.kind.isBrush ? max(2, e.width * _fit(bounds).scale) : 1.5;
+        ..strokeWidth = e.kind.isBrush
+            ? max(2, e.width * _fit(bounds).scale)
+            : 1.5;
       final path = Path();
       for (final (i, p) in e.points.indexed) {
         final o = _to(p);
@@ -142,7 +144,11 @@ class _MiniPainter extends CustomPainter {
         }
       }
       if (e.points.length == 1) {
-        canvas.drawCircle(_to(e.points.first), 1.5, paint..style = PaintingStyle.fill);
+        canvas.drawCircle(
+          _to(e.points.first),
+          1.5,
+          paint..style = PaintingStyle.fill,
+        );
       } else {
         canvas.drawPath(path, paint);
       }

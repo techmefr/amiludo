@@ -50,65 +50,65 @@ class AppearanceScreen extends StatelessWidget {
         controller = context.read<AppearanceCubit>(),
         theme = Theme.of(context);
     final sections = <Widget>[
-        _AppearanceHeading(controller: controller),
-        SectionHeading(context.l10n.appearance01YourWorld),
-        AppearanceSkinGrid(appearance: a, controller: controller),
-        SectionHeading(context.l10n.appearance02Light),
-        DeckSegmented<String>(
-          options: [
-            ('light', context.l10n.appearanceLight),
-            ('dark', context.l10n.appearanceDark),
-            ('system', context.l10n.appearanceSystem),
-          ],
-          selected: a.mode,
-          onChanged: (v) => controller.change(a.copyWith(mode: v)),
+      _AppearanceHeading(controller: controller),
+      SectionHeading(context.l10n.appearance01YourWorld),
+      AppearanceSkinGrid(appearance: a, controller: controller),
+      SectionHeading(context.l10n.appearance02Light),
+      DeckSegmented<String>(
+        options: [
+          ('light', context.l10n.appearanceLight),
+          ('dark', context.l10n.appearanceDark),
+          ('system', context.l10n.appearanceSystem),
+        ],
+        selected: a.mode,
+        onChanged: (v) => controller.change(a.copyWith(mode: v)),
+      ),
+      SectionHeading(context.l10n.appearance03Palette),
+      AppearancePaletteGrid(appearance: a, controller: controller),
+      SectionHeading(context.l10n.appearance04Typeface),
+      AppearanceFontGrid(appearance: a, controller: controller),
+      _ChoiceSection(
+        title: context.l10n.appearance05Shapes,
+        options: [
+          ('cut', context.l10n.appearanceBeveled),
+          ('square', context.l10n.appearanceSharp),
+          ('soft', context.l10n.appearanceSoft),
+          ('round', context.l10n.appearanceRounded),
+        ],
+        selected: a.shape,
+        change: (v) => controller.change(a.copyWith(shape: v)),
+      ),
+      SectionHeading(context.l10n.appearance06Comfort),
+      _ComfortPanel(appearance: a, controller: controller),
+      _ChoiceSection(
+        title: context.l10n.appearanceLanguageTitle,
+        options: [
+          (autoLanguage, context.l10n.appearanceLanguageAuto),
+          for (final language in supportedLanguages)
+            (language.code, '${language.flag} ${language.name}'),
+        ],
+        selected: a.language,
+        change: (v) => controller.change(a.copyWith(language: v)),
+      ),
+      SensorSensitivitySection(appearance: a, change: controller.change),
+      SectionHeading(context.l10n.appearance07YourProfiles),
+      _ProfileActions(
+        appearance: a,
+        controller: controller,
+        onImport: () => _importTheme(context, controller),
+      ),
+      const SizedBox(height: 20),
+      for (var i = 0; i < ws.profiles.length; i++)
+        _ProfileTile(
+          profile: ws.profiles[i],
+          onApply: () => controller.change(ws.profiles[i].appearance),
+          onRemove: () => controller.removeProfile(i),
         ),
-        SectionHeading(context.l10n.appearance03Palette),
-        AppearancePaletteGrid(appearance: a, controller: controller),
-        SectionHeading(context.l10n.appearance04Typeface),
-        AppearanceFontGrid(appearance: a, controller: controller),
-        _ChoiceSection(
-          title: context.l10n.appearance05Shapes,
-          options: [
-            ('cut', context.l10n.appearanceBeveled),
-            ('square', context.l10n.appearanceSharp),
-            ('soft', context.l10n.appearanceSoft),
-            ('round', context.l10n.appearanceRounded),
-          ],
-          selected: a.shape,
-          change: (v) => controller.change(a.copyWith(shape: v)),
-        ),
-        SectionHeading(context.l10n.appearance06Comfort),
-        _ComfortPanel(appearance: a, controller: controller),
-        _ChoiceSection(
-          title: context.l10n.appearanceLanguageTitle,
-          options: [
-            (autoLanguage, context.l10n.appearanceLanguageAuto),
-            for (final language in supportedLanguages)
-              (language.code, '${language.flag} ${language.name}'),
-          ],
-          selected: a.language,
-          change: (v) => controller.change(a.copyWith(language: v)),
-        ),
-        SensorSensitivitySection(appearance: a, change: controller.change),
-        SectionHeading(context.l10n.appearance07YourProfiles),
-        _ProfileActions(
-          appearance: a,
-          controller: controller,
-          onImport: () => _importTheme(context, controller),
-        ),
-        const SizedBox(height: 20),
-        for (var i = 0; i < ws.profiles.length; i++)
-          _ProfileTile(
-            profile: ws.profiles[i],
-            onApply: () => controller.change(ws.profiles[i].appearance),
-            onRemove: () => controller.removeProfile(i),
-          ),
-        const SizedBox(height: 24),
-        Text(
-          context.l10n.appearanceFontsAreBundledProfilesBelong,
-          style: theme.textTheme.bodySmall,
-        ),
+      const SizedBox(height: 24),
+      Text(
+        context.l10n.appearanceFontsAreBundledProfilesBelong,
+        style: theme.textTheme.bodySmall,
+      ),
     ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

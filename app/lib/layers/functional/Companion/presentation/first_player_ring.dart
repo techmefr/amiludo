@@ -11,8 +11,7 @@ const _seat = 76.0;
 Offset seatCentre(int index, int count, Size box) {
   final angle = -pi / 2 + 2 * pi * index / count;
   final radius = (box.shortestSide - _seat) / 2;
-  return box.center(Offset.zero) +
-      Offset(cos(angle), sin(angle)) * radius;
+  return box.center(Offset.zero) + Offset(cos(angle), sin(angle)) * radius;
 }
 
 class FirstPlayerRing extends StatelessWidget {
@@ -106,9 +105,8 @@ class _Seat extends StatelessWidget {
                 fit: BoxFit.scaleDown,
                 child: Text(
                   name,
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    color: StonePalette.cream,
-                  ),
+                  style: Theme.of(context).textTheme.titleMedium
+                      ?.copyWith(color: StonePalette.cream),
                 ),
               ),
             ),

@@ -24,7 +24,8 @@ class _StopwatchToolState extends State<StopwatchTool> {
   final tool = toolThemeFor('stopwatch');
 
   void _tick() {
-    if (mounted) setState(() => state = state.withElapsed(_base + _clock.elapsed));
+    if (mounted)
+      setState(() => state = state.withElapsed(_base + _clock.elapsed));
   }
 
   void _toggle() {
@@ -110,7 +111,9 @@ class _StopwatchToolState extends State<StopwatchTool> {
                 children: [
                   FilledButton.icon(
                     onPressed: _toggle,
-                    icon: DeckIcon(state.running ? Icons.pause : Icons.play_arrow),
+                    icon: DeckIcon(
+                      state.running ? Icons.pause : Icons.play_arrow,
+                    ),
                     label: Text(state.running ? l.timerPause : l.timerStart),
                   ),
                   OutlinedButton.icon(

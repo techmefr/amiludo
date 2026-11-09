@@ -114,8 +114,7 @@ class _SoloToolState extends State<SoloTool> {
               label: Text(l.soloDraw),
             ),
             TextButton(
-              onPressed: () =>
-                  setState(() => deck = SoloDeck.shuffled(random)),
+              onPressed: () => setState(() => deck = SoloDeck.shuffled(random)),
               child: Text(l.appearanceReset),
             ),
           ],

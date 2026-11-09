@@ -1830,5 +1830,7 @@
   "sessionGridView": "Alle Werkzeuge zeigen",
   "sessionSwitchTool": "Werkzeug wechseln",
   "hourglassEnableMotion": "Bewegung aktivieren",
-  "hourglassMotionDenied": "Erlaube Bewegungsdaten im Browser und versuche es erneut."
+  "hourglassMotionDenied": "Erlaube Bewegungsdaten im Browser und versuche es erneut.",
+  "randomTapPackToOpen": "Tippe auf das Pack, um es zu öffnen",
+  "randomTapCardToReveal": "Tippe auf die Karte, um sie aufzudecken"
 }

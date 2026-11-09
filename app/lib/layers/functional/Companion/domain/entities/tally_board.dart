@@ -1,5 +1,9 @@
 class TallyBoard {
-  const TallyBoard({required this.players, this.counters = const [], this.values = const []});
+  const TallyBoard({
+    required this.players,
+    this.counters = const [],
+    this.values = const [],
+  });
 
   factory TallyBoard.begin(List<String> players, List<String> counters) =>
       TallyBoard(
@@ -15,8 +19,7 @@ class TallyBoard {
 
   int value(int player, int counter) => values[player][counter];
 
-  int total(int counter) =>
-      values.fold(0, (sum, row) => sum + row[counter]);
+  int total(int counter) => values.fold(0, (sum, row) => sum + row[counter]);
 
   TallyBoard bump(int player, int counter, int delta) => TallyBoard(
     players: players,
@@ -24,10 +27,7 @@ class TallyBoard {
     values: [
       for (final (p, row) in values.indexed)
         p == player
-            ? [
-                for (final (c, v) in row.indexed)
-                  c == counter ? v + delta : v,
-              ]
+            ? [for (final (c, v) in row.indexed) c == counter ? v + delta : v]
             : row,
     ],
   );

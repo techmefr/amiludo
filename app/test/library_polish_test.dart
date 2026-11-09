@@ -36,37 +36,45 @@ Finder segment(String label) => find.descendant(
 );
 
 void main() {
-  testWidgets('scan frame labels itself, reacts to busy and stops in reduced motion', (
-    tester,
-  ) async {
-    Widget host({required bool busy, required bool reduced, Brightness? dark}) =>
-        MaterialApp(
-          theme: ThemeData(brightness: dark ?? Brightness.light),
-          home: MediaQuery(
-            data: MediaQueryData(disableAnimations: reduced),
-            child: SizedBox(
-              width: 400,
-              height: 300,
-              child: ScanFrame(
-                busy: busy,
-                label: 'frame-label',
-                child: const ColoredBox(color: Color(0xff000000)),
-              ),
+  testWidgets(
+    'scan frame labels itself, reacts to busy and stops in reduced motion',
+    (tester) async {
+      Widget host({
+        required bool busy,
+        required bool reduced,
+        Brightness? dark,
+      }) => MaterialApp(
+        theme: ThemeData(brightness: dark ?? Brightness.light),
+        home: MediaQuery(
+          data: MediaQueryData(disableAnimations: reduced),
+          child: SizedBox(
+            width: 400,
+            height: 300,
+            child: ScanFrame(
+              busy: busy,
+              label: 'frame-label',
+              child: const ColoredBox(color: Color(0xff000000)),
             ),
           ),
-        );
-    await tester.pumpWidget(host(busy: false, reduced: false));
-    await tester.pump(const Duration(milliseconds: 500));
-    expect(find.bySemanticsLabel('frame-label'), findsOneWidget);
-    await tester.pumpWidget(host(busy: true, reduced: false, dark: Brightness.dark));
-    await tester.pump(const Duration(milliseconds: 500));
-    await tester.pumpWidget(host(busy: false, reduced: true));
-    await tester.pumpAndSettle();
-    expect(find.byType(ScanFrame), findsOneWidget);
-  });
+        ),
+      );
+      await tester.pumpWidget(host(busy: false, reduced: false));
+      await tester.pump(const Duration(milliseconds: 500));
+      expect(find.bySemanticsLabel('frame-label'), findsOneWidget);
+      await tester.pumpWidget(
+        host(busy: true, reduced: false, dark: Brightness.dark),
+      );
+      await tester.pump(const Duration(milliseconds: 500));
+      await tester.pumpWidget(host(busy: false, reduced: true));
+      await tester.pumpAndSettle();
+      expect(find.byType(ScanFrame), findsOneWidget);
+    },
+  );
 
   for (final size in const [Size(390, 844), Size(820, 1180), Size(1440, 900)]) {
-    testWidgets('scan screen lays out at $size without overflow', (tester) async {
+    testWidgets('scan screen lays out at $size without overflow', (
+      tester,
+    ) async {
       await _open(tester, size, '/library/scan');
       expect(find.byType(ScanFrame), findsOneWidget);
       expect(find.byType(TextField), findsWidgets);

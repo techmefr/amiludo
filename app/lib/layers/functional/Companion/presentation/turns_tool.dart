@@ -67,8 +67,7 @@ class _TurnsToolState extends State<TurnsTool> {
         children: [
           Semantics(
             liveRegion: true,
-            label:
-                '${l.turnRound(current.round)}, ${l.turnPlays(name)}',
+            label: '${l.turnRound(current.round)}, ${l.turnPlays(name)}',
             child: ExcludeSemantics(
               child: StoneSlab(
                 accent: accent,
@@ -118,9 +117,7 @@ class _TurnsToolState extends State<TurnsTool> {
           FilledButton.icon(
             onPressed: () => _apply(current.advance()),
             icon: const DeckIcon(Icons.arrow_forward),
-            label: Text(
-              current.lastPhase ? l.gameNextPlayer : l.turnNextPhase,
-            ),
+            label: Text(current.lastPhase ? l.gameNextPlayer : l.turnNextPhase),
           ),
           const SizedBox(height: Space.md),
           Wrap(

@@ -78,7 +78,9 @@ class _ChessClockToolState extends State<ChessClockTool> {
           button: true,
           label: flagged ? '$time, ${l.hourglassDone}' : time,
           child: Material(
-            color: flagged ? Theme.of(context).colorScheme.errorContainer : surface,
+            color: flagged
+                ? Theme.of(context).colorScheme.errorContainer
+                : surface,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(Radii.lg),
             ),

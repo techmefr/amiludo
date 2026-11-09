@@ -144,8 +144,9 @@ class _MetronomeToolState extends State<MetronomeTool> {
                 children: [
                   IconButton.outlined(
                     tooltip: l.metronomeBeats(state.beats - 1),
-                    onPressed: () =>
-                        setState(() => state = state.withBeats(state.beats - 1)),
+                    onPressed: () => setState(
+                      () => state = state.withBeats(state.beats - 1),
+                    ),
                     icon: const DeckIcon(Icons.remove),
                   ),
                   FilledButton.icon(
@@ -155,8 +156,9 @@ class _MetronomeToolState extends State<MetronomeTool> {
                   ),
                   IconButton.outlined(
                     tooltip: l.metronomeBeats(state.beats + 1),
-                    onPressed: () =>
-                        setState(() => state = state.withBeats(state.beats + 1)),
+                    onPressed: () => setState(
+                      () => state = state.withBeats(state.beats + 1),
+                    ),
                     icon: const DeckIcon(Icons.add),
                   ),
                 ],

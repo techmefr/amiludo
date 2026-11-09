@@ -86,21 +86,20 @@ class _CompanionSessionState extends State<CompanionSession> {
                 TextButton.icon(
                   onPressed: template.bricks.isEmpty
                       ? null
-                      : () => setState(
-                          () => focused = _resume(template.bricks),
-                        ),
+                      : () =>
+                            setState(() => focused = _resume(template.bricks)),
                   icon: const DeckIcon(Icons.open_in_full),
                   label: Text(l.sessionFullscreen),
                 ),
                 AnimatedSwitcher(
-              duration: Motion.of(context, Motion.fast),
-              child: TextButton.icon(
-                key: ValueKey(arrange),
-                onPressed: () => setState(() => arrange = !arrange),
-                icon: DeckIcon(arrange ? Icons.check : Icons.swap_vert),
-                label: Text(arrange ? l.buildArrangeDone : l.buildArrange),
-              ),
-            ),
+                  duration: Motion.of(context, Motion.fast),
+                  child: TextButton.icon(
+                    key: ValueKey(arrange),
+                    onPressed: () => setState(() => arrange = !arrange),
+                    icon: DeckIcon(arrange ? Icons.check : Icons.swap_vert),
+                    label: Text(arrange ? l.buildArrangeDone : l.buildArrange),
+                  ),
+                ),
               ],
             ),
           ),

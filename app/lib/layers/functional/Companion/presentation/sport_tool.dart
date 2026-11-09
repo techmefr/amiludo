@@ -88,7 +88,9 @@ class _SportToolState extends State<SportTool> {
                   children: [
                     Expanded(
                       child: Text(
-                        mode.won(scores[i]) ? '$name · ${l.rankingStamp}' : name,
+                        mode.won(scores[i])
+                            ? '$name · ${l.rankingStamp}'
+                            : name,
                         style: theme.titleMedium?.copyWith(
                           color: StonePalette.cream,
                         ),

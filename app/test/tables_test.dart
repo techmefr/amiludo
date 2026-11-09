@@ -52,9 +52,7 @@ void _domainTests() {
     var tables = const RollTables().put(inns);
     tables = tables.put(const RollTable(id: 't', name: 'Taverns'));
     expect(tables.tables.single.name, 'Taverns');
-    final back = RollTables.fromJson(
-      const RollTables(tables: [inns]).toJson(),
-    );
+    final back = RollTables.fromJson(const RollTables(tables: [inns]).toJson());
     expect(back.of('t')!.entries, ['Boar', 'Fox']);
     expect(tables.remove('t').isEmpty, isTrue);
   });
@@ -79,7 +77,9 @@ void _widgetTests() {
     await tester.tap(find.text('Roll Names'));
     await tester.pumpAndSettle();
     expect(
-      saved!.tables.first.entries.any((e) => find.text(e).evaluate().isNotEmpty),
+      saved!.tables.first.entries.any(
+        (e) => find.text(e).evaluate().isNotEmpty,
+      ),
       isTrue,
     );
   });
@@ -89,7 +89,10 @@ void _widgetTests() {
     await tester.pumpWidget(host(TablesTool(onChanged: (t) => saved = t)));
     await tester.tap(find.text('New table'));
     await tester.pumpAndSettle();
-    await tester.enterText(find.widgetWithText(TextField, 'Table name'), 'Rain');
+    await tester.enterText(
+      find.widgetWithText(TextField, 'Table name'),
+      'Rain',
+    );
     await tester.enterText(
       find.widgetWithText(TextField, 'Entries, one per line'),
       'Drizzle\nStorm',
@@ -125,9 +128,9 @@ void _ambienceTests() {
   test('a scene keeps its ambience through JSON and edits', () {
     const scene = Scene(id: 'a', title: 'Camp', ambience: 'fire');
     expect(Scene.fromJson(scene.toJson()).ambience, 'fire');
-    final story = const Storyline().put(scene).put(
-      const Scene(id: 'b', title: 'Road'),
-    );
+    final story = const Storyline()
+        .put(scene)
+        .put(const Scene(id: 'b', title: 'Road'));
     expect(story.of('a')!.ambience, 'fire');
   });
 }

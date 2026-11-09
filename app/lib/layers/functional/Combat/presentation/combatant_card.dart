@@ -66,14 +66,15 @@ class CombatantCard extends StatelessWidget {
                       '${c.initiative ?? '–'}',
                       key: ValueKey(c.initiative),
                       textAlign: TextAlign.center,
-                      style: Numerals.instrument(
-                        text.headlineMedium,
-                      )?.copyWith(color: ink),
+                      style: Numerals.instrument(text.headlineMedium)
+                          ?.copyWith(color: ink),
                     ),
                   ),
                 ),
                 const SizedBox(width: Space.sm),
-                Expanded(child: _Body(combatant: c, active: active, ink: ink)),
+                Expanded(
+                  child: _Body(combatant: c, active: active, ink: ink),
+                ),
                 if (c.tracksHp) ...[
                   IconButton(
                     tooltip: l.combatHpMinus(c.name),
@@ -104,7 +105,11 @@ class CombatantCard extends StatelessWidget {
 }
 
 class _Body extends StatelessWidget {
-  const _Body({required this.combatant, required this.active, required this.ink});
+  const _Body({
+    required this.combatant,
+    required this.active,
+    required this.ink,
+  });
   final Combatant combatant;
   final bool active;
   final Color ink;
@@ -154,9 +159,8 @@ class _Body extends StatelessWidget {
           ),
           Text(
             '${c.hp} / ${c.maxHp}',
-            style: Numerals.instrument(
-              Theme.of(context).textTheme.bodyMedium,
-            )?.copyWith(color: ink),
+            style: Numerals.instrument(Theme.of(context).textTheme.bodyMedium)
+                ?.copyWith(color: ink),
           ),
         ],
         if (c.conditions.isNotEmpty)

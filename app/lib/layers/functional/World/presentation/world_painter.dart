@@ -140,7 +140,10 @@ class WorldPainter extends CustomPainter {
         final b = viewport.toScreen(e.points.last);
         final rect = Rect.fromPoints(a, b);
         canvas
-          ..drawRect(rect, Paint()..color = palette.room.withValues(alpha: alpha))
+          ..drawRect(
+            rect,
+            Paint()..color = palette.room.withValues(alpha: alpha),
+          )
           ..drawRect(
             rect,
             Paint()
@@ -153,7 +156,8 @@ class WorldPainter extends CustomPainter {
         final w = max(8.0, 26 * scale);
         canvas.drawRect(
           Rect.fromCenter(center: c, width: w, height: w * .45),
-          Paint()..color = palette.lines[ElementKind.road]!.withValues(alpha: alpha),
+          Paint()
+            ..color = palette.lines[ElementKind.road]!.withValues(alpha: alpha),
         );
       case ElementKind.stairs:
         final c = viewport.toScreen(e.points.first);
@@ -163,7 +167,11 @@ class WorldPainter extends CustomPainter {
           ..strokeWidth = max(1.5, 3 * scale);
         for (var i = -2; i <= 2; i++) {
           final y = c.dy + i * w * .22;
-          canvas.drawLine(Offset(c.dx - w / 2, y), Offset(c.dx + w / 2, y), line);
+          canvas.drawLine(
+            Offset(c.dx - w / 2, y),
+            Offset(c.dx + w / 2, y),
+            line,
+          );
         }
     }
   }

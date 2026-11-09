@@ -99,9 +99,7 @@ class LifePanel extends StatelessWidget {
                   player.name,
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    color: slabInk,
-                  ),
+                  style: theme.textTheme.titleMedium?.copyWith(color: slabInk),
                 ),
               ),
             ),
