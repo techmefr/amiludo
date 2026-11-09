@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/playing_card.dart';
-import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
+import 'package:amiludo/layers/technical/Theme/tool_layout.dart';
 
 List<String> challengeLines(String text) => [
   for (final line in text.split('\n'))
@@ -76,12 +76,10 @@ class _ChallengesToolState extends State<ChallengesTool> {
               ),
             ),
             const SizedBox(height: Space.xl),
-            Center(
-              child: FilledButton.icon(
-                onPressed: _draw,
-                icon: const DeckIcon(Icons.style_outlined),
-                label: Text(l.challengeDraw),
-              ),
+            ToolPrimaryButton(
+              onPressed: _draw,
+              icon: Icons.style_outlined,
+              label: l.challengeDraw,
             ),
             const SizedBox(height: Space.xl),
             TextField(

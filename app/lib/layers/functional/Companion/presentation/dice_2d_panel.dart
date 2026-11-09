@@ -6,7 +6,7 @@ import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_summa
 import 'package:amiludo/layers/functional/Companion/presentation/tray_surface_picker.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Physics/surface_material.dart';
-import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
+import 'package:amiludo/layers/technical/Theme/tool_layout.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class Dice2dPanel extends StatelessWidget {
@@ -50,13 +50,10 @@ class Dice2dPanel extends StatelessWidget {
         const SizedBox(height: Space.md),
         stage,
         const SizedBox(height: Space.md),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: FilledButton.icon(
-            onPressed: empty ? null : onThrow,
-            icon: const DeckIcon(Icons.casino_outlined),
-            label: Text(l.diceTrayThrow),
-          ),
+        ToolPrimaryButton(
+          onPressed: empty ? null : onThrow,
+          icon: Icons.casino_outlined,
+          label: l.diceTrayThrow,
         ),
         const SizedBox(height: Space.md),
         DiceTraySummary(session: session, onTapDie: onKeep),

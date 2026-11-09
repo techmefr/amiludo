@@ -35,11 +35,18 @@ class ToolsHome extends StatelessWidget {
   String get _hero => heroTool(lastTool: lastTool, favorites: favorites);
   List<String> get _pinned => pinnedTools(favorites, _hero);
 
-  ToolCard _card(BuildContext context, String id, {Key? key, int? slot}) {
+  ToolCard _card(
+    BuildContext context,
+    String id, {
+    Key? key,
+    int? slot,
+    bool fill = false,
+  }) {
     final pinned = _pinned;
     final entry = brickEntries.firstWhere((e) => e.id == id);
     return ToolCard(
       key: key ?? ValueKey(id),
+      width: fill ? null : 232,
       id: id,
       favorite: favorites.contains(id),
       onFavorite: () => onFavorite(id),
@@ -145,12 +152,14 @@ class ToolsHome extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CategoryBanner(shelf: open),
-          Wrap(
-            spacing: Space.md,
-            runSpacing: Space.md,
+          ResponsiveGrid(
+            minimumWidth: 240,
             children: [
               for (var i = 0; i < open.tools.length; i++)
-                Entrance(index: i, child: _card(context, open.tools[i])),
+                Entrance(
+                  index: i,
+                  child: _card(context, open.tools[i], fill: true),
+                ),
             ],
           ),
         ],

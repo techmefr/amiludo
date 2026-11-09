@@ -6005,4 +6005,16 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get randomTapCardToReveal => 'Tippe auf die Karte, um sie aufzudecken';
+
+  @override
+  String get coinCount => 'Münzen';
+
+  @override
+  String get coinFewer => 'Weniger Münzen';
+
+  @override
+  String get coinMore => 'Mehr Münzen';
+
+  @override
+  String get coinFlip => 'Münze werfen';
 }

@@ -6,6 +6,7 @@ import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
+import 'package:amiludo/layers/technical/Theme/tool_layout.dart';
 
 enum VotePhase { setup, gate, ballot, result }
 
@@ -119,7 +120,7 @@ class _VoteToolState extends State<VoteTool> {
         const SizedBox(height: Space.lg),
         _voters(),
         const SizedBox(height: Space.xl),
-        FilledButton(onPressed: _start, child: Text(l.voteStart)),
+        ToolPrimaryButton(onPressed: _start, label: l.voteStart),
       ],
     );
   }

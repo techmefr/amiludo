@@ -8,6 +8,7 @@ import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
+import 'package:amiludo/layers/technical/Theme/tool_layout.dart';
 
 enum ImpostorPhase { setup, gate, role, result }
 
@@ -81,7 +82,7 @@ class _ImpostorToolState extends State<ImpostorTool> {
           onChanged: (v) => setState(() => players = v),
         ),
         const SizedBox(height: Space.xl),
-        FilledButton(onPressed: _start, child: Text(l.impostorStart)),
+        ToolPrimaryButton(onPressed: _start, label: l.impostorStart),
       ],
     );
   }
@@ -144,7 +145,7 @@ class _ImpostorToolState extends State<ImpostorTool> {
             ),
           ),
         ),
-        FilledButton(onPressed: _hide, child: Text(l.impostorHide)),
+        ToolPrimaryButton(onPressed: _hide, label: l.impostorHide),
       ],
     );
   }

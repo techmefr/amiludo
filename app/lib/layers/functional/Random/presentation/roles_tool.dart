@@ -67,7 +67,7 @@ class _RolesToolState extends State<RolesTool> {
   @override
   Widget build(BuildContext context) => Column(
     mainAxisSize: MainAxisSize.min,
-    crossAxisAlignment: CrossAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.stretch,
     children: [
       RandomOptionsField(
         controller: options!,

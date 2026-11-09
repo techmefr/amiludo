@@ -1832,5 +1832,9 @@
   "hourglassEnableMotion": "Beweging inschakelen",
   "hourglassMotionDenied": "Sta bewegingstoegang toe in je browser en probeer opnieuw.",
   "randomTapPackToOpen": "Tik op het pakje om het te openen",
-  "randomTapCardToReveal": "Tik op de kaart om hem te onthullen"
+  "randomTapCardToReveal": "Tik op de kaart om hem te onthullen",
+  "coinCount": "Munten",
+  "coinFewer": "Minder munten",
+  "coinMore": "Meer munten",
+  "coinFlip": "Munt opgooien"
 }

@@ -5995,4 +5995,16 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get randomTapCardToReveal => 'Toque na carta para revelá-la';
+
+  @override
+  String get coinCount => 'Moedas';
+
+  @override
+  String get coinFewer => 'Menos moedas';
+
+  @override
+  String get coinMore => 'Mais moedas';
+
+  @override
+  String get coinFlip => 'Lançar a moeda';
 }

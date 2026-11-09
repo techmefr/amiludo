@@ -54,13 +54,14 @@ class TrayStage extends StatelessWidget {
       final window = MediaQuery.sizeOf(context);
       final compactLandscape =
           window.width > window.height && window.height < 520;
-      final heightFraction = compactLandscape ? .58 : .44;
+      final wide = window.width >= 600;
+      final heightFraction = compactLandscape ? .58 : (wide ? .56 : .44);
       final height = solid
           ? math.min(
               width * .88,
-              (window.height * heightFraction).clamp(140.0, 520.0),
+              (window.height * heightFraction).clamp(140.0, 760.0),
             )
-          : (window.height * .42).clamp(240.0, 520.0);
+          : (window.height * (wide ? .5 : .42)).clamp(240.0, 640.0);
       return Center(
         child: SizedBox(
           width: solid ? math.min(width, height * 1.8) : width,

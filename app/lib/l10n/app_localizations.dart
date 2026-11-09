@@ -11053,6 +11053,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tap the card to reveal it'**
   String get randomTapCardToReveal;
+
+  /// No description provided for @coinCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Coins'**
+  String get coinCount;
+
+  /// No description provided for @coinFewer.
+  ///
+  /// In en, this message translates to:
+  /// **'Fewer coins'**
+  String get coinFewer;
+
+  /// No description provided for @coinMore.
+  ///
+  /// In en, this message translates to:
+  /// **'More coins'**
+  String get coinMore;
+
+  /// No description provided for @coinFlip.
+  ///
+  /// In en, this message translates to:
+  /// **'Flip'**
+  String get coinFlip;
 }
 
 class _AppLocalizationsDelegate

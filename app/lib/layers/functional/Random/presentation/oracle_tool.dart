@@ -11,6 +11,7 @@ import 'package:amiludo/layers/technical/Theme/components/tarot_flip.dart';
 import 'package:amiludo/layers/technical/Theme/components/tarot_style.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
+import 'package:amiludo/layers/technical/Theme/tool_layout.dart';
 
 class OracleTool extends StatefulWidget {
   const OracleTool({super.key, this.random});
@@ -114,7 +115,7 @@ class _OracleToolState extends State<OracleTool> {
               onChanged: (v) => setState(() => chaos = v),
             ),
             const SizedBox(height: Space.xl),
-            FilledButton(onPressed: _ask, child: Text(l.oracleAsk)),
+            ToolPrimaryButton(onPressed: _ask, label: l.oracleAsk),
             const SizedBox(height: Space.xl),
             if (shown != null) _result(shown),
           ],

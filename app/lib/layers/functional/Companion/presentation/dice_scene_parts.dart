@@ -104,4 +104,6 @@ double arenaWidthFor(Size box, int count) {
   );
 }
 
-double dieSizeFor(int count) => count <= 3 ? 1.6 : (count <= 6 ? 1.3 : 1);
+double dieSizeFor(int count) => count <= 3 ? 1.9 : (count <= 6 ? 1.55 : 1.15);
+
+double arenaInsetFor(int count) => dieSizeFor(count) * .6;

@@ -7,8 +7,9 @@ import 'package:amiludo/layers/technical/Theme/components/tool_frame.dart';
 import 'package:amiludo/layers/technical/Theme/deck_style.dart';
 import 'package:amiludo/layers/technical/Theme/immersive_chrome.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/tool_layout.dart';
 
-const double fullPageBackClearance = 56;
+const double fullPageBackClearance = toolBackClearance;
 
 class FullPage extends StatelessWidget {
   const FullPage({
@@ -18,7 +19,7 @@ class FullPage extends StatelessWidget {
     this.fallback = '/tools',
     this.scroll = true,
     this.actions = const [],
-    this.maxWidth = 760,
+    this.maxWidth,
     this.fillHeight = false,
     this.immersive = false,
     this.tool,
@@ -33,7 +34,7 @@ class FullPage extends StatelessWidget {
   final bool scroll, fillHeight, immersive;
   final VoidCallback? onBack;
   final Map<ShortcutActivator, VoidCallback> bindings;
-  final double maxWidth;
+  final double? maxWidth;
   final List<Widget> actions;
 
   static const double _padding = 20;
@@ -53,7 +54,7 @@ class FullPage extends StatelessWidget {
 
   Widget _body(BuildContext context) {
     if (!scroll) {
-      return immersive && tool != null
+      return immersive
           ? Padding(
               padding: const EdgeInsets.only(top: _backClearance),
               child: child,
@@ -68,7 +69,7 @@ class FullPage extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: ConstrainedBox(
             constraints: BoxConstraints(
-              maxWidth: maxWidth,
+              maxWidth: maxWidth ?? ToolLayout.maxWidth(context),
               minHeight: fillHeight
                   ? (constraints.maxHeight - top - _padding).clamp(
                       0,
@@ -149,7 +150,7 @@ class FullPage extends StatelessWidget {
         title: title,
         onBack: () => _back(context),
         actions: actions,
-        maxWidth: maxWidth,
+        maxWidth: maxWidth ?? 760,
         fillHeight: fillHeight,
         child: child,
       );

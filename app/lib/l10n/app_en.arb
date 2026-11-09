@@ -2697,5 +2697,9 @@
   "hourglassEnableMotion": "Enable motion",
   "hourglassMotionDenied": "Allow motion access in your browser, then try again.",
   "randomTapPackToOpen": "Tap the pack to open it",
-  "randomTapCardToReveal": "Tap the card to reveal it"
+  "randomTapCardToReveal": "Tap the card to reveal it",
+  "coinCount": "Coins",
+  "coinFewer": "Fewer coins",
+  "coinMore": "More coins",
+  "coinFlip": "Flip"
 }

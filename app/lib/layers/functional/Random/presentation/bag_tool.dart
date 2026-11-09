@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_inputs.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
@@ -55,7 +56,7 @@ class _BagToolState extends State<BagTool> {
   @override
   Widget build(BuildContext context) => Column(
     mainAxisSize: MainAxisSize.min,
-    crossAxisAlignment: CrossAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.stretch,
     children: [
       RandomOptionsField(
         controller: options!,
@@ -69,16 +70,11 @@ class _BagToolState extends State<BagTool> {
           padding: const EdgeInsets.only(bottom: 20),
           child: Text('${bag.length} ${context.l10n.randomTokensRemaining}'),
         ),
-      Wrap(
-        spacing: 12,
-        runSpacing: 12,
-        children: [
-          RandomDrawButton(onPressed: draw),
-          OutlinedButton(
-            onPressed: refill,
-            child: Text(context.l10n.randomRefillBag),
-          ),
-        ],
+      RandomDrawButton(onPressed: draw),
+      const SizedBox(height: Space.md),
+      OutlinedButton(
+        onPressed: refill,
+        child: Text(context.l10n.randomRefillBag),
       ),
     ],
   );

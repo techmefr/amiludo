@@ -28,7 +28,7 @@ class ToolCard extends StatelessWidget {
   final bool favorite;
   final VoidCallback onFavorite, onOpen;
   final VoidCallback? onAdd, onMoveEarlier, onMoveLater;
-  final double width;
+  final double? width;
 
   static const double previewHeight = 120;
 

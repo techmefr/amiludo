@@ -26,7 +26,7 @@ class _OrderToolState extends State<OrderTool> {
   @override
   Widget build(BuildContext context) => Column(
     mainAxisSize: MainAxisSize.min,
-    crossAxisAlignment: CrossAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.stretch,
     children: [
       RandomResultSlot(text: result, compact: true),
       RandomDrawButton(onPressed: draw),

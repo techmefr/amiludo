@@ -103,8 +103,8 @@ class _DiceSceneState extends State<DiceScene>
     seed: seed,
     power: aimed ? widget.power : 1,
     aim: aimed ? headingOf(widget.aim) : const Vec3(0, 0, -1),
-    halfWidth: halfWidth,
-    halfDepth: halfDepth,
+    halfWidth: halfWidth - arenaInsetFor(sides.length),
+    halfDepth: halfDepth - arenaInsetFor(sides.length),
     dieSize: dieSizeFor(sides.length),
   );
 
@@ -168,8 +168,8 @@ class _DiceSceneState extends State<DiceScene>
             launch(reduced);
           }
           final current = sim!;
-          final width = current.world.halfWidth;
-          final depth = current.world.halfDepth;
+          final width = halfWidth;
+          final depth = halfDepth;
           final camera = TrayScenePainter.cameraFor(size, width, depth);
           return GestureDetector(
             behavior: HitTestBehavior.opaque,

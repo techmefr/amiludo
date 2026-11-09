@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/technical/Theme/game_palette.dart';
+
 Color toolColor(String id) => switch (id) {
   'dice' => const Color(0xff8A65D8),
   'dice-tray' => const Color(0xff8A65D8),
@@ -69,12 +71,12 @@ class GameArt extends StatelessWidget {
 class _GameArtPainter extends CustomPainter {
   const _GameArtPainter(this.tool);
   final String tool;
-  static const ink = Color(0xff39304D),
-      purple = Color(0xff9572DC),
-      coral = Color(0xffF19B83),
-      mint = Color(0xff78C8B5),
-      yellow = Color(0xffF2CB69),
-      cream = Color(0xffFFF9EA);
+  static const ink = GamePalette.ink,
+      purple = GamePalette.purple,
+      coral = GamePalette.coral,
+      mint = GamePalette.mint,
+      yellow = GamePalette.yellow,
+      cream = GamePalette.cream;
   Paint fill(Color c) => Paint()..color = c;
   void disk(Canvas c, Offset p, double r, Color color) =>
       c.drawCircle(p, r, fill(color));
@@ -223,7 +225,14 @@ class _GameArtPainter extends CustomPainter {
       pawn(canvas, 165, 99, purple);
       pawn(canvas, 228, 132, mint);
       disk(canvas, const Offset(163, 36), 6, yellow);
-    } else if (tool == 'timer' || tool == 'hourglass' || tool == 'stopwatch' || tool == 'chess-clock' || tool == 'countdown' || tool == 'turn-timer' || tool == 'phases' || tool == 'metronome') {
+    } else if (tool == 'timer' ||
+        tool == 'hourglass' ||
+        tool == 'stopwatch' ||
+        tool == 'chess-clock' ||
+        tool == 'countdown' ||
+        tool == 'turn-timer' ||
+        tool == 'phases' ||
+        tool == 'metronome') {
       _timer(canvas);
     } else if (tool == 'wheel') {
       _wheel(canvas);

@@ -6005,4 +6005,16 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get randomTapCardToReveal => 'Touchez la carte pour la révéler';
+
+  @override
+  String get coinCount => 'Pièces';
+
+  @override
+  String get coinFewer => 'Moins de pièces';
+
+  @override
+  String get coinMore => 'Plus de pièces';
+
+  @override
+  String get coinFlip => 'Lancer la pièce';
 }
