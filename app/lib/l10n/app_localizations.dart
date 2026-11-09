@@ -11029,6 +11029,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Switch tool'**
   String get sessionSwitchTool;
+
+  /// No description provided for @hourglassEnableMotion.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable motion'**
+  String get hourglassEnableMotion;
+
+  /// No description provided for @hourglassMotionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow motion access in your browser, then try again.'**
+  String get hourglassMotionDenied;
 }
 
 class _AppLocalizationsDelegate

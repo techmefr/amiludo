@@ -14,9 +14,11 @@ class HourglassTool extends StatefulWidget {
     super.key,
     this.initial = const HourglassSettings(),
     this.sensor = const NoTurnSensor(),
+    this.requestMotionAccess,
   });
   final HourglassSettings initial;
   final TurnSensor sensor;
+  final Future<bool> Function()? requestMotionAccess;
 
   @override
   State<HourglassTool> createState() => _HourglassToolState();
@@ -24,6 +26,25 @@ class HourglassTool extends StatefulWidget {
 
 class _HourglassToolState extends State<HourglassTool> {
   late HourglassSettings settings = widget.initial;
+  bool requestingMotion = false;
+  bool motionAuthorized = false;
+
+  Future<void> authorizeMotion() async {
+    final request = widget.requestMotionAccess;
+    if (request == null || requestingMotion) return;
+    setState(() => requestingMotion = true);
+    final allowed = await request();
+    if (!mounted) return;
+    setState(() {
+      requestingMotion = false;
+      motionAuthorized = allowed;
+    });
+    if (!allowed) {
+      ScaffoldMessenger.maybeOf(context)?.showSnackBar(
+        SnackBar(content: Text(context.l10n.hourglassMotionDenied)),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) => SandScene(
@@ -49,7 +70,17 @@ class _HourglassToolState extends State<HourglassTool> {
               ],
             ),
             const SizedBox(height: Space.xl),
-            HourglassView(settings: settings, sensor: widget.sensor),
+            if (widget.requestMotionAccess != null && !motionAuthorized)
+              SandPill(
+                label: context.l10n.hourglassEnableMotion,
+                onPressed: requestingMotion ? null : authorizeMotion,
+              ),
+            HourglassView(
+              settings: settings,
+              sensor: widget.requestMotionAccess == null || motionAuthorized
+                  ? widget.sensor
+                  : const NoTurnSensor(),
+            ),
           ],
         ),
       ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/technical/Theme/game_art_3d.dart';
+
 import 'package:amiludo/layers/functional/Random/presentation/tool_preview.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Locale/tool_texts.dart';
@@ -26,6 +28,11 @@ class ToolHeroCard extends StatelessWidget {
     final l = context.l10n;
     final text = Theme.of(context).textTheme;
     final tool = toolThemeFor(id);
+    final illustrated = gameArtworkAsset(id) != null;
+    final surface = illustrated
+        ? GameCardStyle.background(id)
+        : tool.surface(context, mix: .18);
+    final ink = illustrated ? GameCardStyle.foreground(surface) : null;
     final wide = MediaQuery.sizeOf(context).width >= _wide;
     final preview = Hero(
       tag: toolHeroTag(id),
@@ -44,7 +51,7 @@ class ToolHeroCard extends StatelessWidget {
         children: [
           Text(
             resume ? l.toolHeroResume : l.toolHeroFeatured,
-            style: text.labelLarge,
+            style: text.labelLarge?.copyWith(color: ink),
           ),
           const SizedBox(height: Space.xs),
           Text(context.toolTitle(id), style: text.headlineSmall),
@@ -56,9 +63,9 @@ class ToolHeroCard extends StatelessWidget {
       ),
     );
     return Material(
-      color: tool.surface(context, mix: .18),
+      color: surface,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(Radii.lg),
+        borderRadius: BorderRadius.circular(Radii.pill),
       ),
       clipBehavior: Clip.antiAlias,
       child: wide

@@ -1,3 +1,10 @@
+<p align="left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="../design/logo/amiludo-logo-horizontal-dark.png">
+    <img src="../design/logo/amiludo-logo-horizontal.png" width="360" alt="amiLudo - La boîte">
+  </picture>
+</p>
+
 # Vision — as many tools as possible, kept simple
 
 Discussion document of November 2, 2026. This catalog describes the target; the precise alpha statuses are in APP-STATUS.md.

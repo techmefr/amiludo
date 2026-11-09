@@ -1,5 +1,8 @@
 <p align="center">
-  <img src="design/logo/amiludo-app-icon.svg" width="112" alt="amiLudo logo: a purple game box opening">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="design/logo/amiludo-logo-horizontal-dark.png">
+    <img src="design/logo/amiludo-logo-horizontal.png" width="360" alt="amiLudo">
+  </picture>
 </p>
 
 <h1 align="center">amiLudo</h1>
@@ -53,7 +56,7 @@ A game night is often one phone for the dice, a sheet of paper for the scores, a
 | 🧮 **Scores** | Rounds, categories, negative or decimal scores, cooperative goals, resources and statuses, undo and redo, ranking, ties, rematch |
 | 🎲 **Chance** | Multiple lockable dice, expressions (`2d6+1`), who starts (by finger or by name), turn order, coin, weighted wheel, token bag, secret roles |
 | 👥 **Teams** | From typed names, lobby players or **fingers placed on the screen** |
-| ⏱️ **Time** | Free timer, time per turn, per-player reserve with increment, settings kept per table |
+| ⏱️ **Time** | Stopwatch with laps, reversible hourglass, turn timer and face-to-face chess clock with increment |
 | 📚 **Game shelf** | Your games on shelves, with genres, player count, duration and linked packs |
 | ❤️ **Friends** | Liked or avoided genres, available time, refused games or loved ones despite the genre |
 | 🤔 **What do we play tonight?** | Suggestions based on the friends present, their wishes and the time you have |

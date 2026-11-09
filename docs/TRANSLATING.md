@@ -1,3 +1,10 @@
+<p align="left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="../design/logo/amiludo-logo-horizontal-dark.png">
+    <img src="../design/logo/amiludo-logo-horizontal.png" width="360" alt="amiLudo - La boîte">
+  </picture>
+</p>
+
 # Translating amiLudo
 
 The interface texts live in `app/lib/l10n/`, one ARB file per language. English (`app_en.arb`) is the template: every other file must have exactly the same keys and the same `{placeholders}`.

@@ -59,6 +59,7 @@ flutter:
     - assets/avatar/palettes.json
     - assets/cards/
     - assets/illustrations/
+    - assets/illustrations/3d/
     - assets/chronicles/
     - assets/community/
     - assets/fonts/

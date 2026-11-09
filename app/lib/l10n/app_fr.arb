@@ -1828,5 +1828,7 @@
   "rulesCommonCount": "Règles communes ({count})",
   "sessionFullscreen": "Plein écran",
   "sessionGridView": "Voir tous les outils",
-  "sessionSwitchTool": "Changer d'outil"
+  "sessionSwitchTool": "Changer d'outil",
+  "hourglassEnableMotion": "Activer les mouvements",
+  "hourglassMotionDenied": "Autorisez l’accès aux mouvements dans votre navigateur, puis réessayez."
 }

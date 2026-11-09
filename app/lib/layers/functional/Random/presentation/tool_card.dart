@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'package:amiludo/layers/technical/Theme/game_art_3d.dart';
 import 'package:flutter/semantics.dart';
 
 import 'package:amiludo/layers/functional/Random/presentation/tool_preview.dart';
@@ -35,6 +37,11 @@ class ToolCard extends StatelessWidget {
     final l = context.l10n;
     final theme = Theme.of(context);
     final tool = toolThemeFor(id);
+    final illustrated = gameArtworkAsset(id) != null;
+    final surface = illustrated
+        ? GameCardStyle.background(id)
+        : tool.surface(context);
+    final ink = illustrated ? GameCardStyle.foreground(surface) : null;
     final text = theme.textTheme;
     return SizedBox(
       width: width,
@@ -44,9 +51,9 @@ class ToolCard extends StatelessWidget {
           CustomSemanticsAction(label: l.toolMoveLater): ?onMoveLater,
         },
         child: Material(
-          color: tool.surface(context),
+          color: surface,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(Radii.lg),
+            borderRadius: BorderRadius.circular(Radii.pill),
           ),
           clipBehavior: Clip.antiAlias,
           child: Stack(
@@ -77,14 +84,14 @@ class ToolCard extends StatelessWidget {
                             context.toolTitle(id),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-                            style: text.titleMedium,
+                            style: text.titleMedium?.copyWith(color: ink),
                           ),
                           const SizedBox(height: Space.xs),
                           Text(
                             context.toolSubtitle(id),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-                            style: text.bodySmall,
+                            style: text.bodySmall?.copyWith(color: ink),
                           ),
                         ],
                       ),
@@ -100,11 +107,13 @@ class ToolCard extends StatelessWidget {
                     if (onAdd != null)
                       IconButton(
                         tooltip: l.brickAddToCompanion,
+                        color: ink,
                         onPressed: onAdd,
                         icon: const DeckIcon(Icons.add),
                       ),
                     IconButton(
                       tooltip: l.randomFavorite,
+                      color: ink,
                       onPressed: onFavorite,
                       icon: DeckIcon(
                         favorite ? Icons.star : Icons.star_outline,

@@ -5977,4 +5977,11 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get sessionSwitchTool => 'Cambiar de herramienta';
+
+  @override
+  String get hourglassEnableMotion => 'Activar movimiento';
+
+  @override
+  String get hourglassMotionDenied =>
+      'Permite el acceso al movimiento en el navegador y vuelve a intentarlo.';
 }

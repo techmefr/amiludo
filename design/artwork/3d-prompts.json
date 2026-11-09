@@ -1,0 +1,67 @@
+{
+  "mode": "built-in imagegen",
+  "date": "2026-11-08",
+  "art_direction": "Original transparent 3D cutouts for amiLudo: rounded matte clay/plastic, warm upper-left studio light, ivory/violet/mint/coral/amber palette, no UI frame, no brands or characters.",
+  "assets": [
+    {
+      "name": "dice",
+      "path": "app/assets/illustrations/3d/dice.png",
+      "prompt": "Two rounded ivory and violet dice with recessed circular pips, tumbling together.",
+      "source_file": "exec-118d1afd-1f65-4d03-84e6-2aa9679731ec.png"
+    },
+    {
+      "name": "pawns",
+      "path": "app/assets/illustrations/3d/pawns.png",
+      "prompt": "Three rounded spherical-head pawns in violet, coral and mint.",
+      "source_file": "exec-817aa9ae-f268-4697-923d-2d6485da7936.png"
+    },
+    {
+      "name": "numbers",
+      "path": "app/assets/illustrations/3d/numbers.png",
+      "prompt": "Three rounded violet, mint and coral blocks bearing white numerals 1, 2, 3.",
+      "source_file": "exec-01d05ba8-a936-4d06-9f74-1ae820d88a56.png"
+    },
+    {
+      "name": "cards",
+      "path": "app/assets/illustrations/3d/cards.png",
+      "prompt": "A fan of four rounded cards with original abstract circle, star, diamond and dot designs.",
+      "source_file": "exec-aa9346d5-4ea0-4f28-a2fa-7147a680ce6d.png"
+    },
+    {
+      "name": "hourglass",
+      "path": "app/assets/illustrations/3d/hourglass.png",
+      "prompt": "A squat rounded ivory-and-violet hourglass, clear bulbs, amber sand.",
+      "source_file": "exec-d2ff7e88-afd9-477d-a456-f2fd00dbdff7.png"
+    },
+    {
+      "name": "scores",
+      "path": "app/assets/illustrations/3d/scores.png",
+      "prompt": "A mint clipboard/scoreboard with ivory rows, colored bars and counters, no text.",
+      "source_file": "exec-c12a1bc2-48e2-4576-95cd-5ba6ce931ff7.png"
+    },
+    {
+      "name": "wheel",
+      "path": "app/assets/illustrations/3d/wheel.png",
+      "prompt": "A six-sector violet/mint/coral/amber prize wheel on an ivory stand, no labels.",
+      "source_file": "exec-fe9a77d5-35f6-4d17-8097-48b81c3b4a73.png"
+    },
+    {
+      "name": "coins",
+      "path": "app/assets/illustrations/3d/coins.png",
+      "prompt": "Two chunky amber coins bearing raised stars with a violet accent.",
+      "source_file": "exec-b4fe027e-c0a7-4a08-9e50-4f3140f90837.png"
+    },
+    {
+      "name": "bag",
+      "path": "app/assets/illustrations/3d/bag.png",
+      "prompt": "A mint cloth drawstring token bag with violet cord and amber/coral tokens.",
+      "source_file": "exec-30e6a20d-624e-4c91-a1c3-76741adc28c9.png"
+    },
+    {
+      "name": "table",
+      "path": "app/assets/illustrations/3d/table.png",
+      "prompt": "A cohesive still life of dice, pawns, abstract cards and amber tokens for the welcome banner.",
+      "source_file": "exec-96d88e30-916f-4f88-af42-58ac1cfe3c3f.png"
+    }
+  ]
+}

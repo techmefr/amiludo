@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:amiludo/layers/technical/Theme/game_art_3d.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Theme/components/hourglass_painter.dart';
@@ -115,9 +117,8 @@ class _ToolPreviewState extends State<ToolPreview>
   Widget _reading(BuildContext context, Color ink, String text) => Center(
     child: Text(
       text,
-      style: Numerals.instrument(
-        Theme.of(context).textTheme.displaySmall,
-      )?.copyWith(color: ink),
+      style: Numerals.instrument(Theme.of(context).textTheme.displaySmall)
+          ?.copyWith(color: ink),
     ),
   );
 
@@ -152,27 +153,37 @@ class _ToolPreviewState extends State<ToolPreview>
       'tally' => _reading(context, ink, '${(t * 12).round()}'),
       'coin' || 'wheel' => _spin(t),
       _ =>
-          extraPreview(context, widget.id, tool.accent, ink, t) ??
-          Opacity(
-            opacity: .4 + .6 * t,
-            child: GameArt(tool: widget.id, height: widget.height),
-          ),
+        extraPreview(context, widget.id, tool.accent, ink, t) ??
+            Opacity(
+              opacity: .4 + .6 * t,
+              child: GameArt(tool: widget.id, height: widget.height),
+            ),
     };
   }
 
   @override
-  Widget build(BuildContext context) => ExcludeSemantics(
-    child: MouseRegion(
-      onEnter: (_) => _replay(),
-      child: SizedBox(
-        height: widget.height,
+  Widget build(BuildContext context) {
+    if (gameArtworkAsset(widget.id) != null) {
+      return SizedBox(
         width: double.infinity,
-        child: AnimatedBuilder(
-          animation: _controller,
-          builder: (context, _) =>
-              _frame(context, Curves.easeOutCubic.transform(_controller.value)),
+        child: GameArt3D(kind: widget.id, height: widget.height),
+      );
+    }
+    return ExcludeSemantics(
+      child: MouseRegion(
+        onEnter: (_) => _replay(),
+        child: SizedBox(
+          height: widget.height,
+          width: double.infinity,
+          child: AnimatedBuilder(
+            animation: _controller,
+            builder: (context, _) => _frame(
+              context,
+              Curves.easeOutCubic.transform(_controller.value),
+            ),
+          ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }

@@ -1828,5 +1828,7 @@
   "rulesCommonCount": "Gemeenschappelijke regels ({count})",
   "sessionFullscreen": "Volledig scherm",
   "sessionGridView": "Alle hulpmiddelen tonen",
-  "sessionSwitchTool": "Van hulpmiddel wisselen"
+  "sessionSwitchTool": "Van hulpmiddel wisselen",
+  "hourglassEnableMotion": "Beweging inschakelen",
+  "hourglassMotionDenied": "Sta bewegingstoegang toe in je browser en probeer opnieuw."
 }
