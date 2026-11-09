@@ -30,6 +30,7 @@ class DemoStage extends StatelessWidget {
             return Opacity(
               opacity: DemoTimeline.cycleFade(t),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Expanded(child: _row(t, 0, 1)),
                   const SizedBox(height: Space.sm),
@@ -72,6 +73,7 @@ class DemoStage extends StatelessWidget {
   }
 
   Widget _row(double t, int a, int b) => Row(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
     children: [
       Expanded(child: _tile(t, a)),
       const SizedBox(width: Space.sm),
