@@ -60,7 +60,7 @@ class HourglassState {
   }
 
   void turn() {
-    fallen = settings.duration - fallen;
+    if (fallen != Duration.zero) fallen = settings.duration - fallen;
     turns++;
     running = !finished;
   }

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
@@ -43,12 +44,22 @@ class _HourglassViewState extends State<HourglassView> {
   @override
   void initState() {
     super.initState();
-    subscription = widget.sensor.turns.listen((_) => turn());
+    listenForTurns();
+  }
+
+  void listenForTurns() {
+    subscription?.cancel();
+    subscription = widget.sensor.turns.listen(
+      (_) => turn(),
+      onError: (Object _) {},
+      cancelOnError: true,
+    );
   }
 
   @override
   void didUpdateWidget(HourglassView old) {
     super.didUpdateWidget(old);
+    if (old.sensor != widget.sensor) listenForTurns();
     if (old.settings != widget.settings) {
       stopTicker();
       flow = HourglassState(widget.settings);
@@ -114,20 +125,36 @@ class _HourglassViewState extends State<HourglassView> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(
-            height: height,
-            width: height * 0.6,
-            child: CustomPaint(
-              painter: SandglassPainter(
-                upperFill: flow.upperFill,
-                lowerFill: flow.lowerFill,
-                sand: Color.lerp(
-                  SandPalette.alert,
-                  Color(widget.settings.color),
-                  (flow.upperFill * 3).clamp(0.0, 1.0),
-                )!,
-                streaming: flow.running && !reduced,
-                phase: (flow.remaining.inMilliseconds % 1000) / 1000,
+          GestureDetector(
+            excludeFromSemantics: true,
+            behavior: HitTestBehavior.opaque,
+            onTap: turn,
+            onVerticalDragEnd: (_) => turn(),
+            child: SizedBox(
+              height: height,
+              width: height * 0.6,
+              child: TweenAnimationBuilder<double>(
+                key: ValueKey(flow.turns),
+                tween: Tween(begin: flow.turns == 0 ? 1 : 0, end: 1),
+                duration: Motion.of(context, Motion.slow),
+                curve: Motion.curve,
+                builder: (context, progress, child) => Transform.rotate(
+                  angle: math.pi * (1 - progress),
+                  child: child,
+                ),
+                child: CustomPaint(
+                  painter: SandglassPainter(
+                    upperFill: flow.upperFill,
+                    lowerFill: flow.lowerFill,
+                    sand: Color.lerp(
+                      SandPalette.alert,
+                      Color(widget.settings.color),
+                      (flow.upperFill * 3).clamp(0.0, 1.0),
+                    )!,
+                    streaming: flow.running && !reduced,
+                    phase: (flow.remaining.inMilliseconds % 1000) / 1000,
+                  ),
+                ),
               ),
             ),
           ),

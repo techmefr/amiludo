@@ -1,3 +1,10 @@
+<p align="left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="../design/logo/amiludo-logo-horizontal-dark.png">
+    <img src="../design/logo/amiludo-logo-horizontal.png" width="360" alt="amiLudo - La boîte">
+  </picture>
+</p>
+
 # amiLudo — Flutter app (alpha)
 
 Android, iOS and web app. Flutter 3.47.9 / Dart 3.13.7. Code organized in functional and technical layers. The HTML mockups remain in ../prototype.

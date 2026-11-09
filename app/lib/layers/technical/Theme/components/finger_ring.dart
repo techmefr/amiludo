@@ -24,21 +24,35 @@ class FingerRing extends StatelessWidget {
     super.key,
     required this.color,
     this.state = FingerRingState.idle,
+    this.nextColor,
     this.label,
     this.size = fingerRingSize,
   });
 
   final Color color;
+  final Color? nextColor;
   final FingerRingState state;
   final String? label;
   final double size;
 
   @override
   Widget build(BuildContext context) {
+    final next = nextColor;
+    if (next == null || MediaQuery.disableAnimationsOf(context)) {
+      return ring(context, color);
+    }
+    return TweenAnimationBuilder<Color?>(
+      tween: ColorTween(begin: color, end: next),
+      duration: const Duration(milliseconds: 1400),
+      builder: (context, value, _) => ring(context, value ?? color),
+    );
+  }
+
+  Widget ring(BuildContext context, Color tint) {
     final dim = state == FingerRingState.dim;
     final winner = state == FingerRingState.winner;
     if (winner) return _WinnerDisc(size: size);
-    final base = dim ? const Color(0xFF3A3A3C) : color;
+    final base = dim ? const Color(0xFF3A3A3C) : tint;
     final inner = size * 0.62;
     final core = size * 0.44;
     return AnimatedOpacity(

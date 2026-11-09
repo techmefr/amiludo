@@ -26,3 +26,9 @@ A game box opens and a pawn springs out: all the tools are in the box, the game 
 - Colors: purple #6644D6, yellow #F6C445, ink #2A1F44 for the monochrome version.
 - Typography: headings in Bricolage Grotesque (free equivalent of Getai Grotesk Display), body text in Lil Grotesk.
 - Files in design/logo: color and monochrome symbol, app icon (purple background, white box) and its maskable version. The Android, iOS and web icons are generated from these SVGs.
+
+## Logo files
+
+![amiLudo wordmark](logo/amiludo-logo-horizontal.png)
+
+The app icons and the light, dark and monochrome wordmarks share the same source geometry. See the [logo guide](logo/README.md) for file formats and usage.

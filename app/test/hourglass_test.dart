@@ -141,6 +141,31 @@ void main() {
         await tester.pumpWidget(const SizedBox());
       });
 
+      testWidgets('granted motion access enables a physical turn', (
+        tester,
+      ) async {
+        setSize(tester);
+        final sensor = FakeSensor();
+        addTearDown(sensor.controller.close);
+        await tester.pumpWidget(
+          host(
+            HourglassTool(
+              sensor: sensor,
+              requestMotionAccess: () async => true,
+            ),
+          ),
+        );
+        expect(sensor.controller.hasListener, isFalse);
+        await tester.tap(find.text('Enable motion'));
+        await tester.pump();
+        expect(sensor.controller.hasListener, isTrue);
+        sensor.controller.add(null);
+        await tester.pump();
+        expect(find.text('Pause'), findsOneWidget);
+        expect(find.text('01:00'), findsOneWidget);
+        await tester.pumpWidget(const SizedBox());
+      });
+
       testWidgets('reduced motion ticks once a second and finishes', (
         tester,
       ) async {

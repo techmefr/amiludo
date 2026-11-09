@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/technical/Theme/game_art_3d.dart';
+
 import 'package:amiludo/layers/functional/Random/domain/entities/tool_shelves.dart';
 import 'package:amiludo/layers/technical/Locale/tool_texts.dart';
 import 'package:amiludo/layers/technical/Theme/components/tool_texture.dart';
@@ -92,13 +94,18 @@ class ToolCategoryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final style = styleOfShelf(shelf.id);
     final tool = style.theme;
-    final surface = tool.surface(context, mix: .18);
-    final ink = tool.ink(surface);
+    final illustrated = gameArtworkAsset(shelf.id) != null;
+    final surface = illustrated
+        ? GameCardStyle.background(shelf.id)
+        : tool.surface(context, mix: .24);
+    final ink = illustrated
+        ? GameCardStyle.foreground(surface)
+        : tool.ink(surface);
     final text = Theme.of(context).textTheme;
     return Material(
       color: surface,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(Radii.lg),
+        borderRadius: BorderRadius.circular(Radii.pill),
       ),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
@@ -117,7 +124,19 @@ class ToolCategoryTile extends StatelessWidget {
                 children: [
                   Hero(
                     tag: 'shelf-${shelf.id}',
-                    child: DeckIcon(style.icon, size: 40, color: ink),
+                    child: illustrated
+                        ? SizedBox(
+                            width: double.infinity,
+                            child: GameArt3D(
+                              kind: shelf.id,
+                              height: 96,
+                              alignment: Alignment.centerRight,
+                            ),
+                          )
+                        : SizedBox(
+                            height: 96,
+                            child: DeckIcon(style.icon, size: 48, color: ink),
+                          ),
                   ),
                   const SizedBox(height: Space.lg),
                   Text(
@@ -132,7 +151,7 @@ class ToolCategoryTile extends StatelessWidget {
                         .join(', '),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: text.bodySmall,
+                    style: text.bodySmall?.copyWith(color: ink),
                   ),
                 ],
               ),

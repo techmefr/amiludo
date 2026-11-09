@@ -123,7 +123,7 @@ class ToolsHome extends StatelessWidget {
         if (shelf.tools.isNotEmpty) shelf,
     ];
     return ResponsiveGrid(
-      minimumWidth: 240,
+      minimumWidth: MediaQuery.sizeOf(context).width < 600 ? 150 : 240,
       children: [
         for (var i = 0; i < shelves.length; i++)
           Entrance(
