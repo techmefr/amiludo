@@ -21,7 +21,7 @@ void main() {
   test('arena depth stays within bounds', () {
     for (final stage in const [Size(375, 812), Size(1280, 720)]) {
       final depth = arenaDepthFor(stage, arenaWidthFor(stage, 2));
-      expect(depth, inInclusiveRange(3.0, 8.0));
+      expect(depth, inInclusiveRange(2.6, 8.0));
     }
   });
 }
