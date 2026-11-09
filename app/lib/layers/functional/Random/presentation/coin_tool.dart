@@ -141,15 +141,17 @@ class _CoinToolState extends State<CoinTool> {
         ),
         const SizedBox(height: Space.md),
         stage(context),
-        text.isEmpty
-            ? Padding(
-                padding: const EdgeInsets.symmetric(vertical: Space.xl),
-                child: Text(
-                  results.isEmpty ? l.randomPressTheButtonToRoll : '',
-                  textAlign: TextAlign.center,
-                ),
-              )
-            : ToolResultText(text: text, compact: results.length > 1),
+        SizedBox(
+          height: Space.xxl * 4,
+          child: text.isEmpty
+              ? Center(
+                  child: Text(
+                    results.isEmpty ? l.randomPressTheButtonToRoll : '',
+                    textAlign: TextAlign.center,
+                  ),
+                )
+              : ToolResultText(text: text, compact: results.length > 1),
+        ),
         ToolPrimaryButton(
           onPressed: flying ? null : flip,
           label: l.coinFlip,
