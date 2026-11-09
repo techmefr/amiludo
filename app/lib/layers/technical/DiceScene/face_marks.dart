@@ -47,7 +47,7 @@ const _pips = {
   ],
 };
 
-Matrix4 _place(SceneCamera cam, DieBody body, ShapeFace face) {
+Matrix4 faceMatrix(SceneCamera cam, DieBody body, ShapeFace face) {
   final mesh = face.face;
   final across = body.rot.rotate(mesh.normal.cross(-mesh.up));
   final down = body.rot.rotate(-mesh.up);
@@ -87,7 +87,7 @@ void paintMark(
   bool pips = false,
 }) {
   canvas.save();
-  canvas.transform(_place(cam, body, face).storage);
+  canvas.transform(faceMatrix(cam, body, face).storage);
   final fade = alpha.clamp(0.0, 1.0);
   if (pips &&
       int.tryParse(text) != null &&

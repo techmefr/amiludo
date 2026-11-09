@@ -18,8 +18,8 @@ class Appearance {
     this.keepAwake = true,
     this.language = 'fr',
     this.sensors = 'medium',
-    this.dice3d = false,
-    this.dieSkin = 'classic',
+    this.dice3d = true,
+    this.dieSkin = 'matte',
     this.table = 'felt',
   });
   final String skin, palette, mode, font, shape, language, sensors;
@@ -100,8 +100,8 @@ class Appearance {
     'keepAwake': keepAwake,
     'language': language,
     if (sensors != 'medium') 'sensors': sensors,
-    if (dice3d) 'dice3d': true,
-    if (dieSkin != 'classic') 'dieSkin': dieSkin,
+    if (!dice3d) 'dice3d': false,
+    if (dieSkin != 'matte') 'dieSkin': dieSkin,
     if (table != 'felt') 'table': table,
   };
   factory Appearance.fromJson(Map<String, dynamic> j) {
@@ -129,8 +129,8 @@ class Appearance {
       keepAwake: j['keepAwake'] as bool? ?? true,
       language: j['language'] as String? ?? 'fr',
       sensors: j['sensors'] as String? ?? 'medium',
-      dice3d: j['dice3d'] as bool? ?? false,
-      dieSkin: _known(j['dieSkin'], DieSkin.all.map((s) => s.id), 'classic'),
+      dice3d: j['dice3d'] as bool? ?? true,
+      dieSkin: _known(j['dieSkin'], DieSkin.all.map((s) => s.id), 'matte'),
       table: _known(j['table'], TableTheme.all.map((t) => t.id), 'felt'),
     );
     if (![

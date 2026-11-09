@@ -1,7 +1,13 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/dice_scene_layers.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/die_face_view.dart';
+import 'package:amiludo/layers/technical/Appearance/appearance.dart';
 import 'package:amiludo/layers/technical/Dice3D/die_skin.dart';
 import 'package:amiludo/layers/technical/Dice3D/table_theme.dart';
 import 'package:amiludo/layers/technical/Dice3D/vec3.dart';
@@ -10,6 +16,7 @@ import 'package:amiludo/layers/technical/DiceScene/die_scene.dart';
 import 'package:amiludo/layers/technical/DiceScene/scene_camera.dart';
 import 'package:amiludo/layers/technical/DiceScene/shadow_scene.dart';
 import 'package:amiludo/layers/technical/DiceScene/tray_scene_painter.dart';
+import 'package:amiludo/layers/technical/Physics/seeded_random.dart';
 
 const _sides = [2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 30, 60, 100, 1000];
 
@@ -37,6 +44,7 @@ TrayScenePainter _scene(DiceSimulation run, DieSkin skin, TableTheme table) =>
     );
 
 void main() {
+  _tiltTests();
   test('the camera fits the whole table inside any viewport', () {
     for (final size in [
       const Size(390, 360),
@@ -98,5 +106,74 @@ void main() {
         const Size(800, 400),
       );
     }
+  });
+}
+
+void _tiltTests() {
+  test('tilting slides settled dice without turning them, then they rest', () {
+    final run = DiceSimulation(sides: const [6, 20], seed: 5)..settle();
+    final before = run.values;
+    final x = run.bodies.first.pos.x;
+    run.tilt(const Vec3(24, 0, 0));
+    expect(run.settled, isFalse);
+    for (var i = 0; i < 60; i++) {
+      run.advance(1 / 30);
+    }
+    expect(run.bodies.first.pos.x, greaterThan(x));
+    expect(run.values, before);
+    run.tilt(Vec3.zero);
+    run.settle();
+    expect(run.settled, isTrue);
+    expect(run.values, before);
+  });
+
+  test('3D with the matte skin is the default look', () {
+    const appearance = Appearance();
+    expect(appearance.dice3d, isTrue);
+    expect(appearance.dieSkin, 'matte');
+    expect(DieSkin.byId(appearance.dieSkin).finish, DieFinish.matte);
+  });
+
+  testWidgets('icon and image faces are drawn on the settled die', (
+    tester,
+  ) async {
+    final design = DieDesign(
+      id: 'art',
+      name: 'Art',
+      faces: [
+        for (var i = 0; i < 6; i++)
+          const DieFaceContent(kind: DieFaceKind.icon, value: 'sword'),
+      ],
+    );
+    final run = DiceSimulation(sides: const [6], seed: 2)..settle();
+    final session = DiceTraySession(
+      settings: DiceTraySettings(dice: [DiceSpec.fromDesign(design)]),
+    ).throwDice(SeededRandom(1)).withOutcome(run.values);
+    final cam = SceneCamera.fit(
+      const Size(400, 300),
+      halfWidth: run.world.halfWidth,
+      halfDepth: run.world.halfDepth,
+    );
+    await tester.pumpWidget(
+      MaterialApp(
+        home: SizedBox(
+          width: 400,
+          height: 300,
+          child: DiceSceneLayers(
+            run: run,
+            session: session,
+            skin: DieSkin.byId('matte'),
+            table: TableTheme.felt,
+            camera: cam,
+            halfWidth: run.world.halfWidth,
+            halfDepth: run.world.halfDepth,
+            frame: ValueNotifier(0),
+            handles: ValueNotifier(0),
+          ),
+        ),
+      ),
+    );
+    expect(find.byType(DieFaceView), findsWidgets);
+    expect(tester.takeException(), isNull);
   });
 }

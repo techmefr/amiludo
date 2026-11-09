@@ -54,13 +54,18 @@ class DiceSimulation {
     return run.values;
   }
 
+  void tilt(Vec3 acceleration) {
+    world.tilt(acceleration);
+    _elapsed = 0;
+  }
+
   void advance(double dt) {
     _carry += min(dt, 0.1);
     while (_carry >= DiceWorld.step && !settled) {
       world.advance();
       _carry -= DiceWorld.step;
       _elapsed += DiceWorld.step;
-      if (_elapsed > maxSeconds) world.freeze();
+      if (_elapsed > maxSeconds && !world.leaning) world.freeze();
     }
     if (settled) _carry = 0;
   }

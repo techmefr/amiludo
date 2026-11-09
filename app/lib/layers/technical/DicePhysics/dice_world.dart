@@ -24,6 +24,9 @@ class DiceWorld {
   final List<Wall> walls;
   final List<DieBody> bodies = [];
   void Function(DieImpactKind kind, double speed)? onImpact;
+  Vec3 lean = Vec3.zero;
+
+  bool get leaning => lean.length > 3;
 
   bool get settled => bodies.every((b) => b.asleep);
 
@@ -36,8 +39,13 @@ class DiceWorld {
     ];
     for (final b in awake) {
       b.vel =
-          Vec3(b.vel.x, b.vel.y - gravity * step, b.vel.z) * (1 - 0.02 * step);
-      b.omega = b.omega * (1 - 0.1 * step);
+          Vec3(
+            b.vel.x + lean.x * step,
+            b.vel.y - gravity * step,
+            b.vel.z + lean.z * step,
+          ) *
+          (1 - 0.02 * step);
+      b.omega = leaning ? Vec3.zero : b.omega * (1 - 0.1 * step);
       b.grounded = false;
     }
     final contacts = _detect();
@@ -80,6 +88,12 @@ class DiceWorld {
   }
 
   void _integrate(DieBody b) {
+    if (leaning) {
+      b.omega = Vec3.zero;
+      b.pos = b.pos + b.vel * step;
+      b.still = 0;
+      return;
+    }
     if (b.shape.sphere && b.grounded) {
       b.omega = b.omega * (1 - 2.5 * step);
       b.vel = b.vel * (1 - 1.2 * step);
@@ -104,6 +118,14 @@ class DiceWorld {
     }
     if (b.vel.length < 0.25 && b.omega.length < 0.35 && ++b.still > 30) {
       b.sleep();
+    }
+  }
+
+  void tilt(Vec3 acceleration) {
+    lean = acceleration;
+    if (!leaning) return;
+    for (final b in bodies) {
+      b.wake();
     }
   }
 

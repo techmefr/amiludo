@@ -26,9 +26,7 @@ SceneDie sceneDieFor(DiceSpec spec, DieBody body, DieSkin skin) {
               : const Color(0xFFF6F3EE)),
     label: (v) {
       final content = spec.faceContent(v);
-      return content.kind == DieFaceKind.text
-          ? content.value
-          : spec.faceLabel(v);
+      return content.kind == DieFaceKind.text ? content.value : null;
     },
     pips: skinned && spec.sides == 6,
   );
