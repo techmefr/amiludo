@@ -13,15 +13,15 @@ void main() {
 
   test('wide stages get a wide arena, portrait stages a narrow one', () {
     expect(
-      arenaWidthFor(const Size(1280, 720), 2),
-      greaterThan(arenaWidthFor(const Size(375, 812), 2)),
+      arenaWidthFor(const Size(1280, 720), 8),
+      greaterThan(arenaWidthFor(const Size(375, 812), 8)),
     );
   });
 
   test('arena depth stays within bounds', () {
     for (final stage in const [Size(375, 812), Size(1280, 720)]) {
       final depth = arenaDepthFor(stage, arenaWidthFor(stage, 2));
-      expect(depth, inInclusiveRange(2.6, 8.0));
+      expect(depth, inInclusiveRange(3.4, 8.0));
     }
   });
 }

@@ -71,7 +71,6 @@ class _DiceSceneState extends State<DiceScene>
   ];
 
   double get halfWidth => arenaWidthFor(size, sides.length);
-
   double get halfDepth => arenaDepthFor(size, halfWidth);
 
   SceneCamera get camera =>
@@ -110,6 +109,7 @@ class _DiceSceneState extends State<DiceScene>
     aim: aimed ? headingOf(widget.aim) : const Vec3(0, 0, -1),
     halfWidth: halfWidth,
     halfDepth: halfDepth,
+    dieSize: dieSizeFor(sides.length),
   );
 
   void ensure() {
