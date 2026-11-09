@@ -15,7 +15,6 @@ import 'package:amiludo/layers/technical/Feedback/tray_feedback.dart';
 import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
-const double _halfWidth = 6;
 const double _impactScale = 35;
 const double _leanScale = 26;
 const double _leanDeadZone = 0.12;
@@ -71,10 +70,12 @@ class _DiceSceneState extends State<DiceScene>
     for (final d in widget.session.settings.dice) d.sides,
   ];
 
-  double get halfDepth => arenaDepthFor(size, _halfWidth);
+  double get halfWidth => arenaWidthFor(size);
+
+  double get halfDepth => arenaDepthFor(size, halfWidth);
 
   SceneCamera get camera =>
-      TrayScenePainter.cameraFor(size, _halfWidth, halfDepth);
+      TrayScenePainter.cameraFor(size, halfWidth, halfDepth);
 
   @override
   void dispose() {
@@ -107,12 +108,13 @@ class _DiceSceneState extends State<DiceScene>
     seed: seed,
     power: aimed ? widget.power : 1,
     aim: aimed ? headingOf(widget.aim) : const Vec3(0, 0, -1),
-    halfWidth: _halfWidth,
+    halfWidth: halfWidth,
     halfDepth: halfDepth,
   );
 
   void ensure() {
-    final key = '${sides.join(',')}|${halfDepth.toStringAsFixed(1)}';
+    final key =
+        '${sides.join(',')}|${halfWidth.toStringAsFixed(1)}|${halfDepth.toStringAsFixed(1)}';
     if (key == layout && sim != null) return;
     layout = key;
     ticker.stop();
@@ -185,7 +187,7 @@ class _DiceSceneState extends State<DiceScene>
               skin: widget.skin,
               table: widget.table,
               camera: camera,
-              halfWidth: _halfWidth,
+              halfWidth: halfWidth,
               halfDepth: halfDepth,
               frame: frame,
               handles: handles,
