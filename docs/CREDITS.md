@@ -26,3 +26,7 @@ Cited brands and games belong to their owners. The project is not presented as a
 ## 3D dice
 
 - The 3D dice mode is drawn with Flutter `Canvas` and plain vector maths in `app/lib/layers/technical/Dice3D`; the polyhedra (tetrahedron, cube, octahedron, pentagonal trapezohedron, dodecahedron, icosahedron) are generated from their standard coordinates. No new dependency was added.
+
+## Aura backgrounds
+
+- The layered gradient backgrounds (soft blurred blobs combined with blend modes over a base colour, plus a film-grain finish) are inspired by the approach of Aura (https://github.com/CristianOlivera1/Aura, MIT). They are re-created natively with Flutter `CustomPainter`; no asset or code was copied and no dependency was added.

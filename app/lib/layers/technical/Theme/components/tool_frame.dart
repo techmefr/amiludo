@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/technical/Theme/components/aura/aura_background.dart';
+import 'package:amiludo/layers/technical/Theme/components/aura/aura_presets.dart';
 import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 import 'package:amiludo/layers/technical/Theme/components/tool_texture.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/deck_style.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
+
+Color toolFrameBackground(ThemeData base, ToolTheme tool) => Color.lerp(
+  base.scaffoldBackgroundColor,
+  tool.accent,
+  base.brightness == Brightness.dark ? .12 : .07,
+)!;
 
 class ToolFrame extends StatelessWidget {
   const ToolFrame({super.key, required this.id, required this.child});
@@ -41,12 +50,7 @@ class ToolFrame extends StatelessWidget {
   Widget build(BuildContext context) {
     final tool = toolThemeFor(id);
     final base = Theme.of(context);
-    final dark = base.brightness == Brightness.dark;
-    final background = Color.lerp(
-      base.scaffoldBackgroundColor,
-      tool.accent,
-      dark ? .12 : .07,
-    )!;
+    final background = toolFrameBackground(base, tool);
     final ink = tool.ink(background);
     final themed = base.copyWith(
       scaffoldBackgroundColor: background,
@@ -60,6 +64,15 @@ class ToolFrame extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
+          Positioned.fill(
+            child: AuraBackground(
+              preset: AuraPresets.tool(
+                id,
+                base.extension<DeckStyle>()?.skin ?? 'clean',
+              ),
+              theme: themed,
+            ),
+          ),
           TweenAnimationBuilder<double>(
             tween: Tween(begin: 0, end: 1),
             duration: tool.duration(context),

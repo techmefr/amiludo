@@ -35,6 +35,7 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
     compact: appearance.compact,
     borderWidth: game ? 3 : 1,
     glow: game ? accent.withValues(alpha: .6) : null,
+    skin: appearance.skin,
   );
   final scheme = ColorScheme.fromSeed(seedColor: accent, brightness: mode)
       .copyWith(

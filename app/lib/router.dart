@@ -506,7 +506,11 @@ final router = GoRouter(
       GoRoute(
         path: path,
         builder: (context, state) =>
-            AppShell(path: state.uri.path, child: screen(state)),
+            AppShell(
+              path: state.uri.path,
+              shelf: state.uri.queryParameters['category'],
+              child: screen(state),
+            ),
       ),
   ],
 );

@@ -13,6 +13,7 @@ class DeckStyle extends ThemeExtension<DeckStyle> {
     this.borderWidth = 1,
     this.glow,
     this.clean = false,
+    this.skin = 'clean',
   });
   final String shape, headingFont;
   final Color signal;
@@ -20,6 +21,7 @@ class DeckStyle extends ThemeExtension<DeckStyle> {
   final double borderWidth;
   final Color? glow;
   final bool clean;
+  final String skin;
   OutlinedBorder border(Color color, {bool strong = false}) => clean
       ? RoundedRectangleBorder(
           side: strong ? BorderSide(color: color, width: 2) : BorderSide.none,
@@ -52,6 +54,7 @@ class DeckStyle extends ThemeExtension<DeckStyle> {
     double? borderWidth,
     Color? glow,
     bool? clean,
+    String? skin,
   }) => DeckStyle(
     shape: shape ?? this.shape,
     signal: signal ?? this.signal,
@@ -60,6 +63,7 @@ class DeckStyle extends ThemeExtension<DeckStyle> {
     borderWidth: borderWidth ?? this.borderWidth,
     glow: glow ?? this.glow,
     clean: clean ?? this.clean,
+    skin: skin ?? this.skin,
   );
   @override
   DeckStyle lerp(covariant DeckStyle? other, double t) =>
