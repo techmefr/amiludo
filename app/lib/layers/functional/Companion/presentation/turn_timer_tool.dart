@@ -137,23 +137,26 @@ class _TurnTimerToolState extends State<TurnTimerTool> {
                       liveRegion: true,
                       label: '$name, $time',
                       child: ExcludeSemantics(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              name,
-                              style: theme.textTheme.titleLarge?.copyWith(
-                                color: ink,
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                name,
+                                style: theme.textTheme.titleLarge?.copyWith(
+                                  color: ink,
+                                ),
                               ),
-                            ),
-                            Text(
-                              time,
-                              style: Numerals.instrument(
-                                theme.textTheme.displayMedium,
+                              Text(
+                                time,
+                                style: Numerals.instrument(
+                                  theme.textTheme.displayMedium,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),

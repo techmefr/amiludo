@@ -13,6 +13,7 @@ import 'package:amiludo/layers/technical/Dice3D/die_skin.dart';
 import 'package:amiludo/layers/technical/Dice3D/table_theme.dart';
 import 'package:amiludo/layers/technical/Feedback/tray_feedback.dart';
 import 'package:amiludo/layers/technical/Motion/shake_source.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Physics/seeded_random.dart';
 import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
 import 'package:amiludo/layers/technical/Sound/sound_output.dart';
@@ -35,6 +36,8 @@ class DiceTrayPage extends StatefulWidget {
     this.onSkinChanged,
     this.onTableChanged,
     this.onSettled,
+    this.showShakeHint = false,
+    this.requestMotionAccess,
   });
   final DiceTraySettings initial;
   final ShakeSource shakeSource;
@@ -47,6 +50,8 @@ class DiceTrayPage extends StatefulWidget {
   final ValueChanged<bool>? onSolidChanged;
   final ValueChanged<String>? onSkinChanged, onTableChanged;
   final ValueChanged<int>? onSettled;
+  final bool showShakeHint;
+  final Future<bool> Function()? requestMotionAccess;
 
   @override
   State<DiceTrayPage> createState() => _DiceTrayPageState();
@@ -77,17 +82,56 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
   double power = 0.7;
   Offset aim = Offset.zero;
   Tilt tilt = Tilt.flat;
+  bool motionAuthorized = false;
+  bool requestingMotion = false;
+
+  bool get motionActive {
+    final lifecycle = WidgetsBinding.instance.lifecycleState;
+    return mounted &&
+        (lifecycle == null || lifecycle == AppLifecycleState.resumed) &&
+        (ModalRoute.of(context)?.isCurrent ?? true);
+  }
 
   @override
   void initState() {
     super.initState();
-    shakes = widget.shakeSource.shakes.listen((_) => throwDice());
-    throws = widget.motion.throws.listen(throwDice);
-    tilts = widget.motion.tilts.listen((t) {
-      if ((t.x - tilt.x).abs() + (t.y - tilt.y).abs() > 0.03) {
-        setState(() => tilt = t);
-      }
+    shakes = widget.shakeSource.shakes.listen((_) {
+      if (motionActive) throwDice();
     });
+    if (widget.requestMotionAccess == null) listenToMotion();
+  }
+
+  void listenToMotion() {
+    throws = widget.motion.throws.listen(
+      (strength) {
+        if (motionActive) throwDice(strength);
+      },
+      onError: (Object _) {},
+      cancelOnError: true,
+    );
+    tilts = widget.motion.tilts.listen(
+      (t) {
+        if (motionActive &&
+            (t.x - tilt.x).abs() + (t.y - tilt.y).abs() > 0.03) {
+          setState(() => tilt = t);
+        }
+      },
+      onError: (Object _) {},
+      cancelOnError: true,
+    );
+  }
+
+  Future<void> authorizeMotion() async {
+    final request = widget.requestMotionAccess;
+    if (request == null || requestingMotion || motionAuthorized) return;
+    setState(() => requestingMotion = true);
+    final allowed = await request();
+    if (!mounted) return;
+    setState(() {
+      requestingMotion = false;
+      motionAuthorized = allowed;
+    });
+    if (allowed) listenToMotion();
   }
 
   @override
@@ -169,6 +213,25 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
 
   @override
   Widget build(BuildContext context) {
+    final needsAccess = widget.requestMotionAccess != null && !motionAuthorized;
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        if (needsAccess)
+          Align(
+            child: TextButton.icon(
+              onPressed: requestingMotion ? null : authorizeMotion,
+              icon: const Icon(Icons.vibration),
+              label: Text(context.l10n.appearanceMotionSensors),
+            ),
+          ),
+        buildPanel(),
+      ],
+    );
+  }
+
+  Widget buildPanel() {
     if (solid) {
       return Dice3dPanel(
         session: session,
@@ -177,6 +240,9 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
         table: table,
         onConfigure: configure,
         onThrow: throwDice,
+        showShakeHint:
+            widget.showShakeHint &&
+            (widget.requestMotionAccess == null || motionAuthorized),
         mode: TrayResultMode.parse(session.settings.resultMode),
         onMode: chooseMode,
         onClear: () => setState(() => session = session.cleared()),

@@ -92,13 +92,13 @@ Vec3 headingOf(Offset aim) => aim == Offset.zero
     : Vec3(aim.dx * 0.8, 0, aim.dy.clamp(-1.0, -0.35)).unit;
 
 double arenaDepthFor(Size box, double halfWidth) =>
-    (halfWidth * box.height / box.width * 1.3).clamp(3.4, 8.0);
+    (halfWidth * box.height / box.width).clamp(3.4, 8.0);
 
 double arenaWidthFor(Size box, int count) {
   final small = count <= 3;
   final floor = small ? 5.2 : (count <= 6 ? 4.6 : (count <= 12 ? 5.4 : 6.2));
   final depth = small ? 3.2 : (count <= 6 ? 3.8 : (count <= 12 ? 4.6 : 5.6));
-  return (depth * box.width / box.height / 1.3).clamp(
+  return (depth * box.width / box.height).clamp(
     floor,
     small ? 5.2 : (count <= 6 ? 6.8 : 9.0),
   );

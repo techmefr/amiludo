@@ -96,6 +96,8 @@
 	</dict>
 	<key>NSLocalNetworkUsageDescription</key>
 	<string>amiLudo finds and joins open games on your Wi-Fi.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>amiLudo uses motion to roll dice and turn the hourglass.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>amiLudo scans QR codes to join a game or receive a pack, and game box barcodes to add a game.</string>
 </dict>

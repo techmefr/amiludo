@@ -21,14 +21,11 @@ class SceneCamera {
     Size size, {
     required double halfWidth,
     required double halfDepth,
-    double pitch = 0.92,
-    double distance = 21,
   }) {
-    const target = Vec3(0, 0, 0.5);
-    final eye = target + Vec3(0, sin(pitch), cos(pitch)) * distance;
-    final forward = (target - eye).unit;
-    final right = forward.cross(const Vec3(0, 1, 0)).unit;
-    final up = right.cross(forward);
+    const eye = Vec3(0, 21, 0);
+    const forward = Vec3(0, -1, 0);
+    const right = Vec3(1, 0, 0);
+    const up = Vec3(0, 0, -1);
     final raw = SceneCamera._(eye, right, up, forward, 1, Offset.zero);
     final outerX = halfWidth + rimWidth, outerZ = halfDepth + rimWidth;
     final corners = [

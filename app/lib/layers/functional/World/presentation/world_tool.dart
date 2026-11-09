@@ -212,7 +212,7 @@ class _WorldToolState extends State<WorldTool> {
     final current = map;
     if (current == null) {
       return Center(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(Space.xl),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -230,107 +230,119 @@ class _WorldToolState extends State<WorldTool> {
       );
     }
     final active = floor;
-    return Column(
-      children: [
-        WorldHeader(
-          atlas: atlas,
-          selected: current.id,
-          grid: current.grid,
-          onSelect: (id) => setState(() {
-            mapId = id;
-            floorId = null;
-          }),
-          onNew: _newMap,
-          onGrid: () => _edit((m) => m.copyWith(grid: !m.grid)),
-          onExport: () => copyAtlas(context, atlas),
-          onImport: () async {
-            final merged = await importAtlas(context, atlas);
-            if (merged != null) _commit(merged);
-          },
-          onDelete: _deleteMap,
-          onSearch: _search,
-          fog: current.fog,
-          playerView: playerView,
-          onFog: () => _edit((m) => m.copyWith(fog: !m.fog)),
-          onPlayerView: () => setState(() {
-            playerView = !playerView;
-            tool = DrawTool.move;
-          }),
-        ),
-        if (!playerView)
-          WorldToolbar(
-          tool: tool,
-          brush: brush,
-          onTool: (t) => setState(() => tool = t),
-          onBrush: (b) => setState(() => brush = b),
-          onUndo: () => _edit((m) => m.undo(active)),
-        ),
-        Expanded(
-          child: Stack(
-            children: [
-              Positioned.fill(
-                child: Semantics(
-                  label: l.worldCanvasLabel(
-                    current.name,
-                    current.floor(active)!.name,
-                  ),
-                  child: WorldCanvas(
-                    map: current,
-                    floorId: active,
-                    tool: tool,
-                    brush: brush,
-                    controller: controller,
-                    onAdd: (MapElement e) => _edit((m) => m.addElement(active, e)),
-                    onErase: (id) => _edit((m) => m.removeElement(id)),
-                    playerView: playerView,
-                    onReveal: (p) => _edit((m) => m.toggleReveal(active, p)),
-                    onPlacePin: _placePin,
-                    onOpenPin: (p) {
-                      if (!playerView) _openPin(p);
+    return LayoutBuilder(
+      builder: (context, constraints) => Column(
+        children: [
+          ConstrainedBox(
+            constraints: BoxConstraints(maxHeight: constraints.maxHeight * .5),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  WorldHeader(
+                    atlas: atlas,
+                    selected: current.id,
+                    grid: current.grid,
+                    onSelect: (id) => setState(() {
+                      mapId = id;
+                      floorId = null;
+                    }),
+                    onNew: _newMap,
+                    onGrid: () => _edit((m) => m.copyWith(grid: !m.grid)),
+                    onExport: () => copyAtlas(context, atlas),
+                    onImport: () async {
+                      final merged = await importAtlas(context, atlas);
+                      if (merged != null) _commit(merged);
                     },
-                    onMovePin: _movePin,
-                    onMeasure: (text) => setState(() => measured = text),
+                    onDelete: _deleteMap,
+                    onSearch: _search,
+                    fog: current.fog,
+                    playerView: playerView,
+                    onFog: () => _edit((m) => m.copyWith(fog: !m.fog)),
+                    onPlayerView: () => setState(() {
+                      playerView = !playerView;
+                      tool = DrawTool.move;
+                    }),
+                  ),
+                  if (!playerView)
+                    WorldToolbar(
+                      tool: tool,
+                      brush: brush,
+                      onTool: (t) => setState(() => tool = t),
+                      onBrush: (b) => setState(() => brush = b),
+                      onUndo: () => _edit((m) => m.undo(active)),
+                    ),
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+            child: Stack(
+              children: [
+                Positioned.fill(
+                  child: Semantics(
+                    label: l.worldCanvasLabel(
+                      current.name,
+                      current.floor(active)!.name,
+                    ),
+                    child: WorldCanvas(
+                      map: current,
+                      floorId: active,
+                      tool: tool,
+                      brush: brush,
+                      controller: controller,
+                      onAdd: (MapElement e) =>
+                          _edit((m) => m.addElement(active, e)),
+                      onErase: (id) => _edit((m) => m.removeElement(id)),
+                      playerView: playerView,
+                      onReveal: (p) => _edit((m) => m.toggleReveal(active, p)),
+                      onPlacePin: _placePin,
+                      onOpenPin: (p) {
+                        if (!playerView) _openPin(p);
+                      },
+                      onMovePin: _movePin,
+                      onMeasure: (text) => setState(() => measured = text),
+                    ),
                   ),
                 ),
-              ),
-              Positioned(
-                left: Space.sm,
-                bottom: Space.sm,
-                child: Wrap(
-                  spacing: Space.xs,
-                  children: [
-                    Chip(label: Text(l.worldCell(current.level.cellLabel))),
-                    if (measured != null)
-                      Chip(label: Text(l.worldMeasured(measured!))),
-                  ],
+                Positioned(
+                  left: Space.sm,
+                  bottom: Space.sm,
+                  child: Wrap(
+                    spacing: Space.xs,
+                    children: [
+                      Chip(label: Text(l.worldCell(current.level.cellLabel))),
+                      if (measured != null)
+                        Chip(label: Text(l.worldMeasured(measured!))),
+                    ],
+                  ),
                 ),
-              ),
-              Positioned(
-                right: Space.sm,
-                top: Space.sm,
-                child: playerView
-                    ? const SizedBox.shrink()
-                    : MiniMap(
-                  floor: current.floor(active)!,
-                  controller: controller,
-                  onJump: controller.centerOn,
+                Positioned(
+                  right: Space.sm,
+                  top: Space.sm,
+                  child: playerView
+                      ? const SizedBox.shrink()
+                      : MiniMap(
+                          floor: current.floor(active)!,
+                          controller: controller,
+                          onJump: controller.centerOn,
+                        ),
                 ),
-              ),
-              Positioned(
-                right: Space.sm,
-                bottom: Space.sm,
-                child: ZoomButtons(controller: controller),
-              ),
-            ],
+                Positioned(
+                  right: Space.sm,
+                  bottom: Space.sm,
+                  child: ZoomButtons(controller: controller),
+                ),
+              ],
+            ),
           ),
-        ),
-        FloorBar(
-          floors: current.floors.reversed.toList(),
-          selected: active,
-          onSelect: (id) => setState(() => floorId = id),
-          onAction: _floorAction,
-        ),
-      ],
+          FloorBar(
+            floors: current.floors.reversed.toList(),
+            selected: active,
+            onSelect: (id) => setState(() => floorId = id),
+            onAction: _floorAction,
+          ),
+        ],
+      ),
     );
   }
 }

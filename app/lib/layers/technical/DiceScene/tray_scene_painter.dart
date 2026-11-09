@@ -33,7 +33,7 @@ class TrayScenePainter extends CustomPainter {
     for (final die in far) {
       paintDie(canvas, cam, die);
     }
-    scene.paintFront(canvas);
+    scene.paintRim(canvas);
   }
 
   @override

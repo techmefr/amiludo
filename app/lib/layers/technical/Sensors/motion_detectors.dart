@@ -16,14 +16,23 @@ class ShakeDetector {
   final Duration cooldown;
   DateTime? _firstSpike;
   DateTime? _lastShake;
+  AccelSample? _previous;
 
   bool add(AccelSample sample, DateTime now) {
+    final previous = _previous;
+    _previous = sample;
     final last = _lastShake;
     if (last != null && now.difference(last) < cooldown) return false;
     final magnitude = math.sqrt(
       sample.x * sample.x + sample.y * sample.y + sample.z * sample.z,
     );
-    if ((magnitude - _gravity).abs() < threshold) return false;
+    if ((magnitude - _gravity).abs() < threshold) {
+      if (previous == null) return false;
+      final dx = sample.x - previous.x;
+      final dy = sample.y - previous.y;
+      final dz = sample.z - previous.z;
+      if (dx * dx + dy * dy + dz * dz < threshold * threshold) return false;
+    }
     final first = _firstSpike;
     if (first == null || now.difference(first) > window) {
       _firstSpike = now;

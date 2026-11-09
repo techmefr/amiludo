@@ -25,9 +25,11 @@ class Dice3dPanel extends StatelessWidget {
     this.onMode,
     this.onClear,
     this.onFavorite,
+    this.showShakeHint = false,
   });
   final DiceTraySession session;
   final Widget stage;
+  final bool showShakeHint;
   final String skin, table;
   final ValueChanged<DiceTraySettings> onConfigure;
   final VoidCallback onThrow;
@@ -38,23 +40,53 @@ class Dice3dPanel extends StatelessWidget {
   final ValueChanged<String>? onFavorite;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, constraints) {
+      final sideBySide =
+          constraints.maxWidth >= 480 &&
+          MediaQuery.sizeOf(context).height < 520;
+      return Flex(
+        direction: sideBySide ? Axis.horizontal : Axis.vertical,
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: sideBySide
+            ? CrossAxisAlignment.start
+            : CrossAxisAlignment.stretch,
+        children: [
+          Flexible(flex: 3, child: stage),
+          SizedBox(
+            width: sideBySide ? Space.lg : 0,
+            height: sideBySide ? 0 : Space.md,
+          ),
+          Flexible(flex: 2, child: buildControls(context)),
+        ],
+      );
+    },
+  );
+
+  Widget buildControls(BuildContext context) {
     final l = context.l10n;
     final empty = session.settings.dice.isEmpty;
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        stage,
-        const SizedBox(height: Space.md),
-        SizedBox(
-          height: Targets.minimum + Space.md,
-          child: FilledButton.icon(
-            onPressed: empty ? null : onThrow,
-            icon: const DeckIcon(Icons.casino_outlined),
-            label: Text(l.diceTrayThrow),
+        FilledButton.icon(
+          style: FilledButton.styleFrom(
+            minimumSize: const Size(0, Targets.minimum + Space.md),
           ),
+          onPressed: empty ? null : onThrow,
+          icon: const DeckIcon(Icons.casino_outlined),
+          label: Text(l.diceTrayThrow),
         ),
+        if (showShakeHint && !empty)
+          Padding(
+            padding: const EdgeInsets.only(top: Space.sm),
+            child: Text(
+              l.diceTrayShakeHint,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+          ),
         const SizedBox(height: Space.md),
         TrayResultView(session: session, mode: mode, onMode: onMode),
         TrayBottomBar(

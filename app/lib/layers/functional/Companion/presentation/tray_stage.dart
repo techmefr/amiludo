@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
@@ -46,41 +48,55 @@ class TrayStage extends StatelessWidget {
   final ValueChanged<int>? onLongPressDie;
 
   @override
-  Widget build(BuildContext context) {
-    final trayHeight = (MediaQuery.sizeOf(context).height * 0.42).clamp(
-      240.0,
-      520.0,
-    );
-    return SizedBox(
-      height: trayHeight,
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: DiceTraySurface(
-              session: session,
-              throwId: throwId,
-              seed: seed,
-              power: power,
-              aim: aim,
-              onFlick: onFlick,
-              onTapTable: onTapTable,
-              onLongPressDie: onLongPressDie,
-              tilt: tilt,
-              feedback: feedback,
-              solid: solid,
-              skin: skin,
-              table: table,
-              onOutcome: onOutcome,
-              onTapDie: onTapDie,
-            ),
-          ),
-          Positioned(
-            top: Space.sm,
-            right: Space.sm,
-            child: DiceViewToggle(solid: solid, onChanged: onView),
-          ),
-        ],
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, constraints) {
+      final width = constraints.maxWidth;
+      final window = MediaQuery.sizeOf(context);
+      final compactLandscape =
+          window.width > window.height && window.height < 520;
+      final heightFraction = compactLandscape ? .58 : .44;
+      final height = solid
+          ? math.min(
+              width * .88,
+              (window.height * heightFraction).clamp(140.0, 520.0),
+            )
+          : (window.height * .42).clamp(240.0, 520.0);
+      return Center(
+        child: SizedBox(
+          width: solid ? math.min(width, height * 1.8) : width,
+          height: height,
+          child: buildTray(),
+        ),
+      );
+    },
+  );
+
+  Widget buildTray() => Stack(
+    children: [
+      Positioned.fill(
+        child: DiceTraySurface(
+          session: session,
+          throwId: throwId,
+          seed: seed,
+          power: power,
+          aim: aim,
+          onFlick: onFlick,
+          onTapTable: onTapTable,
+          onLongPressDie: onLongPressDie,
+          tilt: tilt,
+          feedback: feedback,
+          solid: solid,
+          skin: skin,
+          table: table,
+          onOutcome: onOutcome,
+          onTapDie: onTapDie,
+        ),
       ),
-    );
-  }
+      Positioned(
+        top: Space.sm,
+        right: Space.sm,
+        child: DiceViewToggle(solid: solid, onChanged: onView),
+      ),
+    ],
+  );
 }

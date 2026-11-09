@@ -48,11 +48,18 @@ class _BankToolState extends State<BankTool> {
     ValueChanged<int> onChanged,
   ) => DropdownButtonFormField<int>(
     initialValue: selected,
+    isExpanded: true,
     decoration: InputDecoration(labelText: label),
     items: [
-      DropdownMenuItem(value: bankIndex, child: Text(context.l10n.bankName)),
+      DropdownMenuItem(
+        value: bankIndex,
+        child: Text(context.l10n.bankName, overflow: TextOverflow.ellipsis),
+      ),
       for (final (i, name) in widget.names.indexed)
-        DropdownMenuItem(value: i, child: Text(name)),
+        DropdownMenuItem(
+          value: i,
+          child: Text(name, overflow: TextOverflow.ellipsis),
+        ),
     ],
     onChanged: (v) => onChanged(v ?? selected),
   );

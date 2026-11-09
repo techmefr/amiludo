@@ -68,6 +68,14 @@ void main() {
       expect(detector.add(jolt, at(400)), isFalse);
     });
 
+    test('a lateral shake counts even when gravity dominates magnitude', () {
+      final detector = ShakeDetector(threshold: 11);
+      expect(detector.add(rest, at(0)), isFalse);
+      expect(detector.add(const AccelSample(12, 0, 9.8), at(20)), isFalse);
+      expect(detector.add(const AccelSample(-12, 0, 9.8), at(120)), isTrue);
+      expect(detector.add(const AccelSample(12, 0, 9.8), at(230)), isFalse);
+    });
+
     test('jolts too far apart do not count', () {
       final detector = ShakeDetector(threshold: 11);
       expect(detector.add(jolt, at(0)), isFalse);

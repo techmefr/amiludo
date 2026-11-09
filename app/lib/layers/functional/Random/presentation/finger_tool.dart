@@ -139,68 +139,87 @@ class _FingerToolState extends State<FingerTool> {
   Widget area() {
     final shown = {...frozen, ...contacts};
     return Listener(
-    onPointerDown: onDown,
-    onPointerMove: onMove,
-    onPointerUp: onUp,
-    onPointerCancel: onUp,
-    child: AnimatedContainer(
-      duration: Motion.of(context, Motion.slow),
-      curve: Motion.curve,
-      height: widget.fullscreen ? double.infinity : 360,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: winnerColor() ?? fingerPadColor,
-        borderRadius: BorderRadius.circular(Radii.pill),
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(Radii.pill),
-        child: Stack(
-          children: [
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Semantics(
-                liveRegion: true,
-                child: Padding(
-                  padding: const EdgeInsets.all(Space.xl),
-                  child: Text(
-                    hint(),
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: fingerHintColor,
+      onPointerDown: onDown,
+      onPointerMove: onMove,
+      onPointerUp: onUp,
+      onPointerCancel: onUp,
+      child: AnimatedContainer(
+        duration: Motion.of(context, Motion.slow),
+        curve: Motion.curve,
+        height: widget.fullscreen ? double.infinity : 360,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: winnerColor() ?? fingerPadColor,
+          borderRadius: BorderRadius.circular(Radii.pill),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(Radii.pill),
+          child: Stack(
+            children: [
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Semantics(
+                  liveRegion: true,
+                  child: Padding(
+                    padding: const EdgeInsets.all(Space.xl),
+                    child: Text(
+                      hint(),
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.bodyMedium
+                          ?.copyWith(color: fingerHintColor),
                     ),
                   ),
                 ),
               ),
-            ),
-            for (final entry in shown.entries) contact(entry),
-          ],
-        ),
-      ),
-    ),
-  );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-        return Padding(
-      padding: const EdgeInsets.all(Space.lg),
-      child: Column(
-        mainAxisSize: widget.fullscreen ? MainAxisSize.max : MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          FingerModeSelector(mode: mode, onChanged: changeMode),
-          const SizedBox(height: Space.lg),
-          if (widget.fullscreen) Expanded(child: area()) else area(),
-          FingerNamePicker(
-            names: widget.names,
-            chosen: chosen,
-            onPick: () => setState(
-              () => chosen =
-                  widget.names[random.integer(0, widget.names.length - 1)],
-            ),
+              for (final entry in shown.entries) contact(entry),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
+
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.all(Space.lg),
+    child: LayoutBuilder(
+      builder: (context, constraints) {
+        final controls = FingerModeSelector(mode: mode, onChanged: changeMode);
+        final names = FingerNamePicker(
+          names: widget.names,
+          chosen: chosen,
+          onPick: () => setState(
+            () => chosen =
+                widget.names[random.integer(0, widget.names.length - 1)],
+          ),
+        );
+        return Column(
+          mainAxisSize: widget.fullscreen ? MainAxisSize.max : MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (widget.fullscreen)
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: constraints.maxHeight * .24,
+                ),
+                child: SingleChildScrollView(child: controls),
+              )
+            else
+              controls,
+            const SizedBox(height: Space.lg),
+            if (widget.fullscreen) Expanded(child: area()) else area(),
+            if (widget.fullscreen)
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: constraints.maxHeight * .32,
+                ),
+                child: SingleChildScrollView(child: names),
+              )
+            else
+              names,
+          ],
+        );
+      },
+    ),
+  );
 }

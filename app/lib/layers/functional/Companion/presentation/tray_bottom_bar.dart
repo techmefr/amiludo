@@ -32,26 +32,24 @@ class TrayBottomBar extends StatelessWidget {
       data: IconButtonThemeData(
         style: IconButton.styleFrom(visualDensity: VisualDensity.compact),
       ),
-      child: Row(
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        crossAxisAlignment: WrapCrossAlignment.center,
         children: [
           IconButton(
             tooltip: l.diceLook,
             onPressed: onLook,
             icon: const Icon(Icons.tune),
           ),
-          Flexible(
-            child: TextButton.icon(
-              onPressed: onAdd,
-              icon: const Icon(Icons.add),
-              label: Text(l.diceTrayAddDie, overflow: TextOverflow.ellipsis),
-            ),
+          TextButton.icon(
+            onPressed: onAdd,
+            icon: const Icon(Icons.add),
+            label: Text(l.diceTrayAddDie),
           ),
-          Expanded(
-            child: Text(
-              l.diceTrayCount(session.settings.dice.length),
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
+          Text(
+            l.diceTrayCount(session.settings.dice.length),
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodySmall,
           ),
           IconButton(
             tooltip: l.diceTrayErase,
