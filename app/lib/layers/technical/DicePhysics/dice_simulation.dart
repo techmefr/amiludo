@@ -15,6 +15,7 @@ class DiceSimulation {
     this.aim = const Vec3(0, 0, -1),
     double halfWidth = 6,
     double halfDepth = 4.2,
+    this.dieSize = 1,
   }) : world = DiceWorld(halfWidth: halfWidth, halfDepth: halfDepth) {
     _launch();
   }
@@ -25,6 +26,7 @@ class DiceSimulation {
   final int seed;
   final double power;
   final Vec3 aim;
+  final double dieSize;
   final DiceWorld world;
   double _carry = 0, _elapsed = 0;
 
@@ -41,6 +43,7 @@ class DiceSimulation {
     Vec3 aim = const Vec3(0, 0, -1),
     double halfWidth = 6,
     double halfDepth = 4.2,
+    double dieSize = 1,
   }) {
     final run = DiceSimulation(
       sides: sides,
@@ -49,6 +52,7 @@ class DiceSimulation {
       aim: aim,
       halfWidth: halfWidth,
       halfDepth: halfDepth,
+      dieSize: dieSize,
     );
     run.settle();
     return run.values;
@@ -83,11 +87,14 @@ class DiceSimulation {
     final p = power.clamp(0.2, 1.5);
     final flat = Vec3(aim.x, 0, aim.z).unit;
     final heading = flat.length == 0 ? const Vec3(0, 0, -1) : flat;
-    final perRow = max(1, ((world.halfWidth * 2 - 3) / 2.4).floor());
+    final perRow = max(
+      1,
+      ((world.halfWidth * 2 - 3 * dieSize) / (2.4 * dieSize)).floor(),
+    );
     for (var i = 0; i < sides.length; i++) {
       final row = i ~/ perRow;
       final inRow = min(perRow, sides.length - row * perRow);
-      final slot = (i % perRow - (inRow - 1) / 2) * 2.4;
+      final slot = (i % perRow - (inRow - 1) / 2) * 2.4 * dieSize;
       final turn = rng.range(-0.18, 0.18);
       final dir = Vec3(
         heading.x * cos(turn) - heading.z * sin(turn),
@@ -98,10 +105,14 @@ class DiceSimulation {
       world.add(
         DieBody(
           shape: ConvexShape.forSides(sides[i]),
+          size: dieSize,
           pos: Vec3(
             slot + rng.range(-0.3, 0.3),
-            2.2 + rng.range(0, 1.2) + row * 1.8,
-            world.halfDepth - 1.4 - row * 2.2 + rng.range(-0.3, 0.3),
+            (2.2 + rng.range(0, 1.2) + row * 1.8) * dieSize,
+            world.halfDepth -
+                1.4 * dieSize -
+                row * 2.2 * dieSize +
+                rng.range(-0.3, 0.3),
           ),
           rot: Quat.random(rng),
           vel: Vec3(dir.x * speed, rng.range(3, 6) * p, dir.z * speed),
