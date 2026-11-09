@@ -3,13 +3,25 @@ import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/demo/demo_player.dart';
 import 'package:amiludo/layers/technical/Theme/components/entrance.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
-import 'package:amiludo/layers/technical/Theme/game_art_3d.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class HomeHero extends StatelessWidget {
   const HomeHero({super.key});
+
+  Widget _demo(BuildContext context, bool mockup) {
+    final scheme = Theme.of(context).colorScheme;
+    return DemoPlayer(
+      pauseLabel: context.l10n.demoPause,
+      playLabel: context.l10n.demoPlay,
+      color: scheme.onPrimary,
+      contrast: scheme.primary,
+      mockup: mockup,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context), scheme = theme.colorScheme;
@@ -36,7 +48,7 @@ class HomeHero extends StatelessWidget {
             final text = Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (!wide) const GameArt3D(kind: 'table', height: 140),
+                if (!wide) SizedBox(height: 168, child: _demo(context, false)),
                 if (!wide) const SizedBox(height: Space.lg),
                 Text(
                   context.l10n.workspaceYourFriendsYourTableLet,
@@ -68,9 +80,10 @@ class HomeHero extends StatelessWidget {
               children: [
                 Expanded(child: text),
                 if (wide)
-                  const SizedBox(
-                    width: 320,
-                    child: GameArt3D(kind: 'table', height: 240),
+                  SizedBox(
+                    width: 220,
+                    height: 280,
+                    child: _demo(context, true),
                   ),
               ],
             );

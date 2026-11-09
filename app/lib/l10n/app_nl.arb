@@ -1836,5 +1836,11 @@
   "coinCount": "Munten",
   "coinFewer": "Minder munten",
   "coinMore": "Meer munten",
-  "coinFlip": "Munt opgooien"
+  "coinFlip": "Munt opgooien",
+  "introWordGames": "Jouw spellen.",
+  "introWordFriends": "Jouw vrienden.",
+  "introWordRules": "Jouw regels.",
+  "introSkip": "Overslaan",
+  "demoPause": "Geanimeerde demo pauzeren",
+  "demoPlay": "Afspelen"
 }

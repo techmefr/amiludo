@@ -5970,4 +5970,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get coinFlip => 'Flip';
+
+  @override
+  String get introWordGames => 'Your games.';
+
+  @override
+  String get introWordFriends => 'Your friends.';
+
+  @override
+  String get introWordRules => 'Your rules.';
+
+  @override
+  String get introSkip => 'Skip';
+
+  @override
+  String get demoPause => 'Pause the animated demo';
+
+  @override
+  String get demoPlay => 'Play';
 }

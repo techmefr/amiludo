@@ -2701,5 +2701,11 @@
   "coinCount": "Coins",
   "coinFewer": "Fewer coins",
   "coinMore": "More coins",
-  "coinFlip": "Flip"
+  "coinFlip": "Flip",
+  "introWordGames": "Your games.",
+  "introWordFriends": "Your friends.",
+  "introWordRules": "Your rules.",
+  "introSkip": "Skip",
+  "demoPause": "Pause the animated demo",
+  "demoPlay": "Play"
 }

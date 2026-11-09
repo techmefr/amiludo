@@ -6007,4 +6007,22 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get coinFlip => 'Lancia la moneta';
+
+  @override
+  String get introWordGames => 'I tuoi giochi.';
+
+  @override
+  String get introWordFriends => 'I tuoi amici.';
+
+  @override
+  String get introWordRules => 'Le tue regole.';
+
+  @override
+  String get introSkip => 'Salta';
+
+  @override
+  String get demoPause => 'Metti in pausa la demo animata';
+
+  @override
+  String get demoPlay => 'Riproduci';
 }

@@ -27,6 +27,8 @@ import 'package:amiludo/layers/functional/Workspace/presentation/cubit/workspace
 import 'package:amiludo/layers/technical/About/app_info.dart';
 import 'package:amiludo/layers/technical/Appearance/appearance.dart';
 import 'package:amiludo/layers/technical/Storage/store_database.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/intro/intro_gate.dart';
 import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
 import 'package:amiludo/layers/technical/Feedback/deck_haptics.dart';
 import 'package:amiludo/layers/technical/Sound/tool_sounds.dart';
@@ -256,7 +258,17 @@ class _AmiludoRouter extends StatelessWidget {
           disableAnimations:
               !appearance.motion || MediaQuery.of(context).disableAnimations,
         ),
-        child: child!,
+        child: Builder(
+          builder: (context) => IntroGate(
+            words: [
+              context.l10n.introWordGames,
+              context.l10n.introWordFriends,
+              context.l10n.introWordRules,
+            ],
+            skipLabel: context.l10n.introSkip,
+            child: child!,
+          ),
+        ),
       ),
     );
   }

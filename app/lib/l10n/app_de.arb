@@ -1836,5 +1836,11 @@
   "coinCount": "Münzen",
   "coinFewer": "Weniger Münzen",
   "coinMore": "Mehr Münzen",
-  "coinFlip": "Münze werfen"
+  "coinFlip": "Münze werfen",
+  "introWordGames": "Deine Spiele.",
+  "introWordFriends": "Deine Freunde.",
+  "introWordRules": "Deine Regeln.",
+  "introSkip": "Überspringen",
+  "demoPause": "Animierte Demo pausieren",
+  "demoPlay": "Abspielen"
 }
