@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Feedback/deck_haptics.dart';
+import 'package:amiludo/layers/technical/Sound/tool_sounds.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 enum ToolTexture { plain, felt, glass, parchment, paper, deck, frame, tactile }
@@ -42,7 +43,21 @@ class ToolTheme {
         ToolMotion.flow || ToolMotion.drift => Motion.slow,
       });
 
-  Future<void> signal() => switch ((haptic, texture)) {
+  ToolSoundKind get soundKind => switch (texture) {
+    ToolTexture.felt => ToolSoundKind.thud,
+    ToolTexture.tactile || ToolTexture.frame => ToolSoundKind.knock,
+    ToolTexture.parchment || ToolTexture.paper => ToolSoundKind.rustle,
+    ToolTexture.deck => ToolSoundKind.snap,
+    ToolTexture.glass => ToolSoundKind.chime,
+    ToolTexture.plain => ToolSoundKind.tick,
+  };
+
+  Future<void> signal() {
+    ToolSounds.play(soundKind);
+    return _vibrate();
+  }
+
+  Future<void> _vibrate() => switch ((haptic, texture)) {
     (ToolHaptic.selection, _) => DeckHaptics.selection(),
     (ToolHaptic.impact, ToolTexture.felt) => DeckHaptics.heavy(),
     (ToolHaptic.impact, ToolTexture.tactile || ToolTexture.frame) =>
