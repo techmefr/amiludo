@@ -5981,4 +5981,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get sessionSwitchTool => 'Van hulpmiddel wisselen';
+
+  @override
+  String get hourglassEnableMotion => 'Beweging inschakelen';
+
+  @override
+  String get hourglassMotionDenied =>
+      'Sta bewegingstoegang toe in je browser en probeer opnieuw.';
 }

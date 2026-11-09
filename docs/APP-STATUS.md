@@ -1,3 +1,10 @@
+<p align="left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="../design/logo/amiludo-logo-horizontal-dark.png">
+    <img src="../design/logo/amiludo-logo-horizontal.png" width="360" alt="amiLudo - La boîte">
+  </picture>
+</p>
+
 # Application — actual status
 
 Alpha **0.4.0**. Name: amiLudo. The Flutter code is in `app/`, the web app is published under `/app/`, and the old mockups remain at the site root.

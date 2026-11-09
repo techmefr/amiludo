@@ -2693,5 +2693,7 @@
   },
   "sessionFullscreen": "Full screen",
   "sessionGridView": "Show all tools",
-  "sessionSwitchTool": "Switch tool"
+  "sessionSwitchTool": "Switch tool",
+  "hourglassEnableMotion": "Enable motion",
+  "hourglassMotionDenied": "Allow motion access in your browser, then try again."
 }

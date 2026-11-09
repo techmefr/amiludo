@@ -5945,4 +5945,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sessionSwitchTool => 'Switch tool';
+
+  @override
+  String get hourglassEnableMotion => 'Enable motion';
+
+  @override
+  String get hourglassMotionDenied =>
+      'Allow motion access in your browser, then try again.';
 }

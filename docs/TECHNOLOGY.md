@@ -1,3 +1,10 @@
+<p align="left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="../design/logo/amiludo-logo-horizontal-dark.png">
+    <img src="../design/logo/amiludo-logo-horizontal.png" width="360" alt="amiLudo - La boîte">
+  </picture>
+</p>
+
 # Technical choices
 
 Initial decision of October 30, 2026. These choices are now applied in app/: Flutter 3.47.9, flutter_bloc (Cubit) + get_it, Drift/SQLite, local fonts and JSON files. Exact versions are in app/pubspec.lock.

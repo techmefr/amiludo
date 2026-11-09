@@ -96,5 +96,12 @@ Widget phasesWithFeedback(BuildContext context) {
   return PhasesTool(sound: appearance.sound, haptics: appearance.haptics);
 }
 
-Widget hourglassWithSensors(BuildContext context) =>
-    _sensed((level) => HourglassTool(sensor: _turns(level)));
+Widget hourglassWithSensors(BuildContext context) => _sensed(
+  (level) => HourglassTool(
+    sensor: _turns(level),
+    requestMotionAccess:
+        level.enabled && PlatformAccelerometerFeed.needsPermission
+        ? PlatformAccelerometerFeed.requestPermission
+        : null,
+  ),
+);

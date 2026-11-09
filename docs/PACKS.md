@@ -1,3 +1,10 @@
+<p align="left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="../design/logo/amiludo-logo-horizontal-dark.png">
+    <img src="../design/logo/amiludo-logo-horizontal.png" width="360" alt="amiLudo - La boîte">
+  </picture>
+</p>
+
 # Packs, builders and gallery
 
 Alpha 0.2.0 lets you build one pack per game from Templates → Create a companion. Every tool opens on its own page with a back button; finger selection has a touch surface that fills the available space. Short confirmations remain dialogs.

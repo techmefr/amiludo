@@ -74,6 +74,7 @@ class _FingerToolState extends State<FingerTool> {
     drawn = false;
     winner = null;
     frozen.clear();
+    colors.removeWhere((pointer, _) => !contacts.containsKey(pointer));
     ranks.clear();
     widget.onTint?.call(null);
   }
@@ -95,6 +96,7 @@ class _FingerToolState extends State<FingerTool> {
 
   void onUp(PointerEvent e) {
     setState(() => contacts.remove(e.pointer));
+    if (!frozen.containsKey(e.pointer)) colors.remove(e.pointer);
     if (contacts.isEmpty) {
       countdown?.cancel();
     } else if (!drawn) {
@@ -117,15 +119,19 @@ class _FingerToolState extends State<FingerTool> {
 
   Widget contact(MapEntry<int, Offset> entry) {
     const size = fingerRingSize;
-    final color = fingerColors[colors[entry.key] ?? 0];
+    final colorIndex = colors[entry.key] ?? 0;
+    final palette = fingerColors;
+    final color = palette[colorIndex];
     final state = mode == FingerMode.first && drawn
         ? (winner == entry.key ? FingerRingState.winner : FingerRingState.dim)
         : FingerRingState.idle;
     return Positioned(
+      key: ValueKey(entry.key),
       left: entry.value.dx - size / 2,
       top: entry.value.dy - size / 2,
       child: FingerRing(
         color: color,
+        nextColor: drawn ? null : palette[(colorIndex + 2) % palette.length],
         state: state,
         label: ranks[entry.key]?.toString(),
       ),

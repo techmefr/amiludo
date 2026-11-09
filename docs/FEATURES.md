@@ -1,3 +1,10 @@
+<p align="left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="../design/logo/amiludo-logo-horizontal-dark.png">
+    <img src="../design/logo/amiludo-logo-horizontal.png" width="360" alt="amiLudo - La boîte">
+  </picture>
+</p>
+
 # amiLudo feature catalog
 
 Status: **[x] = implemented in the Flutter alpha**, with flows validated and limits described in APP-STATUS.md; **[ ] = planned or incomplete**. Tests on physical devices remain separate. MVP = first version; V1 = individual enrichment; V2 = shared services and extensions. Priorities within blocks remain adjustable.
