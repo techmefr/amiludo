@@ -19,10 +19,7 @@ void main() {
 
   test('the duration only changes while stopped and stays in bounds', () {
     final state = CountdownState.of(const Duration(seconds: 60));
-    expect(
-      state.adjusted(CountdownState.step).total,
-      const Duration(seconds: 90),
-    );
+    expect(state.adjusted(CountdownState.step).total, const Duration(seconds: 90));
     expect(state.adjusted(-const Duration(seconds: 45)).total, state.total);
     expect(state.toggled().adjusted(CountdownState.step).total, state.total);
     expect(state.adjusted(const Duration(hours: 4)).total, state.total);

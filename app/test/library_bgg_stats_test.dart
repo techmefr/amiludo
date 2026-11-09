@@ -86,9 +86,7 @@ void main() {
 
   test('import adds only games not already on the shelf', () async {
     final shelf = MemoryShelf(
-      const Shelf(
-        games: [ShelfGame(id: 'k', name: 'skull')],
-      ),
+      const Shelf(games: [ShelfGame(id: 'k', name: 'skull')]),
     );
     final import = ImportCollectionUseCase(
       shelf,
@@ -113,7 +111,10 @@ void main() {
       shelf,
       FakeCollection(const [], fail: true),
     );
-    await expectLater(import('gaetan'), throwsA(isA<BarcodeLookupFailure>()));
+    await expectLater(
+      import('gaetan'),
+      throwsA(isA<BarcodeLookupFailure>()),
+    );
     expect(shelf.current.games, isEmpty);
   });
 

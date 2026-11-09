@@ -35,11 +35,7 @@ void main() {
   });
 
   test('a half turn settles through a valid rotation', () {
-    final half = settleToward(
-      Mat3.identity,
-      turnAbout(const Vec3(0, 0, 1), 3.14159265358979),
-      0.5,
-    );
+    final half = settleToward(Mat3.identity, turnAbout(const Vec3(0, 0, 1), 3.14159265358979), 0.5);
     expect(half.r0.cross(half.r1).dot(half.r2), closeTo(1, 1e-6));
   });
 
@@ -66,9 +62,7 @@ void main() {
       for (var i = 0; i < 90; i++) {
         p.advance(TrayPhysics.step, const {});
       }
-      return [
-        for (final b in p.bodies) ...[b.rot.r0.x, b.rot.r1.y],
-      ];
+      return [for (final b in p.bodies) ...[b.rot.r0.x, b.rot.r1.y]];
     }
 
     expect(spin(5), spin(5));
@@ -77,14 +71,7 @@ void main() {
 
   test('a landed die shows its chosen face to the viewer', () {
     final mesh = DieMesh.forSides(20);
-    final shown = DiePose.spinning(
-      mesh,
-      4,
-      0,
-      0,
-      turnAbout(const Vec3(1, 1, 0), 2),
-      1,
-    );
+    final shown = DiePose.spinning(mesh, 4, 0, 0, turnAbout(const Vec3(1, 1, 0), 2), 1);
     final rest = DiePose.resting(mesh, 4);
     expect(gap(shown, rest), closeTo(0, 1e-9));
   });

@@ -6,9 +6,9 @@ import 'package:amiludo/layers/functional/Companion/presentation/phases_tool.dar
 
 void main() {
   const seconds = [10, 20, 30];
-  PhaseSequenceState sequence() =>
-      PhaseSequenceState.of([for (final s in seconds) Duration(seconds: s)])
-          .toggled();
+  PhaseSequenceState sequence() => PhaseSequenceState.of([
+    for (final s in seconds) Duration(seconds: s),
+  ]).toggled();
 
   test('phases follow one another and loop into a new round', () {
     var state = sequence().tick(const Duration(seconds: 12));
@@ -24,10 +24,7 @@ void main() {
     final state = PhaseSequenceState.of([
       for (final s in seconds) Duration(seconds: s),
     ]);
-    expect(
-      state.adjusted(PhaseSequenceState.step).current,
-      const Duration(seconds: 40),
-    );
+    expect(state.adjusted(PhaseSequenceState.step).current, const Duration(seconds: 40));
     expect(state.adjusted(-const Duration(seconds: 30)).current, state.current);
     expect(state.added().durations.length, 4);
     expect(state.removed().durations.length, 2);

@@ -30,7 +30,10 @@ class _CounterState extends State<_Counter> {
   );
 }
 
-const _bricks = [Brick(id: 'a', type: 'dice'), Brick(id: 'b', type: 'roles')];
+const _bricks = [
+  Brick(id: 'a', type: 'dice'),
+  Brick(id: 'b', type: 'roles'),
+];
 
 Widget _stage({VoidCallback? onGrid}) => MaterialApp(
   locale: const Locale('en'),

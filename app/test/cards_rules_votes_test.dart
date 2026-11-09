@@ -148,14 +148,20 @@ void _rulesTests() {
   test('a rule book edits games and survives a round trip', () {
     var book = const RuleBook().put(const RuleGame(id: 'a', name: 'A'));
     book = book.put(
-      book.of('a')!.withSection(0, const RuleSection(title: 't', body: 'b')),
+      book.of('a')!.withSection(
+        0,
+        const RuleSection(title: 't', body: 'b'),
+      ),
     );
     book = book.put(const RuleGame(id: 'b', name: 'B'));
     expect(book.games.length, 2);
     final copy = RuleBook.fromJson(book.toJson());
     expect(copy.of('a')!.sections.single.title, 't');
     expect(copy.remove('a').games.single.id, 'b');
-    expect(book.of('a')!.withoutSection(0).sections, isEmpty);
+    expect(
+      book.of('a')!.withoutSection(0).sections,
+      isEmpty,
+    );
   });
 
   testWidgets('a game is created, written and searched', (tester) async {

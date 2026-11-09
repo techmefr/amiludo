@@ -24,7 +24,9 @@ void main() {
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         home: Scaffold(
-          body: SingleChildScrollView(child: LeagueTool(names: ['Ana', 'Ben'])),
+          body: SingleChildScrollView(
+            child: LeagueTool(names: ['Ana', 'Ben']),
+          ),
         ),
       ),
     );
