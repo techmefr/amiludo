@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Random/domain/entities/random_inputs.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/tool_layout.dart';
 
 String randomInputErrorText(BuildContext context, RandomInputError error) =>
     switch (error) {
@@ -18,19 +19,8 @@ class RandomResult extends StatelessWidget {
   final String text;
   final bool compact;
   @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context).textTheme;
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 24),
-      child: Semantics(
-        liveRegion: true,
-        child: SelectableText(
-          text,
-          style: compact ? theme.titleLarge : theme.headlineLarge,
-        ),
-      ),
-    );
-  }
+  Widget build(BuildContext context) =>
+      ToolResultText(text: text, compact: compact);
 }
 
 class RandomResultSlot extends StatelessWidget {
@@ -70,8 +60,8 @@ class RandomDrawButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final String? label;
   @override
-  Widget build(BuildContext context) => FilledButton(
+  Widget build(BuildContext context) => ToolPrimaryButton(
     onPressed: onPressed,
-    child: Text(label ?? context.l10n.randomDraw),
+    label: label ?? context.l10n.randomDraw,
   );
 }

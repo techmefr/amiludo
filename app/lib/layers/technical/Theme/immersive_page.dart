@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/technical/Theme/immersive_chrome.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/tool_layout.dart';
 
 class ImmersivePage extends StatelessWidget {
   const ImmersivePage({
@@ -33,7 +34,15 @@ class ImmersivePage extends StatelessWidget {
               Positioned.fill(
                 child: Padding(
                   padding: const EdgeInsets.only(top: fullPageBackClearance),
-                  child: child,
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: ToolLayout.maxWidth(context),
+                      ),
+                      child: child,
+                    ),
+                  ),
                 ),
               ),
               Semantics(

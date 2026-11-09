@@ -5994,4 +5994,16 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get randomTapCardToReveal => 'Tik op de kaart om hem te onthullen';
+
+  @override
+  String get coinCount => 'Munten';
+
+  @override
+  String get coinFewer => 'Minder munten';
+
+  @override
+  String get coinMore => 'Meer munten';
+
+  @override
+  String get coinFlip => 'Munt opgooien';
 }

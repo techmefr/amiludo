@@ -17,6 +17,7 @@ import 'package:amiludo/layers/technical/Sensors/accelerometer_feed.dart';
 import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
 import 'package:amiludo/layers/technical/Sound/sound_output.dart';
 import 'package:amiludo/layers/technical/Sensors/sensor_sensitivity.dart';
+import 'package:amiludo/layers/functional/Random/presentation/coin_tool.dart';
 
 SensorSensitivity _level(Workspace state) =>
     SensorSensitivity.parse(state.appearance.sensors);
@@ -105,3 +106,10 @@ Widget hourglassWithSensors(BuildContext context) => _sensed(
         : null,
   ),
 );
+
+Widget coinWithSensors(BuildContext context) {
+  final appearance = context.read<AppearanceCubit>().state.appearance;
+  return _sensed(
+    (level) => CoinTool(motion: _motion(level), haptics: appearance.haptics),
+  );
+}

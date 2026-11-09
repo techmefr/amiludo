@@ -67,7 +67,7 @@ class _GeneratorToolState extends State<GeneratorTool> {
   Widget build(BuildContext context) {
     final s = sheet;
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         if (s != null)
           AnimatedSwitcher(
@@ -83,11 +83,7 @@ class _GeneratorToolState extends State<GeneratorTool> {
                 child: child,
               ),
             ),
-            child: GeneratorCard(
-              key: ValueKey(drawn),
-              id: widget.id,
-              sheet: s,
-            ),
+            child: GeneratorCard(key: ValueKey(drawn), id: widget.id, sheet: s),
           ),
         const SizedBox(height: Space.lg),
         RandomDrawButton(onPressed: engine == null ? null : draw),

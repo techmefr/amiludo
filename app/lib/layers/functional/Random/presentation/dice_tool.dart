@@ -4,6 +4,7 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/game_art.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/tool_layout.dart';
 
 class DiceTool extends StatefulWidget {
   const DiceTool({super.key});
@@ -201,10 +202,10 @@ class _DiceToolState extends State<DiceTool> {
             ),
           ),
         const SizedBox(height: 20),
-        FilledButton.icon(
+        ToolPrimaryButton(
           onPressed: roll,
-          icon: const DeckIcon(Icons.casino_outlined),
-          label: Text(context.l10n.randomRollDice),
+          icon: Icons.casino_outlined,
+          label: context.l10n.randomRollDice,
         ),
         const SizedBox(height: 12),
         Text(

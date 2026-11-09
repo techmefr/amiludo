@@ -327,6 +327,7 @@ const Map<String, WidgetBuilder> embeddedToolBuilders = {
           'journal': journalWithStorage,
           'ambience': ambienceWithSound,
           'dice-tray': diceTrayWithSensors,
+          'coin': coinWithSensors,
           'hourglass': hourglassWithSensors,
           'map': mapWithStorage,
           'heroes': _heroes,

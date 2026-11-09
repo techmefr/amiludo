@@ -7,7 +7,7 @@ import 'package:amiludo/layers/functional/Companion/presentation/dice_look_sheet
 import 'package:amiludo/layers/functional/Companion/presentation/tray_bottom_bar.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_result_view.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
-import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
+import 'package:amiludo/layers/technical/Theme/tool_layout.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class Dice3dPanel extends StatelessWidget {
@@ -70,13 +70,10 @@ class Dice3dPanel extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        FilledButton.icon(
-          style: FilledButton.styleFrom(
-            minimumSize: const Size(0, Targets.minimum + Space.md),
-          ),
+        ToolPrimaryButton(
           onPressed: empty ? null : onThrow,
-          icon: const DeckIcon(Icons.casino_outlined),
-          label: Text(l.diceTrayThrow),
+          icon: Icons.casino_outlined,
+          label: l.diceTrayThrow,
         ),
         if (showShakeHint && !empty)
           Padding(

@@ -21,7 +21,7 @@ class ChroniclesUniversePicker extends StatelessWidget {
         subtitle: context.l10n.chroniclesSubtitle,
       ),
       ResponsiveGrid(
-        minimumWidth: 200,
+        minimumWidth: 280,
         children: [
           for (final u in data.universes)
             DeckTile(

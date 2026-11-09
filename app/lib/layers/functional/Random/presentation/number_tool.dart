@@ -5,6 +5,7 @@ import 'package:amiludo/layers/functional/Random/domain/entities/random_inputs.d
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 import 'package:amiludo/layers/functional/Random/presentation/random_widgets.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class NumberTool extends StatefulWidget {
   const NumberTool({super.key});
@@ -36,8 +37,7 @@ class _NumberToolState extends State<NumberTool> {
     }
   }
 
-  Widget boundField(TextEditingController controller, String label) => SizedBox(
-    width: 180,
+  Widget boundField(TextEditingController controller, String label) => Expanded(
     child: TextField(
       controller: controller,
       keyboardType: const TextInputType.numberWithOptions(signed: true),
@@ -48,11 +48,10 @@ class _NumberToolState extends State<NumberTool> {
   @override
   Widget build(BuildContext context) => Column(
     mainAxisSize: MainAxisSize.min,
-    crossAxisAlignment: CrossAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.stretch,
     children: [
-      Wrap(
-        spacing: 16,
-        runSpacing: 16,
+      Row(
+        spacing: Space.lg,
         children: [
           boundField(minimum, context.l10n.randomMinimum),
           boundField(maximum, context.l10n.randomMaximum),

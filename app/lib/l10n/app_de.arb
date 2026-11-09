@@ -1832,5 +1832,9 @@
   "hourglassEnableMotion": "Bewegung aktivieren",
   "hourglassMotionDenied": "Erlaube Bewegungsdaten im Browser und versuche es erneut.",
   "randomTapPackToOpen": "Tippe auf das Pack, um es zu öffnen",
-  "randomTapCardToReveal": "Tippe auf die Karte, um sie aufzudecken"
+  "randomTapCardToReveal": "Tippe auf die Karte, um sie aufzudecken",
+  "coinCount": "Münzen",
+  "coinFewer": "Weniger Münzen",
+  "coinMore": "Mehr Münzen",
+  "coinFlip": "Münze werfen"
 }

@@ -1832,5 +1832,9 @@
   "hourglassEnableMotion": "Activar movimiento",
   "hourglassMotionDenied": "Permite el acceso al movimiento en el navegador y vuelve a intentarlo.",
   "randomTapPackToOpen": "Toca el sobre para abrirlo",
-  "randomTapCardToReveal": "Toca la carta para revelarla"
+  "randomTapCardToReveal": "Toca la carta para revelarla",
+  "coinCount": "Monedas",
+  "coinFewer": "Menos monedas",
+  "coinMore": "Más monedas",
+  "coinFlip": "Lanzar la moneda"
 }
