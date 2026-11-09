@@ -70,7 +70,7 @@ class _DiceSceneState extends State<DiceScene>
     for (final d in widget.session.settings.dice) d.sides,
   ];
 
-  double get halfWidth => arenaWidthFor(size);
+  double get halfWidth => arenaWidthFor(size, sides.length);
 
   double get halfDepth => arenaDepthFor(size, halfWidth);
 
