@@ -10,12 +10,13 @@ import 'package:amiludo/router.dart';
 const responsiveSizes = [
   Size(320, 568),
   Size(390, 844),
+  Size(568, 320),
   Size(768, 1024),
   Size(1280, 720),
   Size(1920, 1080),
 ];
 
-const responsiveScales = [1.0, 1.5];
+const responsiveScales = [1.0, 1.5, 2.0];
 
 Future<void> expectRoutesFit(
   WidgetTester tester,
@@ -54,8 +55,9 @@ Future<void> expectRoutesFit(
 String _summary(FlutterErrorDetails details) {
   final text = details.toString();
   final first = '${details.exception}'.split('\n').first;
-  final where = RegExp(
-    r'lib/layers/[\w/]+\.dart:\d+',
-  ).allMatches(text).map((m) => m[0]).toSet();
+  final where = RegExp(r'lib/layers/[\w/]+\.dart:\d+')
+      .allMatches(text)
+      .map((m) => m[0])
+      .toSet();
   return '$first ${where.take(3).join(' ')}';
 }

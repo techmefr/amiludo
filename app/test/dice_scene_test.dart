@@ -64,15 +64,20 @@ void main() {
     }
   });
 
-  test('farther points are drawn smaller than nearer ones', () {
+  test('the overhead camera projects the floor symmetrically', () {
     final cam = SceneCamera.fit(
       const Size(800, 600),
       halfWidth: 6,
       halfDepth: 4.2,
     );
+    final near = cam.project(const Vec3(4, 0, 3));
+    final far = cam.project(const Vec3(4, 0, -3));
+    expect(near.dx, far.dx);
+    expect(near.dy + far.dy, closeTo(600, 0.001));
+    expect(cam.depth(const Vec3(0, 0, 4)), cam.depth(const Vec3(0, 0, -4)));
     expect(
-      cam.scaleAt(const Vec3(0, 0, 4)),
-      greaterThan(cam.scaleAt(const Vec3(0, 0, -4))),
+      cam.scaleAt(const Vec3(0, 1, 0)),
+      greaterThan(cam.scaleAt(Vec3.zero)),
     );
   });
 

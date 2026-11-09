@@ -9,7 +9,6 @@ import 'package:amiludo/layers/technical/Dice3D/die_skin.dart';
 import 'package:amiludo/layers/technical/Dice3D/table_theme.dart';
 import 'package:amiludo/layers/technical/Dice3D/vec3.dart';
 import 'package:amiludo/layers/technical/DicePhysics/dice_simulation.dart';
-import 'package:amiludo/layers/technical/DiceScene/scene_camera.dart';
 import 'package:amiludo/layers/technical/DiceScene/tray_scene_painter.dart';
 import 'package:amiludo/layers/technical/Feedback/tray_feedback.dart';
 import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
@@ -73,9 +72,6 @@ class _DiceSceneState extends State<DiceScene>
   double get halfWidth => arenaWidthFor(size, sides.length);
   double get halfDepth => arenaDepthFor(size, halfWidth);
 
-  SceneCamera get camera =>
-      TrayScenePainter.cameraFor(size, halfWidth, halfDepth);
-
   @override
   void dispose() {
     ticker.dispose();
@@ -89,7 +85,7 @@ class _DiceSceneState extends State<DiceScene>
     super.didUpdateWidget(old);
     final t = widget.tilt;
     if (t.x == old.tilt.x && t.y == old.tilt.y) return;
-    if (MediaQuery.disableAnimationsOf(context)) return;
+    if (throwing || MediaQuery.disableAnimationsOf(context)) return;
     final lean = Vec3(t.x, 0, t.y);
     sim?.tilt(lean.length < _leanDeadZone ? Vec3.zero : lean * _leanScale);
     run();
@@ -113,8 +109,7 @@ class _DiceSceneState extends State<DiceScene>
   );
 
   void ensure() {
-    final key =
-        '${sides.join(',')}|${halfWidth.toStringAsFixed(1)}|${halfDepth.toStringAsFixed(1)}';
+    final key = sides.join(',');
     if (key == layout && sim != null) return;
     layout = key;
     ticker.stop();
@@ -139,6 +134,7 @@ class _DiceSceneState extends State<DiceScene>
     if (reduced) {
       next.world.onImpact = null;
       next.settle();
+      throwing = false;
       widget.feedback?.settled();
       return;
     }
@@ -172,6 +168,9 @@ class _DiceSceneState extends State<DiceScene>
             launch(reduced);
           }
           final current = sim!;
+          final width = current.world.halfWidth;
+          final depth = current.world.halfDepth;
+          final camera = TrayScenePainter.cameraFor(size, width, depth);
           return GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: widget.onTapTable,
@@ -187,8 +186,8 @@ class _DiceSceneState extends State<DiceScene>
               skin: widget.skin,
               table: widget.table,
               camera: camera,
-              halfWidth: halfWidth,
-              halfDepth: halfDepth,
+              halfWidth: width,
+              halfDepth: depth,
               frame: frame,
               handles: handles,
             ),

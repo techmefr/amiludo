@@ -13,6 +13,7 @@ import 'package:amiludo/layers/functional/Companion/presentation/metronome_tool.
 import 'package:amiludo/layers/functional/Companion/presentation/phases_tool.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 import 'package:amiludo/layers/technical/Motion/shake_source.dart';
+import 'package:amiludo/layers/technical/Sensors/accelerometer_feed.dart';
 import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
 import 'package:amiludo/layers/technical/Sound/sound_output.dart';
 import 'package:amiludo/layers/technical/Sensors/sensor_sensitivity.dart';
@@ -47,6 +48,11 @@ Widget diceTrayWithSensors(BuildContext context) {
       (level) => DiceTrayPage(
         shakeSource: const NoShakeSource(),
         motion: _motion(level),
+        showShakeHint: level.enabled && PlatformAccelerometerFeed.supported,
+        requestMotionAccess:
+            level.enabled && PlatformAccelerometerFeed.needsPermission
+            ? PlatformAccelerometerFeed.requestPermission
+            : null,
         soundOutput: _sounds(appearance.sound),
         sound: appearance.sound,
         haptics: appearance.haptics,

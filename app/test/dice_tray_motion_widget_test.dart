@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:amiludo/l10n/app_localizations.dart';
 
+import 'package:amiludo/layers/functional/Companion/presentation/dice_scene_layers.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_page.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_surface.dart';
 import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
@@ -75,6 +76,54 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+
+  testWidgets('3D permission enables shaking and resize preserves the dice', (
+    tester,
+  ) async {
+    useSize(tester, const Size(320, 568));
+    final motion = ManualTrayMotion();
+    addTearDown(motion.close);
+    final results = <int>[];
+    await tester.pumpWidget(
+      host(
+        DiceTrayPage(
+          seed: 7,
+          solid: true,
+          motion: motion,
+          requestMotionAccess: () async => true,
+          onSettled: results.add,
+        ),
+        reduced: true,
+      ),
+    );
+    motion.throwWith(1);
+    await tester.pump();
+    expect(results, isEmpty);
+    await tester.tap(find.text('Motion sensors'));
+    await tester.pumpAndSettle();
+    motion.throwWith(1);
+    await tester.pumpAndSettle();
+    expect(results, hasLength(1));
+    final before = tester.widget<DiceSceneLayers>(find.byType(DiceSceneLayers));
+    expect(before.run.values, before.session.values);
+    final scene = find.byType(DiceSceneLayers);
+    final button = find.text('Throw');
+    expect(
+      tester.getTopLeft(button).dy,
+      greaterThan(tester.getBottomLeft(scene).dy),
+    );
+
+    tester.view.physicalSize = const Size(568, 320);
+    await tester.pumpAndSettle();
+    final after = tester.widget<DiceSceneLayers>(find.byType(DiceSceneLayers));
+    expect(after.run.values, before.session.values);
+    expect(
+      tester.getTopLeft(button).dx,
+      greaterThan(tester.getTopRight(scene).dx),
+    );
+    expect(results, hasLength(1));
+    expect(tester.takeException(), isNull);
+  });
 
   testWidgets('reduced motion ignores tilt but still plays sound', (
     tester,

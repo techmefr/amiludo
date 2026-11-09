@@ -79,19 +79,18 @@ class AccelerometerTrayMotion implements TrayMotion {
     if (!_sensitivity.enabled) return const Stream.empty();
     final threshold = _sensitivity.shakeThreshold;
     final shake = ShakeDetector(threshold: threshold);
-    var lastFlick = DateTime.fromMillisecondsSinceEpoch(0);
-    final out = <double>[];
+    DateTime? lastThrow;
     return _feed.samples.expand((sample) {
-      out.clear();
       final now = clock();
-      if (shake.add(sample, now)) {
-        out.add(strengthOf(sample, threshold));
-      } else if (isFlick(sample, threshold) &&
-          now.difference(lastFlick).inMilliseconds > 1000) {
-        lastFlick = now;
-        out.add(strengthOf(sample, threshold));
+      final previous = lastThrow;
+      if (previous != null && now.difference(previous) < shake.cooldown) {
+        return const <double>[];
       }
-      return List<double>.of(out);
+      if (!shake.add(sample, now) && !isFlick(sample, threshold)) {
+        return const <double>[];
+      }
+      lastThrow = now;
+      return [strengthOf(sample, threshold)];
     });
   }
 

@@ -33,15 +33,7 @@ class TableScene {
     Vec3(-halfWidth, 0, halfDepth),
   );
 
-  Path _ringTop(bool nearOnly) {
-    if (nearOnly) {
-      return _quad(
-        Vec3(-_ox, wallHeight, halfDepth),
-        Vec3(_ox, wallHeight, halfDepth),
-        Vec3(_ox, wallHeight, _oz),
-        Vec3(-_ox, wallHeight, _oz),
-      );
-    }
+  Path _ringTop() {
     return Path()
       ..fillType = PathFillType.evenOdd
       ..addPath(
@@ -69,18 +61,6 @@ class TableScene {
       Offset.zero & size,
       Paint()..color = darken(table.rim, 0.55),
     );
-    final top = _ringTop(false);
-    final bounds = top.getBounds();
-    canvas.drawPath(
-      top,
-      Paint()
-        ..shader = ui.Gradient.linear(
-          bounds.topCenter,
-          bounds.bottomCenter,
-          [lighten(table.rim, 0.22), table.rim, darken(table.rim, 0.15)],
-          const [0, 0.5, 1],
-        ),
-    );
     _innerWalls(canvas);
     _feltSurface(canvas);
   }
@@ -105,8 +85,15 @@ class TableScene {
       Vec3(halfWidth, wallHeight, halfDepth),
       Vec3(halfWidth, wallHeight, -halfDepth),
     );
+    final near = _quad(
+      Vec3(-halfWidth, 0, halfDepth),
+      Vec3(halfWidth, 0, halfDepth),
+      Vec3(halfWidth, wallHeight, halfDepth),
+      Vec3(-halfWidth, wallHeight, halfDepth),
+    );
     for (final (path, tone) in [
       (far, shade),
+      (near, darken(table.rim, 0.34)),
       (left, darken(table.rim, 0.1)),
       (right, darken(table.rim, 0.42)),
     ]) {
@@ -166,31 +153,18 @@ class TableScene {
     canvas.restore();
   }
 
-  void paintFront(Canvas canvas) {
-    final face = _quad(
-      Vec3(-_ox, 0, _oz),
-      Vec3(_ox, 0, _oz),
-      Vec3(_ox, wallHeight, _oz),
-      Vec3(-_ox, wallHeight, _oz),
-    );
-    final fb = face.getBounds();
-    canvas.drawPath(
-      face,
-      Paint()
-        ..shader = ui.Gradient.linear(fb.topCenter, fb.bottomCenter, [
-          darken(table.rim, 0.2),
-          darken(table.rim, 0.6),
-        ]),
-    );
-    final top = _ringTop(true);
-    final b = top.getBounds();
+  void paintRim(Canvas canvas) {
+    final top = _ringTop();
+    final bounds = top.getBounds();
     canvas.drawPath(
       top,
       Paint()
-        ..shader = ui.Gradient.linear(b.topCenter, b.bottomCenter, [
-          table.rim,
-          lighten(table.rim, 0.28),
-        ]),
+        ..shader = ui.Gradient.linear(
+          bounds.topCenter,
+          bounds.bottomCenter,
+          [lighten(table.rim, 0.22), table.rim, darken(table.rim, 0.15)],
+          const [0, 0.5, 1],
+        ),
     );
   }
 }

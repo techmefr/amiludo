@@ -86,7 +86,9 @@ class _PhasesToolState extends State<PhasesTool> {
                         '${i + 1} · ${formatClock(state.durations[i])}',
                       ),
                       selected: state.index == i,
-                      onSelected: state.running ? null : (_) => _set(state.select(i)),
+                      onSelected: state.running
+                          ? null
+                          : (_) => _set(state.select(i)),
                     ),
                 ],
               ),
@@ -105,27 +107,30 @@ class _PhasesToolState extends State<PhasesTool> {
                     label:
                         '${l.phasesPhase(state.index + 1)}, ${formatClock(state.remaining)}',
                     child: ExcludeSemantics(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            l.phasesPhase(state.index + 1),
-                            style: theme.textTheme.titleLarge?.copyWith(
-                              color: ink,
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              l.phasesPhase(state.index + 1),
+                              style: theme.textTheme.titleLarge?.copyWith(
+                                color: ink,
+                              ),
                             ),
-                          ),
-                          Text(
-                            formatClock(state.remaining),
-                            style: Numerals.instrument(
-                              theme.textTheme.displayMedium,
+                            Text(
+                              formatClock(state.remaining),
+                              style: Numerals.instrument(
+                                theme.textTheme.displayMedium,
+                              ),
                             ),
-                          ),
-                          Text(
-                            l.phasesRound(state.round),
-                            style: theme.textTheme.bodyMedium,
-                          ),
-                        ],
+                            Text(
+                              l.phasesRound(state.round),
+                              style: theme.textTheme.bodyMedium,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -161,7 +166,9 @@ class _PhasesToolState extends State<PhasesTool> {
                   ),
                   IconButton(
                     tooltip: l.appearanceReset,
-                    onPressed: state.pristine ? null : () => _set(state.reset()),
+                    onPressed: state.pristine
+                        ? null
+                        : () => _set(state.reset()),
                     icon: const DeckIcon(Icons.restart_alt),
                   ),
                 ],
