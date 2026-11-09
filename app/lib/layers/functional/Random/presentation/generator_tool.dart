@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:amiludo/layers/functional/Random/domain/entities/generator_content.dart';
+import 'package:amiludo/layers/functional/Random/presentation/generator_card.dart';
 import 'package:amiludo/layers/functional/Random/presentation/random_widgets.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
 
 Future<GeneratorTables> loadGeneratorTables(String language) async {
   try {
@@ -42,7 +45,16 @@ class _GeneratorToolState extends State<GeneratorTool> {
     });
   }
 
-  void draw() => setState(() => sheet = engine!.generate(widget.id));
+  late final tool = toolThemeFor(widget.id);
+  int drawn = 0;
+
+  void draw() {
+    tool.signal();
+    setState(() {
+      drawn++;
+      sheet = engine!.generate(widget.id);
+    });
+  }
 
   Future<void> copy(GeneratedSheet s) async {
     await Clipboard.setData(ClipboardData(text: s.toText()));
@@ -54,26 +66,30 @@ class _GeneratorToolState extends State<GeneratorTool> {
   @override
   Widget build(BuildContext context) {
     final s = sheet;
-    final theme = Theme.of(context).textTheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (s != null) ...[
-          Semantics(
-            liveRegion: true,
-            child: SelectableText(s.title, style: theme.headlineMedium),
-          ),
-          const SizedBox(height: 16),
-          for (final section in s.sections) ...[
-            SectionHeading(section.label),
-            for (final line in section.lines)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 4),
-                child: SelectableText(line),
+        if (s != null)
+          AnimatedSwitcher(
+            duration: Motion.of(context, Motion.slow),
+            switchInCurve: tool.curve,
+            transitionBuilder: (child, animation) => FadeTransition(
+              opacity: animation,
+              child: SlideTransition(
+                position: Tween(
+                  begin: const Offset(0, .06),
+                  end: Offset.zero,
+                ).animate(animation),
+                child: child,
               ),
-            const SizedBox(height: 12),
-          ],
-        ],
+            ),
+            child: GeneratorCard(
+              key: ValueKey(drawn),
+              id: widget.id,
+              sheet: s,
+            ),
+          ),
+        const SizedBox(height: Space.lg),
         RandomDrawButton(onPressed: engine == null ? null : draw),
         if (s != null)
           Align(
