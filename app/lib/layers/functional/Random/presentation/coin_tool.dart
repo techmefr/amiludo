@@ -5,9 +5,6 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 import 'package:amiludo/layers/functional/Random/presentation/coin_flip.dart';
-import 'package:amiludo/layers/functional/Random/presentation/coin_customization.dart';
-import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.dart';
-import 'package:amiludo/layers/functional/Companion/presentation/die_studio.dart';
 import 'package:amiludo/layers/technical/Theme/components/tool_bar_scope.dart';
 import 'package:amiludo/layers/functional/Random/presentation/count_stepper.dart';
 import 'package:amiludo/layers/technical/Feedback/deck_haptics.dart';
@@ -26,10 +23,16 @@ class CoinTool extends StatefulWidget {
     this.random,
     this.motion = const NoTrayMotion(),
     this.haptics = false,
+    this.artwork,
+    this.faceLabel,
+    this.faceMenu,
   });
   final RandomTools? random;
   final TrayMotion motion;
   final bool haptics;
+  final Widget? Function(bool heads, double size)? artwork;
+  final String Function(bool heads)? faceLabel;
+  final Widget Function(bool enabled)? faceMenu;
   @override
   State<CoinTool> createState() => _CoinToolState();
 }
@@ -39,17 +42,6 @@ class _CoinToolState extends State<CoinTool> {
   StreamSubscription<double>? throws;
   int count = 1, flipId = 0, landed = 0;
   List<bool> results = [];
-  DieDesign? customized;
-  late final DieDesign? stored = DieStudio.maybeOf(context)?.state
-      .byId(coinDesignId);
-
-  DieDesign get design =>
-      customized ?? (stored?.sides == 2 ? stored! : defaultCoin(context));
-
-  Future<void> editFace(int side) async {
-    final edited = await customizeCoin(context, design, side);
-    if (mounted && edited != null) setState(() => customized = edited);
-  }
 
   @override
   void initState() {
@@ -91,8 +83,9 @@ class _CoinToolState extends State<CoinTool> {
 
   String summary(BuildContext context) {
     if (results.isEmpty || flying) return '';
-    final front = coinSideLabel(context, design, 0);
-    final back = coinSideLabel(context, design, 1);
+    final l = context.l10n;
+    final front = widget.faceLabel?.call(true) ?? l.randomHeads;
+    final back = widget.faceLabel?.call(false) ?? l.randomTails;
     if (results.length == 1) return results.first ? front : back;
     final heads = results.where((r) => r).length;
     return '$heads × $front · ${results.length - heads} × $back';
@@ -142,8 +135,7 @@ class _CoinToolState extends State<CoinTool> {
                     flipId: flipId,
                     size: size,
                     height: rowHeight,
-                    front: customCoinFace(design, 0),
-                    back: customCoinFace(design, 1),
+                    artwork: widget.artwork,
                     onLanded: land,
                   ),
               ],
@@ -158,15 +150,12 @@ class _CoinToolState extends State<CoinTool> {
   Widget build(BuildContext context) {
     final l = context.l10n;
     final text = summary(context);
-    final edit = CoinFaceMenu(
-      design: design,
-      onSelect: flying ? null : editFace,
-    );
+    final edit = widget.faceMenu?.call(!flying);
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        if (DieStudio.maybeOf(context) != null)
+        if (edit != null)
           TopBarSlot(
             actions: [edit],
             fallback: Align(alignment: Alignment.centerRight, child: edit),

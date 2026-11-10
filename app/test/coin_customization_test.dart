@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:amiludo/layers/functional/Random/presentation/coin_customization.dart';
+import 'package:amiludo/coin_customization.dart';
 import 'package:amiludo/layers/functional/Random/presentation/coin_face.dart';
-import 'package:amiludo/layers/functional/Random/presentation/coin_tool.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/die_face_view.dart';
 
 import 'die_studio_test.dart' show host, studio, useSize;
 
@@ -17,7 +17,7 @@ void main() {
       s.cubit,
       Scaffold(
         key: key,
-        body: const SingleChildScrollView(child: CoinTool()),
+        body: const SingleChildScrollView(child: CustomCoinTool()),
       ),
     );
     await tester.pumpWidget(page(const ValueKey(1)));
@@ -39,7 +39,12 @@ void main() {
     expect(saved?.faces.map((face) => face.value), ['Moon', 'Sun']);
     await tester.pumpWidget(page(const ValueKey(2)));
     await tester.pumpAndSettle();
-    expect(tester.widget<CoinFace>(find.byType(CoinFace)).face?.value, 'Moon');
+    expect(
+      (tester.widget<CoinFace>(find.byType(CoinFace)).artwork as DieFaceView)
+          .face
+          .value,
+      'Moon',
+    );
     expect(tester.takeException(), isNull);
   });
 }

@@ -17,7 +17,7 @@ import 'package:amiludo/layers/technical/Sensors/accelerometer_feed.dart';
 import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
 import 'package:amiludo/layers/technical/Sound/sound_output.dart';
 import 'package:amiludo/layers/technical/Sensors/sensor_sensitivity.dart';
-import 'package:amiludo/layers/functional/Random/presentation/coin_tool.dart';
+import 'package:amiludo/coin_customization.dart';
 
 SensorSensitivity _level(Workspace state) =>
     SensorSensitivity.parse(state.appearance.sensors);
@@ -111,7 +111,8 @@ Widget coinWithSensors(BuildContext context) {
   final appearance = context.read<AppearanceCubit>().state.appearance;
   return DieStudioHost(
     child: _sensed(
-      (level) => CoinTool(motion: _motion(level), haptics: appearance.haptics),
+      (level) =>
+          CustomCoinTool(motion: _motion(level), haptics: appearance.haptics),
     ),
   );
 }

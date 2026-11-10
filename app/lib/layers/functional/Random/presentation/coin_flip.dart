@@ -4,7 +4,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Random/presentation/coin_face.dart';
-import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.dart';
 import 'package:amiludo/layers/technical/Motion/coin_toss.dart';
 import 'package:amiludo/layers/technical/Theme/game_palette.dart';
 
@@ -16,14 +15,13 @@ class CoinFlip extends StatefulWidget {
     required this.size,
     required this.height,
     this.onLanded,
-    this.front,
-    this.back,
+    this.artwork,
   });
   final bool? heads;
   final int flipId;
   final double size, height;
   final VoidCallback? onLanded;
-  final DieFaceContent? front, back;
+  final Widget? Function(bool heads, double size)? artwork;
 
   @override
   State<CoinFlip> createState() => _CoinFlipState();
@@ -74,7 +72,7 @@ class _CoinFlipState extends State<CoinFlip>
         child: CoinFace(
           heads: heads,
           size: widget.size,
-          face: heads ? widget.front : widget.back,
+          artwork: widget.artwork?.call(heads, widget.size),
         ),
       ),
     );

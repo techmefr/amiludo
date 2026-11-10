@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_face_ops.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/die_face_sheet.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/die_face_view.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/die_studio.dart';
 import 'package:amiludo/layers/functional/Random/presentation/coin_face.dart';
+import 'package:amiludo/layers/functional/Random/presentation/coin_tool.dart';
+import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
+import 'package:amiludo/layers/technical/Theme/game_palette.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 const coinDesignId = 'amiludo-coin-faces';
@@ -40,15 +44,80 @@ String coinSideLabel(BuildContext context, DieDesign design, int index) {
   };
 }
 
+Widget? _artwork(
+  DieDesign design,
+  int index,
+  double size, {
+  DieImageReader? reader,
+}) {
+  final face = customCoinFace(design, index);
+  if (face == null) return null;
+  return DieFaceView(
+    face: face,
+    body: GamePalette.yellow,
+    size: size,
+    reader: reader,
+  );
+}
+
+class CustomCoinTool extends StatefulWidget {
+  const CustomCoinTool({
+    super.key,
+    this.motion = const NoTrayMotion(),
+    this.haptics = false,
+  });
+
+  final TrayMotion motion;
+  final bool haptics;
+
+  @override
+  State<CustomCoinTool> createState() => _CustomCoinToolState();
+}
+
+class _CustomCoinToolState extends State<CustomCoinTool> {
+  DieDesign? customized;
+
+  Future<void> _edit(DieDesign design, int side) async {
+    final edited = await customizeCoin(context, design, side);
+    if (mounted && edited != null) setState(() => customized = edited);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final studio = DieStudio.maybeOf(context);
+    final stored = studio?.state.byId(coinDesignId);
+    final design =
+        customized ?? (stored?.sides == 2 ? stored! : defaultCoin(context));
+    return CoinTool(
+      motion: widget.motion,
+      haptics: widget.haptics,
+      artwork: (heads, size) => _artwork(design, heads ? 0 : 1, size),
+      faceLabel: (heads) => coinSideLabel(context, design, heads ? 0 : 1),
+      faceMenu: studio == null
+          ? null
+          : (enabled) => CoinFaceMenu(
+              design: design,
+              reader: studio.image,
+              onSelect: enabled ? (side) => _edit(design, side) : null,
+            ),
+    );
+  }
+}
+
 class CoinFaceMenu extends StatelessWidget {
-  const CoinFaceMenu({super.key, required this.design, required this.onSelect});
+  const CoinFaceMenu({
+    super.key,
+    required this.design,
+    required this.onSelect,
+    this.reader,
+  });
   final DieDesign design;
   final ValueChanged<int>? onSelect;
+  final DieImageReader? reader;
 
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
-    final reader = DieStudio.maybeOf(context)?.image;
     return PopupMenuButton<int>(
       tooltip: l.diceFaces,
       enabled: onSelect != null,
@@ -63,8 +132,7 @@ class CoinFaceMenu extends StatelessWidget {
               leading: CoinFace(
                 heads: i == 0,
                 size: 40,
-                face: customCoinFace(design, i),
-                reader: reader,
+                artwork: _artwork(design, i, 40, reader: reader),
               ),
               title: Text(i == 0 ? l.randomHeads : l.randomTails),
               subtitle: customCoinFace(design, i) == null

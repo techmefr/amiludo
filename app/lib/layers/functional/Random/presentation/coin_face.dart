@@ -3,39 +3,28 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Theme/game_palette.dart';
-import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.dart';
-import 'package:amiludo/layers/functional/Companion/presentation/die_face_view.dart';
 
 class CoinFace extends StatelessWidget {
   const CoinFace({
     super.key,
     required this.heads,
     required this.size,
-    this.face,
-    this.reader,
+    this.artwork,
   });
   final bool heads;
   final double size;
 
-  final DieFaceContent? face;
-  final DieImageReader? reader;
+  final Widget? artwork;
 
   @override
   Widget build(BuildContext context) => CustomPaint(
     size: Size.square(size),
-    painter: _CoinPainter(heads, face != null),
-    child: face == null
+    painter: _CoinPainter(heads, artwork != null),
+    child: artwork == null
         ? null
         : SizedBox.square(
             dimension: size,
-            child: Center(
-              child: DieFaceView(
-                face: face!,
-                body: GamePalette.yellow,
-                size: size,
-                reader: reader,
-              ),
-            ),
+            child: Center(child: artwork),
           ),
   );
 }
