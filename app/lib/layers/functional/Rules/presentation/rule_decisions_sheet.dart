@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/type_roles.dart';
 import 'package:amiludo/layers/functional/Rules/domain/entities/rule_book.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
@@ -65,7 +66,6 @@ class _RuleDecisionsSheetState extends State<RuleDecisionsSheet> {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
-    final text = Theme.of(context).textTheme;
     final locale = Localizations.localeOf(context).toString();
     final shown = [
       for (final d in game.decisions)
@@ -82,7 +82,7 @@ class _RuleDecisionsSheetState extends State<RuleDecisionsSheet> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(l.rulesDecisionsTitle(game.name), style: text.titleLarge),
+          Text(l.rulesDecisionsTitle(game.name), style: TypeRoles.sectionTitle(context)),
           const SizedBox(height: Space.md),
           TextField(
             controller: question,

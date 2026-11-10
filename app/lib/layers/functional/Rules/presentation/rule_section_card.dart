@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/type_roles.dart';
 import 'package:amiludo/layers/functional/Rules/domain/entities/rule_book.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/tool_texture.dart';
@@ -22,7 +23,6 @@ class RuleSectionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
-    final text = Theme.of(context).textTheme;
     final tool = toolThemeFor('rules');
     final surface = tool.surface(context);
     return Material(
@@ -48,15 +48,21 @@ class RuleSectionCard extends StatelessWidget {
                           header: true,
                           child: Text(
                             section.title,
-                            style: (table ? text.headlineSmall : text.titleMedium)
-                                ?.copyWith(color: tool.ink(surface)),
+                            style: (table
+                                    ? TypeRoles.sectionTitle(context)
+                                    : TypeRoles.body(
+                                        context,
+                                      ).copyWith(fontWeight: FontWeight.w600))
+                                .copyWith(color: tool.ink(surface)),
                           ),
                         ),
                       if (section.body.isNotEmpty) ...[
                         const SizedBox(height: Space.xs),
                         SelectableText(
                           section.body,
-                          style: table ? text.titleLarge : text.bodyLarge,
+                          style: table
+                              ? TypeRoles.sectionTitle(context)
+                              : TypeRoles.body(context),
                         ),
                       ],
                     ],

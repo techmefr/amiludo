@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/type_roles.dart';
 import 'package:amiludo/layers/functional/Tables/domain/entities/roll_table.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
@@ -68,7 +69,7 @@ class TableCard extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: Space.sm),
                 child: Text(
                   result ?? (empty ? l.gmtablesNoEntries : ''),
-                  style: text.titleLarge?.copyWith(color: ink),
+                  style: TypeRoles.sectionTitle(context).copyWith(color: ink),
                 ),
               ),
             ),
