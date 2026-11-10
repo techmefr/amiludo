@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Theme/components/large_title_header.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/layout_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class CleanScrollPage extends StatelessWidget {
@@ -13,6 +14,7 @@ class CleanScrollPage extends StatelessWidget {
     this.actions = const [],
     this.maxWidth = 760,
     this.fillHeight = false,
+    this.bottomBar,
   });
   final String title;
   final Widget child;
@@ -20,19 +22,18 @@ class CleanScrollPage extends StatelessWidget {
   final List<Widget> actions;
   final double maxWidth;
   final bool fillHeight;
-
-  static const double _side = Space.xl - Space.xs;
+  final Widget? bottomBar;
 
   @override
   Widget build(BuildContext context) {
-    final content = Align(
-      alignment: Alignment.topCenter,
-      child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: maxWidth),
-        child: SizedBox(width: double.infinity, child: child),
-      ),
+    final inset = Gutters.columnInsetOf(context, maxWidth);
+    final content = SizedBox(
+      key: const ValueKey('screen-content'),
+      width: double.infinity,
+      child: child,
     );
     return Scaffold(
+      bottomNavigationBar: bottomBar,
       body: SafeArea(
         top: false,
         child: CustomScrollView(
@@ -47,10 +48,11 @@ class CleanScrollPage extends StatelessWidget {
                   onPressed: onBack,
                 ),
                 actions: actions,
+                inset: inset,
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(_side, Space.sm, _side, _side),
+              padding: EdgeInsets.fromLTRB(inset, Space.sm, inset, Space.xl),
               sliver: fillHeight
                   ? SliverFillRemaining(hasScrollBody: false, child: content)
                   : SliverToBoxAdapter(child: content),

@@ -8,7 +8,11 @@ import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_edit_d
 import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_field_row.dart';
 import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_labels.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/section.dart';
+import 'package:amiludo/layers/technical/Theme/components/step_indicator.dart';
+import 'package:amiludo/layers/technical/Theme/components/tag_chip.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/layout_tokens.dart';
 
 class SheetEditor extends StatelessWidget {
   const SheetEditor({
@@ -20,6 +24,10 @@ class SheetEditor extends StatelessWidget {
   final CharacterSheet sheet;
   final int step;
   final List<String> editions;
+
+  static final _tall = FilledButton.styleFrom(
+    minimumSize: const Size.fromHeight(Rows.minimum),
+  );
 
   void _edit(BuildContext context, SheetField field) {
     final cubit = context.read<SheetCubit>();
@@ -38,74 +46,60 @@ class SheetEditor extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final cubit = context.read<SheetCubit>();
-    final theme = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Semantics(
-          label: l10n.sheetStepOf(step, SheetSpec.stepCount),
-          child: LinearProgressIndicator(
-            value: step / SheetSpec.stepCount,
-            minHeight: Space.sm,
-            borderRadius: BorderRadius.circular(Radii.pill),
+        if (editions.isNotEmpty)
+          Section(
+            title: l10n.sheetEditionLabel,
+            child: Wrap(
+              spacing: Space.sm,
+              runSpacing: Space.sm,
+              children: [
+                for (final e in editions)
+                  TagChip(
+                    key: ValueKey('sheet-edition-$e'),
+                    label: sheetEditionLabel(l10n, e),
+                    selected: sheet.edition == e,
+                    onSelected: (on) => cubit.setEdition(on ? e : null),
+                  ),
+              ],
+            ),
           ),
+        StepIndicator(
+          count: SheetSpec.stepCount,
+          current: step,
+          label: l10n.sheetStepOf(step, SheetSpec.stepCount),
+          completed: sheet.stepComplete,
+          onSelect: cubit.goTo,
+          stepKey: (i) => ValueKey('sheet-step-$i'),
         ),
-        if (editions.isNotEmpty) ...[
-          Text(l10n.sheetEditionLabel, style: theme.textTheme.labelLarge),
-          Wrap(
-            spacing: Space.sm,
+        const SizedBox(height: Space.xl),
+        Section(
+          kicker: l10n.sheetStepOf(step, SheetSpec.stepCount),
+          title: sheetStepLabel(l10n, step),
+          child: Row(
             children: [
-              for (final e in editions)
-                ChoiceChip(
-                  key: ValueKey('sheet-edition-$e'),
-                  label: Text(sheetEditionLabel(l10n, e)),
-                  selected: sheet.edition == e,
-                  onSelected: (on) => cubit.setEdition(on ? e : null),
+              Expanded(
+                child: OutlinedButton(
+                  key: const ValueKey('sheet-generate-step'),
+                  style: _tall,
+                  onPressed: cubit.generateStep,
+                  child: Text(l10n.sheetGenerateStep),
                 ),
+              ),
+              const SizedBox(width: Space.md),
+              Expanded(
+                child: FilledButton(
+                  key: const ValueKey('sheet-generate-all'),
+                  style: _tall,
+                  onPressed: cubit.generateAll,
+                  child: Text(l10n.sheetGenerateAll),
+                ),
+              ),
             ],
           ),
-          const SizedBox(height: Space.md),
-        ],
-        const SizedBox(height: Space.sm),
-        Wrap(
-          spacing: Space.sm,
-          children: [
-            for (var i = 1; i <= SheetSpec.stepCount; i++)
-              ChoiceChip(
-                key: ValueKey('sheet-step-$i'),
-                label: Text('$i'),
-                selected: i == step,
-                avatar: sheet.stepComplete(i)
-                    ? const Icon(Icons.check, size: TypeScale.body)
-                    : null,
-                onSelected: (_) => cubit.goTo(i),
-              ),
-          ],
         ),
-        const SizedBox(height: Space.md),
-        Text(
-          l10n.sheetStepOf(step, SheetSpec.stepCount),
-          style: theme.textTheme.labelLarge,
-        ),
-        Text(sheetStepLabel(l10n, step), style: theme.textTheme.headlineSmall),
-        const SizedBox(height: Space.md),
-        Wrap(
-          spacing: Space.md,
-          runSpacing: Space.sm,
-          children: [
-            OutlinedButton(
-              key: const ValueKey('sheet-generate-step'),
-              onPressed: cubit.generateStep,
-              child: Text(l10n.sheetGenerateStep),
-            ),
-            FilledButton(
-              key: const ValueKey('sheet-generate-all'),
-              onPressed: cubit.generateAll,
-              child: Text(l10n.sheetGenerateAll),
-            ),
-          ],
-        ),
-        const SizedBox(height: Space.sm),
         for (final field in SheetSpec.ofStep(step))
           SheetFieldRow(
             key: ValueKey('sheet-row-${field.id}'),

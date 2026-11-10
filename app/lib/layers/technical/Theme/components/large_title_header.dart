@@ -9,11 +9,13 @@ class LargeTitleHeader extends SliverPersistentHeaderDelegate {
     required this.top,
     this.leading,
     this.actions = const [],
+    this.inset = Space.xl,
   });
   final String title;
   final double top;
   final Widget? leading;
   final List<Widget> actions;
+  final double inset;
 
   static const double _bar = kToolbarHeight;
   static const double _large = 52;
@@ -62,8 +64,8 @@ class LargeTitleHeader extends SliverPersistentHeaderDelegate {
           ),
         ),
         Positioned(
-          left: Space.xl,
-          right: Space.xl,
+          left: inset,
+          right: inset,
           bottom: Space.xs,
           child: Opacity(
             opacity: 1 - t,
@@ -71,6 +73,7 @@ class LargeTitleHeader extends SliverPersistentHeaderDelegate {
               header: true,
               child: Text(
                 title,
+                key: const ValueKey('screen-title'),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: theme.textTheme.headlineLarge,
@@ -86,6 +89,7 @@ class LargeTitleHeader extends SliverPersistentHeaderDelegate {
   bool shouldRebuild(LargeTitleHeader old) =>
       old.title != title ||
       old.top != top ||
+      old.inset != inset ||
       old.leading != leading ||
       old.actions != actions;
 }

@@ -14,6 +14,7 @@ import 'package:amiludo/layers/functional/Templates/domain/entities/character_pa
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/deck_tile.dart';
+import 'package:amiludo/layers/technical/Theme/components/section.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
@@ -86,22 +87,21 @@ class _SheetViewState extends State<SheetView> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        DeckHeading(
-          eyebrow: l10n.sheetTitle,
+        Section(
           title: l10n.sheetChooseUniverse,
-          subtitle: l10n.sheetSubtitle,
-        ),
-        ResponsiveGrid(
-          minimumWidth: 200,
-          children: [
-            for (final id in state.generator!.tables.universes.keys)
-              DeckTile(
-                key: ValueKey('sheet-universe-$id'),
-                icon: Icons.auto_stories_outlined,
-                title: sheetUniverseLabel(l10n, id),
-                onTap: () => context.read<SheetCubit>().start(id),
-              ),
-          ],
+          caption: l10n.sheetSubtitle,
+          child: ResponsiveGrid(
+            minimumWidth: 200,
+            children: [
+              for (final id in state.generator!.tables.universes.keys)
+                DeckTile(
+                  key: ValueKey('sheet-universe-$id'),
+                  icon: Icons.auto_stories_outlined,
+                  title: sheetUniverseLabel(l10n, id),
+                  onTap: () => context.read<SheetCubit>().start(id),
+                ),
+            ],
+          ),
         ),
       ],
     );
