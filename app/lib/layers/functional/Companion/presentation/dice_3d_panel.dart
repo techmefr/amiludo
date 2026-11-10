@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Companion/presentation/dice_look_sheet
 import 'package:amiludo/layers/functional/Companion/presentation/tray_bottom_bar.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_result_view.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/physical_tool_layout.dart';
 import 'package:amiludo/layers/technical/Theme/tool_layout.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -40,28 +41,8 @@ class Dice3dPanel extends StatelessWidget {
   final ValueChanged<String>? onFavorite;
 
   @override
-  Widget build(BuildContext context) => LayoutBuilder(
-    builder: (context, constraints) {
-      final sideBySide =
-          constraints.maxWidth >= 480 &&
-          MediaQuery.sizeOf(context).height < 520;
-      return Flex(
-        direction: sideBySide ? Axis.horizontal : Axis.vertical,
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: sideBySide
-            ? CrossAxisAlignment.start
-            : CrossAxisAlignment.stretch,
-        children: [
-          Flexible(flex: 3, child: stage),
-          SizedBox(
-            width: sideBySide ? Space.lg : 0,
-            height: sideBySide ? 0 : Space.md,
-          ),
-          Flexible(flex: 2, child: buildControls(context)),
-        ],
-      );
-    },
-  );
+  Widget build(BuildContext context) =>
+      PhysicalToolLayout(stage: stage, controls: buildControls(context));
 
   Widget buildControls(BuildContext context) {
     final l = context.l10n;

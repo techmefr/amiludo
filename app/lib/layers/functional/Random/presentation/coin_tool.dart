@@ -16,6 +16,7 @@ import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_layout.dart';
 import 'package:amiludo/layers/technical/Theme/components/tool_focus.dart';
+import 'package:amiludo/layers/technical/Theme/components/physical_tool_layout.dart';
 
 const int maxCoins = 6;
 
@@ -170,32 +171,39 @@ class _CoinToolState extends State<CoinTool> {
             actions: [edit],
             fallback: Align(alignment: Alignment.centerRight, child: edit),
           ),
-        CountStepper(
-          label: l.coinCount,
-          value: count,
-          minimum: 1,
-          maximum: maxCoins,
-          lessTooltip: l.coinFewer,
-          moreTooltip: l.coinMore,
-          onChanged: flying ? (_) {} : setCount,
-        ),
-        const SizedBox(height: Space.md),
-        stage(context),
-        SizedBox(
-          height: Space.xxl * 4,
-          child: text.isEmpty
-              ? Center(
-                  child: Text(
-                    results.isEmpty ? l.randomPressTheButtonToRoll : '',
-                    textAlign: TextAlign.center,
-                  ),
-                )
-              : ToolResultText(text: text, compact: results.length > 1),
-        ),
-        ToolPrimaryButton(
-          onPressed: flying ? null : flip,
-          label: l.coinFlip,
-          icon: Icons.toll_outlined,
+        PhysicalToolLayout(
+          stage: stage(context),
+          controls: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              CountStepper(
+                label: l.coinCount,
+                value: count,
+                minimum: 1,
+                maximum: maxCoins,
+                lessTooltip: l.coinFewer,
+                moreTooltip: l.coinMore,
+                onChanged: flying ? (_) {} : setCount,
+              ),
+              SizedBox(
+                height: Space.xxl * 4,
+                child: text.isEmpty
+                    ? Center(
+                        child: Text(
+                          results.isEmpty ? l.randomPressTheButtonToRoll : '',
+                          textAlign: TextAlign.center,
+                        ),
+                      )
+                    : ToolResultText(text: text, compact: results.length > 1),
+              ),
+              ToolPrimaryButton(
+                onPressed: flying ? null : flip,
+                label: l.coinFlip,
+                icon: Icons.toll_outlined,
+              ),
+            ],
+          ),
         ),
       ],
     );
