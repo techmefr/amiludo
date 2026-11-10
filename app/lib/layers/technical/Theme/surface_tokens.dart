@@ -20,7 +20,7 @@ ColorScheme withSurfaceTokens(
   ];
   final variant = grounds.fold(
     Color.lerp(ink, background, .28)!,
-    (kept, ground) => ensureContrast(kept, ground, minimum: aaText + 1.5),
+    (kept, ground) => ensureContrast(kept, ground, minimum: aaText + 2.5),
   );
   return scheme.copyWith(
     surfaceContainerLowest: background,
