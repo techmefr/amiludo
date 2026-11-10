@@ -7,26 +7,33 @@ import 'package:amiludo/layers/functional/Companion/presentation/die_studio.dart
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/deck_sheet.dart';
 
-Future<void> openDieEditor(BuildContext context, DieDesign design) {
+Future<DieDesign?> openDieEditor(
+  BuildContext context,
+  DieDesign? design,
+) async {
   final cubit = DieStudio.maybeOf(context);
-  if (cubit == null) return Future.value();
-  return Navigator.of(context).push(
+  if (cubit == null) return null;
+  DieDesign? saved;
+  await Navigator.of(context).push(
     MaterialPageRoute<void>(
       builder: (_) => DieStudio(
         cubit: cubit,
-        child: DieEditorScreen(initial: design),
+        child: DieEditorScreen(
+          initial: design,
+          onSaved: (value) => saved = value,
+        ),
       ),
     ),
   );
+  return saved;
 }
 
 Future<void> showDieActionsSheet(
   BuildContext context,
   DiceSpec spec, {
   required VoidCallback onRemove,
+  VoidCallback? onEdit,
 }) {
-  final design = spec.design;
-  final canEdit = design != null && DieStudio.maybeOf(context) != null;
   return showDeckSheet<void>(
     context: context,
     title: spec.name,
@@ -35,13 +42,13 @@ Future<void> showDieActionsSheet(
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (canEdit)
+          if (onEdit != null)
             ListTile(
               leading: const Icon(Icons.edit_outlined),
               title: Text(l.diceEdit),
               onTap: () {
                 Navigator.pop(sheet);
-                openDieEditor(context, design);
+                onEdit();
               },
             ),
           ListTile(

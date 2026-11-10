@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/tray_result.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_2d_panel.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_3d_panel.dart';
@@ -167,10 +168,41 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
   void editDie(int index) => showDieActionsSheet(
     context,
     session.settings.dice[index],
+    onEdit:
+        DieStudio.maybeOf(context) != null &&
+            session.settings.dice[index].sides <= maxDieFaces
+        ? () => customize(index)
+        : null,
     onRemove: () => configure(
       session.settings.withDice([...session.settings.dice]..removeAt(index)),
     ),
   );
+
+  Future<void> customize(int index) async {
+    final spec = session.settings.dice[index];
+    final design =
+        spec.design ??
+        DieDesign.standard(dieId(), spec.name, spec.sides).copyWith(
+          color: spec.color,
+          faces: [
+            for (var face = 1; face <= spec.sides; face++)
+              spec.faceContent(face),
+          ],
+        );
+    final saved = await openDieEditor(context, design);
+    if (!mounted || saved == null) return;
+    final replacement = DiceSpec.fromDesign(saved);
+    final dice = session.settings.dice;
+    configure(
+      session.settings.withDice([
+        for (var i = 0; i < dice.length; i++)
+          if (i == index || dice[i].design?.id == saved.id)
+            replacement
+          else
+            dice[i],
+      ]),
+    );
+  }
 
   void chooseSurface(String name) {
     final next = session.settings.withSurface(name);

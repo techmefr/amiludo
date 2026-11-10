@@ -13,8 +13,9 @@ import 'package:amiludo/layers/technical/Theme/immersive_page.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class DieEditorScreen extends StatefulWidget {
-  const DieEditorScreen({super.key, this.initial});
+  const DieEditorScreen({super.key, this.initial, this.onSaved});
   final DieDesign? initial;
+  final ValueChanged<DieDesign>? onSaved;
 
   @override
   State<DieEditorScreen> createState() => _DieEditorScreenState();
@@ -47,15 +48,19 @@ class _DieEditorScreenState extends State<DieEditorScreen> {
   Future<void> save() async {
     final used = design.imageIds;
     final cubit = DieStudio.maybeOf(context)!;
+    final saved = design.copyWith(name: name.text.trim());
     await cubit.save(
-      design.copyWith(name: name.text.trim()),
+      saved,
       images: {
         for (final e in cubit.staged.entries)
           if (used.contains(e.key)) e.key: e.value,
       },
     );
     cubit.staged.clear();
-    if (mounted) Navigator.pop(context);
+    if (mounted) {
+      widget.onSaved?.call(saved);
+      Navigator.pop(context);
+    }
   }
 
   @override

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/die_library.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_catalog_sheet.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/die_actions_sheet.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/die_studio.dart';
@@ -17,17 +18,24 @@ Future<void> showDiceAddSheet(
   DiceTraySettings settings,
   ValueChanged<DiceTraySettings> onChanged, {
   ValueChanged<String>? onFavorite,
-}) => showDeckSheet<void>(
-  context: context,
-  title: context.l10n.diceTrayAddDie,
-  builder: (_) => DiceAddList(
-    settings: settings,
-    onChanged: onChanged,
-    onFavorite: onFavorite,
-    onEdit: (d) => openDieEditor(context, d),
-    library: DieStudio.maybeOf(context)?.state.designs ?? const [],
-  ),
-);
+}) {
+  final studio = DieStudio.maybeOf(context);
+  return showDeckSheet<void>(
+    context: context,
+    title: context.l10n.diceTrayAddDie,
+    builder: (_) => StreamBuilder<DieLibrary>(
+      stream: studio?.stream,
+      initialData: studio?.state,
+      builder: (_, snapshot) => DiceAddList(
+        settings: settings,
+        onChanged: onChanged,
+        onFavorite: onFavorite,
+        onEdit: studio == null ? null : (d) => openDieEditor(context, d),
+        library: snapshot.data?.designs ?? const [],
+      ),
+    ),
+  );
+}
 
 class DiceAddList extends StatefulWidget {
   const DiceAddList({
@@ -42,7 +50,7 @@ class DiceAddList extends StatefulWidget {
   final DiceTraySettings settings;
   final ValueChanged<DiceTraySettings> onChanged;
   final ValueChanged<String>? onFavorite;
-  final ValueChanged<DieDesign>? onEdit;
+  final Future<DieDesign?> Function(DieDesign?)? onEdit;
 
   @override
   State<DiceAddList> createState() => _DiceAddListState();
@@ -65,6 +73,17 @@ class _DiceAddListState extends State<DiceAddList> {
   void remove(bool Function(DiceSpec) match) {
     final at = dice.lastIndexWhere(match);
     if (at >= 0) change([...dice]..removeAt(at));
+  }
+
+  Future<void> edit(DieDesign? design) async {
+    final saved = await widget.onEdit?.call(design);
+    if (!mounted || saved == null) return;
+    final spec = DiceSpec.fromDesign(saved);
+    if (design == null) {
+      add(spec);
+    } else if (dice.any((d) => d.design?.id == saved.id)) {
+      change([for (final d in dice) d.design?.id == saved.id ? spec : d]);
+    }
   }
 
   Widget row(String label, DiceSpec spec, bool Function(DiceSpec) match) {
@@ -106,6 +125,12 @@ class _DiceAddListState extends State<DiceAddList> {
             style: Theme.of(context).textTheme.titleMedium,
           ),
         ),
+        if (widget.onEdit != null)
+          TextButton.icon(
+            onPressed: dice.length >= maxTrayDice ? null : () => edit(null),
+            icon: const Icon(Icons.add_circle_outline),
+            label: Text(l.diceNew),
+          ),
         for (final sides in diceListSides)
           row(
             'd$sides',
@@ -146,7 +171,7 @@ class _DiceAddListState extends State<DiceAddList> {
               library: library,
               onAdd: add,
               onFavorite: widget.onFavorite!,
-              onEdit: widget.onEdit,
+              onEdit: widget.onEdit == null ? null : edit,
             ),
             icon: const Icon(Icons.grid_view),
             label: Text(l.diceSeeMore),

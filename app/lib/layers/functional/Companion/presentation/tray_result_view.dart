@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/l10n/app_localizations.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/tray_result.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/tray_face_marks.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -72,6 +73,8 @@ class TrayResultView extends StatelessWidget {
             style: theme.textTheme.titleMedium,
             textAlign: TextAlign.center,
           ),
+        if (session.thrown && mode != TrayResultMode.none)
+          TrayFaceMarks(dice: session.settings.dice, values: session.values),
         if (onMode != null)
           PopupMenuButton<TrayResultMode>(
             tooltip: l.diceResultMode,

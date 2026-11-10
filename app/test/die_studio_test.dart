@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:amiludo/l10n/app_localizations.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_page.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_bundle.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/die_library.dart';
@@ -94,6 +96,53 @@ Uint8List tinyPng() {
 }
 
 void main() {
+  testWidgets('the 3D tray creates and adds a custom die to an empty library', (
+    tester,
+  ) async {
+    useSize(tester, const Size(390, 844));
+    final s = studio();
+    DiceTraySettings? settings;
+    await tester.pumpWidget(
+      host(
+        s.cubit,
+        Scaffold(
+          body: SingleChildScrollView(
+            child: DiceTrayPage(
+              solid: true,
+              onChanged: (value) => settings = value,
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.ensureVisible(find.text('Add a die'));
+    await tester.tap(find.text('Add a die'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('New die'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField).first, 'My die');
+    final editFace = find.bySemanticsLabel('Edit face 1');
+    await tester.ensureVisible(editFace);
+    await tester.tap(editFace);
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField).last, 'Moon');
+    await tester.ensureVisible(find.text('Save').last);
+    await tester.tap(find.text('Save').last);
+    await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(
+      find.text('Save'),
+      280,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+    final saved = s.library.current.designs.single;
+    expect(saved.name, 'My die');
+    expect(saved.faces.first.value, 'Moon');
+    expect(settings?.dice.last.design?.id, saved.id);
+    expect(tester.takeException(), isNull);
+  });
+
   group('use cases', () {
     test('save, duplicate with images, remove cleans images', () async {
       final s = studio();

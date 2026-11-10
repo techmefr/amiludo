@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.d
 import 'package:amiludo/layers/functional/Companion/presentation/die_face_view.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/die_icon_picker.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/die_image_source.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/die_studio.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/deck_sheet.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
@@ -16,17 +17,28 @@ typedef FaceEdit = ({DieFaceContent face, Map<String, List<int>> images});
 Future<FaceEdit?> showFaceSheet(
   BuildContext context,
   DieDesign design,
-  int index,
-) => showDeckSheet<FaceEdit>(
+  int index, {
+  String? title,
+}) => showDeckSheet<FaceEdit>(
   context: context,
-  title: context.l10n.diceFaceEdit(index + 1),
-  builder: (_) => DieFaceForm(design: design, index: index),
+  title: title ?? context.l10n.diceFaceEdit(index + 1),
+  builder: (_) => DieFaceForm(
+    design: design,
+    index: index,
+    savedImage: DieStudio.maybeOf(context)?.image,
+  ),
 );
 
 class DieFaceForm extends StatefulWidget {
-  const DieFaceForm({super.key, required this.design, required this.index});
+  const DieFaceForm({
+    super.key,
+    required this.design,
+    required this.index,
+    this.savedImage,
+  });
   final DieDesign design;
   final int index;
+  final DieImageReader? savedImage;
 
   @override
   State<DieFaceForm> createState() => _DieFaceFormState();
@@ -52,7 +64,9 @@ class _DieFaceFormState extends State<DieFaceForm> {
 
   DieImageReader reader(BuildContext context) => (id) async {
     final bytes = images[id];
-    return bytes == null ? null : Uint8List.fromList(bytes);
+    return bytes == null
+        ? widget.savedImage?.call(id)
+        : Uint8List.fromList(bytes);
   };
 
   @override

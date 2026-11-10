@@ -27,7 +27,12 @@ class DiceSpec {
   factory DiceSpec.fromDesign(DieDesign design) => DiceSpec(
     sides: design.sides,
     faces: [
-      for (final f in design.faces) f.label.isEmpty ? f.kind.name : f.label,
+      for (final (index, face) in design.faces.indexed)
+        switch (face.kind) {
+          DieFaceKind.text => face.value,
+          DieFaceKind.icon => face.value.replaceAll('-', ' '),
+          DieFaceKind.image => '${design.name} ${index + 1}',
+        },
     ],
     color: design.color,
     design: design,
@@ -71,7 +76,8 @@ class DiceSpec {
   int? scoreOf(int value) {
     final d = design;
     if (d != null) {
-      return d.numeric ? int.parse(d.faces[value - 1].value) : null;
+      final face = d.faces[value - 1];
+      return face.kind == DieFaceKind.text ? int.tryParse(face.value) : null;
     }
     return custom ? null : value;
   }
@@ -167,9 +173,10 @@ class DiceTraySettings {
 }
 
 class TrayRoll {
-  const TrayRoll(this.values, this.total);
+  const TrayRoll(this.values, this.total, {this.dice = const []});
   final List<int> values;
   final int total;
+  final List<DiceSpec> dice;
 }
 
 class DiceTraySession {
@@ -197,6 +204,9 @@ class DiceTraySession {
     return sum;
   }
 
+  TrayRoll _roll(List<int> values) =>
+      TrayRoll(values, totalOf(values), dice: settings.dice);
+
   DiceTraySession withSettings(DiceTraySettings next) =>
       DiceTraySession(settings: next, history: history);
 
@@ -211,7 +221,7 @@ class DiceTraySession {
       settings: settings,
       values: next,
       kept: kept,
-      history: [TrayRoll(next, totalOf(next)), ...history].take(20).toList(),
+      history: [_roll(next), ...history].take(20).toList(),
     );
   }
 
@@ -238,7 +248,7 @@ class DiceTraySession {
       settings: settings,
       values: next,
       kept: kept,
-      history: [TrayRoll(next, totalOf(next)), ...history.skip(1)],
+      history: [_roll(next), ...history.skip(1)],
     );
   }
 
