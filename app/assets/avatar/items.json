@@ -1,5 +1,5 @@
 {
- "version": 1,
+ "version": 2,
  "items": [
   {
    "id": "implant.arms-mechanical-1",
@@ -10,7 +10,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/arms-mechanical-sheet-1"
+       "src": "avatar/pieces/arms-mechanical-sheet-1",
+       "box": [
+        0.0508,
+        0.0781,
+        0.9473,
+        0.918
+       ]
       }
      ],
      "hideBodyParts": []
@@ -26,7 +32,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/arms-mechanical-sheet-2"
+       "src": "avatar/pieces/arms-mechanical-sheet-2",
+       "box": [
+        0.0508,
+        0.0781,
+        0.9492,
+        0.918
+       ]
       }
      ],
      "hideBodyParts": []
@@ -42,7 +54,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/arms-mechanical-sheet-3"
+       "src": "avatar/pieces/arms-mechanical-sheet-3",
+       "box": [
+        0.0508,
+        0.0781,
+        0.9473,
+        0.9199
+       ]
       }
      ],
      "hideBodyParts": []
@@ -58,7 +76,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/arms-mechanical-sheet-4"
+       "src": "avatar/pieces/arms-mechanical-sheet-4",
+       "box": [
+        0.0508,
+        0.0781,
+        0.9492,
+        0.9199
+       ]
       }
      ],
      "hideBodyParts": []
@@ -74,7 +98,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/arms-mechanical-sheet-5"
+       "src": "avatar/pieces/arms-mechanical-sheet-5",
+       "box": [
+        0.0527,
+        0.0742,
+        0.9492,
+        0.9199
+       ]
       }
      ],
      "hideBodyParts": []
@@ -90,7 +120,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/arms-mechanical-sheet-6"
+       "src": "avatar/pieces/arms-mechanical-sheet-6",
+       "box": [
+        0.0508,
+        0.0742,
+        0.9492,
+        0.9199
+       ]
       }
      ],
      "hideBodyParts": []
@@ -107,6 +143,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/arms-sheet-1",
+       "box": [
+        0.1582,
+        0.0547,
+        0.8418,
+        0.9453
+       ],
        "tint": "skin"
       }
      ],
@@ -124,6 +166,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/arms-sheet-2",
+       "box": [
+        0.1582,
+        0.0547,
+        0.8398,
+        0.9453
+       ],
        "tint": "skin"
       }
      ],
@@ -141,6 +189,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/arms-sheet-3",
+       "box": [
+        0.1562,
+        0.0547,
+        0.8418,
+        0.9453
+       ],
        "tint": "skin"
       }
      ],
@@ -158,6 +212,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/arms-sheet-4",
+       "box": [
+        0.1582,
+        0.0547,
+        0.8398,
+        0.9434
+       ],
        "tint": "skin"
       }
      ],
@@ -175,6 +235,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/arms-sheet-5",
+       "box": [
+        0.1562,
+        0.0547,
+        0.8418,
+        0.9473
+       ],
        "tint": "skin"
       }
      ],
@@ -192,6 +258,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/arms-sheet-6",
+       "box": [
+        0.1543,
+        0.0566,
+        0.8418,
+        0.9473
+       ],
        "tint": "skin"
       }
      ],
@@ -209,6 +281,12 @@
       {
        "order": 10,
        "src": "avatar/pieces/backpacks-sheet-1",
+       "box": [
+        0.1289,
+        0.0508,
+        0.8691,
+        0.9492
+       ],
        "tint": "cloth"
       }
      ],
@@ -226,6 +304,12 @@
       {
        "order": 10,
        "src": "avatar/pieces/backpacks-sheet-2",
+       "box": [
+        0.0527,
+        0.1035,
+        0.9473,
+        0.8984
+       ],
        "tint": "cloth"
       }
      ],
@@ -243,6 +327,12 @@
       {
        "order": 10,
        "src": "avatar/pieces/backpacks-sheet-3",
+       "box": [
+        0.1504,
+        0.0508,
+        0.8477,
+        0.9492
+       ],
        "tint": "cloth"
       }
      ],
@@ -260,6 +350,12 @@
       {
        "order": 80,
        "src": "avatar/pieces/beards-sheet-1",
+       "box": [
+        0.0527,
+        0.1172,
+        0.9473,
+        0.8828
+       ],
        "tint": "hair"
       }
      ],
@@ -277,6 +373,12 @@
       {
        "order": 80,
        "src": "avatar/pieces/beards-sheet-2",
+       "box": [
+        0.1016,
+        0.0566,
+        0.8965,
+        0.9434
+       ],
        "tint": "hair"
       }
      ],
@@ -294,6 +396,12 @@
       {
        "order": 80,
        "src": "avatar/pieces/beards-sheet-3",
+       "box": [
+        0.0527,
+        0.0527,
+        0.9473,
+        0.9453
+       ],
        "tint": "hair"
       }
      ],
@@ -310,7 +418,13 @@
      "layers": [
       {
        "order": 90,
-       "src": "avatar/pieces/belt-items-sheet-1"
+       "src": "avatar/pieces/belt-items-sheet-1",
+       "box": [
+        0.1816,
+        0.0488,
+        0.8164,
+        0.9531
+       ]
       }
      ],
      "hideBodyParts": []
@@ -326,7 +440,13 @@
      "layers": [
       {
        "order": 90,
-       "src": "avatar/pieces/belt-items-sheet-2"
+       "src": "avatar/pieces/belt-items-sheet-2",
+       "box": [
+        0.0508,
+        0.1055,
+        0.9492,
+        0.8945
+       ]
       }
      ],
      "hideBodyParts": []
@@ -342,7 +462,13 @@
      "layers": [
       {
        "order": 90,
-       "src": "avatar/pieces/belt-items-sheet-3"
+       "src": "avatar/pieces/belt-items-sheet-3",
+       "box": [
+        0.1758,
+        0.0508,
+        0.8242,
+        0.9512
+       ]
       }
      ],
      "hideBodyParts": []
@@ -359,6 +485,12 @@
       {
        "order": 90,
        "src": "avatar/pieces/belts-sheet-1",
+       "box": [
+        0.0391,
+        0.4316,
+        0.9609,
+        0.5664
+       ],
        "tint": "cloth"
       }
      ],
@@ -376,6 +508,12 @@
       {
        "order": 90,
        "src": "avatar/pieces/belts-sheet-2",
+       "box": [
+        0.0391,
+        0.3633,
+        0.9609,
+        0.6367
+       ],
        "tint": "cloth"
       }
      ],
@@ -393,6 +531,12 @@
       {
        "order": 90,
        "src": "avatar/pieces/belts-sheet-3",
+       "box": [
+        0.0391,
+        0.3867,
+        0.9609,
+        0.6113
+       ],
        "tint": "cloth"
       }
      ],
@@ -410,6 +554,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/body-base-full-1",
+       "box": [
+        0.3164,
+        0.0391,
+        0.6836,
+        0.9609
+       ],
        "tint": "skin"
       }
      ],
@@ -427,6 +577,12 @@
       {
        "order": 40,
        "src": "avatar/pieces/boots-sheet-1",
+       "box": [
+        0.1289,
+        0.0605,
+        0.8691,
+        0.9355
+       ],
        "tint": "cloth"
       }
      ],
@@ -444,6 +600,12 @@
       {
        "order": 40,
        "src": "avatar/pieces/boots-sheet-2",
+       "box": [
+        0.0684,
+        0.1211,
+        0.9316,
+        0.877
+       ],
        "tint": "cloth"
       }
      ],
@@ -461,6 +623,12 @@
       {
        "order": 40,
        "src": "avatar/pieces/boots-sheet-3",
+       "box": [
+        0.1309,
+        0.0605,
+        0.8711,
+        0.9395
+       ],
        "tint": "cloth"
       }
      ],
@@ -478,6 +646,12 @@
       {
        "order": 40,
        "src": "avatar/pieces/boots-sheet-4",
+       "box": [
+        0.0703,
+        0.1211,
+        0.9316,
+        0.877
+       ],
        "tint": "cloth"
       }
      ],
@@ -495,6 +669,12 @@
       {
        "order": 40,
        "src": "avatar/pieces/boots-sheet-5",
+       "box": [
+        0.3203,
+        0.0469,
+        0.6797,
+        0.9551
+       ],
        "tint": "cloth"
       }
      ],
@@ -512,6 +692,12 @@
       {
        "order": 40,
        "src": "avatar/pieces/boots-sheet-6",
+       "box": [
+        0.3203,
+        0.0469,
+        0.6777,
+        0.9531
+       ],
        "tint": "cloth"
       }
      ],
@@ -529,6 +715,12 @@
       {
        "order": 40,
        "src": "avatar/pieces/calves-sheet-1",
+       "box": [
+        0.3535,
+        0.0566,
+        0.6445,
+        0.9453
+       ],
        "tint": "cloth"
       }
      ],
@@ -546,6 +738,12 @@
       {
        "order": 40,
        "src": "avatar/pieces/calves-sheet-2",
+       "box": [
+        0.3555,
+        0.0508,
+        0.6465,
+        0.9492
+       ],
        "tint": "cloth"
       }
      ],
@@ -563,6 +761,12 @@
       {
        "order": 40,
        "src": "avatar/pieces/calves-sheet-3",
+       "box": [
+        0.3164,
+        0.0527,
+        0.6816,
+        0.9492
+       ],
        "tint": "cloth"
       }
      ],
@@ -580,6 +784,12 @@
       {
        "order": 40,
        "src": "avatar/pieces/calves-sheet-4",
+       "box": [
+        0.3145,
+        0.0547,
+        0.6836,
+        0.9473
+       ],
        "tint": "cloth"
       }
      ],
@@ -597,6 +807,12 @@
       {
        "order": 40,
        "src": "avatar/pieces/calves-sheet-5",
+       "box": [
+        0.2656,
+        0.0547,
+        0.7344,
+        0.9473
+       ],
        "tint": "cloth"
       }
      ],
@@ -614,6 +830,12 @@
       {
        "order": 40,
        "src": "avatar/pieces/calves-sheet-6",
+       "box": [
+        0.2637,
+        0.0547,
+        0.7363,
+        0.9473
+       ],
        "tint": "cloth"
       }
      ],
@@ -631,6 +853,12 @@
       {
        "order": 10,
        "src": "avatar/pieces/capes-sheet-1",
+       "box": [
+        0.0547,
+        0.1445,
+        0.9492,
+        0.8555
+       ],
        "tint": "cloth"
       }
      ],
@@ -648,6 +876,12 @@
       {
        "order": 10,
        "src": "avatar/pieces/capes-sheet-2",
+       "box": [
+        0.041,
+        0.0859,
+        0.959,
+        0.9121
+       ],
        "tint": "cloth"
       }
      ],
@@ -664,7 +898,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/chain-net-sheet-1"
+       "src": "avatar/pieces/chain-net-sheet-1",
+       "box": [
+        0.0605,
+        0.0469,
+        0.9395,
+        0.9531
+       ]
       }
      ],
      "hideBodyParts": []
@@ -680,7 +920,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/chain-net-sheet-2"
+       "src": "avatar/pieces/chain-net-sheet-2",
+       "box": [
+        0.1328,
+        0.0469,
+        0.8672,
+        0.9551
+       ]
       }
      ],
      "hideBodyParts": []
@@ -696,7 +942,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/chain-net-sheet-3"
+       "src": "avatar/pieces/chain-net-sheet-3",
+       "box": [
+        0.3828,
+        0.0449,
+        0.6172,
+        0.9551
+       ]
       }
      ],
      "hideBodyParts": []
@@ -712,7 +964,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/chain-net-sheet-4"
+       "src": "avatar/pieces/chain-net-sheet-4",
+       "box": [
+        0.0469,
+        0.125,
+        0.9531,
+        0.877
+       ]
       }
      ],
      "hideBodyParts": []
@@ -729,6 +987,12 @@
       {
        "order": 60,
        "src": "avatar/pieces/collars-sheet-1",
+       "box": [
+        0.0488,
+        0.2148,
+        0.9512,
+        0.7832
+       ],
        "tint": "cloth"
       }
      ],
@@ -746,6 +1010,12 @@
       {
        "order": 60,
        "src": "avatar/pieces/collars-sheet-2",
+       "box": [
+        0.0488,
+        0.2422,
+        0.9492,
+        0.7578
+       ],
        "tint": "cloth"
       }
      ],
@@ -763,6 +1033,12 @@
       {
        "order": 60,
        "src": "avatar/pieces/collars-sheet-3",
+       "box": [
+        0.043,
+        0.1914,
+        0.957,
+        0.8086
+       ],
        "tint": "cloth"
       }
      ],
@@ -779,7 +1055,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/crests-sheet-1"
+       "src": "avatar/pieces/crests-sheet-1",
+       "box": [
+        0.0527,
+        0.2051,
+        0.9453,
+        0.7969
+       ]
       }
      ],
      "hideBodyParts": []
@@ -795,7 +1077,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/crests-sheet-2"
+       "src": "avatar/pieces/crests-sheet-2",
+       "box": [
+        0.0527,
+        0.1289,
+        0.9434,
+        0.8691
+       ]
       }
      ],
      "hideBodyParts": []
@@ -811,7 +1099,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/crests-sheet-3"
+       "src": "avatar/pieces/crests-sheet-3",
+       "box": [
+        0.0566,
+        0.3105,
+        0.9434,
+        0.6875
+       ]
       }
      ],
      "hideBodyParts": []
@@ -828,6 +1122,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyebrows-sheet-1",
+       "box": [
+        0.0508,
+        0.4316,
+        0.9492,
+        0.5684
+       ],
        "tint": "hair"
       }
      ],
@@ -845,6 +1145,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyebrows-sheet-2",
+       "box": [
+        0.0488,
+        0.4316,
+        0.9492,
+        0.5684
+       ],
        "tint": "hair"
       }
      ],
@@ -862,6 +1168,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyebrows-sheet-3",
+       "box": [
+        0.0488,
+        0.3574,
+        0.9512,
+        0.6387
+       ],
        "tint": "hair"
       }
      ],
@@ -879,6 +1191,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyebrows-sheet-4",
+       "box": [
+        0.0488,
+        0.3594,
+        0.9512,
+        0.6406
+       ],
        "tint": "hair"
       }
      ],
@@ -896,6 +1214,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyebrows-sheet-5",
+       "box": [
+        0.0488,
+        0.373,
+        0.9512,
+        0.627
+       ],
        "tint": "hair"
       }
      ],
@@ -913,6 +1237,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyebrows-sheet-6",
+       "box": [
+        0.0488,
+        0.3711,
+        0.9512,
+        0.627
+       ],
        "tint": "hair"
       }
      ],
@@ -930,6 +1260,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-mechanical-sheet-a-1",
+       "box": [
+        0.043,
+        0.2988,
+        0.959,
+        0.6992
+       ],
        "tint": "eyes"
       }
      ],
@@ -947,6 +1283,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-mechanical-sheet-a-2",
+       "box": [
+        0.0547,
+        0.1172,
+        0.9453,
+        0.8789
+       ],
        "tint": "eyes"
       }
      ],
@@ -964,6 +1306,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-mechanical-sheet-a-3",
+       "box": [
+        0.0527,
+        0.1172,
+        0.9453,
+        0.8789
+       ],
        "tint": "eyes"
       }
      ],
@@ -981,6 +1329,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-mechanical-sheet-a-4",
+       "box": [
+        0.041,
+        0.2969,
+        0.957,
+        0.7012
+       ],
        "tint": "eyes"
       }
      ],
@@ -998,6 +1352,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-mechanical-sheet-b-1",
+       "box": [
+        0.041,
+        0.2988,
+        0.957,
+        0.6992
+       ],
        "tint": "eyes"
       }
      ],
@@ -1015,6 +1375,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-mechanical-sheet-b-2",
+       "box": [
+        0.0527,
+        0.1152,
+        0.9473,
+        0.8828
+       ],
        "tint": "eyes"
       }
      ],
@@ -1032,6 +1398,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-mechanical-sheet-b-3",
+       "box": [
+        0.0527,
+        0.1172,
+        0.9473,
+        0.8867
+       ],
        "tint": "eyes"
       }
      ],
@@ -1049,6 +1421,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-mechanical-sheet-b-4",
+       "box": [
+        0.041,
+        0.2949,
+        0.959,
+        0.7031
+       ],
        "tint": "eyes"
       }
      ],
@@ -1066,6 +1444,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-sheet-1",
+       "box": [
+        0.0645,
+        0.3281,
+        0.9375,
+        0.6699
+       ],
        "tint": "eyes"
       }
      ],
@@ -1083,6 +1467,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-sheet-10",
+       "box": [
+        0.0625,
+        0.3184,
+        0.9336,
+        0.6855
+       ],
        "tint": "eyes"
       }
      ],
@@ -1100,6 +1490,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-sheet-11",
+       "box": [
+        0.3047,
+        0.3477,
+        0.6953,
+        0.6504
+       ],
        "tint": "eyes"
       }
      ],
@@ -1117,6 +1513,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-sheet-12",
+       "box": [
+        0.3047,
+        0.3496,
+        0.6953,
+        0.6484
+       ],
        "tint": "eyes"
       }
      ],
@@ -1134,6 +1536,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-sheet-2",
+       "box": [
+        0.0625,
+        0.3281,
+        0.9355,
+        0.6719
+       ],
        "tint": "eyes"
       }
      ],
@@ -1151,6 +1559,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-sheet-3",
+       "box": [
+        0.3008,
+        0.3164,
+        0.6992,
+        0.6836
+       ],
        "tint": "eyes"
       }
      ],
@@ -1168,6 +1582,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-sheet-4",
+       "box": [
+        0.3008,
+        0.3184,
+        0.6953,
+        0.6836
+       ],
        "tint": "eyes"
       }
      ],
@@ -1185,6 +1605,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-sheet-5",
+       "box": [
+        0.0664,
+        0.2383,
+        0.9355,
+        0.7617
+       ],
        "tint": "eyes"
       }
      ],
@@ -1202,6 +1628,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-sheet-6",
+       "box": [
+        0.0586,
+        0.2344,
+        0.9336,
+        0.7676
+       ],
        "tint": "eyes"
       }
      ],
@@ -1219,6 +1651,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-sheet-7",
+       "box": [
+        0.2578,
+        0.2559,
+        0.7422,
+        0.7461
+       ],
        "tint": "eyes"
       }
      ],
@@ -1236,6 +1674,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-sheet-8",
+       "box": [
+        0.2559,
+        0.2578,
+        0.7422,
+        0.7441
+       ],
        "tint": "eyes"
       }
      ],
@@ -1253,6 +1697,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/eyes-sheet-9",
+       "box": [
+        0.0645,
+        0.3242,
+        0.9375,
+        0.6777
+       ],
        "tint": "eyes"
       }
      ],
@@ -1269,7 +1719,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/face-masks-sheet-1"
+       "src": "avatar/pieces/face-masks-sheet-1",
+       "box": [
+        0.0547,
+        0.0938,
+        0.9453,
+        0.9043
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1285,7 +1741,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/face-masks-sheet-2"
+       "src": "avatar/pieces/face-masks-sheet-2",
+       "box": [
+        0.0547,
+        0.0801,
+        0.9453,
+        0.916
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1301,7 +1763,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/face-masks-sheet-3"
+       "src": "avatar/pieces/face-masks-sheet-3",
+       "box": [
+        0.0527,
+        0.1055,
+        0.9453,
+        0.8926
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1317,7 +1785,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/feet-mechanical-sheet-1"
+       "src": "avatar/pieces/feet-mechanical-sheet-1",
+       "box": [
+        0.123,
+        0.0527,
+        0.875,
+        0.9453
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1333,7 +1807,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/feet-mechanical-sheet-2"
+       "src": "avatar/pieces/feet-mechanical-sheet-2",
+       "box": [
+        0.123,
+        0.0527,
+        0.875,
+        0.9453
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1349,7 +1829,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/feet-mechanical-sheet-3"
+       "src": "avatar/pieces/feet-mechanical-sheet-3",
+       "box": [
+        0.1055,
+        0.0547,
+        0.8945,
+        0.9473
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1365,7 +1851,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/feet-mechanical-sheet-4"
+       "src": "avatar/pieces/feet-mechanical-sheet-4",
+       "box": [
+        0.1035,
+        0.0547,
+        0.8965,
+        0.9473
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1381,7 +1873,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/feet-mechanical-sheet-5"
+       "src": "avatar/pieces/feet-mechanical-sheet-5",
+       "box": [
+        0.1152,
+        0.0547,
+        0.8809,
+        0.9453
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1397,7 +1895,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/feet-mechanical-sheet-6"
+       "src": "avatar/pieces/feet-mechanical-sheet-6",
+       "box": [
+        0.1172,
+        0.0547,
+        0.8848,
+        0.9453
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1414,6 +1918,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/feet-sheet-1",
+       "box": [
+        0.2598,
+        0.0547,
+        0.7402,
+        0.9453
+       ],
        "tint": "skin"
       }
      ],
@@ -1431,6 +1941,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/feet-sheet-2",
+       "box": [
+        0.2598,
+        0.0547,
+        0.7422,
+        0.9453
+       ],
        "tint": "skin"
       }
      ],
@@ -1448,6 +1964,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/feet-sheet-3",
+       "box": [
+        0.207,
+        0.0527,
+        0.7949,
+        0.9473
+       ],
        "tint": "skin"
       }
      ],
@@ -1465,6 +1987,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/feet-sheet-4",
+       "box": [
+        0.2051,
+        0.0527,
+        0.791,
+        0.9453
+       ],
        "tint": "skin"
       }
      ],
@@ -1482,6 +2010,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/feet-sheet-5",
+       "box": [
+        0.1211,
+        0.0547,
+        0.8789,
+        0.9453
+       ],
        "tint": "skin"
       }
      ],
@@ -1499,6 +2033,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/feet-sheet-6",
+       "box": [
+        0.1211,
+        0.0547,
+        0.8809,
+        0.9453
+       ],
        "tint": "skin"
       }
      ],
@@ -1516,6 +2056,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/forearms-sheet-1",
+       "box": [
+        0.1602,
+        0.0547,
+        0.8379,
+        0.9453
+       ],
        "tint": "skin"
       }
      ],
@@ -1533,6 +2079,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/forearms-sheet-2",
+       "box": [
+        0.1602,
+        0.0508,
+        0.8379,
+        0.9453
+       ],
        "tint": "skin"
       }
      ],
@@ -1550,6 +2102,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/forearms-sheet-3",
+       "box": [
+        0.1641,
+        0.0547,
+        0.834,
+        0.9453
+       ],
        "tint": "skin"
       }
      ],
@@ -1567,6 +2125,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/forearms-sheet-4",
+       "box": [
+        0.1562,
+        0.0547,
+        0.8418,
+        0.9453
+       ],
        "tint": "skin"
       }
      ],
@@ -1584,6 +2148,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/forearms-sheet-5",
+       "box": [
+        0.1445,
+        0.0547,
+        0.8555,
+        0.9453
+       ],
        "tint": "skin"
       }
      ],
@@ -1601,6 +2171,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/forearms-sheet-6",
+       "box": [
+        0.1445,
+        0.0547,
+        0.8535,
+        0.9453
+       ],
        "tint": "skin"
       }
      ],
@@ -1617,7 +2193,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/goggles-sheet-1"
+       "src": "avatar/pieces/goggles-sheet-1",
+       "box": [
+        0.0391,
+        0.3457,
+        0.9609,
+        0.6543
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1633,7 +2215,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/goggles-sheet-2"
+       "src": "avatar/pieces/goggles-sheet-2",
+       "box": [
+        0.0391,
+        0.1621,
+        0.9609,
+        0.8359
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1650,6 +2238,12 @@
       {
        "order": 80,
        "src": "avatar/pieces/hair-short-a-1",
+       "box": [
+        0.125,
+        0.2188,
+        0.877,
+        0.7793
+       ],
        "tint": "hair"
       }
      ],
@@ -1667,6 +2261,12 @@
       {
        "order": 80,
        "src": "avatar/pieces/hairstyles-sheet-1",
+       "box": [
+        0.0352,
+        0.3945,
+        0.9629,
+        0.6055
+       ],
        "tint": "hair"
       }
      ],
@@ -1684,6 +2284,12 @@
       {
        "order": 80,
        "src": "avatar/pieces/hairstyles-sheet-2",
+       "box": [
+        0.0332,
+        0.3145,
+        0.959,
+        0.6855
+       ],
        "tint": "hair"
       }
      ],
@@ -1701,6 +2307,12 @@
       {
        "order": 80,
        "src": "avatar/pieces/hairstyles-sheet-3",
+       "box": [
+        0.1406,
+        0.0605,
+        0.8555,
+        0.9414
+       ],
        "tint": "hair"
       }
      ],
@@ -1717,7 +2329,13 @@
      "layers": [
       {
        "order": 100,
-       "src": "avatar/pieces/hand-tools-sheet-1"
+       "src": "avatar/pieces/hand-tools-sheet-1",
+       "box": [
+        0.0566,
+        0.0508,
+        0.9414,
+        0.9492
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1733,7 +2351,13 @@
      "layers": [
       {
        "order": 100,
-       "src": "avatar/pieces/hand-tools-sheet-2"
+       "src": "avatar/pieces/hand-tools-sheet-2",
+       "box": [
+        0.1523,
+        0.0469,
+        0.8477,
+        0.9512
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1749,7 +2373,13 @@
      "layers": [
       {
        "order": 100,
-       "src": "avatar/pieces/hand-tools-sheet-3"
+       "src": "avatar/pieces/hand-tools-sheet-3",
+       "box": [
+        0.4551,
+        0.0449,
+        0.543,
+        0.9551
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1765,7 +2395,13 @@
      "layers": [
       {
        "order": 100,
-       "src": "avatar/pieces/hand-tools-sheet-4"
+       "src": "avatar/pieces/hand-tools-sheet-4",
+       "box": [
+        0.123,
+        0.0469,
+        0.875,
+        0.9512
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1781,7 +2417,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/hands-mechanical-sheet-1"
+       "src": "avatar/pieces/hands-mechanical-sheet-1",
+       "box": [
+        0.2852,
+        0.0371,
+        0.7129,
+        0.957
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1797,7 +2439,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/hands-mechanical-sheet-2"
+       "src": "avatar/pieces/hands-mechanical-sheet-2",
+       "box": [
+        0.2852,
+        0.0371,
+        0.7129,
+        0.957
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1813,7 +2461,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/hands-mechanical-sheet-3"
+       "src": "avatar/pieces/hands-mechanical-sheet-3",
+       "box": [
+        0.1484,
+        0.0508,
+        0.8516,
+        0.9473
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1829,7 +2483,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/hands-mechanical-sheet-4"
+       "src": "avatar/pieces/hands-mechanical-sheet-4",
+       "box": [
+        0.1484,
+        0.0508,
+        0.8516,
+        0.9473
+       ]
       }
      ],
      "hideBodyParts": []
@@ -1846,6 +2506,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/hands-sheet-1",
+       "box": [
+        0.1895,
+        0.0527,
+        0.8125,
+        0.9473
+       ],
        "tint": "skin"
       }
      ],
@@ -1863,6 +2529,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/hands-sheet-2",
+       "box": [
+        0.1914,
+        0.0527,
+        0.8086,
+        0.9473
+       ],
        "tint": "skin"
       }
      ],
@@ -1880,6 +2552,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/hands-sheet-3",
+       "box": [
+        0.1191,
+        0.0586,
+        0.873,
+        0.9434
+       ],
        "tint": "skin"
       }
      ],
@@ -1897,6 +2575,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/hands-sheet-4",
+       "box": [
+        0.123,
+        0.0586,
+        0.8809,
+        0.9414
+       ],
        "tint": "skin"
       }
      ],
@@ -1914,6 +2598,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/hands-sheet-5",
+       "box": [
+        0.1895,
+        0.0508,
+        0.8047,
+        0.9473
+       ],
        "tint": "skin"
       }
      ],
@@ -1931,6 +2621,12 @@
       {
        "order": 20,
        "src": "avatar/pieces/hands-sheet-6",
+       "box": [
+        0.1953,
+        0.0508,
+        0.8086,
+        0.9473
+       ],
        "tint": "skin"
       }
      ],
@@ -1948,6 +2644,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/head-painted-a-1",
+       "box": [
+        0.1504,
+        0.041,
+        0.8516,
+        0.959
+       ],
        "tint": "skin"
       }
      ],
@@ -1965,6 +2667,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/head-painted-b-1",
+       "box": [
+        0.1445,
+        0.041,
+        0.8555,
+        0.959
+       ],
        "tint": "skin"
       }
      ],
@@ -1982,6 +2690,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/heads-base-grey-1",
+       "box": [
+        0.2109,
+        0.043,
+        0.7891,
+        0.957
+       ],
        "tint": "skin"
       }
      ],
@@ -1999,6 +2713,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/heads-base-grey-2-1",
+       "box": [
+        0.2773,
+        0.041,
+        0.7207,
+        0.959
+       ],
        "tint": "skin"
       }
      ],
@@ -2016,6 +2736,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/heads-base-grey-2-2",
+       "box": [
+        0.2617,
+        0.041,
+        0.7363,
+        0.959
+       ],
        "tint": "skin"
       }
      ],
@@ -2033,6 +2759,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/heads-base-grey-2",
+       "box": [
+        0.1934,
+        0.043,
+        0.8066,
+        0.957
+       ],
        "tint": "skin"
       }
      ],
@@ -2050,6 +2782,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/heads-base-grey-3-1",
+       "box": [
+        0.1348,
+        0.0449,
+        0.8652,
+        0.957
+       ],
        "tint": "skin"
       }
      ],
@@ -2067,6 +2805,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/heads-base-grey-3-2",
+       "box": [
+        0.1328,
+        0.043,
+        0.8652,
+        0.957
+       ],
        "tint": "skin"
       }
      ],
@@ -2084,6 +2828,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/heads-base-grey-animal-ears-1",
+       "box": [
+        0.166,
+        0.043,
+        0.832,
+        0.957
+       ],
        "tint": "skin"
       }
      ],
@@ -2101,6 +2851,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/heads-base-grey-animal-ears-2",
+       "box": [
+        0.1602,
+        0.043,
+        0.8379,
+        0.957
+       ],
        "tint": "skin"
       }
      ],
@@ -2118,6 +2874,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/heads-base-grey-no-ears-1",
+       "box": [
+        0.1855,
+        0.043,
+        0.8145,
+        0.957
+       ],
        "tint": "skin"
       }
      ],
@@ -2135,6 +2897,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/heads-base-grey-no-ears-2",
+       "box": [
+        0.1641,
+        0.043,
+        0.8359,
+        0.957
+       ],
        "tint": "skin"
       }
      ],
@@ -2152,6 +2920,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/heads-base-grey-pointed-ears-1",
+       "box": [
+        0.0488,
+        0.0449,
+        0.9512,
+        0.9551
+       ],
        "tint": "skin"
       }
      ],
@@ -2169,6 +2943,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/heads-base-grey-pointed-ears-2",
+       "box": [
+        0.0488,
+        0.0449,
+        0.9531,
+        0.9551
+       ],
        "tint": "skin"
       }
      ],
@@ -2186,6 +2966,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/heads-base-grey-small-ears-1",
+       "box": [
+        0.1035,
+        0.0449,
+        0.8965,
+        0.9551
+       ],
        "tint": "skin"
       }
      ],
@@ -2203,6 +2989,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/heads-base-grey-small-ears-2",
+       "box": [
+        0.0703,
+        0.0449,
+        0.9277,
+        0.9551
+       ],
        "tint": "skin"
       }
      ],
@@ -2220,6 +3012,12 @@
       {
        "order": 70,
        "src": "avatar/pieces/heads-base-grey-wide-ears-1",
+       "box": [
+        0.0371,
+        0.3301,
+        0.9629,
+        0.6699
+       ],
        "tint": "skin"
       }
      ],
@@ -2237,6 +3035,12 @@
       {
        "order": 60,
        "src": "avatar/pieces/hoods-sheet-1",
+       "box": [
+        0.1426,
+        0.0527,
+        0.8574,
+        0.9473
+       ],
        "tint": "cloth"
       }
      ],
@@ -2254,6 +3058,12 @@
       {
        "order": 60,
        "src": "avatar/pieces/hoods-sheet-2",
+       "box": [
+        0.082,
+        0.0508,
+        0.916,
+        0.9492
+       ],
        "tint": "cloth"
       }
      ],
@@ -2271,6 +3081,12 @@
       {
        "order": 60,
        "src": "avatar/pieces/hoods-sheet-3",
+       "box": [
+        0.1406,
+        0.0508,
+        0.8594,
+        0.9492
+       ],
        "tint": "cloth"
       }
      ],
@@ -2287,7 +3103,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/horns-sheet-1"
+       "src": "avatar/pieces/horns-sheet-1",
+       "box": [
+        0.2988,
+        0.1094,
+        0.6934,
+        0.8984
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2303,7 +3125,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/horns-sheet-2"
+       "src": "avatar/pieces/horns-sheet-2",
+       "box": [
+        0.3027,
+        0.1172,
+        0.6953,
+        0.8906
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2319,7 +3147,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/horns-sheet-3"
+       "src": "avatar/pieces/horns-sheet-3",
+       "box": [
+        0.1797,
+        0.0703,
+        0.8184,
+        0.9336
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2335,7 +3169,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/horns-sheet-4"
+       "src": "avatar/pieces/horns-sheet-4",
+       "box": [
+        0.1758,
+        0.0703,
+        0.8223,
+        0.9316
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2351,7 +3191,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/horns-sheet-5"
+       "src": "avatar/pieces/horns-sheet-5",
+       "box": [
+        0.1582,
+        0.0586,
+        0.8418,
+        0.9414
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2367,7 +3213,13 @@
      "layers": [
       {
        "order": 85,
-       "src": "avatar/pieces/horns-sheet-6"
+       "src": "avatar/pieces/horns-sheet-6",
+       "box": [
+        0.1523,
+        0.0605,
+        0.8457,
+        0.9414
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2383,7 +3235,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/legs-mechanical-sheet-1"
+       "src": "avatar/pieces/legs-mechanical-sheet-1",
+       "box": [
+        0.3477,
+        0.0508,
+        0.6504,
+        0.9453
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2399,7 +3257,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/legs-mechanical-sheet-2"
+       "src": "avatar/pieces/legs-mechanical-sheet-2",
+       "box": [
+        0.3516,
+        0.0508,
+        0.6484,
+        0.9453
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2415,7 +3279,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/legs-mechanical-sheet-3"
+       "src": "avatar/pieces/legs-mechanical-sheet-3",
+       "box": [
+        0.3457,
+        0.0508,
+        0.6543,
+        0.9512
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2431,7 +3301,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/legs-mechanical-sheet-4"
+       "src": "avatar/pieces/legs-mechanical-sheet-4",
+       "box": [
+        0.3457,
+        0.0508,
+        0.6484,
+        0.9453
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2447,7 +3323,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/legs-mechanical-sheet-5"
+       "src": "avatar/pieces/legs-mechanical-sheet-5",
+       "box": [
+        0.3457,
+        0.0508,
+        0.6523,
+        0.9629
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2463,7 +3345,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/legs-mechanical-sheet-6"
+       "src": "avatar/pieces/legs-mechanical-sheet-6",
+       "box": [
+        0.3457,
+        0.0508,
+        0.6523,
+        0.9629
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2480,6 +3368,12 @@
       {
        "order": 40,
        "src": "avatar/pieces/legwear-sheet-1",
+       "box": [
+        0.3047,
+        0.043,
+        0.6953,
+        0.9551
+       ],
        "tint": "cloth"
       }
      ],
@@ -2497,6 +3391,12 @@
       {
        "order": 40,
        "src": "avatar/pieces/legwear-sheet-2",
+       "box": [
+        0.2422,
+        0.0449,
+        0.7598,
+        0.9551
+       ],
        "tint": "cloth"
       }
      ],
@@ -2514,6 +3414,12 @@
       {
        "order": 40,
        "src": "avatar/pieces/legwear-sheet-3",
+       "box": [
+        0.2227,
+        0.0449,
+        0.7793,
+        0.957
+       ],
        "tint": "cloth"
       }
      ],
@@ -2531,6 +3437,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/lips-sheet-1",
+       "box": [
+        0.0566,
+        0.3965,
+        0.9453,
+        0.6074
+       ],
        "tint": "skin"
       }
      ],
@@ -2548,6 +3460,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/lips-sheet-2",
+       "box": [
+        0.0566,
+        0.3379,
+        0.9434,
+        0.6602
+       ],
        "tint": "skin"
       }
      ],
@@ -2565,6 +3483,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/lips-sheet-3",
+       "box": [
+        0.0547,
+        0.2949,
+        0.9434,
+        0.7012
+       ],
        "tint": "skin"
       }
      ],
@@ -2581,7 +3505,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/marks-sheet-1"
+       "src": "avatar/pieces/marks-sheet-1",
+       "box": [
+        0.0781,
+        0.0938,
+        0.9219,
+        0.9062
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2597,7 +3527,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/marks-sheet-2"
+       "src": "avatar/pieces/marks-sheet-2",
+       "box": [
+        0.0684,
+        0.0977,
+        0.9316,
+        0.9023
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2613,7 +3549,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/marks-sheet-3"
+       "src": "avatar/pieces/marks-sheet-3",
+       "box": [
+        0.0625,
+        0.125,
+        0.9375,
+        0.875
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2629,7 +3571,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/marks-sheet-4"
+       "src": "avatar/pieces/marks-sheet-4",
+       "box": [
+        0.082,
+        0.1348,
+        0.918,
+        0.8652
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2645,7 +3593,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/marks-sheet-5"
+       "src": "avatar/pieces/marks-sheet-5",
+       "box": [
+        0.4395,
+        0.4434,
+        0.5605,
+        0.5605
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2661,7 +3615,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/marks-sheet-6"
+       "src": "avatar/pieces/marks-sheet-6",
+       "box": [
+        0.2129,
+        0.252,
+        0.791,
+        0.752
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2677,7 +3637,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/marks-sheet-7"
+       "src": "avatar/pieces/marks-sheet-7",
+       "box": [
+        0.0664,
+        0.0605,
+        0.9336,
+        0.9395
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2693,7 +3659,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/mechanical-plates-sheet-1"
+       "src": "avatar/pieces/mechanical-plates-sheet-1",
+       "box": [
+        0.1133,
+        0.0527,
+        0.8867,
+        0.9473
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2709,7 +3681,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/mechanical-plates-sheet-2"
+       "src": "avatar/pieces/mechanical-plates-sheet-2",
+       "box": [
+        0.1602,
+        0.0488,
+        0.8359,
+        0.9512
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2725,7 +3703,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/mechanical-plates-sheet-3"
+       "src": "avatar/pieces/mechanical-plates-sheet-3",
+       "box": [
+        0.2383,
+        0.0508,
+        0.7617,
+        0.9512
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2741,7 +3725,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/mechanical-plates-sheet-4"
+       "src": "avatar/pieces/mechanical-plates-sheet-4",
+       "box": [
+        0.1641,
+        0.0527,
+        0.8359,
+        0.9473
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2757,7 +3747,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/mechanical-plates-sheet-5"
+       "src": "avatar/pieces/mechanical-plates-sheet-5",
+       "box": [
+        0.0527,
+        0.2383,
+        0.9473,
+        0.7617
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2773,7 +3769,13 @@
      "layers": [
       {
        "order": 30,
-       "src": "avatar/pieces/mechanical-plates-sheet-6"
+       "src": "avatar/pieces/mechanical-plates-sheet-6",
+       "box": [
+        0.0547,
+        0.125,
+        0.9453,
+        0.873
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2789,7 +3791,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/mouths-mechanical-sheet-1"
+       "src": "avatar/pieces/mouths-mechanical-sheet-1",
+       "box": [
+        0.0508,
+        0.2578,
+        0.9492,
+        0.7422
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2805,7 +3813,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/mouths-mechanical-sheet-2"
+       "src": "avatar/pieces/mouths-mechanical-sheet-2",
+       "box": [
+        0.0547,
+        0.2129,
+        0.9492,
+        0.7891
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2821,7 +3835,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/mouths-mechanical-sheet-3"
+       "src": "avatar/pieces/mouths-mechanical-sheet-3",
+       "box": [
+        0.0527,
+        0.2188,
+        0.9453,
+        0.7793
+       ]
       }
      ],
      "hideBodyParts": []
@@ -2838,6 +3858,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/noses-animal-sheet-1",
+       "box": [
+        0.0664,
+        0.1074,
+        0.9395,
+        0.8906
+       ],
        "tint": "skin"
       }
      ],
@@ -2855,6 +3881,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/noses-animal-sheet-2",
+       "box": [
+        0.0547,
+        0.1934,
+        0.9453,
+        0.8047
+       ],
        "tint": "skin"
       }
      ],
@@ -2872,6 +3904,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/noses-animal-sheet-3",
+       "box": [
+        0.0605,
+        0.1035,
+        0.9336,
+        0.8926
+       ],
        "tint": "skin"
       }
      ],
@@ -2889,6 +3927,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/noses-sheet-1",
+       "box": [
+        0.3047,
+        0.0508,
+        0.6934,
+        0.9512
+       ],
        "tint": "skin"
       }
      ],
@@ -2906,6 +3950,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/noses-sheet-2",
+       "box": [
+        0.1543,
+        0.0508,
+        0.8457,
+        0.9492
+       ],
        "tint": "skin"
       }
      ],
@@ -2923,6 +3973,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/noses-sheet-3",
+       "box": [
+        0.25,
+        0.0508,
+        0.75,
+        0.9512
+       ],
        "tint": "skin"
       }
      ],
@@ -2940,6 +3996,12 @@
       {
        "order": 60,
        "src": "avatar/pieces/outfit-vest-trousers-boots-1",
+       "box": [
+        0.3496,
+        0.0391,
+        0.6504,
+        0.959
+       ],
        "tint": "cloth"
       }
      ],
@@ -2957,6 +4019,12 @@
       {
        "order": 90,
        "src": "avatar/pieces/pockets-and-fasteners-sheet-1",
+       "box": [
+        0.0762,
+        0.0586,
+        0.916,
+        0.9453
+       ],
        "tint": "cloth"
       }
      ],
@@ -2974,6 +4042,12 @@
       {
        "order": 90,
        "src": "avatar/pieces/pockets-and-fasteners-sheet-2",
+       "box": [
+        0.0801,
+        0.0547,
+        0.9199,
+        0.9453
+       ],
        "tint": "cloth"
       }
      ],
@@ -2991,6 +4065,12 @@
       {
        "order": 90,
        "src": "avatar/pieces/pockets-and-fasteners-sheet-3",
+       "box": [
+        0.0586,
+        0.0547,
+        0.9375,
+        0.9453
+       ],
        "tint": "cloth"
       }
      ],
@@ -3008,6 +4088,12 @@
       {
        "order": 90,
        "src": "avatar/pieces/pockets-and-fasteners-sheet-4",
+       "box": [
+        0.3301,
+        0.0508,
+        0.6699,
+        0.9492
+       ],
        "tint": "cloth"
       }
      ],
@@ -3025,6 +4111,12 @@
       {
        "order": 90,
        "src": "avatar/pieces/pockets-and-fasteners-sheet-5",
+       "box": [
+        0.1562,
+        0.0508,
+        0.8438,
+        0.9492
+       ],
        "tint": "cloth"
       }
      ],
@@ -3042,6 +4134,12 @@
       {
        "order": 90,
        "src": "avatar/pieces/pockets-and-fasteners-sheet-6",
+       "box": [
+        0.0508,
+        0.2812,
+        0.9473,
+        0.7168
+       ],
        "tint": "cloth"
       }
      ],
@@ -3059,6 +4157,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/reptile-eyes-brows-sheet-1",
+       "box": [
+        0.0586,
+        0.3066,
+        0.9414,
+        0.6914
+       ],
        "tint": "eyes"
       }
      ],
@@ -3076,6 +4180,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/reptile-eyes-brows-sheet-10",
+       "box": [
+        0.0586,
+        0.3477,
+        0.9395,
+        0.6504
+       ],
        "tint": "eyes"
       }
      ],
@@ -3093,6 +4203,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/reptile-eyes-brows-sheet-11",
+       "box": [
+        0.3418,
+        0.3438,
+        0.6582,
+        0.6465
+       ],
        "tint": "eyes"
       }
      ],
@@ -3110,6 +4226,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/reptile-eyes-brows-sheet-12",
+       "box": [
+        0.3418,
+        0.3477,
+        0.6582,
+        0.6484
+       ],
        "tint": "eyes"
       }
      ],
@@ -3127,6 +4249,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/reptile-eyes-brows-sheet-2",
+       "box": [
+        0.0586,
+        0.3047,
+        0.9395,
+        0.6934
+       ],
        "tint": "eyes"
       }
      ],
@@ -3144,6 +4272,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/reptile-eyes-brows-sheet-3",
+       "box": [
+        0.3164,
+        0.3086,
+        0.6836,
+        0.6875
+       ],
        "tint": "eyes"
       }
      ],
@@ -3161,6 +4295,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/reptile-eyes-brows-sheet-4",
+       "box": [
+        0.3242,
+        0.3145,
+        0.6738,
+        0.6816
+       ],
        "tint": "eyes"
       }
      ],
@@ -3178,6 +4318,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/reptile-eyes-brows-sheet-5",
+       "box": [
+        0.0605,
+        0.2441,
+        0.9414,
+        0.7578
+       ],
        "tint": "eyes"
       }
      ],
@@ -3195,6 +4341,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/reptile-eyes-brows-sheet-6",
+       "box": [
+        0.0586,
+        0.2441,
+        0.9414,
+        0.7559
+       ],
        "tint": "eyes"
       }
      ],
@@ -3212,6 +4364,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/reptile-eyes-brows-sheet-7",
+       "box": [
+        0.293,
+        0.2637,
+        0.7051,
+        0.7324
+       ],
        "tint": "eyes"
       }
      ],
@@ -3229,6 +4387,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/reptile-eyes-brows-sheet-8",
+       "box": [
+        0.293,
+        0.2695,
+        0.707,
+        0.7305
+       ],
        "tint": "eyes"
       }
      ],
@@ -3246,6 +4410,12 @@
       {
        "order": 75,
        "src": "avatar/pieces/reptile-eyes-brows-sheet-9",
+       "box": [
+        0.0605,
+        0.3555,
+        0.9414,
+        0.6445
+       ],
        "tint": "eyes"
       }
      ],
@@ -3262,7 +4432,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-1"
+       "src": "avatar/pieces/scales-marks-sheet-1",
+       "box": [
+        0.166,
+        0.0586,
+        0.834,
+        0.9434
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3278,7 +4454,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-10"
+       "src": "avatar/pieces/scales-marks-sheet-10",
+       "box": [
+        0.334,
+        0.3555,
+        0.6699,
+        0.6406
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3294,7 +4476,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-11"
+       "src": "avatar/pieces/scales-marks-sheet-11",
+       "box": [
+        0.4082,
+        0.3965,
+        0.5957,
+        0.5996
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3310,7 +4498,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-12"
+       "src": "avatar/pieces/scales-marks-sheet-12",
+       "box": [
+        0.4082,
+        0.3965,
+        0.5918,
+        0.5996
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3326,7 +4520,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-13"
+       "src": "avatar/pieces/scales-marks-sheet-13",
+       "box": [
+        0.334,
+        0.3594,
+        0.6699,
+        0.6406
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3342,7 +4542,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-14"
+       "src": "avatar/pieces/scales-marks-sheet-14",
+       "box": [
+        0.3926,
+        0.3906,
+        0.6074,
+        0.6133
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3358,7 +4564,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-15"
+       "src": "avatar/pieces/scales-marks-sheet-15",
+       "box": [
+        0.2422,
+        0.0664,
+        0.7578,
+        0.9297
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3374,7 +4586,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-16"
+       "src": "avatar/pieces/scales-marks-sheet-16",
+       "box": [
+        0.2422,
+        0.0684,
+        0.7617,
+        0.9316
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3390,7 +4608,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-17"
+       "src": "avatar/pieces/scales-marks-sheet-17",
+       "box": [
+        0.2617,
+        0.3633,
+        0.7363,
+        0.6387
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3406,7 +4630,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-18"
+       "src": "avatar/pieces/scales-marks-sheet-18",
+       "box": [
+        0.2637,
+        0.3633,
+        0.7363,
+        0.6367
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3422,7 +4652,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-19"
+       "src": "avatar/pieces/scales-marks-sheet-19",
+       "box": [
+        0.4023,
+        0.4141,
+        0.6016,
+        0.5859
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3438,7 +4674,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-2"
+       "src": "avatar/pieces/scales-marks-sheet-2",
+       "box": [
+        0.1387,
+        0.0547,
+        0.8613,
+        0.9453
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3454,7 +4696,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-20"
+       "src": "avatar/pieces/scales-marks-sheet-20",
+       "box": [
+        0.4023,
+        0.416,
+        0.5977,
+        0.5879
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3470,7 +4718,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-3"
+       "src": "avatar/pieces/scales-marks-sheet-3",
+       "box": [
+        0.2988,
+        0.0645,
+        0.6992,
+        0.9355
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3486,7 +4740,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-4"
+       "src": "avatar/pieces/scales-marks-sheet-4",
+       "box": [
+        0.3027,
+        0.0645,
+        0.6973,
+        0.9355
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3502,7 +4762,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-5"
+       "src": "avatar/pieces/scales-marks-sheet-5",
+       "box": [
+        0.2305,
+        0.3281,
+        0.7676,
+        0.6738
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3518,7 +4784,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-6"
+       "src": "avatar/pieces/scales-marks-sheet-6",
+       "box": [
+        0.2324,
+        0.3496,
+        0.7676,
+        0.6523
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3534,7 +4806,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-7"
+       "src": "avatar/pieces/scales-marks-sheet-7",
+       "box": [
+        0.2324,
+        0.3477,
+        0.7695,
+        0.6523
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3550,7 +4828,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-8"
+       "src": "avatar/pieces/scales-marks-sheet-8",
+       "box": [
+        0.2363,
+        0.3262,
+        0.7656,
+        0.6758
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3566,7 +4850,13 @@
      "layers": [
       {
        "order": 75,
-       "src": "avatar/pieces/scales-marks-sheet-9"
+       "src": "avatar/pieces/scales-marks-sheet-9",
+       "box": [
+        0.3926,
+        0.3887,
+        0.6074,
+        0.6113
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3582,7 +4872,13 @@
      "layers": [
       {
        "order": 100,
-       "src": "avatar/pieces/sidearms-sheet-1"
+       "src": "avatar/pieces/sidearms-sheet-1",
+       "box": [
+        0.0469,
+        0.082,
+        0.9531,
+        0.918
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3598,7 +4894,13 @@
      "layers": [
       {
        "order": 100,
-       "src": "avatar/pieces/sidearms-sheet-2"
+       "src": "avatar/pieces/sidearms-sheet-2",
+       "box": [
+        0.0469,
+        0.1777,
+        0.9531,
+        0.8203
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3614,7 +4916,13 @@
      "layers": [
       {
        "order": 100,
-       "src": "avatar/pieces/sidearms-sheet-3"
+       "src": "avatar/pieces/sidearms-sheet-3",
+       "box": [
+        0.0469,
+        0.125,
+        0.9531,
+        0.873
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3630,7 +4938,13 @@
      "layers": [
       {
        "order": 100,
-       "src": "avatar/pieces/sidearms-sheet-4"
+       "src": "avatar/pieces/sidearms-sheet-4",
+       "box": [
+        0.0469,
+        0.1133,
+        0.9531,
+        0.8867
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3646,7 +4960,13 @@
      "layers": [
       {
        "order": 90,
-       "src": "avatar/pieces/signal-gear-sheet-1"
+       "src": "avatar/pieces/signal-gear-sheet-1",
+       "box": [
+        0.25,
+        0.0488,
+        0.75,
+        0.9512
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3662,7 +4982,13 @@
      "layers": [
       {
        "order": 90,
-       "src": "avatar/pieces/signal-gear-sheet-2"
+       "src": "avatar/pieces/signal-gear-sheet-2",
+       "box": [
+        0.0957,
+        0.0449,
+        0.9023,
+        0.9551
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3678,7 +5004,13 @@
      "layers": [
       {
        "order": 90,
-       "src": "avatar/pieces/signal-gear-sheet-3"
+       "src": "avatar/pieces/signal-gear-sheet-3",
+       "box": [
+        0.2168,
+        0.0449,
+        0.7832,
+        0.9531
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3695,6 +5027,12 @@
       {
        "order": 60,
        "src": "avatar/pieces/sleeves-sheet-1",
+       "box": [
+        0.1387,
+        0.0586,
+        0.8613,
+        0.9355
+       ],
        "tint": "cloth"
       }
      ],
@@ -3712,6 +5050,12 @@
       {
        "order": 60,
        "src": "avatar/pieces/sleeves-sheet-2",
+       "box": [
+        0.1406,
+        0.0664,
+        0.8574,
+        0.9336
+       ],
        "tint": "cloth"
       }
      ],
@@ -3729,6 +5073,12 @@
       {
        "order": 60,
        "src": "avatar/pieces/sleeves-sheet-3",
+       "box": [
+        0.2012,
+        0.0508,
+        0.7988,
+        0.9492
+       ],
        "tint": "cloth"
       }
      ],
@@ -3746,6 +5096,12 @@
       {
        "order": 60,
        "src": "avatar/pieces/sleeves-sheet-4",
+       "box": [
+        0.2031,
+        0.0508,
+        0.7949,
+        0.9473
+       ],
        "tint": "cloth"
       }
      ],
@@ -3763,6 +5119,12 @@
       {
        "order": 60,
        "src": "avatar/pieces/sleeves-sheet-5",
+       "box": [
+        0.2031,
+        0.0488,
+        0.7949,
+        0.9492
+       ],
        "tint": "cloth"
       }
      ],
@@ -3780,6 +5142,12 @@
       {
        "order": 60,
        "src": "avatar/pieces/sleeves-sheet-6",
+       "box": [
+        0.2031,
+        0.0488,
+        0.7969,
+        0.9512
+       ],
        "tint": "cloth"
       }
      ],
@@ -3797,6 +5165,12 @@
       {
        "order": 90,
        "src": "avatar/pieces/straps-sheet-1",
+       "box": [
+        0.207,
+        0.0488,
+        0.791,
+        0.9512
+       ],
        "tint": "cloth"
       }
      ],
@@ -3814,6 +5188,12 @@
       {
        "order": 90,
        "src": "avatar/pieces/straps-sheet-2",
+       "box": [
+        0.1816,
+        0.0488,
+        0.8164,
+        0.9512
+       ],
        "tint": "cloth"
       }
      ],
@@ -3831,6 +5211,12 @@
       {
        "order": 90,
        "src": "avatar/pieces/straps-sheet-3",
+       "box": [
+        0.1934,
+        0.0488,
+        0.8066,
+        0.9492
+       ],
        "tint": "cloth"
       }
      ],
@@ -3847,7 +5233,13 @@
      "layers": [
       {
        "order": 100,
-       "src": "avatar/pieces/tools-sheet-1"
+       "src": "avatar/pieces/tools-sheet-1",
+       "box": [
+        0.1895,
+        0.0449,
+        0.8086,
+        0.9551
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3863,7 +5255,13 @@
      "layers": [
       {
        "order": 100,
-       "src": "avatar/pieces/tools-sheet-2"
+       "src": "avatar/pieces/tools-sheet-2",
+       "box": [
+        0.3477,
+        0.043,
+        0.6543,
+        0.957
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3879,7 +5277,13 @@
      "layers": [
       {
        "order": 100,
-       "src": "avatar/pieces/tools-sheet-3"
+       "src": "avatar/pieces/tools-sheet-3",
+       "box": [
+        0.2207,
+        0.0469,
+        0.7773,
+        0.9551
+       ]
       }
      ],
      "hideBodyParts": []
@@ -3896,6 +5300,12 @@
       {
        "order": 60,
        "src": "avatar/pieces/torsos-sleeveless-sheet-1",
+       "box": [
+        0.1816,
+        0.0508,
+        0.8164,
+        0.9492
+       ],
        "tint": "cloth"
       }
      ],
@@ -3913,6 +5323,12 @@
       {
        "order": 60,
        "src": "avatar/pieces/torsos-sleeveless-sheet-2",
+       "box": [
+        0.1836,
+        0.0508,
+        0.8164,
+        0.9492
+       ],
        "tint": "cloth"
       }
      ],
@@ -3930,6 +5346,12 @@
       {
        "order": 60,
        "src": "avatar/pieces/torsos-sleeveless-sheet-3",
+       "box": [
+        0.1777,
+        0.0508,
+        0.8223,
+        0.9492
+       ],
        "tint": "cloth"
       }
      ],

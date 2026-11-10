@@ -59,7 +59,7 @@ def build_items(pieces_dir):
         stem, _, number = path.stem.rpartition("-")
         slot, order, tint = rule_for(stem)
         name = stem.replace("-sheet", "")
-        layer = {"order": order, "src": f"avatar/pieces/{path.stem}"}
+        layer = {"order": order, "src": f"avatar/pieces/{path.stem}", "box": alpha_box(path)}
         if tint:
             layer["tint"] = tint
         items.append({
@@ -69,6 +69,16 @@ def build_items(pieces_dir):
             "variants": {"average": {"layers": [layer], "hideBodyParts": []}},
         })
     return items
+
+
+def alpha_box(path):
+    from PIL import Image
+
+    image = Image.open(path).convert("RGBA")
+    mask = image.getchannel("A").point(lambda a: 255 if a > 8 else 0)
+    left, top, right, bottom = mask.getbbox()
+    w, h = image.size
+    return [round(left / w, 4), round(top / h, 4), round(right / w, 4), round(bottom / h, 4)]
 
 
 def validate(items, palettes, assets_dir):
@@ -90,7 +100,7 @@ def main():
     assets = Path(sys.argv[1])
     items = build_items(assets / "avatar" / "pieces")
     validate(items, PALETTES, assets)
-    catalogue = {"version": 1, "items": items}
+    catalogue = {"version": 2, "items": items}
     for name, data in (("items.json", catalogue), ("palettes.json", PALETTES)):
         target = assets / "avatar" / name
         target.write_text(json.dumps(data, indent=1) + "\n", encoding="utf-8")

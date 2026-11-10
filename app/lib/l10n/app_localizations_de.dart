@@ -6064,7 +6064,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fingerExitFullscreen => 'Vollbild beenden';
 
   @override
-  String get fingerDesktopHint => 'Mit der Maus klicken, um einen Finger hinzuzufügen oder zu entfernen. Auf dem Touchscreen die Finger benutzen.';
+  String get fingerDesktopHint =>
+      'Mit der Maus klicken, um einen Finger hinzuzufügen oder zu entfernen. Auf dem Touchscreen die Finger benutzen.';
 
   @override
   String get fingerLiftToRestart => 'Finger abheben, um neu zu starten';
@@ -6073,7 +6074,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fingerClickToRestart => 'Klicken, um neu zu starten';
 
   @override
-  String get fingerSurfaceLabel => 'Fingerauswahl, berührt den Bildschirm mit jedem Finger';
+  String get fingerSurfaceLabel =>
+      'Fingerauswahl, berührt den Bildschirm mit jedem Finger';
 
   @override
   String get fingerWinnerLabel => 'Gewinner';
@@ -6087,4 +6089,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String fingerGroupLabel(int n) {
     return 'Team $n';
   }
+
+  @override
+  String get avatarRandomize => 'Zufällig';
 }

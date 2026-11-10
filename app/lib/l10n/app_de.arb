@@ -1858,5 +1858,6 @@
   "fingerSurfaceLabel": "Fingerauswahl, berührt den Bildschirm mit jedem Finger",
   "fingerWinnerLabel": "Gewinner",
   "fingerRankLabel": "Rang {n}",
-  "fingerGroupLabel": "Team {n}"
+  "fingerGroupLabel": "Team {n}",
+  "avatarRandomize": "Zufällig"
 }

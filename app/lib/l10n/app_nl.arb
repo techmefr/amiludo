@@ -1858,5 +1858,6 @@
   "fingerSurfaceLabel": "Vingerkeuze, raak het scherm aan met elke vinger",
   "fingerWinnerLabel": "Winnaar",
   "fingerRankLabel": "Plaats {n}",
-  "fingerGroupLabel": "Team {n}"
+  "fingerGroupLabel": "Team {n}",
+  "avatarRandomize": "Willekeurig"
 }

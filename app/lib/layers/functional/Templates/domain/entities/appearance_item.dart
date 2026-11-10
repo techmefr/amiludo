@@ -1,17 +1,25 @@
 class AppearanceLayer {
-  const AppearanceLayer({required this.order, required this.src, this.tint});
+  const AppearanceLayer({
+    required this.order,
+    required this.src,
+    this.tint,
+    this.box,
+  });
   final int order;
   final String src;
   final String? tint;
+  final List<double>? box;
   Map<String, Object?> toJson() => {
     'order': order,
     'src': src,
     if (tint != null) 'tint': tint,
+    if (box != null) 'box': box,
   };
   factory AppearanceLayer.fromJson(Map<String, dynamic> j) => AppearanceLayer(
     order: j['order'] as int,
     src: j['src'] as String,
     tint: j['tint'] as String?,
+    box: (j['box'] as List?)?.map((v) => (v as num).toDouble()).toList(),
   );
 }
 

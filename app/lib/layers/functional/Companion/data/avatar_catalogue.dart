@@ -1,12 +1,17 @@
 import 'dart:convert';
 
+import 'package:amiludo/layers/functional/Companion/data/avatar_rig.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/avatar_look.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/appearance_item.dart';
 
 class AvatarCatalogue {
-  const AvatarCatalogue(this.items, this.palettes);
+  const AvatarCatalogue(this.items, this.palettes, [this.rig]);
 
-  factory AvatarCatalogue.decode(String itemsJson, String palettesJson) {
+  factory AvatarCatalogue.decode(
+    String itemsJson,
+    String palettesJson, [
+    String? rigJson,
+  ]) {
     final items = jsonDecode(itemsJson) as Map<String, dynamic>;
     final palettes = jsonDecode(palettesJson) as Map<String, dynamic>;
     return AvatarCatalogue(
@@ -20,6 +25,7 @@ class AvatarCatalogue {
             for (final c in e.value as List) parseHex(c as String),
           ],
       },
+      rigJson == null ? null : AvatarRig.decode(rigJson),
     );
   }
 
@@ -27,16 +33,35 @@ class AvatarCatalogue {
 
   final List<AppearanceItem> items;
   final Map<String, List<int>> palettes;
+  final AvatarRig? rig;
 
   static int parseHex(String hex) =>
       0xFF000000 | int.parse(hex.substring(1), radix: 16);
 
-  List<String> get slots => {for (final i in items) i.slot}.toList();
+  bool _placed(AppearanceItem i) =>
+      i.variants.containsKey(shape) && !(rig?.isHidden(i.id) ?? false);
+
+  List<String> get slots {
+    final all = {
+      for (final i in items)
+        if (_placed(i)) i.slot,
+    };
+    final order = rig?.slotOrder ?? const <String>[];
+    return [
+      for (final s in order)
+        if (all.contains(s)) s,
+      for (final s in all)
+        if (!order.contains(s)) s,
+    ];
+  }
 
   List<AppearanceItem> itemsFor(String slot) => [
     for (final i in items)
-      if (i.slot == slot && i.variants.containsKey(shape)) i,
+      if (i.slot == slot && _placed(i)) i,
   ];
+
+  Set<String> hiddenSlots(AvatarLook look) =>
+      rig?.hiddenSlots(look.picks.values.map((p) => p.itemId)) ?? const {};
 
   AppearanceItem? byId(String id) {
     for (final i in items) {
@@ -55,7 +80,7 @@ class AvatarCatalogue {
     return null;
   }
 
-  static const _defaults = [
+  static const _legacyDefaults = [
     'base.body-base-full-1',
     'head.heads-base-grey-1',
     'eyes.eyes-1',
@@ -87,13 +112,16 @@ class AvatarCatalogue {
       );
     }
 
-    for (final id in _defaults) {
+    final defaults = rig?.defaults ?? _legacyDefaults;
+    for (final id in defaults) {
+      if (id.startsWith('hair.')) continue;
       put(id, force: false);
     }
     if (hairless) {
       look = look.withPick('hair', null);
     } else {
-      put('hair.hairstyles-1', force: false);
+      final hair = defaults.where((d) => d.startsWith('hair.'));
+      put(hair.isEmpty ? 'hair.hairstyles-1' : hair.first, force: false);
     }
     pieces.forEach(put);
     for (final e in look.picks.entries.toList()) {

@@ -1858,5 +1858,6 @@
   "fingerSurfaceLabel": "Scelta con il dito, tocca lo schermo con ogni dito",
   "fingerWinnerLabel": "Vincitore",
   "fingerRankLabel": "Posto {n}",
-  "fingerGroupLabel": "Squadra {n}"
+  "fingerGroupLabel": "Squadra {n}",
+  "avatarRandomize": "Casuale"
 }
