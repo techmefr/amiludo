@@ -11459,7 +11459,7 @@ abstract class AppLocalizations {
   /// No description provided for @cpSheetTitle.
   ///
   /// In en, this message translates to:
-  /// **'{name}'s character'**
+  /// **'{name}\'s character'**
   String cpSheetTitle(String name);
 
   /// No description provided for @cpShare.

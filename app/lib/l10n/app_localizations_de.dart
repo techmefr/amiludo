@@ -6097,7 +6097,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get toolCardPacksTitle => 'Kartenpacks';
 
   @override
-  String get toolCardPacksSubtitle => 'Die Spieler öffnen Packs und behalten Karten für ihre Figur.';
+  String get toolCardPacksSubtitle =>
+      'Die Spieler öffnen Packs und behalten Karten für ihre Figur.';
 
   @override
   String get cpTabSetup => 'Setup';
@@ -6112,7 +6113,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get cpTemplate => 'Pack-Vorlage';
 
   @override
-  String get cpNoTemplate => 'Installiere ein Figurenpack, um eine Sitzung zu starten.';
+  String get cpNoTemplate =>
+      'Installiere ein Figurenpack, um eine Sitzung zu starten.';
 
   @override
   String get cpFreeMode => 'Frei: alle Karten des Universums';
@@ -6177,13 +6179,16 @@ class AppLocalizationsDe extends AppLocalizations {
   String get cpIssueNoDecks => 'Aktiviere mindestens ein Deck.';
 
   @override
-  String get cpIssuePoolTooSmall => 'Ein Deck hat zu wenige Karten für diese Packs.';
+  String get cpIssuePoolTooSmall =>
+      'Ein Deck hat zu wenige Karten für diese Packs.';
 
   @override
-  String get cpIssueKeepAbovePack => 'Mehr Karten behalten als eine Kategorie bietet.';
+  String get cpIssueKeepAbovePack =>
+      'Mehr Karten behalten als eine Kategorie bietet.';
 
   @override
-  String get cpIssueKeepInvalid => 'Der Bereich der behaltenen Karten ist ungültig.';
+  String get cpIssueKeepInvalid =>
+      'Der Bereich der behaltenen Karten ist ungültig.';
 
   @override
   String cpOpenPack(String name) {

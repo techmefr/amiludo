@@ -6086,7 +6086,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get toolCardPacksTitle => 'Kaartpakketten';
 
   @override
-  String get toolCardPacksSubtitle => 'Spelers openen pakketten en houden kaarten om hun personage te maken.';
+  String get toolCardPacksSubtitle =>
+      'Spelers openen pakketten en houden kaarten om hun personage te maken.';
 
   @override
   String get cpTabSetup => 'Instellingen';
@@ -6101,7 +6102,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get cpTemplate => 'Pakketsjabloon';
 
   @override
-  String get cpNoTemplate => 'Installeer een personagepakket om een sessie te starten.';
+  String get cpNoTemplate =>
+      'Installeer een personagepakket om een sessie te starten.';
 
   @override
   String get cpFreeMode => 'Vrij: alle kaarten van het universum';
@@ -6166,13 +6168,16 @@ class AppLocalizationsNl extends AppLocalizations {
   String get cpIssueNoDecks => 'Schakel minstens één deck in.';
 
   @override
-  String get cpIssuePoolTooSmall => 'Een deck heeft te weinig kaarten voor deze pakketten.';
+  String get cpIssuePoolTooSmall =>
+      'Een deck heeft te weinig kaarten voor deze pakketten.';
 
   @override
-  String get cpIssueKeepAbovePack => 'Meer kaarten houden dan een categorie biedt.';
+  String get cpIssueKeepAbovePack =>
+      'Meer kaarten houden dan een categorie biedt.';
 
   @override
-  String get cpIssueKeepInvalid => 'Het bereik van te houden kaarten is ongeldig.';
+  String get cpIssueKeepInvalid =>
+      'Het bereik van te houden kaarten is ongeldig.';
 
   @override
   String cpOpenPack(String name) {
@@ -6241,7 +6246,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get cpSaved => 'Opgeslagen';
 
   @override
-  String get cpBoardHidden => 'Verborgen tot iedereen zijn pakketten heeft geopend';
+  String get cpBoardHidden =>
+      'Verborgen tot iedereen zijn pakketten heeft geopend';
 
   @override
   String cpBoardProgress(int opened, int total) {
