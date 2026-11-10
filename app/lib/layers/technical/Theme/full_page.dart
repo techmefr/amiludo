@@ -30,6 +30,7 @@ class FullPage extends StatelessWidget {
     this.background,
     this.onBack,
     this.bindings = const {},
+    this.bottomBar,
   });
   final String title, fallback;
   final String? tool;
@@ -41,6 +42,7 @@ class FullPage extends StatelessWidget {
   final Map<ShortcutActivator, VoidCallback> bindings;
   final double? maxWidth;
   final List<Widget> actions;
+  final Widget? bottomBar;
 
   static const double _padding = 20;
   static const double _backClearance = fullPageBackClearance;
@@ -156,6 +158,7 @@ class FullPage extends StatelessWidget {
         actions: actions,
         maxWidth: maxWidth ?? 760,
         fillHeight: fillHeight,
+        bottomBar: bottomBar,
         child: child,
       );
     }

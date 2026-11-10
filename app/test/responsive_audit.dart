@@ -63,8 +63,9 @@ const minTarget = 44.0;
 Future<List<String>> auditRoute(
   WidgetTester tester,
   Size size,
-  Iterable<String> routes,
-) async {
+  Iterable<String> routes, {
+  List<String> Function(String route, Size size)? extra,
+}) async {
   final db = StoreDatabase.forTesting(NativeDatabase.memory());
   configureDependencies(db);
   addTearDown(getIt.reset);
@@ -82,6 +83,7 @@ Future<List<String>> auditRoute(
     router.go(route);
     await _settle(tester, findings, route);
     findings.addAll(inspectLayout(route, size));
+    findings.addAll(extra?.call(route, size) ?? const []);
   }
   await tester.pumpWidget(const SizedBox());
   await tester.pump(const Duration(seconds: 1));

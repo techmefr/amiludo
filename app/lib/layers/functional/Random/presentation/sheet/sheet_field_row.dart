@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Random/domain/sheet/sheet_fields.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/list_row.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -41,29 +42,20 @@ class SheetFieldRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final theme = Theme.of(context);
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: Space.sm),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: Column(
+    return ListRow(
+      title: label,
+      subtitle: values.isEmpty
+          ? Text(
+              l10n.sheetEmpty,
+              style: TextStyle(color: theme.colorScheme.onSurfaceVariant),
+            )
+          : Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(label, style: theme.textTheme.labelLarge),
-                const SizedBox(height: Space.xs),
-                if (values.isEmpty)
-                  Text(
-                    l10n.sheetEmpty,
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      color: theme.colorScheme.onSurfaceVariant,
-                    ),
-                  )
-                else
-                  for (final v in values) Text(v),
-              ],
+              children: [for (final v in values) Text(v)],
             ),
-          ),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
           _action(
             'reroll',
             l10n.sheetReroll,
