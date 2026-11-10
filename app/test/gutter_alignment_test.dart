@@ -9,6 +9,7 @@ const gutterSizes = [Size(375, 812), Size(768, 1024), Size(1280, 720)];
 
 const titledRoutes = [
   '/character-sheet',
+  '/',
   '/tools',
   '/library',
   '/friends',
@@ -43,16 +44,16 @@ void main() {
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.reset);
       final misaligned = <String>[];
-      var checked = 0;
+      final seen = <String>{};
       final findings = await auditRoute(
         tester,
         size,
-        titledRoutes,
+        auditScreens,
         extra: (route, size) {
           final title = leftOf('screen-title');
           final content = leftOf('screen-content');
           if (title == null || content == null) return const [];
-          checked++;
+          seen.add(route);
           if ((title - content).abs() > .5) {
             misaligned.add('$route title $title content $content');
           }
@@ -61,7 +62,7 @@ void main() {
       );
       expect(findings, isEmpty, reason: findings.join('\n'));
       expect(misaligned, isEmpty, reason: misaligned.join('\n'));
-      expect(checked, greaterThan(0));
+      expect(seen, containsAll(titledRoutes));
     }, timeout: const Timeout(Duration(minutes: 8)));
   }
 }

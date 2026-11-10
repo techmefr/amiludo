@@ -9,6 +9,7 @@ import 'package:amiludo/layers/functional/Evenings/presentation/evening_texts.da
 import 'package:amiludo/layers/technical/Theme/components/master_detail.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/breakpoints.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 class EveningsScreen extends StatelessWidget {
@@ -34,9 +35,10 @@ class EveningsScreen extends StatelessWidget {
     final master = Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        DeckHeading(title: context.l10n.workspaceNights),
         Wrap(
-          spacing: 12,
-          runSpacing: 12,
+          spacing: Space.md,
+          runSpacing: Space.md,
           children: [
             FilledButton.icon(
               onPressed: () => context.go('/evenings/edit/new'),
