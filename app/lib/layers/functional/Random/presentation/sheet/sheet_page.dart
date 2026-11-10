@@ -5,6 +5,8 @@ import 'package:amiludo/layers/functional/Random/domain/sheet/character_sheet.da
 import 'package:amiludo/layers/functional/Random/domain/sheet/sheet_checks.dart';
 import 'package:amiludo/layers/functional/Random/presentation/cubit/sheet_cubit.dart';
 import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_editor.dart';
+import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_generate_buttons.dart';
+import 'package:amiludo/layers/technical/Theme/components/action_bar.dart';
 import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_export_bar.dart';
 import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_labels.dart';
 import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_read_view.dart';
@@ -33,7 +35,13 @@ class SheetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => FullPage(
     title: context.l10n.sheetTitle,
+    bottomBar: BlocBuilder<SheetCubit, SheetState>(
+      builder: (context, state) => state.sheet == null || state.reading
+          ? const SizedBox.shrink()
+          : ActionBar(children: sheetGenerateButtons(context)),
+    ),
     child: SheetView(
+      inlineGenerate: false,
       onSave: onSave,
       avatarEditor: avatarEditor,
       avatarPreview: avatarPreview,
@@ -44,10 +52,12 @@ class SheetPage extends StatelessWidget {
 class SheetView extends StatefulWidget {
   const SheetView({
     super.key,
+    this.inlineGenerate = true,
     this.onSave,
     this.avatarEditor,
     this.avatarPreview,
   });
+  final bool inlineGenerate;
   final Future<void> Function(GameCharacter character)? onSave;
   final AvatarEditor? avatarEditor;
   final AvatarPreview? avatarPreview;
@@ -148,6 +158,7 @@ class _SheetViewState extends State<SheetView> {
           SheetEditor(
             sheet: sheet,
             step: state.step,
+            inlineGenerate: widget.inlineGenerate,
             editions: state.generator!.tables.editions.keys.toList(),
           ),
         if (widget.avatarEditor != null) ...[

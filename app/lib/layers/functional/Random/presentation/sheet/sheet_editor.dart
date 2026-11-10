@@ -6,13 +6,13 @@ import 'package:amiludo/layers/functional/Random/domain/sheet/sheet_fields.dart'
 import 'package:amiludo/layers/functional/Random/presentation/cubit/sheet_cubit.dart';
 import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_edit_dialog.dart';
 import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_field_row.dart';
+import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_generate_buttons.dart';
 import 'package:amiludo/layers/functional/Random/presentation/sheet/sheet_labels.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/section.dart';
 import 'package:amiludo/layers/technical/Theme/components/step_indicator.dart';
 import 'package:amiludo/layers/technical/Theme/components/tag_chip.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
-import 'package:amiludo/layers/technical/Theme/tokens/layout_tokens.dart';
 
 class SheetEditor extends StatelessWidget {
   const SheetEditor({
@@ -20,14 +20,12 @@ class SheetEditor extends StatelessWidget {
     required this.sheet,
     required this.step,
     this.editions = const [],
+    this.inlineGenerate = true,
   });
   final CharacterSheet sheet;
   final int step;
   final List<String> editions;
-
-  static final _tall = FilledButton.styleFrom(
-    minimumSize: const Size.fromHeight(Rows.minimum),
-  );
+  final bool inlineGenerate;
 
   void _edit(BuildContext context, SheetField field) {
     final cubit = context.read<SheetCubit>();
@@ -78,27 +76,18 @@ class SheetEditor extends StatelessWidget {
         Section(
           kicker: l10n.sheetStepOf(step, SheetSpec.stepCount),
           title: sheetStepLabel(l10n, step),
-          child: Row(
-            children: [
-              Expanded(
-                child: OutlinedButton(
-                  key: const ValueKey('sheet-generate-step'),
-                  style: _tall,
-                  onPressed: cubit.generateStep,
-                  child: Text(l10n.sheetGenerateStep),
-                ),
-              ),
-              const SizedBox(width: Space.md),
-              Expanded(
-                child: FilledButton(
-                  key: const ValueKey('sheet-generate-all'),
-                  style: _tall,
-                  onPressed: cubit.generateAll,
-                  child: Text(l10n.sheetGenerateAll),
-                ),
-              ),
-            ],
-          ),
+          child: inlineGenerate
+              ? Row(
+                  children: [
+                    for (final (i, b) in sheetGenerateButtons(
+                      context,
+                    ).indexed) ...[
+                      if (i > 0) const SizedBox(width: Space.md),
+                      Expanded(child: b),
+                    ],
+                  ],
+                )
+              : const SizedBox.shrink(),
         ),
         for (final field in SheetSpec.ofStep(step))
           SheetFieldRow(

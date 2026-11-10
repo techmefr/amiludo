@@ -86,13 +86,19 @@ class GameScreen extends StatelessWidget {
 class _NoGame extends StatelessWidget {
   const _NoGame();
   @override
-  Widget build(BuildContext context) => EmptyPanel(
-    title: context.l10n.gameYourTableAwaits,
-    message: context.l10n.gameCreateAGameToTrack,
-    action: FilledButton(
-      onPressed: () => context.push(GameSetupRequest.path),
-      child: Text(context.l10n.gameCreateGame),
-    ),
+  Widget build(BuildContext context) => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      DeckHeading(title: context.l10n.workspaceMyGame),
+      EmptyPanel(
+        title: context.l10n.gameYourTableAwaits,
+        message: context.l10n.gameCreateAGameToTrack,
+        action: FilledButton(
+          onPressed: () => context.push(GameSetupRequest.path),
+          child: Text(context.l10n.gameCreateGame),
+        ),
+      ),
+    ],
   );
 }
 
