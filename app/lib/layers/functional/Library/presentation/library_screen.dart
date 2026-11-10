@@ -10,6 +10,7 @@ import 'package:amiludo/layers/functional/Library/presentation/library_stats_bar
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/functional/Library/presentation/cubit/library_cubit.dart';
 import 'package:amiludo/layers/functional/Library/presentation/shelf_game_sheet.dart';
+import 'package:amiludo/layers/functional/Library/presentation/library_actions.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
@@ -34,7 +35,9 @@ class _LibraryScreenState extends State<LibraryScreen> {
   @override
   Widget build(BuildContext context) {
     final shelf = context.watch<LibraryCubit>().state.games;
-    final stats = context.read<LibraryCubit>().statsFor(context.watch<LibraryCubit>().state);
+    final stats = context.read<LibraryCubit>().statsFor(
+      context.watch<LibraryCubit>().state,
+    );
     final games = shelf.where((g) => _matches(g, stats)).toList()
       ..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
     return Column(
@@ -49,7 +52,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
             child: Text(context.l10n.libraryAddAGame),
           ),
         ),
-        const _LibraryActions(),
+        const LibraryActions(),
         const SizedBox(height: 24),
         if (shelf.isNotEmpty) ...[
           _LibraryFilters(
@@ -112,38 +115,6 @@ class _LibraryScreenState extends State<LibraryScreen> {
       ],
     );
   }
-}
-
-class _LibraryActions extends StatelessWidget {
-  const _LibraryActions();
-
-  @override
-  Widget build(BuildContext context) => Wrap(
-    spacing: 12,
-    runSpacing: 12,
-    children: [
-      FilledButton.tonal(
-        onPressed: () => context.push('/library/scan'),
-        child: Text(context.l10n.libraryScanBox),
-      ),
-      OutlinedButton(
-        onPressed: () => context.push('/library/tonight'),
-        child: Text(context.l10n.libraryWhatToPlay),
-      ),
-      OutlinedButton(
-        onPressed: () => context.push('/share/receive'),
-        child: Text(context.l10n.libraryReceiveByQr),
-      ),
-      OutlinedButton(
-        onPressed: () => context.push('/share'),
-        child: Text(context.l10n.libraryShareASession),
-      ),
-      TextButton(
-        onPressed: () => context.go('/templates'),
-        child: Text(context.l10n.libraryPacksAndTemplates),
-      ),
-    ],
-  );
 }
 
 class _LibraryFilters extends StatelessWidget {

@@ -82,7 +82,11 @@ class ShelfChoiceChips extends StatelessWidget {
 }
 
 class ShelfColorPicker extends StatelessWidget {
-  const ShelfColorPicker({super.key, required this.value, required this.onChanged});
+  const ShelfColorPicker({
+    super.key,
+    required this.value,
+    required this.onChanged,
+  });
 
   final int value;
   final ValueChanged<int> onChanged;
@@ -114,8 +118,9 @@ class ShelfColorPicker extends StatelessWidget {
   );
 }
 
-String shelfStatusLabel(BuildContext context, String status) => switch (status) {
-  'wishlist' => context.l10n.libraryStatusWishlist,
-  'lent' => context.l10n.libraryStatusLent,
-  _ => context.l10n.libraryStatusOwned,
-};
+String shelfStatusLabel(BuildContext context, String status) =>
+    switch (status) {
+      'wishlist' => context.l10n.libraryStatusWishlist,
+      'lent' => context.l10n.libraryStatusLent,
+      _ => context.l10n.libraryStatusOwned,
+    };
