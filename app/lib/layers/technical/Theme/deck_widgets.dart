@@ -4,6 +4,8 @@ import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/type_roles.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
@@ -40,8 +42,8 @@ class DeckPanel extends StatelessWidget {
 class DeckHeading extends StatelessWidget {
   const DeckHeading({
     super.key,
-    required this.eyebrow,
     required this.title,
+    this.eyebrow = '',
     this.subtitle = '',
     this.action,
   });
@@ -51,11 +53,11 @@ class DeckHeading extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.only(bottom: 28),
+      padding: const EdgeInsets.only(bottom: Space.xl),
       child: LayoutBuilder(
         builder: (context, c) => Wrap(
-          spacing: 24,
-          runSpacing: 20,
+          spacing: Space.xl,
+          runSpacing: Space.lg,
           alignment: WrapAlignment.spaceBetween,
           crossAxisAlignment: WrapCrossAlignment.end,
           children: [
@@ -64,26 +66,28 @@ class DeckHeading extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    eyebrow
-                        .replaceAll(RegExp(r'^\d+ / '), '')
-                        .replaceAll(' / ', ' · ')
-                        .toUpperCase(),
-                    style: theme.textTheme.labelMedium?.copyWith(
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 1.2,
-                      color: theme.colorScheme.accentText,
+                  if (eyebrow.isNotEmpty) ...[
+                    Text(
+                      eyebrow
+                          .replaceAll(RegExp(r'^\d+ / '), '')
+                          .replaceAll(' / ', ' · ')
+                          .toUpperCase(),
+                      style: TypeRoles.kicker(context)
+                          .copyWith(color: theme.colorScheme.accentText),
                     ),
+                    const SizedBox(height: Space.sm),
+                  ],
+                  Text(
+                    title,
+                    key: const ValueKey('screen-title'),
+                    style: TypeRoles.title(context),
                   ),
-                  const SizedBox(height: 10),
-                  Text(title, style: theme.textTheme.headlineLarge),
                   if (subtitle.isNotEmpty) ...[
-                    const SizedBox(height: 12),
+                    const SizedBox(height: Space.sm),
                     Text(
                       subtitle,
-                      style: theme.textTheme.bodyLarge?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
-                      ),
+                      style: TypeRoles.body(context)
+                          .copyWith(color: theme.colorScheme.onSurfaceVariant),
                     ),
                   ],
                 ],
@@ -103,12 +107,15 @@ class SectionHeading extends StatelessWidget {
   final Widget? action;
   @override
   Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.only(top: 28, bottom: 16),
+    padding: const EdgeInsets.only(top: Space.xl, bottom: Space.lg),
     child: Wrap(
       alignment: WrapAlignment.spaceBetween,
       crossAxisAlignment: WrapCrossAlignment.center,
       children: [
-        Text(text, style: Theme.of(context).textTheme.headlineSmall),
+        Semantics(
+          header: true,
+          child: Text(text, style: TypeRoles.sectionTitle(context)),
+        ),
         ?action,
       ],
     ),

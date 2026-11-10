@@ -13,6 +13,7 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/components/blur_bar.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/breakpoints.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/layout_tokens.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
@@ -105,9 +106,7 @@ class AppShell extends StatelessWidget {
   }
 }
 
-double _gutter(BuildContext context, bool desktop) => desktop
-    ? 48
-    : (Breakpoints.atLeast(context, WindowClass.medium) ? 32 : Space.lg);
+double _gutter(BuildContext context, bool desktop) => Gutters.of(context);
 
 class _Page extends StatelessWidget {
   const _Page({
@@ -125,7 +124,7 @@ class _Page extends StatelessWidget {
       key: PageStorageKey(path),
       padding: EdgeInsets.fromLTRB(
         _gutter(context, desktop),
-        desktop ? 40 : (compact ? 16 : 28),
+        desktop ? Space.section : (compact ? Space.lg : Space.xl),
         _gutter(context, desktop),
         48,
       ),
@@ -135,7 +134,11 @@ class _Page extends StatelessWidget {
           constraints: BoxConstraints(
             maxWidth: Breakpoints.pageWidth(Breakpoints.of(context)),
           ),
-          child: SizedBox(width: double.infinity, child: child),
+          child: SizedBox(
+            key: const ValueKey('screen-content'),
+            width: double.infinity,
+            child: child,
+          ),
         ),
       ),
     ),
