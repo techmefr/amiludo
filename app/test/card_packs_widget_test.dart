@@ -80,6 +80,10 @@ Future<MemoryGateway> pump(
   return memory;
 }
 
+final vertical = find
+    .byWidgetPredicate((w) => w is Scrollable && w.axis == Axis.vertical)
+    .first;
+
 void main() {
   for (final size in const [
     Size(375, 812),
@@ -93,7 +97,7 @@ void main() {
       await tester.scrollUntilVisible(
         find.text('Start the session'),
         300,
-        scrollable: find.byType(Scrollable).first,
+        scrollable: vertical,
       );
       await tester.tap(find.text('Start the session'));
       await tester.pumpAndSettle();
@@ -101,8 +105,17 @@ void main() {
       expect(find.text('Pass the phone to Player 1'), findsOneWidget);
 
       for (final name in ['Origin', 'Class']) {
-        await tester.ensureVisible(find.text('Open the $name pack').first);
+        await tester.scrollUntilVisible(
+          find.text('Open the $name pack').first,
+          100,
+          scrollable: vertical,
+        );
         await tester.pumpAndSettle();
+        final opener = find.text('Open the $name pack').first;
+        if (tester.getCenter(opener).dy < 120) {
+          await tester.drag(vertical, const Offset(0, 120));
+          await tester.pumpAndSettle();
+        }
         await tester.tap(find.text('Open the $name pack').first);
         await tester.pumpAndSettle();
       }
@@ -115,11 +128,7 @@ void main() {
       );
 
       final validate = find.widgetWithText(FilledButton, 'Validate my cards');
-      await tester.scrollUntilVisible(
-        validate,
-        300,
-        scrollable: find.byType(Scrollable).first,
-      );
+      await tester.scrollUntilVisible(validate, 300, scrollable: vertical);
       expect(tester.widget<FilledButton>(validate).onPressed, isNull);
       expect(find.text('2 more to keep'), findsOneWidget);
 
@@ -128,20 +137,12 @@ void main() {
       for (var p = 0; p < player.packs.length; p++) {
         final label = player.packs[p].cards.first.card.name;
         final card = find.bySemanticsLabel(RegExp('$label\\.'));
-        await tester.scrollUntilVisible(
-          card.first,
-          -200,
-          scrollable: find.byType(Scrollable).first,
-        );
+        await tester.scrollUntilVisible(card.first, -200, scrollable: vertical);
         await tester.tap(card.first, warnIfMissed: false);
         await tester.pumpAndSettle();
       }
       expect(memory.stored!.players.first.kept.length, 2);
-      await tester.scrollUntilVisible(
-        validate,
-        300,
-        scrollable: find.byType(Scrollable).first,
-      );
+      await tester.scrollUntilVisible(validate, 300, scrollable: vertical);
       expect(tester.getSize(validate).height, greaterThanOrEqualTo(44));
       await tester.tap(validate);
       await tester.pumpAndSettle();
@@ -150,7 +151,7 @@ void main() {
       await tester.scrollUntilVisible(
         find.text('Save to my characters'),
         300,
-        scrollable: find.byType(Scrollable).first,
+        scrollable: vertical,
       );
       await tester.tap(find.text('Save to my characters'));
       await tester.pumpAndSettle();
@@ -167,18 +168,18 @@ void main() {
     await tester.scrollUntilVisible(
       find.text('Live reveal on the board'),
       300,
-      scrollable: find.byType(Scrollable).first,
+      scrollable: vertical,
     );
     await tester.tap(find.text('Live reveal on the board'));
     await tester.pumpAndSettle();
     await tester.scrollUntilVisible(
       find.text('Start the session'),
       300,
-      scrollable: find.byType(Scrollable).first,
+      scrollable: vertical,
     );
     await tester.tap(find.text('Start the session'));
     await tester.pumpAndSettle();
-    await tester.tap(find.byTooltip('Board'));
+    await tester.tap(find.text('Board'));
     await tester.pumpAndSettle();
     expect(
       find.text('Hidden until everyone has opened their packs'),
@@ -193,7 +194,7 @@ void main() {
       await tester.scrollUntilVisible(
         find.byTooltip(RegExp(r'^Cards per pack: \d+ \+$')),
         300,
-        scrollable: find.byType(Scrollable).first,
+        scrollable: vertical,
       );
       await tester.tap(find.byTooltip(RegExp(r'^Cards per pack: \d+ \+$')));
       await tester.pumpAndSettle();
@@ -201,7 +202,7 @@ void main() {
     await tester.scrollUntilVisible(
       find.text('Start the session'),
       300,
-      scrollable: find.byType(Scrollable).first,
+      scrollable: vertical,
     );
     await tester.tap(find.text('Start the session'));
     await tester.pumpAndSettle();
@@ -219,7 +220,7 @@ void main() {
     await tester.scrollUntilVisible(
       find.text('Start the session'),
       300,
-      scrollable: find.byType(Scrollable).first,
+      scrollable: vertical,
     );
     await tester.tap(find.text('Start the session'));
     await tester.pump(const Duration(milliseconds: 400));

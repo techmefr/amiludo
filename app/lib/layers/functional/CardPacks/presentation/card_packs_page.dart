@@ -12,6 +12,7 @@ import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_bar_scope.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -27,7 +28,19 @@ class CardPacksPage extends StatefulWidget {
 
 class _CardPacksPageState extends State<CardPacksPage> {
   int tab = 0, player = 0;
+  final scroll = ScrollController();
   late final bool resumed = context.read<CardPackCubit>().state != null;
+
+  void select(int next) {
+    setState(() => tab = next);
+    if (scroll.hasClients) scroll.jumpTo(0);
+  }
+
+  @override
+  void dispose() {
+    scroll.dispose();
+    super.dispose();
+  }
 
   @override
   void initState() {
@@ -54,38 +67,29 @@ class _CardPacksPageState extends State<CardPacksPage> {
       free: free,
     );
     if (issue == null) {
-      setState(() {
-        tab = 1;
-        player = 0;
-      });
+      player = 0;
+      select(1);
     }
     return issue;
   }
 
-  Widget tabs(bool active) {
+  ToolTabs tabs(bool active, int shown) {
     final l = context.l10n;
-    final narrow = MediaQuery.sizeOf(context).width < 520;
-    ButtonSegment<int> segment(int v, String label, IconData icon, bool on) =>
-        ButtonSegment(
-          value: v,
-          enabled: on,
-          tooltip: label,
-          icon: narrow ? Icon(icon, semanticLabel: label) : null,
-          label: narrow ? null : Text(label),
-        );
-    return SegmentedButton<int>(
-      showSelectedIcon: false,
-      style: SegmentedButton.styleFrom(
-        minimumSize: const Size(Targets.minimum, Targets.minimum),
-        visualDensity: VisualDensity.compact,
-      ),
-      segments: [
-        segment(0, l.cpTabSetup, Icons.tune, true),
-        segment(1, l.cpTabPlay, Icons.style_outlined, active),
-        segment(2, l.cpTabBoard, Icons.leaderboard_outlined, active),
+    return ToolTabs(
+      label: l.toolCardPacksTitle,
+      current: shown,
+      onSelect: select,
+      items: [
+        ToolTab(id: 'setup', label: l.cpTabSetup, icon: Icons.tune),
+        if (active) ...[
+          ToolTab(id: 'play', label: l.cpTabPlay, icon: Icons.style_outlined),
+          ToolTab(
+            id: 'board',
+            label: l.cpTabBoard,
+            icon: Icons.leaderboard_outlined,
+          ),
+        ],
       ],
-      selected: {tab},
-      onSelectionChanged: (v) => setState(() => tab = v.first),
     );
   }
 
@@ -156,18 +160,21 @@ class _CardPacksPageState extends State<CardPacksPage> {
   Widget build(BuildContext context) {
     final session = context.watch<CardPackCubit>().state;
     final shown = session == null ? 0 : tab;
-    return FullPage(
-      title: context.l10n.toolCardPacksTitle,
-      tool: 'card-packs',
-      immersive: true,
-      actions: [tabs(session != null)],
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: Space.xl),
-        child: switch (shown) {
-          1 => play(session!),
-          2 => BoardView(session: session!),
-          _ => setup(session),
-        },
+    return PrimaryScrollController(
+      controller: scroll,
+      child: FullPage(
+        title: context.l10n.toolCardPacksTitle,
+        tool: 'card-packs',
+        immersive: true,
+        tabs: tabs(session != null, shown),
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: Space.xl),
+          child: switch (shown) {
+            1 => play(session!),
+            2 => BoardView(session: session!),
+            _ => setup(session),
+          },
+        ),
       ),
     );
   }
