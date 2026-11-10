@@ -41,7 +41,13 @@ class _ToolsScreenState extends State<ToolsScreen> {
     }
   }
 
-  void openCategory(String id) => context.push('/tools?category=$id');
+  void openCategory(String id) {
+    if (id == 'time') {
+      open('timer');
+      return;
+    }
+    context.push('/tools?category=$id');
+  }
 
   void open(String id) {
     context.read<RandomCubit>().rememberTool(id);
@@ -74,9 +80,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (inCategory)
-          DeckHeading(
-            title: context.toolShelfLabel(widget.initialCategory!),
-          ),
+          DeckHeading(title: context.toolShelfLabel(widget.initialCategory!)),
         if (!inCategory)
           DeckHeading(
             eyebrow: context.l10n.randomYourToolboxWithinReach,

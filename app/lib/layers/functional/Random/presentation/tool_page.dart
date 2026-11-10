@@ -7,6 +7,8 @@ import 'package:amiludo/layers/functional/Random/presentation/cubit/random_cubit
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/functional/Workspace/domain/entities/workspace.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/tool_shelves.dart';
+import 'package:amiludo/layers/functional/Random/presentation/tool_switch_menu.dart';
 import 'package:amiludo/layers/functional/Random/presentation/dice_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/finger_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/random_tool.dart';
@@ -147,6 +149,13 @@ class _ToolPageState extends State<ToolPage> {
         : packs.where((p) => p.id == selected).firstOrNull;
     final choose = ['dice', 'roles', 'character'].contains(widget.id);
     final child = toolFor(ws, current, names);
+    final id = widget.id == 'dice' ? 'dice-tray' : widget.id;
+    final shelf = toolShelves.where((s) => s.tools.contains(id)).firstOrNull;
+    final toolMenu =
+        shelf != null && shelf.id != 'time' && shelf.tools.length > 1
+        ? ToolSwitchMenu(id: id, shelf: shelf)
+        : null;
+    final fallback = shelf == null ? '/tools' : '/tools?category=${shelf.id}';
     if (const {
       'picker',
       'map',
@@ -159,6 +168,8 @@ class _ToolPageState extends State<ToolPage> {
         title: title,
         tool: widget.id,
         immersive: true,
+        fallback: fallback,
+        toolMenu: toolMenu,
         background: tint,
         bleed: widget.id == 'picker',
         scroll: false,
@@ -169,6 +180,11 @@ class _ToolPageState extends State<ToolPage> {
       title: title,
       tool: widget.id,
       immersive: true,
+      fallback: fallback,
+      toolMenu: toolMenu,
+      maxWidth: const {'dice', 'dice-tray', 'coin'}.contains(widget.id)
+          ? double.infinity
+          : null,
       fillHeight: true,
       actions: [if (choose) menu(current, packs)],
       child: Column(

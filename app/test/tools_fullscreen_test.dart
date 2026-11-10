@@ -7,6 +7,7 @@ import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/app_shell.dart';
 import 'package:amiludo/main.dart';
+import 'package:amiludo/layers/functional/Random/presentation/time_tools_shell.dart';
 import 'package:amiludo/router.dart';
 
 void main() {
@@ -30,7 +31,8 @@ void main() {
         expect(find.byType(AppShell), findsNothing, reason: tool.id);
         expect(find.byType(BackButtonIcon), findsOneWidget, reason: tool.id);
         expect(find.byType(AppBar), findsNothing, reason: tool.id);
-        expect(tester.getSize(find.byType(FullPage)), size, reason: tool.id);
+        final frame = timeToolIds.contains(tool.id) ? TimeToolsShell : FullPage;
+        expect(tester.getSize(find.byType(frame)), size, reason: tool.id);
         expect(tester.takeException(), isNull, reason: tool.id);
         await tester.tap(find.byType(BackButtonIcon));
         await tester.pumpAndSettle();

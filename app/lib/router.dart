@@ -90,6 +90,7 @@ import 'package:amiludo/sheet_avatar.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/character_draft.dart';
 import 'package:amiludo/layers/functional/Random/presentation/tool_page.dart';
 import 'package:amiludo/layers/functional/Random/presentation/tools_screen.dart';
+import 'package:amiludo/layers/functional/Random/presentation/time_tools_shell.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/brick_layout.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/companion.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/builder_entry.dart';
@@ -156,12 +157,9 @@ Widget _tournament(BuildContext context) =>
 
 Widget _balance(BuildContext context) => BalanceTool(names: _names(context));
 
-Widget _league(BuildContext context) =>
-    LeagueTool(names: _names(context));
-Widget _solo(BuildContext context) =>
-    const SoloTool();
-Widget _units(BuildContext context) =>
-    const UnitsTool();
+Widget _league(BuildContext context) => LeagueTool(names: _names(context));
+Widget _solo(BuildContext context) => const SoloTool();
+Widget _units(BuildContext context) => const UnitsTool();
 
 Widget _turns(BuildContext context) => TurnsTool(names: _names(context));
 
@@ -291,54 +289,54 @@ class _SheetRoute extends StatelessWidget {
 }
 
 const Map<String, WidgetBuilder> embeddedToolBuilders = {
-          'scores': _scores,
-          'timer': _timer,
-          'stopwatch': _stopwatch,
-          'chess-clock': _chessClock,
-          'deck': _deck,
-          'rules': rulesWithStorage,
-          'worldmap': worldWithStorage,
-          'gmtables': tablesWithStorage,
-          'scenes': scenesWithStorage,
-          'bestiary': bestiaryWithStorage,
-          'combat': combatWithStorage,
-          'vote': _vote,
-          'countdown': countdownWithFeedback,
-          'phases': phasesWithFeedback,
-          'metronome': metronomeWithFeedback,
-          'life': _life,
-          'tally': _tally,
-          'ranking': _ranking,
-          'buzzer': _buzzer,
-          'clocks': _clocks,
-          'sport': _sport,
-          'markers': _markers,
-          'bank': _bank,
-          'auction': _auction,
-          'tournament': _tournament,
-          'balance': _balance,
-          'league': _league,
-          'solo': _solo,
-          'units': _units,
-          'stats': _stats,
-          'sheet': _sheet,
-          'turns': _turns,
-          'first-player': _firstPlayer,
-          'turn-timer': turnTimerWithFeedback,
-          'impostor': _impostor,
-          'oracle': _oracle,
-          'challenges': _challenges,
-          'journal': journalWithStorage,
-          'ambience': ambienceWithSound,
-          'dice-tray': diceTrayWithSensors,
-          'coin': coinWithSensors,
-          'hourglass': hourglassWithSensors,
-          'map': mapWithStorage,
-          'heroes': _heroes,
-          'counter-life': _counterLife,
-          'counter-points': _counterPoints,
-          'counter-chips': _counterChips,
-          'counter-pot': _counterPot,
+  'scores': _scores,
+  'timer': _timer,
+  'stopwatch': _stopwatch,
+  'chess-clock': _chessClock,
+  'deck': _deck,
+  'rules': rulesWithStorage,
+  'worldmap': worldWithStorage,
+  'gmtables': tablesWithStorage,
+  'scenes': scenesWithStorage,
+  'bestiary': bestiaryWithStorage,
+  'combat': combatWithStorage,
+  'vote': _vote,
+  'countdown': countdownWithFeedback,
+  'phases': phasesWithFeedback,
+  'metronome': metronomeWithFeedback,
+  'life': _life,
+  'tally': _tally,
+  'ranking': _ranking,
+  'buzzer': _buzzer,
+  'clocks': _clocks,
+  'sport': _sport,
+  'markers': _markers,
+  'bank': _bank,
+  'auction': _auction,
+  'tournament': _tournament,
+  'balance': _balance,
+  'league': _league,
+  'solo': _solo,
+  'units': _units,
+  'stats': _stats,
+  'sheet': _sheet,
+  'turns': _turns,
+  'first-player': _firstPlayer,
+  'turn-timer': turnTimerWithFeedback,
+  'impostor': _impostor,
+  'oracle': _oracle,
+  'challenges': _challenges,
+  'journal': journalWithStorage,
+  'ambience': ambienceWithSound,
+  'dice-tray': diceTrayWithSensors,
+  'coin': coinWithSensors,
+  'hourglass': hourglassWithSensors,
+  'map': mapWithStorage,
+  'heroes': _heroes,
+  'counter-life': _counterLife,
+  'counter-points': _counterPoints,
+  'counter-chips': _counterChips,
+  'counter-pot': _counterPot,
 };
 
 Widget? _brickWidget(BuildContext context, Brick brick) {
@@ -375,9 +373,25 @@ final router = GoRouter(
       ),
     ),
     _page('/tools/card-packs', (state) => const CardPacksRoute()),
+    StatefulShellRoute.indexedStack(
+      builder: (context, state, navigation) =>
+          TimeToolsShell(navigation: navigation),
+      branches: [
+        for (final id in timeToolIds)
+          StatefulShellBranch(
+            routes: [
+              _page(
+                '/tools/$id',
+                (_) => ToolPage(id: id, embeddedTools: embeddedToolBuilders),
+              ),
+            ],
+          ),
+      ],
+    ),
     _page(
       '/tools/:id',
       (state) => ToolPage(
+        key: ValueKey(state.pathParameters['id']),
         id: state.pathParameters['id']!,
         packId: state.uri.queryParameters['pack'],
         snapshot: state.uri.queryParameters['session'] == '1',
@@ -482,7 +496,10 @@ final router = GoRouter(
       builder: (context, state) {
         final id = state.pathParameters['id']!;
         return Breakpoints.atLeast(context, WindowClass.expanded)
-            ? AppShell(path: '/evenings', child: EveningsScreen(selectedId: id))
+            ? AppShell(
+                path: '/evenings',
+                child: EveningsScreen(selectedId: id),
+              )
             : WorkspaceGate(child: EveningDetail(id: id));
       },
     ),
@@ -515,12 +532,11 @@ final router = GoRouter(
     ])
       GoRoute(
         path: path,
-        builder: (context, state) =>
-            AppShell(
-              path: state.uri.path,
-              shelf: state.uri.queryParameters['category'],
-              child: screen(state),
-            ),
+        builder: (context, state) => AppShell(
+          path: state.uri.path,
+          shelf: state.uri.queryParameters['category'],
+          child: screen(state),
+        ),
       ),
   ],
 );

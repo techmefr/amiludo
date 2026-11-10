@@ -11,11 +11,13 @@ class ToolTopBar extends StatelessWidget {
     required this.onBack,
     this.tool,
     this.tabs,
+    this.toolMenu,
     this.actions = const [],
   });
   final VoidCallback onBack;
   final String? tool;
   final ToolTabs? tabs;
+  final Widget? toolMenu;
   final List<Widget> actions;
 
   Widget _back(BuildContext context) {
@@ -40,6 +42,7 @@ class ToolTopBar extends StatelessWidget {
       children: [
         _back(context),
         const SizedBox(width: Space.xs),
+        if (tabs == null && inner == null && toolMenu != null) toolMenu!,
         if (tabs != null) Expanded(child: ToolTabStrip(tabs: tabs!)),
         if (inner != null) ...[
           if (tabs != null) const SizedBox(width: Space.xs),
