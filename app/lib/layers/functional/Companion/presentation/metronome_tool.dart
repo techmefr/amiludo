@@ -8,6 +8,7 @@ import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_focus.dart';
 
 const metronomePresets = [60, 90, 120, 160];
 
@@ -79,8 +80,8 @@ class _MetronomeToolState extends State<MetronomeTool> {
     return Center(
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(Space.xl),
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 420),
+        child: ToolFocus(
+          baseWidth: 420,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -144,8 +145,9 @@ class _MetronomeToolState extends State<MetronomeTool> {
                 children: [
                   IconButton.outlined(
                     tooltip: l.metronomeBeats(state.beats - 1),
-                    onPressed: () =>
-                        setState(() => state = state.withBeats(state.beats - 1)),
+                    onPressed: () => setState(
+                      () => state = state.withBeats(state.beats - 1),
+                    ),
                     icon: const DeckIcon(Icons.remove),
                   ),
                   FilledButton.icon(
@@ -155,8 +157,9 @@ class _MetronomeToolState extends State<MetronomeTool> {
                   ),
                   IconButton.outlined(
                     tooltip: l.metronomeBeats(state.beats + 1),
-                    onPressed: () =>
-                        setState(() => state = state.withBeats(state.beats + 1)),
+                    onPressed: () => setState(
+                      () => state = state.withBeats(state.beats + 1),
+                    ),
                     icon: const DeckIcon(Icons.add),
                   ),
                 ],

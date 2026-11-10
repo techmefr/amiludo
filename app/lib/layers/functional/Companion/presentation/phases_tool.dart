@@ -10,6 +10,7 @@ import 'package:amiludo/layers/technical/Theme/components/stopwatch_dial.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_focus.dart';
 
 class PhasesTool extends StatefulWidget {
   const PhasesTool({super.key, this.sound = true, this.haptics = true});
@@ -70,8 +71,8 @@ class _PhasesToolState extends State<PhasesTool> {
     return Center(
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(Space.xl),
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 420),
+        child: ToolFocus(
+          baseWidth: 420,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

@@ -10,6 +10,7 @@ import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_layout.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_focus.dart';
 
 const int maxCoins = 6;
 
@@ -88,9 +89,10 @@ class _CoinToolState extends State<CoinTool> {
         220.0,
         420.0,
       );
+      final stage = ToolStage.factor(context);
       final size = (box.maxWidth / (count > 3 ? 3.6 : count + .6)).clamp(
         72.0,
-        140.0,
+        140.0 * stage,
       );
       return GestureDetector(
         onTap: flip,

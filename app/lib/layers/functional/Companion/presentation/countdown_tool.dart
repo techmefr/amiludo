@@ -10,6 +10,7 @@ import 'package:amiludo/layers/technical/Theme/components/stopwatch_dial.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_focus.dart';
 
 const countdownPresets = [1, 3, 5, 10, 15];
 
@@ -68,8 +69,8 @@ class _CountdownToolState extends State<CountdownTool> {
     return Center(
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(Space.xl),
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 420),
+        child: ToolFocus(
+          baseWidth: 420,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -146,7 +147,9 @@ class _CountdownToolState extends State<CountdownTool> {
                   ),
                   IconButton(
                     tooltip: l.appearanceReset,
-                    onPressed: state.pristine ? null : () => _set(state.reset()),
+                    onPressed: state.pristine
+                        ? null
+                        : () => _set(state.reset()),
                     icon: const DeckIcon(Icons.restart_alt),
                   ),
                 ],

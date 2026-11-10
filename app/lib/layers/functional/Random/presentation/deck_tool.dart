@@ -9,6 +9,7 @@ import 'package:amiludo/layers/technical/Theme/components/playing_card.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_focus.dart';
 
 class DeckTool extends StatefulWidget {
   const DeckTool({super.key, this.random});
@@ -103,7 +104,9 @@ class _DeckToolState extends State<DeckTool> {
           label: Text(l.deckRecycle),
         ),
         TextButton(
-          onPressed: deck.hand.isEmpty ? null : () => _apply(deck.discardHand()),
+          onPressed: deck.hand.isEmpty
+              ? null
+              : () => _apply(deck.discardHand()),
           child: Text(l.deckDiscardHand),
         ),
       ],
@@ -142,8 +145,8 @@ class _DeckToolState extends State<DeckTool> {
     final width = (MediaQuery.sizeOf(context).width * .5).clamp(140.0, 220.0);
     return Align(
       alignment: Alignment.topCenter,
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 560),
+      child: ToolFocus(
+        baseWidth: 560,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

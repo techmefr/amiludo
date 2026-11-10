@@ -16,6 +16,7 @@ import 'package:amiludo/layers/functional/Random/presentation/tool_config_menu.d
 import 'package:amiludo/layers/functional/Random/presentation/character_tool.dart';
 import 'package:amiludo/layers/functional/Random/presentation/character_library.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_focus.dart';
 
 class ToolPage extends StatefulWidget {
   const ToolPage({
@@ -99,10 +100,13 @@ class _ToolPageState extends State<ToolPage> {
                   pack: current,
                   names: names,
                 ),
-        'teams' => TeamsTool(
-          names: names,
-          lobbyNames: context.read<RandomCubit>().lobbyNames,
-          haptics: ws.appearance.haptics,
+        'teams' => ToolFocus(
+          baseWidth: 640,
+          child: TeamsTool(
+            names: names,
+            lobbyNames: context.read<RandomCubit>().lobbyNames,
+            haptics: ws.appearance.haptics,
+          ),
         ),
         'picker' => FingerTool(
           names: names,

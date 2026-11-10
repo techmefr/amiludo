@@ -7,12 +7,10 @@ import 'package:amiludo/layers/technical/Theme/components/tool_texture.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_focus.dart';
 
 class AmbienceTool extends StatefulWidget {
-  const AmbienceTool({
-    super.key,
-    this.output = const SilentAmbientOutput(),
-  });
+  const AmbienceTool({super.key, this.output = const SilentAmbientOutput()});
   final AmbientOutput output;
 
   @override
@@ -120,8 +118,8 @@ class _AmbienceToolState extends State<AmbienceTool> {
   @override
   Widget build(BuildContext context) => Align(
     alignment: Alignment.topCenter,
-    child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 520),
+    child: ToolFocus(
+      baseWidth: 520,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
