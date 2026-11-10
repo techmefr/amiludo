@@ -6097,7 +6097,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get toolCardPacksTitle => 'Packs de cartes';
 
   @override
-  String get toolCardPacksSubtitle => 'Les joueurs ouvrent des packs et gardent des cartes pour créer leur personnage.';
+  String get toolCardPacksSubtitle =>
+      'Les joueurs ouvrent des packs et gardent des cartes pour créer leur personnage.';
 
   @override
   String get cpTabSetup => 'Réglages';
@@ -6112,7 +6113,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get cpTemplate => 'Modèle de pack';
 
   @override
-  String get cpNoTemplate => 'Installez un pack de personnage pour lancer une session.';
+  String get cpNoTemplate =>
+      'Installez un pack de personnage pour lancer une session.';
 
   @override
   String get cpFreeMode => 'Libre : toutes les cartes de l\'univers';
@@ -6177,13 +6179,16 @@ class AppLocalizationsFr extends AppLocalizations {
   String get cpIssueNoDecks => 'Activez au moins un paquet.';
 
   @override
-  String get cpIssuePoolTooSmall => 'Un paquet a trop peu de cartes pour ces packs.';
+  String get cpIssuePoolTooSmall =>
+      'Un paquet a trop peu de cartes pour ces packs.';
 
   @override
-  String get cpIssueKeepAbovePack => 'Garder plus de cartes qu\'une catégorie n\'en propose.';
+  String get cpIssueKeepAbovePack =>
+      'Garder plus de cartes qu\'une catégorie n\'en propose.';
 
   @override
-  String get cpIssueKeepInvalid => 'La plage de cartes gardées n\'est pas valide.';
+  String get cpIssueKeepInvalid =>
+      'La plage de cartes gardées n\'est pas valide.';
 
   @override
   String cpOpenPack(String name) {
@@ -6252,7 +6257,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get cpSaved => 'Enregistré';
 
   @override
-  String get cpBoardHidden => 'Masqué tant que tout le monde n\'a pas ouvert ses packs';
+  String get cpBoardHidden =>
+      'Masqué tant que tout le monde n\'a pas ouvert ses packs';
 
   @override
   String cpBoardProgress(int opened, int total) {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Files/file_transfer.dart';
 import 'package:amiludo/layers/functional/Game/presentation/cubit/game_cubit.dart';
@@ -53,21 +54,21 @@ class GameScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(child: board),
-                    const SizedBox(width: 24),
+                    const SizedBox(width: Space.xl),
                     SizedBox(width: 280, child: timer(context)),
                   ],
                 )
               : Column(
                   children: [
                     board,
-                    const SizedBox(height: 24),
+                    const SizedBox(height: Space.xl),
                     if (g.finishedAt == null) timer(context),
                   ],
                 ),
         ),
         if (g.finishedAt != null)
           Padding(
-            padding: const EdgeInsets.only(top: 24),
+            padding: const EdgeInsets.only(top: Space.xl),
             child: FilledButton(
               onPressed: () => context.push(
                 GameSetupRequest.path,
@@ -110,7 +111,7 @@ class _Objective extends StatelessWidget {
     final g = game;
     final team = g.players.fold<double>(0, (sum, p) => sum + g.score(p.id));
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.only(bottom: Space.lg),
       child: DeckPanel(
         highlight: g.objectiveReached,
         padding: 16,
@@ -143,7 +144,7 @@ class _GameToolbar extends StatelessWidget {
     final controller = context.read<GameCubit>();
     final reverse = context.select<GameCubit, bool>((c) => c.state.reverse);
     return Padding(
-      padding: const EdgeInsets.only(bottom: 24),
+      padding: const EdgeInsets.only(bottom: Space.xl),
       child: Row(
         children: [
           OutlinedButton.icon(
@@ -151,7 +152,7 @@ class _GameToolbar extends StatelessWidget {
             icon: const DeckIcon(Icons.skip_next_outlined, size: 18),
             label: Text(context.l10n.gameNextRound),
           ),
-          const SizedBox(width: 8),
+          const SizedBox(width: Space.sm),
           MenuAnchor(
             builder: (context, menu, _) => IconButton(
               tooltip: context.l10n.gameMoreActions,

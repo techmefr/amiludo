@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/functional/Account/presentation/cubit/account_cubit.dart';
 import 'package:amiludo/layers/functional/Account/presentation/sign_in_link_panel.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
@@ -54,7 +55,7 @@ class _AccountFormState extends State<AccountForm> {
           selected: {creating},
           onSelectionChanged: (v) => setState(() => creating = v.first),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: Space.lg),
         if (creating)
           TextField(
             controller: name,
@@ -82,7 +83,7 @@ class _AccountFormState extends State<AccountForm> {
           ),
           onSubmitted: (_) => _submit(),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: Space.lg),
         FilledButton(
           onPressed: widget.busy ? null : _submit,
           child: Text(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Game/presentation/cubit/game_cubit.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
@@ -51,7 +52,7 @@ class PlayerTrackers extends StatelessWidget {
           _Counter(player: player, name: e.key, value: e.value, active: active),
         if (known.isNotEmpty)
           Padding(
-            padding: const EdgeInsets.only(top: 8),
+            padding: const EdgeInsets.only(top: Space.sm),
             child: Wrap(
               spacing: 6,
               runSpacing: 6,

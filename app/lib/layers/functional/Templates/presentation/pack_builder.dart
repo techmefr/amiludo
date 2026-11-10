@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/type_roles.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates_cubit.dart';
@@ -361,11 +363,11 @@ class _PackBuilderState extends State<PackBuilder> {
           ),
           Text(
             '${context.l10n.templatesStep} ${stage + 1} / ${stages.length} · ${_stageLabel(stages[stage])}',
-            style: Theme.of(context).textTheme.titleLarge,
+            style: TypeRoles.sectionTitle(context),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: Space.md),
           LinearProgressIndicator(value: (stage + 1) / stages.length),
-          const SizedBox(height: 24),
+          const SizedBox(height: Space.xl),
           _stage(),
           _StageNavigation(
             last: stages[stage] == BuilderStage.summary,
@@ -412,7 +414,7 @@ class _StageNavigation extends StatelessWidget {
         ),
       if (error != null)
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16),
+          padding: const EdgeInsets.symmetric(vertical: Space.lg),
           child: Text(
             error!,
             style: TextStyle(color: Theme.of(context).colorScheme.error),

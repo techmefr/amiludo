@@ -6082,7 +6082,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get toolCardPacksTitle => 'Sobres de cartas';
 
   @override
-  String get toolCardPacksSubtitle => 'Los jugadores abren sobres y se quedan cartas para crear su personaje.';
+  String get toolCardPacksSubtitle =>
+      'Los jugadores abren sobres y se quedan cartas para crear su personaje.';
 
   @override
   String get cpTabSetup => 'Ajustes';
@@ -6097,7 +6098,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get cpTemplate => 'Plantilla de pack';
 
   @override
-  String get cpNoTemplate => 'Instala un pack de personaje para iniciar una sesión.';
+  String get cpNoTemplate =>
+      'Instala un pack de personaje para iniciar una sesión.';
 
   @override
   String get cpFreeMode => 'Libre: todas las cartas del universo';
@@ -6162,13 +6164,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get cpIssueNoDecks => 'Activa al menos un mazo.';
 
   @override
-  String get cpIssuePoolTooSmall => 'Un mazo tiene muy pocas cartas para estos sobres.';
+  String get cpIssuePoolTooSmall =>
+      'Un mazo tiene muy pocas cartas para estos sobres.';
 
   @override
-  String get cpIssueKeepAbovePack => 'Conservar más cartas de las que ofrece una categoría.';
+  String get cpIssueKeepAbovePack =>
+      'Conservar más cartas de las que ofrece una categoría.';
 
   @override
-  String get cpIssueKeepInvalid => 'El rango de cartas conservadas no es válido.';
+  String get cpIssueKeepInvalid =>
+      'El rango de cartas conservadas no es válido.';
 
   @override
   String cpOpenPack(String name) {

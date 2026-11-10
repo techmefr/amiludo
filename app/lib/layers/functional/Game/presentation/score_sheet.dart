@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/type_roles.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/functional/Game/presentation/cubit/game_cubit.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/pack_components.dart';
@@ -90,7 +92,7 @@ class _ScoreSheetState extends State<ScoreSheet> {
     ScoreRule r,
     Map<String, double> totals,
   ) => Padding(
-    padding: const EdgeInsets.only(bottom: 20),
+    padding: const EdgeInsets.only(bottom: Space.lg),
     child: TextField(
       controller: input[r.name],
       keyboardType: const TextInputType.numberWithOptions(
@@ -153,11 +155,11 @@ class _SheetIntro extends StatelessWidget {
     children: [
       Text(
         '${context.l10n.gameRound} $round',
-        style: Theme.of(context).textTheme.headlineSmall,
+        style: TypeRoles.sectionTitle(context),
       ),
-      const SizedBox(height: 12),
+      const SizedBox(height: Space.md),
       Text(context.l10n.gameEnterTheFinalQuantitiesFilled),
-      const SizedBox(height: 24),
+      const SizedBox(height: Space.xl),
       if (free) Text(context.l10n.gameThisTemplateUsesFreeScores),
     ],
   );
