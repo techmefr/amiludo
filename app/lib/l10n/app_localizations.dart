@@ -11215,6 +11215,294 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Randomize'**
   String get avatarRandomize;
+
+  /// No description provided for @toolCardPacksTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Card packs'**
+  String get toolCardPacksTitle;
+
+  /// No description provided for @toolCardPacksSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Players open packs and keep cards to build their character.'**
+  String get toolCardPacksSubtitle;
+
+  /// No description provided for @cpTabSetup.
+  ///
+  /// In en, this message translates to:
+  /// **'Setup'**
+  String get cpTabSetup;
+
+  /// No description provided for @cpTabPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Play'**
+  String get cpTabPlay;
+
+  /// No description provided for @cpTabBoard.
+  ///
+  /// In en, this message translates to:
+  /// **'Board'**
+  String get cpTabBoard;
+
+  /// No description provided for @cpTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'Pack template'**
+  String get cpTemplate;
+
+  /// No description provided for @cpNoTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'Install a character pack to start a session.'**
+  String get cpNoTemplate;
+
+  /// No description provided for @cpFreeMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Free: every card of the universe'**
+  String get cpFreeMode;
+
+  /// No description provided for @cpDeckCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}: {n} cards'**
+  String cpDeckCount(String name, int n);
+
+  /// No description provided for @cpCardsPerPack.
+  ///
+  /// In en, this message translates to:
+  /// **'Cards per pack: {n}'**
+  String cpCardsPerPack(int n);
+
+  /// No description provided for @cpPacksPerPlayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Packs per category: {n}'**
+  String cpPacksPerPlayer(int n);
+
+  /// No description provided for @cpKeepMin.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep at least: {n}'**
+  String cpKeepMin(int n);
+
+  /// No description provided for @cpKeepMax.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep at most: {n}'**
+  String cpKeepMax(int n);
+
+  /// No description provided for @cpRerolls.
+  ///
+  /// In en, this message translates to:
+  /// **'Rerolls: {n}'**
+  String cpRerolls(int n);
+
+  /// No description provided for @cpDuplicates.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow duplicates'**
+  String get cpDuplicates;
+
+  /// No description provided for @cpRevealLive.
+  ///
+  /// In en, this message translates to:
+  /// **'Live reveal on the board'**
+  String get cpRevealLive;
+
+  /// No description provided for @cpPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Players'**
+  String get cpPlayers;
+
+  /// No description provided for @cpPlayerName.
+  ///
+  /// In en, this message translates to:
+  /// **'Player {n}'**
+  String cpPlayerName(int n);
+
+  /// No description provided for @cpAddPlayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a player'**
+  String get cpAddPlayer;
+
+  /// No description provided for @cpStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start the session'**
+  String get cpStart;
+
+  /// No description provided for @cpEnd.
+  ///
+  /// In en, this message translates to:
+  /// **'End the session'**
+  String get cpEnd;
+
+  /// No description provided for @cpIssueNoPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Add at least one player.'**
+  String get cpIssueNoPlayers;
+
+  /// No description provided for @cpIssueNoDecks.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable at least one deck.'**
+  String get cpIssueNoDecks;
+
+  /// No description provided for @cpIssuePoolTooSmall.
+  ///
+  /// In en, this message translates to:
+  /// **'A deck has too few cards for these packs.'**
+  String get cpIssuePoolTooSmall;
+
+  /// No description provided for @cpIssueKeepAbovePack.
+  ///
+  /// In en, this message translates to:
+  /// **'Keeping more cards than a category offers.'**
+  String get cpIssueKeepAbovePack;
+
+  /// No description provided for @cpIssueKeepInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'The keep range is not valid.'**
+  String get cpIssueKeepInvalid;
+
+  /// No description provided for @cpOpenPack.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the {name} pack'**
+  String cpOpenPack(String name);
+
+  /// No description provided for @cpTapCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a card to reveal it'**
+  String get cpTapCard;
+
+  /// No description provided for @cpKeptCounter.
+  ///
+  /// In en, this message translates to:
+  /// **'{category}: {kept} / {max} kept'**
+  String cpKeptCounter(String category, int kept, int max);
+
+  /// No description provided for @cpMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} more to keep'**
+  String cpMissing(int n);
+
+  /// No description provided for @cpOpenAllFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Open every pack first'**
+  String get cpOpenAllFirst;
+
+  /// No description provided for @cpValidate.
+  ///
+  /// In en, this message translates to:
+  /// **'Validate my cards'**
+  String get cpValidate;
+
+  /// No description provided for @cpReroll.
+  ///
+  /// In en, this message translates to:
+  /// **'Reroll this pack ({n} left)'**
+  String cpReroll(int n);
+
+  /// No description provided for @cpPassPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Pass the phone to {name}'**
+  String cpPassPhone(String name);
+
+  /// No description provided for @cpRarityCommon.
+  ///
+  /// In en, this message translates to:
+  /// **'Common'**
+  String get cpRarityCommon;
+
+  /// No description provided for @cpRarityRare.
+  ///
+  /// In en, this message translates to:
+  /// **'Rare'**
+  String get cpRarityRare;
+
+  /// No description provided for @cpRarityHolo.
+  ///
+  /// In en, this message translates to:
+  /// **'Holo'**
+  String get cpRarityHolo;
+
+  /// No description provided for @cpRarityUltra.
+  ///
+  /// In en, this message translates to:
+  /// **'Ultra'**
+  String get cpRarityUltra;
+
+  /// No description provided for @cpKeptState.
+  ///
+  /// In en, this message translates to:
+  /// **'Kept'**
+  String get cpKeptState;
+
+  /// No description provided for @cpDiscardedState.
+  ///
+  /// In en, this message translates to:
+  /// **'Not kept'**
+  String get cpDiscardedState;
+
+  /// No description provided for @cpSheetTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}'s character'**
+  String cpSheetTitle(String name);
+
+  /// No description provided for @cpShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Share the sheet'**
+  String get cpShare;
+
+  /// No description provided for @cpSaveSheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Save to my characters'**
+  String get cpSaveSheet;
+
+  /// No description provided for @cpSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved'**
+  String get cpSaved;
+
+  /// No description provided for @cpBoardHidden.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden until everyone has opened their packs'**
+  String get cpBoardHidden;
+
+  /// No description provided for @cpBoardProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{opened} / {total} packs opened'**
+  String cpBoardProgress(int opened, int total);
+
+  /// No description provided for @cpBoardKept.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} cards kept'**
+  String cpBoardKept(int n);
+
+  /// No description provided for @cpNoSession.
+  ///
+  /// In en, this message translates to:
+  /// **'No session yet. Set one up first.'**
+  String get cpNoSession;
 }
 
 class _AppLocalizationsDelegate

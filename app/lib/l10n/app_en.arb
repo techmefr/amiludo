@@ -2738,5 +2738,170 @@
       }
     }
   },
-  "avatarRandomize": "Randomize"
+  "avatarRandomize": "Randomize",
+  "toolCardPacksTitle": "Card packs",
+  "toolCardPacksSubtitle": "Players open packs and keep cards to build their character.",
+  "cpTabSetup": "Setup",
+  "cpTabPlay": "Play",
+  "cpTabBoard": "Board",
+  "cpTemplate": "Pack template",
+  "cpNoTemplate": "Install a character pack to start a session.",
+  "cpFreeMode": "Free: every card of the universe",
+  "cpDeckCount": "{name}: {n} cards",
+  "@cpDeckCount": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "cpCardsPerPack": "Cards per pack: {n}",
+  "@cpCardsPerPack": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "cpPacksPerPlayer": "Packs per category: {n}",
+  "@cpPacksPerPlayer": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "cpKeepMin": "Keep at least: {n}",
+  "@cpKeepMin": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "cpKeepMax": "Keep at most: {n}",
+  "@cpKeepMax": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "cpRerolls": "Rerolls: {n}",
+  "@cpRerolls": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "cpDuplicates": "Allow duplicates",
+  "cpRevealLive": "Live reveal on the board",
+  "cpPlayers": "Players",
+  "cpPlayerName": "Player {n}",
+  "@cpPlayerName": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "cpAddPlayer": "Add a player",
+  "cpStart": "Start the session",
+  "cpEnd": "End the session",
+  "cpIssueNoPlayers": "Add at least one player.",
+  "cpIssueNoDecks": "Enable at least one deck.",
+  "cpIssuePoolTooSmall": "A deck has too few cards for these packs.",
+  "cpIssueKeepAbovePack": "Keeping more cards than a category offers.",
+  "cpIssueKeepInvalid": "The keep range is not valid.",
+  "cpOpenPack": "Open the {name} pack",
+  "@cpOpenPack": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "cpTapCard": "Tap a card to reveal it",
+  "cpKeptCounter": "{category}: {kept} / {max} kept",
+  "@cpKeptCounter": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      },
+      "kept": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "cpMissing": "{n} more to keep",
+  "@cpMissing": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "cpOpenAllFirst": "Open every pack first",
+  "cpValidate": "Validate my cards",
+  "cpReroll": "Reroll this pack ({n} left)",
+  "@cpReroll": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "cpPassPhone": "Pass the phone to {name}",
+  "@cpPassPhone": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "cpRarityCommon": "Common",
+  "cpRarityRare": "Rare",
+  "cpRarityHolo": "Holo",
+  "cpRarityUltra": "Ultra",
+  "cpKeptState": "Kept",
+  "cpDiscardedState": "Not kept",
+  "cpSheetTitle": "{name}'s character",
+  "@cpSheetTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "cpShare": "Share the sheet",
+  "cpSaveSheet": "Save to my characters",
+  "cpSaved": "Saved",
+  "cpBoardHidden": "Hidden until everyone has opened their packs",
+  "cpBoardProgress": "{opened} / {total} packs opened",
+  "@cpBoardProgress": {
+    "placeholders": {
+      "opened": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "cpBoardKept": "{n} cards kept",
+  "@cpBoardKept": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "cpNoSession": "No session yet. Set one up first."
 }

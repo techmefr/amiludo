@@ -6092,4 +6092,178 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get avatarRandomize => 'Zufällig';
+
+  @override
+  String get toolCardPacksTitle => 'Kartenpacks';
+
+  @override
+  String get toolCardPacksSubtitle => 'Die Spieler öffnen Packs und behalten Karten für ihre Figur.';
+
+  @override
+  String get cpTabSetup => 'Setup';
+
+  @override
+  String get cpTabPlay => 'Spiel';
+
+  @override
+  String get cpTabBoard => 'Übersicht';
+
+  @override
+  String get cpTemplate => 'Pack-Vorlage';
+
+  @override
+  String get cpNoTemplate => 'Installiere ein Figurenpack, um eine Sitzung zu starten.';
+
+  @override
+  String get cpFreeMode => 'Frei: alle Karten des Universums';
+
+  @override
+  String cpDeckCount(String name, int n) {
+    return '$name: $n Karten';
+  }
+
+  @override
+  String cpCardsPerPack(int n) {
+    return 'Karten pro Pack: $n';
+  }
+
+  @override
+  String cpPacksPerPlayer(int n) {
+    return 'Packs pro Kategorie: $n';
+  }
+
+  @override
+  String cpKeepMin(int n) {
+    return 'Mindestens behalten: $n';
+  }
+
+  @override
+  String cpKeepMax(int n) {
+    return 'Höchstens behalten: $n';
+  }
+
+  @override
+  String cpRerolls(int n) {
+    return 'Neuwürfe: $n';
+  }
+
+  @override
+  String get cpDuplicates => 'Duplikate erlauben';
+
+  @override
+  String get cpRevealLive => 'Live-Aufdeckung in der Übersicht';
+
+  @override
+  String get cpPlayers => 'Spieler';
+
+  @override
+  String cpPlayerName(int n) {
+    return 'Spieler $n';
+  }
+
+  @override
+  String get cpAddPlayer => 'Spieler hinzufügen';
+
+  @override
+  String get cpStart => 'Sitzung starten';
+
+  @override
+  String get cpEnd => 'Sitzung beenden';
+
+  @override
+  String get cpIssueNoPlayers => 'Füge mindestens einen Spieler hinzu.';
+
+  @override
+  String get cpIssueNoDecks => 'Aktiviere mindestens ein Deck.';
+
+  @override
+  String get cpIssuePoolTooSmall => 'Ein Deck hat zu wenige Karten für diese Packs.';
+
+  @override
+  String get cpIssueKeepAbovePack => 'Mehr Karten behalten als eine Kategorie bietet.';
+
+  @override
+  String get cpIssueKeepInvalid => 'Der Bereich der behaltenen Karten ist ungültig.';
+
+  @override
+  String cpOpenPack(String name) {
+    return 'Pack $name öffnen';
+  }
+
+  @override
+  String get cpTapCard => 'Tippe auf eine Karte zum Aufdecken';
+
+  @override
+  String cpKeptCounter(String category, int kept, int max) {
+    return '$category: $kept / $max behalten';
+  }
+
+  @override
+  String cpMissing(int n) {
+    return 'Noch $n zu behalten';
+  }
+
+  @override
+  String get cpOpenAllFirst => 'Öffne zuerst alle Packs';
+
+  @override
+  String get cpValidate => 'Meine Karten bestätigen';
+
+  @override
+  String cpReroll(int n) {
+    return 'Pack neu würfeln ($n übrig)';
+  }
+
+  @override
+  String cpPassPhone(String name) {
+    return 'Gib das Handy an $name';
+  }
+
+  @override
+  String get cpRarityCommon => 'Gewöhnlich';
+
+  @override
+  String get cpRarityRare => 'Selten';
+
+  @override
+  String get cpRarityHolo => 'Holo';
+
+  @override
+  String get cpRarityUltra => 'Ultra';
+
+  @override
+  String get cpKeptState => 'Behalten';
+
+  @override
+  String get cpDiscardedState => 'Nicht behalten';
+
+  @override
+  String cpSheetTitle(String name) {
+    return 'Figur von $name';
+  }
+
+  @override
+  String get cpShare => 'Bogen teilen';
+
+  @override
+  String get cpSaveSheet => 'In meinen Figuren speichern';
+
+  @override
+  String get cpSaved => 'Gespeichert';
+
+  @override
+  String get cpBoardHidden => 'Verborgen, bis alle ihre Packs geöffnet haben';
+
+  @override
+  String cpBoardProgress(int opened, int total) {
+    return '$opened / $total Packs geöffnet';
+  }
+
+  @override
+  String cpBoardKept(int n) {
+    return '$n Karten behalten';
+  }
+
+  @override
+  String get cpNoSession => 'Noch keine Sitzung. Richte zuerst eine ein.';
 }

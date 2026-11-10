@@ -6081,4 +6081,178 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get avatarRandomize => 'Willekeurig';
+
+  @override
+  String get toolCardPacksTitle => 'Kaartpakketten';
+
+  @override
+  String get toolCardPacksSubtitle => 'Spelers openen pakketten en houden kaarten om hun personage te maken.';
+
+  @override
+  String get cpTabSetup => 'Instellingen';
+
+  @override
+  String get cpTabPlay => 'Spelen';
+
+  @override
+  String get cpTabBoard => 'Overzicht';
+
+  @override
+  String get cpTemplate => 'Pakketsjabloon';
+
+  @override
+  String get cpNoTemplate => 'Installeer een personagepakket om een sessie te starten.';
+
+  @override
+  String get cpFreeMode => 'Vrij: alle kaarten van het universum';
+
+  @override
+  String cpDeckCount(String name, int n) {
+    return '$name: $n kaarten';
+  }
+
+  @override
+  String cpCardsPerPack(int n) {
+    return 'Kaarten per pakket: $n';
+  }
+
+  @override
+  String cpPacksPerPlayer(int n) {
+    return 'Pakketten per categorie: $n';
+  }
+
+  @override
+  String cpKeepMin(int n) {
+    return 'Minstens houden: $n';
+  }
+
+  @override
+  String cpKeepMax(int n) {
+    return 'Maximaal houden: $n';
+  }
+
+  @override
+  String cpRerolls(int n) {
+    return 'Herworpen: $n';
+  }
+
+  @override
+  String get cpDuplicates => 'Dubbele kaarten toestaan';
+
+  @override
+  String get cpRevealLive => 'Live onthulling op het overzicht';
+
+  @override
+  String get cpPlayers => 'Spelers';
+
+  @override
+  String cpPlayerName(int n) {
+    return 'Speler $n';
+  }
+
+  @override
+  String get cpAddPlayer => 'Speler toevoegen';
+
+  @override
+  String get cpStart => 'Sessie starten';
+
+  @override
+  String get cpEnd => 'Sessie beëindigen';
+
+  @override
+  String get cpIssueNoPlayers => 'Voeg minstens één speler toe.';
+
+  @override
+  String get cpIssueNoDecks => 'Schakel minstens één deck in.';
+
+  @override
+  String get cpIssuePoolTooSmall => 'Een deck heeft te weinig kaarten voor deze pakketten.';
+
+  @override
+  String get cpIssueKeepAbovePack => 'Meer kaarten houden dan een categorie biedt.';
+
+  @override
+  String get cpIssueKeepInvalid => 'Het bereik van te houden kaarten is ongeldig.';
+
+  @override
+  String cpOpenPack(String name) {
+    return 'Pakket $name openen';
+  }
+
+  @override
+  String get cpTapCard => 'Tik op een kaart om te onthullen';
+
+  @override
+  String cpKeptCounter(String category, int kept, int max) {
+    return '$category: $kept / $max gehouden';
+  }
+
+  @override
+  String cpMissing(int n) {
+    return 'Nog $n te houden';
+  }
+
+  @override
+  String get cpOpenAllFirst => 'Open eerst alle pakketten';
+
+  @override
+  String get cpValidate => 'Mijn kaarten bevestigen';
+
+  @override
+  String cpReroll(int n) {
+    return 'Dit pakket herwerpen ($n over)';
+  }
+
+  @override
+  String cpPassPhone(String name) {
+    return 'Geef de telefoon aan $name';
+  }
+
+  @override
+  String get cpRarityCommon => 'Gewoon';
+
+  @override
+  String get cpRarityRare => 'Zeldzaam';
+
+  @override
+  String get cpRarityHolo => 'Holo';
+
+  @override
+  String get cpRarityUltra => 'Ultra';
+
+  @override
+  String get cpKeptState => 'Gehouden';
+
+  @override
+  String get cpDiscardedState => 'Niet gehouden';
+
+  @override
+  String cpSheetTitle(String name) {
+    return 'Personage van $name';
+  }
+
+  @override
+  String get cpShare => 'Blad delen';
+
+  @override
+  String get cpSaveSheet => 'Opslaan bij mijn personages';
+
+  @override
+  String get cpSaved => 'Opgeslagen';
+
+  @override
+  String get cpBoardHidden => 'Verborgen tot iedereen zijn pakketten heeft geopend';
+
+  @override
+  String cpBoardProgress(int opened, int total) {
+    return '$opened / $total pakketten geopend';
+  }
+
+  @override
+  String cpBoardKept(int n) {
+    return '$n kaarten gehouden';
+  }
+
+  @override
+  String get cpNoSession => 'Nog geen sessie. Stel er eerst een in.';
 }

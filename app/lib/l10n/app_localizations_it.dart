@@ -6082,4 +6082,178 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get avatarRandomize => 'Casuale';
+
+  @override
+  String get toolCardPacksTitle => 'Pacchetti di carte';
+
+  @override
+  String get toolCardPacksSubtitle => 'I giocatori aprono pacchetti e tengono carte per creare il personaggio.';
+
+  @override
+  String get cpTabSetup => 'Impostazioni';
+
+  @override
+  String get cpTabPlay => 'Gioco';
+
+  @override
+  String get cpTabBoard => 'Tabellone';
+
+  @override
+  String get cpTemplate => 'Modello di pacchetto';
+
+  @override
+  String get cpNoTemplate => 'Installa un pacchetto personaggio per avviare una sessione.';
+
+  @override
+  String get cpFreeMode => 'Libero: tutte le carte dell\'universo';
+
+  @override
+  String cpDeckCount(String name, int n) {
+    return '$name: $n carte';
+  }
+
+  @override
+  String cpCardsPerPack(int n) {
+    return 'Carte per pacchetto: $n';
+  }
+
+  @override
+  String cpPacksPerPlayer(int n) {
+    return 'Pacchetti per categoria: $n';
+  }
+
+  @override
+  String cpKeepMin(int n) {
+    return 'Tenere almeno: $n';
+  }
+
+  @override
+  String cpKeepMax(int n) {
+    return 'Tenere al massimo: $n';
+  }
+
+  @override
+  String cpRerolls(int n) {
+    return 'Rilanci: $n';
+  }
+
+  @override
+  String get cpDuplicates => 'Consenti duplicati';
+
+  @override
+  String get cpRevealLive => 'Rivelazione in diretta sul tabellone';
+
+  @override
+  String get cpPlayers => 'Giocatori';
+
+  @override
+  String cpPlayerName(int n) {
+    return 'Giocatore $n';
+  }
+
+  @override
+  String get cpAddPlayer => 'Aggiungi un giocatore';
+
+  @override
+  String get cpStart => 'Avvia la sessione';
+
+  @override
+  String get cpEnd => 'Termina la sessione';
+
+  @override
+  String get cpIssueNoPlayers => 'Aggiungi almeno un giocatore.';
+
+  @override
+  String get cpIssueNoDecks => 'Attiva almeno un mazzo.';
+
+  @override
+  String get cpIssuePoolTooSmall => 'Un mazzo ha troppe poche carte per questi pacchetti.';
+
+  @override
+  String get cpIssueKeepAbovePack => 'Tenere più carte di quante ne offra una categoria.';
+
+  @override
+  String get cpIssueKeepInvalid => 'L\'intervallo di carte tenute non è valido.';
+
+  @override
+  String cpOpenPack(String name) {
+    return 'Apri il pacchetto $name';
+  }
+
+  @override
+  String get cpTapCard => 'Tocca una carta per rivelarla';
+
+  @override
+  String cpKeptCounter(String category, int kept, int max) {
+    return '$category: $kept / $max tenute';
+  }
+
+  @override
+  String cpMissing(int n) {
+    return 'Ancora $n da tenere';
+  }
+
+  @override
+  String get cpOpenAllFirst => 'Apri prima tutti i pacchetti';
+
+  @override
+  String get cpValidate => 'Convalida le mie carte';
+
+  @override
+  String cpReroll(int n) {
+    return 'Rilancia questo pacchetto ($n rimasti)';
+  }
+
+  @override
+  String cpPassPhone(String name) {
+    return 'Passa il telefono a $name';
+  }
+
+  @override
+  String get cpRarityCommon => 'Comune';
+
+  @override
+  String get cpRarityRare => 'Rara';
+
+  @override
+  String get cpRarityHolo => 'Olo';
+
+  @override
+  String get cpRarityUltra => 'Ultra';
+
+  @override
+  String get cpKeptState => 'Tenuta';
+
+  @override
+  String get cpDiscardedState => 'Non tenuta';
+
+  @override
+  String cpSheetTitle(String name) {
+    return 'Personaggio di $name';
+  }
+
+  @override
+  String get cpShare => 'Condividi la scheda';
+
+  @override
+  String get cpSaveSheet => 'Salva nei miei personaggi';
+
+  @override
+  String get cpSaved => 'Salvato';
+
+  @override
+  String get cpBoardHidden => 'Nascosto finché tutti non aprono i pacchetti';
+
+  @override
+  String cpBoardProgress(int opened, int total) {
+    return '$opened / $total pacchetti aperti';
+  }
+
+  @override
+  String cpBoardKept(int n) {
+    return '$n carte tenute';
+  }
+
+  @override
+  String get cpNoSession => 'Nessuna sessione. Impostane una prima.';
 }
