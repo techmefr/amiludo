@@ -24,9 +24,8 @@ class GameCover extends StatelessWidget {
       child: Center(
         child: Text(
           game.name.characters.firstOrNull?.toUpperCase() ?? '',
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-            color: ink,
-          ),
+          style: Theme.of(context).textTheme.headlineMedium
+              ?.copyWith(color: ink),
         ),
       ),
     );

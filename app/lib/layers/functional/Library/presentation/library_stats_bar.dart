@@ -21,7 +21,9 @@ class LibraryStatsBar extends StatelessWidget {
     runSpacing: 8,
     children: [
       Chip(
-        label: Text('${context.l10n.libraryStatsPlayed} · ${stats.played.length}'),
+        label: Text(
+          '${context.l10n.libraryStatsPlayed} · ${stats.played.length}',
+        ),
       ),
       FilterChip(
         label: Text(
