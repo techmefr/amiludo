@@ -106,11 +106,9 @@ void main() {
       host(
         s.cubit,
         Scaffold(
-          body: SingleChildScrollView(
-            child: DiceTrayPage(
-              solid: true,
-              onChanged: (value) => settings = value,
-            ),
+          body: DiceTrayPage(
+            solid: true,
+            onChanged: (value) => settings = value,
           ),
         ),
       ),
@@ -118,7 +116,10 @@ void main() {
     await tester.ensureVisible(find.text('Add a die'));
     await tester.tap(find.text('Add a die'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('New die'));
+    expect(find.text('New die'), findsOneWidget);
+    final customize = find.byTooltip('Edit die · d8');
+    await tester.ensureVisible(customize);
+    await tester.tap(customize);
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField).first, 'My die');
     final editFace = find.bySemanticsLabel('Edit face 1');
@@ -138,6 +139,7 @@ void main() {
     await tester.pumpAndSettle();
     final saved = s.library.current.designs.single;
     expect(saved.name, 'My die');
+    expect(saved.sides, 8);
     expect(saved.faces.first.value, 'Moon');
     expect(settings?.dice.last.design?.id, saved.id);
     expect(tester.takeException(), isNull);

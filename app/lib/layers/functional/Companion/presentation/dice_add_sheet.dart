@@ -75,23 +75,34 @@ class _DiceAddListState extends State<DiceAddList> {
     if (at >= 0) change([...dice]..removeAt(at));
   }
 
-  Future<void> edit(DieDesign? design) async {
+  Future<void> edit(DieDesign? design, {bool addOnSave = false}) async {
     final saved = await widget.onEdit?.call(design);
     if (!mounted || saved == null) return;
     final spec = DiceSpec.fromDesign(saved);
-    if (design == null) {
+    if (design == null || addOnSave) {
       add(spec);
     } else if (dice.any((d) => d.design?.id == saved.id)) {
       change([for (final d in dice) d.design?.id == saved.id ? spec : d]);
     }
   }
 
-  Widget row(String label, DiceSpec spec, bool Function(DiceSpec) match) {
+  Widget row(
+    String label,
+    DiceSpec spec,
+    bool Function(DiceSpec) match, {
+    VoidCallback? customize,
+  }) {
     final l = context.l10n;
     final count = countOf(match);
     return Row(
       children: [
         Expanded(child: Text(label)),
+        if (widget.onEdit != null && customize != null)
+          IconButton(
+            tooltip: '${l.diceEdit} · $label',
+            onPressed: customize,
+            icon: const Icon(Icons.edit_outlined),
+          ),
         IconButton(
           tooltip: l.diceTrayRemoveDie,
           onPressed: count == 0 ? null : () => remove(match),
@@ -136,6 +147,12 @@ class _DiceAddListState extends State<DiceAddList> {
             'd$sides',
             DiceSpec(sides: sides),
             (d) => d.sides == sides && !d.custom && d.design == null,
+            customize: dice.length >= maxTrayDice
+                ? null
+                : () => edit(
+                    DieDesign.standard(dieId(), 'd$sides', sides),
+                    addOnSave: true,
+                  ),
           ),
         const SizedBox(height: Space.md),
         Text(l.diceMoreDice, style: Theme.of(context).textTheme.labelLarge),
@@ -180,7 +197,12 @@ class _DiceAddListState extends State<DiceAddList> {
           const SizedBox(height: Space.md),
           Text(l.diceMyDice, style: Theme.of(context).textTheme.labelLarge),
           for (final d in library)
-            row(d.name, DiceSpec.fromDesign(d), (s) => s.design?.id == d.id),
+            row(
+              d.name,
+              DiceSpec.fromDesign(d),
+              (s) => s.design?.id == d.id,
+              customize: () => edit(d),
+            ),
         ],
         const SizedBox(height: Space.lg),
       ],
