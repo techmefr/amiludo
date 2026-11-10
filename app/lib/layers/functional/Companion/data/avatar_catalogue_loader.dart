@@ -7,5 +7,6 @@ Future<AvatarCatalogue> loadAvatarCatalogue([AssetBundle? bundle]) async {
   return AvatarCatalogue.decode(
     await source.loadString('assets/avatar/items.json'),
     await source.loadString('assets/avatar/palettes.json'),
+    await source.loadString('assets/avatar/rig.json'),
   );
 }
