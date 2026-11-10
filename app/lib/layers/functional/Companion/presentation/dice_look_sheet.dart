@@ -8,6 +8,7 @@ import 'package:amiludo/layers/technical/Dice3D/table_theme.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/deck_sheet.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 Future<void> showDiceLookSheet(
   BuildContext context, {
@@ -84,7 +85,7 @@ class _DiceLookPickerState extends State<DiceLookPicker> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(Radii.md),
             border: Border.all(
-              color: selected ? scheme.primary : scheme.outlineVariant,
+              color: selected ? scheme.accentInk : scheme.outlineVariant,
               width: selected ? 2 : 1,
             ),
           ),

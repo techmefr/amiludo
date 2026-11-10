@@ -8,6 +8,7 @@ import 'package:amiludo/layers/functional/Campaign/presentation/mission_texts.da
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class MissionReward extends StatelessWidget {
   const MissionReward({
@@ -36,7 +37,7 @@ class MissionReward extends StatelessWidget {
                 DeckIcon(
                   missionBadgeIcon(mission.id),
                   size: TypeScale.display,
-                  color: theme.colorScheme.primary,
+                  color: theme.colorScheme.accentInk,
                 ),
                 const SizedBox(width: Space.lg),
                 Expanded(

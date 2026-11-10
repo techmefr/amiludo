@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Notebook/domain/entities/entry_links.dart';
 import 'package:amiludo/layers/functional/Notebook/domain/entities/notebook_entry.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class LinkedText extends StatefulWidget {
   const LinkedText({
@@ -39,7 +40,7 @@ class _LinkedTextState extends State<LinkedText> {
     }
     _recognizers.clear();
     final link = base.copyWith(
-      color: Theme.of(context).colorScheme.primary,
+      color: Theme.of(context).colorScheme.accentText,
       decoration: TextDecoration.underline,
     );
     return [

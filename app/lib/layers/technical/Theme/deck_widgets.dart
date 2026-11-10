@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Theme/deck_theme.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class DeckPanel extends StatelessWidget {
   const DeckPanel({
@@ -24,7 +25,7 @@ class DeckPanel extends StatelessWidget {
     return Material(
       color: color ?? theme.colorScheme.surface,
       shape: style.border(
-        highlight ? theme.colorScheme.primary : theme.colorScheme.outline,
+        highlight ? theme.colorScheme.accentInk : theme.colorScheme.outline,
         strong: highlight,
       ),
       clipBehavior: Clip.antiAlias,
@@ -71,7 +72,7 @@ class DeckHeading extends StatelessWidget {
                     style: theme.textTheme.labelMedium?.copyWith(
                       fontWeight: FontWeight.w700,
                       letterSpacing: 1.2,
-                      color: theme.colorScheme.primary,
+                      color: theme.colorScheme.accentText,
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -81,9 +82,7 @@ class DeckHeading extends StatelessWidget {
                     Text(
                       subtitle,
                       style: theme.textTheme.bodyLarge?.copyWith(
-                        color: theme.colorScheme.onSurface.withValues(
-                          alpha: .78,
-                        ),
+                        color: theme.colorScheme.onSurfaceVariant,
                       ),
                     ),
                   ],
@@ -181,7 +180,7 @@ class EmptyPanel extends StatelessWidget {
               DeckIcon(
                 icon,
                 size: 48,
-                color: Theme.of(context).colorScheme.primary,
+                color: Theme.of(context).colorScheme.accentInk,
               )
             else
               Image.asset(
@@ -191,7 +190,7 @@ class EmptyPanel extends StatelessWidget {
                 errorBuilder: (context, error, stack) => DeckIcon(
                   icon,
                   size: 48,
-                  color: Theme.of(context).colorScheme.primary,
+                  color: Theme.of(context).colorScheme.accentInk,
                 ),
               ),
             const SizedBox(height: 20),

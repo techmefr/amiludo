@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class SwitcherItem {
   const SwitcherItem({
@@ -113,7 +114,7 @@ class ToolSwitcherSheet extends StatelessWidget {
                             : scheme.surfaceContainerHighest,
                         borderRadius: BorderRadius.circular(Radii.lg),
                         border: i == current
-                            ? Border.all(color: scheme.primary, width: 2)
+                            ? Border.all(color: scheme.accentInk, width: 2)
                             : null,
                       ),
                       child: Column(

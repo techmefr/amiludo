@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 const appVersion = '0.4.0-alpha.1';
 const projectUrl = 'https://github.com/techmefr/amiludo';
@@ -56,7 +57,7 @@ void showProjectInfo(BuildContext context) => showAboutDialog(
   applicationIcon: DeckIcon(
     Icons.diamond_outlined,
     size: 40,
-    color: Theme.of(context).colorScheme.primary,
+    color: Theme.of(context).colorScheme.accentInk,
   ),
   children: [
     const SizedBox(height: 16),

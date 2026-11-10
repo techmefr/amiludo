@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Theme/deck_style.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class HudBar extends StatelessWidget {
   const HudBar({super.key, required this.value, required this.label});
@@ -21,7 +22,7 @@ class HudBar extends StatelessWidget {
         height: Space.xl,
         decoration: ShapeDecoration(
           color: scheme.surface,
-          shape: style.border(scheme.primary),
+          shape: style.border(scheme.accentInk),
           shadows: style.glow == null
               ? null
               : [BoxShadow(color: style.glow!, blurRadius: Space.sm)],
@@ -37,7 +38,7 @@ class HudBar extends StatelessWidget {
               heightFactor: 1,
               duration: Motion.of(context, Motion.base),
               curve: Motion.curve,
-              child: ColoredBox(color: scheme.primary),
+              child: ColoredBox(color: scheme.accentInk),
             ),
           ),
         ),

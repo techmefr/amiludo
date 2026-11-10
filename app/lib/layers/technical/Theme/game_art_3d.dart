@@ -50,7 +50,7 @@ abstract final class GameCardStyle {
     'dice-tray' ||
     'cards' ||
     'deck' ||
-    'roles' => const Color(0xff7650DB),
+    'roles' => const Color(0xff6E4ACC),
     'picker' ||
     'first-player' ||
     'character' ||
@@ -61,7 +61,7 @@ abstract final class GameCardStyle {
     'timer' || 'time' || 'hourglass' || 'coin' => const Color(0xffF4C958),
     'wheel' => const Color(0xffDE8BB6),
     'order' => const Color(0xff9B8AE8),
-    _ => const Color(0xff7650DB),
+    _ => const Color(0xff6E4ACC),
   };
   static Color foreground(Color background) =>
       1.05 / (highlight(background).computeLuminance() + .05) >= 4.5

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class AvatarColorRow extends StatelessWidget {
   const AvatarColorRow({
@@ -38,7 +39,7 @@ class AvatarColorRow extends StatelessWidget {
                   border: Border.all(
                     width: (selected ?? colors.first) == c ? 3 : 1,
                     color: (selected ?? colors.first) == c
-                        ? scheme.primary
+                        ? scheme.accentInk
                         : scheme.outlineVariant,
                   ),
                 ),

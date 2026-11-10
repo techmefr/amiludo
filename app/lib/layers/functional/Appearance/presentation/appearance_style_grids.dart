@@ -7,6 +7,7 @@ import 'package:amiludo/layers/technical/Theme/components/hud_bar.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/functional/Appearance/presentation/cubit/appearance_cubit.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class AppearanceSkinGrid extends StatelessWidget {
   const AppearanceSkinGrid({
@@ -118,7 +119,7 @@ class _SkinCard extends StatelessWidget {
               ? Icons.shield_outlined
               : Icons.auto_stories_outlined,
           size: 36,
-          color: theme.colorScheme.primary,
+          color: theme.colorScheme.accentInk,
         ),
         const SizedBox(height: 16),
         Text(name, style: theme.textTheme.titleLarge),

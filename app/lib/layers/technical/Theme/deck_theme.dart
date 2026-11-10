@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Appearance/appearance.dart';
 import 'package:amiludo/layers/technical/Theme/clean/clean_theme.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 import 'package:amiludo/layers/technical/Theme/deck_component_themes.dart';
 import 'package:amiludo/layers/technical/Theme/deck_palette.dart';
 import 'package:amiludo/layers/technical/Theme/deck_style.dart';
+import 'package:amiludo/layers/technical/Theme/surface_tokens.dart';
 
 export 'package:amiludo/layers/technical/Theme/deck_palette.dart';
 export 'package:amiludo/layers/technical/Theme/deck_style.dart';
@@ -23,6 +25,10 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
       hero = Color(dark ? p.darkHero : p.hero),
       surface = Color.lerp(background, ink, .035)!;
   final border = game ? accent : Color.lerp(background, ink, .22)!;
+  final control = [surface, background].fold(
+    border,
+    (kept, ground) => ensureContrast(kept, ground, minimum: aaLarge),
+  );
   final heading = appearance.skin == 'cyber'
       ? 'ChakraPetch'
       : appearance.skin == 'orbital' || game
@@ -37,12 +43,10 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
     glow: game ? accent.withValues(alpha: .6) : null,
     skin: appearance.skin,
   );
-  final scheme = ColorScheme.fromSeed(seedColor: accent, brightness: mode)
+  final seeded = ColorScheme.fromSeed(seedColor: accent, brightness: mode)
       .copyWith(
         primary: accent,
-        onPrimary: appearance.palette == 'play' && !dark
-            ? Colors.white
-            : Color(p.darkBackground),
+        onPrimary: onColorFor(accent, dark: Color(p.darkBackground)),
         secondary: hero,
         onSecondary: ink,
         surface: surface,
@@ -50,6 +54,12 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
         outline: border,
         surfaceContainerHighest: hero,
       );
+  final scheme = withSurfaceTokens(
+    seeded,
+    background: background,
+    ink: ink,
+    hero: hero,
+  );
   final base = _deckBase(appearance, mode, scheme, background);
   final scale = appearance.large ? 1.15 : 1.0;
   final themed = ['cyber', 'orbital', 'game'].contains(appearance.skin);
@@ -63,6 +73,7 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
   final text = base.textTheme.apply(bodyColor: ink, displayColor: ink);
   return base.copyWith(
     extensions: [style],
+    hintColor: scheme.onSurfaceVariant,
     textTheme: deckDeckTextTheme(text, heading, scale, themed),
     dividerColor: border,
     appBarTheme: AppBarTheme(
@@ -75,10 +86,10 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
       style,
       buttonText,
       ink,
-      border,
+      control,
     ),
     textButtonTheme: deckTextButtonTheme(dark ? accent : ink, buttonText),
-    inputDecorationTheme: deckInputTheme(appearance, surface, border),
+    inputDecorationTheme: deckInputTheme(appearance, surface, control),
     navigationBarTheme: deckNavigationBarTheme(appearance, background, hero),
     dialogTheme: DialogThemeData(
       backgroundColor: surface,
@@ -86,6 +97,11 @@ ThemeData deckTheme(Appearance appearance, Brightness brightness) {
     ),
     snackBarTheme: deckSnackBarTheme(appearance, ink, background),
     chipTheme: deckChipTheme(base.chipTheme, appearance, border),
+    bannerTheme: MaterialBannerThemeData(
+      backgroundColor: scheme.surfaceContainerHigh,
+      contentTextStyle: text.bodyMedium,
+      dividerColor: border,
+    ),
     cardTheme: CardThemeData(
       color: surface,
       shape: style.border(border),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class Bookshelf extends StatelessWidget {
   const Bookshelf({super.key, required this.games, required this.onOpen});
@@ -102,7 +103,7 @@ class GameSpine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = Color(game.color);
-    final ink = color.computeLuminance() > .45 ? Colors.black : Colors.white;
+    final ink = onColorFor(color, dark: Colors.black);
     return Semantics(
       button: true,
       label: game.name,

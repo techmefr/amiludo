@@ -7,6 +7,7 @@ import 'package:amiludo/layers/functional/Campaign/presentation/mission_texts.da
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class BadgeStrip extends StatelessWidget {
   const BadgeStrip({super.key, required this.progress});
@@ -30,7 +31,7 @@ class BadgeStrip extends StatelessWidget {
           Chip(
             avatar: DeckIcon(
               missionBadgeIcon(mission.id),
-              color: scheme.primary,
+              color: scheme.accentInk,
             ),
             label: Text(missionTexts(l, mission.id).badge),
           ),

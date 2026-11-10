@@ -5,6 +5,7 @@ import 'package:amiludo/layers/technical/Dice3D/table_theme.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_backdrop.dart';
 import 'package:amiludo/layers/technical/Physics/surface_material.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 const double _depth = 0.0009;
 const double _lean = 0.36;
@@ -37,27 +38,31 @@ class TrayTable extends StatelessWidget {
           behavior: HitTestBehavior.opaque,
           onTap: onTap,
           onPanEnd: onPanEnd,
-          child: solid
-              ? Stack(
-                  children: [
-                    Positioned.fill(child: ColoredBox(color: table.rim)),
-                    Transform(
-                      alignment: Alignment.bottomCenter,
-                      transform: Matrix4.identity()
-                        ..setEntry(3, 2, _depth)
-                        ..rotateX(-_lean),
-                      child: Stack(
-                        children: [
-                          Positioned.fill(
-                            child: CustomPaint(painter: TablePainter(table)),
-                          ),
-                          ...children,
-                        ],
+          child: Semantics(
+            button: true,
+            label: context.l10n.toolDiceTrayTitle,
+            child: solid
+                ? Stack(
+                    children: [
+                      Positioned.fill(child: ColoredBox(color: table.rim)),
+                      Transform(
+                        alignment: Alignment.bottomCenter,
+                        transform: Matrix4.identity()
+                          ..setEntry(3, 2, _depth)
+                          ..rotateX(-_lean),
+                        child: Stack(
+                          children: [
+                            Positioned.fill(
+                              child: CustomPaint(painter: TablePainter(table)),
+                            ),
+                            ...children,
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                )
-              : Stack(children: [trayFelt(material, solid), ...children]),
+                    ],
+                  )
+                : Stack(children: [trayFelt(material, solid), ...children]),
+          ),
         ),
       ),
     );

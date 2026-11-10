@@ -6,6 +6,7 @@ import 'package:amiludo/layers/functional/Campaign/presentation/mission_texts.da
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class MissionCard extends StatelessWidget {
   const MissionCard({
@@ -58,7 +59,7 @@ class MissionCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                DeckIcon(trailing, color: theme.colorScheme.primary),
+                DeckIcon(trailing, color: theme.colorScheme.accentInk),
               ],
             ),
           ),

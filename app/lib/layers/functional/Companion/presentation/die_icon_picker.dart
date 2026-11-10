@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/icon_catalog.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class DieIconPicker extends StatefulWidget {
   const DieIconPicker({
@@ -58,7 +59,7 @@ class _DieIconPickerState extends State<DieIconPicker> {
                           borderRadius: BorderRadius.circular(Radii.sm),
                           border: Border.all(
                             color: id == widget.selected
-                                ? scheme.primary
+                                ? scheme.accentInk
                                 : scheme.outlineVariant,
                             width: id == widget.selected ? 2 : 1,
                           ),

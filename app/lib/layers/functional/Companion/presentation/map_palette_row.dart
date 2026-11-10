@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/map_board.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 const mapSwatchSize = 28.0;
 
@@ -39,7 +40,7 @@ class MapPaletteRow extends StatelessWidget {
                       shape: BoxShape.circle,
                       border: Border.all(
                         color: mapPalette[i] == selected
-                            ? scheme.primary
+                            ? scheme.accentInk
                             : scheme.outlineVariant,
                         width: mapPalette[i] == selected ? 3 : 1,
                       ),

@@ -96,28 +96,32 @@ class _CoinToolState extends State<CoinTool> {
       );
       return GestureDetector(
         onTap: flip,
-        child: Container(
-          height: height,
-          decoration: BoxDecoration(
-            color: scheme.surfaceContainerHighest,
-            borderRadius: BorderRadius.circular(Radii.lg),
-          ),
-          child: Wrap(
-            alignment: WrapAlignment.center,
-            crossAxisAlignment: WrapCrossAlignment.end,
-            runAlignment: WrapAlignment.center,
-            spacing: Space.md,
-            children: [
-              for (var i = 0; i < count; i++)
-                CoinFlip(
-                  key: ValueKey('coin-$i'),
-                  heads: i < results.length ? results[i] : null,
-                  flipId: flipId,
-                  size: size,
-                  height: height / (count > 3 ? 2 : 1) - Space.md,
-                  onLanded: land,
-                ),
-            ],
+        child: Semantics(
+          button: true,
+          label: context.l10n.toolCoinTitle,
+          child: Container(
+            height: height,
+            decoration: BoxDecoration(
+              color: scheme.surfaceContainerHighest,
+              borderRadius: BorderRadius.circular(Radii.lg),
+            ),
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.end,
+              runAlignment: WrapAlignment.center,
+              spacing: Space.md,
+              children: [
+                for (var i = 0; i < count; i++)
+                  CoinFlip(
+                    key: ValueKey('coin-$i'),
+                    heads: i < results.length ? results[i] : null,
+                    flipId: flipId,
+                    size: size,
+                    height: height / (count > 3 ? 2 : 1) - Space.md,
+                    onLanded: land,
+                  ),
+              ],
+            ),
           ),
         ),
       );
