@@ -162,6 +162,15 @@ void main() {
     expect(c.itemsFor('outfit').any((i) => i.id.contains('calves')), isFalse);
   });
 
+  test('multi-piece sheets are never offered nor drawn', () {
+    final c = shipped();
+    final ids = [for (final s in c.slots) ...c.itemsFor(s).map((i) => i.id)];
+    for (final id in ['hair.hairstyles-1', 'hair.hairstyles-2', 'head.heads-base-grey-wide-ears-1']) {
+      expect(ids, isNot(contains(id)));
+    }
+    expect(ids, contains('hair.hairstyles-3'));
+  });
+
   test('without a rig the catalogue keeps its legacy behaviour', () {
     final c = shipped(rig: false);
     expect(c.slots.contains('implant'), isTrue);
