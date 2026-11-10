@@ -1078,6 +1078,7 @@
   "diceTrayKeepHint": "Tap a die to keep it aside.",
   "diceTrayKept": "Kept aside",
   "diceTrayAddDie": "Add a die",
+  "diceTrayConfigure": "Configure",
   "diceTrayRemoveDie": "Remove this die",
   "diceTrayCustomFaces": "Custom faces, comma-separated",
   "diceTrayCustomDie": "Custom die",

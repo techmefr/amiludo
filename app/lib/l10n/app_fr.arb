@@ -854,6 +854,7 @@
   "diceTrayKeepHint": "Touchez un dé pour le garder de côté.",
   "diceTrayKept": "Gardé de côté",
   "diceTrayAddDie": "Ajouter un dé",
+  "diceTrayConfigure": "Configurer",
   "diceTrayRemoveDie": "Retirer ce dé",
   "diceTrayCustomFaces": "Faces personnalisées, séparées par des virgules",
   "diceTrayCustomDie": "Dé personnalisé",

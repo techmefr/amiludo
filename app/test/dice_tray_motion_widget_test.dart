@@ -8,21 +8,24 @@ import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_surfa
 import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
 import 'package:amiludo/layers/technical/Sound/sound_output.dart';
 
-Widget host(Widget child, {bool reduced = false}) => MaterialApp(
-  locale: const Locale('en'),
-  localizationsDelegates: AppLocalizations.localizationsDelegates,
-  supportedLocales: AppLocalizations.supportedLocales,
-  builder: (context, app) => MediaQuery(
-    data: MediaQuery.of(context).copyWith(disableAnimations: reduced),
-    child: app!,
-  ),
-  home: Scaffold(
-    body: SingleChildScrollView(
-      padding: const EdgeInsets.all(20),
-      child: child,
-    ),
-  ),
-);
+Widget host(Widget child, {bool reduced = false, bool fullscreen = false}) =>
+    MaterialApp(
+      locale: const Locale('en'),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      builder: (context, app) => MediaQuery(
+        data: MediaQuery.of(context).copyWith(disableAnimations: reduced),
+        child: app!,
+      ),
+      home: Scaffold(
+        body: fullscreen
+            ? child
+            : SingleChildScrollView(
+                padding: const EdgeInsets.all(20),
+                child: child,
+              ),
+      ),
+    );
 
 Future<void> settleDice(WidgetTester tester) async {
   for (var i = 0; i < 700; i++) {
@@ -122,6 +125,56 @@ void main() {
       greaterThan(tester.getTopRight(scene).dx),
     );
     expect(results, hasLength(1));
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('fullscreen 3D rolls on tap and keeps only two controls', (
+    tester,
+  ) async {
+    const portrait = Size(320, 568);
+    useSize(tester, portrait);
+    final motion = ManualTrayMotion();
+    addTearDown(motion.close);
+    final results = <int>[];
+    await tester.pumpWidget(
+      host(
+        DiceTrayPage(
+          solid: true,
+          seed: 7,
+          motion: motion,
+          requestMotionAccess: () async => true,
+          onSettled: results.add,
+        ),
+        reduced: true,
+        fullscreen: true,
+      ),
+    );
+
+    final stage = find.byType(DiceSceneLayers);
+    expect(tester.getSize(stage).width, portrait.width);
+    expect(tester.getSize(stage).height, greaterThan(portrait.height * .8));
+    expect(find.text('Throw'), findsNothing);
+    expect(find.text('Configure'), findsOneWidget);
+    expect(find.text('Add a die'), findsOneWidget);
+    expect(find.text('Motion sensors'), findsNothing);
+
+    await tester.tap(stage);
+    await tester.pumpAndSettle();
+    expect(results, hasLength(1));
+    final before = tester.widget<DiceSceneLayers>(stage).session.values;
+
+    tester.view.physicalSize = const Size(568, 320);
+    await tester.pumpAndSettle();
+    expect(tester.getSize(stage).width, 568);
+    expect(tester.widget<DiceSceneLayers>(stage).session.values, before);
+
+    await tester.tap(find.text('Configure'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Motion sensors'));
+    await tester.pumpAndSettle();
+    motion.throwWith(1);
+    await tester.pumpAndSettle();
+    expect(results, hasLength(2));
     expect(tester.takeException(), isNull);
   });
 

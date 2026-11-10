@@ -152,12 +152,16 @@ class _ToolPageState extends State<ToolPage> {
     final id = widget.id == 'dice' ? 'dice-tray' : widget.id;
     final shelf = toolShelves.where((s) => s.tools.contains(id)).firstOrNull;
     final toolMenu =
-        shelf != null && shelf.id != 'time' && shelf.tools.length > 1
+        shelf != null &&
+            shelf.id != 'time' &&
+            widget.id != 'dice-tray' &&
+            shelf.tools.length > 1
         ? ToolSwitchMenu(id: id, shelf: shelf)
         : null;
     final fallback = shelf == null ? '/tools' : '/tools?category=${shelf.id}';
     if (const {
       'picker',
+      'dice-tray',
       'map',
       'worldmap',
       'hourglass',

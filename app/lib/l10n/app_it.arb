@@ -854,6 +854,7 @@
   "diceTrayKeepHint": "Tocca un dado per tenerlo da parte.",
   "diceTrayKept": "Tenuto da parte",
   "diceTrayAddDie": "Aggiungi un dado",
+  "diceTrayConfigure": "Configura",
   "diceTrayRemoveDie": "Rimuovi questo dado",
   "diceTrayCustomFaces": "Facce personalizzate, separate da virgole",
   "diceTrayCustomDie": "Dado personalizzato",

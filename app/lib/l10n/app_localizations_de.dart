@@ -2796,6 +2796,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get diceTrayAddDie => 'Würfel hinzufügen';
 
   @override
+  String get diceTrayConfigure => 'Konfigurieren';
+
+  @override
   String get diceTrayRemoveDie => 'Diesen Würfel entfernen';
 
   @override

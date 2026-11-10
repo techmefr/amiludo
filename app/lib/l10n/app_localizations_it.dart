@@ -2791,6 +2791,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get diceTrayAddDie => 'Aggiungi un dado';
 
   @override
+  String get diceTrayConfigure => 'Configura';
+
+  @override
   String get diceTrayRemoveDie => 'Rimuovi questo dado';
 
   @override

@@ -854,6 +854,7 @@
   "diceTrayKeepHint": "Tippe auf einen Würfel, um ihn beiseitezulegen.",
   "diceTrayKept": "Beiseitegelegt",
   "diceTrayAddDie": "Würfel hinzufügen",
+  "diceTrayConfigure": "Konfigurieren",
   "diceTrayRemoveDie": "Diesen Würfel entfernen",
   "diceTrayCustomFaces": "Eigene Seiten, durch Kommas getrennt",
   "diceTrayCustomDie": "Eigener Würfel",

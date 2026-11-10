@@ -4,6 +4,9 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.da
 import 'package:amiludo/layers/functional/Companion/domain/entities/tray_result.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_add_sheet.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_look_sheet.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/dice_view_toggle.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/tray_history_sheet.dart';
+import 'package:amiludo/layers/technical/Theme/components/deck_sheet.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_bottom_bar.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_result_view.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
@@ -27,10 +30,15 @@ class Dice3dPanel extends StatelessWidget {
     this.onClear,
     this.onFavorite,
     this.showShakeHint = false,
+    this.fullscreen = false,
+    this.onView,
+    this.onMotionAccess,
   });
   final DiceTraySession session;
   final Widget stage;
-  final bool showShakeHint;
+  final bool showShakeHint, fullscreen;
+  final ValueChanged<bool>? onView;
+  final VoidCallback? onMotionAccess;
   final String skin, table;
   final ValueChanged<DiceTraySettings> onConfigure;
   final VoidCallback onThrow;
@@ -40,9 +48,91 @@ class Dice3dPanel extends StatelessWidget {
   final VoidCallback? onClear;
   final ValueChanged<String>? onFavorite;
 
+  void _add(BuildContext context) => showDiceAddSheet(
+    context,
+    session.settings,
+    onConfigure,
+    onFavorite: onFavorite,
+  );
+
+  void _configure(BuildContext context) {
+    final l = context.l10n;
+    showDeckSheet<void>(
+      context: context,
+      title: l.diceTrayConfigure,
+      builder: (sheet) => Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (onView != null)
+            Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: DiceViewToggle(
+                solid: true,
+                onChanged: (solid) {
+                  if (solid) return;
+                  Navigator.pop(sheet);
+                  onView!(solid);
+                },
+              ),
+            ),
+          if (onMotionAccess != null)
+            ListTile(
+              leading: const Icon(Icons.vibration),
+              title: Text(l.appearanceMotionSensors),
+              onTap: () {
+                onMotionAccess!();
+                Navigator.pop(sheet);
+              },
+            ),
+          if (session.history.isNotEmpty)
+            ListTile(
+              leading: const Icon(Icons.history),
+              title: Text(l.diceTrayHistory),
+              onTap: () => showTrayHistorySheet(context, session),
+            ),
+          DiceLookPicker(
+            skin: skin,
+            table: table,
+            onSkin: onSkin,
+            onTable: onTable,
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
-  Widget build(BuildContext context) =>
-      PhysicalToolLayout(stage: stage, controls: buildControls(context));
+  Widget build(BuildContext context) {
+    if (!fullscreen) {
+      return PhysicalToolLayout(stage: stage, controls: buildControls(context));
+    }
+    final l = context.l10n;
+    return Column(
+      children: [
+        Expanded(child: stage),
+        Padding(
+          padding: const EdgeInsets.all(Space.sm),
+          child: Wrap(
+            alignment: WrapAlignment.center,
+            spacing: Space.sm,
+            children: [
+              OutlinedButton.icon(
+                onPressed: () => _configure(context),
+                icon: const Icon(Icons.tune),
+                label: Text(l.diceTrayConfigure),
+              ),
+              FilledButton.icon(
+                onPressed: () => _add(context),
+                icon: const Icon(Icons.add),
+                label: Text(l.diceTrayAddDie),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
 
   Widget buildControls(BuildContext context) {
     final l = context.l10n;
@@ -69,12 +159,7 @@ class Dice3dPanel extends StatelessWidget {
         TrayResultView(session: session, mode: mode, onMode: onMode),
         TrayBottomBar(
           session: session,
-          onAdd: () => showDiceAddSheet(
-            context,
-            session.settings,
-            onConfigure,
-            onFavorite: onFavorite,
-          ),
+          onAdd: () => _add(context),
           onClear: onClear,
           onLook: () => showDiceLookSheet(
             context,

@@ -854,6 +854,7 @@
   "diceTrayKeepHint": "Toque num dado para o guardar de lado.",
   "diceTrayKept": "Guardado de lado",
   "diceTrayAddDie": "Adicionar um dado",
+  "diceTrayConfigure": "Configurar",
   "diceTrayRemoveDie": "Remover este dado",
   "diceTrayCustomFaces": "Faces personalizadas, separadas por vírgulas",
   "diceTrayCustomDie": "Dado personalizado",

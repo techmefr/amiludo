@@ -5192,6 +5192,12 @@ abstract class AppLocalizations {
   /// **'Add a die'**
   String get diceTrayAddDie;
 
+  /// No description provided for @diceTrayConfigure.
+  ///
+  /// In en, this message translates to:
+  /// **'Configure'**
+  String get diceTrayConfigure;
+
   /// No description provided for @diceTrayRemoveDie.
   ///
   /// In en, this message translates to:

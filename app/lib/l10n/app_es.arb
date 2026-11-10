@@ -854,6 +854,7 @@
   "diceTrayKeepHint": "Toca un dado para apartarlo.",
   "diceTrayKept": "Apartado",
   "diceTrayAddDie": "Añadir un dado",
+  "diceTrayConfigure": "Configurar",
   "diceTrayRemoveDie": "Quitar este dado",
   "diceTrayCustomFaces": "Caras personalizadas, separadas por comas",
   "diceTrayCustomDie": "Dado personalizado",

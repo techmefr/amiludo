@@ -854,6 +854,7 @@
   "diceTrayKeepHint": "Tik op een dobbelsteen om hem opzij te leggen.",
   "diceTrayKept": "Opzijgelegd",
   "diceTrayAddDie": "Dobbelsteen toevoegen",
+  "diceTrayConfigure": "Instellen",
   "diceTrayRemoveDie": "Deze dobbelsteen verwijderen",
   "diceTrayCustomFaces": "Eigen zijden, gescheiden door komma’s",
   "diceTrayCustomDie": "Eigen dobbelsteen",

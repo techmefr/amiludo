@@ -2794,6 +2794,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get diceTrayAddDie => 'Ajouter un dé';
 
   @override
+  String get diceTrayConfigure => 'Configurer';
+
+  @override
   String get diceTrayRemoveDie => 'Retirer ce dé';
 
   @override

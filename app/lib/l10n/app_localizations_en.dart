@@ -2770,6 +2770,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get diceTrayAddDie => 'Add a die';
 
   @override
+  String get diceTrayConfigure => 'Configure';
+
+  @override
   String get diceTrayRemoveDie => 'Remove this die';
 
   @override

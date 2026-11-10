@@ -2792,6 +2792,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get diceTrayAddDie => 'Dobbelsteen toevoegen';
 
   @override
+  String get diceTrayConfigure => 'Instellen';
+
+  @override
   String get diceTrayRemoveDie => 'Deze dobbelsteen verwijderen';
 
   @override

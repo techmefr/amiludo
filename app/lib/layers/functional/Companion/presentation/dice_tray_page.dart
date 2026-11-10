@@ -220,7 +220,8 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
     widget.onSolidChanged?.call(value);
   }
 
-  Widget stage() => TrayStage(
+  Widget stage({bool fill = false}) => TrayStage(
+    fill: fill,
     session: session,
     throwId: throwId,
     seed: seed,
@@ -243,31 +244,46 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
     onView: changeView,
   );
 
-  @override
-  Widget build(BuildContext context) {
-    final needsAccess = widget.requestMotionAccess != null && !motionAuthorized;
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        if (needsAccess)
-          Align(
-            child: TextButton.icon(
-              onPressed: requestingMotion ? null : authorizeMotion,
-              icon: const Icon(Icons.vibration),
-              label: Text(context.l10n.appearanceMotionSensors),
-            ),
-          ),
-        buildPanel(),
-      ],
-    );
-  }
+  bool get needsAccess =>
+      widget.requestMotionAccess != null && !motionAuthorized;
 
-  Widget buildPanel() {
+  @override
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, constraints) {
+      if (solid && constraints.hasBoundedHeight) {
+        return buildPanel(fullscreen: true);
+      }
+      final panel = Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (needsAccess)
+            Align(
+              child: TextButton.icon(
+                onPressed: requestingMotion ? null : authorizeMotion,
+                icon: const Icon(Icons.vibration),
+                label: Text(context.l10n.appearanceMotionSensors),
+              ),
+            ),
+          buildPanel(),
+        ],
+      );
+      return constraints.hasBoundedHeight
+          ? SingleChildScrollView(child: panel)
+          : panel;
+    },
+  );
+
+  Widget buildPanel({bool fullscreen = false}) {
     if (solid) {
       return Dice3dPanel(
         session: session,
-        stage: stage(),
+        stage: stage(fill: fullscreen),
+        fullscreen: fullscreen,
+        onView: changeView,
+        onMotionAccess: needsAccess && !requestingMotion
+            ? authorizeMotion
+            : null,
         skin: skin,
         table: table,
         onConfigure: configure,
