@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/type_roles.dart';
 import 'package:amiludo/layers/functional/Combat/domain/entities/combatant.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
@@ -139,7 +140,7 @@ class _CombatAddSheetState extends State<CombatAddSheet> {
                         : null,
                     icon: const Icon(Icons.remove),
                   ),
-                  Text('$count', style: Theme.of(context).textTheme.titleLarge),
+                  Text('$count', style: TypeRoles.sectionTitle(context)),
                   IconButton(
                     tooltip: l.combatMore,
                     onPressed: count < 20

@@ -6050,7 +6050,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolCardPacksTitle => 'Card packs';
 
   @override
-  String get toolCardPacksSubtitle => 'Players open packs and keep cards to build their character.';
+  String get toolCardPacksSubtitle =>
+      'Players open packs and keep cards to build their character.';
 
   @override
   String get cpTabSetup => 'Setup';
@@ -6133,7 +6134,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cpIssuePoolTooSmall => 'A deck has too few cards for these packs.';
 
   @override
-  String get cpIssueKeepAbovePack => 'Keeping more cards than a category offers.';
+  String get cpIssueKeepAbovePack =>
+      'Keeping more cards than a category offers.';
 
   @override
   String get cpIssueKeepInvalid => 'The keep range is not valid.';

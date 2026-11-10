@@ -6087,7 +6087,8 @@ class AppLocalizationsIt extends AppLocalizations {
   String get toolCardPacksTitle => 'Pacchetti di carte';
 
   @override
-  String get toolCardPacksSubtitle => 'I giocatori aprono pacchetti e tengono carte per creare il personaggio.';
+  String get toolCardPacksSubtitle =>
+      'I giocatori aprono pacchetti e tengono carte per creare il personaggio.';
 
   @override
   String get cpTabSetup => 'Impostazioni';
@@ -6102,7 +6103,8 @@ class AppLocalizationsIt extends AppLocalizations {
   String get cpTemplate => 'Modello di pacchetto';
 
   @override
-  String get cpNoTemplate => 'Installa un pacchetto personaggio per avviare una sessione.';
+  String get cpNoTemplate =>
+      'Installa un pacchetto personaggio per avviare una sessione.';
 
   @override
   String get cpFreeMode => 'Libero: tutte le carte dell\'universo';
@@ -6167,13 +6169,16 @@ class AppLocalizationsIt extends AppLocalizations {
   String get cpIssueNoDecks => 'Attiva almeno un mazzo.';
 
   @override
-  String get cpIssuePoolTooSmall => 'Un mazzo ha troppe poche carte per questi pacchetti.';
+  String get cpIssuePoolTooSmall =>
+      'Un mazzo ha troppe poche carte per questi pacchetti.';
 
   @override
-  String get cpIssueKeepAbovePack => 'Tenere più carte di quante ne offra una categoria.';
+  String get cpIssueKeepAbovePack =>
+      'Tenere più carte di quante ne offra una categoria.';
 
   @override
-  String get cpIssueKeepInvalid => 'L\'intervallo di carte tenute non è valido.';
+  String get cpIssueKeepInvalid =>
+      'L\'intervallo di carte tenute non è valido.';
 
   @override
   String cpOpenPack(String name) {
