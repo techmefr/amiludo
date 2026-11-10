@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/type_roles.dart';
 import 'package:amiludo/layers/functional/CardPacks/domain/entities/player_packs.dart';
 import 'package:amiludo/layers/functional/CardPacks/presentation/card_pack_labels.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
@@ -57,7 +58,7 @@ class _SheetViewState extends State<SheetView> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(category, style: theme.textTheme.labelLarge),
+          Text(category, style: TypeRoles.kicker(context)),
           for (final d in widget.player.keptCards(category))
             Padding(
               padding: const EdgeInsets.only(top: Space.xs),
@@ -106,7 +107,7 @@ class _SheetViewState extends State<SheetView> {
                 children: [
                   Text(
                     context.l10n.cpSheetTitle(widget.player.name),
-                    style: theme.textTheme.headlineSmall,
+                    style: TypeRoles.sectionTitle(context),
                   ),
                   Text(widget.template, style: theme.textTheme.bodySmall),
                   const SizedBox(height: Space.lg),

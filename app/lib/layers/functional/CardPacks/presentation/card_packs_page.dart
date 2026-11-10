@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/type_roles.dart';
 import 'package:amiludo/layers/functional/CardPacks/domain/entities/card_pack_session.dart';
 import 'package:amiludo/layers/functional/CardPacks/domain/entities/pack_rules.dart';
 import 'package:amiludo/layers/functional/CardPacks/presentation/board_view.dart';
@@ -102,7 +103,7 @@ class _CardPacksPageState extends State<CardPacksPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(session.template, style: Theme.of(context).textTheme.titleLarge),
+        Text(session.template, style: TypeRoles.sectionTitle(context)),
         const SizedBox(height: Space.lg),
         OutlinedButton(
           style: OutlinedButton.styleFrom(

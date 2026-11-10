@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/functional/Account/presentation/cubit/account_cubit.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
@@ -36,14 +37,14 @@ class _SignInLinkPanelState extends State<SignInLinkPanel> {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.stretch,
     children: [
-      const SizedBox(height: 8),
+      const SizedBox(height: Space.sm),
       OutlinedButton.icon(
         onPressed: widget.busy ? null : _send,
         icon: const Icon(Icons.mark_email_unread_outlined),
         label: Text(context.l10n.accountEmailMeASignIn),
       ),
       if (sent) ...[
-        const SizedBox(height: 12),
+        const SizedBox(height: Space.md),
         Text(context.l10n.accountOpenTheLinkOnThis),
         TextField(
           controller: code,
@@ -54,7 +55,7 @@ class _SignInLinkPanelState extends State<SignInLinkPanel> {
           ),
           onSubmitted: (_) => _verify(),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: Space.sm),
         FilledButton.tonal(
           onPressed: widget.busy ? null : _verify,
           child: Text(context.l10n.accountConfirmTheCode),

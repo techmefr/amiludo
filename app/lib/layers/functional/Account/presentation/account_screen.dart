@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/functional/Account/presentation/account_form.dart';
 import 'package:amiludo/layers/functional/Account/presentation/account_texts.dart';
 import 'package:amiludo/layers/functional/Account/presentation/cubit/account_cubit.dart';
@@ -80,7 +81,7 @@ class _NicknameState extends State<_Nickname> {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(context.l10n.accountTheNameFriendsSeeWhen),
-      const SizedBox(height: 12),
+      const SizedBox(height: Space.md),
       TextField(
         controller: name,
         maxLength: 40,

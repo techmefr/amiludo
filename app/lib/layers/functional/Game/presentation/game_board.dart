@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Game/presentation/cubit/game_cubit.dart';
 import 'package:amiludo/layers/functional/Game/presentation/player_panel.dart';
@@ -28,7 +29,7 @@ class _GameBoardState extends State<GameBoard> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (g.pack != null) _PackShortcuts(game: g),
-        const SizedBox(height: 16),
+        const SizedBox(height: Space.lg),
         Wrap(
           spacing: 8,
           runSpacing: 8,
@@ -41,7 +42,7 @@ class _GameBoardState extends State<GameBoard> {
               ),
           ],
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: Space.lg),
         ResponsiveGrid(
           minimumWidth: MediaQuery.sizeOf(context).width < 760 ? 150 : 280,
           children: [
@@ -49,7 +50,7 @@ class _GameBoardState extends State<GameBoard> {
               PlayerPanel(game: g, index: i, category: selected),
           ],
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: Space.lg),
         if (g.finishedAt == null) _TurnControls(game: g),
         _GameLog(game: g),
         _GameNotes(game: g),
@@ -128,7 +129,7 @@ class _GameLog extends StatelessWidget {
               Text(context.l10n.gameReadyForYourFirstMove),
             for (final e in game.appliedEntries.toList().reversed.take(8))
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 6),
+                padding: const EdgeInsets.symmetric(vertical: Space.sm),
                 child: Text(
                   '${game.players.firstWhere((p) => p.id == e.playerId).name} · ${e.value > 0 ? '+' : ''}${numberText(e.value)} / ${e.category} / M${e.round}',
                 ),

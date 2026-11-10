@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/functional/Account/domain/entities/account.dart';
 import 'package:amiludo/layers/functional/Account/presentation/cubit/account_cubit.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
@@ -54,7 +55,7 @@ class _SignedInPanelState extends State<SignedInPanel> {
           ),
           onSubmitted: (_) => _change(),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: Space.sm),
         Wrap(
           spacing: 8,
           runSpacing: 8,
