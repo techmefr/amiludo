@@ -1,9 +1,14 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 import 'package:amiludo/layers/functional/Random/presentation/coin_flip.dart';
+import 'package:amiludo/layers/functional/Random/presentation/coin_customization.dart';
+import 'package:amiludo/layers/functional/Companion/domain/entities/die_design.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/die_studio.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_bar_scope.dart';
 import 'package:amiludo/layers/functional/Random/presentation/count_stepper.dart';
 import 'package:amiludo/layers/technical/Feedback/deck_haptics.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
@@ -33,6 +38,17 @@ class _CoinToolState extends State<CoinTool> {
   StreamSubscription<double>? throws;
   int count = 1, flipId = 0, landed = 0;
   List<bool> results = [];
+  DieDesign? customized;
+  late final DieDesign? stored = DieStudio.maybeOf(context)?.state
+      .byId(coinDesignId);
+
+  DieDesign get design =>
+      customized ?? (stored?.sides == 2 ? stored! : defaultCoin(context));
+
+  Future<void> editFace(int side) async {
+    final edited = await customizeCoin(context, design, side);
+    if (mounted && edited != null) setState(() => customized = edited);
+  }
 
   @override
   void initState() {
@@ -74,25 +90,31 @@ class _CoinToolState extends State<CoinTool> {
 
   String summary(BuildContext context) {
     if (results.isEmpty || flying) return '';
-    final l = context.l10n;
-    if (results.length == 1) {
-      return results.first ? l.randomHeads : l.randomTails;
-    }
+    final front = coinSideLabel(context, design, 0);
+    final back = coinSideLabel(context, design, 1);
+    if (results.length == 1) return results.first ? front : back;
     final heads = results.where((r) => r).length;
-    return '$heads × ${l.randomHeads} · ${results.length - heads} × ${l.randomTails}';
+    return '$heads × $front · ${results.length - heads} × $back';
   }
 
   Widget stage(BuildContext context) => LayoutBuilder(
     builder: (context, box) {
       final scheme = Theme.of(context).colorScheme;
-      final height = (MediaQuery.sizeOf(context).height * .36).clamp(
-        220.0,
-        420.0,
+      final window = MediaQuery.sizeOf(context);
+      final height = (window.height * (window.height < 520 ? .48 : .52)).clamp(
+        140.0,
+        560.0,
       );
-      final stage = ToolStage.factor(context);
-      final size = (box.maxWidth / (count > 3 ? 3.6 : count + .6)).clamp(
-        72.0,
-        140.0 * stage,
+      final columns = math.min(
+        count,
+        math.max(1, (box.maxWidth / 100).floor()),
+      );
+      final rows = (count / columns).ceil();
+      final rowHeight = (height - (rows - 1) * Space.xs) / rows;
+      final cellWidth = (box.maxWidth - (columns - 1) * Space.md) / columns;
+      final size = math.min(
+        math.min(cellWidth, rowHeight * .76),
+        170 * ToolStage.factor(context),
       );
       return GestureDetector(
         onTap: flip,
@@ -110,6 +132,7 @@ class _CoinToolState extends State<CoinTool> {
               crossAxisAlignment: WrapCrossAlignment.end,
               runAlignment: WrapAlignment.center,
               spacing: Space.md,
+              runSpacing: Space.xs,
               children: [
                 for (var i = 0; i < count; i++)
                   CoinFlip(
@@ -117,7 +140,9 @@ class _CoinToolState extends State<CoinTool> {
                     heads: i < results.length ? results[i] : null,
                     flipId: flipId,
                     size: size,
-                    height: height / (count > 3 ? 2 : 1) - Space.md,
+                    height: rowHeight,
+                    front: customCoinFace(design, 0),
+                    back: customCoinFace(design, 1),
                     onLanded: land,
                   ),
               ],
@@ -132,10 +157,19 @@ class _CoinToolState extends State<CoinTool> {
   Widget build(BuildContext context) {
     final l = context.l10n;
     final text = summary(context);
+    final edit = CoinFaceMenu(
+      design: design,
+      onSelect: flying ? null : editFace,
+    );
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        if (DieStudio.maybeOf(context) != null)
+          TopBarSlot(
+            actions: [edit],
+            fallback: Align(alignment: Alignment.centerRight, child: edit),
+          ),
         CountStepper(
           label: l.coinCount,
           value: count,

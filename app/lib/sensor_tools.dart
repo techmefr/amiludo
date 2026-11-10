@@ -109,7 +109,9 @@ Widget hourglassWithSensors(BuildContext context) => _sensed(
 
 Widget coinWithSensors(BuildContext context) {
   final appearance = context.read<AppearanceCubit>().state.appearance;
-  return _sensed(
-    (level) => CoinTool(motion: _motion(level), haptics: appearance.haptics),
+  return DieStudioHost(
+    child: _sensed(
+      (level) => CoinTool(motion: _motion(level), haptics: appearance.haptics),
+    ),
   );
 }
