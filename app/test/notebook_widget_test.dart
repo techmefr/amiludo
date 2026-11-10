@@ -178,7 +178,7 @@ void main() {
         await tester.tap(find.byTooltip('Favorite'));
         await tester.pumpAndSettle();
         expect(h.gateway.current.campaigns.single.favorite, isTrue);
-        await tester.tap(find.byType(BackButton));
+        await tester.tap(find.byType(BackButtonIcon));
         await tester.pumpAndSettle();
         await tester.tap(find.byType(PopupMenuButton<CampaignAction>));
         await tester.pumpAndSettle();
@@ -226,6 +226,7 @@ void main() {
         await h.gateway.save(h.gateway.current.put(campaign));
         await tester.pumpWidget(h.app('/notebook/${campaign.id}'));
         await tester.pumpAndSettle();
+        await tester.ensureVisible(find.text('Entries'));
         await tester.tap(find.text('Entries'));
         await tester.pumpAndSettle();
         await tester.tap(find.text('New entry'));
@@ -255,6 +256,7 @@ void main() {
         await h.gateway.save(h.gateway.current.put(campaign));
         await tester.pumpWidget(h.app('/notebook/${campaign.id}'));
         await tester.pumpAndSettle();
+        await tester.ensureVisible(find.text('Oracle').first);
         await tester.tap(find.text('Oracle').first);
         await tester.pumpAndSettle();
         await tester.tap(find.text('Ask the oracle'));
@@ -277,6 +279,7 @@ void main() {
         await h.gateway.save(h.gateway.current.put(campaign));
         await tester.pumpWidget(h.app('/notebook/${campaign.id}'));
         await tester.pumpAndSettle();
+        await tester.ensureVisible(find.text('Atlas'));
         await tester.tap(find.text('Atlas'));
         await tester.pumpAndSettle();
         await tester.tap(find.byTooltip('New place').last);
