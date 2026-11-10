@@ -66,7 +66,7 @@ class AvatarRig {
 
   RigPlacement? placementOf(String id) {
     final kind = kindOf(id);
-    return kinds[kind] ?? kinds[kind.split('.').first];
+    return kinds[id] ?? kinds[kind] ?? kinds[kind.split('.').first];
   }
 
   bool isHidden(String id) => placementOf(id)?.hidden ?? false;
