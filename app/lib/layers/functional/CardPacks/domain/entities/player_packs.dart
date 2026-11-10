@@ -32,13 +32,16 @@ class SealedPack {
   final bool opened;
   final int rerollsUsed;
 
-  SealedPack copyWith({List<DealtCard>? cards, bool? opened, int? rerollsUsed}) =>
-      SealedPack(
-        category: category,
-        cards: cards ?? this.cards,
-        opened: opened ?? this.opened,
-        rerollsUsed: rerollsUsed ?? this.rerollsUsed,
-      );
+  SealedPack copyWith({
+    List<DealtCard>? cards,
+    bool? opened,
+    int? rerollsUsed,
+  }) => SealedPack(
+    category: category,
+    cards: cards ?? this.cards,
+    opened: opened ?? this.opened,
+    rerollsUsed: rerollsUsed ?? this.rerollsUsed,
+  );
 
   Map<String, Object?> toJson() => {
     'category': category,

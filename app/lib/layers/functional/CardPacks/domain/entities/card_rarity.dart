@@ -16,8 +16,6 @@ enum CardRarity {
     return ultra;
   }
 
-  static CardRarity named(Object? name) => values.firstWhere(
-    (r) => r.name == name,
-    orElse: () => common,
-  );
+  static CardRarity named(Object? name) =>
+      values.firstWhere((r) => r.name == name, orElse: () => common);
 }

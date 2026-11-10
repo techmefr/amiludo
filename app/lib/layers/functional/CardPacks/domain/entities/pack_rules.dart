@@ -2,13 +2,7 @@ import 'package:amiludo/layers/functional/Templates/domain/entities/character_pa
 
 enum RevealMode { hidden, live }
 
-enum RulesIssue {
-  noPlayers,
-  noDecks,
-  poolTooSmall,
-  keepAbovePack,
-  keepInvalid,
-}
+enum RulesIssue { noPlayers, noDecks, poolTooSmall, keepAbovePack, keepInvalid }
 
 class PoolDeck {
   const PoolDeck({required this.name, required this.cards});

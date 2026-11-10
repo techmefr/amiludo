@@ -13,8 +13,10 @@ abstract final class PackDealer {
     for (final c in cards) DealtCard(c, CardRarity.roll(random)),
   ];
 
-  static List<CharacterCard> _shuffle(Random random, List<CharacterCard> from) =>
-      [...from]..shuffle(random);
+  static List<CharacterCard> _shuffle(
+    Random random,
+    List<CharacterCard> from,
+  ) => [...from]..shuffle(random);
 
   static PlayerPacks deal({
     required String name,

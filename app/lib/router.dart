@@ -18,6 +18,7 @@ import 'package:amiludo/notebook_routes.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/chess_clock_tool.dart';
 import 'package:amiludo/combat_tool.dart';
 import 'package:amiludo/bestiary_tool.dart';
+import 'package:amiludo/card_packs_tool.dart';
 import 'package:amiludo/scenes_tool.dart';
 import 'package:amiludo/tables_tool.dart';
 import 'package:amiludo/world_tool.dart';
@@ -373,6 +374,7 @@ final router = GoRouter(
         state.uri.queryParameters['pack'],
       ),
     ),
+    _page('/tools/card-packs', (state) => const CardPacksRoute()),
     _page(
       '/tools/:id',
       (state) => ToolPage(

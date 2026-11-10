@@ -56,4 +56,13 @@ class FileTransfer {
       ),
     );
   }
+
+  static Future<void> shareImage(Uint8List png, String filename) =>
+      SharePlus.instance.share(
+        ShareParams(
+          files: [XFile.fromData(png, mimeType: 'image/png', name: filename)],
+          fileNameOverrides: [filename],
+          downloadFallbackEnabled: true,
+        ),
+      );
 }

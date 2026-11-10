@@ -51,8 +51,11 @@ void main() {
         RulesIssue.poolTooSmall,
       );
       expect(
-        const PackRules(cardsPerPack: 6, packsPerPlayer: 2, duplicates: true)
-            .check(pool, 2),
+        const PackRules(
+          cardsPerPack: 6,
+          packsPerPlayer: 2,
+          duplicates: true,
+        ).check(pool, 2),
         isNull,
       );
       expect(
@@ -214,7 +217,10 @@ void main() {
       final backup = getIt<ExportBackupUseCase>()();
       expect(jsonDecode(backup), contains('cardPacks'));
       await cubit.end();
-      expect(jsonDecode(getIt<ExportBackupUseCase>()()), isNot(contains('cardPacks')));
+      expect(
+        jsonDecode(getIt<ExportBackupUseCase>()()),
+        isNot(contains('cardPacks')),
+      );
       await getIt<ImportBackupUseCase>()(backup);
       final restored = CardPackCubit(
         getIt<ReadCardPackSessionUseCase>(),
