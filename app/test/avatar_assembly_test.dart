@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:amiludo/l10n/app_localizations.dart';
 
 import 'package:amiludo/layers/functional/Companion/data/avatar_catalogue.dart';
+import 'package:amiludo/layers/functional/Companion/data/avatar_catalogue_loader.dart';
 import 'package:amiludo/layers/functional/Companion/data/avatar_randomizer.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/avatar_look.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/avatar_color_row.dart';
@@ -61,6 +62,14 @@ Future<AvatarLook?> openBuilder(
 }
 
 void main() {
+  testWidgets('the shipped loader brings the rig with the catalogue', (
+    tester,
+  ) async {
+    final c = await tester.runAsync(loadAvatarCatalogue);
+    expect(c!.rig, isNotNull);
+    expect(c.slots, isNot(contains('implant')));
+  });
+
   test('a box is scaled into its target and centred on it', () {
     const box = Rect.fromLTRB(0.1, 0.2, 0.9, 0.6);
     const target = Rect.fromLTWH(0.4, 0.1, 0.2, 0.2);
