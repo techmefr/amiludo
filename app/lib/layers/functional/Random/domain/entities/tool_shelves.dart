@@ -68,7 +68,7 @@ const toolShelves = [
     'villain',
     'quest',
   ]),
-  ToolShelf('characters', ['character', 'heroes']),
+  ToolShelf('characters', ['character', 'card-packs', 'heroes']),
   ToolShelf('players', [
     'picker',
     'first-player',

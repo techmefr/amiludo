@@ -306,6 +306,11 @@ const toolThemes = <String, ToolTheme>{
     header: ToolHeader.ribbon,
     motion: ToolMotion.flow,
   ),
+  'card-packs': ToolTheme(
+    accent: Color(0xff2E6F9A),
+    texture: ToolTexture.deck,
+    motion: ToolMotion.flip,
+  ),
   'heroes': ToolTheme(
     accent: Color(0xff5A4FB0),
     texture: ToolTexture.frame,

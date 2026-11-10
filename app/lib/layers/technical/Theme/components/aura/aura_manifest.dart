@@ -153,7 +153,7 @@ const auraShelfTools = <String, List<String>>{
     'villain',
     'quest',
   ],
-  'characters': ['character', 'heroes'],
+  'characters': ['character', 'card-packs', 'heroes'],
   'players': [
     'picker',
     'first-player',

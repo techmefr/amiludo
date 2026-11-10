@@ -5,10 +5,7 @@ import 'package:amiludo/layers/functional/CardPacks/domain/entities/pack_rules.d
 import 'package:amiludo/layers/functional/CardPacks/domain/use_cases/card_pack_use_cases.dart';
 
 class CardPackCubit extends Cubit<CardPackSession?> {
-  CardPackCubit(
-    ReadCardPackSessionUseCase read,
-    this._save,
-  ) : super(read());
+  CardPackCubit(ReadCardPackSessionUseCase read, this._save) : super(read());
 
   final SaveCardPackSessionUseCase _save;
 

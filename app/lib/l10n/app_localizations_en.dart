@@ -6045,4 +6045,178 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get avatarRandomize => 'Randomize';
+
+  @override
+  String get toolCardPacksTitle => 'Card packs';
+
+  @override
+  String get toolCardPacksSubtitle => 'Players open packs and keep cards to build their character.';
+
+  @override
+  String get cpTabSetup => 'Setup';
+
+  @override
+  String get cpTabPlay => 'Play';
+
+  @override
+  String get cpTabBoard => 'Board';
+
+  @override
+  String get cpTemplate => 'Pack template';
+
+  @override
+  String get cpNoTemplate => 'Install a character pack to start a session.';
+
+  @override
+  String get cpFreeMode => 'Free: every card of the universe';
+
+  @override
+  String cpDeckCount(String name, int n) {
+    return '$name: $n cards';
+  }
+
+  @override
+  String cpCardsPerPack(int n) {
+    return 'Cards per pack: $n';
+  }
+
+  @override
+  String cpPacksPerPlayer(int n) {
+    return 'Packs per category: $n';
+  }
+
+  @override
+  String cpKeepMin(int n) {
+    return 'Keep at least: $n';
+  }
+
+  @override
+  String cpKeepMax(int n) {
+    return 'Keep at most: $n';
+  }
+
+  @override
+  String cpRerolls(int n) {
+    return 'Rerolls: $n';
+  }
+
+  @override
+  String get cpDuplicates => 'Allow duplicates';
+
+  @override
+  String get cpRevealLive => 'Live reveal on the board';
+
+  @override
+  String get cpPlayers => 'Players';
+
+  @override
+  String cpPlayerName(int n) {
+    return 'Player $n';
+  }
+
+  @override
+  String get cpAddPlayer => 'Add a player';
+
+  @override
+  String get cpStart => 'Start the session';
+
+  @override
+  String get cpEnd => 'End the session';
+
+  @override
+  String get cpIssueNoPlayers => 'Add at least one player.';
+
+  @override
+  String get cpIssueNoDecks => 'Enable at least one deck.';
+
+  @override
+  String get cpIssuePoolTooSmall => 'A deck has too few cards for these packs.';
+
+  @override
+  String get cpIssueKeepAbovePack => 'Keeping more cards than a category offers.';
+
+  @override
+  String get cpIssueKeepInvalid => 'The keep range is not valid.';
+
+  @override
+  String cpOpenPack(String name) {
+    return 'Open the $name pack';
+  }
+
+  @override
+  String get cpTapCard => 'Tap a card to reveal it';
+
+  @override
+  String cpKeptCounter(String category, int kept, int max) {
+    return '$category: $kept / $max kept';
+  }
+
+  @override
+  String cpMissing(int n) {
+    return '$n more to keep';
+  }
+
+  @override
+  String get cpOpenAllFirst => 'Open every pack first';
+
+  @override
+  String get cpValidate => 'Validate my cards';
+
+  @override
+  String cpReroll(int n) {
+    return 'Reroll this pack ($n left)';
+  }
+
+  @override
+  String cpPassPhone(String name) {
+    return 'Pass the phone to $name';
+  }
+
+  @override
+  String get cpRarityCommon => 'Common';
+
+  @override
+  String get cpRarityRare => 'Rare';
+
+  @override
+  String get cpRarityHolo => 'Holo';
+
+  @override
+  String get cpRarityUltra => 'Ultra';
+
+  @override
+  String get cpKeptState => 'Kept';
+
+  @override
+  String get cpDiscardedState => 'Not kept';
+
+  @override
+  String cpSheetTitle(String name) {
+    return '$name\'s character';
+  }
+
+  @override
+  String get cpShare => 'Share the sheet';
+
+  @override
+  String get cpSaveSheet => 'Save to my characters';
+
+  @override
+  String get cpSaved => 'Saved';
+
+  @override
+  String get cpBoardHidden => 'Hidden until everyone has opened their packs';
+
+  @override
+  String cpBoardProgress(int opened, int total) {
+    return '$opened / $total packs opened';
+  }
+
+  @override
+  String cpBoardKept(int n) {
+    return '$n cards kept';
+  }
+
+  @override
+  String get cpNoSession => 'No session yet. Set one up first.';
 }
