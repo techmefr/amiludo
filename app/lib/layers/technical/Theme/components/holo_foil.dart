@@ -1,7 +1,10 @@
+import 'dart:async';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/technical/Sensors/accelerometer_feed.dart';
+import 'package:amiludo/layers/technical/Sensors/foil_tilt.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 Future<ui.FragmentProgram?> loadHoloProgram() async {
@@ -19,11 +22,13 @@ class HoloFoil extends StatefulWidget {
     this.strength = 1,
     this.radius = Radii.lg,
     this.tilt,
+    this.feed = const PlatformAccelerometerFeed(),
   });
 
   final Widget child;
   final double strength, radius;
   final ValueNotifier<Offset>? tilt;
+  final AccelerometerFeed feed;
 
   @override
   State<HoloFoil> createState() => _HoloFoilState();
@@ -31,16 +36,22 @@ class HoloFoil extends StatefulWidget {
 
 class _HoloFoilState extends State<HoloFoil> {
   static Future<ui.FragmentProgram?>? _program;
+  StreamSubscription<AccelSample>? _sub;
   final _pointer = ValueNotifier<Offset>(const Offset(.3, .25));
 
   @override
   void initState() {
     super.initState();
     _program ??= loadHoloProgram();
+    _sub = widget.feed.samples.listen(
+      (sample) => _pointer.value = foilTiltFromSample(sample),
+      onError: (_) {},
+    );
   }
 
   @override
   void dispose() {
+    _sub?.cancel();
     _pointer.dispose();
     super.dispose();
   }
