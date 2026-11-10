@@ -10,7 +10,7 @@ The 237 pieces in `app/assets/avatar/pieces` were cut out of generated contact s
 - Baked colour on `body-base-full` and the vest outfit, so skin tint produces muddy results.
 - Different line weights and light directions between sheets.
 
-What the code now does to compensate: `tools/build_catalogue.py` stores the opaque bounding box of each piece, and `assets/avatar/rig.json` gives each kind a target rectangle on a big-head character, mirrors pairs, fixes the draw order and hides incompatible pieces. This gives a readable character but the proportions stay approximate. Pieces without a believable placement are marked `hidden` in the rig and not offered.
+What the code now does to compensate: `tools/build_catalogue.py` stores the opaque bounding box of each piece, and `assets/avatar/rig.json` gives each kind a target rectangle on a big-head character, mirrors pairs, fixes the draw order and hides incompatible pieces. This gives a readable character but the proportions stay approximate. Pieces without a believable placement (including the multi-piece sheets hairstyles 1-2 and wide ears) are marked `hidden` in the rig and not offered.
 
 ## Target format
 
