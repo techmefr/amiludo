@@ -6025,4 +6025,56 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get demoPlay => 'Reproduzir';
+
+  @override
+  String get sessionToolTabs => 'Ferramentas da sessão';
+
+  @override
+  String get fingerModeGroups => 'Fazer equipas';
+
+  @override
+  String get fingerOptions => 'Opções';
+
+  @override
+  String get fingerWinners => 'Número de vencedores';
+
+  @override
+  String get fingerGroups => 'Número de equipas';
+
+  @override
+  String get fingerMore => 'Mais';
+
+  @override
+  String get fingerLess => 'Menos';
+
+  @override
+  String get fingerFullscreen => 'Ecrã inteiro';
+
+  @override
+  String get fingerExitFullscreen => 'Sair do ecrã inteiro';
+
+  @override
+  String get fingerDesktopHint => 'Com o rato, clique para adicionar ou remover um dedo. Num ecrã tátil, use os dedos.';
+
+  @override
+  String get fingerLiftToRestart => 'Levante os dedos para recomeçar';
+
+  @override
+  String get fingerClickToRestart => 'Clique para recomeçar';
+
+  @override
+  String get fingerSurfaceLabel => 'Escolha por dedo, toque o ecrã com cada dedo';
+
+  @override
+  String get fingerWinnerLabel => 'Vencedor';
+
+  @override
+  String fingerRankLabel(int n) {
+    return 'Posição $n';
+  }
+
+  @override
+  String fingerGroupLabel(int n) {
+    return 'Equipa $n';
+  }
 }

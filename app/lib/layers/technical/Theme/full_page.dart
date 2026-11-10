@@ -3,7 +3,8 @@ import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/layers/technical/Theme/components/aura/aura_background.dart';
 import 'package:amiludo/layers/technical/Theme/components/clean_scroll_page.dart';
-import 'package:amiludo/layers/technical/Theme/components/tool_badge.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_bar_scope.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_top_bar.dart';
 import 'package:amiludo/layers/technical/Theme/components/tool_frame.dart';
 import 'package:amiludo/layers/technical/Theme/deck_style.dart';
 import 'package:amiludo/layers/technical/Theme/immersive_chrome.dart';
@@ -23,6 +24,8 @@ class FullPage extends StatelessWidget {
     this.maxWidth,
     this.fillHeight = false,
     this.immersive = false,
+    this.bleed = false,
+    this.tabs,
     this.tool,
     this.background,
     this.onBack,
@@ -32,7 +35,8 @@ class FullPage extends StatelessWidget {
   final String? tool;
   final Widget child;
   final Color? background;
-  final bool scroll, fillHeight, immersive;
+  final bool scroll, fillHeight, immersive, bleed;
+  final ToolTabs? tabs;
   final VoidCallback? onBack;
   final Map<ShortcutActivator, VoidCallback> bindings;
   final double? maxWidth;
@@ -54,6 +58,7 @@ class FullPage extends StatelessWidget {
   }
 
   Widget _body(BuildContext context) {
+    if (bleed) return child;
     if (!scroll) {
       return immersive
           ? Padding(
@@ -85,23 +90,6 @@ class FullPage extends StatelessWidget {
     );
   }
 
-  Widget _discreetBack(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return Positioned(
-      top: 4,
-      left: 4,
-      child: IconButton(
-        tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-        style: IconButton.styleFrom(
-          backgroundColor: scheme.surface.withValues(alpha: 0.55),
-          foregroundColor: scheme.onSurfaceVariant,
-        ),
-        onPressed: () => _back(context),
-        icon: const BackButtonIcon(),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final page = _page(context);
@@ -113,43 +101,51 @@ class FullPage extends StatelessWidget {
       return ImmersiveChrome(
         onBack: () => _back(context),
         bindings: bindings,
-        child: Stack(
-        fit: StackFit.expand,
-        children: [
-        if (tool == null && background == null)
-          const Positioned.fill(child: AuraBackground()),
-        AnimatedContainer(
-        duration: Motion.of(context, Motion.slow),
-        curve: Motion.curve,
-        color: background ?? Colors.transparent,
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: SafeArea(
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                Positioned.fill(child: _body(context)),
-                Semantics(
-                  header: true,
-                  label: title,
-                  child: const SizedBox.shrink(),
-                ),
-                if (tool == null)
-                  _discreetBack(context)
-                else
-                  ToolHeaderPill(id: tool!, onBack: () => _back(context)),
-                if (actions.isNotEmpty)
-                  Positioned(
-                    top: Space.xs,
-                    right: Space.xs,
-                    child: Row(children: actions),
+        child: ToolBarHost(
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              if (tool == null && background == null)
+                const Positioned.fill(child: AuraBackground()),
+              AnimatedContainer(
+                duration: Motion.of(context, Motion.slow),
+                curve: Motion.curve,
+                color: background ?? Colors.transparent,
+                child: Scaffold(
+                  backgroundColor: Colors.transparent,
+                  body: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      Positioned.fill(
+                        child: bleed
+                            ? _body(context)
+                            : SafeArea(child: _body(context)),
+                      ),
+                      Semantics(
+                        header: true,
+                        label: title,
+                        child: const SizedBox.shrink(),
+                      ),
+                      Positioned(
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        child: SafeArea(
+                          bottom: false,
+                          child: ToolTopBar(
+                            tool: tool,
+                            tabs: tabs,
+                            actions: actions,
+                            onBack: () => _back(context),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-              ],
-            ),
+                ),
+              ),
+            ],
           ),
-        ),
-        ),
-        ],
         ),
       );
     }

@@ -111,7 +111,6 @@ class _ToolPageState extends State<ToolPage> {
         'picker' => FingerTool(
           names: names,
           haptics: ws.appearance.haptics,
-          fullscreen: true,
           onTint: (c) => setState(() => tint = c),
         ),
         final id when widget.embeddedTools.containsKey(id) =>
@@ -161,6 +160,7 @@ class _ToolPageState extends State<ToolPage> {
         tool: widget.id,
         immersive: true,
         background: tint,
+        bleed: widget.id == 'picker',
         scroll: false,
         child: child,
       );

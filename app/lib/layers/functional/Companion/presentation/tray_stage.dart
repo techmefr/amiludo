@@ -9,6 +9,8 @@ import 'package:amiludo/layers/technical/Dice3D/die_skin.dart';
 import 'package:amiludo/layers/technical/Dice3D/table_theme.dart';
 import 'package:amiludo/layers/technical/Feedback/tray_feedback.dart';
 import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_bar_scope.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class TrayStage extends StatelessWidget {
@@ -66,13 +68,13 @@ class TrayStage extends StatelessWidget {
         child: SizedBox(
           width: solid ? math.min(width, height * 1.8) : width,
           height: height,
-          child: buildTray(),
+          child: buildTray(context),
         ),
       );
     },
   );
 
-  Widget buildTray() => Stack(
+  Widget buildTray(BuildContext context) => Stack(
     children: [
       Positioned.fill(
         child: DiceTraySurface(
@@ -93,10 +95,23 @@ class TrayStage extends StatelessWidget {
           onTapDie: onTapDie,
         ),
       ),
-      Positioned(
-        top: Space.sm,
-        right: Space.sm,
-        child: DiceViewToggle(solid: solid, onChanged: onView),
+      TopBarSlot(
+        tabs: ToolTabs(
+          label: context.l10n.diceTrayView,
+          current: solid ? 1 : 0,
+          onSelect: (i) => onView(i == 1),
+          items: [
+            ToolTab(id: '2d', label: context.l10n.diceTrayView2d),
+            ToolTab(id: '3d', label: context.l10n.diceTrayView3d),
+          ],
+        ),
+        fallback: Align(
+          alignment: Alignment.topRight,
+          child: Padding(
+            padding: const EdgeInsets.all(Space.sm),
+            child: DiceViewToggle(solid: solid, onChanged: onView),
+          ),
+        ),
       ),
     ],
   );

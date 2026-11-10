@@ -11113,6 +11113,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Play'**
   String get demoPlay;
+
+  /// No description provided for @sessionToolTabs.
+  ///
+  /// In en, this message translates to:
+  /// **'Session tools'**
+  String get sessionToolTabs;
+
+  /// No description provided for @fingerModeGroups.
+  ///
+  /// In en, this message translates to:
+  /// **'Make teams'**
+  String get fingerModeGroups;
+
+  /// No description provided for @fingerOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'Options'**
+  String get fingerOptions;
+
+  /// No description provided for @fingerWinners.
+  ///
+  /// In en, this message translates to:
+  /// **'Number of winners'**
+  String get fingerWinners;
+
+  /// No description provided for @fingerGroups.
+  ///
+  /// In en, this message translates to:
+  /// **'Number of teams'**
+  String get fingerGroups;
+
+  /// No description provided for @fingerMore.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get fingerMore;
+
+  /// No description provided for @fingerLess.
+  ///
+  /// In en, this message translates to:
+  /// **'Less'**
+  String get fingerLess;
+
+  /// No description provided for @fingerFullscreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Full screen'**
+  String get fingerFullscreen;
+
+  /// No description provided for @fingerExitFullscreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit full screen'**
+  String get fingerExitFullscreen;
+
+  /// No description provided for @fingerDesktopHint.
+  ///
+  /// In en, this message translates to:
+  /// **'With a mouse, click to add or remove a finger. On a touchscreen, use your fingers.'**
+  String get fingerDesktopHint;
+
+  /// No description provided for @fingerLiftToRestart.
+  ///
+  /// In en, this message translates to:
+  /// **'Lift your fingers to start again'**
+  String get fingerLiftToRestart;
+
+  /// No description provided for @fingerClickToRestart.
+  ///
+  /// In en, this message translates to:
+  /// **'Click to start again'**
+  String get fingerClickToRestart;
+
+  /// No description provided for @fingerSurfaceLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Finger picker, touch the screen with every finger'**
+  String get fingerSurfaceLabel;
+
+  /// No description provided for @fingerWinnerLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Winner'**
+  String get fingerWinnerLabel;
+
+  /// No description provided for @fingerRankLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Rank {n}'**
+  String fingerRankLabel(int n);
+
+  /// No description provided for @fingerGroupLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Team {n}'**
+  String fingerGroupLabel(int n);
 }
 
 class _AppLocalizationsDelegate

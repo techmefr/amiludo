@@ -1842,5 +1842,21 @@
   "introWordRules": "Vos règles.",
   "introSkip": "Passer",
   "demoPause": "Mettre la démo animée en pause",
-  "demoPlay": "Lecture"
+  "demoPlay": "Lecture",
+  "sessionToolTabs": "Outils de la séance",
+  "fingerModeGroups": "Faire des équipes",
+  "fingerOptions": "Options",
+  "fingerWinners": "Nombre de gagnants",
+  "fingerGroups": "Nombre d'équipes",
+  "fingerMore": "Plus",
+  "fingerLess": "Moins",
+  "fingerFullscreen": "Plein écran",
+  "fingerExitFullscreen": "Quitter le plein écran",
+  "fingerDesktopHint": "À la souris, cliquez pour ajouter ou retirer un doigt. Sur écran tactile, utilisez vos doigts.",
+  "fingerLiftToRestart": "Levez les doigts pour recommencer",
+  "fingerClickToRestart": "Cliquez pour recommencer",
+  "fingerSurfaceLabel": "Tirage au doigt, touchez l'écran avec chaque doigt",
+  "fingerWinnerLabel": "Gagnant",
+  "fingerRankLabel": "Rang {n}",
+  "fingerGroupLabel": "Équipe {n}"
 }

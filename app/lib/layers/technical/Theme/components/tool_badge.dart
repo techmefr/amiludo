@@ -53,31 +53,30 @@ class ToolHeaderPill extends StatelessWidget {
     final fill = tool.header == ToolHeader.plain
         ? scheme.surface.withValues(alpha: .55)
         : tool.surface(context, mix: .22).withValues(alpha: .92);
-    return Positioned(
-      top: Space.xs,
-      left: Space.xs,
-      child: Material(
-        color: fill,
-        shape: StadiumBorder(
-          side: tool.header == ToolHeader.ribbon
-              ? BorderSide(color: tool.ink(fill), width: 2)
-              : BorderSide.none,
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            IconButton(
-              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-              color: scheme.onSurface,
-              onPressed: onBack,
-              icon: const BackButtonIcon(),
+    return Material(
+      color: fill,
+      shape: StadiumBorder(
+        side: tool.header == ToolHeader.ribbon
+            ? BorderSide(color: tool.ink(fill), width: 2)
+            : BorderSide.none,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          IconButton(
+            tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+            color: scheme.onSurface,
+            style: IconButton.styleFrom(
+              minimumSize: const Size.square(Targets.minimum),
             ),
-            if (tool.header != ToolHeader.plain) ...[
-              ToolBadge(id: id, size: Targets.minimum - Space.sm),
-              const SizedBox(width: Space.sm),
-            ],
+            onPressed: onBack,
+            icon: const BackButtonIcon(),
+          ),
+          if (tool.header != ToolHeader.plain) ...[
+            ToolBadge(id: id, size: Targets.minimum - Space.sm),
+            const SizedBox(width: Space.sm),
           ],
-        ),
+        ],
       ),
     );
   }

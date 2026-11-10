@@ -6024,4 +6024,56 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get demoPlay => 'Afspelen';
+
+  @override
+  String get sessionToolTabs => 'Hulpmiddelen van de sessie';
+
+  @override
+  String get fingerModeGroups => 'Teams maken';
+
+  @override
+  String get fingerOptions => 'Opties';
+
+  @override
+  String get fingerWinners => 'Aantal winnaars';
+
+  @override
+  String get fingerGroups => 'Aantal teams';
+
+  @override
+  String get fingerMore => 'Meer';
+
+  @override
+  String get fingerLess => 'Minder';
+
+  @override
+  String get fingerFullscreen => 'Volledig scherm';
+
+  @override
+  String get fingerExitFullscreen => 'Volledig scherm sluiten';
+
+  @override
+  String get fingerDesktopHint => 'Klik met de muis om een vinger toe te voegen of te verwijderen. Gebruik op een touchscreen je vingers.';
+
+  @override
+  String get fingerLiftToRestart => 'Til je vingers op om opnieuw te beginnen';
+
+  @override
+  String get fingerClickToRestart => 'Klik om opnieuw te beginnen';
+
+  @override
+  String get fingerSurfaceLabel => 'Vingerkeuze, raak het scherm aan met elke vinger';
+
+  @override
+  String get fingerWinnerLabel => 'Winnaar';
+
+  @override
+  String fingerRankLabel(int n) {
+    return 'Plaats $n';
+  }
+
+  @override
+  String fingerGroupLabel(int n) {
+    return 'Team $n';
+  }
 }

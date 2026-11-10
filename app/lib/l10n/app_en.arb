@@ -2707,5 +2707,35 @@
   "introWordRules": "Your rules.",
   "introSkip": "Skip",
   "demoPause": "Pause the animated demo",
-  "demoPlay": "Play"
+  "demoPlay": "Play",
+  "sessionToolTabs": "Session tools",
+  "fingerModeGroups": "Make teams",
+  "fingerOptions": "Options",
+  "fingerWinners": "Number of winners",
+  "fingerGroups": "Number of teams",
+  "fingerMore": "More",
+  "fingerLess": "Less",
+  "fingerFullscreen": "Full screen",
+  "fingerExitFullscreen": "Exit full screen",
+  "fingerDesktopHint": "With a mouse, click to add or remove a finger. On a touchscreen, use your fingers.",
+  "fingerLiftToRestart": "Lift your fingers to start again",
+  "fingerClickToRestart": "Click to start again",
+  "fingerSurfaceLabel": "Finger picker, touch the screen with every finger",
+  "fingerWinnerLabel": "Winner",
+  "fingerRankLabel": "Rank {n}",
+  "@fingerRankLabel": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "fingerGroupLabel": "Team {n}",
+  "@fingerGroupLabel": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  }
 }

@@ -6,6 +6,7 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/companion.da
 import 'package:amiludo/layers/functional/Templates/presentation/companion_brick_row.dart';
 import 'package:amiludo/layers/functional/Templates/presentation/session_tile.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_bar_scope.dart';
 import 'package:amiludo/layers/technical/Theme/components/tool_switcher.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icons.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
@@ -86,6 +87,19 @@ class _SessionStageState extends State<SessionStage> {
       scroll: false,
       fallback: '/',
       onBack: widget.onGrid,
+      tabs: ToolTabs(
+        label: l.sessionToolTabs,
+        current: current,
+        onSelect: _select,
+        items: [
+          for (final b in bricks)
+            ToolTab(
+              id: b.id,
+              label: brickTitle(context, b),
+              icon: toolIcon(b.toolId),
+            ),
+        ],
+      ),
       bindings: {
         const SingleActivator(LogicalKeyboardKey.arrowLeft, alt: true): () =>
             _select(current - 1),
@@ -113,16 +127,16 @@ class _SessionStageState extends State<SessionStage> {
         fit: StackFit.expand,
         children: [
           IndexedStack(
-              sizing: StackFit.expand,
-              index: current,
-              children: [
-                for (final b in bricks)
-                  visited.contains(b.id)
-                      ? KeyedSubtree(
-                          key: ValueKey(b.id),
-                          child: _body(context, b),
-                        )
-                      : const SizedBox.shrink(),
+            sizing: StackFit.expand,
+            index: current,
+            children: [
+              for (final b in bricks)
+                visited.contains(b.id)
+                    ? KeyedSubtree(
+                        key: ValueKey(b.id),
+                        child: _body(context, b),
+                      )
+                    : const SizedBox.shrink(),
             ],
           ),
           _edgeZone(left: true),

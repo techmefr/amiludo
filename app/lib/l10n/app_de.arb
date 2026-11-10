@@ -1842,5 +1842,21 @@
   "introWordRules": "Deine Regeln.",
   "introSkip": "Überspringen",
   "demoPause": "Animierte Demo pausieren",
-  "demoPlay": "Abspielen"
+  "demoPlay": "Abspielen",
+  "sessionToolTabs": "Werkzeuge der Runde",
+  "fingerModeGroups": "Teams bilden",
+  "fingerOptions": "Optionen",
+  "fingerWinners": "Anzahl Gewinner",
+  "fingerGroups": "Anzahl Teams",
+  "fingerMore": "Mehr",
+  "fingerLess": "Weniger",
+  "fingerFullscreen": "Vollbild",
+  "fingerExitFullscreen": "Vollbild beenden",
+  "fingerDesktopHint": "Mit der Maus klicken, um einen Finger hinzuzufügen oder zu entfernen. Auf dem Touchscreen die Finger benutzen.",
+  "fingerLiftToRestart": "Finger abheben, um neu zu starten",
+  "fingerClickToRestart": "Klicken, um neu zu starten",
+  "fingerSurfaceLabel": "Fingerauswahl, berührt den Bildschirm mit jedem Finger",
+  "fingerWinnerLabel": "Gewinner",
+  "fingerRankLabel": "Rang {n}",
+  "fingerGroupLabel": "Team {n}"
 }

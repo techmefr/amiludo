@@ -1842,5 +1842,21 @@
   "introWordRules": "Jouw regels.",
   "introSkip": "Overslaan",
   "demoPause": "Geanimeerde demo pauzeren",
-  "demoPlay": "Afspelen"
+  "demoPlay": "Afspelen",
+  "sessionToolTabs": "Hulpmiddelen van de sessie",
+  "fingerModeGroups": "Teams maken",
+  "fingerOptions": "Opties",
+  "fingerWinners": "Aantal winnaars",
+  "fingerGroups": "Aantal teams",
+  "fingerMore": "Meer",
+  "fingerLess": "Minder",
+  "fingerFullscreen": "Volledig scherm",
+  "fingerExitFullscreen": "Volledig scherm sluiten",
+  "fingerDesktopHint": "Klik met de muis om een vinger toe te voegen of te verwijderen. Gebruik op een touchscreen je vingers.",
+  "fingerLiftToRestart": "Til je vingers op om opnieuw te beginnen",
+  "fingerClickToRestart": "Klik om opnieuw te beginnen",
+  "fingerSurfaceLabel": "Vingerkeuze, raak het scherm aan met elke vinger",
+  "fingerWinnerLabel": "Winnaar",
+  "fingerRankLabel": "Plaats {n}",
+  "fingerGroupLabel": "Team {n}"
 }

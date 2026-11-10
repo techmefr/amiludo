@@ -1842,5 +1842,21 @@
   "introWordRules": "Le tue regole.",
   "introSkip": "Salta",
   "demoPause": "Metti in pausa la demo animata",
-  "demoPlay": "Riproduci"
+  "demoPlay": "Riproduci",
+  "sessionToolTabs": "Strumenti della sessione",
+  "fingerModeGroups": "Fai squadre",
+  "fingerOptions": "Opzioni",
+  "fingerWinners": "Numero di vincitori",
+  "fingerGroups": "Numero di squadre",
+  "fingerMore": "Di più",
+  "fingerLess": "Meno",
+  "fingerFullscreen": "Schermo intero",
+  "fingerExitFullscreen": "Esci dallo schermo intero",
+  "fingerDesktopHint": "Con il mouse, clicca per aggiungere o togliere un dito. Su touchscreen, usa le dita.",
+  "fingerLiftToRestart": "Solleva le dita per ricominciare",
+  "fingerClickToRestart": "Clicca per ricominciare",
+  "fingerSurfaceLabel": "Scelta con il dito, tocca lo schermo con ogni dito",
+  "fingerWinnerLabel": "Vincitore",
+  "fingerRankLabel": "Posto {n}",
+  "fingerGroupLabel": "Squadra {n}"
 }
