@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/layers/technical/Theme/components/aura/aura_background.dart';
 import 'package:amiludo/layers/technical/Theme/components/tool_bar_scope.dart';
@@ -15,14 +16,22 @@ class ImmersivePage extends StatelessWidget {
     this.actions = const [],
     this.tabs,
     this.floatingActionButton,
+    this.fallback,
   });
   final String title;
+  final String? fallback;
   final Widget child;
   final List<Widget> actions;
   final ToolTabs? tabs;
   final Widget? floatingActionButton;
 
-  void _back(BuildContext context) => Navigator.of(context).maybePop();
+  Future<void> _back(BuildContext context) async {
+    final popped = await Navigator.of(context).maybePop();
+    final target = fallback;
+    if (!popped && context.mounted && target != null) {
+      GoRouter.maybeOf(context)?.go(target);
+    }
+  }
 
   @override
   Widget build(BuildContext context) => ImmersiveChrome(

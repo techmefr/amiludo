@@ -60,6 +60,23 @@ void main() {
     await db.close();
   });
 
+  testWidgets('the die library returns even from a direct link', (
+    tester,
+  ) async {
+    final db = StoreDatabase.forTesting(NativeDatabase.memory());
+    configureDependencies(db);
+    addTearDown(getIt.reset);
+    await tester.pumpWidget(const AmiludoApp());
+    await tester.pumpAndSettle();
+    router.go('/dice/designs');
+    await tester.pumpAndSettle();
+    await tester.tap(find.byType(BackButtonIcon));
+    await tester.pumpAndSettle();
+    expect(router.state.uri.path, '/tools');
+    await tester.pumpWidget(const SizedBox());
+    await db.close();
+  });
+
   for (final size in const [Size(390, 844), Size(1440, 1100)]) {
     testWidgets('tool title opens its tool at $size', (tester) async {
       tester.view.physicalSize = size;

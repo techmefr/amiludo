@@ -5,8 +5,9 @@ import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class ToolTabStrip extends StatefulWidget {
-  const ToolTabStrip({super.key, required this.tabs});
+  const ToolTabStrip({super.key, required this.tabs, this.stacked = false});
   final ToolTabs tabs;
+  final bool stacked;
 
   @override
   State<ToolTabStrip> createState() => _ToolTabStripState();
@@ -53,6 +54,7 @@ class _ToolTabStripState extends State<ToolTabStrip> {
       button: true,
       selected: selected,
       label: item.label,
+      onTap: () => widget.tabs.onSelect(index),
       child: ExcludeSemantics(
         child: Material(
           color: selected
@@ -68,19 +70,30 @@ class _ToolTabStripState extends State<ToolTabStrip> {
                 minWidth: Targets.minimum,
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: Space.md),
-                child: Row(
+                padding: EdgeInsets.symmetric(
+                  horizontal: widget.stacked ? Space.sm : Space.md,
+                  vertical: widget.stacked ? Space.xs : 0,
+                ),
+                child: Flex(
+                  direction: widget.stacked ? Axis.vertical : Axis.horizontal,
                   mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     if (item.icon != null) ...[
                       DeckIcon(item.icon!, color: foreground),
-                      const SizedBox(width: Space.xs),
+                      if (widget.stacked)
+                        const SizedBox(height: Space.xs)
+                      else
+                        const SizedBox(width: Space.xs),
                     ],
                     Text(
                       item.label,
                       maxLines: 1,
-                      style: Theme.of(context).textTheme.labelLarge
-                          ?.copyWith(color: foreground),
+                      style:
+                          (widget.stacked
+                                  ? Theme.of(context).textTheme.labelSmall
+                                  : Theme.of(context).textTheme.labelLarge)
+                              ?.copyWith(color: foreground),
                     ),
                   ],
                 ),

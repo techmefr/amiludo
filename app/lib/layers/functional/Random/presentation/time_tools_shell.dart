@@ -46,6 +46,7 @@ class TimeToolsShell extends StatelessWidget {
         top: false,
         minimum: const EdgeInsets.all(Space.xs),
         child: ToolTabStrip(
+          stacked: true,
           tabs: ToolTabs(
             label: context.toolShelfLabel('time'),
             current: navigation.currentIndex,

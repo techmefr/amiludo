@@ -4,12 +4,16 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:amiludo/dependencies.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/brick_catalog.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.dart';
+import 'package:amiludo/layers/functional/Random/domain/entities/tool_shelves.dart';
 import 'package:amiludo/layers/technical/Storage/store_database.dart';
 import 'package:amiludo/main.dart';
 import 'package:amiludo/router.dart';
 
 const auditSizes = [
+  Size(320, 568),
+  Size(568, 320),
   Size(360, 740),
   Size(412, 915),
   Size(768, 1024),
@@ -40,6 +44,11 @@ const auditScreens = [
   '/dice/designs',
   '/builder/new',
   '/library/tonight',
+  '/library/edit/new',
+  '/friends/edit/new',
+  '/evenings/edit/new',
+  '/memories/import',
+  '/setup',
   '/marketplace',
   '/share',
   '/share/receive',
@@ -53,10 +62,12 @@ const auditScreens = [
   '/tools?category=story',
 ];
 
-List<String> auditRoutes() => [
+Set<String> auditRoutes() => {
   ...auditScreens,
+  for (final shelf in toolShelves) '/tools?category=${shelf.id}',
   for (final tool in toolDefinitions) '/tools/${tool.id}',
-];
+  for (final brick in brickEntries) '/tools/${brick.id}',
+};
 
 const minTarget = 44.0;
 

@@ -6,7 +6,7 @@ import 'responsive_audit.dart';
 
 void main() {
   for (final size in auditSizes) {
-    for (final scale in auditScales) {
+    for (final scale in [...auditScales, if (size.shortestSide == 320) 2.0]) {
       testWidgets('audit $size x$scale', (tester) async {
         tester.view.physicalSize = size;
         tester.view.devicePixelRatio = 1;

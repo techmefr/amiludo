@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Companion/presentation/life_controller.dart';
@@ -47,9 +49,7 @@ class _LifeToolState extends State<LifeTool> {
     );
   }
 
-  Widget _grid(int count, bool wide) {
-    final columns = count <= 2 ? (wide ? 2 : 1) : (wide ? (count + 1) ~/ 2 : 2);
-    final rows = (count / columns).ceil();
+  Widget _grid(int count, int columns, int rows) {
     return Column(
       children: [
         for (var r = 0; r < rows; r++)
@@ -73,7 +73,7 @@ class _LifeToolState extends State<LifeTool> {
       return Padding(
         padding: const EdgeInsets.fromLTRB(
           Space.sm,
-          Space.section,
+          Space.sm,
           Space.sm,
           Space.sm,
         ),
@@ -81,8 +81,25 @@ class _LifeToolState extends State<LifeTool> {
           children: [
             Expanded(
               child: LayoutBuilder(
-                builder: (context, box) =>
-                    _grid(count, box.maxWidth > box.maxHeight),
+                builder: (context, box) {
+                  final wide = box.maxWidth > box.maxHeight;
+                  final requested = count <= 2
+                      ? (wide ? 2 : 1)
+                      : (wide ? (count + 1) ~/ 2 : 2);
+                  const minimumPanelWidth = Targets.minimum * 2 + Space.xl;
+                  final columns = math.min(
+                    requested,
+                    math.max(1, (box.maxWidth / minimumPanelWidth).floor()),
+                  );
+                  final rows = (count / columns).ceil();
+                  final grid = _grid(count, columns, rows);
+                  const minimumPanelHeight = Targets.minimum * 2 + Space.lg;
+                  final height = rows * minimumPanelHeight;
+                  if (box.maxHeight >= height) return grid;
+                  return SingleChildScrollView(
+                    child: SizedBox(height: height, child: grid),
+                  );
+                },
               ),
             ),
             LifeSetupBar(controller: controller),

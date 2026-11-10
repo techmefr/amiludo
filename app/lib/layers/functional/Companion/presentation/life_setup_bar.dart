@@ -14,16 +14,24 @@ class LifeSetupBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final l = context.l10n;
     final match = controller.match;
+    final compact = MediaQuery.sizeOf(context).height < 420;
     return Wrap(
       alignment: WrapAlignment.center,
       crossAxisAlignment: WrapCrossAlignment.center,
       spacing: Space.sm,
       children: [
-        TextButton.icon(
-          onPressed: controller.canUndo ? controller.undo : null,
-          icon: const DeckIcon(Icons.undo),
-          label: Text(l.gameUndo),
-        ),
+        if (compact)
+          IconButton(
+            onPressed: controller.canUndo ? controller.undo : null,
+            icon: const DeckIcon(Icons.undo),
+            tooltip: l.gameUndo,
+          )
+        else
+          TextButton.icon(
+            onPressed: controller.canUndo ? controller.undo : null,
+            icon: const DeckIcon(Icons.undo),
+            label: Text(l.gameUndo),
+          ),
         PopupMenuButton<int>(
           tooltip: l.lifePlayers,
           onSelected: controller.resize,
@@ -35,10 +43,13 @@ class LifeSetupBar extends StatelessWidget {
                 child: Text('$n'),
               ),
           ],
-          child: _Label(
-            icon: Icons.groups_outlined,
-            text: '${l.lifePlayers} ${match.players.length}',
-          ),
+          icon: compact ? const DeckIcon(Icons.groups_outlined) : null,
+          child: compact
+              ? null
+              : _Label(
+                  icon: Icons.groups_outlined,
+                  text: '${l.lifePlayers} ${match.players.length}',
+                ),
         ),
         PopupMenuButton<int>(
           tooltip: l.lifeStartingLife,
@@ -51,16 +62,26 @@ class LifeSetupBar extends StatelessWidget {
                 child: Text('$life'),
               ),
           ],
-          child: _Label(
-            icon: Icons.favorite_border,
-            text: '${l.lifeStartingLife} ${match.start}',
+          icon: compact ? const DeckIcon(Icons.favorite_border) : null,
+          child: compact
+              ? null
+              : _Label(
+                  icon: Icons.favorite_border,
+                  text: '${l.lifeStartingLife} ${match.start}',
+                ),
+        ),
+        if (compact)
+          IconButton(
+            onPressed: () => controller.restart(),
+            icon: const DeckIcon(Icons.restart_alt),
+            tooltip: l.appearanceReset,
+          )
+        else
+          TextButton.icon(
+            onPressed: () => controller.restart(),
+            icon: const DeckIcon(Icons.restart_alt),
+            label: Text(l.appearanceReset),
           ),
-        ),
-        TextButton.icon(
-          onPressed: () => controller.restart(),
-          icon: const DeckIcon(Icons.restart_alt),
-          label: Text(l.appearanceReset),
-        ),
       ],
     );
   }
