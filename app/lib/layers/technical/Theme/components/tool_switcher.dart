@@ -56,7 +56,7 @@ class CompanionButton extends StatelessWidget {
     return IconButton(
       tooltip: tooltip,
       style: IconButton.styleFrom(
-        minimumSize: const Size.square(Targets.minimum + Space.xs),
+        minimumSize: const Size.square(Targets.minimum),
         backgroundColor: scheme.surface.withValues(alpha: .55),
         foregroundColor: scheme.onSurfaceVariant,
       ),

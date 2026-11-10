@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/breakpoints.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
-const double toolBackClearance = Space.xs + Targets.minimum + Space.lg;
+const double toolBackClearance = Space.xs + Targets.minimum + Space.xs;
 const double toolPrimaryHeight = Targets.minimum + Space.md;
 
 abstract final class ToolLayout {

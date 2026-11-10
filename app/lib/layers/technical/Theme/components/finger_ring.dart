@@ -11,6 +11,8 @@ const fingerColors = [
   Color(0xFFFF9500),
 ];
 
+Color fingerColorAt(int index) => fingerColors[index % fingerColors.length];
+
 const fingerPadColor = Color(0xFF121212);
 const fingerHintColor = Color(0xB3FFFFFF);
 const fingerIdleColor = Color(0x8AFFFFFF);

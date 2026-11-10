@@ -1842,5 +1842,21 @@
   "introWordRules": "Tus reglas.",
   "introSkip": "Omitir",
   "demoPause": "Pausar la demo animada",
-  "demoPlay": "Reproducir"
+  "demoPlay": "Reproducir",
+  "sessionToolTabs": "Herramientas de la sesión",
+  "fingerModeGroups": "Hacer equipos",
+  "fingerOptions": "Opciones",
+  "fingerWinners": "Número de ganadores",
+  "fingerGroups": "Número de equipos",
+  "fingerMore": "Más",
+  "fingerLess": "Menos",
+  "fingerFullscreen": "Pantalla completa",
+  "fingerExitFullscreen": "Salir de pantalla completa",
+  "fingerDesktopHint": "Con el ratón, haz clic para añadir o quitar un dedo. En una pantalla táctil, usa tus dedos.",
+  "fingerLiftToRestart": "Levanta los dedos para empezar de nuevo",
+  "fingerClickToRestart": "Haz clic para empezar de nuevo",
+  "fingerSurfaceLabel": "Elección por dedo, toca la pantalla con cada dedo",
+  "fingerWinnerLabel": "Ganador",
+  "fingerRankLabel": "Puesto {n}",
+  "fingerGroupLabel": "Equipo {n}"
 }

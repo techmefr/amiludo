@@ -1,24 +1,34 @@
 import 'dart:async';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
+import 'package:amiludo/layers/functional/Random/presentation/finger_dock.dart';
+import 'package:amiludo/layers/functional/Random/presentation/finger_draw.dart';
+import 'package:amiludo/layers/functional/Random/presentation/finger_hints.dart';
 import 'package:amiludo/layers/functional/Random/presentation/finger_mode_selector.dart';
-import 'package:amiludo/layers/functional/Random/presentation/finger_name_picker.dart';
+import 'package:amiludo/layers/functional/Random/presentation/finger_sheet.dart';
+import 'package:amiludo/layers/functional/Random/presentation/finger_surface.dart';
+import 'package:amiludo/layers/technical/Display/fullscreen.dart';
 import 'package:amiludo/layers/technical/Feedback/device_feedback.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/finger_layers.dart';
 import 'package:amiludo/layers/technical/Theme/components/finger_ring.dart';
-import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/fullscreen_button.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_bar_scope.dart';
+
+const int _firstVirtual = 1 << 20;
+const int _maxVirtual = 10;
 
 class FingerTool extends StatefulWidget {
   const FingerTool({
     super.key,
     required this.names,
     this.haptics = true,
-    this.fullscreen = false,
     this.onTint,
   });
-  final bool haptics, fullscreen;
+  final bool haptics;
   final List<String> names;
   final ValueChanged<Color?>? onTint;
   @override
@@ -28,41 +38,44 @@ class FingerTool extends StatefulWidget {
 class _FingerToolState extends State<FingerTool> {
   final contacts = <int, Offset>{};
   final colors = <int, int>{};
-  final ranks = <int, int>{};
   final frozen = <int, Offset>{};
+  final virtual = <int>{};
   final random = RandomTools();
   Timer? countdown;
   FingerMode mode = FingerMode.first;
-  int? winner;
-  int arrivals = 0;
-  String? chosen;
+  FingerDraw draw = const FingerDraw();
+  int winners = 1, groups = 2, arrivals = 0, epoch = 0, seq = _firstVirtual;
   bool drawn = false;
 
   void schedule() {
     countdown?.cancel();
     if (contacts.isEmpty || drawn) return;
-    countdown = Timer(const Duration(milliseconds: 1600), () {
-      if (!mounted || contacts.isEmpty) return;
-      setState(() {
-        if (mode == FingerMode.first) {
-          winner = contacts.keys.elementAt(
-            random.integer(0, contacts.length - 1),
-          );
-        } else {
-          for (final (rank, pointer)
-              in random.shuffled(contacts.keys).indexed) {
-            ranks[pointer] = rank + 1;
-          }
-        }
-        frozen
-          ..clear()
-          ..addAll(contacts);
-        drawn = true;
-      });
-      widget.onTint?.call(winnerColor());
-      DeviceFeedback.selection(haptics: widget.haptics);
-    });
+    setState(() => epoch++);
+    countdown = Timer(fingerCountdown, pick);
   }
+
+  void pick() {
+    if (!mounted || contacts.isEmpty) return;
+    setState(() {
+      draw = drawFingers(
+        pointers: contacts.keys,
+        mode: mode,
+        winners: winners,
+        groups: groups,
+        random: random,
+      );
+      frozen
+        ..clear()
+        ..addAll(contacts);
+      drawn = true;
+    });
+    widget.onTint?.call(tint());
+    unawaited(DeviceFeedback.expired(sound: false, haptics: widget.haptics));
+  }
+
+  Color? tint() => mode == FingerMode.first && drawn && draw.winners.length == 1
+      ? fingerColorAt(colors[draw.winners.first] ?? 0)
+      : null;
 
   @override
   void dispose() {
@@ -72,20 +85,49 @@ class _FingerToolState extends State<FingerTool> {
 
   void reset() {
     drawn = false;
-    winner = null;
+    draw = const FingerDraw();
     frozen.clear();
     colors.removeWhere((pointer, _) => !contacts.containsKey(pointer));
-    ranks.clear();
     widget.onTint?.call(null);
   }
 
+  void clearAll() {
+    countdown?.cancel();
+    contacts.clear();
+    virtual.clear();
+    reset();
+  }
+
   void onDown(PointerDownEvent e) {
+    if (e.kind == PointerDeviceKind.mouse) return click(e.localPosition);
     setState(() {
       if (contacts.isEmpty) reset();
       contacts[e.pointer] = e.localPosition;
-      colors[e.pointer] = arrivals++ % fingerColors.length;
+      colors[e.pointer] = arrivals++;
     });
+    unawaited(DeviceFeedback.selection(haptics: widget.haptics));
     schedule();
+  }
+
+  void click(Offset at) {
+    if (drawn) return setState(clearAll);
+    final near = nearestFinger(virtual, contacts, at);
+    setState(() {
+      if (near != null) {
+        virtual.remove(near);
+        contacts.remove(near);
+        colors.remove(near);
+      } else if (virtual.length < _maxVirtual) {
+        virtual.add(seq);
+        contacts[seq] = at;
+        colors[seq++] = arrivals++;
+      }
+    });
+    if (contacts.isEmpty) {
+      countdown?.cancel();
+    } else {
+      schedule();
+    }
   }
 
   void onMove(PointerMoveEvent e) {
@@ -95,6 +137,7 @@ class _FingerToolState extends State<FingerTool> {
   }
 
   void onUp(PointerEvent e) {
+    if (e.kind == PointerDeviceKind.mouse) return;
     setState(() => contacts.remove(e.pointer));
     if (!frozen.containsKey(e.pointer)) colors.remove(e.pointer);
     if (contacts.isEmpty) {
@@ -105,127 +148,51 @@ class _FingerToolState extends State<FingerTool> {
   }
 
   void changeMode(FingerMode value) => setState(() {
-    countdown?.cancel();
-    contacts.clear();
-    reset();
+    clearAll();
     mode = value;
   });
 
-  String hint() => drawn
-      ? ''
-      : contacts.isEmpty
-      ? context.l10n.randomPlaceYourFingersHere
-      : context.l10n.randomChoosing;
-
-  Widget contact(MapEntry<int, Offset> entry) {
-    const size = fingerRingSize;
-    final colorIndex = colors[entry.key] ?? 0;
-    final palette = fingerColors;
-    final color = palette[colorIndex];
-    final state = mode == FingerMode.first && drawn
-        ? (winner == entry.key ? FingerRingState.winner : FingerRingState.dim)
-        : FingerRingState.idle;
-    return Positioned(
-      key: ValueKey(entry.key),
-      left: entry.value.dx - size / 2,
-      top: entry.value.dy - size / 2,
-      child: FingerRing(
-        color: color,
-        nextColor: drawn ? null : palette[(colorIndex + 2) % palette.length],
-        state: state,
-        label: ranks[entry.key]?.toString(),
-      ),
-    );
-  }
-
-  Color? winnerColor() => mode == FingerMode.first && drawn && winner != null
-      ? fingerColors[colors[winner] ?? 0]
-      : null;
-
-  Widget area() {
-    final shown = {...frozen, ...contacts};
-    return Listener(
-      onPointerDown: onDown,
-      onPointerMove: onMove,
-      onPointerUp: onUp,
-      onPointerCancel: onUp,
-      child: AnimatedContainer(
-        duration: Motion.of(context, Motion.slow),
-        curve: Motion.curve,
-        height: widget.fullscreen ? double.infinity : 360,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: winnerColor() ?? fingerPadColor,
-          borderRadius: BorderRadius.circular(Radii.pill),
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(Radii.pill),
-          child: Stack(
-            children: [
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Semantics(
-                  liveRegion: true,
-                  child: Padding(
-                    padding: const EdgeInsets.all(Space.xl),
-                    child: Text(
-                      hint(),
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.bodyMedium
-                          ?.copyWith(color: fingerHintColor),
-                    ),
-                  ),
-                ),
-              ),
-              for (final entry in shown.entries) contact(entry),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+  void options() => showFingerOptions(
+    context,
+    mode: mode,
+    winners: winners,
+    groups: groups,
+    names: widget.names,
+    random: random,
+    onWinners: (v) => setState(() => winners = v),
+    onGroups: (v) => setState(() => groups = v),
+  );
 
   @override
-  Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.all(Space.lg),
-    child: LayoutBuilder(
-      builder: (context, constraints) {
-        final controls = FingerModeSelector(mode: mode, onChanged: changeMode);
-        final names = FingerNamePicker(
-          names: widget.names,
-          chosen: chosen,
-          onPick: () => setState(
-            () => chosen =
-                widget.names[random.integer(0, widget.names.length - 1)],
-          ),
-        );
-        return Column(
-          mainAxisSize: widget.fullscreen ? MainAxisSize.max : MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (widget.fullscreen)
-              ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxHeight: constraints.maxHeight * .24,
-                ),
-                child: SingleChildScrollView(child: controls),
-              )
-            else
-              controls,
-            const SizedBox(height: Space.lg),
-            if (widget.fullscreen) Expanded(child: area()) else area(),
-            if (widget.fullscreen)
-              ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxHeight: constraints.maxHeight * .32,
-                ),
-                child: SingleChildScrollView(child: names),
-              )
-            else
-              names,
-          ],
-        );
-      },
-    ),
+  Widget build(BuildContext context) => Stack(
+    fit: StackFit.expand,
+    children: [
+      FingerSurface(
+        shown: {...frozen, ...contacts},
+        colors: colors,
+        draw: draw,
+        mode: mode,
+        drawn: drawn,
+        epoch: epoch,
+        background: tint() ?? fingerPadColor,
+        hint: fingerHint(
+          context,
+          drawn: drawn,
+          simulated: virtual.isNotEmpty,
+          touching: contacts.isNotEmpty,
+        ),
+        subHint: fingerOnDesktopWeb ? context.l10n.fingerDesktopHint : null,
+        onDown: onDown,
+        onMove: onMove,
+        onUp: onUp,
+      ),
+      FingerDock(
+        visible: contacts.isEmpty && !drawn,
+        mode: mode,
+        onMode: changeMode,
+        onOptions: options,
+      ),
+      TopBarSlot(actions: [if (fullscreenSupported) const FullscreenButton()]),
+    ],
   );
 }

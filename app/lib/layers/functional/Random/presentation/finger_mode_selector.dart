@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
-enum FingerMode { first, rank }
+enum FingerMode { first, rank, groups }
 
 class FingerModeSelector extends StatelessWidget {
   const FingerModeSelector({
@@ -16,6 +16,7 @@ class FingerModeSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SegmentedButton<FingerMode>(
+    showSelectedIcon: false,
     segments: [
       ButtonSegment(
         value: FingerMode.first,
@@ -24,6 +25,10 @@ class FingerModeSelector extends StatelessWidget {
       ButtonSegment(
         value: FingerMode.rank,
         label: Text(context.l10n.randomModeRank),
+      ),
+      ButtonSegment(
+        value: FingerMode.groups,
+        label: Text(context.l10n.fingerModeGroups),
       ),
     ],
     selected: {mode},

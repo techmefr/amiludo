@@ -5988,4 +5988,56 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get demoPlay => 'Play';
+
+  @override
+  String get sessionToolTabs => 'Session tools';
+
+  @override
+  String get fingerModeGroups => 'Make teams';
+
+  @override
+  String get fingerOptions => 'Options';
+
+  @override
+  String get fingerWinners => 'Number of winners';
+
+  @override
+  String get fingerGroups => 'Number of teams';
+
+  @override
+  String get fingerMore => 'More';
+
+  @override
+  String get fingerLess => 'Less';
+
+  @override
+  String get fingerFullscreen => 'Full screen';
+
+  @override
+  String get fingerExitFullscreen => 'Exit full screen';
+
+  @override
+  String get fingerDesktopHint => 'With a mouse, click to add or remove a finger. On a touchscreen, use your fingers.';
+
+  @override
+  String get fingerLiftToRestart => 'Lift your fingers to start again';
+
+  @override
+  String get fingerClickToRestart => 'Click to start again';
+
+  @override
+  String get fingerSurfaceLabel => 'Finger picker, touch the screen with every finger';
+
+  @override
+  String get fingerWinnerLabel => 'Winner';
+
+  @override
+  String fingerRankLabel(int n) {
+    return 'Rank $n';
+  }
+
+  @override
+  String fingerGroupLabel(int n) {
+    return 'Team $n';
+  }
 }

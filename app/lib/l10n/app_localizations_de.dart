@@ -6035,4 +6035,56 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get demoPlay => 'Abspielen';
+
+  @override
+  String get sessionToolTabs => 'Werkzeuge der Runde';
+
+  @override
+  String get fingerModeGroups => 'Teams bilden';
+
+  @override
+  String get fingerOptions => 'Optionen';
+
+  @override
+  String get fingerWinners => 'Anzahl Gewinner';
+
+  @override
+  String get fingerGroups => 'Anzahl Teams';
+
+  @override
+  String get fingerMore => 'Mehr';
+
+  @override
+  String get fingerLess => 'Weniger';
+
+  @override
+  String get fingerFullscreen => 'Vollbild';
+
+  @override
+  String get fingerExitFullscreen => 'Vollbild beenden';
+
+  @override
+  String get fingerDesktopHint => 'Mit der Maus klicken, um einen Finger hinzuzufügen oder zu entfernen. Auf dem Touchscreen die Finger benutzen.';
+
+  @override
+  String get fingerLiftToRestart => 'Finger abheben, um neu zu starten';
+
+  @override
+  String get fingerClickToRestart => 'Klicken, um neu zu starten';
+
+  @override
+  String get fingerSurfaceLabel => 'Fingerauswahl, berührt den Bildschirm mit jedem Finger';
+
+  @override
+  String get fingerWinnerLabel => 'Gewinner';
+
+  @override
+  String fingerRankLabel(int n) {
+    return 'Rang $n';
+  }
+
+  @override
+  String fingerGroupLabel(int n) {
+    return 'Team $n';
+  }
 }
