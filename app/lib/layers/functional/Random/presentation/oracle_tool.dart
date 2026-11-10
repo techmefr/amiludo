@@ -12,6 +12,7 @@ import 'package:amiludo/layers/technical/Theme/components/tarot_style.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
 import 'package:amiludo/layers/technical/Theme/tool_layout.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_focus.dart';
 
 class OracleTool extends StatefulWidget {
   const OracleTool({super.key, this.random});
@@ -89,8 +90,8 @@ class _OracleToolState extends State<OracleTool> {
     final shown = verdict;
     return Align(
       alignment: Alignment.topCenter,
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 520),
+      child: ToolFocus(
+        baseWidth: 520,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

@@ -8,6 +8,7 @@ import 'package:amiludo/layers/technical/Theme/components/tool_texture.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_focus.dart';
 
 class JournalTool extends StatefulWidget {
   const JournalTool({
@@ -103,8 +104,8 @@ class _JournalToolState extends State<JournalTool> {
     final l = context.l10n;
     return Align(
       alignment: Alignment.topCenter,
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 640),
+      child: ToolFocus(
+        baseWidth: 640,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

@@ -8,6 +8,7 @@ import 'package:amiludo/layers/technical/Theme/components/stopwatch_dial.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_focus.dart';
 
 class StopwatchTool extends StatefulWidget {
   const StopwatchTool({super.key});
@@ -24,7 +25,9 @@ class _StopwatchToolState extends State<StopwatchTool> {
   final tool = toolThemeFor('stopwatch');
 
   void _tick() {
-    if (mounted) setState(() => state = state.withElapsed(_base + _clock.elapsed));
+    if (mounted) {
+      setState(() => state = state.withElapsed(_base + _clock.elapsed));
+    }
   }
 
   void _toggle() {
@@ -73,8 +76,8 @@ class _StopwatchToolState extends State<StopwatchTool> {
     return Center(
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(Space.xl),
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 420),
+        child: ToolFocus(
+          baseWidth: 420,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -110,7 +113,9 @@ class _StopwatchToolState extends State<StopwatchTool> {
                 children: [
                   FilledButton.icon(
                     onPressed: _toggle,
-                    icon: DeckIcon(state.running ? Icons.pause : Icons.play_arrow),
+                    icon: DeckIcon(
+                      state.running ? Icons.pause : Icons.play_arrow,
+                    ),
                     label: Text(state.running ? l.timerPause : l.timerStart),
                   ),
                   OutlinedButton.icon(

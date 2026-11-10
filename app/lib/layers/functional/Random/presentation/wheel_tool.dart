@@ -9,6 +9,7 @@ import 'package:amiludo/layers/functional/Random/domain/entities/random_inputs.d
 import 'package:amiludo/layers/functional/Random/domain/entities/random_tools.dart';
 import 'package:amiludo/layers/functional/Random/presentation/random_widgets.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_focus.dart';
 
 class WheelTool extends StatefulWidget {
   const WheelTool({super.key, required this.names});
@@ -92,7 +93,11 @@ class _WheelToolState extends State<WheelTool>
     padding: const EdgeInsets.symmetric(vertical: Space.lg),
     child: LayoutBuilder(
       builder: (context, box) {
-        final side = min(box.maxWidth, 360.0);
+        final stage = ToolStage.factor(context);
+        final side = min(
+          min(box.maxWidth, 360.0 * stage),
+          MediaQuery.sizeOf(context).height * .6,
+        );
         return Column(
           children: [
             SizedBox(

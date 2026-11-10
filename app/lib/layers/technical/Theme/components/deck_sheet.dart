@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Feedback/deck_haptics.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/breakpoints.dart';
 
 Future<T?> showDeckSheet<T>({
   required BuildContext context,
@@ -42,7 +43,9 @@ Future<T?> showDeckSheet<T>({
     isScrollControlled: true,
     showDragHandle: true,
     useSafeArea: true,
-    constraints: const BoxConstraints(maxWidth: 640),
+    constraints: BoxConstraints(
+      maxWidth: Breakpoints.contentWidth(Breakpoints.of(context)),
+    ),
     sheetAnimationStyle: AnimationStyle(
       duration: Motion.of(context, Motion.base),
       curve: Motion.curve,

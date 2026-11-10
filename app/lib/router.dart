@@ -106,9 +106,11 @@ import 'package:amiludo/layers/functional/Workspace/presentation/app_shell.dart'
 import 'package:amiludo/layers/functional/Workspace/presentation/game_setup.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/home_screen.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/workspace_gate.dart';
+import 'package:amiludo/layers/technical/Theme/tokens/breakpoints.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_focus.dart';
 
 Widget _timer(BuildContext context) =>
-    const SizedBox(width: double.infinity, child: TimerPanel());
+    const ToolFocus(baseWidth: 520, child: TimerPanel());
 
 Widget _stopwatch(BuildContext context) => const StopwatchTool();
 
@@ -141,7 +143,8 @@ Widget _clocks(BuildContext context) => const ClocksTool();
 
 Widget _sport(BuildContext context) => SportTool(names: _names(context));
 
-Widget _markers(BuildContext context) => MarkersTool(names: _names(context));
+Widget _markers(BuildContext context) =>
+    ToolFocus(baseWidth: 640, child: MarkersTool(names: _names(context)));
 
 Widget _bank(BuildContext context) => BankTool(names: _names(context));
 
@@ -472,9 +475,14 @@ final router = GoRouter(
       '/evenings/edit/:id',
       (state) => EveningForm(id: state.pathParameters['id']!),
     ),
-    _page(
-      '/evenings/:id',
-      (state) => EveningDetail(id: state.pathParameters['id']!),
+    GoRoute(
+      path: '/evenings/:id',
+      builder: (context, state) {
+        final id = state.pathParameters['id']!;
+        return Breakpoints.atLeast(context, WindowClass.expanded)
+            ? AppShell(path: '/evenings', child: EveningsScreen(selectedId: id))
+            : WorkspaceGate(child: EveningDetail(id: id));
+      },
     ),
     _page(
       '/evening/:code',

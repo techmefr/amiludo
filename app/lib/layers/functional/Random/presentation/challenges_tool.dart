@@ -7,6 +7,7 @@ import 'package:amiludo/layers/technical/Theme/components/playing_card.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
 import 'package:amiludo/layers/technical/Theme/tool_layout.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_focus.dart';
 
 List<String> challengeLines(String text) => [
   for (final line in text.split('\n'))
@@ -56,8 +57,8 @@ class _ChallengesToolState extends State<ChallengesTool> {
     final width = (MediaQuery.sizeOf(context).width * .6).clamp(180.0, 260.0);
     return Align(
       alignment: Alignment.topCenter,
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 560),
+      child: ToolFocus(
+        baseWidth: 560,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

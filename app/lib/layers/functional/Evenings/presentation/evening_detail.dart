@@ -11,26 +11,61 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
+Future<void> _removeEvening(BuildContext context, Evening evening) async {
+  final ok = await confirm(
+    context,
+    context.l10n.eveningsRemoveThisNight,
+    evening.mine
+        ? context.l10n.eveningsSignUpsWillBeLost
+        : context.l10n.eveningsItLeavesYourList,
+  );
+  if (!ok || !context.mounted) return;
+  await runEveningAction(
+    context,
+    () => context.read<EveningsCubit>().remove(evening.id),
+  );
+  if (context.mounted) context.go('/evenings');
+}
+
+List<Widget> _eveningActions(
+  BuildContext context,
+  EveningsCubit cubit,
+  Evening? evening,
+) => [
+  if (evening != null && evening.published)
+    IconButton(
+      tooltip: context.l10n.eveningsRefresh,
+      onPressed: () =>
+          runEveningAction(context, () => cubit.fetch(evening.code)),
+      icon: const Icon(Icons.refresh),
+    ),
+  if (evening != null && evening.mine)
+    IconButton(
+      tooltip: context.l10n.templatesEdit,
+      onPressed: () => context.go('/evenings/edit/${evening.id}'),
+      icon: const Icon(Icons.edit_outlined),
+    ),
+  if (evening != null)
+    IconButton(
+      tooltip: context.l10n.eveningsRemove,
+      onPressed: () => _removeEvening(context, evening),
+      icon: const Icon(Icons.delete_outline),
+    ),
+];
+
+Widget _eveningContent(BuildContext context, Evening? evening) =>
+    evening == null
+    ? EmptyPanel(
+        icon: Icons.search_off,
+        title: context.l10n.eveningsNightNotFound,
+        message: context.l10n.eveningsItWasRemoved,
+      )
+    : EveningBody(evening: evening);
+
 class EveningDetail extends StatelessWidget {
   const EveningDetail({super.key, required this.id});
 
   final String id;
-
-  Future<void> _remove(BuildContext context, Evening evening) async {
-    final ok = await confirm(
-      context,
-      context.l10n.eveningsRemoveThisNight,
-      evening.mine
-          ? context.l10n.eveningsSignUpsWillBeLost
-          : context.l10n.eveningsItLeavesYourList,
-    );
-    if (!ok || !context.mounted) return;
-    await runEveningAction(
-      context,
-      () => context.read<EveningsCubit>().remove(evening.id),
-    );
-    if (context.mounted) context.go('/evenings');
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,34 +74,38 @@ class EveningDetail extends StatelessWidget {
     return FullPage(
       title: evening?.title ?? context.l10n.eveningsGameNight,
       fallback: '/evenings',
-      actions: [
-        if (evening != null && evening.published)
-          IconButton(
-            tooltip: context.l10n.eveningsRefresh,
-            onPressed: () =>
-                runEveningAction(context, () => cubit.fetch(evening.code)),
-            icon: const Icon(Icons.refresh),
-          ),
-        if (evening != null && evening.mine)
-          IconButton(
-            tooltip: context.l10n.templatesEdit,
-            onPressed: () => context.go('/evenings/edit/${evening.id}'),
-            icon: const Icon(Icons.edit_outlined),
-          ),
-        if (evening != null)
-          IconButton(
-            tooltip: context.l10n.eveningsRemove,
-            onPressed: () => _remove(context, evening),
-            icon: const Icon(Icons.delete_outline),
-          ),
+      actions: _eveningActions(context, cubit, evening),
+      child: _eveningContent(context, evening),
+    );
+  }
+}
+
+class EveningDetailPane extends StatelessWidget {
+  const EveningDetailPane({super.key, required this.id});
+
+  final String id;
+
+  @override
+  Widget build(BuildContext context) {
+    final cubit = context.watch<EveningsCubit>();
+    final evening = cubit.evening(id);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                evening?.title ?? context.l10n.eveningsGameNight,
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+            ),
+            ..._eveningActions(context, cubit, evening),
+          ],
+        ),
+        const SizedBox(height: 16),
+        _eveningContent(context, evening),
       ],
-      child: evening == null
-          ? EmptyPanel(
-              icon: Icons.search_off,
-              title: context.l10n.eveningsNightNotFound,
-              message: context.l10n.eveningsItWasRemoved,
-            )
-          : EveningBody(evening: evening),
     );
   }
 }

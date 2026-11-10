@@ -8,6 +8,7 @@ import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_focus.dart';
 
 const _spinTime = Duration(milliseconds: 2800);
 
@@ -69,8 +70,8 @@ class _FirstPlayerToolState extends State<FirstPlayerTool>
     return Center(
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(Space.xl),
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 460),
+        child: ToolFocus(
+          baseWidth: 460,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -94,7 +95,9 @@ class _FirstPlayerToolState extends State<FirstPlayerTool>
               Semantics(
                 liveRegion: true,
                 child: Text(
-                  chosen == null ? '' : l.firstPlayerStarts(widget.names[chosen!]),
+                  chosen == null
+                      ? ''
+                      : l.firstPlayerStarts(widget.names[chosen!]),
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),

@@ -9,6 +9,7 @@ import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tool_theme.dart';
 import 'package:amiludo/layers/technical/Theme/tool_layout.dart';
+import 'package:amiludo/layers/technical/Theme/components/tool_focus.dart';
 
 enum ImpostorPhase { setup, gate, role, result }
 
@@ -181,8 +182,8 @@ class _ImpostorToolState extends State<ImpostorTool> {
   @override
   Widget build(BuildContext context) => Align(
     alignment: Alignment.topCenter,
-    child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 520),
+    child: ToolFocus(
+      baseWidth: 520,
       child: AnimatedSwitcher(
         duration: tool.duration(context),
         child: KeyedSubtree(

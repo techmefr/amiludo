@@ -54,7 +54,9 @@ class SheetGrid extends StatelessWidget {
           controller: fields[player],
           textAlign: TextAlign.center,
           keyboardType: const TextInputType.numberWithOptions(signed: true),
-          inputFormatters: [FilteringTextInputFormatter.allow(RegExp('[-0-9]'))],
+          inputFormatters: [
+            FilteringTextInputFormatter.allow(RegExp('[-0-9]')),
+          ],
           decoration: const InputDecoration(
             isDense: true,
             contentPadding: EdgeInsets.symmetric(
@@ -71,54 +73,64 @@ class SheetGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Table(
-        defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-        columnWidths: {
-          0: const FixedColumnWidth(_labelWidth),
-          for (var p = 0; p < players.length; p++)
-            p + 1: const FixedColumnWidth(_cellWidth),
-        },
-        children: [
-          TableRow(
-            children: [
-              const SizedBox.shrink(),
-              for (final name in players)
-                Padding(
-                  padding: const EdgeInsets.all(Space.sm),
-                  child: Text(
-                    name,
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: theme.titleSmall,
-                  ),
-                ),
-            ],
-          ),
-          for (final line in lines)
-            TableRow(
-              decoration: line.emphasis
-                  ? BoxDecoration(
-                      border: Border(
-                        top: BorderSide(
-                          color: Theme.of(context).colorScheme.outline,
+    return LayoutBuilder(
+      builder: (context, box) => SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: ConstrainedBox(
+          constraints: BoxConstraints(minWidth: box.maxWidth),
+          child: Center(
+            child: Table(
+              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+              columnWidths: {
+                0: const FixedColumnWidth(_labelWidth),
+                for (var p = 0; p < players.length; p++)
+                  p + 1: const FixedColumnWidth(_cellWidth),
+              },
+              children: [
+                TableRow(
+                  children: [
+                    const SizedBox.shrink(),
+                    for (final name in players)
+                      Padding(
+                        padding: const EdgeInsets.all(Space.sm),
+                        child: Text(
+                          name,
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          style: theme.titleSmall,
                         ),
                       ),
-                    )
-                  : null,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(Space.sm),
-                  child: Text(
-                    line.label,
-                    style: line.emphasis ? theme.titleMedium : theme.bodyMedium,
-                  ),
+                  ],
                 ),
-                for (var p = 0; p < players.length; p++) _cell(context, line, p),
+                for (final line in lines)
+                  TableRow(
+                    decoration: line.emphasis
+                        ? BoxDecoration(
+                            border: Border(
+                              top: BorderSide(
+                                color: Theme.of(context).colorScheme.outline,
+                              ),
+                            ),
+                          )
+                        : null,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(Space.sm),
+                        child: Text(
+                          line.label,
+                          style: line.emphasis
+                              ? theme.titleMedium
+                              : theme.bodyMedium,
+                        ),
+                      ),
+                      for (var p = 0; p < players.length; p++)
+                        _cell(context, line, p),
+                    ],
+                  ),
               ],
             ),
-        ],
+          ),
+        ),
       ),
     );
   }
