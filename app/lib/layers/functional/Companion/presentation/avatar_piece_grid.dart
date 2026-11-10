@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/appearance_item.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class AvatarPieceGrid extends StatelessWidget {
   const AvatarPieceGrid({
@@ -46,7 +47,7 @@ class AvatarPieceGrid extends StatelessWidget {
                   border: Border.all(
                     width: items[i].id == selectedId ? 3 : 1,
                     color: items[i].id == selectedId
-                        ? scheme.primary
+                        ? scheme.accentInk
                         : scheme.outlineVariant,
                   ),
                 ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class ShelfNumbers extends StatelessWidget {
   const ShelfNumbers({super.key, required this.game, required this.onChanged});
@@ -103,7 +104,7 @@ class ShelfColorPicker extends StatelessWidget {
                 radius: 22,
                 backgroundColor: Color(c),
                 child: c == value
-                    ? const Icon(Icons.check, color: Colors.white)
+                    ? Icon(Icons.check, color: onColorFor(Color(c)))
                     : null,
               ),
             ),

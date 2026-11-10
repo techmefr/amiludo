@@ -11,6 +11,7 @@ import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class MissionScreen extends StatefulWidget {
   const MissionScreen({
@@ -62,7 +63,7 @@ class _MissionScreenState extends State<MissionScreen> {
                     children: [
                       DeckIcon(
                         Icons.lightbulb_outline,
-                        color: theme.colorScheme.primary,
+                        color: theme.colorScheme.accentInk,
                       ),
                       const SizedBox(width: Space.md),
                       Expanded(

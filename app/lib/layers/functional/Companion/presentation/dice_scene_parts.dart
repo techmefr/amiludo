@@ -11,6 +11,7 @@ import 'package:amiludo/layers/technical/DicePhysics/die_body.dart';
 import 'package:amiludo/layers/technical/DiceScene/die_scene.dart';
 import 'package:amiludo/layers/technical/DiceScene/scene_camera.dart';
 import 'package:amiludo/layers/technical/Physics/tray_body.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 SceneDie sceneDieFor(DiceSpec spec, DieBody body, DieSkin skin) {
   final skinned = usesSkinColors(spec);
@@ -21,9 +22,11 @@ SceneDie sceneDieFor(DiceSpec spec, DieBody body, DieSkin skin) {
     skin: skin,
     ink: skinned
         ? null
-        : (base.computeLuminance() > 0.5
-              ? const Color(0xFF1E1A22)
-              : const Color(0xFFF6F3EE)),
+        : onColorFor(
+            base,
+            light: const Color(0xFFF6F3EE),
+            dark: const Color(0xFF1E1A22),
+          ),
     label: (v) {
       final content = spec.faceContent(v);
       return content.kind == DieFaceKind.text ? content.value : null;

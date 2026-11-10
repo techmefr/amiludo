@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/functional/Random/presentation/chronicles/table_gestures.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class BoosterTable extends StatefulWidget {
   const BoosterTable({
@@ -69,7 +70,7 @@ class _BoosterTableState extends State<BoosterTable> {
             decoration: BoxDecoration(
               color: theme.colorScheme.surfaceContainerHighest,
               borderRadius: BorderRadius.circular(Radii.lg),
-              border: Border.all(color: theme.colorScheme.primary, width: 2),
+              border: Border.all(color: theme.colorScheme.accentInk, width: 2),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,

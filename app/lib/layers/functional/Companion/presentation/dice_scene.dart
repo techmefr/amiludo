@@ -13,6 +13,7 @@ import 'package:amiludo/layers/technical/DiceScene/tray_scene_painter.dart';
 import 'package:amiludo/layers/technical/Feedback/tray_feedback.dart';
 import 'package:amiludo/layers/technical/Sensors/tray_motion.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 
 const double _impactScale = 35;
 const double _leanScale = 26;
@@ -180,16 +181,20 @@ class _DiceSceneState extends State<DiceScene>
               final hit = pickDie(camera, current.bodies, d.localPosition);
               if (hit != null) widget.onLongPressDie?.call(hit);
             },
-            child: DiceSceneLayers(
-              run: current,
-              session: widget.session,
-              skin: widget.skin,
-              table: widget.table,
-              camera: camera,
-              halfWidth: width,
-              halfDepth: depth,
-              frame: frame,
-              handles: handles,
+            child: Semantics(
+              button: true,
+              label: context.l10n.toolDiceTrayTitle,
+              child: DiceSceneLayers(
+                run: current,
+                session: widget.session,
+                skin: widget.skin,
+                table: widget.table,
+                camera: camera,
+                halfWidth: width,
+                halfDepth: depth,
+                frame: frame,
+                handles: handles,
+              ),
             ),
           );
         },

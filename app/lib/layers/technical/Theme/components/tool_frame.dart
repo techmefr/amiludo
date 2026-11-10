@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/technical/Theme/components/aura/aura_background.dart';
 import 'package:amiludo/layers/technical/Theme/components/aura/aura_presets.dart';
 import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
+import 'package:amiludo/layers/technical/Theme/readable_text.dart';
 import 'package:amiludo/layers/technical/Theme/components/tool_texture.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/deck_style.dart';
@@ -13,6 +14,25 @@ Color toolFrameBackground(ThemeData base, ToolTheme tool) => Color.lerp(
   tool.accent,
   base.brightness == Brightness.dark ? .12 : .07,
 )!;
+
+ThemeData toolFrameTheme(ThemeData base, ToolTheme tool) {
+  final background = toolFrameBackground(base, tool);
+  final tinted = tool.ink(background);
+  final onInk = onColorFor(onColorFor(background));
+  final scheme = readableScheme(
+    base.colorScheme.copyWith(
+      primary: ensureContrast(tinted, onInk),
+      onPrimary: onInk,
+    ),
+    background,
+  );
+  return base.copyWith(
+    scaffoldBackgroundColor: background,
+    colorScheme: scheme,
+    hintColor: scheme.onSurfaceVariant,
+    textTheme: readableTextTheme(base.textTheme, background),
+  );
+}
 
 class ToolFrame extends StatelessWidget {
   const ToolFrame({super.key, required this.id, required this.child});
@@ -50,15 +70,7 @@ class ToolFrame extends StatelessWidget {
   Widget build(BuildContext context) {
     final tool = toolThemeFor(id);
     final base = Theme.of(context);
-    final background = toolFrameBackground(base, tool);
-    final ink = tool.ink(background);
-    final themed = base.copyWith(
-      scaffoldBackgroundColor: background,
-      colorScheme: base.colorScheme.copyWith(
-        primary: ink,
-        onPrimary: readableOn(ink),
-      ),
-    );
+    final themed = toolFrameTheme(base, tool);
     return Theme(
       data: themed,
       child: Stack(

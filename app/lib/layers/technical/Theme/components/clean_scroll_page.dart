@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Theme/components/large_title_header.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class CleanScrollPage extends StatelessWidget {
   const CleanScrollPage({
@@ -42,7 +43,7 @@ class CleanScrollPage extends StatelessWidget {
                 title: title,
                 top: MediaQuery.paddingOf(context).top,
                 leading: BackButton(
-                  color: Theme.of(context).colorScheme.primary,
+                  color: Theme.of(context).colorScheme.accentInk,
                   onPressed: onBack,
                 ),
                 actions: actions,

@@ -10,6 +10,7 @@ import 'package:amiludo/layers/functional/Game/domain/entities/game.dart';
 import 'package:amiludo/layers/functional/Random/domain/entities/tool_catalog.dart';
 import 'package:amiludo/layers/functional/Workspace/presentation/cubit/workspace_cubit.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -125,7 +126,7 @@ class _FinishedGameRow extends StatelessWidget {
           children: [
             DeckIcon(
               Icons.emoji_events_outlined,
-              color: theme.colorScheme.primary,
+              color: theme.colorScheme.accentInk,
             ),
             const SizedBox(width: 16),
             Expanded(

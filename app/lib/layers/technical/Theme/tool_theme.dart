@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/technical/Feedback/deck_haptics.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 import 'package:amiludo/layers/technical/Sound/tool_sounds.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -70,8 +71,10 @@ class ToolTheme {
     (ToolHaptic.impact, _) => DeckHaptics.impact(),
   };
 
-  Color surface(BuildContext context, {double? mix}) {
-    final theme = Theme.of(context);
+  Color surface(BuildContext context, {double? mix}) =>
+      surfaceOn(Theme.of(context), mix: mix);
+
+  Color surfaceOn(ThemeData theme, {double? mix}) {
     final dark = theme.brightness == Brightness.dark;
     return Color.lerp(
       theme.colorScheme.surface,
@@ -81,8 +84,7 @@ class ToolTheme {
   }
 
   Color ink(Color background, {double ratio = 4.5}) {
-    final towardsDark = background.computeLuminance() > .5;
-    final target = towardsDark ? Colors.black : Colors.white;
+    final target = onColorFor(background, light: Colors.white, dark: Colors.black);
     var color = accent;
     for (
       var step = 1;

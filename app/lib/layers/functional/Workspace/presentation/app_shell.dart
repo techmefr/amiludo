@@ -14,6 +14,7 @@ import 'package:amiludo/layers/technical/Theme/components/blur_bar.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/breakpoints.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 typedef NavItem = (String route, IconData icon, String label);
 
@@ -66,39 +67,39 @@ class AppShell extends StatelessWidget {
           ),
         ),
         Scaffold(
-      backgroundColor: auraClear,
-      body: SafeArea(
-        child: Row(
-          children: [
-            if (desktop) _Sidebar(items: items, path: path),
-            if (rail) _Rail(items: items, index: index),
-            Expanded(
-              child: Column(
-                children: [
-                  _Header(
-                    label: items[index < 0 ? 0 : index].$3,
-                    desktop: desktop,
-                    compact: compact,
+          backgroundColor: auraClear,
+          body: SafeArea(
+            child: Row(
+              children: [
+                if (desktop) _Sidebar(items: items, path: path),
+                if (rail) _Rail(items: items, index: index),
+                Expanded(
+                  child: Column(
+                    children: [
+                      _Header(
+                        label: items[index < 0 ? 0 : index].$3,
+                        desktop: desktop,
+                        compact: compact,
+                      ),
+                      const _SaveFailedBanner(),
+                      Expanded(
+                        child: _Page(
+                          path: path,
+                          desktop: desktop,
+                          compact: compact,
+                          child: child,
+                        ),
+                      ),
+                    ],
                   ),
-                  const _SaveFailedBanner(),
-                  Expanded(
-                    child: _Page(
-                      path: path,
-                      desktop: desktop,
-                      compact: compact,
-                      child: child,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
+          bottomNavigationBar: desktop || rail
+              ? null
+              : _BottomBar(items: items, index: index),
         ),
-      ),
-      bottomNavigationBar: desktop || rail
-          ? null
-          : _BottomBar(items: items, index: index),
-    ),
       ],
     );
   }
@@ -159,7 +160,7 @@ class _Brand extends StatelessWidget {
           'amiLudo',
           style: theme.textTheme.titleLarge?.copyWith(
             color: theme.brightness == Brightness.dark
-                ? theme.colorScheme.primary
+                ? theme.colorScheme.accentText
                 : theme.colorScheme.onSurface,
           ),
         ),

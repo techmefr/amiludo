@@ -13,6 +13,7 @@ import 'package:amiludo/layers/functional/Templates/presentation/cubit/templates
 import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_request.dart';
 import 'package:amiludo/layers/functional/Templates/domain/entities/game_template.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class TemplatesScreen extends StatelessWidget {
   const TemplatesScreen({super.key});
@@ -130,7 +131,7 @@ class _TemplateCard extends StatelessWidget {
                 ? Icons.south
                 : Icons.dashboard_outlined,
             size: 40,
-            color: theme.colorScheme.primary,
+            color: theme.colorScheme.accentInk,
           ),
           const SizedBox(height: 20),
           Text(t.name, style: theme.textTheme.titleLarge),

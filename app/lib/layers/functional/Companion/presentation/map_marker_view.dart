@@ -4,6 +4,7 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/map_board.da
 import 'package:amiludo/layers/functional/Companion/presentation/map_geometry.dart';
 import 'package:amiludo/layers/technical/Theme/icon_catalog.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 const mapLabelWidth = 120.0;
 const mapTailHeight = 4.0;
@@ -17,9 +18,7 @@ class MapMarkerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final fill = Color(marker.color);
-    final onFill = fill.computeLuminance() > 0.5
-        ? const Color(0xFF000000)
-        : const Color(0xFFFFFFFF);
+    final onFill = onColorFor(fill, dark: const Color(0xFF000000));
     final scheme = Theme.of(context).colorScheme;
     final pin = marker.kind == MapMarkerKind.pin;
     return Positioned(

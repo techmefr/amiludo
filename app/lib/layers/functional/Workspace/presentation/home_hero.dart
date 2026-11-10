@@ -5,6 +5,7 @@ import 'package:amiludo/layers/functional/Workspace/domain/entities/game_setup_r
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/components/demo/demo_player.dart';
 import 'package:amiludo/layers/technical/Theme/components/entrance.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 import 'package:amiludo/layers/technical/Theme/deck_widgets.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
@@ -27,9 +28,11 @@ class HomeHero extends StatelessWidget {
     final theme = Theme.of(context), scheme = theme.colorScheme;
     final onBrand = scheme.onPrimary;
     final hsl = HSLColor.fromColor(scheme.primary);
-    final deep = hsl
-        .withLightness((hsl.lightness * .6).clamp(0.0, 1.0))
-        .toColor();
+    final deep = gradientEnd(
+      scheme.primary,
+      hsl.withLightness((hsl.lightness * .6).clamp(0.0, 1.0)).toColor(),
+      onBrand,
+    );
     return Entrance(
       index: 0,
       child: Container(

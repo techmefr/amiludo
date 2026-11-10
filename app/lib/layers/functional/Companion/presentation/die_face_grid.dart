@@ -6,6 +6,7 @@ import 'package:amiludo/layers/functional/Companion/presentation/die_face_view.d
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class DieFaceGrid extends StatelessWidget {
   const DieFaceGrid({
@@ -57,7 +58,7 @@ class DieFaceGrid extends StatelessWidget {
                       borderRadius: BorderRadius.circular(Radii.md),
                       border: Border.all(
                         color: i == current
-                            ? scheme.primary
+                            ? scheme.accentInk
                             : scheme.outlineVariant,
                         width: i == current ? 3 : 1,
                       ),

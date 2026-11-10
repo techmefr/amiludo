@@ -81,11 +81,14 @@ class TrayResultView extends StatelessWidget {
               for (final m in TrayResultMode.values)
                 PopupMenuItem(value: m, child: Text(trayResultLabel(l, m))),
             ],
-            child: Padding(
-              padding: const EdgeInsets.all(Space.sm),
-              child: Text(
-                '${l.diceResultMode} · ${trayResultLabel(l, mode)}',
-                style: theme.textTheme.labelLarge,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(minHeight: Targets.minimum),
+              child: Padding(
+                padding: const EdgeInsets.all(Space.sm),
+                child: Text(
+                  '${l.diceResultMode} · ${trayResultLabel(l, mode)}',
+                  style: theme.textTheme.labelLarge,
+                ),
               ),
             ),
           ),

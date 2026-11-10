@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Library/domain/entities/shelf_game.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class GameCover extends StatelessWidget {
   const GameCover({
@@ -17,8 +18,7 @@ class GameCover extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = Color(game.color);
-    final ink = color.computeLuminance() > .45 ? const Color(0xff000000)
-        : const Color(0xffffffff);
+    final ink = onColorFor(color, dark: const Color(0xff000000));
     final fallback = ColoredBox(
       color: color,
       child: Center(

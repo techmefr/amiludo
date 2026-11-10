@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:amiludo/layers/functional/Templates/domain/entities/character_pack.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class CardFace extends StatelessWidget {
   const CardFace({
@@ -40,7 +41,7 @@ class CardFace extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
               color: selected
-                  ? theme.colorScheme.primary
+                  ? theme.colorScheme.accentInk
                   : theme.colorScheme.outlineVariant,
               width: selected ? 3 : 1,
             ),

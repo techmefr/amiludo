@@ -35,7 +35,7 @@ class DieFace extends StatelessWidget {
           color: background,
           borderRadius: BorderRadius.circular(Radii.md),
           border: Border.all(
-            color: kept ? scheme.primary : ink.withValues(alpha: 0.4),
+            color: kept ? scheme.accentInk : ink.withValues(alpha: 0.4),
             width: kept ? 3 : 1,
           ),
         ),

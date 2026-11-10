@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:amiludo/layers/technical/Theme/deck_icon.dart';
 import 'package:amiludo/layers/technical/Theme/deck_style.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 
 class DeckTile extends StatefulWidget {
   const DeckTile({
@@ -46,7 +47,7 @@ class _DeckTileState extends State<DeckTile> {
         child: Material(
           color: widget.selected ? scheme.secondary : scheme.surface,
           shape: style.border(
-            widget.selected ? scheme.primary : scheme.outline,
+            widget.selected ? scheme.accentInk : scheme.outline,
             strong: widget.selected,
           ),
           elevation: widget.selected && style.glow != null ? 8 : 0,
@@ -63,7 +64,7 @@ class _DeckTileState extends State<DeckTile> {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    DeckIcon(widget.icon, size: 28, color: scheme.primary),
+                    DeckIcon(widget.icon, size: 28, color: scheme.accentInk),
                     const SizedBox(height: Space.md),
                     Text(
                       widget.title,

@@ -35,7 +35,7 @@ class PlayerPanel extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(Radii.lg),
         side: turn
-            ? BorderSide(color: theme.colorScheme.primary, width: 3)
+            ? BorderSide(color: theme.colorScheme.accentInk, width: 3)
             : BorderSide.none,
       ),
       clipBehavior: Clip.antiAlias,

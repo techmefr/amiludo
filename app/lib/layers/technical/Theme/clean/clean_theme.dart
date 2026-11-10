@@ -7,6 +7,7 @@ import 'package:amiludo/layers/technical/Theme/clean/clean_text.dart';
 import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 import 'package:amiludo/layers/technical/Theme/deck_palette.dart';
 import 'package:amiludo/layers/technical/Theme/deck_style.dart';
+import 'package:amiludo/layers/technical/Theme/surface_tokens.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 const _symbols = ['Roboto', 'NotoSansSymbols2', 'NotoSansSymbols'];
@@ -18,14 +19,26 @@ CleanColors cleanColors(Appearance appearance, Brightness mode) {
   final accent = Color(dark ? p.darkAccent : p.accent);
   final background = Color(dark ? p.darkBackground : p.background);
   final surface = Color(dark ? p.darkHero : p.hero);
+  final fill = Color.alphaBlend(ink.withValues(alpha: .12), background);
+  final tint = Color.alphaBlend(accent.withValues(alpha: .08), background);
+  final grounds = [background, surface, fill, tint];
+  Color solid(Color color, [double minimum = aaText]) =>
+      grounds.fold(
+        color,
+        (kept, ground) => ensureContrast(kept, ground, minimum: minimum),
+      );
   return CleanColors(
     ink: ink,
-    secondary: ink.withValues(alpha: .68),
+    secondary: solid(
+      Color.alphaBlend(ink.withValues(alpha: .68), background),
+      aaText + 1,
+    ),
     accent: accent,
+    accentText: solid(accent),
     onAccent: readableOn(accent),
     background: background,
     surface: surface,
-    fill: Color.alphaBlend(ink.withValues(alpha: .12), background),
+    fill: fill,
     separator: ink.withValues(alpha: .16),
     positive: appearance.palette == 'clean' ? Color(p.signal) : accent,
   );
@@ -35,22 +48,34 @@ ThemeData cleanTheme(Appearance appearance, Brightness mode) {
   final c = cleanColors(appearance, mode);
   final dark = mode == Brightness.dark;
   final scale = appearance.large ? 1.15 : 1.0;
-  final scheme = ColorScheme.fromSeed(seedColor: c.accent, brightness: mode)
+  final seeded = ColorScheme.fromSeed(seedColor: c.accent, brightness: mode)
       .copyWith(
         primary: c.accent,
         onPrimary: c.onAccent,
         secondary: c.tint,
         onSecondary: c.ink,
         secondaryContainer: c.tint,
-        onSecondaryContainer: c.accent,
+        onSecondaryContainer: c.accentText,
         surface: c.surface,
         onSurface: c.ink,
         onSurfaceVariant: c.secondary,
         outline: c.separator,
         outlineVariant: c.separator,
         surfaceContainerHighest: c.fill,
-        error: dark ? const Color(0xffFF6961) : const Color(0xffD70015),
+        error: ensureContrast(
+          dark ? const Color(0xffFF6961) : const Color(0xffD70015),
+          c.background,
+        ),
       );
+  final scheme = withSurfaceTokens(
+    seeded,
+    background: c.background,
+    ink: c.ink,
+    hero: c.fill,
+  ).copyWith(
+    onSurfaceVariant: c.secondary,
+    onSecondaryContainer: c.accentText,
+  );
   final base = ThemeData(
     useMaterial3: true,
     brightness: mode,
@@ -76,6 +101,7 @@ ThemeData cleanTheme(Appearance appearance, Brightness mode) {
       ),
     ],
     textTheme: text,
+    hintColor: c.secondary,
     dividerColor: c.separator,
     dividerTheme: DividerThemeData(
       color: c.separator,
@@ -99,8 +125,8 @@ ThemeData cleanTheme(Appearance appearance, Brightness mode) {
       scrolledUnderElevation: 0,
       surfaceTintColor: Colors.transparent,
       centerTitle: true,
-      iconTheme: IconThemeData(color: c.accent),
-      actionsIconTheme: IconThemeData(color: c.accent),
+      iconTheme: IconThemeData(color: c.accentText),
+      actionsIconTheme: IconThemeData(color: c.accentText),
       titleTextStyle: text.titleMedium,
     ),
     filledButtonTheme: cleanFilledButton(text.labelLarge!),
@@ -113,7 +139,7 @@ ThemeData cleanTheme(Appearance appearance, Brightness mode) {
     chipTheme: cleanChip(c, text.labelMedium!),
     segmentedButtonTheme: cleanSegmented(c),
     listTileTheme: ListTileThemeData(
-      iconColor: c.accent,
+      iconColor: c.accentText,
       textColor: c.ink,
       contentPadding: const EdgeInsets.symmetric(horizontal: Space.lg),
     ),
@@ -130,6 +156,11 @@ ThemeData cleanTheme(Appearance appearance, Brightness mode) {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(Radii.group),
       ),
+    ),
+    bannerTheme: MaterialBannerThemeData(
+      backgroundColor: scheme.surfaceContainerHigh,
+      contentTextStyle: text.bodyMedium,
+      dividerColor: c.separator,
     ),
     snackBarTheme: SnackBarThemeData(
       behavior: SnackBarBehavior.floating,

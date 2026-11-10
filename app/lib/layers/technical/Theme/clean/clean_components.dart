@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/technical/Theme/components/readable_on.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class CleanColors {
@@ -7,6 +8,7 @@ class CleanColors {
     required this.ink,
     required this.secondary,
     required this.accent,
+    required this.accentText,
     required this.onAccent,
     required this.background,
     required this.surface,
@@ -17,6 +19,7 @@ class CleanColors {
   final Color ink,
       secondary,
       accent,
+      accentText,
       onAccent,
       background,
       surface,
@@ -45,7 +48,7 @@ OutlinedButtonThemeData cleanTintedButton(CleanColors c, TextStyle text) =>
         minimumSize: const Size(Targets.minimum, 50),
         padding: const EdgeInsets.symmetric(horizontal: Space.xl),
         backgroundColor: c.tint,
-        foregroundColor: c.accent,
+        foregroundColor: c.accentText,
         side: BorderSide.none,
         shape: _pill,
         textStyle: text,
@@ -56,7 +59,7 @@ TextButtonThemeData cleanPlainButton(CleanColors c, TextStyle text) =>
     TextButtonThemeData(
       style: TextButton.styleFrom(
         minimumSize: const Size(Targets.minimum, Targets.minimum),
-        foregroundColor: c.accent,
+        foregroundColor: c.accentText,
         shape: _pill,
         textStyle: text,
       ),
@@ -69,11 +72,15 @@ InputDecorationTheme cleanInput(CleanColors c) {
         ? BorderSide.none
         : BorderSide(color: color, width: width),
   );
+  final edge = [c.surface, c.background].fold(
+    c.separator,
+    (kept, ground) => ensureContrast(kept, ground, minimum: aaLarge),
+  );
   return InputDecorationTheme(
     filled: true,
     fillColor: c.surface,
-    border: border(c.surface, 0),
-    enabledBorder: border(c.surface, 0),
+    border: border(edge, 1),
+    enabledBorder: border(edge, 1),
     focusedBorder: border(c.accent, 2),
     contentPadding: const EdgeInsets.symmetric(
       horizontal: Space.lg,
@@ -84,7 +91,7 @@ InputDecorationTheme cleanInput(CleanColors c) {
 
 NavigationBarThemeData cleanNavigationBar(CleanColors c, TextTheme text) {
   Color tone(Set<WidgetState> s) =>
-      s.contains(WidgetState.selected) ? c.accent : c.secondary;
+      s.contains(WidgetState.selected) ? c.accentText : c.secondary;
   return NavigationBarThemeData(
     backgroundColor: Colors.transparent,
     surfaceTintColor: Colors.transparent,
