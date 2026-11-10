@@ -73,6 +73,10 @@ class _ToolsScreenState extends State<ToolsScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        if (inCategory)
+          DeckHeading(
+            title: context.toolShelfLabel(widget.initialCategory!),
+          ),
         if (!inCategory)
           DeckHeading(
             eyebrow: context.l10n.randomYourToolboxWithinReach,
