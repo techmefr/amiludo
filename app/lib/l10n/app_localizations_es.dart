@@ -6049,7 +6049,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get fingerExitFullscreen => 'Salir de pantalla completa';
 
   @override
-  String get fingerDesktopHint => 'Con el ratón, haz clic para añadir o quitar un dedo. En una pantalla táctil, usa tus dedos.';
+  String get fingerDesktopHint =>
+      'Con el ratón, haz clic para añadir o quitar un dedo. En una pantalla táctil, usa tus dedos.';
 
   @override
   String get fingerLiftToRestart => 'Levanta los dedos para empezar de nuevo';
@@ -6058,7 +6059,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get fingerClickToRestart => 'Haz clic para empezar de nuevo';
 
   @override
-  String get fingerSurfaceLabel => 'Elección por dedo, toca la pantalla con cada dedo';
+  String get fingerSurfaceLabel =>
+      'Elección por dedo, toca la pantalla con cada dedo';
 
   @override
   String get fingerWinnerLabel => 'Ganador';
@@ -6072,4 +6074,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String fingerGroupLabel(int n) {
     return 'Equipo $n';
   }
+
+  @override
+  String get avatarRandomize => 'Al azar';
 }

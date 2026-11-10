@@ -11209,6 +11209,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Team {n}'**
   String fingerGroupLabel(int n);
+
+  /// No description provided for @avatarRandomize.
+  ///
+  /// In en, this message translates to:
+  /// **'Randomize'**
+  String get avatarRandomize;
 }
 
 class _AppLocalizationsDelegate

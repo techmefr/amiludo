@@ -1858,5 +1858,6 @@
   "fingerSurfaceLabel": "Elección por dedo, toca la pantalla con cada dedo",
   "fingerWinnerLabel": "Ganador",
   "fingerRankLabel": "Puesto {n}",
-  "fingerGroupLabel": "Equipo {n}"
+  "fingerGroupLabel": "Equipo {n}",
+  "avatarRandomize": "Al azar"
 }

@@ -6053,7 +6053,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get fingerExitFullscreen => 'Volledig scherm sluiten';
 
   @override
-  String get fingerDesktopHint => 'Klik met de muis om een vinger toe te voegen of te verwijderen. Gebruik op een touchscreen je vingers.';
+  String get fingerDesktopHint =>
+      'Klik met de muis om een vinger toe te voegen of te verwijderen. Gebruik op een touchscreen je vingers.';
 
   @override
   String get fingerLiftToRestart => 'Til je vingers op om opnieuw te beginnen';
@@ -6062,7 +6063,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get fingerClickToRestart => 'Klik om opnieuw te beginnen';
 
   @override
-  String get fingerSurfaceLabel => 'Vingerkeuze, raak het scherm aan met elke vinger';
+  String get fingerSurfaceLabel =>
+      'Vingerkeuze, raak het scherm aan met elke vinger';
 
   @override
   String get fingerWinnerLabel => 'Winnaar';
@@ -6076,4 +6078,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String fingerGroupLabel(int n) {
     return 'Team $n';
   }
+
+  @override
+  String get avatarRandomize => 'Willekeurig';
 }

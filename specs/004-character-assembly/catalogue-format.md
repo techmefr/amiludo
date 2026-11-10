@@ -82,3 +82,15 @@ Any palette name used by a `tint` must exist here. The app picks one color per p
 ## First batch to check the pipeline
 
 One human head, three variants of each face trait, one hairstyle, one torso, two sleeves, one trousers, one pair of shoes, one accessory, in a single body shape. Assemble them, color them, and only then produce the other shapes and peoples.
+
+## Placement and rules (rig.json)
+
+`assets/avatar/rig.json` is optional. Without it a piece is drawn full canvas, as before. With it the app places every piece instead of stacking canvases.
+
+- `box` (per layer in `items.json`, normalised `[left, top, right, bottom]`): the opaque bounding box of the PNG, written by `tools/build_catalogue.py`. It lets the app ignore how a piece was cropped.
+- `kinds`: key is `<slot>.<kind>` (the item id without its trailing number) or just `<slot>`. Fields: `rect` `[x, y, w, h]` (target on the 1x1 character canvas, the piece is scaled to fit it and centred on it), `pair` (draw a second, mirrored copy: eyes, brows, sleeves, boots), `z` (draw order, overrides the layer order), `hidden` (piece has no placement yet, not offered in the builder).
+- `hides`: a pick of that kind hides the listed slots (hood hides hair, mask hides mouth, nose and beard, goggles hide eyes).
+- `defaults`: items every new character starts with; `optional`: slots left empty by default and by randomise; `slotOrder`: order of the builder chips.
+- Skin colour is shared by every piece tagged `skin`; hair colour by every `hair` piece.
+
+The target layout is a big-head full-body character: head and neck from y 0.02 to 0.50, body from y 0.40 to 1.00, all centred on x 0.5. See `docs/avatar-art-brief.md` for the canvas the final art must follow.
