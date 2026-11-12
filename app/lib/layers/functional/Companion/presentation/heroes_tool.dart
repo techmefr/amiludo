@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
+import 'package:amiludo/layers/functional/Companion/data/avatar_randomizer.dart';
 import 'package:amiludo/layers/functional/Companion/data/avatar_catalogue_loader.dart';
 import 'package:amiludo/layers/functional/Companion/data/avatar_catalogue.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/avatar_look.dart';
@@ -40,8 +43,12 @@ class _HeroesToolState extends State<HeroesTool> {
   Future<void> editAvatar(HeroState hero, AvatarCatalogue loaded) async {
     final look = await Navigator.of(context).push<AvatarLook>(
       MaterialPageRoute(
-        builder: (_) =>
-            AvatarCreatorScreen(initial: hero.avatar, catalogue: loaded),
+        builder: (_) => AvatarCreatorScreen(
+          initial: hero.avatar.isEmpty
+              ? randomAvatarLook(loaded, Random())
+              : hero.avatar,
+          catalogue: loaded,
+        ),
       ),
     );
     if (look != null) setState(() => hero.avatar = look);
