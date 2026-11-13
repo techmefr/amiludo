@@ -2903,5 +2903,6 @@
       }
     }
   },
-  "cpNoSession": "No session yet. Set one up first."
+  "cpNoSession": "No session yet. Set one up first.",
+  "diceConfigure": "Configure"
 }

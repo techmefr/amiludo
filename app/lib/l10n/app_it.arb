@@ -1907,5 +1907,6 @@
   "cpBoardHidden": "Nascosto finché tutti non aprono i pacchetti",
   "cpBoardProgress": "{opened} / {total} pacchetti aperti",
   "cpBoardKept": "{n} carte tenute",
-  "cpNoSession": "Nessuna sessione. Impostane una prima."
+  "cpNoSession": "Nessuna sessione. Impostane una prima.",
+  "diceConfigure": "Configura"
 }

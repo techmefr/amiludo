@@ -144,13 +144,24 @@ void main() {
         expect(tester.takeException(), isNull);
       });
 
-      testWidgets('dice 2D and 3D move into the top bar', (tester) async {
+      testWidgets('dice top bar holds back and configure, 2D and 3D inside', (
+        tester,
+      ) async {
         _size(tester, size);
         final db = await _app(tester, '/tools/dice');
-        final toggle = tester.getRect(find.text('3D'));
-        expect(toggle.top, lessThan(Targets.minimum + Space.sm));
+        await tester.pump();
+        final configure = tester.getRect(find.byTooltip('Configurer'));
+        expect(configure.top, lessThan(Targets.minimum + Space.sm));
         final back = tester.getRect(find.byType(BackButtonIcon));
-        expect((toggle.center.dy - back.center.dy).abs(), lessThan(Space.md));
+        expect(
+          (configure.center.dy - back.center.dy).abs(),
+          lessThan(Space.md),
+        );
+        expect(find.text('3D'), findsNothing);
+        await tester.tap(find.byTooltip('Configurer'));
+        await tester.pumpAndSettle();
+        expect(find.text('2D'), findsOneWidget);
+        expect(find.text('3D'), findsOneWidget);
         expect(tester.takeException(), isNull);
         await _close(tester, db);
       });

@@ -47,6 +47,7 @@ Widget diceTrayWithSensors(BuildContext context) {
   return DieStudioHost(
     child: _sensed(
       (level) => DiceTrayPage(
+        fill: true,
         shakeSource: const NoShakeSource(),
         motion: _motion(level),
         showShakeHint: level.enabled && PlatformAccelerometerFeed.supported,

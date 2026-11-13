@@ -6272,4 +6272,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get cpNoSession => 'Pas encore de session. Réglez-en une d\'abord.';
+
+  @override
+  String get diceConfigure => 'Configurer';
 }
