@@ -1908,5 +1908,8 @@
   "cpBoardProgress": "{opened} / {total} packs ouverts",
   "cpBoardKept": "{n} cartes gardées",
   "cpNoSession": "Pas encore de session. Réglez-en une d'abord.",
-  "diceConfigure": "Configurer"
+  "diceConfigure": "Configurer",
+  "diceAddRemove": "Ajouter ou retirer des dés",
+  "diceCreateEdit": "Créer ou modifier mes dés",
+  "diceFromMarket": "Prendre des dés au marché"
 }

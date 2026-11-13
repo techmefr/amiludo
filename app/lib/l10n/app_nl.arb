@@ -1908,5 +1908,8 @@
   "cpBoardProgress": "{opened} / {total} pakketten geopend",
   "cpBoardKept": "{n} kaarten gehouden",
   "cpNoSession": "Nog geen sessie. Stel er eerst een in.",
-  "diceConfigure": "Instellen"
+  "diceConfigure": "Instellen",
+  "diceAddRemove": "Dobbelstenen toevoegen of verwijderen",
+  "diceCreateEdit": "Mijn dobbelstenen maken of bewerken",
+  "diceFromMarket": "Dobbelstenen van de markt halen"
 }

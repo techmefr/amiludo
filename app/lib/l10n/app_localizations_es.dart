@@ -6259,4 +6259,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get diceConfigure => 'Configurar';
+
+  @override
+  String get diceAddRemove => 'Añadir o quitar dados';
+
+  @override
+  String get diceCreateEdit => 'Crear o editar mis dados';
+
+  @override
+  String get diceFromMarket => 'Conseguir dados del mercado';
 }

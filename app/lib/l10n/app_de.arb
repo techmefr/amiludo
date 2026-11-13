@@ -1908,5 +1908,8 @@
   "cpBoardProgress": "{opened} / {total} Packs geöffnet",
   "cpBoardKept": "{n} Karten behalten",
   "cpNoSession": "Noch keine Sitzung. Richte zuerst eine ein.",
-  "diceConfigure": "Konfigurieren"
+  "diceConfigure": "Konfigurieren",
+  "diceAddRemove": "Würfel hinzufügen oder entfernen",
+  "diceCreateEdit": "Eigene Würfel erstellen oder ändern",
+  "diceFromMarket": "Würfel vom Markt holen"
 }

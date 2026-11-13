@@ -6264,4 +6264,13 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get diceConfigure => 'Configurar';
+
+  @override
+  String get diceAddRemove => 'Adicionar ou remover dados';
+
+  @override
+  String get diceCreateEdit => 'Criar ou editar os meus dados';
+
+  @override
+  String get diceFromMarket => 'Obter dados do mercado';
 }

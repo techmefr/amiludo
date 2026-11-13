@@ -6274,4 +6274,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get diceConfigure => 'Konfigurieren';
+
+  @override
+  String get diceAddRemove => 'Würfel hinzufügen oder entfernen';
+
+  @override
+  String get diceCreateEdit => 'Eigene Würfel erstellen oder ändern';
+
+  @override
+  String get diceFromMarket => 'Würfel vom Markt holen';
 }

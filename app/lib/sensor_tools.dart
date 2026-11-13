@@ -1,3 +1,4 @@
+import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -48,6 +49,8 @@ Widget diceTrayWithSensors(BuildContext context) {
     child: _sensed(
       (level) => DiceTrayPage(
         fill: true,
+        onDesigns: () => context.push('/dice/designs'),
+        onMarket: () => context.push('/marketplace'),
         shakeSource: const NoShakeSource(),
         motion: _motion(level),
         showShakeHint: level.enabled && PlatformAccelerometerFeed.supported,

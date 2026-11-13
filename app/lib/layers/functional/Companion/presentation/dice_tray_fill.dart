@@ -36,6 +36,8 @@ class DiceTrayFill extends StatelessWidget {
     this.onFavorite,
     this.showShakeHint = false,
     this.motionButton,
+    this.onDesigns,
+    this.onMarket,
   });
   final DiceTraySession session;
   final Widget stage;
@@ -49,6 +51,7 @@ class DiceTrayFill extends StatelessWidget {
   final ValueChanged<TrayResultMode> onMode;
   final ValueChanged<String>? onFavorite;
   final Widget? motionButton;
+  final VoidCallback? onDesigns, onMarket;
 
   void openConfigure(BuildContext context) => showDeckSheet<void>(
     context: context,
@@ -87,6 +90,18 @@ class DiceTrayFill extends StatelessWidget {
         Navigator.pop(sheet);
         onClear();
       },
+      onDesigns: onDesigns == null
+          ? null
+          : () {
+              Navigator.pop(sheet);
+              onDesigns!();
+            },
+      onMarket: onMarket == null
+          ? null
+          : () {
+              Navigator.pop(sheet);
+              onMarket!();
+            },
       onHistory: () {
         Navigator.pop(sheet);
         showTrayHistorySheet(context, session);
@@ -184,7 +199,10 @@ class _ConfigureList extends StatelessWidget {
     required this.onLook,
     required this.onClear,
     required this.onHistory,
+    this.onDesigns,
+    this.onMarket,
   });
+  final VoidCallback? onDesigns, onMarket;
   final DiceTraySession session;
   final bool solid;
   final ValueChanged<bool> onView;
@@ -217,10 +235,22 @@ class _ConfigureList extends StatelessWidget {
         ],
         ListTile(
           leading: const Icon(Icons.add),
-          title: Text(l.diceTrayAddDie),
+          title: Text(l.diceAddRemove),
           subtitle: Text(l.diceTrayCount(session.settings.dice.length)),
           onTap: onAdd,
         ),
+        if (onDesigns != null)
+          ListTile(
+            leading: const Icon(Icons.edit_outlined),
+            title: Text(l.diceCreateEdit),
+            onTap: onDesigns,
+          ),
+        if (onMarket != null)
+          ListTile(
+            leading: const Icon(Icons.storefront_outlined),
+            title: Text(l.diceFromMarket),
+            onTap: onMarket,
+          ),
         if (solid)
           ListTile(
             leading: const Icon(Icons.palette_outlined),

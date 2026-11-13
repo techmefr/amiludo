@@ -40,8 +40,11 @@ class DiceTrayPage extends StatefulWidget {
     this.showShakeHint = false,
     this.requestMotionAccess,
     this.fill = false,
+    this.onDesigns,
+    this.onMarket,
   });
   final bool fill;
+  final VoidCallback? onDesigns, onMarket;
   final DiceTraySettings initial;
   final ShakeSource shakeSource;
   final int? seed;
@@ -258,6 +261,8 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
     onMode: chooseMode,
     onClear: () => setState(() => session = session.cleared()),
     onFavorite: toggleFavorite,
+    onDesigns: widget.onDesigns,
+    onMarket: widget.onMarket,
     showShakeHint:
         widget.showShakeHint &&
         (widget.requestMotionAccess == null || motionAuthorized),

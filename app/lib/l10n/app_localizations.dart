@@ -11509,6 +11509,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Configure'**
   String get diceConfigure;
+
+  /// No description provided for @diceAddRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Add or remove dice'**
+  String get diceAddRemove;
+
+  /// No description provided for @diceCreateEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Create or edit my dice'**
+  String get diceCreateEdit;
+
+  /// No description provided for @diceFromMarket.
+  ///
+  /// In en, this message translates to:
+  /// **'Get dice from the market'**
+  String get diceFromMarket;
 }
 
 class _AppLocalizationsDelegate

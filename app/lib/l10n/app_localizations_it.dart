@@ -6264,4 +6264,13 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get diceConfigure => 'Configura';
+
+  @override
+  String get diceAddRemove => 'Aggiungi o rimuovi dadi';
+
+  @override
+  String get diceCreateEdit => 'Crea o modifica i miei dadi';
+
+  @override
+  String get diceFromMarket => 'Prendi dadi dal mercato';
 }
