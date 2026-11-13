@@ -1908,5 +1908,8 @@
   "cpBoardProgress": "{opened} / {total} pacotes abertos",
   "cpBoardKept": "{n} cartas mantidas",
   "cpNoSession": "Ainda sem sessão. Configure uma primeiro.",
-  "diceConfigure": "Configurar"
+  "diceConfigure": "Configurar",
+  "diceAddRemove": "Adicionar ou remover dados",
+  "diceCreateEdit": "Criar ou editar os meus dados",
+  "diceFromMarket": "Obter dados do mercado"
 }

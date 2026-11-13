@@ -2904,5 +2904,8 @@
     }
   },
   "cpNoSession": "No session yet. Set one up first.",
-  "diceConfigure": "Configure"
+  "diceConfigure": "Configure",
+  "diceAddRemove": "Add or remove dice",
+  "diceCreateEdit": "Create or edit my dice",
+  "diceFromMarket": "Get dice from the market"
 }

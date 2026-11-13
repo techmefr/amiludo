@@ -6275,4 +6275,13 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get diceConfigure => 'Configurer';
+
+  @override
+  String get diceAddRemove => 'Ajouter ou retirer des dés';
+
+  @override
+  String get diceCreateEdit => 'Créer ou modifier mes dés';
+
+  @override
+  String get diceFromMarket => 'Prendre des dés au marché';
 }

@@ -1908,5 +1908,8 @@
   "cpBoardProgress": "{opened} / {total} pacchetti aperti",
   "cpBoardKept": "{n} carte tenute",
   "cpNoSession": "Nessuna sessione. Impostane una prima.",
-  "diceConfigure": "Configura"
+  "diceConfigure": "Configura",
+  "diceAddRemove": "Aggiungi o rimuovi dadi",
+  "diceCreateEdit": "Crea o modifica i miei dadi",
+  "diceFromMarket": "Prendi dadi dal mercato"
 }

@@ -6264,4 +6264,13 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get diceConfigure => 'Instellen';
+
+  @override
+  String get diceAddRemove => 'Dobbelstenen toevoegen of verwijderen';
+
+  @override
+  String get diceCreateEdit => 'Mijn dobbelstenen maken of bewerken';
+
+  @override
+  String get diceFromMarket => 'Dobbelstenen van de markt halen';
 }
