@@ -6271,4 +6271,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get cpNoSession => 'Noch keine Sitzung. Richte zuerst eine ein.';
+
+  @override
+  String get diceConfigure => 'Konfigurieren';
 }

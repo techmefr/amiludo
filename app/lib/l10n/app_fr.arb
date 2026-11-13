@@ -1907,5 +1907,6 @@
   "cpBoardHidden": "Masqué tant que tout le monde n'a pas ouvert ses packs",
   "cpBoardProgress": "{opened} / {total} packs ouverts",
   "cpBoardKept": "{n} cartes gardées",
-  "cpNoSession": "Pas encore de session. Réglez-en une d'abord."
+  "cpNoSession": "Pas encore de session. Réglez-en une d'abord.",
+  "diceConfigure": "Configurer"
 }

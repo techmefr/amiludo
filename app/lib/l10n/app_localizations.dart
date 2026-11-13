@@ -11503,6 +11503,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No session yet. Set one up first.'**
   String get cpNoSession;
+
+  /// No description provided for @diceConfigure.
+  ///
+  /// In en, this message translates to:
+  /// **'Configure'**
+  String get diceConfigure;
 }
 
 class _AppLocalizationsDelegate

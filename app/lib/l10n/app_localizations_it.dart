@@ -6261,4 +6261,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get cpNoSession => 'Nessuna sessione. Impostane una prima.';
+
+  @override
+  String get diceConfigure => 'Configura';
 }

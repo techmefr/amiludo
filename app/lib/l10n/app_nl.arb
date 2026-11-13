@@ -1907,5 +1907,6 @@
   "cpBoardHidden": "Verborgen tot iedereen zijn pakketten heeft geopend",
   "cpBoardProgress": "{opened} / {total} pakketten geopend",
   "cpBoardKept": "{n} kaarten gehouden",
-  "cpNoSession": "Nog geen sessie. Stel er eerst een in."
+  "cpNoSession": "Nog geen sessie. Stel er eerst een in.",
+  "diceConfigure": "Instellen"
 }

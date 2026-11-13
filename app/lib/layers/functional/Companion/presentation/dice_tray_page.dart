@@ -6,6 +6,7 @@ import 'package:amiludo/layers/functional/Companion/domain/entities/dice_tray.da
 import 'package:amiludo/layers/functional/Companion/domain/entities/tray_result.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_2d_panel.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/dice_3d_panel.dart';
+import 'package:amiludo/layers/functional/Companion/presentation/dice_tray_fill.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/tray_stage.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/die_actions_sheet.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/die_studio.dart';
@@ -38,7 +39,9 @@ class DiceTrayPage extends StatefulWidget {
     this.onSettled,
     this.showShakeHint = false,
     this.requestMotionAccess,
+    this.fill = false,
   });
+  final bool fill;
   final DiceTraySettings initial;
   final ShakeSource shakeSource;
   final int? seed;
@@ -209,11 +212,13 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
     onTapDie: (i) =>
         solid ? throwDice() : setState(() => session = session.toggleKeep(i)),
     onView: changeView,
+    fill: widget.fill,
   );
 
   @override
   Widget build(BuildContext context) {
     final needsAccess = widget.requestMotionAccess != null && !motionAuthorized;
+    if (widget.fill) return buildFill(needsAccess);
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -230,6 +235,40 @@ class _DiceTrayPageState extends State<DiceTrayPage> {
       ],
     );
   }
+
+  Widget buildFill(bool needsAccess) => DiceTrayFill(
+    session: session,
+    stage: stage(),
+    solid: solid,
+    skin: skin,
+    table: table,
+    mode: TrayResultMode.parse(session.settings.resultMode),
+    onThrow: throwDice,
+    onConfigure: configure,
+    onView: changeView,
+    onSurface: chooseSurface,
+    onSkin: (id) {
+      setState(() => skin = id);
+      widget.onSkinChanged?.call(id);
+    },
+    onTable: (id) {
+      setState(() => table = id);
+      widget.onTableChanged?.call(id);
+    },
+    onMode: chooseMode,
+    onClear: () => setState(() => session = session.cleared()),
+    onFavorite: toggleFavorite,
+    showShakeHint:
+        widget.showShakeHint &&
+        (widget.requestMotionAccess == null || motionAuthorized),
+    motionButton: needsAccess
+        ? TextButton.icon(
+            onPressed: requestingMotion ? null : authorizeMotion,
+            icon: const Icon(Icons.vibration),
+            label: Text(context.l10n.appearanceMotionSensors),
+          )
+        : null,
+  );
 
   Widget buildPanel() {
     if (solid) {

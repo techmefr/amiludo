@@ -1907,5 +1907,6 @@
   "cpBoardHidden": "Oculto hasta que todos abran sus sobres",
   "cpBoardProgress": "{opened} / {total} sobres abiertos",
   "cpBoardKept": "{n} cartas conservadas",
-  "cpNoSession": "Aún no hay sesión. Configura una primero."
+  "cpNoSession": "Aún no hay sesión. Configura una primero.",
+  "diceConfigure": "Configurar"
 }

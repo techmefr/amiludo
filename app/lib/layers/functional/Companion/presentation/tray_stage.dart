@@ -32,7 +32,9 @@ class TrayStage extends StatelessWidget {
     this.onFlick,
     this.onTapTable,
     this.onLongPressDie,
+    this.fill = false,
   });
+  final bool fill;
   final DiceTraySession session;
   final int throwId, seed;
   final double power;
@@ -53,6 +55,9 @@ class TrayStage extends StatelessWidget {
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, constraints) {
       final width = constraints.maxWidth;
+      if (fill && constraints.hasBoundedHeight) {
+        return SizedBox.expand(child: buildTray(context));
+      }
       final window = MediaQuery.sizeOf(context);
       final compactLandscape =
           window.width > window.height && window.height < 520;
@@ -95,24 +100,25 @@ class TrayStage extends StatelessWidget {
           onTapDie: onTapDie,
         ),
       ),
-      TopBarSlot(
-        tabs: ToolTabs(
-          label: context.l10n.diceTrayView,
-          current: solid ? 1 : 0,
-          onSelect: (i) => onView(i == 1),
-          items: [
-            ToolTab(id: '2d', label: context.l10n.diceTrayView2d),
-            ToolTab(id: '3d', label: context.l10n.diceTrayView3d),
-          ],
-        ),
-        fallback: Align(
-          alignment: Alignment.topRight,
-          child: Padding(
-            padding: const EdgeInsets.all(Space.sm),
-            child: DiceViewToggle(solid: solid, onChanged: onView),
+      if (!fill)
+        TopBarSlot(
+          tabs: ToolTabs(
+            label: context.l10n.diceTrayView,
+            current: solid ? 1 : 0,
+            onSelect: (i) => onView(i == 1),
+            items: [
+              ToolTab(id: '2d', label: context.l10n.diceTrayView2d),
+              ToolTab(id: '3d', label: context.l10n.diceTrayView3d),
+            ],
+          ),
+          fallback: Align(
+            alignment: Alignment.topRight,
+            child: Padding(
+              padding: const EdgeInsets.all(Space.sm),
+              child: DiceViewToggle(solid: solid, onChanged: onView),
+            ),
           ),
         ),
-      ),
     ],
   );
 }

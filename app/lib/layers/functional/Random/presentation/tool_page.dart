@@ -165,6 +165,19 @@ class _ToolPageState extends State<ToolPage> {
         child: child,
       );
     }
+    if (widget.id == 'dice-tray' ||
+        (widget.id == 'dice' &&
+            current == null &&
+            widget.embeddedTools.containsKey('dice-tray'))) {
+      return FullPage(
+        title: title,
+        tool: widget.id,
+        immersive: true,
+        scroll: false,
+        actions: [if (choose) menu(current, packs)],
+        child: child,
+      );
+    }
     return FullPage(
       title: title,
       tool: widget.id,
