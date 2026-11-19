@@ -32,7 +32,7 @@
 - [x] T011 [US1] Implement the set use cases in `app/lib/layers/functional/Sounds/domain/use_cases/`
 - [x] T012 [US1] Add the set cubit in `app/lib/layers/functional/Sounds/presentation/cubit/`
 - [x] T013 [US1] Add the set editor screen (import, rename, recolor, reorder, remove, flag missing or unreadable files) in `app/lib/layers/functional/Sounds/presentation/set_editor.dart`
-- [ ] T014 [US1] Offer a campaign its own sets from the campaign screen; the tool already supports an owner kind and id, only the campaign entry point is missing`app/lib/layers/functional/Sounds/presentation/`
+- [ ] T014 [US1] Offer a campaign its own sets from the campaign screen; the tool already supports an owner kind and id, only the campaign entry point is missing
 
 ## Phase 4: User Story 2 - Play ambience music (P1)
 
@@ -65,8 +65,9 @@
 - [x] T026 [P] Translate every text in the seven languages in `app/lib/l10n/`
 - [x] T027 [P] Layout tests at 390x844, 844x390, 1280x720 and 1920x1080, keyboard and 200 percent text, in `app/test/soundboard_layout_test.dart`
 - [x] T028 [P] Extend `architecture_test.dart` expectations only if the new layer needs them, never weakening them
-- [ ] T029 Run `flutter analyze` and the full `flutter test`, then check the first-tap audio unlock on the web build by hand
-- [ ] T030 Add the feature to  (needs a new F number and the totals updated)`docs/FEATURES.md`
+- [x] T029a Run `flutter analyze` and the full `flutter test` (done: no issues, 1095 tests passed)
+- [ ] T029b Check the first-tap audio unlock on the web build by hand
+- [ ] T030 Add the feature to `docs/FEATURES.md` (needs a new F number and the totals updated)
 
 ## Dependencies
 
