@@ -71,6 +71,24 @@ A set can be backed up with the rest of the player's data. Sharing the setup (na
 
 ---
 
+### User Story 5 - Playlists on every game, even shared ones (Priority: P2)
+
+Any game companion can hold its own sound sets, not only campaigns. A playlist can be collaborative: the other players of the table add tracks to it, and the game master keeps control of what plays.
+
+**Why this priority**: it extends the same sets to board and card games and to evenings, but depends on rooms and sharing.
+
+**Independent Test**: on a game companion, create a playlist, invite two players in the room, each adds a track; all three tracks appear for everyone and the host plays them.
+
+**Acceptance Scenarios**:
+
+1. **Given** a game companion, **When** a sound set is created from it, **Then** it is listed on that game and nowhere else.
+2. **Given** a collaborative playlist in a room, **When** a player adds a track, **Then** the host and the other players see it and the host can accept, reorder or remove it.
+3. **Given** a player without the audio file, **When** a shared track is played on their device, **Then** it is shown as missing and never blocks the others.
+
+[NEEDS CLARIFICATION: do contributed tracks carry their audio to other devices, or only a title and a link the host resolves from their own library?]
+
+---
+
 ### Edge Cases
 
 - An imported file is unreadable or in an unsupported format: the entry is flagged, nothing else breaks.

@@ -6340,4 +6340,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get soundboardFull => 'This sound set is full (100 sounds maximum).';
+
+  @override
+  String get notebookTabSounds => 'Sounds';
 }

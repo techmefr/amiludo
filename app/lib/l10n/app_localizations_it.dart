@@ -6381,4 +6381,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get soundboardFull => 'Questo set è pieno (massimo 100 suoni).';
+
+  @override
+  String get notebookTabSounds => 'Suoni';
 }

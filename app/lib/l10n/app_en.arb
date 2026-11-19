@@ -2942,5 +2942,6 @@
   "soundboardToPads": "Add to soundboard",
   "soundboardOutOfPads": "Remove from soundboard",
   "soundboardTooLarge": "This file is too large (20 MB maximum).",
-  "soundboardFull": "This sound set is full (100 sounds maximum)."
+  "soundboardFull": "This sound set is full (100 sounds maximum).",
+  "notebookTabSounds": "Sounds"
 }

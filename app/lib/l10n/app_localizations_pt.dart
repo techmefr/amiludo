@@ -6382,4 +6382,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get soundboardFull => 'Este conjunto está cheio (máximo 100 sons).';
+
+  @override
+  String get notebookTabSounds => 'Sons';
 }

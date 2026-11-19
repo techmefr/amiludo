@@ -1946,5 +1946,6 @@
   "soundboardToPads": "Aan soundboard toevoegen",
   "soundboardOutOfPads": "Van soundboard halen",
   "soundboardTooLarge": "Dit bestand is te groot (maximaal 20 MB).",
-  "soundboardFull": "Deze set is vol (maximaal 100 geluiden)."
+  "soundboardFull": "Deze set is vol (maximaal 100 geluiden).",
+  "notebookTabSounds": "Geluiden"
 }

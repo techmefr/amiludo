@@ -11737,6 +11737,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This sound set is full (100 sounds maximum).'**
   String get soundboardFull;
+
+  /// No description provided for @notebookTabSounds.
+  ///
+  /// In en, this message translates to:
+  /// **'Sounds'**
+  String get notebookTabSounds;
 }
 
 class _AppLocalizationsDelegate

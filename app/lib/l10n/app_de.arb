@@ -1946,5 +1946,6 @@
   "soundboardToPads": "Zum Soundboard hinzufügen",
   "soundboardOutOfPads": "Aus dem Soundboard entfernen",
   "soundboardTooLarge": "Diese Datei ist zu groß (maximal 20 MB).",
-  "soundboardFull": "Dieses Soundset ist voll (maximal 100 Sounds)."
+  "soundboardFull": "Dieses Soundset ist voll (maximal 100 Sounds).",
+  "notebookTabSounds": "Sounds"
 }

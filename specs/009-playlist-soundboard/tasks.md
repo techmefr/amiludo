@@ -32,7 +32,7 @@
 - [x] T011 [US1] Implement the set use cases in `app/lib/layers/functional/Sounds/domain/use_cases/`
 - [x] T012 [US1] Add the set cubit in `app/lib/layers/functional/Sounds/presentation/cubit/`
 - [x] T013 [US1] Add the set editor screen (import, rename, recolor, reorder, remove, flag missing or unreadable files) in `app/lib/layers/functional/Sounds/presentation/set_editor.dart`
-- [ ] T014 [US1] Offer a campaign its own sets from the campaign screen; the tool already supports an owner kind and id, only the campaign entry point is missing
+- [x] T014 [US1] Offer a campaign its own sets from a Sounds tab of the campaign screen (done)
 
 ## Phase 4: User Story 2 - Play ambience music (P1)
 
@@ -74,3 +74,9 @@
 - Phase 1 then Phase 2 then the stories; US1 first, US2 and US3 can then go in parallel, US4 last.
 - T016 and T020 depend on T002 and T008.
 - T024 to T030 come after the stories.
+
+## Phase 8: User Story 5 - Playlists on every game, even shared ones (P2)
+
+- [ ] T031 [US5] Offer sound sets on every game companion with an owner kind for games, not only on campaigns
+- [ ] T032 [US5] Collaborative playlist: suggestions from room players, host accepts, reorders or removes, over the existing room channel
+- [ ] T033 [US5] Decide how contributed audio travels between devices (see the clarification in the spec) and test the missing-audio case

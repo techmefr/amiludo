@@ -1946,5 +1946,6 @@
   "soundboardToPads": "Adicionar à mesa de sons",
   "soundboardOutOfPads": "Remover da mesa de sons",
   "soundboardTooLarge": "Este ficheiro é demasiado grande (máximo 20 MB).",
-  "soundboardFull": "Este conjunto está cheio (máximo 100 sons)."
+  "soundboardFull": "Este conjunto está cheio (máximo 100 sons).",
+  "notebookTabSounds": "Sons"
 }

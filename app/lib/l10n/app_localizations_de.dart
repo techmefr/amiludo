@@ -6391,4 +6391,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get soundboardFull => 'Dieses Soundset ist voll (maximal 100 Sounds).';
+
+  @override
+  String get notebookTabSounds => 'Sounds';
 }

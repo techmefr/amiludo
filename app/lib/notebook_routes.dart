@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:amiludo/dependencies.dart';
+import 'package:amiludo/soundboard_tool.dart';
 import 'package:amiludo/layers/functional/Companion/domain/entities/map_board_state.dart';
 import 'package:amiludo/layers/functional/Companion/domain/use_cases/map_use_cases.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/map_tool.dart';
@@ -41,7 +42,10 @@ final notebookRoutes = [
   _route('/notebook', (state) => const CampaignsScreen()),
   _route(
     '/notebook/:id',
-    (state) => CampaignScreen(id: state.pathParameters['id']!),
+    (state) => CampaignScreen(
+      id: state.pathParameters['id']!,
+      buildSounds: soundboardForCampaign,
+    ),
   ),
   _route(
     '/notebook/:id/entry/:entry',
