@@ -11527,6 +11527,216 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Get dice from the market'**
   String get diceFromMarket;
+
+  /// No description provided for @toolSoundboardTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Soundboard'**
+  String get toolSoundboardTitle;
+
+  /// No description provided for @toolSoundboardSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Play your own music and sound effects for your game or campaign.'**
+  String get toolSoundboardSubtitle;
+
+  /// No description provided for @soundboardNewSet.
+  ///
+  /// In en, this message translates to:
+  /// **'New sound set'**
+  String get soundboardNewSet;
+
+  /// No description provided for @soundboardSetName.
+  ///
+  /// In en, this message translates to:
+  /// **'Sound set name'**
+  String get soundboardSetName;
+
+  /// No description provided for @soundboardRename.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename'**
+  String get soundboardRename;
+
+  /// No description provided for @soundboardDeleteSet.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete set'**
+  String get soundboardDeleteSet;
+
+  /// No description provided for @soundboardNoSets.
+  ///
+  /// In en, this message translates to:
+  /// **'No sound set yet. Create one for your game or campaign.'**
+  String get soundboardNoSets;
+
+  /// No description provided for @soundboardManage.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage sounds'**
+  String get soundboardManage;
+
+  /// No description provided for @soundboardPlaylist.
+  ///
+  /// In en, this message translates to:
+  /// **'Playlist'**
+  String get soundboardPlaylist;
+
+  /// No description provided for @soundboardPlaylistEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'The playlist is empty.'**
+  String get soundboardPlaylistEmpty;
+
+  /// No description provided for @soundboardPlaylistVolume.
+  ///
+  /// In en, this message translates to:
+  /// **'Playlist volume'**
+  String get soundboardPlaylistVolume;
+
+  /// No description provided for @soundboardPads.
+  ///
+  /// In en, this message translates to:
+  /// **'Soundboard'**
+  String get soundboardPads;
+
+  /// No description provided for @soundboardPadsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'The soundboard is empty.'**
+  String get soundboardPadsEmpty;
+
+  /// No description provided for @soundboardPadsVolume.
+  ///
+  /// In en, this message translates to:
+  /// **'Soundboard volume'**
+  String get soundboardPadsVolume;
+
+  /// No description provided for @soundboardStopAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop all'**
+  String get soundboardStopAll;
+
+  /// No description provided for @soundboardPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Play'**
+  String get soundboardPlay;
+
+  /// No description provided for @soundboardPause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause'**
+  String get soundboardPause;
+
+  /// No description provided for @soundboardNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next track'**
+  String get soundboardNext;
+
+  /// No description provided for @soundboardPrevious.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous track'**
+  String get soundboardPrevious;
+
+  /// No description provided for @soundboardShuffle.
+  ///
+  /// In en, this message translates to:
+  /// **'Shuffle'**
+  String get soundboardShuffle;
+
+  /// No description provided for @soundboardRepeat.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat'**
+  String get soundboardRepeat;
+
+  /// No description provided for @soundboardLoop.
+  ///
+  /// In en, this message translates to:
+  /// **'Loop'**
+  String get soundboardLoop;
+
+  /// No description provided for @soundboardImportTracks.
+  ///
+  /// In en, this message translates to:
+  /// **'Import music'**
+  String get soundboardImportTracks;
+
+  /// No description provided for @soundboardImportEffects.
+  ///
+  /// In en, this message translates to:
+  /// **'Import effects'**
+  String get soundboardImportEffects;
+
+  /// No description provided for @soundboardEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No sounds yet. Import your audio files.'**
+  String get soundboardEmpty;
+
+  /// No description provided for @soundboardEntryName.
+  ///
+  /// In en, this message translates to:
+  /// **'Sound name'**
+  String get soundboardEntryName;
+
+  /// No description provided for @soundboardMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio file missing'**
+  String get soundboardMissing;
+
+  /// No description provided for @soundboardReplace.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace audio'**
+  String get soundboardReplace;
+
+  /// No description provided for @soundboardRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get soundboardRemove;
+
+  /// No description provided for @soundboardToPlaylist.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to playlist'**
+  String get soundboardToPlaylist;
+
+  /// No description provided for @soundboardOutOfPlaylist.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from playlist'**
+  String get soundboardOutOfPlaylist;
+
+  /// No description provided for @soundboardToPads.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to soundboard'**
+  String get soundboardToPads;
+
+  /// No description provided for @soundboardOutOfPads.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from soundboard'**
+  String get soundboardOutOfPads;
+
+  /// No description provided for @soundboardTooLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'This file is too large (20 MB maximum).'**
+  String get soundboardTooLarge;
+
+  /// No description provided for @soundboardFull.
+  ///
+  /// In en, this message translates to:
+  /// **'This sound set is full (100 sounds maximum).'**
+  String get soundboardFull;
 }
 
 class _AppLocalizationsDelegate

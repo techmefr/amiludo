@@ -16,9 +16,8 @@ class PlaylistEngine extends ChangeNotifier {
     this._output,
     this._blobs, {
     Random? random,
-    Future<void> Function(Duration) wait = _realWait,
-  }) : _random = random ?? Random(),
-       _wait = wait {
+    this.wait = _realWait,
+  }) : _random = random ?? Random() {
     _completions = _output.completed.listen(_onCompleted);
   }
 
@@ -27,7 +26,7 @@ class PlaylistEngine extends ChangeNotifier {
   final ClipOutput _output;
   final SoundBlobGateway _blobs;
   final Random _random;
-  final Future<void> Function(Duration) _wait;
+  final Future<void> Function(Duration) wait;
   late final StreamSubscription<String> _completions;
   SoundSet _set = const SoundSet(
     id: '',
@@ -149,7 +148,7 @@ class PlaylistEngine extends ChangeNotifier {
   ) async {
     final step = Duration(milliseconds: (seconds * 1000 / fadeSteps).round());
     for (var i = 1; i <= fadeSteps; i++) {
-      await _wait(step);
+      await wait(step);
       if (generation != _generation) return;
       await _output.setVolume(id, target * i / fadeSteps);
     }
@@ -172,8 +171,16 @@ class PlaylistEngine extends ChangeNotifier {
     unawaited(_start());
   }
 
+  bool _disposed = false;
+
+  @override
+  void notifyListeners() {
+    if (!_disposed) super.notifyListeners();
+  }
+
   @override
   void dispose() {
+    _disposed = true;
     _completions.cancel();
     unawaited(_output.stopAll());
     super.dispose();

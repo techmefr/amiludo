@@ -6268,4 +6268,113 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get diceFromMarket => 'Conseguir dados del mercado';
+
+  @override
+  String get toolSoundboardTitle => 'Mesa de sonidos';
+
+  @override
+  String get toolSoundboardSubtitle =>
+      'Reproduce tu propia música y efectos de sonido para tu juego o campaña.';
+
+  @override
+  String get soundboardNewSet => 'Nuevo conjunto de sonidos';
+
+  @override
+  String get soundboardSetName => 'Nombre del conjunto de sonidos';
+
+  @override
+  String get soundboardRename => 'Renombrar';
+
+  @override
+  String get soundboardDeleteSet => 'Eliminar conjunto';
+
+  @override
+  String get soundboardNoSets =>
+      'Aún no hay conjuntos de sonidos. Crea uno para tu juego o campaña.';
+
+  @override
+  String get soundboardManage => 'Gestionar sonidos';
+
+  @override
+  String get soundboardPlaylist => 'Lista de reproducción';
+
+  @override
+  String get soundboardPlaylistEmpty => 'La lista de reproducción está vacía.';
+
+  @override
+  String get soundboardPlaylistVolume => 'Volumen de la lista';
+
+  @override
+  String get soundboardPads => 'Mesa de sonidos';
+
+  @override
+  String get soundboardPadsEmpty => 'La mesa de sonidos está vacía.';
+
+  @override
+  String get soundboardPadsVolume => 'Volumen de la mesa de sonidos';
+
+  @override
+  String get soundboardStopAll => 'Detener todo';
+
+  @override
+  String get soundboardPlay => 'Reproducir';
+
+  @override
+  String get soundboardPause => 'Pausa';
+
+  @override
+  String get soundboardNext => 'Pista siguiente';
+
+  @override
+  String get soundboardPrevious => 'Pista anterior';
+
+  @override
+  String get soundboardShuffle => 'Aleatorio';
+
+  @override
+  String get soundboardRepeat => 'Repetir';
+
+  @override
+  String get soundboardLoop => 'Bucle';
+
+  @override
+  String get soundboardImportTracks => 'Importar música';
+
+  @override
+  String get soundboardImportEffects => 'Importar efectos';
+
+  @override
+  String get soundboardEmpty =>
+      'Aún no hay sonidos. Importa tus archivos de audio.';
+
+  @override
+  String get soundboardEntryName => 'Nombre del sonido';
+
+  @override
+  String get soundboardMissing => 'Falta el archivo de audio';
+
+  @override
+  String get soundboardReplace => 'Reemplazar audio';
+
+  @override
+  String get soundboardRemove => 'Quitar';
+
+  @override
+  String get soundboardToPlaylist => 'Añadir a la lista';
+
+  @override
+  String get soundboardOutOfPlaylist => 'Quitar de la lista';
+
+  @override
+  String get soundboardToPads => 'Añadir a la mesa de sonidos';
+
+  @override
+  String get soundboardOutOfPads => 'Quitar de la mesa de sonidos';
+
+  @override
+  String get soundboardTooLarge =>
+      'Este archivo es demasiado grande (máximo 20 MB).';
+
+  @override
+  String get soundboardFull => 'Este conjunto está lleno (máximo 100 sonidos).';
 }

@@ -6273,4 +6273,112 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get diceFromMarket => 'Dobbelstenen van de markt halen';
+
+  @override
+  String get toolSoundboardTitle => 'Soundboard';
+
+  @override
+  String get toolSoundboardSubtitle =>
+      'Speel je eigen muziek en geluidseffecten voor je spel of campagne.';
+
+  @override
+  String get soundboardNewSet => 'Nieuwe geluidenset';
+
+  @override
+  String get soundboardSetName => 'Naam van de geluidenset';
+
+  @override
+  String get soundboardRename => 'Hernoemen';
+
+  @override
+  String get soundboardDeleteSet => 'Set verwijderen';
+
+  @override
+  String get soundboardNoSets =>
+      'Nog geen geluidenset. Maak er een voor je spel of campagne.';
+
+  @override
+  String get soundboardManage => 'Geluiden beheren';
+
+  @override
+  String get soundboardPlaylist => 'Afspeellijst';
+
+  @override
+  String get soundboardPlaylistEmpty => 'De afspeellijst is leeg.';
+
+  @override
+  String get soundboardPlaylistVolume => 'Volume van de afspeellijst';
+
+  @override
+  String get soundboardPads => 'Soundboard';
+
+  @override
+  String get soundboardPadsEmpty => 'Het soundboard is leeg.';
+
+  @override
+  String get soundboardPadsVolume => 'Volume van het soundboard';
+
+  @override
+  String get soundboardStopAll => 'Alles stoppen';
+
+  @override
+  String get soundboardPlay => 'Afspelen';
+
+  @override
+  String get soundboardPause => 'Pauze';
+
+  @override
+  String get soundboardNext => 'Volgend nummer';
+
+  @override
+  String get soundboardPrevious => 'Vorig nummer';
+
+  @override
+  String get soundboardShuffle => 'Willekeurig';
+
+  @override
+  String get soundboardRepeat => 'Herhalen';
+
+  @override
+  String get soundboardLoop => 'Lus';
+
+  @override
+  String get soundboardImportTracks => 'Muziek importeren';
+
+  @override
+  String get soundboardImportEffects => 'Effecten importeren';
+
+  @override
+  String get soundboardEmpty =>
+      'Nog geen geluiden. Importeer je audiobestanden.';
+
+  @override
+  String get soundboardEntryName => 'Naam van het geluid';
+
+  @override
+  String get soundboardMissing => 'Audiobestand ontbreekt';
+
+  @override
+  String get soundboardReplace => 'Audio vervangen';
+
+  @override
+  String get soundboardRemove => 'Verwijderen';
+
+  @override
+  String get soundboardToPlaylist => 'Aan afspeellijst toevoegen';
+
+  @override
+  String get soundboardOutOfPlaylist => 'Uit afspeellijst halen';
+
+  @override
+  String get soundboardToPads => 'Aan soundboard toevoegen';
+
+  @override
+  String get soundboardOutOfPads => 'Van soundboard halen';
+
+  @override
+  String get soundboardTooLarge => 'Dit bestand is te groot (maximaal 20 MB).';
+
+  @override
+  String get soundboardFull => 'Deze set is vol (maximaal 100 geluiden).';
 }

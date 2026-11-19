@@ -5,6 +5,8 @@ import 'package:amiludo/notebook_registry.dart';
 import 'package:amiludo/combat_registry.dart';
 import 'package:amiludo/layers/functional/Combat/data/gateways/encounter_gateway_impl.dart';
 import 'package:amiludo/bestiary_registry.dart';
+import 'package:amiludo/soundboard_registry.dart';
+import 'package:amiludo/layers/functional/Sounds/data/gateways/sound_gateways_impl.dart';
 import 'package:amiludo/card_packs_registry.dart';
 import 'package:amiludo/layers/functional/CardPacks/data/gateways/card_pack_gateway_impl.dart';
 import 'package:amiludo/layers/functional/Bestiary/data/gateways/bestiary_gateway_impl.dart';
@@ -274,6 +276,7 @@ void configureDependencies(StoreDatabase database) {
         getIt<EncounterGatewayImpl>(),
         getIt<GameLogGatewayImpl>(),
         getIt<CardPackGatewayImpl>(),
+        getIt<SoundLibraryGatewayImpl>(),
       ],
     )
     ..registerLazySingleton<EveningsGatewayImpl>(
@@ -298,6 +301,7 @@ void configureDependencies(StoreDatabase database) {
   registerWorld();
   registerTables();
   registerScenes();
+  registerSounds();
   registerBestiary();
   registerCardPacks();
   registerCombat();

@@ -68,5 +68,6 @@ IconData toolIcon(String id) => switch (id) {
   'gmtables' => Icons.format_list_numbered,
   'scenes' => Icons.account_tree_outlined,
   'bestiary' => Icons.menu_book_outlined,
+  'soundboard' => Icons.library_music_outlined,
   _ => Icons.extension_outlined,
 };
