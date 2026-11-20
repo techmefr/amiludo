@@ -85,7 +85,7 @@ Any game companion can hold its own sound sets, not only campaigns. A playlist c
 2. **Given** a collaborative playlist in a room, **When** a player adds a track, **Then** the host and the other players see it and the host can accept, reorder or remove it.
 3. **Given** a player without the audio file, **When** a shared track is played on their device, **Then** it is shown as missing and never blocks the others.
 
-[NEEDS CLARIFICATION: do contributed tracks carry their audio to other devices, or only a title and a link the host resolves from their own library?]
+Decision (2026-11-20): a contributed track carries its audio to the other devices of the room, so every player can hear it without owning the file.
 
 ---
 
@@ -110,6 +110,10 @@ Any game companion can hold its own sound sets, not only campaigns. A playlist c
 - **FR-008**: The part MUST be reachable as a brick of the companion builder and from a campaign.
 - **FR-009**: All texts MUST be translated (i18n) and the screens MUST follow the design tokens and accessibility rules.
 - **FR-010**: The existing Ambience brick MUST keep working unchanged.
+- **FR-011**: A game companion MUST be able to own sound sets, like a campaign.
+- **FR-012**: In a room, a player MUST be able to suggest a track to a collaborative playlist; the host accepts, reorders or removes it.
+- **FR-013**: An accepted track MUST reach the other devices with its audio, with visible progress, a size limit, and no effect on the room if a transfer fails or is cancelled.
+- **FR-014**: Received audio MUST be kept only for the session unless the receiving player saves it, and the sender MUST confirm the sharing before it starts.
 
 ### Key Entities
 

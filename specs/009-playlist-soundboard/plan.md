@@ -94,3 +94,10 @@ See [data-model.md](data-model.md), [contracts/sound-set.schema.json](contracts/
 - Large blobs in drift on web (IndexedDB): enforce the 20 MB limit and test import of a large file.
 - Background playback differs per platform: the behavior is configurable and tested through the recording output only; real devices verified by hand.
 - Layout tests at 390x844, 844x390, 1280x720 and 1920x1080.
+
+## Lot 8: shared playlists (User Story 5)
+
+- Transport: the existing room channel carries JSON only. Audio is split into numbered base64 chunks of about 32 KB (LAN messages are capped at 64 KB), sent with a clip id, index and total, and reassembled on the receiver; a missing chunk or a cancel drops the clip and leaves the room untouched.
+- Roles: players send suggestions (title and clip id), the host accepts, reorders or removes; only accepted tracks are transferred to the others.
+- Limits: a per-clip size cap and a send rate that fits the remote relay; both are measured on real rooms (T034), not guessed.
+- Storage: received audio goes into the blob table flagged as session-only and is purged at session end unless the player saves it.

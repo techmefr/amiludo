@@ -79,4 +79,6 @@
 
 - [ ] T031 [US5] Offer sound sets on every game companion with an owner kind for games, not only on campaigns
 - [ ] T032 [US5] Collaborative playlist: suggestions from room players, host accepts, reorders or removes, over the existing room channel
-- [ ] T033 [US5] Decide how contributed audio travels between devices (see the clarification in the spec) and test the missing-audio case
+- [ ] T033 [US5] Transfer audio over the room channel in numbered chunks (LAN messages are capped at 64 KB, remote broadcast is rate limited): chunking, reassembly, progress, cancel, size limit, and tests with a recording channel
+- [ ] T034 [US5] Measure the real limits on a LAN room and on a remote room and set the per-clip size cap from the results
+- [ ] T035 [US5] Ask the sender to confirm before sharing audio, and keep received audio session-only unless saved
