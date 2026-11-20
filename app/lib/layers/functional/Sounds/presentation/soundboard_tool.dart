@@ -7,7 +7,10 @@ import 'package:amiludo/layers/functional/Sounds/domain/gateways/sound_gateways.
 import 'package:amiludo/layers/functional/Sounds/domain/use_cases/pad_player.dart';
 import 'package:amiludo/layers/functional/Sounds/domain/use_cases/playlist_engine.dart';
 import 'package:amiludo/layers/functional/Sounds/domain/use_cases/sound_set_use_cases.dart';
+import 'package:amiludo/layers/functional/Sounds/domain/use_cases/sound_share.dart';
 import 'package:amiludo/layers/functional/Sounds/presentation/playlist_panel.dart';
+import 'package:amiludo/layers/functional/Sounds/presentation/shared_tracks_panel.dart';
+import 'package:amiludo/layers/technical/Sound/clip_output.dart';
 import 'package:amiludo/layers/functional/Sounds/presentation/sound_entries_sheet.dart';
 import 'package:amiludo/layers/functional/Sounds/presentation/sound_pad_grid.dart';
 import 'package:amiludo/layers/technical/Locale/context_l10n.dart';
@@ -24,6 +27,9 @@ class SoundboardTool extends StatefulWidget {
     required this.library,
     required this.engine,
     required this.pads,
+    this.share,
+    this.blobs,
+    this.output,
     this.ownerKind = SoundOwnerKind.companion,
     this.ownerId = defaultSoundOwnerId,
   });
@@ -32,6 +38,9 @@ class SoundboardTool extends StatefulWidget {
   final SoundLibraryGateway library;
   final PlaylistEngine engine;
   final PadPlayer pads;
+  final SoundShare? share;
+  final SoundBlobGateway? blobs;
+  final ClipOutput? output;
   final SoundOwnerKind ownerKind;
   final String ownerId;
 
@@ -75,6 +84,11 @@ class _SoundboardToolState extends State<SoundboardTool> {
     widget.engine.dispose();
     widget.pads.stopAll();
     widget.pads.dispose();
+    final share = widget.share;
+    if (share != null) {
+      share.purgeSession();
+      share.dispose();
+    }
     super.dispose();
   }
 
@@ -199,6 +213,18 @@ class _SoundboardToolState extends State<SoundboardTool> {
               PlaylistPanel(set: set, engine: widget.engine, sets: widget.sets),
               const SizedBox(height: Space.xl),
               SoundPadGrid(set: set, pads: widget.pads, sets: widget.sets),
+            ],
+            if (widget.share != null &&
+                widget.blobs != null &&
+                widget.output != null) ...[
+              const SizedBox(height: Space.xl),
+              SharedTracksPanel(
+                share: widget.share!,
+                sets: widget.sets,
+                blobs: widget.blobs!,
+                output: widget.output!,
+                set: set,
+              ),
             ],
           ],
         ),

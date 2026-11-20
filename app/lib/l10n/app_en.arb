@@ -2943,5 +2943,16 @@
   "soundboardOutOfPads": "Remove from soundboard",
   "soundboardTooLarge": "This file is too large (20 MB maximum).",
   "soundboardFull": "This sound set is full (100 sounds maximum).",
-  "notebookTabSounds": "Sounds"
+  "notebookTabSounds": "Sounds",
+  "soundboardShared": "Shared tracks",
+  "soundboardShareTrack": "Share a track",
+  "soundboardShareConfirmTitle": "Send this track to the table?",
+  "soundboardShareConfirmBody": "Everyone in the room will receive this audio file once the host accepts it. It is kept only for this session unless they save it. Only share files you have the right to share.",
+  "soundboardShareAccept": "Accept",
+  "soundboardShareReject": "Refuse",
+  "soundboardSharePending": "Waiting for the host",
+  "soundboardShareReceiving": "Receiving",
+  "soundboardSaveToSet": "Save to this set",
+  "soundboardSharedEmpty": "No shared track yet.",
+  "soundboardShareTooLarge": "This file is too large to share (3 MB maximum)."
 }

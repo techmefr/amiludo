@@ -1947,5 +1947,16 @@
   "soundboardOutOfPads": "Van soundboard halen",
   "soundboardTooLarge": "Dit bestand is te groot (maximaal 20 MB).",
   "soundboardFull": "Deze set is vol (maximaal 100 geluiden).",
-  "notebookTabSounds": "Geluiden"
+  "notebookTabSounds": "Geluiden",
+  "soundboardShared": "Gedeelde nummers",
+  "soundboardShareTrack": "Een nummer delen",
+  "soundboardShareConfirmTitle": "Dit nummer naar de tafel sturen?",
+  "soundboardShareConfirmBody": "Iedereen in de kamer ontvangt dit audiobestand zodra de host het accepteert. Het wordt alleen voor deze sessie bewaard, tenzij ze het opslaan. Deel alleen bestanden die je mag delen.",
+  "soundboardShareAccept": "Accepteren",
+  "soundboardShareReject": "Weigeren",
+  "soundboardSharePending": "Wacht op de host",
+  "soundboardShareReceiving": "Ontvangen",
+  "soundboardSaveToSet": "Opslaan in deze set",
+  "soundboardSharedEmpty": "Nog geen gedeeld nummer.",
+  "soundboardShareTooLarge": "Dit bestand is te groot om te delen (maximaal 3 MB)."
 }

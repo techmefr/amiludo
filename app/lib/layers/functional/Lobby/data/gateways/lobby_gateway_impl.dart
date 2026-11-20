@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:amiludo/layers/functional/Lobby/domain/entities/lobby.dart';
+import 'package:amiludo/layers/functional/Lobby/domain/entities/lobby_app_message.dart';
 import 'package:amiludo/layers/functional/Lobby/domain/gateways/lobby_gateway.dart';
 import 'package:amiludo/layers/technical/Network/room_channel.dart';
 import 'package:amiludo/layers/technical/Network/room_code.dart';
@@ -21,6 +22,9 @@ class LobbyGatewayImpl implements LobbyGateway {
   final _subscriptions = <StreamSubscription<RoomMessage>>[];
   final _peers = <String, String>{};
   final _proofs = <String, String>{};
+  final _apps = StreamController<LobbyAppMessage>.broadcast();
+  final _appSequences = <String, int>{};
+  var _appSequence = 0;
   LobbySession? _current;
   RoomSeal? _seal;
   String? _leaveKey;
@@ -37,6 +41,67 @@ class LobbyGatewayImpl implements LobbyGateway {
 
   @override
   Stream<LobbySession?> watch() => _sessions.stream;
+
+  @override
+  Stream<LobbyAppMessage> get appMessages => _apps.stream;
+
+  @override
+  bool get canSendApp {
+    final session = _current;
+    if (session == null || session.ended || _seal == null) return false;
+    return session.isHost || session.myStatus == SeatStatus.accepted;
+  }
+
+  @override
+  void sendApp(String topic, Map<String, Object?> body) {
+    final session = _current;
+    final seal = _seal;
+    if (!canSendApp || session == null || seal == null) return;
+    final text = jsonEncode({'topic': topic, 'body': body});
+    if (session.isHost) {
+      _broadcastSealed('app', text);
+      return;
+    }
+    final n = ++_appSequence;
+    final id = session.me!;
+    _broadcast({
+      'type': 'app',
+      'id': id,
+      'n': n,
+      'body': text,
+      'sig': seal.sign(_appSigned(session.lobby.code, id, n, text)),
+    });
+  }
+
+  static String _appSigned(String code, String id, int n, String body) =>
+      '$code|app|$id|$n|$body';
+
+  void _hostApp(Lobby lobby, RoomMessage message) {
+    final seal = _seal;
+    final id = message['id'];
+    final n = message['n'];
+    final body = message['body'];
+    if (seal == null || id is! String || n is! int || body is! String) return;
+    if (lobby.seat(id)?.status != SeatStatus.accepted) return;
+    if (n <= (_appSequences[id] ?? 0)) return;
+    if (!seal.verify(_appSigned(lobby.code, id, n, body), message['sig'])) {
+      return;
+    }
+    _appSequences[id] = n;
+    _emitApp(id, body);
+  }
+
+  void _emitApp(String from, String body) {
+    try {
+      final decoded = Map<String, dynamic>.from(jsonDecode(body) as Map);
+      final topic = decoded['topic'];
+      final inner = decoded['body'];
+      if (topic is! String || inner is! Map) return;
+      _apps.add(LobbyAppMessage(from, topic, Map<String, dynamic>.from(inner)));
+    } on Object {
+      return;
+    }
+  }
 
   void _set(LobbySession? session) {
     _current = session;
@@ -90,6 +155,8 @@ class LobbyGatewayImpl implements LobbyGateway {
         final key = message['key'];
         if (key is! String || !sameProof(_proofs[id], roomProof(key))) return;
         publish(lobby.without(id));
+      case 'app':
+        _hostApp(lobby, message);
       case 'disconnected':
         if (message['_local'] != true) return;
         final id = _peers.remove(peer);
@@ -228,6 +295,10 @@ class LobbyGatewayImpl implements LobbyGateway {
         } on Object {
           return;
         }
+      case 'app':
+        if (_seal == null) return;
+        final body = _opened(message, code, 'app');
+        if (body != null) _emitApp('host', body);
       case 'closed':
         if (_opened(message, code, 'closed') != null) _end(me);
       case 'disconnected':
@@ -262,6 +333,8 @@ class LobbyGatewayImpl implements LobbyGateway {
     _channels.clear();
     _peers.clear();
     _proofs.clear();
+    _appSequences.clear();
+    _appSequence = 0;
     _seal = null;
     _leaveKey = null;
     _sequence = 0;

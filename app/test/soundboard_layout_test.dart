@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -6,6 +8,7 @@ import 'package:amiludo/layers/functional/Sounds/domain/entities/sound_entry.dar
 import 'package:amiludo/layers/functional/Sounds/domain/entities/sound_set.dart';
 import 'package:amiludo/layers/functional/Sounds/domain/use_cases/pad_player.dart';
 import 'package:amiludo/layers/functional/Sounds/domain/use_cases/playlist_engine.dart';
+import 'package:amiludo/layers/functional/Sounds/domain/use_cases/sound_share.dart';
 import 'package:amiludo/layers/functional/Sounds/presentation/soundboard_tool.dart';
 import 'package:amiludo/layers/technical/Sound/clip_output.dart';
 
@@ -102,4 +105,65 @@ void main() {
     });
     expect(output.started, ['pad:$fxId']);
   });
+
+  testWidgets('the shared tracks panel shows pending offers to the host', (
+    tester,
+  ) async {
+    final rig = SoundRig();
+    final output = RecordingClipOutput();
+    final wire = _SilentTransport();
+    final share = SoundShare(
+      wire,
+      rig.blobs,
+      selfId: 'host',
+      isHost: true,
+      wait: (_) async {},
+    );
+    await tester.runAsync(() async {
+      await rig.sets.create(
+        SoundOwnerKind.companion,
+        defaultSoundOwnerId,
+        'Dragons',
+      );
+      await share.suggest(
+        'Tavern song',
+        Uint8List.fromList([1, 2, 3]),
+        confirmed: true,
+      );
+    });
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: Scaffold(
+          body: SingleChildScrollView(
+            child: SoundboardTool(
+              sets: rig.sets,
+              library: rig.library,
+              engine: PlaylistEngine(output, rig.blobs, wait: (_) async {}),
+              pads: PadPlayer(output, rig.blobs),
+              share: share,
+              blobs: rig.blobs,
+              output: output,
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+    expect(find.text('Shared tracks'), findsOneWidget);
+    expect(find.text('Tavern song'), findsOneWidget);
+    expect(find.byTooltip('Accept'), findsOneWidget);
+  });
+}
+
+class _SilentTransport implements SoundShareTransport {
+  @override
+  Stream<ShareIncoming> get incoming => const Stream.empty();
+
+  @override
+  void sendToHost(Map<String, Object?> message) {}
+
+  @override
+  void broadcast(Map<String, Object?> message) {}
 }

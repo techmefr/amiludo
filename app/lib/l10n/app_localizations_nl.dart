@@ -6384,4 +6384,39 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get notebookTabSounds => 'Geluiden';
+
+  @override
+  String get soundboardShared => 'Gedeelde nummers';
+
+  @override
+  String get soundboardShareTrack => 'Een nummer delen';
+
+  @override
+  String get soundboardShareConfirmTitle => 'Dit nummer naar de tafel sturen?';
+
+  @override
+  String get soundboardShareConfirmBody =>
+      'Iedereen in de kamer ontvangt dit audiobestand zodra de host het accepteert. Het wordt alleen voor deze sessie bewaard, tenzij ze het opslaan. Deel alleen bestanden die je mag delen.';
+
+  @override
+  String get soundboardShareAccept => 'Accepteren';
+
+  @override
+  String get soundboardShareReject => 'Weigeren';
+
+  @override
+  String get soundboardSharePending => 'Wacht op de host';
+
+  @override
+  String get soundboardShareReceiving => 'Ontvangen';
+
+  @override
+  String get soundboardSaveToSet => 'Opslaan in deze set';
+
+  @override
+  String get soundboardSharedEmpty => 'Nog geen gedeeld nummer.';
+
+  @override
+  String get soundboardShareTooLarge =>
+      'Dit bestand is te groot om te delen (maximaal 3 MB).';
 }

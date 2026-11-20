@@ -1947,5 +1947,16 @@
   "soundboardOutOfPads": "Quitar de la mesa de sonidos",
   "soundboardTooLarge": "Este archivo es demasiado grande (máximo 20 MB).",
   "soundboardFull": "Este conjunto está lleno (máximo 100 sonidos).",
-  "notebookTabSounds": "Sonidos"
+  "notebookTabSounds": "Sonidos",
+  "soundboardShared": "Pistas compartidas",
+  "soundboardShareTrack": "Compartir una pista",
+  "soundboardShareConfirmTitle": "¿Enviar esta pista a la mesa?",
+  "soundboardShareConfirmBody": "Todos en la sala recibirán este archivo de audio cuando el anfitrión lo acepte. Solo se guarda durante esta sesión, salvo que lo guarden. Comparte solo archivos que tengas derecho a compartir.",
+  "soundboardShareAccept": "Aceptar",
+  "soundboardShareReject": "Rechazar",
+  "soundboardSharePending": "Esperando al anfitrión",
+  "soundboardShareReceiving": "Recibiendo",
+  "soundboardSaveToSet": "Guardar en este conjunto",
+  "soundboardSharedEmpty": "Aún no hay pistas compartidas.",
+  "soundboardShareTooLarge": "Este archivo es demasiado grande para compartir (máximo 3 MB)."
 }

@@ -6380,4 +6380,39 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get notebookTabSounds => 'Sonidos';
+
+  @override
+  String get soundboardShared => 'Pistas compartidas';
+
+  @override
+  String get soundboardShareTrack => 'Compartir una pista';
+
+  @override
+  String get soundboardShareConfirmTitle => '¿Enviar esta pista a la mesa?';
+
+  @override
+  String get soundboardShareConfirmBody =>
+      'Todos en la sala recibirán este archivo de audio cuando el anfitrión lo acepte. Solo se guarda durante esta sesión, salvo que lo guarden. Comparte solo archivos que tengas derecho a compartir.';
+
+  @override
+  String get soundboardShareAccept => 'Aceptar';
+
+  @override
+  String get soundboardShareReject => 'Rechazar';
+
+  @override
+  String get soundboardSharePending => 'Esperando al anfitrión';
+
+  @override
+  String get soundboardShareReceiving => 'Recibiendo';
+
+  @override
+  String get soundboardSaveToSet => 'Guardar en este conjunto';
+
+  @override
+  String get soundboardSharedEmpty => 'Aún no hay pistas compartidas.';
+
+  @override
+  String get soundboardShareTooLarge =>
+      'Este archivo es demasiado grande para compartir (máximo 3 MB).';
 }

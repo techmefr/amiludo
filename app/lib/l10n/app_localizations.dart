@@ -11743,6 +11743,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sounds'**
   String get notebookTabSounds;
+
+  /// No description provided for @soundboardShared.
+  ///
+  /// In en, this message translates to:
+  /// **'Shared tracks'**
+  String get soundboardShared;
+
+  /// No description provided for @soundboardShareTrack.
+  ///
+  /// In en, this message translates to:
+  /// **'Share a track'**
+  String get soundboardShareTrack;
+
+  /// No description provided for @soundboardShareConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Send this track to the table?'**
+  String get soundboardShareConfirmTitle;
+
+  /// No description provided for @soundboardShareConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Everyone in the room will receive this audio file once the host accepts it. It is kept only for this session unless they save it. Only share files you have the right to share.'**
+  String get soundboardShareConfirmBody;
+
+  /// No description provided for @soundboardShareAccept.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept'**
+  String get soundboardShareAccept;
+
+  /// No description provided for @soundboardShareReject.
+  ///
+  /// In en, this message translates to:
+  /// **'Refuse'**
+  String get soundboardShareReject;
+
+  /// No description provided for @soundboardSharePending.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for the host'**
+  String get soundboardSharePending;
+
+  /// No description provided for @soundboardShareReceiving.
+  ///
+  /// In en, this message translates to:
+  /// **'Receiving'**
+  String get soundboardShareReceiving;
+
+  /// No description provided for @soundboardSaveToSet.
+  ///
+  /// In en, this message translates to:
+  /// **'Save to this set'**
+  String get soundboardSaveToSet;
+
+  /// No description provided for @soundboardSharedEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No shared track yet.'**
+  String get soundboardSharedEmpty;
+
+  /// No description provided for @soundboardShareTooLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'This file is too large to share (3 MB maximum).'**
+  String get soundboardShareTooLarge;
 }
 
 class _AppLocalizationsDelegate

@@ -101,3 +101,10 @@ See [data-model.md](data-model.md), [contracts/sound-set.schema.json](contracts/
 - Roles: players send suggestions (title and clip id), the host accepts, reorders or removes; only accepted tracks are transferred to the others.
 - Limits: a per-clip size cap and a send rate that fits the remote relay; both are measured on real rooms (T034), not guessed.
 - Storage: received audio goes into the blob table flagged as session-only and is purged at session end unless the player saves it.
+
+### Lobby security notes
+
+- Room messages of type `app` are authenticated, not encrypted: they carry the room signature and a counter, exactly like the lobby state. Anyone who has the room link can read them, as for every other room message.
+- A guest message also carries the seat id; the host only accepts it from an accepted seat with a counter above the last one seen. A room member knows the room secret and can therefore impersonate another seat; the host accepting or refusing each track, the size cap and the per-player limit are the safety net.
+- A link without the room secret cannot send or receive audio.
+

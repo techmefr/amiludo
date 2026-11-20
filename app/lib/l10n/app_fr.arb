@@ -1947,5 +1947,16 @@
   "soundboardOutOfPads": "Retirer de la table de sons",
   "soundboardTooLarge": "Ce fichier est trop volumineux (20 Mo maximum).",
   "soundboardFull": "Ce jeu de sons est plein (100 sons maximum).",
-  "notebookTabSounds": "Sons"
+  "notebookTabSounds": "Sons",
+  "soundboardShared": "Pistes partagées",
+  "soundboardShareTrack": "Partager une piste",
+  "soundboardShareConfirmTitle": "Envoyer cette piste à la table ?",
+  "soundboardShareConfirmBody": "Tous les joueurs de la salle recevront ce fichier audio une fois que l’hôte l’aura accepté. Il n’est gardé que pour cette session, sauf s’ils l’enregistrent. Ne partagez que des fichiers que vous avez le droit de partager.",
+  "soundboardShareAccept": "Accepter",
+  "soundboardShareReject": "Refuser",
+  "soundboardSharePending": "En attente de l’hôte",
+  "soundboardShareReceiving": "Réception en cours",
+  "soundboardSaveToSet": "Enregistrer dans ce jeu de sons",
+  "soundboardSharedEmpty": "Aucune piste partagée.",
+  "soundboardShareTooLarge": "Ce fichier est trop volumineux pour être partagé (3 Mo maximum)."
 }

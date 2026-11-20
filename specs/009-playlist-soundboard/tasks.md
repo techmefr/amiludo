@@ -79,8 +79,8 @@
 
 - [x] T031 [US5] Sound sets on every game companion (owner kind game, scoped to the soundboard brick of that companion)
 - [x] T032a [US5] Suggest, accept, reject and cancel flow in a transport-agnostic `SoundShare` (host decides), tested with a three-device in-memory hub
-- [ ] T032b [US5] Playlist panel for shared tracks (suggest button with confirmation, host accept list, progress, play, save) in the soundboard tool
+- [x] T032b [US5] Shared tracks panel in the soundboard tool: suggest with confirmation, host accept and refuse list, progress, play, save to the current set
 - [x] T033a [US5] Chunked transfer (24 KB chunks), reassembly with size and index checks, progress, cancel, size cap 3 MB, host relay, session-only blobs, save to a set
-- [ ] T033b [US5] Connect `SoundShareTransport` to the lobby room channel: needs sealed host messages and guest proofs (see plan, lot 8) and a send rate that fits the remote relay
+- [x] T033b [US5] `SoundShareTransport` connected to the lobby: new `app` message type, signed with the room seal in both directions, counters against replay, accepted seats only, tested with a rogue peer
 - [ ] T034 [US5] Measure the real limits on a LAN room and on a remote room and set the per-clip size cap from the results
 - [x] T035 [US5] Sender confirmation required before a suggestion, received audio session-only unless saved (enforced and tested in `SoundShare`; the confirmation dialog belongs to T032b)

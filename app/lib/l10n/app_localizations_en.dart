@@ -6343,4 +6343,39 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notebookTabSounds => 'Sounds';
+
+  @override
+  String get soundboardShared => 'Shared tracks';
+
+  @override
+  String get soundboardShareTrack => 'Share a track';
+
+  @override
+  String get soundboardShareConfirmTitle => 'Send this track to the table?';
+
+  @override
+  String get soundboardShareConfirmBody =>
+      'Everyone in the room will receive this audio file once the host accepts it. It is kept only for this session unless they save it. Only share files you have the right to share.';
+
+  @override
+  String get soundboardShareAccept => 'Accept';
+
+  @override
+  String get soundboardShareReject => 'Refuse';
+
+  @override
+  String get soundboardSharePending => 'Waiting for the host';
+
+  @override
+  String get soundboardShareReceiving => 'Receiving';
+
+  @override
+  String get soundboardSaveToSet => 'Save to this set';
+
+  @override
+  String get soundboardSharedEmpty => 'No shared track yet.';
+
+  @override
+  String get soundboardShareTooLarge =>
+      'This file is too large to share (3 MB maximum).';
 }

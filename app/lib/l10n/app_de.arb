@@ -1947,5 +1947,16 @@
   "soundboardOutOfPads": "Aus dem Soundboard entfernen",
   "soundboardTooLarge": "Diese Datei ist zu groß (maximal 20 MB).",
   "soundboardFull": "Dieses Soundset ist voll (maximal 100 Sounds).",
-  "notebookTabSounds": "Sounds"
+  "notebookTabSounds": "Sounds",
+  "soundboardShared": "Geteilte Titel",
+  "soundboardShareTrack": "Titel teilen",
+  "soundboardShareConfirmTitle": "Diesen Titel an den Tisch senden?",
+  "soundboardShareConfirmBody": "Alle im Raum erhalten diese Audiodatei, sobald der Host sie akzeptiert. Sie wird nur für diese Sitzung gespeichert, außer jemand sichert sie. Teile nur Dateien, zu deren Weitergabe du berechtigt bist.",
+  "soundboardShareAccept": "Annehmen",
+  "soundboardShareReject": "Ablehnen",
+  "soundboardSharePending": "Wartet auf den Host",
+  "soundboardShareReceiving": "Wird empfangen",
+  "soundboardSaveToSet": "In diesem Set speichern",
+  "soundboardSharedEmpty": "Noch kein geteilter Titel.",
+  "soundboardShareTooLarge": "Diese Datei ist zu groß zum Teilen (maximal 3 MB)."
 }
