@@ -7,7 +7,7 @@
     "version": {"const": 1},
     "id": {"type": "string"},
     "name": {"type": "string"},
-    "ownerKind": {"enum": ["companion", "campaign"]},
+    "ownerKind": {"enum": ["companion", "campaign", "game"]},
     "ownerId": {"type": "string"},
     "playlistVolume": {"type": "number", "minimum": 0, "maximum": 1},
     "soundboardVolume": {"type": "number", "minimum": 0, "maximum": 1},

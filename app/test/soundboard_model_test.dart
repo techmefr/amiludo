@@ -73,5 +73,6 @@ void main() {
       ),
     ]);
     expect(library.ownedBy(SoundOwnerKind.campaign, 'c').single.id, '1');
+    expect(library.ownedBy(SoundOwnerKind.game, 'c'), isEmpty);
   });
 }

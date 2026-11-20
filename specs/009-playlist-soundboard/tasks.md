@@ -77,8 +77,10 @@
 
 ## Phase 8: User Story 5 - Playlists on every game, even shared ones (P2)
 
-- [ ] T031 [US5] Offer sound sets on every game companion with an owner kind for games, not only on campaigns
-- [ ] T032 [US5] Collaborative playlist: suggestions from room players, host accepts, reorders or removes, over the existing room channel
-- [ ] T033 [US5] Transfer audio over the room channel in numbered chunks (LAN messages are capped at 64 KB, remote broadcast is rate limited): chunking, reassembly, progress, cancel, size limit, and tests with a recording channel
+- [x] T031 [US5] Sound sets on every game companion (owner kind game, scoped to the soundboard brick of that companion)
+- [x] T032a [US5] Suggest, accept, reject and cancel flow in a transport-agnostic `SoundShare` (host decides), tested with a three-device in-memory hub
+- [ ] T032b [US5] Playlist panel for shared tracks (suggest button with confirmation, host accept list, progress, play, save) in the soundboard tool
+- [x] T033a [US5] Chunked transfer (24 KB chunks), reassembly with size and index checks, progress, cancel, size cap 3 MB, host relay, session-only blobs, save to a set
+- [ ] T033b [US5] Connect `SoundShareTransport` to the lobby room channel: needs sealed host messages and guest proofs (see plan, lot 8) and a send rate that fits the remote relay
 - [ ] T034 [US5] Measure the real limits on a LAN room and on a remote room and set the per-clip size cap from the results
-- [ ] T035 [US5] Ask the sender to confirm before sharing audio, and keep received audio session-only unless saved
+- [x] T035 [US5] Sender confirmation required before a suggestion, received audio session-only unless saved (enforced and tested in `SoundShare`; the confirmation dialog belongs to T032b)

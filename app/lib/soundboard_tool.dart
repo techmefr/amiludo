@@ -15,6 +15,16 @@ Widget soundboardWithStorage(BuildContext context) => SoundboardTool(
   pads: getIt<PadPlayer>(),
 );
 
+Widget soundboardForGame(String brickId) => SoundboardTool(
+  key: ValueKey(brickId),
+  sets: getIt<SoundSetUseCases>(),
+  library: getIt<SoundLibraryGateway>(),
+  engine: getIt<PlaylistEngine>(),
+  pads: getIt<PadPlayer>(),
+  ownerKind: SoundOwnerKind.game,
+  ownerId: brickId,
+);
+
 Widget soundboardForCampaign(String campaignId) => SoundboardTool(
   key: ValueKey(campaignId),
   sets: getIt<SoundSetUseCases>(),

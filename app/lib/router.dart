@@ -350,6 +350,7 @@ Widget? _brickWidget(BuildContext context, Brick brick) {
       name: context.toolTitle(brick.toolId),
     );
   }
+  if (brick.type == 'soundboard') return soundboardForGame(brick.id);
   return embeddedToolBuilders[brick.type]?.call(context);
 }
 

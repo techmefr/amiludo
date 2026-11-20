@@ -4,7 +4,7 @@ import 'package:amiludo/layers/functional/Sounds/domain/entities/sound_entry.dar
 const maxSoundEntries = 100;
 const soundSetVersion = 1;
 
-enum SoundOwnerKind { companion, campaign }
+enum SoundOwnerKind { companion, campaign, game }
 
 String newSoundId() => DateTime.now().microsecondsSinceEpoch.toString();
 
