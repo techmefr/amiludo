@@ -20,6 +20,7 @@ void main() {
         'gmtables',
         'scenes',
         'bestiary',
+        'soundboard',
         'sport',
       ]) {
         await tester.pumpWidget(

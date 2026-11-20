@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SoundSet",
+  "type": "object",
+  "required": ["version", "id", "name", "ownerKind", "ownerId", "entries"],
+  "properties": {
+    "version": {"const": 1},
+    "id": {"type": "string"},
+    "name": {"type": "string"},
+    "ownerKind": {"enum": ["companion", "campaign", "game"]},
+    "ownerId": {"type": "string"},
+    "playlistVolume": {"type": "number", "minimum": 0, "maximum": 1},
+    "soundboardVolume": {"type": "number", "minimum": 0, "maximum": 1},
+    "entries": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "kind"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "kind": {"enum": ["track", "effect"]},
+          "color": {"type": "string"},
+          "volume": {"type": "number", "minimum": 0, "maximum": 1},
+          "loop": {"type": "boolean"},
+          "mimeType": {"type": "string"},
+          "bytesLength": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+    "playlist": {
+      "type": "object",
+      "properties": {
+        "entryIds": {"type": "array", "items": {"type": "string"}},
+        "shuffle": {"type": "boolean"},
+        "repeat": {"enum": ["off", "all", "one"]},
+        "fadeSeconds": {"type": "number", "minimum": 0}
+      }
+    },
+    "soundboard": {"type": "array", "items": {"type": "string"}}
+  }
+}

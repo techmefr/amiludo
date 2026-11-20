@@ -144,6 +144,7 @@ const auraShelfTools = <String, List<String>>{
     'gmtables',
     'scenes',
     'bestiary',
+    'soundboard',
     'combat',
     'npc',
     'encounter',

@@ -6284,4 +6284,150 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get diceFromMarket => 'Prendre des dés au marché';
+
+  @override
+  String get toolSoundboardTitle => 'Table de sons';
+
+  @override
+  String get toolSoundboardSubtitle =>
+      'Jouez vos propres musiques et bruitages pour votre jeu ou votre campagne.';
+
+  @override
+  String get soundboardNewSet => 'Nouveau jeu de sons';
+
+  @override
+  String get soundboardSetName => 'Nom du jeu de sons';
+
+  @override
+  String get soundboardRename => 'Renommer';
+
+  @override
+  String get soundboardDeleteSet => 'Supprimer le jeu';
+
+  @override
+  String get soundboardNoSets =>
+      'Aucun jeu de sons. Créez-en un pour votre jeu ou votre campagne.';
+
+  @override
+  String get soundboardManage => 'Gérer les sons';
+
+  @override
+  String get soundboardPlaylist => 'Playlist';
+
+  @override
+  String get soundboardPlaylistEmpty => 'La playlist est vide.';
+
+  @override
+  String get soundboardPlaylistVolume => 'Volume de la playlist';
+
+  @override
+  String get soundboardPads => 'Table de sons';
+
+  @override
+  String get soundboardPadsEmpty => 'La table de sons est vide.';
+
+  @override
+  String get soundboardPadsVolume => 'Volume de la table de sons';
+
+  @override
+  String get soundboardStopAll => 'Tout arrêter';
+
+  @override
+  String get soundboardPlay => 'Lecture';
+
+  @override
+  String get soundboardPause => 'Pause';
+
+  @override
+  String get soundboardNext => 'Piste suivante';
+
+  @override
+  String get soundboardPrevious => 'Piste précédente';
+
+  @override
+  String get soundboardShuffle => 'Aléatoire';
+
+  @override
+  String get soundboardRepeat => 'Répéter';
+
+  @override
+  String get soundboardLoop => 'Boucle';
+
+  @override
+  String get soundboardImportTracks => 'Importer de la musique';
+
+  @override
+  String get soundboardImportEffects => 'Importer des effets';
+
+  @override
+  String get soundboardEmpty => 'Aucun son. Importez vos fichiers audio.';
+
+  @override
+  String get soundboardEntryName => 'Nom du son';
+
+  @override
+  String get soundboardMissing => 'Fichier audio manquant';
+
+  @override
+  String get soundboardReplace => 'Remplacer l’audio';
+
+  @override
+  String get soundboardRemove => 'Supprimer';
+
+  @override
+  String get soundboardToPlaylist => 'Ajouter à la playlist';
+
+  @override
+  String get soundboardOutOfPlaylist => 'Retirer de la playlist';
+
+  @override
+  String get soundboardToPads => 'Ajouter à la table de sons';
+
+  @override
+  String get soundboardOutOfPads => 'Retirer de la table de sons';
+
+  @override
+  String get soundboardTooLarge =>
+      'Ce fichier est trop volumineux (20 Mo maximum).';
+
+  @override
+  String get soundboardFull => 'Ce jeu de sons est plein (100 sons maximum).';
+
+  @override
+  String get notebookTabSounds => 'Sons';
+
+  @override
+  String get soundboardShared => 'Pistes partagées';
+
+  @override
+  String get soundboardShareTrack => 'Partager une piste';
+
+  @override
+  String get soundboardShareConfirmTitle => 'Envoyer cette piste à la table ?';
+
+  @override
+  String get soundboardShareConfirmBody =>
+      'Tous les joueurs de la salle recevront ce fichier audio une fois que l’hôte l’aura accepté. Il n’est gardé que pour cette session, sauf s’ils l’enregistrent. Ne partagez que des fichiers que vous avez le droit de partager.';
+
+  @override
+  String get soundboardShareAccept => 'Accepter';
+
+  @override
+  String get soundboardShareReject => 'Refuser';
+
+  @override
+  String get soundboardSharePending => 'En attente de l’hôte';
+
+  @override
+  String get soundboardShareReceiving => 'Réception en cours';
+
+  @override
+  String get soundboardSaveToSet => 'Enregistrer dans ce jeu de sons';
+
+  @override
+  String get soundboardSharedEmpty => 'Aucune piste partagée.';
+
+  @override
+  String get soundboardShareTooLarge =>
+      'Ce fichier est trop volumineux pour être partagé (3 Mo maximum).';
 }

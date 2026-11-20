@@ -1,4 +1,5 @@
 import 'package:amiludo/layers/functional/Lobby/domain/entities/lobby.dart';
+import 'package:amiludo/layers/functional/Lobby/domain/entities/lobby_app_message.dart';
 import 'package:amiludo/layers/technical/Network/room_link.dart';
 
 abstract class LobbyGateway {
@@ -19,6 +20,12 @@ abstract class LobbyGateway {
   Future<LobbySession> join(RoomLink link, LobbySeat me);
 
   void publish(Lobby lobby);
+
+  Stream<LobbyAppMessage> get appMessages;
+
+  bool get canSendApp;
+
+  void sendApp(String topic, Map<String, Object?> body);
 
   Future<void> leave();
 }

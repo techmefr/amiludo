@@ -174,6 +174,7 @@ Widget? extraPreview(
   'gmtables' => _bars(accent, ink, t, const [.5, 1, .7, .35]),
   'scenes' => _chain(accent, ink, t),
   'bestiary' => _stack(accent, ink, t),
+  'soundboard' => _bars(accent, ink, t, const [.5, .9, .6, 1, .4]),
   'clocks' => Center(
     child: SizedBox.square(
       dimension: 76,

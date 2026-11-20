@@ -74,4 +74,5 @@ const toolDefinitions = [
   ToolDefinition('gmtables', 'story'),
   ToolDefinition('scenes', 'story'),
   ToolDefinition('bestiary', 'story'),
+  ToolDefinition('soundboard', 'story'),
 ];

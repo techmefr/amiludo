@@ -15,19 +15,22 @@ import 'package:amiludo/layers/technical/Theme/full_page.dart';
 import 'package:amiludo/layers/technical/Theme/tokens/design_tokens.dart';
 
 class CampaignScreen extends StatelessWidget {
-  const CampaignScreen({super.key, required this.id});
+  const CampaignScreen({super.key, required this.id, this.buildSounds});
   final String id;
+  final Widget Function(String campaignId)? buildSounds;
 
   @override
   Widget build(BuildContext context) => CampaignScope(
     id: id,
-    builder: (context, campaign) => _CampaignView(campaign: campaign),
+    builder: (context, campaign) =>
+        _CampaignView(campaign: campaign, buildSounds: buildSounds),
   );
 }
 
 class _CampaignView extends StatefulWidget {
-  const _CampaignView({required this.campaign});
+  const _CampaignView({required this.campaign, this.buildSounds});
   final NotebookCampaign campaign;
+  final Widget Function(String campaignId)? buildSounds;
 
   @override
   State<_CampaignView> createState() => _CampaignViewState();
@@ -63,6 +66,8 @@ class _CampaignViewState extends State<_CampaignView> {
           ToolTab(id: 'entries', label: l.notebookTabEntries),
           ToolTab(id: 'oracle', label: l.notebookTabOracle),
           ToolTab(id: 'atlas', label: l.notebookTabAtlas),
+          if (widget.buildSounds != null)
+            ToolTab(id: 'sounds', label: l.notebookTabSounds),
         ],
       ),
       child: Material(
@@ -79,7 +84,11 @@ class _CampaignViewState extends State<_CampaignView> {
               onPush: (kind, text) => cubit.addLine(campaign.id, kind, text),
             ),
           ),
-          _ => AtlasTab(campaign: campaign),
+          3 => AtlasTab(campaign: campaign),
+          _ => SingleChildScrollView(
+            padding: const EdgeInsets.all(Space.lg),
+            child: widget.buildSounds!(campaign.id),
+          ),
         },
       ),
     );
