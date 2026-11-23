@@ -23,6 +23,9 @@ class LobbySoundTransport implements SoundShareTransport {
       _lobby.sendApp(soundShareTopic, message);
 }
 
+const lanSharePace = Duration(milliseconds: 20);
+const remoteSharePace = Duration(milliseconds: 100);
+
 SoundShare? soundShareForLobby(LobbyGateway lobby, SoundBlobGateway blobs) {
   final session = lobby.current;
   if (session == null || !lobby.canSendApp) return null;
@@ -31,5 +34,7 @@ SoundShare? soundShareForLobby(LobbyGateway lobby, SoundBlobGateway blobs) {
     blobs,
     selfId: session.me ?? 'host',
     isHost: session.isHost,
+    wait: (_) =>
+        Future.delayed(session.lobby.remote ? remoteSharePace : lanSharePace),
   );
 }

@@ -108,3 +108,15 @@ See [data-model.md](data-model.md), [contracts/sound-set.schema.json](contracts/
 - A guest message also carries the seat id; the host only accepts it from an accepted seat with a counter above the last one seen. A room member knows the room secret and can therefore impersonate another seat; the host accepting or refusing each track, the size cap and the per-player limit are the safety net.
 - A link without the room secret cannot send or receive audio.
 
+### Measured limits (2026-11-23)
+
+Real LAN room sockets on loopback, a guest track relayed through the host to both devices, audio intact every time:
+
+| Clip | No pacing | 20 ms between chunks | 100 ms between chunks |
+|---|---|---|---|
+| 0.5 MB | 0.4 s | 0.7 s | 2.4 s |
+| 1 MB | 0.4 s | 1.2 s | 4.5 s |
+| 3 MB | 0.7 s | 3.0 s | 13.2 s |
+
+Every message stayed under the 64 KB LAN cap. Loopback hides Wi-Fi loss and latency, and the remote relay was not measured (it would send up to 3 MB through the project relay), so LAN pacing is 20 ms, remote pacing stays at 100 ms, and the 3 MB cap stays.
+
