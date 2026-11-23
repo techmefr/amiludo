@@ -6233,4 +6233,149 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get diceFromMarket => 'Get dice from the market';
+
+  @override
+  String get toolSoundboardTitle => 'Soundboard';
+
+  @override
+  String get toolSoundboardSubtitle =>
+      'Play your own music and sound effects for your game or campaign.';
+
+  @override
+  String get soundboardNewSet => 'New sound set';
+
+  @override
+  String get soundboardSetName => 'Sound set name';
+
+  @override
+  String get soundboardRename => 'Rename';
+
+  @override
+  String get soundboardDeleteSet => 'Delete set';
+
+  @override
+  String get soundboardNoSets =>
+      'No sound set yet. Create one for your game or campaign.';
+
+  @override
+  String get soundboardManage => 'Manage sounds';
+
+  @override
+  String get soundboardPlaylist => 'Playlist';
+
+  @override
+  String get soundboardPlaylistEmpty => 'The playlist is empty.';
+
+  @override
+  String get soundboardPlaylistVolume => 'Playlist volume';
+
+  @override
+  String get soundboardPads => 'Soundboard';
+
+  @override
+  String get soundboardPadsEmpty => 'The soundboard is empty.';
+
+  @override
+  String get soundboardPadsVolume => 'Soundboard volume';
+
+  @override
+  String get soundboardStopAll => 'Stop all';
+
+  @override
+  String get soundboardPlay => 'Play';
+
+  @override
+  String get soundboardPause => 'Pause';
+
+  @override
+  String get soundboardNext => 'Next track';
+
+  @override
+  String get soundboardPrevious => 'Previous track';
+
+  @override
+  String get soundboardShuffle => 'Shuffle';
+
+  @override
+  String get soundboardRepeat => 'Repeat';
+
+  @override
+  String get soundboardLoop => 'Loop';
+
+  @override
+  String get soundboardImportTracks => 'Import music';
+
+  @override
+  String get soundboardImportEffects => 'Import effects';
+
+  @override
+  String get soundboardEmpty => 'No sounds yet. Import your audio files.';
+
+  @override
+  String get soundboardEntryName => 'Sound name';
+
+  @override
+  String get soundboardMissing => 'Audio file missing';
+
+  @override
+  String get soundboardReplace => 'Replace audio';
+
+  @override
+  String get soundboardRemove => 'Remove';
+
+  @override
+  String get soundboardToPlaylist => 'Add to playlist';
+
+  @override
+  String get soundboardOutOfPlaylist => 'Remove from playlist';
+
+  @override
+  String get soundboardToPads => 'Add to soundboard';
+
+  @override
+  String get soundboardOutOfPads => 'Remove from soundboard';
+
+  @override
+  String get soundboardTooLarge => 'This file is too large (20 MB maximum).';
+
+  @override
+  String get soundboardFull => 'This sound set is full (100 sounds maximum).';
+
+  @override
+  String get notebookTabSounds => 'Sounds';
+
+  @override
+  String get soundboardShared => 'Shared tracks';
+
+  @override
+  String get soundboardShareTrack => 'Share a track';
+
+  @override
+  String get soundboardShareConfirmTitle => 'Send this track to the table?';
+
+  @override
+  String get soundboardShareConfirmBody =>
+      'Everyone in the room will receive this audio file once the host accepts it. It is kept only for this session unless they save it. Only share files you have the right to share.';
+
+  @override
+  String get soundboardShareAccept => 'Accept';
+
+  @override
+  String get soundboardShareReject => 'Refuse';
+
+  @override
+  String get soundboardSharePending => 'Waiting for the host';
+
+  @override
+  String get soundboardShareReceiving => 'Receiving';
+
+  @override
+  String get soundboardSaveToSet => 'Save to this set';
+
+  @override
+  String get soundboardSharedEmpty => 'No shared track yet.';
+
+  @override
+  String get soundboardShareTooLarge =>
+      'This file is too large to share (3 MB maximum).';
 }

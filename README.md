@@ -143,7 +143,7 @@ Details are in [docs/TECHNOLOGY.md](docs/TECHNOLOGY.md).
 
 ## 📍 Where the project stands
 
-**Public alpha 0.4.0.** The catalogue lists **170 features: 113 are shipped, 57 are planned or incomplete**. Tests on real phones remain to be done: Wi-Fi discovery, camera, sleep, screen readers. The English translation is partial. The full status is in [docs/APP-STATUS.md](docs/APP-STATUS.md), and what comes next is in [the roadmap](docs/ROADMAP.md).
+**Public alpha 0.4.0.** The catalogue lists **172 features: 115 are shipped, 57 are planned or incomplete**. Tests on real phones remain to be done: Wi-Fi discovery, camera, sleep, screen readers. The English translation is partial. The full status is in [docs/APP-STATUS.md](docs/APP-STATUS.md), and what comes next is in [the roadmap](docs/ROADMAP.md).
 
 ## 🤝 Contributing
 

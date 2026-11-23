@@ -240,8 +240,13 @@ The Wi-Fi room works without a server. Remote play, accounts and online sign-ups
 - [x] F169 — Without a server, the host records their friends' answers themselves
 - [x] F170 — Teams from the entered names, the room players or the fingers placed on the screen
 
-**Total: 170 planned features.**
+## Sound for role-playing games — V1
+
+- [x] F171 — Soundboard: import your own audio files into sound sets for a game or a campaign, with a playlist (shuffle, repeat, fade) and effect pads (one shot or loop), each with its own volume
+- [x] F172 — Shared playlists in a room: players suggest a track, the host accepts it, the audio is sent to every device and kept only for the session unless saved
+
+**Total: 172 planned features.**
 
 Customization is handled in Flutter. The checked boxes describe a local alpha; they are not an Android/iOS certification or a full accessibility validation.
 
-**Alpha summary: 113 features checked; 57 planned or incomplete.**
+**Alpha summary: 115 features checked; 57 planned or incomplete.**

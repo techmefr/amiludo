@@ -59,6 +59,7 @@ const toolShelves = [
     'gmtables',
     'scenes',
     'bestiary',
+    'soundboard',
     'combat',
     'npc',
     'encounter',

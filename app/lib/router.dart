@@ -18,6 +18,7 @@ import 'package:amiludo/notebook_routes.dart';
 import 'package:amiludo/layers/functional/Companion/presentation/chess_clock_tool.dart';
 import 'package:amiludo/combat_tool.dart';
 import 'package:amiludo/bestiary_tool.dart';
+import 'package:amiludo/soundboard_tool.dart';
 import 'package:amiludo/card_packs_tool.dart';
 import 'package:amiludo/scenes_tool.dart';
 import 'package:amiludo/tables_tool.dart';
@@ -301,6 +302,7 @@ const Map<String, WidgetBuilder> embeddedToolBuilders = {
           'gmtables': tablesWithStorage,
           'scenes': scenesWithStorage,
           'bestiary': bestiaryWithStorage,
+          'soundboard': soundboardWithStorage,
           'combat': combatWithStorage,
           'vote': _vote,
           'countdown': countdownWithFeedback,
@@ -348,6 +350,7 @@ Widget? _brickWidget(BuildContext context, Brick brick) {
       name: context.toolTitle(brick.toolId),
     );
   }
+  if (brick.type == 'soundboard') return soundboardForGame(brick.id);
   return embeddedToolBuilders[brick.type]?.call(context);
 }
 
