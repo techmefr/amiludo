@@ -67,7 +67,7 @@
 - [x] T028 [P] Extend `architecture_test.dart` expectations only if the new layer needs them, never weakening them
 - [x] T029a Run `flutter analyze` and the full `flutter test` (done: no issues, 1095 tests passed)
 - [ ] T029b Check the first-tap audio unlock on the web build by hand
-- [ ] T030 Add the feature to `docs/FEATURES.md` (needs a new F number and the totals updated)
+- [x] T030 Add the feature to `docs/FEATURES.md` (F171 and F172, totals updated in the catalog, README and APP-STATUS)
 
 ## Dependencies
 

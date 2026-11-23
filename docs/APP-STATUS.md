@@ -34,7 +34,7 @@ Alpha **0.4.0**. Name: amiLudo. The Flutter code is in `app/`, the web app is pu
 - **Evenings**: date, place, seats, planned games, yes / maybe / no answers, waiting list, invitation by link, code or QR. Without a server, the host records the answers.
 - **Storage**: SQLite, history, CSV and JSON backups.
 
-The catalog counts **170 features: 113 checked, 57 planned or incomplete**. The three initial packs are original examples from the project. Community publishing goes through pull request review.
+The catalog counts **172 features: 115 checked, 57 planned or incomplete**. The three initial packs are original examples from the project. Community publishing goes through pull request review.
 
 ## Server
 
